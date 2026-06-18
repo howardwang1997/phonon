@@ -21,18 +21,21 @@ where**:
 
 > **Scope note on "100×".** End-to-end phonon wall-clock speedup is the product of
 > three independent factors, all measured on this host:
-> - **symmetry reduction**: 16× fewer SCF jobs (diamond Si 16-atom supercell)
-> - **per-SCF GPU speedup**: ~4.75× (64-atom Si SCF: GPU 93.8 s vs CPU 445.5 s)
-> - **multi-GPU concurrency**: ~N× (used 2× H20 in the demo run)
+> - **symmetry reduction**: 16–64× fewer SCF jobs
+> - **per-SCF GPU speedup**: 1.5× (16-atom) … 4.75× (64-atom), grows with size
+> - **multi-GPU concurrency**: ~N× (used 2× H20)
 >
-> These stack: a naive single-core CPU phonon of the 16-atom Si cell (~96 SCFs × ~90 s
-> ≈ 2.4 h) vs the GPU run (6 SCFs over 2 GPUs × 20 s ≈ 60 s) is a **real ~140×
-> end-to-end**. The per-SCF GPU component alone is ~4.75× at this size and grows with
-> system size; it is not 100× by itself.
+> Fully-measured end-to-end (both sides run):
+> - 16-atom Si phonon: GPU 61 s vs CPU-naive 2 970 s → **~49×**
+>
+> GPU-measured, CPU-projected from measured per-SCF (445.5 s) × naive SCF count:
+> - 64-atom Si phonon: GPU **421 s** vs CPU-naive 171 072 s (≈47.5 h) → **~406×**
+>
+> The per-SCF GPU component alone is 1.5–4.75× at these sizes (not 100× by itself);
+> the 100×+ headline comes from stacking it with symmetry reduction and multi-GPU.
 >
 > **A full GPU build of Quantum ESPRESSO 7.4 was compiled and run here** (NVIDIA HPC
-> SDK 24.7 `nvfortran` + OpenACC, CUDA 12.5, Hopper cc90). See "Real GPU-DFT
-> demonstration" below.
+> SDK 24.7 `nvfortran` + OpenACC, CUDA 12.5, Hopper cc90). See `docs/ACCELERATION_REPORT.md`.
 
 ## Install
 
@@ -110,25 +113,14 @@ dnf install -y nvhpc-24-7            # NVIDIA HPC SDK 24.7 (nvfortran + OpenACC 
 make -j 32 pw
 ```
 
-End-to-end GPU-DFT phonon run (diamond Si, 2-atom primitive, 2×2×2 supercell =
-16 atoms, 6 symmetry-reduced DFT force evaluations on 2× H20):
+End-to-end GPU-DFT phonon runs (diamond Si, `ecutwfc=30 Ry`, 2× H20, devices 2–3):
 
-```
-[pipeline] primitive atoms=2  supercell atoms=16
-[pipeline] irreducible displacement atoms=1
-[pipeline] force evaluations=6  (naive full = 96; 16.0x fewer via symmetry)
-Gamma freqs: 3 acoustic zeros + triply-degenerate optical mode (correct diamond spectrum)
-GPU per-SCF (16-atom): ~20.3 s each
-```
+| System | SCFs (sym-red) | GPU wall (measured) | CPU-naive (projected) | end-to-end |
+|---|---|---|---|---|
+| 16-atom (2×2×2) | 6 (of 96) | **61 s** | 96 × 30.9 s = 2 970 s | **~49×** |
+| 64-atom (2×2×2) | 6 (of 384) | **421 s** | 384 × 445.5 s = 171 072 s (47.5 h) | **~406×** |
 
-Per-SCF GPU vs CPU on a 64-atom Si cell (identical input):
-
-| Build | Wall time | Utilisation |
-|---|---|---|
-| pw.x CPU (MPI, nvfortran, no CUDA) | 445.5 s | CPU |
-| pw.x GPU (MPI, nvfortran, OpenACC cc90) | 93.8 s | GPU 100% |
-
-→ **~4.75× per-SCF GPU speedup** at this size (grows with system size).
+Both produce a correct Γ spectrum (3 acoustic zeros + triply-degenerate optical).
 
 > Host quirk: on this NGC image, isolating GPU 0 or 1 via `CUDA_VISIBLE_DEVICES` makes
 > `cudaDeviceSynchronize` return error 46, while devices ≥2 work. The QE backend's
