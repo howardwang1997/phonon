@@ -1,0 +1,28 @@
+# Conda environment for the GPU-accelerated phonon project.
+# Create:  conda env create -f environment.yml   (or install into existing `phonon`)
+# GPU box: install the CUDA build of torch matching the remote driver first.
+name: phonon
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - pip
+  - pip:
+      # core phonon + structure stack
+      - ase>=3.28
+      - phonopy>=4.1
+      - phono3py
+      - pymatgen
+      - mp-api
+      - seekpath
+      - spglib
+      - pyyaml
+      - pandas
+      - matplotlib
+      # foundation MLIPs (install as needed; torch pulled transitively)
+      - mace-torch
+      # - mattersim
+      # - sevenn
+      # - orb-models
+      # - chgnet
+      # - matgl            # M3GNet baseline

@@ -216,3 +216,15 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# --- phonon project artifacts ---
+# Large downloaded DFPT reference cache (re-downloadable via reference.py)
+data/benchmark/mdr/
+# Fine-tuning datasets (regenerable from MDR FCs via make_finetune_data.py)
+data/finetune/*.xyz
+# MACE/MatterSim training outputs (keep CSV results + figures, drop big binaries)
+results/finetune_mace/checkpoints/
+results/finetune_mace/logs/
+*.model
+*.pt
+# keep: results/*.csv, results/figures/*.png, data/benchmark/mdr_index.csv
