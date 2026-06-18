@@ -55,9 +55,10 @@ def test_qe_parse_forces():
     open(p, "w").write(sample)
     f = qe.parse_forces(p)
     import numpy as np
+    from phonongpu.backends.qe_gpu import _RYDBOHR_TO_EVANG
     assert f.shape == (2, 3)
-    assert np.allclose(f[0], [0.1, -0.2, 0.3])
-    assert np.allclose(f[1], [1.0, 2.0, 3.0])
+    assert np.allclose(f[0], np.array([0.1, -0.2, 0.3]) * _RYDBOHR_TO_EVANG)
+    assert np.allclose(f[1], np.array([1.0, 2.0, 3.0]) * _RYDBOHR_TO_EVANG)
 
 
 def test_vasp_dry_run_inputs(tmp_path):

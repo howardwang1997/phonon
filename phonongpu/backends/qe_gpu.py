@@ -9,6 +9,11 @@ import numpy as np
 from .base import ForceBackend
 from ..structure import Structure
 
+# QE prints forces in Ry/Bohr. Convert to eV/Angstrom so that the assembled force
+# constants are in eV/Angstrom^2 and frequencies follow the eV/Angstrom^2/amu
+# convention (x 15.633 -> THz).
+_RYDBOHR_TO_EVANG = 25.71104309541666
+
 
 class QEGPUBackend(ForceBackend):
     name = "qe-gpu"
@@ -88,7 +93,7 @@ class QEGPUBackend(ForceBackend):
                     break
         if nat and n >= nat:
             forces = forces[-nat:]
-        return np.array(forces, dtype=float)
+        return np.array(forces, dtype=float) * _RYDBOHR_TO_EVANG
 
     def run_one(self, workdir, gpu_id, dry_run=False):
         inp = os.path.join(workdir, "scf.in")
