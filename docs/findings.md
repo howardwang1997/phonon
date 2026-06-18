@@ -272,3 +272,22 @@ replay ablation. All same data/epochs/batch. `results/ablation/eval_*.csv`.
 - **LoRA:** achieves robustness **without any replay data** (drift-limiting by construction) — but at an **in-domain accuracy cost** (0.42 @ rank 8); higher rank (32) regains capacity and **starts forgetting again** (BN 50). (Caveat: LoRA may need more epochs to converge; trainable-param count suggests MACE's LoRA isn't a fully frozen base.)
 
 **Takeaway:** if public replay data is available, **a little replay is the best anti-forgetting knob** (robust, free, no accuracy loss). LoRA is the fallback when replay data is unavailable, trading some accuracy. Held-out transfer to *new* materials is the remaining weak spot for all three → motivates more training-material breadth.
+
+## 2026-06-19 — A3 data-efficiency: how much distilled data per material?
+
+Sweep configs/material {5,15,30,60} (same 16 materials, single-head, 50 ep).
+`results/ablation/eval_ncfg*.csv`.
+
+| configs/material | ~total train | train MAE | train imag | held-out-seen (LiF/CaO/TiO₂) |
+|---|---|---|---|---|
+| 5  | 449  | 0.41 | 30 | 1.04/0.31/0.85 |
+| 15 | 585  | 0.33 | 8  | 1.12/0.41/0.66 |
+| **30** | 789 | **0.29** | 3 | 1.02/0.47/0.66 |
+| 60 | 1197 | 0.27 | 3 | 0.72/0.58/0.94 |
+
+**Finding:** in-domain MAE improves smoothly with more distilled data, **knee at
+~30 configs/material** (0.29; only 0.27 at 60 → diminishing returns); train
+imaginary modes fall 30→3. Held-out-seen transfer stays roughly flat → depth
+(data/material) fixes in-domain fit, but **transfer to new materials needs
+breadth (more materials)**, not more configs/material. Practical recipe:
+~30 rattled configs (+ single-atom probes) per material is enough.
