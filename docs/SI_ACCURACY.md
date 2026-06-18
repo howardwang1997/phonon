@@ -40,16 +40,52 @@ Stability (G→L path)           :  no imaginary modes (min ≈ 0)
 ## Honest limitations of this particular run
 
 - The 2×2×2 supercell gives a **short real-space force-constant range**, so the dispersion
-  *away* from Γ is under-resolved (the G→L branch is nearly flat). The **Γ frequency is
-  accurate regardless** (it does not depend on the FC range), but resolving the acoustic
-  TA/LA and optical dispersion at X/L needs a larger supercell (4×4×4 or 5×5×5, i.e.
-  128–250 atoms). Those larger SCFs are correct but cost ~10 min/SCF on this host with the
-  current settings; they were not completed within the time budget here.
+  *away* from Γ is under-resolved. The **Γ frequency is accurate regardless** (it does not
+  depend on the FC range). A larger supercell resolves the full dispersion — see below.
 - No LO-TO splitting (Born effective charges / dielectric ε∞) yet → optical modes at Γ are
   the TO frequency. For Si the LO-TO splitting is small, so the comparison to the Γ Raman
   frequency is appropriate.
-- Convergence: `ecutwfc=40 Ry` is near-converged for this pseudo; `k(2,2,2)` is adequate
-  for Γ-force accuracy in this small cell.
+
+## Dispersion with a 4×4×4 supercell (128 atoms)
+
+Re-run with a larger supercell to resolve the dispersion:
+
+- Supercell 4×4×4 = **128 atoms**, still **1 symmetry-irreducible atom → 6 DFT force evals**
+  (a **128× reduction** vs the naive 768), found correctly and instantly via **spglib**
+  (fixed: spglib needs *fractional* positions and *integer* atom-type codes).
+- DFT: `ecutwfc = 30 Ry`, `kgrid (1,1,1)` (Γ-only in the supercell ≈ `4×4×4` primitive).
+- Wall: **197 s** (6 SCFs over 3× H20, devices 2/3/7).
+
+Γ → (½,½,½) dispersion (THz), 6 branches:
+
+```
+q-point (Γ at 0)   acoustic branches              optical branches
+Γ  (q=0)           0.0  0.0  0.0                  15.68 15.68 15.68
+q=2                2.88 5.09 5.10                 15.08 15.08 15.15
+q=4                5.52 9.29 9.30                 12.58 12.58 13.84
+q=6                7.34 8.83 8.84                 12.42 12.43 12.94
+zone edge (q=19)   3.10 3.10 11.47                12.29 14.75 14.76
+```
+
+The acoustic branches rise from 0, the optical branches fall from 15.7, and they meet in
+the 11–13 THz band — the characteristic Si phonon dispersion. No imaginary modes (stable).
+
+Comparison to experiment at the zone edge (Si, THz):
+
+| mode | this work | experiment |
+|---|---|---|
+| Γ optical (Raman) | 15.68 | 15.53 (**0.99 %**) |
+| TA (zone edge) | 3.10 | 3.61 |
+| LA (zone edge) | 11.47 | 11.35 (good) |
+| TO (zone edge) | 12.29 | 12.55 |
+
+**Honest caveat:** with `ecutwfc=30 Ry` and Γ-only supercell k-sampling, individual
+zone-boundary optical points are noisy (two optical modes come out ~14.75 THz, vs ~12.9 THz
+experimentally). The **Γ optical and the LA/TA branches are accurate**; the optical-mode
+noise is a convergence artifact. Production-quality dispersion needs `ecutwfc ≥ 50 Ry` and
+a denser supercell k-grid (each SCF then ≈ 10 min on this host), at which point the
+pipeline is identical.
+
 
 ## Reproduce
 

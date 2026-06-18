@@ -21,12 +21,26 @@ def _integer_point_group_candidates():
 
 
 def find_spacegroup_ops(structure, symprec=1e-5):
-    cell = (structure.cell, structure.cartesian(), np.array(structure.species))
+    numbers = _species_to_numbers(structure.species)
+    cell = (structure.cell, structure.positions, numbers)
     if _HAS_SPGLIB:
         ops = _spg_get_symmetry(cell, symprec)
         if ops:
             return ops
-    return _numpy_spacegroup_ops(cell, symprec)
+    return _numpy_spacegroup_ops(
+        (structure.cell, structure.cartesian(), list(structure.species)), symprec)
+
+
+def _species_to_numbers(species):
+    unique = {}
+    out = []
+    n = 1
+    for s in species:
+        if s not in unique:
+            unique[s] = n
+            n += 1
+        out.append(unique[s])
+    return out
 
 
 def _spg_get_symmetry(cell, symprec):
