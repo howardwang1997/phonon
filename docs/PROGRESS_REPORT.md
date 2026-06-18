@@ -146,6 +146,51 @@ replay 头用 4500 个跨周期表 MP 结构锚定 → **彻底消除未见元�
 
 ---
 
+## 9. 算力与数据需求
+
+### 9.1 数据:可用公开数据 vs 需要自造
+
+**✅ 可直接用公开数据(项目一大优势:整条「谐性」线几乎不需要新 DFT)**
+
+| 数据 | 来源 | 用途 | 规模 |
+|---|---|---|---|
+| MDR/PhononDB DFPT 谐性力常数 + Born 电荷 | NIMS(公开,无需 key) | benchmark 参考 + 蒸馏微调靶子 + NAC | **10,034 材料** |
+| Petretto 2018 DFPT 声子库 | Materials Project(免费 key) | 备用/补充参考 | ~1,500 |
+| MPtrj(`mp_traj_combined.xyz`) | GitHub(公开) | replay 防遗忘 | ~145k–1.5M 结构 |
+| 基础 MLIP 预训练权重(MACE/MatterSim/SevenNet/ORB/CHGNet/eSEN…) | 各自公开 | benchmark 对照 + 微调起点 | — |
+| Materials Project 结构库 | mp-api(免费 key) | 高通量筛选候选 | ~150k+ |
+| 实验声子(Raman/INS) | 文献 | 物理正确性验证 | 少量 |
+
+→ **谐性 benchmark + 力常数蒸馏微调 + replay + 高通量筛选,全部可用公开数据,无需自跑 DFT。** 这让 Line A 启动成本极低、结论可复现。
+
+**🔧 需要自己造的数据**
+
+| 数据 | 为什么公开数据不够 | 怎么造 | 成本 |
+|---|---|---|---|
+| 非谐(3 阶力常数)/ 晶格热导参考 | MDR 主要是谐性;公开 phono3py 参考仅 ~100 化合物 | Line B GPU-DFT 跑 phono3py(或 MLIP 算、DFT 抽样校验) | 高(每材料数百 SCF) |
+| 目标材料类的 DFT 声子(MDR 未覆盖) | 若聚焦热电/2D/钙钛矿等,MDR 覆盖不全 | Line B GPU-DFT 自产参考 | 中–高 |
+| MDR 外新材料的 Born 电荷/介电张量 | 全谱 LO-TO 对照需要 | DFPT 介电响应(单点、便宜) | 低 |
+| 有限温/强非谐(SSCHA/TDEP) | 需大量构型的力 | MLIP 驱动 MD/采样 + 少量 DFT 校验 | 中 |
+| 高通量发现的 top 命中验证 | 结论必须 DFT 背书 | Line B GPU-DFT | 中 |
+
+→ **自造数据集中在「非谐 / 特定材料类 / 发现验证」—— 正是 Line B(GPU-DFT)的用武之地;两条线在这里闭环(B 产参考 → 喂 A 微调/验证)。**
+
+### 9.2 算力需求
+
+| 任务 | 算力 | 量级 |
+|---|---|---|
+| 谐性 benchmark + 蒸馏微调 + replay(Line A 现阶段) | **单卡 ≥16–24GB GPU**(8GB 不够) | 每次微调 分钟–小时;推理极快 |
+| 多模型 benchmark / 随机大样本 | 单卡 GPU | 几百材料 × 推理,数小时 |
+| 非谐 / 热导(phono3py + MLIP) | 单卡 GPU | MLIP 快,墙钟随超胞/材料数增长 |
+| 自产 DFT 参考(Line B) | **多卡 QE-GPU 节点**(如 H20×2–8) | 重头:每材料数十–数百 SCF;~100–1000 材料 = 节点级长跑 |
+| 高通量筛选 | 单卡 GPU MLIP 推理 | 1 卡可日扫上万材料 |
+
+**底线**:
+- **Line A 谐性全程一张好卡(≥16GB)足矣,数据全公开** → 可立刻、低成本推进短期计划。
+- **重算力只在自产 DFT(非谐 / 特定材料类 / 发现验证)时需要**,对应 Line B 的多卡 H20 节点 —— 按要发表的范围决定要造多少。
+
+---
+
 ## 附:结果文件索引
 - `results/dfpt_mattersim_curated.csv` — MatterSim 全谱 benchmark
 - `results/benchmark_builtin_mace.csv` — MACE-MP-0 软化
