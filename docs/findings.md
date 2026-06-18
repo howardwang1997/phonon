@@ -195,3 +195,35 @@ more diverse training fixed within-element generalization); (c)
 **catastrophically forgets elements NOT seen in fine-tuning** (C in SiC, B in BN
 → hundreds of spurious imaginary modes). Fix = multihead-replay (needs non-China
 GPU or staged replay data) and/or element-coverage extension / LoRA.
+
+## 2026-06-19 — A3 multihead-replay vs single-head (H20): robustness/accuracy trade-off
+
+Ran the proper **multihead-replay** fine-tune on the H20 (the anti-forgetting
+method the 8GB card + China-blocked replay download both prevented). Worked
+around the block: downloaded the 595 MB `mp_traj_combined.xyz` on the Mac,
+**subsampled to 13k structures with guaranteed C/B/In coverage** (54 MB),
+relayed to the H20's MACE cache (`~/.cache/mace/mp_traj_combinedxyz`) so MACE
+skips the download. Two heads: `Default` (FC distillation, 912 configs) +
+`pt_head` (MP replay, 4,500 structures). `results/finetune_eval_h20_mh.csv`.
+
+**KEY WIN — replay eliminates the catastrophic imaginary-mode forgetting on
+unseen elements:**
+| held-out (unseen elem) | baseline imag | single-head imag | multihead imag |
+|---|---|---|---|
+| SiC (C) | 0 | **542** | **0** ✓ |
+| BN (B) | 0 | **858** | **0** ✓ |
+(BN MAE also recovered 14.1→7.7.) The replay head anchoring C/B/In removed the
+spurious dynamical instabilities — exactly its purpose.
+
+**TRADE-OFF — replay dampens peak accuracy + beneficial transfer:**
+| | train MAE | train imag | held-out all-seen (LiF/CaO/TiO₂ MAE) |
+|---|---|---|---|
+| single-head | 0.28 | 4 | 0.77 / 0.53 / 0.75 (improved) |
+| multihead   | 0.30 | 15 | 1.56 / 0.83 / 2.33 (worse) |
+
+**Takeaway (publishable nuance):** replay buys **robustness** (no catastrophic
+instabilities on unseen chemistry — essential for high-throughput screening) at
+the cost of some **accuracy/transfer**. Neither uniformly best: single-head wins
+on known chemistries, multihead wins on safety. The replay/Default balance
+(sample counts, loss weights) is the obvious next tuning knob — and would make a
+clean ablation axis for the paper.
