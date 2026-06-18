@@ -160,3 +160,38 @@ supported by the toolchain, all practical once the **GPU** is online.
   fine-tuning target for the phonon/Hessian loss — fine-tune MatterSim,
   hold out materials for validation.
 - Run on remote CUDA GPU (float64) for throughput once reachable.
+
+## 2026-06-18 — A3 full-scale on H20 (16 train + 6 held-out): forgetting localized to UNSEEN elements
+
+Proper full-diverse fine-tune on an H20 (96 GB) — no size filter, full
+16-material distilled dataset (912 configs), single-head + full element
+coverage, batch 32, ~6 s/epoch. (Multihead MP-replay intended but its replay
+download is blocked from the China host; NIMS/pytorch.org also blocked →
+relayed MDR cache via tar-pipe, pinned cu124 torch via SJTU mirror.)
+`results/finetune_eval_h20.csv`.
+
+**Training set (16) — FC distillation works spectacularly:**
+| | mean MAE | mean \|soft\| | total imaginary |
+|---|---|---|---|
+| baseline MACE-MP-0 | 0.82 THz | 9.6% | 291 (SrTiO₃) |
+| **fine-tuned** | **0.28 THz** | **3.6%** | **4** |
+SrTiO₃ 291→4 imag; Li₂O MAE 2.01→0.12; Al₂O₃ 0.34→0.10; Si −25→−2.7%.
+
+**Held-out (6) — failure precisely localized to UNSEEN elements:**
+| material | coverage | MAE before→after | imag |
+|---|---|---|---|
+| LiF | all-trained | 0.88→0.77 ✓ | 0→0 |
+| CaO | all-trained | 0.42→0.53 ~ | 0→0 |
+| TiO₂ | all-trained | 1.08→0.75 ✓ | 0→0 |
+| InP | In unseen | 0.45→0.62 ✗ | 0→0 |
+| SiC | C unseen | 1.61→5.53 ✗✗ | 0→542 |
+| BN | B unseen | 4.65→14.1 ✗✗ | 0→858 |
+
+**The science.** Diverse-data FC distillation (a) dramatically fixes phonons for
+trained materials (3× MAE↓, softening 9.6→3.6%, imaginary 291→4); (b)
+**generalizes to held-out materials whose elements were all in training**
+(LiF/CaO/TiO₂ — LiF *improved* here vs *degraded* in the 5-material CPU PoC →
+more diverse training fixed within-element generalization); (c)
+**catastrophically forgets elements NOT seen in fine-tuning** (C in SiC, B in BN
+→ hundreds of spurious imaginary modes). Fix = multihead-replay (needs non-China
+GPU or staged replay data) and/or element-coverage extension / LoRA.
