@@ -40,7 +40,7 @@ class QEGPUBackend(ForceBackend):
         lines = []
         lines.append("&CONTROL")
         lines.append(f"  prefix='{title}', pseudo_dir='{self.pseudo_dir}',")
-        lines.append("  calculation='scf',")
+        lines.append("  calculation='scf', tprnfor=.true.,")
         lines.append("/")
         lines.append("&SYSTEM")
         lines.append(f"  ibrav=0, nat={structure.natoms}, ntyp={len(species)},")
@@ -67,8 +67,8 @@ class QEGPUBackend(ForceBackend):
     def parse_forces(self, out_path):
         forces = []
         pat = re.compile(
-            r"atom\s+\d+\s+\([^\)]*\)\s+force\s*=\s*(-?[\d.Ee+]+)\s+"
-            r"(-?[\d.Ee+]+)\s+(-?[\d.Ee+]+)"
+            r"atom\s+\d+\s+type\s+\d+\s+force\s*=\s*(-?[\d.Ee+\-]+)\s+"
+            r"(-?[\d.Ee+\-]+)\s+(-?[\d.Ee+\-]+)"
         )
         last = None
         with open(out_path) as fh:
@@ -79,6 +79,15 @@ class QEGPUBackend(ForceBackend):
                     forces.append(last)
         if not forces:
             raise RuntimeError(f"no forces found in {out_path}")
+        n = len(forces)
+        nat = None
+        with open(out_path) as fh:
+            for line in fh:
+                if "number of atoms/cell" in line:
+                    nat = int(line.split("=")[-1].strip())
+                    break
+        if nat and n >= nat:
+            forces = forces[-nat:]
         return np.array(forces, dtype=float)
 
     def run_one(self, workdir, gpu_id, dry_run=False):
@@ -88,7 +97,13 @@ class QEGPUBackend(ForceBackend):
             return out
         env = dict(os.environ)
         env["CUDA_VISIBLE_DEVICES"] = str(gpu_id)
-        cmd = [self.pw_exe, "-nk", str(max(1, self.ncpu)), "-i", inp]
+        use_mpi = self.options.get("use_mpi", True)
+        if use_mpi:
+            mpi = self.options.get("mpirun_exe", "mpirun")
+            args = self.options.get("mpirun_args", ["--allow-run-as-root", "-np", "1"])
+            cmd = [mpi] + args + [self.pw_exe, "-i", inp]
+        else:
+            cmd = [self.pw_exe, "-nk", str(max(1, self.ncpu)), "-i", inp]
         with open(out, "w") as fout:
             subprocess.run(cmd, stdout=fout, stderr=subprocess.STDOUT,
                            env=env, cwd=workdir, check=True)
@@ -97,6 +112,9 @@ class QEGPUBackend(ForceBackend):
     def evaluate(self, structure, evals, executor=None):
         N = structure.natoms
         root = self.options.get("workdir", "./phonongpu_qe")
+        gpu_ids = self.options.get("gpu_ids")
+        if gpu_ids is None:
+            gpu_ids = list(range(max(self.options.get("num_gpus", 1), 1)))
         os.makedirs(root, exist_ok=True)
         jobs = []
         for ie, (idx, vec) in enumerate(evals):
@@ -116,11 +134,11 @@ class QEGPUBackend(ForceBackend):
                 return ie, np.zeros((N, 3))
             return ie, self.parse_forces(out)
 
+        gpu_assign = [gpu_ids[i % len(gpu_ids)] for i in range(len(jobs))]
         if executor is not None:
-            results = executor.map(_work, [(ie, wdir, g) for (ie, wdir), g
-                                           in zip(jobs, _cycle_gpus(executor.num_gpus, len(jobs)))])
+            results = executor.map(_work, [(ie, wdir, g) for (ie, wdir), g in zip(jobs, gpu_assign)])
         else:
-            results = [_work((ie, wdir, 0)) for ie, wdir in jobs]
+            results = [_work((ie, wdir, g)) for (ie, wdir), g in zip(jobs, gpu_assign)]
         forces = np.zeros((len(evals), N, 3))
         for ie, f in results:
             forces[ie] = f
