@@ -251,3 +251,24 @@ Open issue: held-out-but-seen materials (LiF/CaO/TiO₂) stay *worse than baseli
 even at the sweet spot → FC distillation on 16 materials transfers poorly to new
 materials (even seen-element ones); needs more **training materials** (breadth),
 which the data-efficiency / material-count sweep probes next.
+
+## 2026-06-19 — A3 anti-forgetting THREE-METHOD comparison (single-head vs replay vs LoRA)
+
+LoRA sweep (`run_lora.sh`, rank {8,32}, frozen-ish base, no replay) added to the
+replay ablation. All same data/epochs/batch. `results/ablation/eval_*.csv`.
+
+| method | train MAE | SiC imag (C) | BN imag (B) | held-out-seen MAE (LiF/CaO/TiO₂) |
+|---|---|---|---|---|
+| baseline | 0.82 | 0 | 0 | 0.88/0.42/1.08 |
+| single-head (full FT) | **0.33** | 1269 | 1421 | 1.18/0.53/0.77 |
+| replay pt=1000 | **0.32** | **0** | **0** | 1.27/0.70/1.59 |
+| replay pt=5000 | 0.33 | 0 | 0 | 1.41/0.78/2.22 |
+| LoRA rank=8 | 0.42 | **0** | **0** | 2.63/0.68/0.84 |
+| LoRA rank=32 | 0.44 | 0 | 50 | 2.50/0.78/1.07 |
+
+**Three-way conclusion (a clean paper figure/table):**
+- **single-head (full FT):** best in-domain fit (0.33) but **catastrophic forgetting** of unseen elements (SiC/BN → ~1300 imaginary modes).
+- **replay (winner):** even minimal replay (pt=1000, public MPtrj) is **robust at zero in-domain cost** (0.32, SiC/BN → 0). More replay only hurts transfer.
+- **LoRA:** achieves robustness **without any replay data** (drift-limiting by construction) — but at an **in-domain accuracy cost** (0.42 @ rank 8); higher rank (32) regains capacity and **starts forgetting again** (BN 50). (Caveat: LoRA may need more epochs to converge; trainable-param count suggests MACE's LoRA isn't a fully frozen base.)
+
+**Takeaway:** if public replay data is available, **a little replay is the best anti-forgetting knob** (robust, free, no accuracy loss). LoRA is the fallback when replay data is unavailable, trading some accuracy. Held-out transfer to *new* materials is the remaining weak spot for all three → motivates more training-material breadth.
