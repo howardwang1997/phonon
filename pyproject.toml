@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=61", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "phonongpu"
+version = "0.1.0"
+description = "GPU-accelerated finite-displacement phonon pipeline with multi-GPU SCF scheduling"
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+dependencies = [
+    "numpy>=1.20",
+    "scipy>=1.7",
+    "PyYAML>=5.0",
+]
+
+[project.optional-dependencies]
+gpu = ["torch>=2.0"]
+test = ["pytest>=7.0"]
+
+[project.scripts]
+phonongpu = "phonongpu.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["phonongpu*"]
