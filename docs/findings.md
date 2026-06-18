@@ -227,3 +227,27 @@ the cost of some **accuracy/transfer**. Neither uniformly best: single-head wins
 on known chemistries, multihead wins on safety. The replay/Default balance
 (sample counts, loss weights) is the obvious next tuning knob — and would make a
 clean ablation axis for the paper.
+
+## 2026-06-19 — A3 replay-strength ablation (exp-replay-ablation branch)
+
+Swept `num_samples_pt ∈ {0,1000,2500,5000}` (single-head → full multihead),
+50 epochs, identical otherwise. `results/ablation/eval_pt*.csv`.
+
+| config | train MAE | SiC imag (C unseen) | BN imag (B unseen) | held-out-seen MAE (LiF/CaO/TiO₂) |
+|---|---|---|---|---|
+| baseline | 0.82 | 0 | 0 | 0.88/0.42/1.08 |
+| single-head (pt=0) | 0.33 | **1269** | **1421** | 1.18/0.53/0.77 |
+| **replay pt=1000** | **0.32** | **0** | **0** | 1.27/0.70/1.59 |
+| replay pt=2500 | 0.32 | 0 | 0 | 1.35/0.85/2.15 |
+| replay pt=5000 | 0.33 | 0 | 0 | 1.41/0.78/2.22 |
+
+**Headline:** (1) **minimal replay (pt=1000, ~20% of data) already fully fixes
+the catastrophic unseen-element forgetting** (SiC 1269→0, BN 1421→0); (2) at
+**zero in-domain cost** (train MAE flat ~0.32); (3) **more replay only hurts
+held-out transfer** (TiO₂ 1.59→2.22). → Sweet spot ≈ pt=1000; "a little replay
+goes a long way" is a clean paper message.
+
+Open issue: held-out-but-seen materials (LiF/CaO/TiO₂) stay *worse than baseline*
+even at the sweet spot → FC distillation on 16 materials transfers poorly to new
+materials (even seen-element ones); needs more **training materials** (breadth),
+which the data-efficiency / material-count sweep probes next.
