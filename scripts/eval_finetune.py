@@ -54,6 +54,8 @@ def main() -> int:
     ap.add_argument("--holdout", nargs="+", default=None, help="override holdout mp-ids")
     ap.add_argument("--no-relax", action="store_true",
                     help="evaluate at the DFT geometry (isolates FC quality from relaxation drift)")
+    ap.add_argument("--ft-only", action="store_true",
+                    help="skip the baseline pass (reuse baseline numbers from a prior run)")
     ap.add_argument("--out", default="results/finetune_eval.csv")
     args = ap.parse_args()
     relax = not args.no_relax
@@ -63,9 +65,11 @@ def main() -> int:
     if args.holdout:
         HOLDOUT = args.holdout
 
-    print(f"== baseline == (relax={relax})")
-    base_calc = get_calculator("mace", device=args.device, model=args.baseline)
-    rows = _rows_for(base_calc, "baseline", args.device, relax=relax)
+    rows = []
+    if not args.ft_only:
+        print(f"== baseline == (relax={relax})")
+        base_calc = get_calculator("mace", device=args.device, model=args.baseline)
+        rows = _rows_for(base_calc, "baseline", args.device, relax=relax)
 
     print("== fine-tuned ==")
     ft_calc = get_calculator("mace", device=args.device, model=args.ft_model)
