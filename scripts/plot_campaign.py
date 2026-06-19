@@ -166,4 +166,36 @@ if np.isfinite(grid).any():
     fig.tight_layout(); fig.savefig(OUT / "depth_breadth_surface.png", dpi=150)
     plt.close(fig); print("wrote depth_breadth_surface.png")
 
+# ---- (6) acquisition comparison: random vs diversity vs uncertainty ----
+def amean(jobs):
+    v = [hold_mae(j) for j in jobs]
+    v = [x for x in v if x == x]
+    return (np.mean(v), np.std(v)) if v else None
+
+
+NS = [8, 16, 24, 32, 48]
+arms = {
+    "random": ("tab:gray", lambda n: amean([f"rnd{d}_N{n}_s1" for d in "ABCDEF"])),
+    "diversity (coverage)": ("tab:green", lambda n: amean([f"gdiv_N{n}_s{s}" for s in (1, 2)])),
+    "uncertainty (AL)": ("tab:red", lambda n: amean([f"al_unc_N{n}"])),
+}
+fig, ax = plt.subplots(figsize=(6.5, 4.5))
+any_arm = False
+for label, (color, fn) in arms.items():
+    xs, ys, es = [], [], []
+    for n in NS:
+        a = fn(n)
+        if a:
+            xs.append(n); ys.append(a[0]); es.append(a[1])
+    if xs:
+        any_arm = True
+        ax.errorbar(xs, ys, yerr=es, fmt="o-", color=color, lw=2, ms=7, capsize=4, label=label)
+if any_arm:
+    ax.set_xscale("log", base=2); ax.set_xlabel("# training materials queried")
+    ax.set_ylabel("held-out transfer MAE (THz)")
+    ax.set_title("Acquisition: coverage beats random; naive uncertainty is worst")
+    ax.grid(alpha=0.3); ax.legend()
+    fig.tight_layout(); fig.savefig(OUT / "acquisition_comparison.png", dpi=150)
+    plt.close(fig); print("wrote acquisition_comparison.png")
+
 print("done.")
