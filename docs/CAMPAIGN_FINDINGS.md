@@ -67,6 +67,20 @@ Which materials to query (MDR = DFT oracle), held-out MAE at matched N:
   coverage × stability), not naive uncertainty** — counterintuitive, since uncertainty sampling is
   the textbook default. Full four-way curve: `acquisition_comparison.png`.
 
+## Result 5 — The transfer floor is dominated by one hard chemistry
+Per-material held-out error of the best model (coverage N=79, mean 1.32 THz):
+
+| material | BN | SiC | mp-390 | mp-20351 | LiF | mp-2605 |
+|---|---|---|---|---|---|---|
+| MAE (THz) | **4.43** | 0.98 | 0.82 | 0.74 | 0.65 | 0.30 |
+| softening | −23% | −9% | −7% | +11% | −5% | +5% |
+
+**5/6 materials transfer at ~0.3–1.0 THz (median ~0.7); BN alone (4.43 THz) sets the mean.** BN is
+the canonical hard case — light B/N, ~40 THz optical modes, strong covalency — where foundation
+MLIPs soften most and which is under-covered chemically. → report **median + mean**; the residual
+challenge is specific light-element/high-ω chemistries, which is exactly what coverage acquisition
+targets (and naive uncertainty wastes on soft P/F₂ allotropes).
+
 ## Implications for the NCS framework
 1. The accuracy ceiling at fixed data is set by **chemical breadth** → motivates a *targeted* DFT
    data engine (Line B) feeding breadth, not a bigger model or deeper sampling.
