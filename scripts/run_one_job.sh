@@ -7,7 +7,7 @@
 set -uo pipefail
 cd ~/phonon
 # cap BLAS/OMP threads so 8 concurrent evals don't thrash the 192-core node
-export OMP_NUM_THREADS=${OMP_NUM_THREADS:-8} MKL_NUM_THREADS=${MKL_NUM_THREADS:-8} OPENBLAS_NUM_THREADS=${OPENBLAS_NUM_THREADS:-8}
+export OMP_NUM_THREADS=${OMP_NUM_THREADS:-4} MKL_NUM_THREADS=${MKL_NUM_THREADS:-4} OPENBLAS_NUM_THREADS=${OPENBLAS_NUM_THREADS:-4}
 PY=$HOME/miniconda3/envs/phonon/bin/python
 MT=$HOME/miniconda3/envs/phonon/bin/mace_run_train
 JOB=${JOB:?need JOB}; SEED=${SEED:-1}; NCFG=${NCFG:-30}; MODE=${MODE:-pt1000}

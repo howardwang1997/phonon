@@ -39,15 +39,12 @@ ORIG_HOLD = "mp-7140 mp-984 mp-1138 mp-2605 mp-20351 mp-390".split()
 
 pool = [m for m in cached if m not in ORIG_TRAIN and m not in ORIG_HOLD]
 
-# --- HOLD = original 6 + 4 extra (prefer all-common-element, small formulas) ---
-common = {"O", "Si", "Al", "Mg", "Ga", "N", "Ca", "Ti", "Zn", "C", "Na", "K", "Li", "S", "P", "F", "Cl", "As", "B"}
-extra_hold = []
-for m in sorted(pool, key=lambda m: len(idx[m]["formula"])):
-    if elems(m) and elems(m) <= common:
-        extra_hold.append(m)
-    if len(extra_hold) == 4:
-        break
-HOLD = ORIG_HOLD + extra_hold
+# --- HOLD = the original 6 transfer materials (proven good: SiC, BN, LiF, ...).
+# NB: do NOT auto-add "short-formula common-element" materials -- that heuristic
+# picks pathological molecular/elemental crystals (P allotrope, F2, KP) with huge
+# soft cells (1000s of spurious imaginary modes + minutes-long eval). 6 fixed,
+# all-fast holdout materials is a clean transfer set. ---
+HOLD = ORIG_HOLD
 pool = [m for m in pool if m not in HOLD]
 
 
