@@ -173,11 +173,12 @@ def amean(jobs):
     return (np.mean(v), np.std(v)) if v else None
 
 
-NS = [8, 16, 24, 32, 48]
+NS = [8, 16, 24, 32, 40, 48, 64, 79]
 arms = {
     "random": ("tab:gray", lambda n: amean([f"rnd{d}_N{n}_s1" for d in "ABCDEF"])),
     "diversity (coverage)": ("tab:green", lambda n: amean([f"gdiv_N{n}_s{s}" for s in (1, 2)])),
     "uncertainty (AL)": ("tab:red", lambda n: amean([f"al_unc_N{n}"])),
+    "uncertainty+stable": ("tab:orange", lambda n: amean([f"al_uncstab_N{n}"])),
 }
 fig, ax = plt.subplots(figsize=(6.5, 4.5))
 any_arm = False
