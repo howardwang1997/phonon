@@ -49,9 +49,13 @@ $MT --name ft --foundation_model "$MODEL" $MH --foundation_model_elements True \
   --model_dir "$OUT" --results_dir "$OUT" --log_dir "$OUT" \
   --checkpoints_dir "$OUT" --save_cpu >>"$LOG" 2>&1 || { echo "[$JOB] TRAIN FAIL" | tee -a "$LOG"; exit 4; }
 
-# 4. eval vs DFPT (held-out + train splits)
+# 4. eval vs DFPT. Held-out is the full fixed set (the headline metric); the
+#    in-domain probe is capped to the first 8 train materials (nested subsets ->
+#    same B8 probe for every N) so eval cost stays ~constant instead of scaling
+#    with N. Training still uses the FULL $TRAIN.
+EVALTRAIN=$(echo $TRAIN | tr ' ' '\n' | head -8 | tr '\n' ' ')
 $PY scripts/eval_finetune.py --baseline "$MODEL" --ft-model "$OUT/ft.model" --device cuda --ft-only \
-  --train $TRAIN --holdout $HOLD --out "results/ablation/eval_$JOB.csv" >>"$LOG" 2>&1 || { echo "[$JOB] EVAL FAIL" | tee -a "$LOG"; exit 5; }
+  --train $EVALTRAIN --holdout $HOLD --out "results/ablation/eval_$JOB.csv" >>"$LOG" 2>&1 || { echo "[$JOB] EVAL FAIL" | tee -a "$LOG"; exit 5; }
 
 # 5. free disk: keep only the model + eval csv, drop bulky checkpoints/data
 rm -rf "$DD" "$OUT"/checkpoints 2>/dev/null
