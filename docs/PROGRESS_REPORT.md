@@ -222,6 +222,26 @@ GPU-hr**);② 微调 MLIP 算大批非谐(力评估几乎免费,可覆盖上千�
 
 ---
 
+## 10. 两机 1-天 campaign 结果(2026-06）+ NCS roadmap
+
+**8×H20 + RTX 2060 连续跑**,66 个微调实验(48 + round-2 18），核心产出 **广度迁移定律**:
+
+| 训练材料数 N | 4 | 8 | 16 | 20 | 24 | 28 | 32 | 48 | 64 |
+|---|---|---|---|---|---|---|---|---|---|
+| 留出迁移 MAE (THz) | 1.82 | 1.80 | 1.82 | 1.78 | 1.58 | 1.43 | 1.42 | **1.31** | 1.37 |
+
+- **平台(N≤~16–20)→ 阈值(~20–24)→ 陡降(20→48)→ 饱和(~1.3 THz)**,误差棒 ±0.06–0.10。
+- **深度(每材料配置数)只修 in-domain(~0.10 THz）、不迁移;广度(材料数)才驱动迁移。**
+- 反遗忘(误差棒):LoRA-r32 1.46 / replay-pt1k 1.85 / single 2.22;广度越大越不依赖 replay。
+- 全程零虚频(replay/LoRA 保住基座普适性)。
+- 图:`results/figures/depth_vs_breadth.png`、`antiforgetting_errorbars.png`、`replay_x_breadth.png`、`small_vs_medium.png`。
+
+**这条定律直接支撑 NCS 故事**:朴素加数据(深度)会饱和 → 要泛化必须买"化学广度" → 广度要靠
+**定向 DFT + 主动学习闭环** → 见 **[`docs/NCS_ROADMAP.md`](NCS_ROADMAP.md)**(两线融合、实验
+E1–E10、算力/数据需求、投稿定位）。
+
+---
+
 ## 附:结果文件索引
 - `results/dfpt_mattersim_curated.csv` — MatterSim 全谱 benchmark
 - `results/benchmark_builtin_mace.csv` — MACE-MP-0 软化

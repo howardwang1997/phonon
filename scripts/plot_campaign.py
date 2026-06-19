@@ -20,7 +20,12 @@ import pandas as pd
 R = Path(__file__).resolve().parents[1] / "results" / "ablation"
 OUT = Path(__file__).resolve().parents[1] / "results" / "figures"
 OUT.mkdir(parents=True, exist_ok=True)
-NMAT = {"B4": 4, "B8": 8, "B16": 16, "B32": 32, "B64": 64}
+NMAT = {"B4": 4, "B8": 8, "B16": 16, "B20": 20, "B24": 24, "B28": 28, "B32": 32, "B48": 48, "B64": 64}
+
+
+def breadth_jobs(key):
+    """all seed runs present for a breadth set, e.g. br_B16_s1..s5"""
+    return sorted(p.stem.replace("eval_", "") for p in R.glob(f"eval_br_{key}_s*.csv"))
 
 
 def metrics(job):
@@ -47,7 +52,7 @@ def agg(jobs):
 fig, ax = plt.subplots(figsize=(7, 4.5))
 xs, ys, es = [], [], []
 for key, n in NMAT.items():
-    a = agg([f"br_{key}_s{s}" for s in (1, 2, 3)])
+    a = agg(breadth_jobs(key))
     if a:
         xs.append(n); ys.append(a[0]); es.append(a[1])
 if xs:
