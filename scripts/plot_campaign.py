@@ -132,4 +132,38 @@ if sm:
     fig.savefig(OUT / "small_vs_medium.png", dpi=150); plt.close(fig)
     print("wrote small_vs_medium.png", sm)
 
+# ---- (5) depth × breadth surface (held-out MAE heatmap) ----
+DEPTHS = [("nc15", 15), ("nc30", 30), ("nc60", 60)]
+BR = [("B16", 16), ("B24", 24), ("B32", 32), ("B48", 48), ("B64", 64), ("B79", 79)]
+
+
+def hold_mae(job):
+    p = R / f"eval_{job}.csv"
+    if not p.exists():
+        return np.nan
+    d = pd.read_csv(p); d = d[d["error"].fillna("") == ""]
+    f = d[(d.variant == "finetuned") & (d.split == "holdout")]
+    return f.freq_mae.mean() if len(f) else np.nan
+
+
+grid = np.full((len(BR), len(DEPTHS)), np.nan)
+for i, (k, _) in enumerate(BR):
+    for j, (dl, _) in enumerate(DEPTHS):
+        grid[i, j] = hold_mae(f"db_{k}_{dl}") if dl != "nc30" else hold_mae(f"br_{k}_s1")
+if np.isfinite(grid).any():
+    fig, ax = plt.subplots(figsize=(5.5, 5))
+    im = ax.imshow(grid, cmap="viridis_r", aspect="auto")
+    ax.set_xticks(range(len(DEPTHS))); ax.set_xticklabels([d[1] for d in DEPTHS])
+    ax.set_yticks(range(len(BR))); ax.set_yticklabels([b[1] for b in BR])
+    ax.set_xlabel("configs / material (depth)"); ax.set_ylabel("# training materials (breadth)")
+    ax.set_title("Held-out transfer MAE (THz): breadth helps, depth hurts")
+    for i in range(len(BR)):
+        for j in range(len(DEPTHS)):
+            if np.isfinite(grid[i, j]):
+                ax.text(j, i, f"{grid[i,j]:.2f}", ha="center", va="center",
+                        color="white" if grid[i, j] > np.nanmean(grid) else "black", fontsize=9)
+    fig.colorbar(im, label="held-out MAE (THz)")
+    fig.tight_layout(); fig.savefig(OUT / "depth_breadth_surface.png", dpi=150)
+    plt.close(fig); print("wrote depth_breadth_surface.png")
+
 print("done.")
