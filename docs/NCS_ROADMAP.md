@@ -117,10 +117,15 @@ method paper (PRB-class) to a **framework + tool + dataset** of the scope NCS pu
   warm start; *evaluate whether the force accuracy suffices for phonons* (the known open risk).
 
 ### Phase III — Fuse: the closed loop (the novelty) · *self-generated, budgeted*
-- **E7 Active-learning loop.** MLIP uncertainty (ensemble / ASR residual) selects materials &
-  displacements for Line B DFT → FC-distill → repeat. **Headline claim:** reach a target phonon
-  accuracy with **N× less DFT** than random/uniform material selection (directly tests the Act-4
-  breadth-threshold finding as an acquisition strategy).
+- **E7 Active-learning loop.** Acquisition function selects materials for Line B DFT → FC-distill →
+  repeat. **Headline claim:** reach a target phonon accuracy with **N× less DFT** than random.
+  *Preliminary 3-way result (this work, MDR-as-oracle):* at matched budget, **chemical-coverage
+  acquisition beats random** (~0.18 THz lower held-out MAE at N=32), while **naive model-uncertainty
+  acquisition is the *worst*** — it chases pathological/soft outliers (P allotrope, 30+ imaginary
+  modes) that are informative-to-the-model but unrepresentative of the target distribution. → **the
+  data engine's acquisition function must be coverage-driven (or stability-filtered), not naive
+  uncertainty** — a concrete, counterintuitive design lesson (uncertainty sampling is the textbook
+  default). Next: coverage×stability-filtered hybrid; ensemble-disagreement uncertainty.
 - **E8 Scale-out demonstration.** Run the loop to produce a **near-DFT phonon dataset for 10³–10⁴
   materials** at a fixed, small DFT budget; full cost accounting (public reuse vs new DFT).
 - **E9 Downstream payoff.** Lattice **κ** (phono3py 3rd-order), thermoelectric power factor / zT,

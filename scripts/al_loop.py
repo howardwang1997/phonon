@@ -47,6 +47,11 @@ def main() -> int:
     ap.add_argument("--pool-key", default="B79")
     ap.add_argument("--k", type=int, default=8)
     ap.add_argument("--rounds", type=int, default=5)
+    ap.add_argument("--strategy", default="uncertainty", choices=["uncertainty", "unc_stable"],
+                    help="uncertainty: top-K by score (chases pathology); "
+                         "unc_stable: exclude predicted-pathological (imag>thresh), then top-K by score")
+    ap.add_argument("--imag-thresh", type=int, default=6)
+    ap.add_argument("--tag", default="unc", help="job-name tag -> eval_al_<tag>_N*.csv")
     args = ap.parse_args()
     V = load_sets()
     SET = list(V[args.seed_key])
@@ -58,8 +63,8 @@ def main() -> int:
     n = len(SET)
     seed_model = ROOT / "results" / "ablation" / f"br_{args.seed_key}_s1" / "ft.model"
     if not seed_model.exists():
-        run_one_job(f"al_unc_N{n}", SET, HOLD, args.gpu)
-        cur_model = ROOT / "results" / "ablation" / f"al_unc_N{n}" / "ft.model"
+        run_one_job(f"al_{args.tag}_N{n}", SET, HOLD, args.gpu)
+        cur_model = ROOT / "results" / "ablation" / f"al_{args.tag}_N{n}" / "ft.model"
     else:
         cur_model = seed_model
     print(f"[AL] round 0: N={n} seed set, model={cur_model.name}", flush=True)
@@ -75,14 +80,17 @@ def main() -> int:
                                           OMP_NUM_THREADS="4"), check=True)
         sc = pd.read_csv(scores)
         sc = sc[sc.get("uncertainty").notna()] if "uncertainty" in sc else sc
+        if args.strategy == "unc_stable" and "n_imaginary" in sc:
+            stable = sc[sc.n_imaginary <= args.imag_thresh]
+            sc = stable if len(stable) >= args.k else sc  # fall back if too few stable
         picks = list(sc.sort_values("uncertainty", ascending=False).head(args.k).mp_id)
         SET += picks
         n = len(SET)
-        print(f"[AL] round {r}: +{len(picks)} by uncertainty -> N={n}; picks={picks}", flush=True)
-        run_one_job(f"al_unc_N{n}", SET, HOLD, args.gpu)
-        cur_model = ROOT / "results" / "ablation" / f"al_unc_N{n}" / "ft.model"
+        print(f"[AL/{args.strategy}] round {r}: +{len(picks)} -> N={n}; picks={picks}", flush=True)
+        run_one_job(f"al_{args.tag}_N{n}", SET, HOLD, args.gpu)
+        cur_model = ROOT / "results" / "ablation" / f"al_{args.tag}_N{n}" / "ft.model"
 
-    print("[AL] uncertainty arm done. sizes ->", [len(V[args.seed_key]) + args.k * i for i in range(args.rounds + 1)])
+    print(f"[AL/{args.strategy}] done. sizes ->", [len(V[args.seed_key]) + args.k * i for i in range(args.rounds + 1)])
     return 0
 
 
