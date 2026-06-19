@@ -54,11 +54,14 @@ Which materials to query (MDR = DFT oracle), held-out MAE at matched N:
 | 48 | 1.43 ± 0.07 | 1.37 ± 0.03 | — |
 
 - **Chemical-coverage acquisition is best AND lowest-variance** (±0.01 vs random ±0.08): it picks
-  nearly the same informative set every time.
-- **Naive model-uncertainty acquisition is the *worst*** — it chases pathological/soft outliers
-  (P allotrope, mp-761842 with 31 imaginary modes) that are informative-to-the-model but
-  unrepresentative of the target distribution. (Stability-filtered-uncertainty arm running to test
-  whether excluding pathology rescues it.)
+  nearly the same informative set every time. Saturates ~1.37–1.40 (N=48–64), tracking the breadth
+  law's floor.
+- **Naive model-uncertainty acquisition is the *worst*** (full arm 1.55–1.68; never reaches even the
+  random curve at N=48: 1.59 vs 1.43) — it chases pathological/soft outliers (P allotrope,
+  mp-761842 with 31 imaginary modes) that are informative-to-the-model but unrepresentative.
+- **Stability-filtering does *not* rescue it** (excluding predicted-pathological candidates → 1.72
+  at N=16, no better). So the deficit is fundamental: uncertainty-based selection over-samples the
+  model's blind spots, which are not where transfer accuracy is gained.
 - **Design lesson for the closed-loop data engine: acquire by chemical coverage, not uncertainty**
   — counterintuitive, since uncertainty sampling is the textbook default. `acquisition_comparison.png`.
 
