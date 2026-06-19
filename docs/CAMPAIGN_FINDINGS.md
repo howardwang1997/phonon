@@ -59,11 +59,13 @@ Which materials to query (MDR = DFT oracle), held-out MAE at matched N:
 - **Naive model-uncertainty acquisition is the *worst*** (full arm 1.55–1.68; never reaches even the
   random curve at N=48: 1.59 vs 1.43) — it chases pathological/soft outliers (P allotrope,
   mp-761842 with 31 imaginary modes) that are informative-to-the-model but unrepresentative.
-- **Stability-filtering does *not* rescue it** (excluding predicted-pathological candidates → 1.72
-  at N=16, no better). So the deficit is fundamental: uncertainty-based selection over-samples the
-  model's blind spots, which are not where transfer accuracy is gained.
-- **Design lesson for the closed-loop data engine: acquire by chemical coverage, not uncertainty**
-  — counterintuitive, since uncertainty sampling is the textbook default. `acquisition_comparison.png`.
+- **Stability-filtering rescues uncertainty only at larger budget**: excluding predicted-
+  pathological candidates is *worse* at N=16 (1.72) but catches and slightly passes coverage by
+  N=32 (1.35 vs 1.38). So pathology-chasing explains the small-budget failure, but coverage is
+  still the best *single* strategy and by far the most reliable across budgets.
+- **Design lesson for the closed-loop data engine: acquire by chemical coverage (optionally
+  coverage × stability), not naive uncertainty** — counterintuitive, since uncertainty sampling is
+  the textbook default. Full four-way curve: `acquisition_comparison.png`.
 
 ## Implications for the NCS framework
 1. The accuracy ceiling at fixed data is set by **chemical breadth** → motivates a *targeted* DFT
