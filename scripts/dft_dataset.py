@@ -72,6 +72,7 @@ def main() -> int:
     ap.add_argument("--materials", nargs="+", default=None)
     ap.add_argument("--out-dir", default="data/dft_ref")
     ap.add_argument("--manifest", default="results/dft/dataset_manifest.csv")
+    ap.add_argument("--workdir", default=None, help="unique QE working dir (for parallel instances)")
     args = ap.parse_args()
 
     have = available_elements()
@@ -109,7 +110,8 @@ def main() -> int:
             pseudos = pseudos_for(atoms, PSEUDO_DIR)
             phon = PhononCalculation(atoms, supercell_matrix=sc, displacement=args.disp)
             kpts = max(kpts_for(atoms * tuple(mult), args.kspacing))
-            calc = make_espresso(PSEUDO_DIR, pseudos, args.ecutwfc, args.ecutrho, kpts, args.nproc)
+            calc = make_espresso(PSEUDO_DIR, pseudos, args.ecutwfc, args.ecutrho, kpts, args.nproc,
+                                 directory=args.workdir)
             t0 = time.perf_counter()
             res = phon.run_all(calculator=calc, mesh=(12, 12, 12))
             wall = time.perf_counter() - t0

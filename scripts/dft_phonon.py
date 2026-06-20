@@ -24,7 +24,8 @@ from phonon_accel import reference
 from phonon_accel.phonons import PhononCalculation
 
 
-def make_espresso(pseudo_dir, pseudopotentials, ecutwfc, ecutrho, kpts, nproc, conv_thr=1e-8):
+def make_espresso(pseudo_dir, pseudopotentials, ecutwfc, ecutrho, kpts, nproc, conv_thr=1e-8,
+                  directory=None):
     from ase.calculators.espresso import Espresso, EspressoProfile
 
     dft = f"{Path.home()}/miniconda3/envs/dft/bin"
@@ -38,8 +39,9 @@ def make_espresso(pseudo_dir, pseudopotentials, ecutwfc, ecutrho, kpts, nproc, c
                    "smearing": "gaussian", "degauss": 0.01},
         "electrons": {"conv_thr": conv_thr, "mixing_beta": 0.7},
     }
+    kw = {"directory": str(directory)} if directory else {}
     return Espresso(profile=profile, pseudopotentials=pseudopotentials,
-                    input_data=input_data, kpts=(kpts, kpts, kpts))
+                    input_data=input_data, kpts=(kpts, kpts, kpts), **kw)
 
 
 def pseudos_for(atoms, pseudo_dir):
