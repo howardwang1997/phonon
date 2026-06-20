@@ -26,15 +26,18 @@ DFT = HOME / "miniconda3" / "envs" / "dft" / "bin"
 
 
 def run_pw(atoms, workdir, pseudos, ecutwfc, ecutrho, kpts, nproc, startingpot,
-           startingwfc="atomic+random", disk_io="medium", conv_thr=1e-8):
+           startingwfc="atomic+random", disk_io="medium", nosym=False, conv_thr=1e-8):
     workdir = Path(workdir); workdir.mkdir(parents=True, exist_ok=True)
     outdir = workdir / "out"
     pwi = workdir / "pw.in"; pwo = workdir / "pw.out"
+    system = {"ecutwfc": ecutwfc, "ecutrho": ecutrho, "occupations": "smearing",
+              "smearing": "gaussian", "degauss": 0.01}
+    if nosym:  # full k-point set so wavefunctions transfer to symmetry-broken displacements
+        system["nosym"] = True
     input_data = {
         "control": {"calculation": "scf", "tprnfor": True, "disk_io": disk_io,
                     "outdir": str(outdir), "prefix": "ph", "verbosity": "high"},
-        "system": {"ecutwfc": ecutwfc, "ecutrho": ecutrho, "occupations": "smearing",
-                   "smearing": "gaussian", "degauss": 0.01},
+        "system": system,
         "electrons": {"conv_thr": conv_thr, "mixing_beta": 0.7,
                       "startingpot": startingpot, "startingwfc": startingwfc},
     }
@@ -70,23 +73,26 @@ def main() -> int:
     if base.exists():
         shutil.rmtree(base)
 
-    # 1. equilibrium SCF (produces the reusable charge density)
+    # 1. equilibrium SCF with nosym + disk_io=high -> persists density AND wavefunctions
+    #    on the full k-point grid that the symmetry-broken displacements also use.
     w_eq = base / "eq"
-    t_eq, i_eq = run_pw(eq, w_eq, pseudos, args.ecutwfc, args.ecutrho, args.kpts, args.nproc, "atomic")
+    t_eq, i_eq = run_pw(eq, w_eq, pseudos, args.ecutwfc, args.ecutrho, args.kpts, args.nproc,
+                        "atomic", disk_io="high", nosym=True)
     print(f"equilibrium: {i_eq} iters, {t_eq:.1f}s", flush=True)
 
     # displaced structure (move atom 0 by disp along x)
     disp = eq.copy(); disp.positions[0, 0] += args.disp
 
-    # 2a. displaced from scratch
-    t_s, i_s = run_pw(disp, base / "scratch", pseudos, args.ecutwfc, args.ecutrho, args.kpts, args.nproc, "atomic")
+    # 2a. displaced from scratch (nosym, fair baseline -- displaced cell has no symmetry anyway)
+    t_s, i_s = run_pw(disp, base / "scratch", pseudos, args.ecutwfc, args.ecutrho, args.kpts,
+                      args.nproc, "atomic", nosym=True)
     print(f"displaced from scratch:  {i_s} iters, {t_s:.1f}s", flush=True)
 
-    # 2b. displaced reusing equilibrium density (copy eq charge-density into reuse outdir)
+    # 2b. displaced reusing equilibrium density + wavefunctions
     w_re = base / "reuse"; (w_re / "out").mkdir(parents=True, exist_ok=True)
     shutil.copytree(w_eq / "out" / "ph.save", w_re / "out" / "ph.save")
     t_r, i_r = run_pw(disp, w_re, pseudos, args.ecutwfc, args.ecutrho, args.kpts, args.nproc,
-                      startingpot="file", startingwfc="file")
+                      startingpot="file", startingwfc="file", disk_io="high", nosym=True)
     print(f"displaced reuse-density: {i_r} iters, {t_r:.1f}s", flush=True)
 
     print("\n=== density-reuse speedup (displaced SCF) ===")
