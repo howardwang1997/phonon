@@ -16,7 +16,7 @@ framework, computed identically to the MLIP phonons (fair speed + accuracy compa
 | Factor | Si value | Novelty | Notes |
 |---|---|---|---|
 | **Symmetry reduction of displacements** | **48–384×** | standard (phonopy) | naive 6N force-evals → symmetry-inequivalent set. Si 384× (1 disp), MgO/LiF/CaO 192×, BN 96×, SiC 48×. *Dominant, but free to any phonopy user.* |
-| **Charge-density + wavefunction reuse** | **~1.5×** (Si) | **engine** | displaced SCF restarted from the equilibrium density+wfc (`startingpot/startingwfc=file`, `nosym` so the wfc transfers across symmetry breaking). Reuse starts **300× closer** in SCF accuracy (0.0013 vs 0.435 Ry); wall 329→225 s. Marginal for easy high-symmetry Si (8-iter SCF, little headroom) — expected larger for many-iteration systems (metals/oxides). |
+| **Charge-density + wavefunction reuse** | **~1.5× wall** (all); iter savings scale with difficulty | **engine** | displaced SCF restarted from the equilibrium density+wfc (`startingpot/startingwfc=file`, `nosym` so wfc transfers across symmetry breaking). Reuse starts **300× closer** in SCF accuracy. Measured: **Si 8→8 iters (1.0×), Al 7→6 (1.17×), MgO 16→9 (1.78×)** — the harder the system (more from-scratch iterations), the bigger the saving; wall ~1.46–1.48× consistently. |
 | **GPU SCF (QE-GPU/OpenACC)** | ~5–15× (lit.) | engine | **deferred** — H20 FP64 is crippled (inference card), so GPU-QE won't beat 192 CPU cores here; needs A100/V100. Rent on demand. |
 | **Non-diagonal supercells** | ~2–8× | engine | fewer atoms for the same q-resolution — future. |
 
