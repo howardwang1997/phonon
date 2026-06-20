@@ -43,6 +43,18 @@ def kpts_for(atoms, kspacing=0.20):
     return tuple(max(1, int(np.ceil(r / (kspacing * 2 * np.pi)))) for r in recip)
 
 
+def to_primitive(atoms):
+    """Reduce to the primitive cell (fewer atoms -> cheaper supercell DFT). ω is cell-invariant."""
+    import spglib
+    from ase import Atoms
+    cell = (atoms.cell.array, atoms.get_scaled_positions(), atoms.numbers)
+    prim = spglib.find_primitive(cell, symprec=1e-4)
+    if prim is None:
+        return atoms
+    lat, scaled, nums = prim
+    return Atoms(numbers=nums, scaled_positions=scaled, cell=lat, pbc=True)
+
+
 def main() -> int:
     import pandas as pd
 
@@ -85,7 +97,7 @@ def main() -> int:
         if done >= args.limit:
             break
         try:
-            atoms = reference.reference_atoms(mp)
+            atoms = to_primitive(reference.reference_atoms(mp))
             nat = len(atoms) * n ** 3
             if nat > args.max_atoms:
                 print(f"  skip {mp} ({nat} atoms > {args.max_atoms})", flush=True)
