@@ -24,6 +24,14 @@ from ase.io.espresso import write_espresso_in
 HOME = Path.home()
 DFT = HOME / "miniconda3" / "envs" / "dft" / "bin"
 
+# (builder, pseudopotentials) per test system. Al=fcc metal (many SCF iters),
+# MgO=rocksalt oxide (more electrons) -> density reuse should help more than Si.
+SYSTEMS = {
+    "Si": (lambda: bulk("Si", "diamond", a=5.43), {"Si": "Si.upf"}),
+    "Al": (lambda: bulk("Al", "fcc", a=4.05), {"Al": "Al.upf"}),
+    "MgO": (lambda: bulk("MgO", "rocksalt", a=4.21), {"Mg": "Mg.upf", "O": "O.upf"}),
+}
+
 
 def run_pw(atoms, workdir, pseudos, ecutwfc, ecutrho, kpts, nproc, startingpot,
            startingwfc="atomic+random", disk_io="medium", nosym=False, conv_thr=1e-8):
@@ -65,10 +73,12 @@ def main() -> int:
     ap.add_argument("--kpts", type=int, default=3)
     ap.add_argument("--nproc", type=int, default=24)
     ap.add_argument("--disp", type=float, default=0.01)
+    ap.add_argument("--system", default="Si", choices=list(SYSTEMS))
     args = ap.parse_args()
-    pseudos = {"Si": "Si.upf"}
+    builder, pseudos = SYSTEMS[args.system]
     n = args.supercell
-    eq = bulk("Si", "diamond", a=5.43) * (n, n, n)
+    eq = builder() * (n, n, n)
+    print(f"=== {args.system}: {eq.get_chemical_formula()} ({len(eq)} atoms, {n}^3 supercell) ===", flush=True)
     base = Path("/tmp/dre")
     if base.exists():
         shutil.rmtree(base)
