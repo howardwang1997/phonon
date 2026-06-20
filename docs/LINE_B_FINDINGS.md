@@ -58,6 +58,22 @@ near-DFT phonon set.
 | **broaden chemistry** | diverse self-DFT set (oxides/metals/nitrides/chalcogenides) | ~1–3 d CPU | **broad SSSP pseudopotentials** |
 | DFPT (ph.x) cross-check (optional) | validate finite-displacement vs DFPT | ~1 d | none |
 
+## Downstream impact: lattice thermal conductivity κ (anharmonic, no rental)
+MLIP + phono3py (3rd-order FC, RTA) → κ; **no DFT** (MLIP forces on GPU, ~6 s/material). Si, sc 3³,
+mesh 21³:
+
+| Si κ(300 K) | value | vs DFT/exp ~140 W/m·K |
+|---|---|---|
+| baseline MACE-MP-0 small | **45** | 3× too low (phonon softening) |
+| fine-tuned (FC-distilled, harmonic only) | **113** | within ~15–20 % |
+| DFT / experiment | ~130–140 | — |
+
+**The harmonic FC distillation — which only corrected the phonon frequencies — recovers most of κ
+(45 → 113, a 2.5× correction).** Curvature supervision propagates to the anharmonic downstream
+property: *near-DFT phonons → useful κ*. The residual ~15–20 % is the target of **3rd-order FC
+distillation** (extend distillation to anharmonic FC). This is the NCS impact piece and it runs on
+public data + MLIP on existing GPUs — no rental. Next: κ benchmark across materials vs public Togo κ.
+
 ## Reproduce
 - `scripts/bootstrap_qe.sh` — QE + pseudopotentials. `scripts/dft_phonon.py` — DFT phonon via the
   shared pipeline. `scripts/dft_density_reuse.py` — density/wfc reuse benchmark.
