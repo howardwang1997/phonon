@@ -26,7 +26,7 @@ PYEOF
 for i in $(seq 0 $((N-1))); do
   mkdir -p /tmp/ds$i
   nohup $PY scripts/dft_dataset.py --materials $(cat /tmp/chunk$i.txt) --workdir /tmp/ds$i \
-    --nproc $NPROC --ecutwfc 60 --ecutrho 240 --kspacing 0.28 --min-length 8 --max-atoms 80 \
+    --nproc $NPROC --ecutwfc 55 --ecutrho 220 --kspacing 0.30 --min-length 8 --max-atoms 64 \
     --limit 100 --manifest results/dft/manifest_$i.csv > /root/broad_$i.out 2>&1 &
 done
 disown -a
