@@ -38,6 +38,26 @@ framework, computed identically to the MLIP phonons (fair speed + accuracy compa
    query (chemical coverage), so the engine's DFT budget is spent optimally.
 3. Honest speedup accounting that strengthens (not inflates) the paper's credibility.
 
+## Self-DFT phonon dataset (Line B output, 2026-06)
+First self-generated DFT phonon set: **11 materials** (Si phases, MgO₂, multiple SiO₂ polymorphs),
+each via QE finite-displacement (adaptive supercell ≥9 Å/axis, ecutwfc 50 Ry), force constants saved
+to `data/dft_ref/selfdft-*_phonopy_params.yaml`, validated vs MDR DFPT:
+- **mean |ω_max error| ≈ 1.4%** (Si ~5%, SiO₂ polymorphs <1%, MgO₂ +0.1%).
+- Chemistry is narrow (Si/O/Mg only) — limited by the 4 reliable pseudopotentials (Si/Al/Mg/O);
+  **broad SSSP coverage is the gating blocker** to diversify.
+- Sequential CPU generation (~2 min–1.5 h/material by cell size); large SiO₂ polymorphs dominate cost.
+This is the data-engine output that feeds Line A FC distillation (loop closure) and a stand-alone
+near-DFT phonon set.
+
+## Remaining Line B experiments (priority + blocker)
+| experiment | gives | est. | blocker |
+|---|---|---|---|
+| **GPU-SCF factor** | the GPU acceleration the project is premised on (~5–15×) | ~3–5 d | **needs A100/V100 — H20 FP64 crippled** |
+| **non-diagonal supercells** | engine factor ~2–8× (fewer atoms per q-resolution) | ~1–2 d | none |
+| **end-to-end composed timing** | honest workflow-level total (symmetry×reuse×non-diag×GPU) | ~1 d | depends on above |
+| **broaden chemistry** | diverse self-DFT set (oxides/metals/nitrides/chalcogenides) | ~1–3 d CPU | **broad SSSP pseudopotentials** |
+| DFPT (ph.x) cross-check (optional) | validate finite-displacement vs DFPT | ~1 d | none |
+
 ## Reproduce
 - `scripts/bootstrap_qe.sh` — QE + pseudopotentials. `scripts/dft_phonon.py` — DFT phonon via the
   shared pipeline. `scripts/dft_density_reuse.py` — density/wfc reuse benchmark.

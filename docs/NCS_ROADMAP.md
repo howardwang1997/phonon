@@ -192,6 +192,38 @@ displacements (wall-clock = GPU-hours / N_GPU).
 
 ---
 
+## 7b. Status & gap to NCS (as of 2026-06)
+
+**Done — publishable PRB/npj-grade backbone:**
+- **Line A laws** (`CAMPAIGN_FINDINGS.md`): breadth > depth for transfer (knee ~20–24 materials, floor
+  ~1.3 THz); depth overfits; anti-forgetting with error bars; **E7 acquisition — coverage > random >
+  naive-uncertainty** (counterintuitive design lesson); transfer floor dominated by BN.
+- **Line B engine** (`LINE_B_FINDINGS.md`): QE finite-displacement validated (Si ~1–5%); honest
+  speedup decomposition (symmetry 48–384× *standard*; density+wfc reuse ~1.5× wall, iteration savings
+  scale with SCF difficulty Si 1.0×→MgO 1.78×; GPU-SCF deferred); first **self-DFT phonon dataset**
+  (11 materials, mean 1.4% vs MDR).
+
+**Two hard bones remaining for NCS:**
+1. **Real GPU acceleration** — QE-GPU on rented A100/V100 for the GPU-SCF factor (~5–15×). H20 FP64 is
+   crippled, so "GPU-accelerated" is literature-only until this runs. *~3–5 d; needs rented GPU.*
+2. **Downstream impact** — lattice thermal conductivity κ (phono3py 3rd-order): fine-tuned MLIP vs DFT
+   vs experiment. NCS needs a *useful-property* payoff, not just phonon accuracy. *~hundreds–thousands
+   GPU-hr.*
+
+**Strengthening (needed but not blocking the thesis):**
+- Loop closure (self-DFT → distill) — **immediate, ~40 min**.
+- Real active-learning loop with **Line-B-generated** DFT on *new* chemistry (E7→E8) — ~1–2 wk.
+- Cross-model generality (MatterSim/SevenNet/ORB) — ~3–5 d (new envs + non-MACE fine-tune path).
+
+**Resource decisions gating the above (need user):**
+- **Broad SSSP pseudopotentials** — required for diverse self-DFT + the real loop; current 4-element
+  (Si/Al/Mg/O) coverage is the binding constraint on Line B chemistry. (materialscloud / GBRV / aiida
+  URLs all failed from the China box → download on an open-internet machine.)
+- **A100/V100 rental** — required for both hard bones (GPU-SCF and κ).
+
+**Honest framing:** the *method backbone is strong now*; reaching NCS is **~2–4 weeks of real compute**
+(rented GPU + thousands of GPU-hr) gated on the two resource decisions above — not on more ideas.
+
 ## 8. Milestones (indicative, ~6–9 months)
 - **M1 (1–2 mo):** E1 benchmark atlas + E2 diagnosis (public data). Submit-quality failure-mode figure.
 - **M2 (2–3 mo):** E3/E4 finalized with breadth law + generalization (pilot already done).
