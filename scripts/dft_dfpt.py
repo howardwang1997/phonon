@@ -65,7 +65,8 @@ def main() -> int:
     with open(pwi, "w") as f:
         write_espresso_in(f, atoms, pseudopotentials=pseudos, kpts=(args.kpts,) * 3,
                           input_data={"control": {"calculation": "scf", "prefix": "dfpt",
-                                                   "outdir": str(wd / "out"), "disk_io": "low"},
+                                                   "outdir": str(wd / "out"), "pseudo_dir": str(PSEUDO),
+                                                   "disk_io": "low"},
                                       "system": {"ecutwfc": args.ecutwfc, "ecutrho": args.ecutrho,
                                                  "occupations": "smearing", "smearing": "gaussian",
                                                  "degauss": 0.01},
