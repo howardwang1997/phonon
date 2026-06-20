@@ -60,7 +60,9 @@ def main() -> int:
 
     ap = argparse.ArgumentParser()
     ap.add_argument("--max-atoms", type=int, default=80, help="max supercell atoms (DFT cost cap)")
-    ap.add_argument("--supercell", type=int, default=2)
+    ap.add_argument("--min-length", type=float, default=9.0,
+                    help="target min supercell lattice length (Angstrom) -> adaptive supercell, "
+                         "converged phonons at minimal cost (fixed 2x2x2 under-converges small cells)")
     ap.add_argument("--ecutwfc", type=float, default=50.0)
     ap.add_argument("--ecutrho", type=float, default=400.0)
     ap.add_argument("--kspacing", type=float, default=0.22)
@@ -90,21 +92,23 @@ def main() -> int:
 
     out_dir = Path(args.out_dir); out_dir.mkdir(parents=True, exist_ok=True)
     rows = []
-    n = args.supercell
-    sc = [[n, 0, 0], [0, n, 0], [0, 0, n]]
     done = 0
     for mp in cands:
         if done >= args.limit:
             break
         try:
             atoms = to_primitive(reference.reference_atoms(mp))
-            nat = len(atoms) * n ** 3
+            # adaptive supercell: each axis multiplied until its length >= min-length
+            lengths = np.linalg.norm(atoms.cell.array, axis=1)
+            mult = [max(1, int(np.ceil(args.min_length / L))) for L in lengths]
+            nat = len(atoms) * mult[0] * mult[1] * mult[2]
             if nat > args.max_atoms:
-                print(f"  skip {mp} ({nat} atoms > {args.max_atoms})", flush=True)
+                print(f"  skip {mp} ({nat} atoms = {len(atoms)}*{mult} > {args.max_atoms})", flush=True)
                 continue
+            sc = [[mult[0], 0, 0], [0, mult[1], 0], [0, 0, mult[2]]]
             pseudos = pseudos_for(atoms, PSEUDO_DIR)
             phon = PhononCalculation(atoms, supercell_matrix=sc, displacement=args.disp)
-            kpts = max(kpts_for(atoms * (n, n, n), args.kspacing))
+            kpts = max(kpts_for(atoms * tuple(mult), args.kspacing))
             calc = make_espresso(PSEUDO_DIR, pseudos, args.ecutwfc, args.ecutrho, kpts, args.nproc)
             t0 = time.perf_counter()
             res = phon.run_all(calculator=calc, mesh=(12, 12, 12))
