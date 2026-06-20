@@ -68,11 +68,8 @@ def main() -> int:
     calc = get_calculator("mace", device=args.device, model=args.model)
     t0 = time.perf_counter()
     ph3.forces = np.array(forces_on(ph3.supercells_with_displacements, calc))
-    # harmonic (fc2) supercells (phono3py uses its own phonon supercells)
     ph3.produce_fc3()
-    if ph3.phonon_supercells_with_displacements:
-        ph3.phonon_forces = np.array(forces_on(ph3.phonon_supercells_with_displacements, calc))
-    ph3.produce_fc2()
+    ph3.produce_fc2()  # fc2 from the same supercell's single-displacement subset
     t_forces = time.perf_counter() - t0
 
     ph3.mesh_numbers = [args.mesh] * 3
