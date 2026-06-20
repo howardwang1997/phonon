@@ -65,6 +65,9 @@ def main() -> int:
     ap.add_argument("--disp", type=float, default=0.01)
     ap.add_argument("--pseudo-dir", default=f"{Path.home()}/pseudo")
     ap.add_argument("--out", default="results/dft/phonon.json")
+    ap.add_argument("--save-fc", default=None,
+                    help="save phonopy_params.yaml (with force constants) here -> feeds FC distillation "
+                         "(e.g. data/benchmark/mdr/selfsi_phonopy_params.yaml to close the loop)")
     args = ap.parse_args()
 
     atoms = reference.reference_atoms(args.material)
@@ -90,6 +93,11 @@ def main() -> int:
     Path(args.out).write_text(json.dumps(out, indent=2))
     print(json.dumps(out, indent=2))
     print(f"wrote {args.out}")
+
+    if args.save_fc:  # persist self-DFT force constants in MDR/phonopy format -> FC distillation
+        Path(args.save_fc).parent.mkdir(parents=True, exist_ok=True)
+        phon.phonon.save(filename=args.save_fc, settings={"force_constants": True})
+        print(f"saved self-DFT force constants -> {args.save_fc} (feed via --train <id>)")
     return 0
 
 
