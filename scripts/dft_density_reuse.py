@@ -25,16 +25,18 @@ HOME = Path.home()
 DFT = HOME / "miniconda3" / "envs" / "dft" / "bin"
 
 
-def run_pw(atoms, workdir, pseudos, ecutwfc, ecutrho, kpts, nproc, startingpot, conv_thr=1e-8):
+def run_pw(atoms, workdir, pseudos, ecutwfc, ecutrho, kpts, nproc, startingpot,
+           startingwfc="atomic+random", disk_io="medium", conv_thr=1e-8):
     workdir = Path(workdir); workdir.mkdir(parents=True, exist_ok=True)
     outdir = workdir / "out"
     pwi = workdir / "pw.in"; pwo = workdir / "pw.out"
     input_data = {
-        "control": {"calculation": "scf", "tprnfor": True, "disk_io": "low",
+        "control": {"calculation": "scf", "tprnfor": True, "disk_io": disk_io,
                     "outdir": str(outdir), "prefix": "ph", "verbosity": "high"},
         "system": {"ecutwfc": ecutwfc, "ecutrho": ecutrho, "occupations": "smearing",
                    "smearing": "gaussian", "degauss": 0.01},
-        "electrons": {"conv_thr": conv_thr, "mixing_beta": 0.7, "startingpot": startingpot},
+        "electrons": {"conv_thr": conv_thr, "mixing_beta": 0.7,
+                      "startingpot": startingpot, "startingwfc": startingwfc},
     }
     with open(pwi, "w") as f:
         write_espresso_in(f, atoms, input_data=input_data, pseudopotentials=pseudos,
@@ -83,7 +85,8 @@ def main() -> int:
     # 2b. displaced reusing equilibrium density (copy eq charge-density into reuse outdir)
     w_re = base / "reuse"; (w_re / "out").mkdir(parents=True, exist_ok=True)
     shutil.copytree(w_eq / "out" / "ph.save", w_re / "out" / "ph.save")
-    t_r, i_r = run_pw(disp, w_re, pseudos, args.ecutwfc, args.ecutrho, args.kpts, args.nproc, "file")
+    t_r, i_r = run_pw(disp, w_re, pseudos, args.ecutwfc, args.ecutrho, args.kpts, args.nproc,
+                      startingpot="file", startingwfc="file")
     print(f"displaced reuse-density: {i_r} iters, {t_r:.1f}s", flush=True)
 
     print("\n=== density-reuse speedup (displaced SCF) ===")
