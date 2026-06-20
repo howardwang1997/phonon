@@ -27,8 +27,10 @@ from phonon_accel.phonons import PhononCalculation
 def make_espresso(pseudo_dir, pseudopotentials, ecutwfc, ecutrho, kpts, nproc, conv_thr=1e-8):
     from ase.calculators.espresso import Espresso, EspressoProfile
 
-    pw = f"{Path.home()}/miniconda3/envs/dft/bin/pw.x"
-    mpi = f"mpirun -np {nproc} {pw}" if nproc > 1 else pw
+    dft = f"{Path.home()}/miniconda3/envs/dft/bin"
+    pw = f"{dft}/pw.x"
+    # full mpirun path + --allow-run-as-root (Open MPI 5.x refuses root otherwise)
+    mpi = f"{dft}/mpirun --allow-run-as-root -np {nproc} {pw}" if nproc > 1 else pw
     profile = EspressoProfile(command=mpi, pseudo_dir=str(pseudo_dir))
     input_data = {
         "control": {"calculation": "scf", "tprnfor": True, "tstress": False, "disk_io": "low"},
