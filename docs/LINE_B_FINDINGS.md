@@ -62,17 +62,23 @@ near-DFT phonon set.
 MLIP + phono3py (3rd-order FC, RTA) → κ; **no DFT** (MLIP forces on GPU, ~6 s/material). Si, sc 3³,
 mesh 21³:
 
-| Si κ(300 K) | value | vs DFT/exp ~140 W/m·K |
-|---|---|---|
-| baseline MACE-MP-0 small | **45** | 3× too low (phonon softening) |
-| fine-tuned (FC-distilled, harmonic only) | **113** | within ~15–20 % |
-| DFT / experiment | ~130–140 | — |
+κ(300 K), W/m·K, sc 3³ mesh 21³, ~6–16 s/material on one GPU:
 
-**The harmonic FC distillation — which only corrected the phonon frequencies — recovers most of κ
-(45 → 113, a 2.5× correction).** Curvature supervision propagates to the anharmonic downstream
-property: *near-DFT phonons → useful κ*. The residual ~15–20 % is the target of **3rd-order FC
-distillation** (extend distillation to anharmonic FC). This is the NCS impact piece and it runs on
-public data + MLIP on existing GPUs — no rental. Next: κ benchmark across materials vs public Togo κ.
+| material | baseline (MACE small) | fine-tuned (FC-distilled) | DFT/exp | FT effect |
+|---|---|---|---|---|
+| **Si** (non-polar covalent) | 45 | **113** | ~140 | ✓ big fix (3× → ~0.85×) |
+| **GaAs** (covalent) | 13.7 | **28.5** | ~45 | ✓ improved (still low) |
+| **MgO** (polar ionic) | 60.7 | 152 | ~55–60 | ✗ over-stiffened |
+
+**Honest, nuanced finding:** FC distillation **recovers the κ of softening-prone covalent
+semiconductors — exactly the failure-mode materials** (Si 45→113, GaAs 13.7→28.5; baselines were 3×
+low because MACE softens their phonons → low group velocities → low κ). But it is **not a uniform
+win**: the already-good ionic MgO is **over-stiffened (61→152)**, and polar MgO κ is anyway
+unreliable here because the MLIP κ omits **NAC/Born charges** (LO-TO splitting). → curvature
+supervision propagates to the anharmonic downstream property where it matters most (softened
+covalent crystals), with two honest caveats (over-correction; NAC for polar). Targets the **3rd-order
+FC distillation** + NAC as next steps. Runs on public data + MLIP, **no rental**. Next: scale vs
+public Togo κ; per-material analysis of fix-vs-overshoot.
 
 ## Reproduce
 - `scripts/bootstrap_qe.sh` — QE + pseudopotentials. `scripts/dft_phonon.py` — DFT phonon via the
