@@ -27,8 +27,16 @@ def get_unitcell(material):
         a = reference.reference_atoms(material)
     else:
         from ase.build import bulk
-        a = {"Si": bulk("Si", "diamond", a=5.43), "MgO": bulk("MgO", "rocksalt", a=4.21),
-             "GaAs": bulk("GaAs", "zincblende", a=5.65)}[material]
+        db = {
+            "Si": ("diamond", 5.43), "Ge": ("diamond", 5.658), "C": ("diamond", 3.567),
+            "Sn": ("diamond", 6.489),
+            "SiC": ("zincblende", 4.36), "BN": ("zincblende", 3.615), "BP": ("zincblende", 4.538),
+            "BAs": ("zincblende", 4.777), "AlP": ("zincblende", 5.463), "AlAs": ("zincblende", 5.661),
+            "GaP": ("zincblende", 5.451), "GaAs": ("zincblende", 5.653), "InP": ("zincblende", 5.869),
+            "MgO": ("rocksalt", 4.21), "NaCl": ("rocksalt", 5.64),
+        }
+        struct, lat = db[material]
+        a = bulk(material, struct, a=lat)
     return PhonopyAtoms(symbols=a.get_chemical_symbols(), cell=a.cell.array,
                         scaled_positions=a.get_scaled_positions())
 
