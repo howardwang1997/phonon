@@ -55,6 +55,7 @@ def main() -> int:
     ap.add_argument("--device", default="cuda")
     ap.add_argument("--tmin", type=int, default=200)
     ap.add_argument("--tmax", type=int, default=600)
+    ap.add_argument("--born", default=None, help="phonopy BORN file (Z*+dielectric) -> NAC for polar κ")
     ap.add_argument("--out", default="results/kappa/kappa.json")
     args = ap.parse_args()
 
@@ -72,6 +73,10 @@ def main() -> int:
     ph3.produce_fc2()  # fc2 from the same supercell's single-displacement subset
     t_forces = time.perf_counter() - t0
 
+    if args.born:  # non-analytical term correction (LO-TO) for polar materials
+        from phonopy.file_IO import parse_BORN
+        ph3.nac_params = parse_BORN(ph3.phonon_primitive, filename=args.born)
+        print(f"NAC enabled from {args.born}", flush=True)
     ph3.mesh_numbers = [args.mesh] * 3
     ph3.init_phph_interaction()
     temps = list(range(args.tmin, args.tmax + 1, 100))
