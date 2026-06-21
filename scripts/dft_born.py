@@ -78,20 +78,21 @@ def main() -> int:
                    stdout=open(wd / "ph.out", "w"), stderr=subprocess.STDOUT, check=True)
     txt = (wd / "ph.out").read_text()
 
-    # 3. parse dielectric tensor
+    # 3. parse dielectric tensor (3 lines "( a b c )" after the header)
     eps = None
     m = re.search(r"Dielectric constant in cartesian axis\s*\n\s*\n((?:\s*\([^\)]*\)\s*\n){3})", txt)
     if m:
-        nums = re.findall(r"[-0-9.]+", m.group(1))
-        eps = np.array(nums, float).reshape(3, 3)
-    # 4. parse Born effective charges (Z*) per atom
+        eps = np.array(re.findall(r"[-0-9.]+", m.group(1)), float).reshape(3, 3)
+    # 4. Born effective charges: per atom "Mean Z*:" then Ex/Ey/Ez ( a b c )
     born = []
-    for blk in re.finditer(r"atom\s+(\d+)\s+\w+\s*\n((?:\s*E[xyz]\s*\(\s*[-0-9. ]+\)\s*\n){3})", txt):
-        nums = re.findall(r"[-0-9.]+", blk.group(2))
-        # each Ex/Ey/Ez line: index index value value value -> take last 3
-        rows = blk.group(2).strip().split("\n")
-        z = np.array([[float(x) for x in re.findall(r'[-0-9.]+', r)[-3:]] for r in rows])
+    for blk in re.finditer(
+        r"atom\s+\d+\s+\w+\s+Mean Z\*:.*?\n"
+        r"\s*Ex\s*\(([-0-9.\s]+)\)\s*\n\s*Ey\s*\(([-0-9.\s]+)\)\s*\n\s*Ez\s*\(([-0-9.\s]+)\)", txt):
+        z = np.array([[float(x) for x in re.findall(r"[-0-9.]+", g)] for g in blk.groups()])
         born.append(z)
+    # de-dup: QE prints the same Z* block twice (with/without ASR); keep first natom
+    nat = len(get_atoms(args.material))
+    born = born[:nat]
     if eps is None or not born:
         print("PARSE FAILED — dumping ph.out tail:")
         print("\n".join(txt.splitlines()[-30:]))
