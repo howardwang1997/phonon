@@ -77,8 +77,32 @@ win**: the already-good ionic MgO is **over-stiffened (61→152)**, and polar Mg
 unreliable here because the MLIP κ omits **NAC/Born charges** (LO-TO splitting). → curvature
 supervision propagates to the anharmonic downstream property where it matters most (softened
 covalent crystals), with two honest caveats (over-correction; NAC for polar). Targets the **3rd-order
-FC distillation** + NAC as next steps. Runs on public data + MLIP, **no rental**. Next: scale vs
-public Togo κ; per-material analysis of fix-vs-overshoot.
+FC distillation** + NAC as next steps. Runs on public data + MLIP, **no rental**.
+
+### κ benchmark across covalent semiconductors (Task 1: baseline vs fine-tuned, sc 3³ mesh 21³)
+| material | baseline | fine-tuned | exp | FT/base |
+|---|---|---|---|---|
+| Si | 45 | 113 | 140 | 2.5× |
+| AlAs | 32 | 73 | 91 | 2.3× |
+| GaP | 34 | 70 | 100 | 2.1× |
+| AlP | 31 | 61 | 90 | 2.0× |
+| GaAs | 14 | 29 | 45 | 2.0× |
+| BP | 173 | 332 | 400 | 1.9× |
+| BN | 362 | 595 | 760 | 1.6× |
+| InP | 16 | 25 | 68 | 1.6× |
+| Ge | 14 | 19 | 60 | 1.3× |
+| BAs | 109 | 145 | 1300 | 1.3× |
+| SiC | 328 | 389 | 430 | 1.2× |
+| C (diamond) | 1055 | 2781 | 2200 | 2.6× (overshoot) |
+
+**Headline:** FC distillation **improves κ for every covalent material (1.2–2.6×), always toward
+experiment** — systematically correcting the *universal softening-driven κ underestimate*. Many land
+near experiment (AlAs 73/91, BP 332/400, SiC 389/430, BN 595/760). **Honest residuals:** pure-transfer
+materials not in training stay low (Ge 19/60, InP 25/68); exotic high-κ BAs is badly underestimated
+(MLIP+RTA misses its weak 3-phonon scattering); the highest-κ diamond **overshoots** (2781/2200).
+Absolute κ is limited by mesh(21)+RTA+transfer — the *consistent improvement* is the robust result,
+and per-material fix-vs-overshoot tracks the breadth law (in-distribution → full fix, transfer →
+partial). Next: per-material vs public Togo DFT-κ (same settings); 3rd-order distillation for the residual.
 
 ## Reproduce
 - `scripts/bootstrap_qe.sh` — QE + pseudopotentials. `scripts/dft_phonon.py` — DFT phonon via the
