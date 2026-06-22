@@ -23,8 +23,15 @@ Machines: **8×H20** `100.91.194.14` (GPU fine-tune + κ; CPU QE), **2×H20** `1
 **Risk:** non-MACE fine-tune plumbing differs; fall back to *baseline-only* (still proves softening is
 universal) if fine-tuning is blocked.
 
-## Priority 2 — Curvature-aware 3rd-order distillation ★ (turn the negative positive)
-**Claim:** anharmonicity can be added *without* degrading the harmonic Hessian → κ stays converged.
+## Priority 2 — Converged fc₃ reference for 3rd-order distillation ★ (turn the negative positive)
+> **Diagnosis corrected (2026-06):** the 3rd-order κ regression is **not** a degraded harmonic Hessian or
+> a missing "curvature-aware loss." The distilled model *faithfully reproduces* the fc₃ it was given; the
+> *affordable sc2 reference is itself under-converged* (a same-settings DFT-RTA from the 2×2×2 fc₂+fc₃
+> also gives κ ≈ 48). **The real fix is a converged fc₃ reference (→ Priority 4), not a different loss.**
+> The joint-training idea below is retained only as a *secondary hedge* if a converged reference stays
+> out of reach.
+
+**Claim (secondary hedge):** anharmonicity can be added *without* degrading the harmonic Hessian → κ stays converged.
 **Approach (no native Hessian loss in MACE):** **joint training** — fine-tune from the foundation on
 the *union* of (a) the harmonic FC-distillation data (anchors the Hessian, gave κ→143) and (b) the
 anharmonic cubic-label data, with the harmonic set up-weighted; sweep the harmonic:anharmonic ratio.

@@ -113,13 +113,14 @@ the harmonic-FT model on them, re-evaluated κ:
 | W/m·K | 45 | **113** | 46 | 42 |
 
 **Naive 3rd-order distillation *regressed* κ back to baseline**, and this is **not** forgetting
-(replay didn't help) nor a soft reference (the QE fc2 gives Si ω_max 15.42 THz, correct). The cause:
-**fine-tuning on large-displacement anharmonic configs degrades the small-displacement phonon
-*curvature* (Hessian) that κ depends on** — the model trades harmonic accuracy for large-force
-accuracy, re-softening the phonons. → 3rd-order distillation is **not trivially additive**; doing it
-right needs a **curvature-aware loss** (direct Hessian/fc2 supervision) or careful amplitude weighting,
-not just adding anharmonic configs. The robust win remains the **harmonic** FC distillation (κ table
-above). Honest finding: anharmonicity must be added *without* sacrificing the harmonic Hessian.
+(replay didn't help) nor a soft reference (the QE fc2 gives Si ω_max 15.42 THz, correct).
+**Corrected diagnosis (supersedes the earlier "curvature-aware-loss" reading):** the distilled model
+*faithfully reproduces* the third-order force constants it was given — **the reference itself is
+under-converged**. A same-settings DFT-RTA from the small 2×2×2 DFT fc₂+fc₃ yields κ ≈ 48 W/m·K,
+essentially the distilled value (42–46). So the third-order *signal* is correct; the *supercell* is too
+small. → The fix is a **converged fc₃ reference** (large supercell, or supercell-free D3Q/thermal2),
+**not a different loss**; obtaining one was blocked on inference-GPU FP64 and is deferred to proper DFT
+hardware. The robust win remains the **harmonic** FC distillation (κ table above).
 
 ## Reproduce
 - `scripts/bootstrap_qe.sh` — QE + pseudopotentials. `scripts/dft_phonon.py` — DFT phonon via the

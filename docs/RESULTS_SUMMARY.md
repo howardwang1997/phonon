@@ -24,7 +24,7 @@ Consolidated inventory of all results. Detail in `CAMPAIGN_FINDINGS.md` (Line A)
 | **NAC (Task 2)** | QE Born charges (ε=3.19, Z\*=±1.97) → MgO κ baseline+NAC **51** (exp ~55–60) | ✅ |
 | **κ benchmark (Task 1)** ★★ | **FC distillation improves κ for *every* covalent material 1.2–2.6× toward exp** (13 systems); **at converged supercell recovers κ to ~2% (Si FT 143 vs exp 140, baseline 45)** | ✅ impact main result |
 | κ vs same-settings DFT | DFT-RTA at sc2 itself under-converged (Si 48 vs exp 140) → κ is supercell-sensitive; relative FT improvement + convergence-to-exp is the robust claim | ✅ |
-| **3rd-order distillation (Task 3)** | **NEGATIVE**: regresses κ (113→42–46). Not forgetting, not soft ref (fc2 ω_max 15.42 ✓). Cause: large-displacement anharmonic training degrades the phonon **Hessian**; needs a **curvature-aware loss** | ✅ instructive negative |
+| **3rd-order distillation (Task 3)** | **NEGATIVE**: regresses κ (113→42–46). Not forgetting, not soft ref (fc2 ω_max 15.42 ✓). Cause (**corrected**): model **faithfully reproduces under-converged sc2 fc₃** — same-settings DFT-RTA from 2×2×2 fc₂+fc₃ also ≈48. Signal correct, supercell too small → needs a **converged fc₃ reference, NOT a different loss** | ✅ instructive negative |
 | DFPT (ph.x) cross-check | engine works; 2060 too slow (desktop CPU) | 🟡 partial |
 
 ## Fusion / framework
