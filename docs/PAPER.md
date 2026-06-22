@@ -27,7 +27,9 @@ engine to generate reference data, and report an honest workflow-level speedup d
 141–1152× for exact fine-q phonons; the per-SCF GPU factor requires strong FP64 hardware). Finally,
 we show the **downstream impact**: FC distillation improves the *lattice thermal conductivity* of
 every covalent semiconductor tested (13 systems, 1.2–2.6× toward experiment), correcting the
-softening-driven κ underestimate that makes foundation MLIPs unusable for thermal screening. We also
+softening-driven κ underestimate that makes foundation MLIPs unusable for thermal screening — and at
+converged supercell it recovers κ to **~2%** (Si 143 vs experimental 140 W/m·K, vs 45 for the
+untuned baseline). We also
 report two instructive negative results — naive-uncertainty acquisition and naive third-order
 distillation both fail — that sharpen the design of the framework. The method runs on public data and
 commodity GPUs; we release the tool, the fine-tuned models, and the protocol.
@@ -70,7 +72,10 @@ With the non-analytical term correction disabled on both sides for a like-for-li
 comparison, foundation models systematically *soften* the phonon spectrum (e.g. Si ω_max ~11 THz vs
 DFPT 15.5 THz), introduce spurious imaginary modes, and violate the acoustic sum rule. Force MAE and
 phonon MAE *decouple*: a model can have low force error yet wrong phonons, confirming the curvature
-supervision gap. (Figure: `mattersim_summary.png`.)
+supervision gap.
+
+![Foundation-MLIP phonon failure modes vs DFPT](../results/figures/mattersim_summary.png)
+*Figure 1. Foundation MLIPs systematically soften phonon frequencies and produce spurious imaginary modes relative to DFPT.*
 
 ### 2.2 Force-constant distillation fixes in-domain phonons at zero new DFT
 
@@ -78,8 +83,10 @@ For a training material with DFPT force constants Φ, we generate rattled superc
 exact harmonic response, E(u)=½uᵀΦu and F=−Φu, and fine-tune the foundation model on these
 configurations. Because the labels come from *already-computed* force constants, this adds **no new
 DFT**. FC distillation drives the in-domain phonon MAE to **~0.10 THz** and **eliminates imaginary
-modes** while anti-forgetting (below) preserves the base model's universality. (Figure:
-`Si_before_after.png`.)
+modes** while anti-forgetting (below) preserves the base model's universality.
+
+![Si phonon dispersion before/after FC distillation](../results/figures/Si_before_after.png)
+*Figure 2. Si phonon dispersion: foundation MLIP (softened) vs FC-distilled (near-DFPT) vs DFPT reference.*
 
 ### 2.3 Generalization is governed by chemical breadth, not sampling depth
 
@@ -91,12 +98,18 @@ training materials) — and measure held-out transfer error on a fixed test set.
 | held-out MAE (THz) | 1.82 | 1.80 | 1.82 | 1.78 | 1.58 | 1.43 | 1.42 | 1.31 | 1.37 |
 
 Transfer error is **flat (~1.81 THz) up to ~16–20 materials, has a knee at ~20–24, and falls to a
-~1.3 THz floor by N≈48** (Figure `depth_vs_breadth.png`). In contrast, increasing *depth* at fixed
+~1.3 THz floor by N≈48** (Figure 3). In contrast, increasing *depth* at fixed
 breadth does not transfer and *overfits* — at high breadth, more configurations per material make
 transfer **worse** (e.g. N=64: 15 cfg → 1.33, 60 cfg → 1.52). The data-need surface
-(`depth_breadth_surface.png`) has its minimum at high-breadth + low-depth. **Practical rule: spend the
+(Figure 4) has its minimum at high-breadth + low-depth. **Practical rule: spend the
 DFT budget on more materials, not more configurations each.** The residual transfer floor is dominated
 by light-element, high-frequency chemistries (notably BN); we therefore report median alongside mean.
+
+![Breadth vs depth transfer](../results/figures/depth_vs_breadth.png)
+*Figure 3. Held-out transfer MAE vs number of training materials (breadth) — flat plateau, knee at ~20–24, floor ~1.3 THz; depth (configs/material) does not transfer.*
+
+![Depth × breadth data-need surface](../results/figures/depth_breadth_surface.png)
+*Figure 4. Data-need surface: transfer error decreases with breadth (down) but worsens with depth (across) — minimum at high-breadth + low-depth.*
 
 ### 2.4 Anti-forgetting
 
@@ -104,7 +117,8 @@ Single-head fine-tuning catastrophically forgets unseen elements (held-out imagi
 Multihead **replay** (sampling the foundation pretraining trajectories) and **LoRA** both prevent this
 at the cost of a small in-domain penalty; with seed error bars the held-out transfer ordering is LoRA-
 r32 (1.46) < replay-pt1k (1.85) < single-head (2.22). More chemical breadth reduces the replay needed.
-(Figures `antiforgetting_errorbars.png`, `replay_x_breadth.png`.)
+![Anti-forgetting comparison](../results/figures/antiforgetting_errorbars.png)
+*Figure 5. Held-out transfer with seed error bars: LoRA / replay prevent the catastrophic forgetting of naive single-head fine-tuning.*
 
 ### 2.5 Acquisition: chemical coverage beats model uncertainty
 
@@ -124,7 +138,10 @@ acquisition is the worst** — it chases pathological/soft outliers (elemental P
 thousands of spurious imaginary modes) that are informative-to-the-model but unrepresentative of the
 target distribution; stability-filtering only partially rescues it. This is counterintuitive
 (uncertainty sampling is the textbook default) and directly tells the data engine to acquire for
-coverage, not uncertainty. (Figure `acquisition_comparison.png`.)
+coverage, not uncertainty.
+
+![Acquisition strategies](../results/figures/acquisition_comparison.png)
+*Figure 6. Acquisition at matched budget: chemical-coverage selection is best and lowest-variance; naive model-uncertainty is worst.*
 
 ### 2.6 A GPU/CPU DFT engine and an honest workflow speedup decomposition
 
@@ -172,8 +189,31 @@ residuals: pure-transfer materials not in training stay low (Ge, InP), the exoti
 underestimated (MLIP+RTA cannot capture its weak three-phonon scattering), and the highest-κ diamond
 overshoots. The per-material fix-vs-overshoot tracks the breadth law. For polar materials, NAC
 (Born charges from a single Γ-point DFPT, ε∞=3.19, Z\*=±1.97 for MgO) restores the correct κ (MgO
-51 W/m·K vs experiment ~55–60). (Figure `acquisition_comparison.png` analog for κ; data in
-`results/kappa/`.)
+51 W/m·K vs experiment ~55–60).
+
+![κ benchmark: baseline vs fine-tuned vs experiment](../results/figures/kappa_benchmark.png)
+*Figure 7. Lattice thermal conductivity vs experiment (log–log). Baseline MLIP (open red) lies well
+below the y=x line (softening-driven underestimate); FC-distilled (green) is pulled toward experiment
+for every material.*
+
+The benchmark values above use a fixed supercell/mesh and are therefore *under-converged in absolute
+terms* (κ in covalent crystals converges slowly with supercell, owing to long phonon mean free paths).
+A supercell-convergence study on Si makes the impact unambiguous: the FC-distilled model converges
+**straight to experiment** while the baseline stays softened —
+
+| Si κ(300 K), W/m·K | sc 2 | sc 3 | sc 4 |
+|---|---|---|---|
+| baseline | 52.8 | 45.2 | 45.5 |
+| **fine-tuned** | 109.9 | 114.0 | **143.2** |
+| experiment | — | — | **~140** |
+
+i.e. at converged supercell the FC-distilled MLIP reproduces Si κ to **~2%** (143 vs 140) while the
+baseline is **3× too low**. (A same-settings DFT anchor at the *affordable* small supercell is itself
+far from converged — DFT-RTA at sc 2 gives only 48 W/m·K — so we anchor against experiment and report
+the convergence trend.)
+
+![Si κ supercell convergence](../results/figures/kappa_si_convergence.png)
+*Figure 8. Si κ vs supercell: the FC-distilled model converges to experiment (~140); the baseline stays at ~45.*
 
 ### 2.8 What does not work (instructive negatives)
 
