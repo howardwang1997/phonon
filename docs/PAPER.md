@@ -366,31 +366,36 @@ supercell convergence; negative results are retained.
 
 ## References
 
-[1] G. Petretto *et al.*, "High-throughput density-functional perturbation theory phonons for inorganic
-materials," *Sci. Data* **5**, 180065 (2018).
+[1] G. Petretto, S. Dwaraknath, H. P. C. Miranda, D. Winston, M. Giantomassi, M. J. van Setten, X.
+Gonze, K. A. Persson, G. Hautier, G.-M. Rignanese, "High-throughput density-functional perturbation
+theory phonons for inorganic materials," *Sci. Data* **5**, 180065 (2018).
 [2] A. Togo, "First-principles phonon calculations with phonopy and phono3py," *J. Phys. Soc. Jpn.*
 **92**, 012001 (2023).
 [3] I. Batatia *et al.*, "A foundation model for atomistic materials chemistry" (MACE-MP-0),
-arXiv:2401.00096 (2024).
+arXiv:2401.00096 (2023).
 [4] H. Yang *et al.*, "MatterSim: a deep-learning atomistic model across elements, temperatures and
 pressures," arXiv:2405.04967 (2024).
-[5] A. Loew, D. Sun, H.-C. Wang *et al.*, "Universal machine-learning interatomic potentials are ready
-for phonons," *npj Comput. Mater.* **11** (2025); arXiv:2412.16551.
-[6] B. Deng *et al.*, "Systematic softening in universal machine-learning interatomic potentials,"
-*npj Comput. Mater.* **10**, 175 (2024).
-[7] "Thermal conductivity predictions with foundation atomistic models," arXiv:2408.00755 (2024).
-[8] "Parameter-efficient fine-tuning of machine-learning interatomic potentials for phonon and thermal
-properties," arXiv:2604.01017 (2026).
-[9] "PFT: phonon fine-tuning for machine-learned interatomic potentials," arXiv:2601.07742 (2026).
-[10] A. Togo, MDR/PhononDB (NIMS) — open DFPT phonon database (10,034 materials).
+[5] A. Loew, D. Sun, H.-C. Wang, S. Botti, M. A. L. Marques, "Universal machine-learning interatomic
+potentials are ready for phonons," *npj Comput. Mater.* **11** (2025); arXiv:2412.16551.
+[6] B. Deng, Y. Choi, P. Zhong, J. Riebesell, S. Anand, Z. Li, K. Jun, K. A. Persson, G. Ceder,
+"Systematic softening in universal machine-learning interatomic potentials," *npj Comput. Mater.*
+**11**, 9 (2025); DOI 10.1038/s41524-024-01500-6.
+[7] B. Póta, P. Ahlawat, G. Csányi, M. Simoncelli, "Thermal conductivity predictions with foundation
+atomistic models," arXiv:2408.00755 (2024).
+[8] J. Grandel, P. Benner, J. George, "Parameter-efficient fine-tuning of machine-learning interatomic
+potentials for phonon and thermal properties," arXiv:2604.01017 (2026).
+[9] T. Koker, A. Gangan, M. Kotak, J. Marian, T. Smidt, "PFT: phonon fine-tuning for machine-learned
+interatomic potentials," arXiv:2601.07742 (2026); ICML 2026.
+[10] A. Togo, MDR/PhononDB (NIMS) — open DFPT phonon database (~10,034 materials), as benchmarked in [5].
 [11] A. Togo, L. Chaput, I. Tanaka, "Distributions of phonon lifetimes in Brillouin zones" (phono3py),
 *Phys. Rev. B* **91**, 094306 (2015).
 [12] P. Giannozzi *et al.*, "Quantum ESPRESSO toward the exascale," *J. Chem. Phys.* **152**, 154105
 (2020).
 [13] M. Schlipf and F. Gygi, "Optimization algorithm for the generation of ONCV pseudopotentials"
-(SG15), *Comput. Phys. Commun.* **196**, 36 (2015).
+(SG15), *Comput. Phys. Commun.* **196**, 36–44 (2015).
 [14] J. H. Lloyd-Williams and B. Monserrat, "Lattice dynamics and electron–phonon coupling calculations
 using non-diagonal supercells," *Phys. Rev. B* **92**, 184301 (2015).
 
-*(Reference list to be completed and verified against the journal style at submission; a few 2026
-preprint identifiers are provisional.)*
+*Bibliographic details verified against arXiv/journal primary sources (June 2026). Refs [5] and [7]
+also have journal versions; [8,9] are 2026 preprints (PFT accepted at ICML 2026). Final formatting will
+follow the target journal's style at submission.*
