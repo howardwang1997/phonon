@@ -67,8 +67,11 @@ def main() -> int:
         configs.append(at)
 
     add(np.zeros((N, 3)))                                   # equilibrium anchor
-    for _ in range(args.n_configs):                        # random rattles (anharmonic regime)
-        add(rng.normal(0.0, args.rattle_std, (N, 3)))
+    # MIX amplitudes: small (harmonic-dominated, preserves harmonic accuracy/κ) +
+    # large (excites Φ₃). Avoids the single-amplitude regression that re-softened κ.
+    amps = [0.02, 0.04, args.rattle_std]
+    for _ in range(args.n_configs):
+        add(rng.normal(0.0, amps[int(rng.integers(len(amps)))], (N, 3)))
     # single-atom probes at a few amplitudes (directly excite Φ₃ columns)
     for i in rng.choice(N, size=min(N, 6), replace=False):
         for a in range(3):
