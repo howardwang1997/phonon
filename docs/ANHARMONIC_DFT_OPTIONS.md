@@ -77,3 +77,18 @@ removing the one "needs rental" caveat from §2.8/§5 of the paper.
 real, but **third-order DFPT (D3Q) sidesteps it in the primitive cell** — so the converged anharmonic
 reference *is* obtainable cheaply, just not via supercells. That is a cleaner, stronger narrative than
 "needs A100s."
+
+---
+
+## Outcome (2026-06-22) — attempted, blocked by hardware; deferred to rental
+Both options were tried on the spare H20 boxes. **Both blocked by the same wall**: plane-wave DFT on
+these inference-GPU CPUs is pathologically slow — a 54-atom Si SCF took **~17 min per iteration**
+(pw.x at ~66% CPU; ~100–1000× slower than a normal workstation), and pw.x processes repeatedly wedge.
+- **Option A (D3Q)**: QE source build failed (`make pw` error) in the conda environment.
+- **Option B (compressed sensing)**: ran, but 0 SCFs completed in 75–90 min (sc3 and sc4) — the
+  per-SCF cost, not the config count, is the bottleneck, so reducing configs does not rescue it.
+Conclusion: a converged anharmonic DFT reference is **not obtainable on this hardware** by any of the
+three routes (systematic / D3Q / compressed sensing). Deferred to **rented proper-DFT hardware**
+(V100/A100 or CPU nodes with optimized BLAS). The curvature-distillation **diagnosis is complete and
+correct** (§2.8); only the converged *validation* is pending — and the very infeasibility here is the
+cleanest evidence for the MLIP route.

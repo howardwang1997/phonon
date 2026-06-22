@@ -286,13 +286,21 @@ tensor from a single Γ-point DFPT calculation; ε∞ = 3.19, Z\* = ±1.97 for M
 Two natural extensions fail, and the failures are informative.
 - **Naive uncertainty acquisition** (§2.4) underperforms random selection; uncertainty must be tempered
   by representativeness (coverage).
-- **Naive third-order FC distillation** *regresses* κ (Si 113 → 42–46). This is **not** catastrophic
-  forgetting (replay does not help) and **not** a soft reference (the DFT fc₂ yields the correct Si
-  ω_max, 15.42 THz). The cause is a **curvature trade-off**: fine-tuning on large-displacement anharmonic
-  configurations improves large-force accuracy at the expense of the small-displacement Hessian that κ
-  depends on, re-softening the phonons. Adding anharmonicity therefore requires a **curvature-aware
-  loss** (explicit Hessian / second-order supervision), not merely additional anharmonic configurations —
-  a concrete prescription for future work.
+- **Naive third-order FC distillation** *regresses* κ (Si 113 → 42–47). We trace the cause precisely,
+  and it is neither of the obvious suspects: **not** catastrophic forgetting (multihead replay does not
+  help), and **not** a softened harmonic spectrum (the distilled model's own ω_max is **15.42 THz** —
+  correct). Instead, **the model faithfully reproduces the DFT third-order force constants it was given,
+  and the *affordable* reference is itself under-converged**: a same-settings DFT-RTA calculation from
+  the small (2×2×2) DFT fc₂+fc₃ yields κ ≈ 48 W m⁻¹K⁻¹ — essentially the distilled value (47). The
+  third-order signal is correct; the supercell is too small. The fix is therefore a **converged**
+  third-order reference, not a different loss. The obstacle is purely cost: converged anharmonic DFT
+  needs large supercells (κ converges slowly with cell size), and we found this **infeasible on
+  inference-class GPU boxes** — we attempted (i) systematic finite-displacement at 3×3×3/4×4×4 (≈ days–
+  weeks; ~17 min per SCF *iteration* for a 54-atom cell on these CPUs), (ii) supercell-free third-order
+  DFPT (D3Q/thermal2, which we could not build in the available environment), and (iii) compressed-
+  sensing fc₃ (random displacements + symfc), all blocked by the same DFT-throughput wall. The converged
+  validation is thus deferred to proper DFT hardware — and this obstacle is itself the clearest
+  vindication of the MLIP route: the expensive step is exactly the one the foundation-model proxy avoids.
 
 ---
 
@@ -332,8 +340,11 @@ convergence, and transfer; the relative improvement and the convergence-to-exper
 robust claims, and a fully converged same-settings DFT-κ anchor (sc ≥ 4) on fast hardware is the natural
 next step. (ii) Polar-material κ requires NAC, demonstrated here for MgO; a learned Born-charge model
 would remove the per-material Γ-DFPT step. (iii) The per-SCF GPU factor requires strong-FP64 hardware.
-(iv) The present study uses one foundation backbone (MACE-MP); cross-model generality is future work.
-(v) Third-order distillation needs a curvature-aware loss (§2.8).
+(iv) FC distillation is demonstrated on one foundation backbone (MACE-MP); the softening it cures is
+shown to be model-universal (MatterSim, SevenNet; §2.1), but cross-model *fine-tuning* is future work.
+(v) Third-order distillation is correct but requires a *converged* fc₃ reference; obtaining one was
+infeasible on the available inference-GPU CPUs (§2.8), so the converged validation is deferred to proper
+DFT hardware.
 
 ---
 
