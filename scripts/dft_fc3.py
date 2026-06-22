@@ -45,7 +45,8 @@ def main() -> int:
     ap.add_argument("--ecutwfc", type=float, default=50.0)
     ap.add_argument("--ecutrho", type=float, default=200.0)
     ap.add_argument("--kpts", type=int, default=4)
-    ap.add_argument("--nproc", type=int, default=32)
+    ap.add_argument("--nproc", type=int, default=8, help="MPI ranks PER concurrent QE worker")
+    ap.add_argument("--workers", type=int, default=8, help="concurrent QE jobs (independent SCFs)")
     ap.add_argument("--disp", type=float, default=0.03)
     ap.add_argument("--out-dir", default="results/fc3")
     args = ap.parse_args()
@@ -60,17 +61,30 @@ def main() -> int:
     print(f"[{args.material}] sc={n}^3: {len(scells)} 3rd-order displaced supercells "
           f"({len(scells[0])} atoms each)", flush=True)
 
-    calc = make_espresso(PSEUDO, pseudos, args.ecutwfc, args.ecutrho, args.kpts, args.nproc,
-                         directory="/tmp/fc3qe")
+    from concurrent.futures import ThreadPoolExecutor
+    import threading
     t0 = time.perf_counter()
-    forces = []
-    for i, sc in enumerate(scells):
+    done = [0]
+    lock = threading.Lock()
+
+    def one(arg):
+        i, sc = arg
+        calc = make_espresso(PSEUDO, pseudos, args.ecutwfc, args.ecutrho, args.kpts, args.nproc,
+                             directory=f"/tmp/fc3qe_{i}")
         at = Atoms(symbols=sc.symbols, cell=sc.cell, scaled_positions=sc.scaled_positions, pbc=True)
         at.calc = calc
-        forces.append(at.get_forces())
-        if (i + 1) % 10 == 0:
-            print(f"  {i+1}/{len(scells)} SCFs done ({time.perf_counter()-t0:.0f}s)", flush=True)
-    ph3.forces = np.array(forces)
+        f = at.get_forces()
+        with lock:
+            done[0] += 1
+            if done[0] % 10 == 0:
+                print(f"  {done[0]}/{len(scells)} SCFs done ({time.perf_counter()-t0:.0f}s)", flush=True)
+        return i, f
+
+    print(f"computing {len(scells)} SCFs with {args.workers} concurrent workers x {args.nproc} ranks",
+          flush=True)
+    with ThreadPoolExecutor(max_workers=args.workers) as ex:
+        res = sorted(ex.map(one, enumerate(scells)), key=lambda x: x[0])
+    ph3.forces = np.array([f for _, f in res])
     ph3.produce_fc3(is_compact_fc=False)   # FULL fc (N_super, N_super, ...) for distillation einsum
     ph3.produce_fc2(is_compact_fc=False)
 
