@@ -103,6 +103,23 @@ the acoustic sum rule. Force MAE and phonon MAE decouple — confirming the curv
 *Figure 1. Foundation-MLIP phonon accuracy versus DFPT across the benchmark: systematic frequency
 softening and spurious imaginary modes despite low near-equilibrium force error.*
 
+**The softening is not a MACE artifact.** Running the same benchmark with two *other* foundation models
+(MatterSim, SevenNet) on a stable-crystal subset confirms that softening is generic:
+
+| ω_max softening vs DFPT | C | Si | Ge | GaAs | MgO | NaCl | Al | **median** |
+|---|---|---|---|---|---|---|---|---|
+| MatterSim | −1.8 | −8.8 | −9.9 | −15.4 | −11.4 | −16.6 | −10.7 | **−10.7%** |
+| SevenNet | −14.2 | −19.3 | −34.0 | −20.1 | −17.1 | −21.8 | −23.7 | **−20.1%** |
+
+All seven materials soften for both models (SevenNet more strongly), mirroring MACE — curvature
+under-prediction is a *generic* property of energy/force-trained foundation MLIPs, so the FC-distillation
+remedy below is model-agnostic in principle (cross-model fine-tuning is future work).
+
+![Cross-model softening](../results/figures/xmodel_softening.png)
+*Figure 1b. Per-material ω_max softening vs DFPT for MatterSim and SevenNet — every material softens for
+both models (medians −10.7% / −20.1%), establishing the failure mode as model-universal, not specific
+to MACE.*
+
 ### 2.2 Force-constant distillation restores near-DFT phonons at zero new DFT
 
 For a training material with DFPT force constants Φ (defined on the supercell), we generate rattled
