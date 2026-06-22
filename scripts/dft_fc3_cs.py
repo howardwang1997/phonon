@@ -58,7 +58,7 @@ def main() -> int:
     print(f"[{args.material}] sc={n}^3 ({len(ph3.supercell)} atoms): {len(scells)} RANDOM-disp "
           f"supercells (systematic would be ~hundreds)", flush=True)
 
-    pseudos = pseudos_for(a)
+    pseudos = pseudos_for(a, PSEUDO)
     t0 = time.perf_counter(); done = [0]; lock = threading.Lock()
 
     def one(arg):
