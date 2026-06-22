@@ -102,7 +102,24 @@ materials not in training stay low (Ge 19/60, InP 25/68); exotic high-κ BAs is 
 (MLIP+RTA misses its weak 3-phonon scattering); the highest-κ diamond **overshoots** (2781/2200).
 Absolute κ is limited by mesh(21)+RTA+transfer — the *consistent improvement* is the robust result,
 and per-material fix-vs-overshoot tracks the breadth law (in-distribution → full fix, transfer →
-partial). Next: per-material vs public Togo DFT-κ (same settings); 3rd-order distillation for the residual.
+partial). Next: per-material vs public Togo DFT-κ (same settings).
+
+### 3rd-order FC distillation (Task 3) — instructive NEGATIVE result
+Generated Si Φ₃ via QE (full fc2+fc3), distilled the cubic Taylor labels (F=−Φ₂u−½Φ₃uu), fine-tuned
+the harmonic-FT model on them, re-evaluated κ:
+
+| Si κ(300 K) | baseline | harmonic-FT | 3rd-order single-head | 3rd-order replay+mixed |
+|---|---|---|---|---|
+| W/m·K | 45 | **113** | 46 | 42 |
+
+**Naive 3rd-order distillation *regressed* κ back to baseline**, and this is **not** forgetting
+(replay didn't help) nor a soft reference (the QE fc2 gives Si ω_max 15.42 THz, correct). The cause:
+**fine-tuning on large-displacement anharmonic configs degrades the small-displacement phonon
+*curvature* (Hessian) that κ depends on** — the model trades harmonic accuracy for large-force
+accuracy, re-softening the phonons. → 3rd-order distillation is **not trivially additive**; doing it
+right needs a **curvature-aware loss** (direct Hessian/fc2 supervision) or careful amplitude weighting,
+not just adding anharmonic configs. The robust win remains the **harmonic** FC distillation (κ table
+above). Honest finding: anharmonicity must be added *without* sacrificing the harmonic Hessian.
 
 ## Reproduce
 - `scripts/bootstrap_qe.sh` — QE + pseudopotentials. `scripts/dft_phonon.py` — DFT phonon via the
