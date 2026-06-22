@@ -71,8 +71,8 @@ def main() -> int:
         if (i + 1) % 10 == 0:
             print(f"  {i+1}/{len(scells)} SCFs done ({time.perf_counter()-t0:.0f}s)", flush=True)
     ph3.forces = np.array(forces)
-    ph3.produce_fc3()
-    ph3.produce_fc2()
+    ph3.produce_fc3(is_compact_fc=False)   # FULL fc (N_super, N_super, ...) for distillation einsum
+    ph3.produce_fc2(is_compact_fc=False)
 
     out = Path(args.out_dir); out.mkdir(parents=True, exist_ok=True)
     write_fc2_to_hdf5(ph3.fc2, filename=str(out / f"{args.material}_fc2.hdf5"))
