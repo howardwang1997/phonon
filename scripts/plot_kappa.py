@@ -16,12 +16,12 @@ OUT.mkdir(parents=True, exist_ok=True)
 EXP = {"Si": 140, "Ge": 60, "C": 2200, "Sn": 11, "SiC": 430, "BN": 760, "BP": 400,
        "BAs": 1300, "AlP": 90, "AlAs": 91, "GaP": 100, "GaAs": 45, "InP": 68}
 
-# collect baseline/FT kappa per material from bench_*.json (+ Si/GaAs early files)
+# collect baseline/FT kappa per material from the CONVERGED sc4 benchmark
 r = {}
-for f in glob.glob(str(R / "bench_*.json")) + glob.glob(str(R / "si_*.json")) + glob.glob(str(R / "GaAs_*.json")):
+for f in glob.glob(str(R / "sc4_*.json")):
     try:
         d = json.load(open(f)); m = d["material"]; k = d["kappa"].get("300")
-        tag = "ft" if "ft.model" in d["model"] or d["model"] not in ("small", "medium", "mace-omat") else "base"
+        tag = "ft" if f.endswith("_ft.json") else "base"
         if k:
             r.setdefault(m, {})[tag] = k
     except Exception:
@@ -43,7 +43,7 @@ ax.plot([], [], "o", mfc="none", mec="tab:red", label="baseline MLIP")
 ax.plot([], [], "o", color="tab:green", label="fine-tuned (FC-distilled)")
 ax.set_xscale("log"); ax.set_yscale("log"); ax.set_xlim(lim); ax.set_ylim(lim)
 ax.set_xlabel("experimental κ (W/m·K)"); ax.set_ylabel("MLIP κ (W/m·K)")
-ax.set_title("FC distillation moves κ toward experiment (every material)")
+ax.set_title("FC distillation moves κ toward experiment (converged sc4, every material)")
 ax.legend(loc="upper left"); ax.grid(alpha=0.3, which="both")
 fig.tight_layout(); fig.savefig(OUT / "kappa_benchmark.png", dpi=150)
 plt.close(fig); print("wrote kappa_benchmark.png  (", len(r), "materials )")
