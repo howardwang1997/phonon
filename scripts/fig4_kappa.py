@@ -39,6 +39,10 @@ for f in glob.glob(str(R / "sc4_*.json")):
         pass
 lim = [5, 4000]
 axa.plot(lim, lim, "--", color="0.5", lw=1, label="y = x (experiment)")
+# hand-tuned label offsets (points) to avoid collisions in the crowded mid-low cluster
+OFF = {"Si": (-17, 5), "C": (-13, 4), "BN": (1, 8), "SiC": (-24, 5), "BP": (3, -12),
+       "BAs": (7, -3), "AlAs": (-31, 6), "GaP": (8, 2), "AlP": (3, -12),
+       "InP": (7, 5), "Ge": (-8, -13), "GaAs": (-31, 0), "Sn": (-19, 6)}
 for mm, v in r.items():
     e = EXP.get(mm)
     if not e:
@@ -49,7 +53,8 @@ for mm, v in r.items():
         axa.plot(e, v["base"], "o", mfc="none", mec=C["baseline"], ms=7, zorder=2)
     if "ft" in v:
         axa.plot(e, v["ft"], "o", color=C["finetuned"], ms=7, zorder=3)
-        axa.annotate(mm, (e, v["ft"]), textcoords="offset points", xytext=(5, 3), fontsize=7.5)
+        axa.annotate(mm, (e, v["ft"]), textcoords="offset points",
+                     xytext=OFF.get(mm, (5, 3)), fontsize=7.5, zorder=4)
 axa.plot([], [], "o", mfc="none", mec=C["baseline"], label="baseline MLIP")
 axa.plot([], [], "o", color=C["finetuned"], label="FC-distilled")
 axa.set_xscale("log"); axa.set_yscale("log"); axa.set_xlim(lim); axa.set_ylim(lim)

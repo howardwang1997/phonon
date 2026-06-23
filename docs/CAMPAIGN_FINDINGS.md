@@ -31,11 +31,13 @@ Held-out MAE, breadth (rows) × configs/material (cols):
 | 32 | 1.50 | 1.50 | 1.55 |
 | 48 | 1.35 | 1.37 | 1.45 |
 | 64 | **1.33** | 1.42 | 1.52 |
-| 79 | **1.27** | 1.34 | — |
+| 79 | **1.27** | 1.34 | 1.44 |
 
 **Down (more breadth) = monotonically better; across (more depth) = flat-to-worse, and worse the
 more breadth you have** (overfitting to the training materials). Global min = high-breadth +
-low-depth (N=79/cfg15 = **1.27 THz, still descending**). `results/figures/depth_breadth_surface.png`.
+low-depth (N=79/cfg15 = **1.27 THz, still descending**). The N=79/cfg60 cell (1.44, run later on an
+idle H20) completes the row and confirms depth hurts at high breadth (1.27→1.34→1.44).
+`results/figures/depth_breadth_surface.png`.
 → **Practical law: spend the DFT budget on more materials, fewer configs each.**
 
 ## Result 3 — Anti-forgetting (held-out, seed error bars)

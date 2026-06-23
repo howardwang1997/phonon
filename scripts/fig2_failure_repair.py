@@ -56,7 +56,9 @@ axb.axhline(0, color="k", lw=0.8)
 axb.set_xticks(xs); axb.set_xticklabels(mats)
 axb.set_ylabel(r"$\omega_{\max}$ softening vs DFPT (%)")
 axb.set_title("Softening is model-universal")
-axb.legend(loc="lower left")
+axb.set_ylim(-42, 2)  # headroom below the deepest bar (Ge −34) for the legend
+axb.legend(loc="lower center", ncol=2, fontsize=8, columnspacing=1.2,
+           handlelength=1.4, handletextpad=0.5)
 panel(axb, "b")
 
 # ---- (c) Si dispersion before/after ----
@@ -75,6 +77,7 @@ for b in d["boundaries"]:
     axc.axvline(float(b), color="0.85", lw=0.7, zorder=0)
 axc.axhline(0, color="0.6", lw=0.7)
 axc.set_xlim(float(d["boundaries"][0]), float(d["boundaries"][-1]))
+axc.set_ylim(0, 18)  # headroom above the optical branches (~15.3) for the legend
 axc.set_ylabel("frequency (THz)")
 axc.set_xlabel("wave vector")
 axc.set_xticks([])
@@ -82,7 +85,8 @@ axc.set_title("Si: softened baseline, repaired by distillation")
 handles = [Line2D([], [], color=C["dfpt"], ls="--", lw=1.3, label="DFPT (reference)"),
            Line2D([], [], color=C["mace"], lw=1.4, label="MACE-MP-0 (baseline)"),
            Line2D([], [], color=C["finetuned"], lw=1.6, label="FC-distilled")]
-axc.legend(handles=handles, loc="lower center")
+axc.legend(handles=handles, loc="upper right", frameon=True, framealpha=0.92,
+           facecolor="white", edgecolor="none", fontsize=8)
 panel(axc, "c")
 
 out = FIG / "fig2_failure_repair.png"

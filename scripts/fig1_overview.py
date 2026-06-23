@@ -55,25 +55,24 @@ block(0.015, PY0, 0.265, PY1, "prob", "1. The problem")
 block(0.355, PY0, 0.665, PY1, "meth", "2. FC distillation — zero new DFT")
 block(0.735, PY0, 0.985, PY1, "pay", "4. Payoff")
 
-# ---- [A] problem: PES curvature inset + caption ----
-axp = ax.inset_axes([0.045, 0.585, 0.135, 0.235])
+# ---- [A] problem: PES curvature inset (top) + caption stacked below ----
+axp = ax.inset_axes([0.065, 0.635, 0.15, 0.18])
 u = np.linspace(-1, 1, 100)
-axp.plot(u, 0.5 * 8.5 * u ** 2, color=C["dfpt"], lw=2, label="DFT")
-axp.plot(u, 0.5 * 3.6 * u ** 2, color=C["mace"], lw=2, label="MLIP")
+axp.plot(u, 0.5 * 8.5 * u ** 2, color=C["dfpt"], lw=2)
+axp.plot(u, 0.5 * 3.6 * u ** 2, color=C["mace"], lw=2)
 axp.set_xticks([]); axp.set_yticks([]); axp.set_ylim(0, 4.2)
 axp.set_title("PES curvature", fontsize=8.5, pad=2)
-axp.text(0.0, 1.0, "DFT", color=C["dfpt"], fontsize=7.5, ha="center")
-axp.text(0.62, 1.55, "MLIP\n(too soft)", color=C["mace"], fontsize=7.5, ha="center", va="center")
+axp.text(-0.52, 3.35, "DFT", color=C["dfpt"], fontsize=7.5, ha="center")
+axp.text(0.66, 0.65, "MLIP\n(too soft)", color=C["mace"], fontsize=7.5, ha="center", va="center")
 for s in axp.spines.values():
     s.set_linewidth(0.8)
-ax.text(0.205, 0.70,
-        "Foundation MLIPs\nunder-predict PES\ncurvature:",
-        fontsize=9.2, va="center", ha="left")
-ax.text(0.045, 0.545,
+ax.text(0.03, 0.59, "Foundation MLIPs under-predict\nthe PES curvature:",
+        fontsize=9, va="top", ha="left")
+ax.text(0.03, 0.50,
         r"$\Rightarrow$ phonons soften $-$10 to $-$30%" "\n"
         r"$\Rightarrow$ spurious imaginary modes" "\n"
         r"$\Rightarrow$ $\kappa \approx \frac{1}{2}\times$ experiment",
-        fontsize=9.2, va="top", ha="left")
+        fontsize=8.8, va="top", ha="left")
 
 # ---- [B] FC distillation: Phi matrix inset + equations ----
 axm = ax.inset_axes([0.375, 0.575, 0.115, 0.245])

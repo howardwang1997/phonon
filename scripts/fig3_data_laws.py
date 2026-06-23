@@ -82,7 +82,8 @@ grid = np.full((len(BR), len(DEPTHS)), np.nan)
 for i, (k, _) in enumerate(BR):
     for j, (dl, _) in enumerate(DEPTHS):
         grid[i, j] = hold_mae(f"br_{k}_s1") if dl == "nc30" else hold_mae(f"db_{k}_{dl}")
-im = axb.imshow(grid, cmap="viridis_r", aspect="auto")
+cmap = plt.cm.viridis_r.copy(); cmap.set_bad("0.86")  # not-run cells in light gray
+im = axb.imshow(np.ma.masked_invalid(grid), cmap=cmap, aspect="auto")
 axb.set_xticks(range(len(DEPTHS))); axb.set_xticklabels([d[1] for d in DEPTHS])
 axb.set_yticks(range(len(BR))); axb.set_yticklabels([b[1] for b in BR])
 axb.set_xlabel("configs / material  (depth)")
@@ -94,6 +95,8 @@ for i in range(len(BR)):
         if np.isfinite(grid[i, j]):
             axb.text(j, i, f"{grid[i,j]:.2f}", ha="center", va="center", fontsize=8.5,
                      color="white" if grid[i, j] > thr else "black")
+        else:
+            axb.text(j, i, "n/a", ha="center", va="center", fontsize=8, color="0.55")
 cb = fig.colorbar(im, ax=axb, fraction=0.046, pad=0.04)
 cb.set_label("held-out MAE (THz)", fontsize=9)
 panel(axb, "b")

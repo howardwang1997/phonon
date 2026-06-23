@@ -164,8 +164,9 @@ Transfer error is **flat up to ~16–20 materials, exhibits a knee at ~20–24, 
 to a median ~0.8 THz** (Fig. 3a). We lead with the median because the *mean* is inflated by a single hard
 chemistry: on the held-out set boron nitride alone sits at ~4.5 THz while the other five materials are
 0.3–1.0 THz, so the mean floor (~1.3 THz) overstates the typical residual (median floor ~0.8 THz). Increasing *depth* at fixed breadth does **not** transfer and in
-fact *overfits*: at high breadth, more configurations per material make transfer worse (e.g. N=64: 15
-configs → 1.33; 60 configs → 1.52). The full data-need surface (Fig. 3b) has its minimum at
+fact *overfits*: at high breadth, more configurations per material make transfer worse — at the maximum
+breadth N=79 the depth row rises monotonically (15 configs → 1.26, 30 → 1.34, 60 → 1.44; the same
+up-trend holds at N=64: 1.33 → 1.42 → 1.52). The full data-need surface (Fig. 3b) has its minimum at
 high-breadth + low-depth. The practical rule is therefore to **spend the DFT budget on more materials,
 not on more configurations of each**. The residual floor is set by under-covered light-element,
 high-frequency chemistries (boron nitride above all) — exactly the regime coverage acquisition targets
