@@ -35,7 +35,7 @@ echo "graphene fine-tune: epochs=$EPOCHS device=$DEVICE E0s=$E0S data=$DATA"
   --energy_key REF_energy \
   --forces_key REF_forces \
   --E0s "$E0S" \
-  --energy_weight 0.01 \
+  --energy_weight "${ENERGY_WEIGHT:-0.01}" \
   --forces_weight 100.0 \
   --max_num_epochs "$EPOCHS" \
   --batch_size 4 \
