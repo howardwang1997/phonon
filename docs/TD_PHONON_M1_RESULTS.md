@@ -136,6 +136,16 @@ sharpens the verdict (`harmonic_dispersion_2d.py --a 2.46 --no-relax`;
   and smooth. *Caveat:* the 5×5 DFT may itself under-resolve a true K-A₁′ Kohn dip; the
   converged K needs a larger-supercell / denser-k DFT (deferred).
 
+## M1.3 — (E)-channel: Dirac point + q* ≈ 2k_F  ✅
+DFT electronic bands of graphene (QE, 18×18 SCF + M-Γ-K-M bands;
+`m1_3_graphene_bands.py`, ~17 min CPU) confirm the **Dirac point at K** (|E−E_F| = 20
+meV ≈ 0, limited by the discrete k-path) and pin the Kohn-anomaly geometry:
+**Γ-E₂g = intra-valley (q→0); K-A₁′ = inter-valley (q=K connects K↔K′)** — both are the
+2k_F connectors of the Dirac points. So the phonon anomalies are **electron–phonon in
+origin** (the (E) channel). The part the MLIP structurally cannot make — the
+*electronic-temperature* broadening of the anomaly (Fermi smearing) — needs a
+finite-T_el DFPT scan, deferred (heavier DFT). Figure `m1_3_graphene_ebands.png`.
+
 ## M1.2 — temperature-dependent omega(q,T) via hiPhive-TDEP  ✅ (L-channel)
 **Method.** Per T: Langevin MD (FC-distilled MLIP forces) on a 6×6×1 = 72-atom
 supercell, 2 ps equilibration + 150 decorrelated snapshots (every 30 fs) →
