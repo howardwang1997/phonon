@@ -45,13 +45,12 @@ def main() -> int:
     import matplotlib
     matplotlib.use("Agg")
     import matplotlib.pyplot as plt
-    from matplotlib import cm as mcm
     from matplotlib.colors import Normalize
 
     fig, (axd, axf, axk) = plt.subplots(1, 3, figsize=(12.5, 3.8))
 
     norm = Normalize(vmin=min(temps), vmax=max(temps))
-    cmap = mcm.get_cmap("coolwarm")
+    cmap = plt.get_cmap("coolwarm")
     for T in temps:
         dist, freq = d[f"T{T}_dist"], d[f"T{T}_freq"] * CM
         c = cmap(norm(T))
