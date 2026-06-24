@@ -9,6 +9,9 @@ set -e
 EPOCHS="${1:-80}"
 DEVICE="${2:-cuda}"
 PY="${PHONON_PY:-$HOME/miniconda3/envs/phonon/bin/python}"
+# conda env's libstdc++ has the CXXABI the pip/conda compiled extensions need;
+# force the loader to it (system libstdc++ is older).
+export LD_LIBRARY_PATH="$(cd "$(dirname "$PY")/.." && pwd)/lib:${LD_LIBRARY_PATH:-}"
 MACE_TRAIN="$($PY -c 'import os,shutil,sys; p=os.path.join(os.path.dirname(sys.executable),"mace_run_train"); print(p if os.path.exists(p) else "mace_run_train")')"
 DATA="${DATA_DIR:-data/finetune_graphene}"
 OUT="${OUT_DIR:-results/finetune_graphene}"
