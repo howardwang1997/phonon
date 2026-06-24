@@ -67,6 +67,40 @@ transition — so there both must be modelled and the honesty about provenance m
 
 ---
 
+## 1.5 Three levels: harmonic / quasi-harmonic / anharmonic (background)
+
+Phonon calculations come in three levels (this project's Level 1/2/3). The workhorse here is
+**anharmonic (Level 3)** — only it gives a T-shifting ω(q,T) and the temperature evolution of the Kohn
+anomaly; harmonic / quasi-harmonic are listed for background and contrast.
+
+**Essence**
+
+| | what's fixed / what varies | frequencies vary with T? |
+|---|---|---|
+| **Harmonic (Level 1)** | PES Taylor-expanded to 2nd order at the 0 K minimum, fc₂ fixed | **no** |
+| **Quasi-harmonic QHA (Level 2)** | still harmonic, fc₂ varies with **volume** ω(q;V) | yes, but **only via thermal expansion V(T)** |
+| **Anharmonic (Level 3)** | explicit fc₃/fc₄, or effective fc₂(T) fitted from thermal sampling | yes, **explicit phonon–phonon at fixed volume** |
+
+Harmonic treats phonons as **non-interacting** oscillators (infinite lifetime); QHA adds only the cheapest
+anharmonic piece (thermal expansion); true anharmonicity has **phonon–phonon scattering** (T-shift + finite
+lifetime).
+
+**Comparison on the three axes**
+
+| axis | harmonic | quasi-harmonic | anharmonic |
+|---|---|---|---|
+| **Resource** | lowest: 1 relax + a few displaced configs; seconds (MLIP) | medium: harmonic × ~5–9 volumes; **no MD**; minutes | highest: thousands–tens of thousands of force evals per T (MD/ensemble); infeasible in DFT → needs MLIP |
+| **Method** | finite-displacement / DFPT → fc₂ → ω(q) (phonopy) | harmonic at many volumes → minimize F(V,T)=E(V)+F_harm(V,T) over V (phonopy-qha) | perturbative fc₃ (phono3py) or self-consistent **SSCHA/TDEP** (hiPhive/python-sscha) |
+| **Expected result** | 0 K dispersion, harmonic F/S/Cv; **no** thermal expansion/linewidths/κ; imaginary modes can't be fixed | + thermal expansion α(T), Grüneisen, ω(q,T) **only via volume**; still **no** linewidths/κ; can't fix imaginary modes | + fixed-volume ω(q,T), linewidths, thermal κ, anharmonic F; **can stabilize imaginary modes** (SSCHA free-energy Hessian) → phase transitions/soft modes |
+| **In this project** | M1.1 (done, <2 s) | Level 2 (not run) | M1.2 (TDEP, ~20 min); M3 (SSCHA) |
+
+**Two boundaries.** (1) All three are the **(L) lattice channel and carry no (E) electronic channel** — the
+Fermi-smeared Kohn anomaly needs DFPT-with-smearing (M1.3). (2) The **model-error softening** of §2.1 is
+orthogonal to the level and contaminates the absolute values of all three; FC distillation (Path P) fixes the
+model error, not the level — they are separate axes.
+
+---
+
 ## 2. Method for Level-3 T-dependent phonons (the MLIP / channel-L workhorse)
 
 | option | what it yields | when to use | tooling |
