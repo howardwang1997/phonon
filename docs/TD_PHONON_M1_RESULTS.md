@@ -220,8 +220,38 @@ DFT distillation** (after distillation, compare these same numbers to DFT). Figu
 > P-B thermal-config DFT-force distillation) is what supplies the DFT comparison and
 > the actual fix. Still (L)-channel only.
 
+## Path P (one-shot) — anharmonic distillation, proof-of-concept  ✅
+Tests whether **thermal-config DFT-force distillation** fixes the large-displacement
+(anharmonic) PES that the harmonic M1.1b distillation leaves wrong. On the V100
+(QE + MACE, 3×3 graphene, 300 K):
+1. graphene-FT (M1.1b) runs Langevin MD → 40 thermal snapshots (`path_p_make_data.py`);
+2. DFT single-point (QE) each → REF forces (~2 min/config, ~81 min total);
+3. fine-tune from foundation on the thermal DFT forces, **force-only** (energy_weight 0
+   — DFT total energies are huge absolute values that otherwise swamp the loss; force
+   RMSE *diverged* at energy_weight 0.01) → `ft_path_p.model`;
+4. eval: force RMSE vs DFT on 10 held-out thermal configs (`path_p_eval.py`).
+
+| model | force RMSE vs DFT (thermal configs) |
+|---|---|
+| foundation MACE | 280 meV/Å |
+| FC-distilled harmonic (M1.1b) | 138 meV/Å |
+| **Path-P (anharmonic)** | **17 meV/Å** |
+
+(DFT force magnitude ⟨\|F\|⟩_rms = 1183 meV/Å.)
+
+**Path P closes the anharmonic gap 138→17 meV/Å (87% reduction)** — from ~12% to ~1.4%
+of the force magnitude. Confirms the principle: the harmonic distillation (M1.1b) is
+accurate only for small displacements; labelling the *thermally-sampled* configurations
+with DFT forces makes the model accurate where the simulation actually samples.
+
+> **Scope.** Proof-of-concept: small 3×3 cell, single T, 30 train configs, force-only.
+> A production Path P wants a larger cell, multiple T, an isolated-atom E0 reference, and
+> downstream validation (ω(q,T) / linewidths). CPU-QE made this feasible (~2 min/config);
+> scaling to 100s of configs wants GPU-QE.
+
 ## Artifacts
 - code: `scripts/{td_common,td_structures,harmonic_dispersion_2d,anomaly_locate,graphene_sc_convergence,td_phonon,td_anharmonic,plot_graphene_anomaly,plot_sc_convergence,plot_td_dispersion,plot_anharm_diag}.py`
+- M1.3 / Path-P code: `scripts/{m1_3_graphene_bands,path_p_make_data,path_p_eval}.py`
 - M1.1b code: `scripts/{m1_1b_graphene_dft,m1_1b_make_graphene_data,plot_m1_1b_compare}.py`, `scripts/finetune_graphene.sh`
 - data: `data/td_phonon/{graphene,mos2,nbse2}.xyz`, `results/td_phonon/disp_graphene_{base,ft}.npz`, `graphene_sc_convergence.csv`, `td_graphene_ft.{npz,csv}`, `td_graphene_ft_m2.{npz,csv}`
 - M1.1b data: `results/m1_1b/dft/{graphene_dft_phonopy.yaml,disp_graphene_dft.npz}`, `results/m1_1b/disp_graphene_ftgraphene.npz`, `results/m1_1b/fixed/disp_graphene_{base,ftbulk,ftg}_a246.npz` (model `ft_graphene.model` gitignored, on the V100)
