@@ -2,8 +2,8 @@
 
 **Goal.** Compute *temperature-dependent* phonon dispersions ω(**q**, T) for 2D materials with a
 foundation/FC-distilled MLIP (the "Level 3" anharmonic regime), then **locate the slope-discontinuities /
-kinks ("跳点") in the dispersion and track how they move with temperature**, and connect those anomalies
-to the electron–phonon physics that the question is really about.
+kinks ("jumps") in the dispersion and track how they move with temperature**, and connect those anomalies
+to the electron–phonon physics this is really about.
 
 ---
 
