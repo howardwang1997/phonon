@@ -67,10 +67,50 @@ The pipeline works and resolves graphene's optical anomalies in ≪5 GPU-hr; the
 MLIP *sees* the K cusp; we have cleanly localized where it fails (**Γ**). Two
 forward branches, both consistent with the main paper:
 - **M1.1b** (graphene-specific DFPT fc₂ distillation) — the decisive test of
-  whether *any* distillation recovers the Γ cusp. FP64-blocked → literature fc₂
-  first, own DFPT batched into the V100/A100 rental.
+  whether *any* distillation recovers the Γ cusp. **DONE — see below (PASS).**
 - **M1.2** (hiPhive-TDEP) — proceed to the (L)-channel ω(q,T); the K-anomaly is a
   good handle to track q*(T).
+
+## M1.1b — graphene-specific DFT distillation: the Γ-cusp cure  ✅
+The decisive follow-up to M1.1's open question (*does any distillation recover the
+washed-out Γ-E₂g cusp?*). Full chain on a **rented 1×V100** (Quantum ESPRESSO + MACE,
+2026-06-25):
+
+1. **DFT fc₂** (`m1_1b_graphene_dft.py`): graphene finite-displacement fc₂ via QE
+   (ONCV-PBE, 5×5×1 = 50-atom supercell, ecutwfc 60 Ry, 6×6 supercell k-mesh,
+   conv_thr 1e-9; ~32 min on 8 CPU cores) → **Γ-E₂g = 1568, K-A₁′ = 1362 cm⁻¹**
+   (lit ~1600/~1300), ZA≈0 at Γ. The graphene-specific distillation target.
+2. **Distillation data** (`m1_1b_make_graphene_data.py`): 153 harmonic-labelled
+   rattled supercells (F=−Φu, E=½uΦu) from that DFT fc₂.
+3. **Fine-tune** (`finetune_graphene.sh`): *same single-head recipe as the bulk FT*
+   (`small` foundation, energy_weight 0.01 / forces_weight 100, 60 epochs) →
+   force RMSE **18 meV/Å** → `ft_graphene.model`.
+4. **Eval** (`harmonic_dispersion_2d.py` + `plot_m1_1b_compare.py`).
+
+| model | Γ-E₂g (cm⁻¹) | K-A₁′ (cm⁻¹) |
+|---|---|---|
+| foundation MACE | 1254 | 1151 |
+| FC-distilled (bulk) | 1399 | 1192 |
+| **FC-distilled (graphene)** | **1556** | **1355** |
+| DFT (QE, this work) | 1568 | 1362 |
+| literature | ~1600 | ~1300 |
+
+**Result — the Γ cusp comes back.** Of the foundation→DFT softening gap at Γ-E₂g,
+the **bulk** FC-distilled model closed **46%**; the **graphene-specific** model
+closed **96%** (1254→1556, DFT 1568) — essentially matching DFT, and K-A₁′ likewise
+(1355 vs 1362). In `m1_1b_graphene_compare.png` the graphene-FT optical branches sit
+on top of the DFT dashed curve.
+
+**Interpretation.** M1.1's "Γ cusp washed out *even after distillation*" was a
+limitation of the **bulk-trained** distillation, **not** of FC-distillation itself:
+targeting the material's own DFPT fc₂ recovers the cusp (the §2.2 cure works when
+material-specific). This **resolves Gate #1's open branch — PASS**.
+
+> **Caveats.** (i) harmonic / 0 K cure only; the anharmonic (L) and electronic (E)
+> channels are unchanged (→ Path P, M1.3). (ii) graphene-FT relaxed to a=2.497 Å
+> (vs DFT 2.46) because the distillation weights forces ≫ energy — the *curvature*
+> (hence the cusp) is right even though equilibrium a drifts; tightenable with more
+> energy weight or fixed-cell distillation.
 
 ## M1.2 — temperature-dependent omega(q,T) via hiPhive-TDEP  ✅ (L-channel)
 **Method.** Per T: Langevin MD (FC-distilled MLIP forces) on a 6×6×1 = 72-atom
@@ -148,5 +188,7 @@ DFT distillation** (after distillation, compare these same numbers to DFT). Figu
 
 ## Artifacts
 - code: `scripts/{td_common,td_structures,harmonic_dispersion_2d,anomaly_locate,graphene_sc_convergence,td_phonon,td_anharmonic,plot_graphene_anomaly,plot_sc_convergence,plot_td_dispersion,plot_anharm_diag}.py`
+- M1.1b code: `scripts/{m1_1b_graphene_dft,m1_1b_make_graphene_data,plot_m1_1b_compare}.py`, `scripts/finetune_graphene.sh`
 - data: `data/td_phonon/{graphene,mos2,nbse2}.xyz`, `results/td_phonon/disp_graphene_{base,ft}.npz`, `graphene_sc_convergence.csv`, `td_graphene_ft.{npz,csv}`, `td_graphene_ft_m2.{npz,csv}`
-- figures: `results/figures/graphene_kohn_anomaly.png`, `graphene_sc_convergence.png`, `graphene_td_dispersion.png`, `graphene_td_m2.png`, `graphene_anharmonicity.png`
+- M1.1b data: `results/m1_1b/dft/{graphene_dft_phonopy.yaml,disp_graphene_dft.npz}`, `results/m1_1b/disp_graphene_ftgraphene.npz` (model `ft_graphene.model` gitignored, on the V100)
+- figures: `results/figures/{graphene_kohn_anomaly,graphene_sc_convergence,graphene_td_dispersion,graphene_td_m2,graphene_anharmonicity,m1_1b_graphene_compare}.png`
