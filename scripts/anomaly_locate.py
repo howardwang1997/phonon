@@ -2,13 +2,18 @@
 
 A Kohn anomaly is a sharp, near-non-analytic cusp in omega(q) at q* ~ 2k_F:
 locally a discontinuity in the group velocity v = domega/dq and a spike in the
-curvature |d2omega/dq2|. This module turns a cached dispersion (from
-``td_common.dispersion``) into a list of such cusps, with a quantitative
-"kink strength" = |slope_right - slope_left| at each one.
+curvature |d2omega/dq2|. In graphene it lives on the *highest optical branch*
+(E2g at Gamma, A1' at K). This module reports
 
-The detector deliberately ignores the path *endpoints* (Gamma at the ends) where
-a slope change is geometric, not anomalous, and reports the nearest labelled
-high-symmetry point so graphene's Gamma-E2g and K-A1' anomalies are easy to read.
+  1. high_sym_kinks: the two-sided slope discontinuity |dv| of the top branch at
+     each interior high-symmetry point -- the clean, artifact-free Kohn metric;
+  2. locate_anomalies: a generic curvature-cusp scan restricted to the top
+     optical branches (so it does not fire on acoustic band crossings).
+
+Frequency-sorted branches swap identity at crossings, which fakes a cusp; the
+top branch is the upper envelope and crosses nothing above it, so it is the safe
+one to differentiate. Path endpoints are skipped (a slope change there is
+geometric, not anomalous).
 
 CLI:  python scripts/anomaly_locate.py results/td_phonon/disp_graphene_ft.npz
 """
@@ -18,6 +23,8 @@ import sys
 from pathlib import Path
 
 import numpy as np
+
+CM = 33.35641  # THz -> cm^-1
 
 
 def _smooth(y: np.ndarray, window: int = 5) -> np.ndarray:
@@ -31,7 +38,7 @@ def _smooth(y: np.ndarray, window: int = 5) -> np.ndarray:
     return np.convolve(ypad, ker, mode="valid")
 
 
-def _slopes_about(dist: np.ndarray, y: np.ndarray, i: int, span: int = 6):
+def _slopes_about(dist: np.ndarray, y: np.ndarray, i: int, span: int = 8):
     """Least-squares slope just left and just right of index ``i``."""
     lo, hi = max(0, i - span), min(len(dist) - 1, i + span)
     left = right = np.nan
@@ -47,23 +54,61 @@ def nearest_label(d: float, label_pos, labels):
     return str(labels[j]), float(label_pos[j])
 
 
+def branch_freq_at_label(dist, freq, label_pos, labels, label_name, branch="top"):
+    """omega of a branch at a named high-symmetry point. branch='top' = highest."""
+    j = [str(x) for x in labels].index(label_name)
+    i = int(np.argmin(np.abs(np.asarray(dist) - label_pos[j])))
+    col = freq.shape[1] - 1 if branch == "top" else int(branch)
+    return float(freq[i, col])
+
+
+def high_sym_kinks(dist, freq, label_pos, labels, branch="top", span=8):
+    """Two-sided slope discontinuity of one branch at each high-symmetry point.
+
+    Returns a list of dicts (one per label). ``interior`` flags points that are
+    not path endpoints -- only those carry a meaningful (geometric-free) kink.
+    ``kink_strength`` = |slope_right - slope_left| in THz / (q-distance unit).
+    """
+    dist = np.asarray(dist, float)
+    freq = np.asarray(freq, float)
+    col = freq.shape[1] - 1 if branch == "top" else int(branch)
+    y = freq[:, col]
+    names = [str(x) for x in labels]
+    lp = np.asarray(label_pos, float)
+    out = []
+    for j, (d0, nm) in enumerate(zip(lp, names)):
+        i = int(np.argmin(np.abs(dist - d0)))
+        left, right = _slopes_about(dist, y, i, span)
+        kink = abs(right - left) if np.isfinite(left + right) else np.nan
+        out.append({
+            "label": nm,
+            "distance": float(d0),
+            "branch": col,
+            "freq_thz": float(y[i]),
+            "slope_left": float(left),
+            "slope_right": float(right),
+            "kink_strength": float(kink),
+            "interior": 0 < j < len(lp) - 1,
+        })
+    return out
+
+
 def locate_anomalies(
     dist: np.ndarray,
     freq: np.ndarray,
     label_pos,
     labels,
     qfrac=None,
-    nsig: float = 4.0,
+    n_top: int = 2,
+    nsig: float = 3.0,
     smooth_window: int = 5,
-    min_freq_thz: float = 5.0,
-    edge_frac: float = 0.02,
+    edge_frac: float = 0.03,
 ):
-    """Find curvature cusps per branch.
+    """Curvature cusps on the top ``n_top`` (optical) branches.
 
-    Returns a list of dicts sorted by descending kink strength. ``nsig`` is the
-    per-branch curvature threshold in units of (mean + nsig*std). Branches and
-    points below ``min_freq_thz`` (acoustic near Gamma, flexural noise) are
-    skipped so the optical Kohn anomalies dominate.
+    Returns a list of dicts sorted by descending kink strength. Restricting to
+    the highest branches avoids the acoustic-crossing false positives; the
+    duplicate-join fix in ``td_common.dispersion`` removes the at-label spikes.
     """
     dist = np.asarray(dist, float)
     freq = np.asarray(freq, float)
@@ -71,24 +116,21 @@ def locate_anomalies(
     span_d = (dist[-1] - dist[0]) * edge_frac
     out = []
 
-    for b in range(n_band):
+    for b in range(max(0, n_band - n_top), n_band):
         y = _smooth(freq[:, b], smooth_window)
-        v = np.gradient(y, dist)                 # group velocity
-        a = np.gradient(v, dist)                 # curvature
+        v = np.gradient(y, dist)
+        a = np.gradient(v, dist)
         absa = np.abs(a)
         thr = absa.mean() + nsig * absa.std()
-        # interior local maxima of |curvature| above threshold
         for i in range(2, n_q - 2):
             if absa[i] < thr:
                 continue
             if not (absa[i] >= absa[i - 1] and absa[i] >= absa[i + 1]):
                 continue
-            if freq[i, b] < min_freq_thz:
-                continue
             if dist[i] - dist[0] < span_d or dist[-1] - dist[i] < span_d:
-                continue  # skip path endpoints (geometric, not anomalous)
+                continue  # skip endpoints (geometric)
             left, right = _slopes_about(dist, freq[:, b], i)
-            kink = abs((right - left)) if np.isfinite(left + right) else float(absa[i])
+            kink = abs(right - left) if np.isfinite(left + right) else float(absa[i])
             lab, lab_d = nearest_label(dist[i], label_pos, labels)
             rec = {
                 "distance": float(dist[i]),
@@ -96,34 +138,21 @@ def locate_anomalies(
                 "freq_thz": float(freq[i, b]),
                 "curvature": float(absa[i]),
                 "kink_strength": float(kink),
-                "slope_left": float(left),
-                "slope_right": float(right),
                 "nearest_label": lab,
-                "label_distance": lab_d,
                 "at_label": bool(abs(dist[i] - lab_d) < span_d),
             }
             if qfrac is not None:
                 rec["q_frac"] = [float(x) for x in np.asarray(qfrac)[i]]
             out.append(rec)
 
-    # collapse near-duplicate detections (same label + branch, adjacent points)
     out.sort(key=lambda r: -r["kink_strength"])
-    dedup, seen = [], set()
+    dedup, seen = [], []
     for r in out:
-        key = (r["branch"], round(r["distance"], 3))
-        if any(r["branch"] == s[0] and abs(r["distance"] - s[1]) < span_d for s in seen):
+        if any(r["branch"] == b and abs(r["distance"] - d) < span_d for b, d in seen):
             continue
-        seen.add((r["branch"], r["distance"]))
+        seen.append((r["branch"], r["distance"]))
         dedup.append(r)
     return dedup
-
-
-def branch_freq_at_label(dist, freq, label_pos, labels, label_name, branch="top"):
-    """omega of a branch at a named high-symmetry point. branch='top' = highest."""
-    j = [str(x) for x in labels].index(label_name)
-    i = int(np.argmin(np.abs(np.asarray(dist) - label_pos[j])))
-    col = freq.shape[1] - 1 if branch == "top" else int(branch)
-    return float(freq[i, col])
 
 
 def main(argv=None) -> int:
@@ -134,22 +163,20 @@ def main(argv=None) -> int:
     d = dict(np.load(argv[0], allow_pickle=True))
     dist, freq = d["distances"], d["frequencies"]
     label_pos, labels = d["label_positions"], d["labels"]
-    qfrac = d.get("qpoints_frac")
-    anomalies = locate_anomalies(dist, freq, label_pos, labels, qfrac=qfrac)
 
     print(f"# {Path(argv[0]).name}: {freq.shape[1]} branches, {freq.shape[0]} q-points")
-    cm = 33.35641  # THz -> cm^-1
-    for lab in ("$\\Gamma$", "K", "M"):
-        if lab in [str(x) for x in labels]:
-            w = branch_freq_at_label(dist, freq, label_pos, labels, lab)
-            print(f"  top optical at {lab:9s}: {w:7.3f} THz = {w*cm:7.1f} cm^-1")
-    print(f"# detected {len(anomalies)} cusp(s):")
-    for r in anomalies[:8]:
-        print(
-            f"  {r['nearest_label']:>8s}  branch {r['branch']:2d}  "
-            f"omega={r['freq_thz']:6.2f} THz  kink|dv|={r['kink_strength']:7.2f}  "
-            f"curv={r['curvature']:8.1f}  at_label={r['at_label']}"
-        )
+    print("# top-branch frequency + two-sided kink at each high-symmetry point:")
+    for k in high_sym_kinks(dist, freq, label_pos, labels):
+        tag = "interior" if k["interior"] else "endpoint"
+        ks = "  n/a" if not np.isfinite(k["kink_strength"]) else f"{k['kink_strength']:7.1f}"
+        print(f"  {k['label']:>9s} ({tag:8s})  omega={k['freq_thz']*CM:7.1f} cm^-1  "
+              f"kink|dv|={ks}")
+    print("# generic cusp scan (top 2 optical branches):")
+    for r in locate_anomalies(dist, freq, label_pos, labels,
+                              qfrac=d.get("qpoints_frac"))[:6]:
+        print(f"  near {r['nearest_label']:>9s}  branch {r['branch']:2d}  "
+              f"omega={r['freq_thz']*CM:7.1f} cm^-1  kink|dv|={r['kink_strength']:7.1f}  "
+              f"at_label={r['at_label']}")
     return 0
 
 

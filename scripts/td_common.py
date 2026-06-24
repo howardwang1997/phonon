@@ -146,6 +146,12 @@ def dispersion(
     seg_d = [np.asarray(d) for d in bsd["distances"]]
     label_pos = [seg_d[0][0]] + [s[-1] for s in seg_d]
 
+    # Drop duplicate join points: phonopy repeats the q-distance of each
+    # high-symmetry point between adjacent segments, which makes np.gradient
+    # divide by ~0 and manufacture an infinite spurious cusp there.
+    keep = np.concatenate([[True], np.diff(dist) > 1e-9])
+    dist, freq, qfrac = dist[keep], freq[keep], qfrac[keep]
+
     return {
         "distances": dist,
         "frequencies": freq,            # (n_q, n_band), THz
