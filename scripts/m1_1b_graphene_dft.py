@@ -35,7 +35,7 @@ import td_common as tdc
 
 
 def make_espresso(pw, mpirun, nproc, pseudo_dir, pseudo, ecutwfc, ecutrho,
-                  kpts, degauss=0.02, conv_thr=1e-9):
+                  kpts, degauss=0.02, conv_thr=1e-9, directory=None):
     from ase.calculators.espresso import Espresso, EspressoProfile
 
     cmd = f"{mpirun} --allow-run-as-root -np {nproc} {pw}" if nproc > 1 else pw
@@ -47,8 +47,9 @@ def make_espresso(pw, mpirun, nproc, pseudo_dir, pseudo, ecutwfc, ecutrho,
                    "occupations": "smearing", "smearing": "cold", "degauss": degauss},
         "electrons": {"conv_thr": conv_thr, "mixing_beta": 0.4},
     }
+    kw = {"directory": Path(directory)} if directory else {}
     return Espresso(profile=profile, pseudopotentials={"C": pseudo},
-                    input_data=input_data, kpts=(kpts, kpts, 1))
+                    input_data=input_data, kpts=(kpts, kpts, 1), **kw)
 
 
 def main() -> int:
@@ -81,9 +82,6 @@ def main() -> int:
     print(f"[{a.tag}] graphene a={a.a} A, supercell {a.supercell}x{a.supercell}x1, "
           f"ecutwfc={a.ecutwfc} kpts={a.kpts} nproc={a.nproc}", flush=True)
 
-    calc = make_espresso(a.pw, a.mpirun or "mpirun", a.nproc, pseudo_dir, a.pseudo,
-                         a.ecutwfc, a.ecutrho, a.kpts)
-
     sc = np.diag([a.supercell, a.supercell, 1])
     phon = PhononCalculation(atoms, supercell_matrix=sc, primitive_matrix=np.eye(3),
                              displacement=a.disp)
@@ -91,15 +89,12 @@ def main() -> int:
           f"({len(phon.displaced_supercells[0])} atoms each); running QE ...", flush=True)
     t0 = time.perf_counter()
     # run each displaced supercell in its own QE workdir
-    import os
     forces = []
     for i, scell in enumerate(phon.displaced_supercells):
         d = workdir / f"disp-{i:03d}"
-        d.mkdir(exist_ok=True)
-        c = make_espresso(a.pw, a.mpirun or "mpirun", a.nproc, pseudo_dir, a.pseudo,
-                          a.ecutwfc, a.ecutrho, a.kpts)
-        c.directory = str(d)
-        scell.calc = c
+        d.mkdir(parents=True, exist_ok=True)
+        scell.calc = make_espresso(a.pw, a.mpirun or "mpirun", a.nproc, pseudo_dir,
+                                   a.pseudo, a.ecutwfc, a.ecutrho, a.kpts, directory=d)
         forces.append(scell.get_forces())
         print(f"[{a.tag}]   disp {i}: max|F|={np.abs(forces[-1]).max():.4f} eV/A "
               f"({time.perf_counter()-t0:.0f}s)", flush=True)
