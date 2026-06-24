@@ -85,7 +85,8 @@ def effective_fc2(prim, ideal, sc_matrix, snaps, cutoff2):
     fcp = ForceConstantPotential(cs, opt.parameters)
     fcs = fcp.get_force_constants(ideal)
     fc2 = fcs.get_fc_array(order=2)  # (Nsc, Nsc, 3, 3), phonopy order
-    return fc2, float(opt.rmse_train), cs.number_of_dofs
+    rmse = getattr(opt, "rmse_train", None)
+    return fc2, float(rmse) if rmse is not None else float("nan"), len(cs)
 
 
 def band_from_phonopy(ph, fc2, path="MGKM", npoints=201):
@@ -134,18 +135,17 @@ def main() -> int:
 
     # relax -> primitive; build phonopy supercell ordering as the MD reference
     prim, info = tdc.relax_monolayer(at0, calc)
+    prim.wrap()
     log(f"[{a.tag}] relaxed a={info['a']:.4f} A")
     from phonon_accel.phonons import ase_to_phonopy, phonopy_to_ase
     from phonopy import Phonopy
     ph0 = Phonopy(ase_to_phonopy(prim), supercell_matrix=sc_matrix,
                   primitive_matrix=np.eye(3))
+    # Use phonopy's supercell (its atom ordering) as the MD reference so the
+    # hiphive fc2 maps straight onto ph0; build the ClusterSpace from the clean
+    # ASE primitive (phonopy's round-tripped primitive trips a hiphive orbit bug).
     ideal = phonopy_to_ase(ph0.supercell)
-    prim_for_cs = phonopy_to_ase(ph0.primitive)
-    # phonopy can hand back scaled positions of exactly 1.0 (unwrapped corner
-    # atom), which breaks hiphive orbit enumeration -- wrap into the cell. Done
-    # before MD so the snapshots and the fit share the same reference order.
     ideal.wrap()
-    prim_for_cs.wrap()
     log(f"[{a.tag}] MD supercell {sc} = {len(ideal)} atoms, cutoff2={a.cutoff2} A")
 
     out = {"temperatures": np.array(temps), "supercell": np.asarray(sc),
@@ -156,7 +156,7 @@ def main() -> int:
         t0 = time.perf_counter()
         log(f"[{a.tag}] T={T:.0f} K: MD sampling ...")
         snaps = sample_md(ideal, calc, T, a.dt, a.equil, a.nsnap, a.stride, log=log)
-        fc2, rmse, ndof = effective_fc2(prim_for_cs, ideal, sc_matrix, snaps, a.cutoff2)
+        fc2, rmse, ndof = effective_fc2(prim, ideal, sc_matrix, snaps, a.cutoff2)
         dist, freq, lp, labs = band_from_phonopy(ph0, fc2, npoints=a.npoints)
         wG = al.branch_freq_at_label(dist, freq, lp, labs, r"$\Gamma$") * CM
         wK = al.branch_freq_at_label(dist, freq, lp, labs, "K") * CM
