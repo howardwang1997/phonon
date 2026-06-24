@@ -89,9 +89,10 @@ def main() -> int:
             seg.append([p0[i] + t * (p1[i] - p0[i]) for i in range(3)])
     seg.append(M)
     kpath = np.array(seg)
+    kpath4 = np.column_stack([kpath, np.ones(len(kpath))])  # ASE wants Nx4 (coords+weight)
     print(f"[m1.3] bands on {len(kpath)} k-points (M-G-K-M) ...", flush=True)
     bands = espresso(a.pw, a.mpirun, a.nproc, pdir, a.pseudo, a.ecutwfc, a.ecutrho,
-                     a.degauss, "bands", work / "scf", kpts=kpath)
+                     a.degauss, "bands", work / "scf", kpts=kpath4)
     atoms.calc = bands
     atoms.get_potential_energy()
 
