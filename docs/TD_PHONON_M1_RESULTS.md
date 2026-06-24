@@ -110,7 +110,43 @@ otherwise trips hiphive's orbit enumeration). All on the RTX 2060, ≈ 20 min to
 > monotonic softening and a weakly-T-broadening K cusp; the electronic broadening
 > is a separate, MLIP-inaccessible channel.*
 
+## M2 (L-channel) — dense-T q*(T) map  ✅
+Extended M1.2 to **8 temperatures (10–600 K)**, FC-distilled MLIP, 6×6×1, in one
+MD pass (`td_anharmonic.py`, ~44 min on the 2060). K-A₁′ softens monotonically
+~1187→1172 cm⁻¹; the K cusp persists (kink_K ≈ 95±5); Γ-E₂g shows the same downward
+trend but **noisier** — its ~20 cm⁻¹ T-shift sits inside the ±~10 cm⁻¹ per-T
+stochastic-TDEP scatter (each T is an independent stochastic fit), so a clean Γ(T)
+needs more snapshots / ensemble averaging. Figure `graphene_td_m2.png`.
+
+## Anharmonicity diagnostic — quantifying the model's (L) anharmonicity  ✅
+Same MD snapshots, fit **fc₂-only vs fc₂+fc₃** (hiPhive) → how anharmonic the MLIP's
+PES sampling is, and how much is cubic. This is a **quantitative target for Path P's
+DFT distillation** (after distillation, compare these same numbers to DFT). Figure
+`graphene_anharmonicity.png`.
+
+| T (K) | total \|F\| | resid. after fc₂ | resid. after fc₂+fc₃ | anharmonic share of \|F\| | cubic share | ‖fc₃‖ |
+|---|---|---|---|---|---|---|
+| 10  | 182  | 7   | 1  | 3.8%  | 85% | 7498 |
+| 100 | 581  | 62  | 14 | 10.6% | 78% | 6536 |
+| 300 | 1026 | 190 | 54 | 18.5% | 72% | 5236 |
+| 600 | 1465 | 305 | 95 | 20.8% | 69% | 4871 |
+
+(meV/Å for forces; ‖fc₃‖ in the hiPhive fc₃ array norm.)
+
+**Findings.**
+1. **Anharmonic force fraction grows 3.8%→~21%** over 10→600 K — at 600 K ~1/5 of the
+   thermal force is beyond any harmonic fit.
+2. **Cubic share falls 85%→69%** — at low T the anharmonicity is almost all cubic
+   (fc₃); at high T the quartic+ (fc₄…) contribution grows, as it physically should.
+3. **Effective ‖fc₃‖ drops 7498→4871** — the cubic coupling itself thermally
+   renormalizes (effective fc₃(T) softens, like effective fc₂(T)).
+
+> **Honest scope.** These are the MLIP's *self*-anharmonicity (no DFT reference yet);
+> the diagnostic *defines the metric and the target* — Path P (P-A fc₃ distillation /
+> P-B thermal-config DFT-force distillation) is what supplies the DFT comparison and
+> the actual fix. Still (L)-channel only.
+
 ## Artifacts
-- code: `scripts/{td_common,td_structures,harmonic_dispersion_2d,anomaly_locate,graphene_sc_convergence,td_phonon,plot_graphene_anomaly,plot_sc_convergence,plot_td_dispersion}.py`
-- data: `data/td_phonon/{graphene,mos2,nbse2}.xyz`, `results/td_phonon/disp_graphene_{base,ft}.npz`, `results/td_phonon/graphene_sc_convergence.csv`, `results/td_phonon/td_graphene_ft.{npz,csv}`
-- figures: `results/figures/graphene_kohn_anomaly.png`, `graphene_sc_convergence.png`, `graphene_td_dispersion.png`
+- code: `scripts/{td_common,td_structures,harmonic_dispersion_2d,anomaly_locate,graphene_sc_convergence,td_phonon,td_anharmonic,plot_graphene_anomaly,plot_sc_convergence,plot_td_dispersion,plot_anharm_diag}.py`
+- data: `data/td_phonon/{graphene,mos2,nbse2}.xyz`, `results/td_phonon/disp_graphene_{base,ft}.npz`, `graphene_sc_convergence.csv`, `td_graphene_ft.{npz,csv}`, `td_graphene_ft_m2.{npz,csv}`
+- figures: `results/figures/graphene_kohn_anomaly.png`, `graphene_sc_convergence.png`, `graphene_td_dispersion.png`, `graphene_td_m2.png`, `graphene_anharmonicity.png`
