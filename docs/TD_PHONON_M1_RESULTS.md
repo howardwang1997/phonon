@@ -112,6 +112,30 @@ material-specific). This **resolves Gate #1's open branch — PASS**.
 > (hence the cusp) is right even though equilibrium a drifts; tightenable with more
 > energy weight or fixed-cell distillation.
 
+### Fixed-geometry refinement (apples-to-apples at a=2.46, no relax)
+Re-evaluating every model at the *same* DFT geometry removes the lattice confound and
+sharpens the verdict (`harmonic_dispersion_2d.py --a 2.46 --no-relax`;
+`m1_1b_fixed_geom_compare.png`):
+
+| at a=2.46 | Γ-E₂g | K-A₁′ | kink_Γ | kink_K |
+|---|---|---|---|---|
+| foundation (small) | 1238 | 1113 | 10.9 | 85.7 |
+| FC-distilled (bulk) | 1265 | 1107 | 8.9 | 87.4 |
+| **FC-distilled (graphene)** | **1570** | **1368** | **7.0** | **0.9** |
+| DFT (QE) | 1568 | 1362 | 7.0 | 0.8 |
+
+- **graphene-FT reproduces DFT to ~1% at *both* Γ and K** and matches DFT's cusp shape
+  (kink_Γ 7.0=7.0, kink_K 0.9≈0.8) — the green curve overlies the DFT dashed curve
+  across the whole M-Γ-K-M path. Γ gap closed = **101%**.
+- **bulk-FT's Γ recovery collapses to 8%** at the true geometry — the relaxed-eval 46%
+  was a lattice-contraction artifact (bulk-FT relaxes to a=2.42, which spuriously
+  stiffens its phonons). So bulk distillation essentially does **nothing** for graphene's Γ.
+- **Revises the M1.1/M1.2 "K cusp survives in the MLIPs" reading:** the large
+  foundation/bulk K kink (~86) is a *softening artifact* — their top branch dips to
+  ~1110 at K — **not** a faithful Kohn anomaly; DFT and graphene-FT keep K high (~1365)
+  and smooth. *Caveat:* the 5×5 DFT may itself under-resolve a true K-A₁′ Kohn dip; the
+  converged K needs a larger-supercell / denser-k DFT (deferred).
+
 ## M1.2 — temperature-dependent omega(q,T) via hiPhive-TDEP  ✅ (L-channel)
 **Method.** Per T: Langevin MD (FC-distilled MLIP forces) on a 6×6×1 = 72-atom
 supercell, 2 ps equilibration + 150 decorrelated snapshots (every 30 fs) →
@@ -190,5 +214,5 @@ DFT distillation** (after distillation, compare these same numbers to DFT). Figu
 - code: `scripts/{td_common,td_structures,harmonic_dispersion_2d,anomaly_locate,graphene_sc_convergence,td_phonon,td_anharmonic,plot_graphene_anomaly,plot_sc_convergence,plot_td_dispersion,plot_anharm_diag}.py`
 - M1.1b code: `scripts/{m1_1b_graphene_dft,m1_1b_make_graphene_data,plot_m1_1b_compare}.py`, `scripts/finetune_graphene.sh`
 - data: `data/td_phonon/{graphene,mos2,nbse2}.xyz`, `results/td_phonon/disp_graphene_{base,ft}.npz`, `graphene_sc_convergence.csv`, `td_graphene_ft.{npz,csv}`, `td_graphene_ft_m2.{npz,csv}`
-- M1.1b data: `results/m1_1b/dft/{graphene_dft_phonopy.yaml,disp_graphene_dft.npz}`, `results/m1_1b/disp_graphene_ftgraphene.npz` (model `ft_graphene.model` gitignored, on the V100)
-- figures: `results/figures/{graphene_kohn_anomaly,graphene_sc_convergence,graphene_td_dispersion,graphene_td_m2,graphene_anharmonicity,m1_1b_graphene_compare}.png`
+- M1.1b data: `results/m1_1b/dft/{graphene_dft_phonopy.yaml,disp_graphene_dft.npz}`, `results/m1_1b/disp_graphene_ftgraphene.npz`, `results/m1_1b/fixed/disp_graphene_{base,ftbulk,ftg}_a246.npz` (model `ft_graphene.model` gitignored, on the V100)
+- figures: `results/figures/{graphene_kohn_anomaly,graphene_sc_convergence,graphene_td_dispersion,graphene_td_m2,graphene_anharmonicity,m1_1b_graphene_compare,m1_1b_fixed_geom_compare}.png`
