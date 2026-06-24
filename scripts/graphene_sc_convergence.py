@@ -36,6 +36,8 @@ def main() -> int:
     ap.add_argument("--device", default="cuda")
     ap.add_argument("--sizes", default="3,5,7,9")
     ap.add_argument("--npoints", type=int, default=201)
+    ap.add_argument("--csv", default="", help="append rows to this CSV path")
+    ap.add_argument("--label", default="", help="model label for the CSV")
     a = ap.parse_args()
 
     calc = tdc.get_mace_calc(a.model, device=a.device)
@@ -45,6 +47,8 @@ def main() -> int:
     print(f"{'sc':>4s} {'natoms':>7s} {'wGamma':>9s} {'wK':>9s} "
           f"{'kinkGamma':>10s} {'kinkK':>8s} {'minfreq':>9s}")
 
+    csv_rows = []
+    label = a.label or a.model
     for n in [int(x) for x in a.sizes.split(",")]:
         disp = tdc.dispersion(at, calc, supercell=(n, n, 1),
                               displacement=0.03, path="MGKM", npoints=a.npoints)
@@ -57,6 +61,17 @@ def main() -> int:
         kK = kinks["K"]["kink_strength"]
         print(f"{n:>3d}x{n:<1d} {n*n*2:>7d} {wG:8.1f}  {wK:8.1f}  "
               f"{kG:9.1f}  {kK:7.1f}  {freq.min():8.2f}", flush=True)
+        csv_rows.append(f"{label},{n},{n*n*2},{wG:.2f},{wK:.2f},{kG:.3f},{kK:.3f},{freq.min():.3f}")
+
+    if a.csv:
+        p = ROOT / a.csv
+        p.parent.mkdir(parents=True, exist_ok=True)
+        new = not p.exists()
+        with open(p, "a") as f:
+            if new:
+                f.write("model,sc,natoms,w_gamma_cm,w_k_cm,kink_gamma,kink_k,minfreq_thz\n")
+            f.write("\n".join(csv_rows) + "\n")
+        print("appended", len(csv_rows), "rows ->", p.relative_to(ROOT))
     return 0
 
 
