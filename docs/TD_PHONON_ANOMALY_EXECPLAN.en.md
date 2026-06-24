@@ -166,6 +166,95 @@ crippled).
 
 ---
 
+## (Optional) Path P — improving anharmonic fidelity via higher-order / finite-T distillation
+
+> **When to consider.** M1.1b's harmonic fc₂ distillation only fixes the **0 K harmonic baseline**; bringing
+> the **finite-T / anharmonic simulations** (M1.2's ω(q,T), phonon linewidths, thermal conductivity; M3's
+> soft-mode T-evolution) to DFT accuracy needs this path. It is an **optional enhancement**, not a
+> prerequisite for gate #1.
+
+**Principle (read first).** fc₂ distillation's labels are **F = −Φ·u**, harmonic by construction — they
+contain **no anharmonicity at any displacement amplitude**, so pure fc₂ distillation can *never* fix
+anharmonicity. It still helps the anharmonic result in three indirect ways: (1) it shifts the baseline right,
+ω(q,T)=ω_harm+Δ(T); (2) it fixes the thermal amplitude ⟨u²⟩∝k_BT/(Mω²) → the anharmonic renormalization Δ(T)
+itself becomes more accurate; (3) the QHA/Grüneisen (thermal-expansion) layer is fixed for free. To fix the
+**explicit phonon–phonon (fc₃⁺)** layer you *must* have anharmonic reference data = real DFT forces or
+higher-order force constants. Three routes follow (decreasing repo-fit, increasing generality).
+
+### P-A — fc₃ (third-order) distillation
+- **Goal:** fix the phonon–phonon interaction — the thermal-softening *slope*, phonon linewidths, thermal κ.
+- **Data:** graphene third-order force constants fc₃; ~50–150 randomly-displaced supercells (5×5–6×6) with
+  DFT forces. Repo already has `dft_fc3_cs.py` (phono3py random displacements + symfc compressed sensing).
+- **Method:** DFPT/finite-displacement fc₃ → generate "cubic-aware" E/F labels (or DFT forces on
+  large-displacement configs) → fine-tune the MLIP; cross-check with a hiPhive fc₂+fc₃ fit on the same
+  snapshots.
+- **Expected result:** model fc₃ ≈ DFT fc₃; ω(q,T) softening slope and phonon linewidths match DFT; the
+  (L)-channel T-broadening of the K cusp is quantitatively right.
+- **Compute:** (a) ~20–50 FP64 GPU-hr (fc₃ needs more configs than fc₂); MLIP fine-tune ~1–2 GPU-hr.
+  (b) DFT → **V100/A100 rental**; MLIP → **2060**.
+- **Risk:** *medium.* fc₃ compressed sensing needs enough configs to be stable; a smooth interpolator still
+  struggles with the truly non-analytic Γ cusp.
+
+### P-B — DFT-force distillation on thermal structures (most direct, most robust)
+- **Goal:** make the model accurate on the **part of the PES the thermal simulation actually samples** (far
+  from equilibrium) — captures anharmonicity to all orders in one shot.
+- **Data:** ~100–300 thermally-sampled large-displacement configs (harmonic-distribution rattle / DFT-MD
+  snapshots / TDEP ensemble), each with its DFT (energy, forces).
+- **Method:** compute DFT forces on those configs → fine-tune the MLIP. Principle: "the model is accurate
+  where you sample it."
+- **Expected result:** finite-T ω(q,T), free energy, thermal expansion match DFT; more general than fc₃
+  alone (no order cutoff).
+- **Compute:** (a) ~20–80 FP64 GPU-hr (= #configs × per-single-point); sampling + fine-tune ~2–5 GPU-hr.
+  (b) DFT → **V100/A100 rental**; MLIP → **2060**.
+- **Risk:** *medium.* must cover the target-temperature phase space; #single-points sets the accuracy.
+
+### P-C — active-learning self-consistent loop (gold standard)
+- **Goal:** the model is accurate on the **self-consistent thermal ensemble** → the anharmonic result
+  converges to DFT level and is self-consistent.
+- **Data:** accumulated over iterations, ~100–300 DFT-labelled configs (~20–50 per iteration); typically
+  **4–6 iterations** to converge.
+- **Method:** per iteration — ① current model runs TDEP/SSCHA(T) → thermal ensemble [2060, minutes] →
+  ② pick ~20–50 configs by uncertainty/diversity → ③ DFT single-points (energy+forces) on them [FP64 rental,
+  the only expensive step] → ④ fine-tune the MLIP on the accumulated set [2060, 10–60 min] → ⑤ check whether
+  ω(q,T)/fc₂(T)/fc₃ are stable between iterations.
+- **Expected result:** ω(q,T), fc₂(T), fc₃ stable between iterations; softening slope, linewidths, κ at DFT
+  accuracy and self-consistent.
+- **Compute:**
+  - (a) **DFT ~20–80 FP64 GPU-hr** (graphene — one of the cheapest DFT systems, carbon's 2 valence
+    electrons; an NbSe₂-class system is 200–500); MLIP sampling + fine-tune ~2–5 GPU-hr locally.
+  - (b) DFT → **V100/A100 rental**; MLIP → **2060**.
+  - **Wall-clock:** serial on 1 GPU ~2–4 days; ~1 day on 4–8 GPUs in parallel (the bottleneck is
+    iterations × human checks, not machine-hours).
+  - **Cost:** ~20–80 A100 GPU-hr × $1–3/h ≈ **$30–250**.
+- **Risk:** *medium–high.* iterations × human judgement is the calendar bottleneck; near an instability
+  (e.g. NbSe₂ CDW) TDEP breaks → switch to SSCHA.
+
+### Cost of a single DFT single-point (graphene)
+6×6 = 72-atom supercell, 4×4 k-mesh, ~60 Ry: ~**3–15 GPU-min** per SCF single-point (the semimetal needs
+k-points, but the supercell folds them to 4×4). **Graphene sidesteps the NCS SSSP-pseudopotential blocker**
+(carbon pseudos are universal); only the FP64 rental remains.
+
+### Shortcuts & recommendation
+1. **Do the "one-shot" version first** (P-B, no iteration): a single round — the harmonic-distilled model
+   generates one thermal ensemble, label ~100–200 DFT configs, fine-tune once. Often gets **80%** of the
+   self-consistent benefit. **~10–40 GPU-hr / ~1 day / ~$15–100.** **Recommended starting point** before
+   committing to the full loop.
+2. **Single temperature vs T-sweep:** doing just 300 K saves 2–3× data vs 100–600 K.
+3. **Bootstrap from public data:** graphene has public DFT/AIMD anharmonic datasets → own-DFT can drop toward 0.
+4. **Free on the 2060 now:** fit fc₂+fc₃ from the *existing* M1.2 MD snapshots to quantify the model's
+   *current* anharmonicity (fc₃ norm / linewidth / softening slope) — a quantitative target for the later DFT
+   distillation, at zero new compute.
+
+### Comparison
+| route | anharmonic layer fixed | data needed | FP64 GPU-hr | wall-clock | when |
+|---|---|---|---|---|---|
+| **P-A** | explicit fc₃ (linewidths/slope) | fc₃ + ~50–150 DFT single-points | ~20–50 | ~1–2 d | want linewidths/κ |
+| **P-B** | all orders (thermal PES) | ~100–300 thermal-config DFT forces | ~20–80 | ~1–2 d | general, most robust |
+| **P-C** | self-consistent all-order | iterated ~100–300 | ~20–80 (+iteration overhead) | ~2–4 d (~1 d parallel) | gold standard |
+| *one-shot* | all orders (single round) | ~100–200 | ~10–40 | ~1 d | **preferred start** |
+
+---
+
 ## Risk register (consolidated)
 
 | # | risk | impact | likelihood | mitigation | fallback if triggered |
@@ -179,6 +268,7 @@ crippled).
 | R7 | **GPU boxes off tailnet** | med (M2 big cells, M3) | current | M0/M1 run locally on the 2060 | ask someone to `tailscale up` an H20 when needed |
 | R8 | **SSCHA/hiphive dependency conflicts** | low | med | isolate in dedicated conda env | pin e3nn/torch versions (experience exists) |
 | R9 | **anomaly locator false pos/neg** | med | med | smoothed deriv + threshold + multi-supercell convergence; benchmark vs literature | manual check of key q-points |
+| R10 | **mistaking harmonic fc₂ distillation for an anharmonic fix** | med (method misuse) | med | state F=−Φu has no anharmonicity; anharmonicity needs DFT forces/fc₃ (Path P) | go P-A/B/C for anharmonic reference data; run the free fc₃ diagnostic first |
 
 ## Go/No-Go gates
 - **Gate #1 (after M1):** can the (distilled) MLIP reproduce graphene's Kohn anomaly in ≲5 GPU-hr? **No →
