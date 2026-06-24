@@ -26,7 +26,7 @@ print('{' + ','.join(f'{z}:0.0' for z in zs) + '}')
 echo "graphene fine-tune: epochs=$EPOCHS device=$DEVICE E0s=$E0S data=$DATA"
 
 "$MACE_TRAIN" \
-  --name ft_graphene \
+  --name "${NAME:-ft_graphene}" \
   --foundation_model small \
   --multiheads_finetuning False \
   --foundation_model_elements True \
@@ -49,4 +49,4 @@ echo "graphene fine-tune: epochs=$EPOCHS device=$DEVICE E0s=$E0S data=$DATA"
   --checkpoints_dir "$OUT/checkpoints" \
   --log_dir "$OUT/logs" \
   --results_dir "$OUT/results"
-echo "FT_GRAPHENE_DONE -> $OUT/ft_graphene.model"
+echo "FT_GRAPHENE_DONE -> $OUT/${NAME:-ft_graphene}.model"
