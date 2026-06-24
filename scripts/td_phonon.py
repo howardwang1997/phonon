@@ -86,7 +86,7 @@ def effective_fc2(prim, ideal, sc_matrix, snaps, cutoff2):
     fcs = fcp.get_force_constants(ideal)
     fc2 = fcs.get_fc_array(order=2)  # (Nsc, Nsc, 3, 3), phonopy order
     rmse = getattr(opt, "rmse_train", None)
-    return fc2, float(rmse) if rmse is not None else float("nan"), len(cs)
+    return fc2, float(rmse) if rmse is not None else float("nan"), len(opt.parameters)
 
 
 def band_from_phonopy(ph, fc2, path="MGKM", npoints=201):
