@@ -21,22 +21,35 @@ sys.path.insert(0, str(ROOT / "src"))
 # --------------------------------------------------------------------------- #
 # Monolayer structures (literature geometry; relaxed per-model downstream)
 # --------------------------------------------------------------------------- #
-def build_monolayer(name: str, vacuum: float = 7.5) -> Atoms:
-    """Return an unrelaxed monolayer at a literature lattice constant.
+_LIT = {  # literature (a, thickness) per monolayer
+    "graphene": (2.46, 0.0),
+    "mos2": (3.18, 3.19),
+    "nbse2": (3.44, 3.34),
+}
 
-    ``vacuum`` is the half-gap added on each side along c (so c ~= 2*vacuum +
-    layer thickness). Hexagonal cell, pbc in all three directions (phonopy wants
-    a 3D cell; the c-axis band point is simply never sampled).
+
+def build_monolayer(name: str, vacuum: float = 7.5, a: float | None = None,
+                    thickness: float | None = None) -> Atoms:
+    """Return a *perfectly symmetric* monolayer (ASE builder).
+
+    With ``a``/``thickness`` None, uses the literature values; pass the relaxed
+    values to rebuild a clean primitive at a model's equilibrium (the relaxer's
+    in-plane shear can leave the cell slightly off-hexagonal, which trips
+    hiphive's orbit enumeration -- always rebuild before TDEP). ``vacuum`` is the
+    half-gap along c; pbc in all three directions.
     """
     from ase.build import graphene, mx2
 
     name = name.lower()
+    la, lt = _LIT.get(name, (None, None))
+    a = la if a is None else a
+    thickness = lt if thickness is None else thickness
     if name == "graphene":
-        at = graphene(formula="C2", a=2.46, vacuum=vacuum)
+        at = graphene(formula="C2", a=a, vacuum=vacuum)
     elif name == "mos2":
-        at = mx2(formula="MoS2", kind="2H", a=3.18, thickness=3.19, vacuum=vacuum)
+        at = mx2(formula="MoS2", kind="2H", a=a, thickness=thickness, vacuum=vacuum)
     elif name == "nbse2":
-        at = mx2(formula="NbSe2", kind="2H", a=3.44, thickness=3.34, vacuum=vacuum)
+        at = mx2(formula="NbSe2", kind="2H", a=a, thickness=thickness, vacuum=vacuum)
     else:
         raise ValueError(f"unknown monolayer {name!r} (graphene|mos2|nbse2)")
     at.pbc = True

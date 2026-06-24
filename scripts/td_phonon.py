@@ -133,10 +133,15 @@ def main() -> int:
     log(f"[{a.tag}] {a.structure} ({len(at0)} atoms); model={a.model} on {a.device}")
     calc = tdc.get_mace_calc(a.model, device=a.device)
 
-    # relax -> primitive; build phonopy supercell ordering as the MD reference
+    # relax to get the model's equilibrium (a, thickness), then rebuild a clean
+    # symmetric primitive at those values -- the relaxer's in-plane shear leaves
+    # the cell slightly off-hexagonal and trips hiphive's orbit enumeration.
     prim, info = tdc.relax_monolayer(at0, calc)
+    name = Path(a.structure).stem
+    prim = tdc.build_monolayer(name, vacuum=7.5, a=info["a"], thickness=info["thickness"])
     prim.wrap()
-    log(f"[{a.tag}] relaxed a={info['a']:.4f} A")
+    log(f"[{a.tag}] relaxed a={info['a']:.4f} A thickness={info['thickness']:.3f} A "
+        f"-> clean {name} primitive")
     from phonon_accel.phonons import ase_to_phonopy, phonopy_to_ase
     from phonopy import Phonopy
     ph0 = Phonopy(ase_to_phonopy(prim), supercell_matrix=sc_matrix,
