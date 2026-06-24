@@ -100,6 +100,16 @@ def main() -> int:
     print("\n--- Gamma-E2g gap closing (foundation -> DFT) ---")
     print(f"  bulk FT closed:     {100*(bG-fG)/(dG-fG):5.0f}%   ({fG:.0f} -> {bG:.0f}, DFT {dG:.0f})")
     print(f"  graphene FT closed: {100*(gG-fG)/(dG-fG):5.0f}%   ({fG:.0f} -> {gG:.0f}, DFT {dG:.0f})")
+
+    # cusp sharpness (top-branch two-sided kink |dv|) -- shape recovery, not just freq
+    print("\n--- top-branch kink |dv| at Gamma/K (cusp sharpness; closer to DFT = sharper) ---")
+    print(f"{'model':26s} {'kink_Gamma':>11s} {'kink_K':>8s}")
+    for name, d, _, _ in series:
+        ks = {k["label"]: k for k in al.high_sym_kinks(
+            d["distances"], d["frequencies"], d["label_positions"], d["labels"])}
+        kG = ks.get(r"$\Gamma$", {}).get("kink_strength", float("nan"))
+        kK = ks.get("K", {}).get("kink_strength", float("nan"))
+        print(f"{name:26s} {kG:11.1f} {kK:8.1f}")
     print("wrote", out)
     return 0
 

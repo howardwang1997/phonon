@@ -41,18 +41,31 @@ def main() -> int:
     ap.add_argument("--npoints", type=int, default=201)
     ap.add_argument("--path", default="GMKG")
     ap.add_argument("--outdir", default="results/td_phonon")
+    ap.add_argument("--a", type=float, default=0.0,
+                    help="override lattice const: rebuild monolayer at this a (A)")
+    ap.add_argument("--no-relax", action="store_true",
+                    help="evaluate at the given geometry without relaxing (fixed-a eval)")
     a = ap.parse_args()
 
     sc = tuple(int(x) for x in a.supercell.split(","))
-    at0 = read(ROOT / a.structure)
-    print(f"[{a.tag}] loaded {a.structure} ({len(at0)} atoms); "
-          f"loading model={a.model} on {a.device} ...", flush=True)
+    if a.a > 0:
+        name = Path(a.structure).stem
+        at0 = tdc.build_monolayer(name, a=a.a)
+        print(f"[{a.tag}] rebuilt {name} at a={a.a} A", flush=True)
+    else:
+        at0 = read(ROOT / a.structure)
+    print(f"[{a.tag}] loaded ({len(at0)} atoms); model={a.model} on {a.device} ...", flush=True)
     calc = tdc.get_mace_calc(a.model, device=a.device)
 
     t0 = time.perf_counter()
-    at, info = tdc.relax_monolayer(at0, calc)
-    print(f"[{a.tag}] relaxed: a={info['a']:.4f} A  thickness={info['thickness']:.3f} A "
-          f"fmax={info['fmax']:.1e} conv={info['converged']}", flush=True)
+    if a.no_relax:
+        at = at0
+        info = {"a": float(np.linalg.norm(at0.cell[0])), "thickness": 0.0}
+        print(f"[{a.tag}] NO-RELAX eval at a={info['a']:.4f} A", flush=True)
+    else:
+        at, info = tdc.relax_monolayer(at0, calc)
+        print(f"[{a.tag}] relaxed: a={info['a']:.4f} A  thickness={info['thickness']:.3f} A "
+              f"fmax={info['fmax']:.1e} conv={info['converged']}", flush=True)
 
     disp = tdc.dispersion(at, calc, supercell=sc, displacement=a.disp,
                           path=a.path, npoints=a.npoints)
