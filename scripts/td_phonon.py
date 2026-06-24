@@ -88,12 +88,9 @@ def effective_fc2(prim, ideal, sc_matrix, snaps, cutoff2):
     return fc2, float(opt.rmse_train), cs.number_of_dofs
 
 
-def dispersion_from_fc2(prim_ase, sc_matrix, fc2, path="MGKM", npoints=201):
-    from phonon_accel.phonons import ase_to_phonopy
-    from phonopy import Phonopy
-
-    ph = Phonopy(ase_to_phonopy(prim_ase), supercell_matrix=sc_matrix,
-                 primitive_matrix=np.eye(3))
+def band_from_phonopy(ph, fc2, path="MGKM", npoints=201):
+    """Run the dispersion on an existing phonopy object whose supercell ordering
+    matches the hiphive ``ideal`` used to build ``fc2``."""
     ph.force_constants = fc2
     qpoints, connections, labels = tdc.make_band_path(path, npoints=npoints)
     ph.run_band_structure(qpoints, path_connections=connections, labels=labels,
@@ -144,6 +141,11 @@ def main() -> int:
                   primitive_matrix=np.eye(3))
     ideal = phonopy_to_ase(ph0.supercell)
     prim_for_cs = phonopy_to_ase(ph0.primitive)
+    # phonopy can hand back scaled positions of exactly 1.0 (unwrapped corner
+    # atom), which breaks hiphive orbit enumeration -- wrap into the cell. Done
+    # before MD so the snapshots and the fit share the same reference order.
+    ideal.wrap()
+    prim_for_cs.wrap()
     log(f"[{a.tag}] MD supercell {sc} = {len(ideal)} atoms, cutoff2={a.cutoff2} A")
 
     out = {"temperatures": np.array(temps), "supercell": np.asarray(sc),
@@ -155,8 +157,7 @@ def main() -> int:
         log(f"[{a.tag}] T={T:.0f} K: MD sampling ...")
         snaps = sample_md(ideal, calc, T, a.dt, a.equil, a.nsnap, a.stride, log=log)
         fc2, rmse, ndof = effective_fc2(prim_for_cs, ideal, sc_matrix, snaps, a.cutoff2)
-        dist, freq, lp, labs = dispersion_from_fc2(prim_for_cs, sc_matrix, fc2,
-                                                   npoints=a.npoints)
+        dist, freq, lp, labs = band_from_phonopy(ph0, fc2, npoints=a.npoints)
         wG = al.branch_freq_at_label(dist, freq, lp, labs, r"$\Gamma$") * CM
         wK = al.branch_freq_at_label(dist, freq, lp, labs, "K") * CM
         kinks = {k["label"]: k for k in al.high_sym_kinks(dist, freq, lp, labs)}
