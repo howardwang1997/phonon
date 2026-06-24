@@ -83,7 +83,18 @@ def main() -> int:
 
     if args.born:  # non-analytical term correction (LO-TO) for polar materials
         from phonopy.file_IO import parse_BORN
-        ph3.nac_params = parse_BORN(ph3.phonon_primitive, filename=args.born)
+        try:
+            ph3.nac_params = parse_BORN(ph3.phonon_primitive, filename=args.born)
+        except Exception as _e:
+            # dft_born.py writes Z* for every primitive atom; parse_BORN expects only
+            # the symmetry-inequivalent set. Build nac_params from the full array instead.
+            ls = [l.split() for l in open(args.born).read().strip().split("\n")]
+            ph3.nac_params = {
+                "born": np.array([np.array(l, float).reshape(3, 3) for l in ls[2:]]),
+                "dielectric": np.array(ls[1], float).reshape(3, 3),
+                "factor": float(ls[0][0]),
+            }
+            print(f"NAC fallback (full Z* array, parse_BORN said: {_e})", flush=True)
         print(f"NAC enabled from {args.born}", flush=True)
     ph3.mesh_numbers = [args.mesh] * 3
     ph3.init_phph_interaction()

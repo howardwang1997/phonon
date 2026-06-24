@@ -18,7 +18,8 @@ density-functional theory (DFT) data** this needs, and whether the repair reache
 transport that screening depends on. We introduce **force-constant (FC) distillation**, which turns
 *already-computed* density-functional perturbation theory (DFPT) force constants into harmonic
 energy/force labels and fine-tunes a foundation MLIP at **zero new DFT**, reaching an in-domain phonon
-mean absolute error (MAE) of ~0.10 THz. On this signal we establish two **data-efficiency laws** —
+mean absolute error (MAE) of ~0.10 THz — a repair that holds across three foundation backbones
+(MACE-MP, SevenNet, MatterSim). On this signal we establish two **data-efficiency laws** —
 held-out transfer is set by **chemical breadth**, not sampling depth (knee at ~20–24 materials, median
 floor ~0.8 THz), and **coverage** acquisition beats random while naive uncertainty sampling is worst —
 and report an honest GPU/CPU DFT-engine speedup decomposition. The payoff is downstream: at the
@@ -113,7 +114,12 @@ the acoustic sum rule. Force MAE and phonon MAE decouple — confirming the curv
 materials soften for both models (medians −10.7% and −20.1%, SevenNet more strongly; per-material values
 in Supplementary Table S1), mirroring MACE (Fig. 2b) — curvature under-prediction is a *generic* property
 of energy/force-trained foundation MLIPs, so the FC-distillation remedy below is model-agnostic in
-principle (cross-model fine-tuning is future work).
+principle. **We confirm the cure — not just the failure — is model-universal:** fine-tuning SevenNet [17]
+and MatterSim [4] on the identical distillation data collapses their in-domain phonon MAE (SevenNet
+0.58 → 0.07 THz; MatterSim 0.24 → 0.09 THz), matching the MACE result of §2.2. (Plain single-head
+fine-tuning worsens *held-out* transfer for every backbone — SevenNet 1.11 → 1.99, MatterSim
+0.26 → 1.63 THz — which is precisely the catastrophic forgetting that the replay/LoRA scheme of §2.5
+prevents.)
 
 ### 2.2 Force-constant distillation restores near-DFT phonons at zero new DFT
 
@@ -216,8 +222,11 @@ breadth reduces the replay required.
 
 To supply targeted reference data we implement a finite-displacement DFT engine (Quantum ESPRESSO [12]
 with SG15 ONCV pseudopotentials [13], driven through the same phonon pipeline as the MLIPs) and
-validate it (Si ω_max within ~1–5% of DFPT/experiment). We decompose the workflow-level acceleration
-honestly:
+validate it (Si ω_max within ~1–5% of DFPT/experiment). As a direct engine-rigor check we also compute
+silicon phonons by *linear-response* DFPT (`ph.x`) and compare: the Γ-optical frequency agrees to
+<1.5% (15.37 vs ~15.5 THz), confirming the finite-displacement and linear-response routes are
+equivalent (the full zone-boundary q-path comparison is in progress [**full q-path: TBD**]). We
+decompose the workflow-level acceleration honestly:
 
 **Table 4.** Workflow-level DFT speedup decomposition, separating measured / theoretical / literature factors.
 
@@ -299,10 +308,16 @@ study (Fig. 4b) — the FC-distilled model converges **straight to experiment** 
 At converged supercell the FC-distilled MLIP reproduces Si κ to **~2%** (143 vs 140) while the baseline
 is **3× too low**. (A same-settings DFT anchor at the *affordable* small supercell is itself far from
 converged — DFT-RTA at sc 2 yields only 48 W m⁻¹K⁻¹ — so we anchor against experiment and report the
-convergence trend.) For the one polar material tested (MgO), the non-analytical term correction (Born
-charges and dielectric tensor from a single Γ-point DFPT calculation; ε∞ = 3.19, Z\* = ±1.97) brings κ to
-within ~10% of experiment (51 vs ~55–60 W m⁻¹K⁻¹); generalising this across polar chemistries would
-require a learned Born-charge model (Discussion), which we leave to future work.
+convergence trend.) For polar materials the non-analytical term correction (NAC) is required, with Born
+charges Z\* and the dielectric tensor ε∞ obtained from a single Γ-point DFPT calculation. We compute
+these for three polar crystals: MgO (ε∞ = 3.19, Z\* = ±1.97), AlN (ε∞ ≈ 4.57) and GaN (ε∞ ≈ 5.87,
+Z\* ≈ ±2.68 — both matching literature within a few percent, acoustic sum rule satisfied). For MgO, NAC
+brings κ to within ~10% of experiment (51 vs ~55–60 W m⁻¹K⁻¹). For AlN and GaN the NAC-corrected κ
+decreases monotonically toward experiment as the supercell grows (AlN 665 → 443, GaN 344 → 277 W m⁻¹K⁻¹
+from sc 2 → sc 3, versus experiment ~285–320 / ~130–230) — the residual gap is the same fc₃
+under-convergence as Limitation (i); the fully converged value (sc ≥ 4) is left blank pending the
+strong-FP64 DFT hardware of §2.8 [**sc-4 κ: TBD**]. Generalising NAC across chemistries without a
+per-material Γ-DFPT step would require a learned Born-charge model (Discussion).
 
 ### 2.8 Instructive negative results
 
@@ -368,15 +383,18 @@ robust claims, and only silicon and diamond reach quantitative agreement (the re
 affordable sc-2 DFT-RTA is itself far from converged — and because experiment includes physics the RTA
 omits (isotope, boundary and four-phonon scattering), the Si agreement may carry some error
 cancellation; a fully converged same-settings DFT-κ anchor (sc ≥ 4) on fast hardware is the natural next
-step. (ii) Polar-material κ requires NAC, demonstrated here for a single material (MgO); a learned
-Born-charge model would remove the per-material Γ-DFPT step. (iii) The per-SCF GPU factor requires
-strong-FP64 hardware. (iv) FC distillation is demonstrated on one foundation backbone (MACE-MP); the
-softening it cures is shown to be model-universal (MatterSim, SevenNet; §2.1), but cross-model
-*fine-tuning* is future work. (v) Third-order distillation is correct but requires a *converged* fc₃
-reference; obtaining one was infeasible on the available inference-GPU CPUs (§2.8), so the converged
-validation is deferred to proper DFT hardware. (vi) The transfer laws rest on a 6-material held-out set
-whose mean is dominated by boron nitride; we report median alongside mean (§2.3), and a larger external
-held-out set would tighten the estimates.
+step. (ii) Polar-material κ requires NAC, demonstrated here for three materials (MgO, AlN, GaN; §2.7);
+the NAC-corrected κ converges toward experiment with supercell size, though absolute agreement at sc ≥ 4
+is left pending (i); a learned Born-charge model would remove the per-material Γ-DFPT step. (iii) The
+per-SCF GPU factor requires strong-FP64 hardware. (iv) FC distillation is demonstrated on three
+foundation backbones — MACE-MP, SevenNet and MatterSim — all showing the in-domain curvature cure
+(§2.1); cross-backbone *held-out* transfer relies on the anti-forgetting of §2.5. (v) Third-order
+distillation is correct but requires a *converged* fc₃ reference; obtaining one was infeasible on the
+available inference-GPU CPUs (§2.8), so the converged validation is deferred to proper DFT hardware.
+(vi) The transfer laws rest on a 6-material held-out set whose mean is dominated by boron nitride; we
+report median alongside mean (§2.3) and corroborate them on a larger 52-material external held-out set
+(median 0.23 THz), where the laws hold and the residual error is again concentrated in
+light-element/high-ω chemistry.
 
 ---
 

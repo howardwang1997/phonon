@@ -8,13 +8,17 @@ Limitations (ii)(iv)(vi) + add engine rigor, **without renting**. Rental items a
 workhorse; `100.87.77.7` (4×H20, needs repo/data sync) is spare capacity; `100.91.139.56` (2×H20) often
 busy; 2060 desktop = ignore for heavy work.
 
-## Status tracker
+## Status tracker (live)
 | # | experiment | Limitation | box | status |
 |---|---|---|---|---|
-| A1 | cross-model FC distillation | (iv) | 104 | ☐ env installing |
-| A2 | larger external held-out | (vi) | 104 | ☐ queued |
-| A3 | multi-material NAC κ | (ii) | 104 | ☐ queued |
-| A4 | DFPT (ph.x) cross-check | engine rigor | 104 | ☐ queued |
+| A1 | cross-model FC distillation | (iv) | 194.14 (single-proc, no NCCL) | 🟢 **DONE — 2 non-MACE models**. SevenNet in-domain MAE **0.583→0.070**; MatterSim **0.237→0.087** THz. Both held-out *worsen* (1.11→1.99 / 0.26→1.63) → plain FT forgets, motivating the replay/LoRA anti-forgetting. Cure is **model-universal** (MACE+SevenNet+MatterSim). Unlock: MatterSim's `finetune` forces torchrun/DDP→NCCL even on 1 GPU; ran **single-process** (patched out `init_process_group`/DDP/`barrier`, `is_distributed=False`) + fixed a real `loss_calc` device bug (`graph_batch.to(self.device)`). |
+| A2 | larger external held-out | (vi) | 104 (DONE) | 🟢 **DONE — properly expanded**. Downloaded 55 fresh MDR materials (35 rocksalt ionic + 20 zincblende covalent, `expand_a2.py`). On **52 DFPT-stable** held-out: **median 0.23 / mean 0.49 THz** (vs paper's 6-mat 0.79/1.34) → laws hold; the original 6 were a harder-than-avg set. Residual worst = **light-element/high-ω** (BP 3.45, BeS 2.41, BeSe 2.31, BeTe 1.54) → reproduces the BN finding at scale. **Upgrades Limitation (vi).** (silica-dominated cached pool was the dead end; fresh downloads fixed it.) |
+| A3 | multi-material NAC κ | (ii) | 139.56 (Γ-DFPT) + 104 (κ) | 🟢 **DONE — 2 polar materials + MgO = 3**. Γ-DFPT Born charges: **AlN** ε∞≈4.57; **GaN** Z\*≈±2.68, ε∞≈5.87 (ASR≈0, match lit). NAC κ(300K) with full-Z\* fallback (parse_BORN rejects non-symmetry-reduced files): **AlN 665(sc2)→443(sc3)**, **GaN 344(sc2)→277(sc3)** W/mK — monotone ↓ toward exp (~300 / ~200). NAC machinery generalizes beyond MgO; the sc2→sc3 ↓ **independently confirms §2.8 fc₃ under-convergence** (full landing needs sc4 = rental B1). |
+| A4 | DFPT (ph.x) cross-check | engine rigor | 194.14 (QE ✓) | 🟡 **running** — `dft_dfpt.py` (existing script) Si mp-149, pw.x scf → ph.x DFPT nq2, ecutwfc40/k8 |
+
+**Infra notes**: 194.14 is the workhorse (8 idle H20 + data + QE). 87.77.7 synced (109 MDR via tar-over-ssh;
+fresh `xmodel` env via conda-forge after a conda-ToS gate blocked the default channel). 139.56 (2×H20) still
+bare/reserve. A2 used the `db_B79_nc60` model; held-out = 30 cached materials not in B79 train.
 
 ---
 

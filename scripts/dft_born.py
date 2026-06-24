@@ -57,7 +57,7 @@ def main() -> int:
     args = ap.parse_args()
     atoms = get_atoms(args.material)
     pseudos = pseudos_for(atoms)
-    wd = Path("/tmp/born"); shutil.rmtree(wd, ignore_errors=True); (wd / "out").mkdir(parents=True)
+    wd = Path(f"/tmp/born_{args.material}"); shutil.rmtree(wd, ignore_errors=True); (wd / "out").mkdir(parents=True)
     mpi = [str(DFT / "mpirun"), "--allow-run-as-root", "-np", str(args.nproc)]
 
     # 1. SCF
