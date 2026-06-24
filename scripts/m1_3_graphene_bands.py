@@ -94,10 +94,13 @@ def main() -> int:
     bands = espresso(a.pw, a.mpirun, a.nproc, pdir, a.pseudo, a.ecutwfc, a.ecutrho,
                      a.degauss, "bands", work / "scf", kpts=kpath4)
     atoms.calc = bands
-    atoms.get_potential_energy()
+    from ase.calculators.calculator import PropertyNotImplementedError
+    try:
+        atoms.get_potential_energy()  # 'bands' calc has no total energy -> expected
+    except PropertyNotImplementedError:
+        pass
 
     # parse eigenvalues
-    eigs = np.array(bands.get_eigenvalues(spin=0, kpt=0))[None, :]
     nk = len(kpath)
     E = np.array([bands.get_eigenvalues(spin=0, kpt=i) for i in range(nk)]) - efermi
 
