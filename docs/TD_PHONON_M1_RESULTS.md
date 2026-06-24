@@ -72,7 +72,45 @@ forward branches, both consistent with the main paper:
 - **M1.2** (hiPhive-TDEP) — proceed to the (L)-channel ω(q,T); the K-anomaly is a
   good handle to track q*(T).
 
+## M1.2 — temperature-dependent omega(q,T) via hiPhive-TDEP  ✅ (L-channel)
+**Method.** Per T: Langevin MD (FC-distilled MLIP forces) on a 6×6×1 = 72-atom
+supercell, 2 ps equilibration + 150 decorrelated snapshots (every 30 fs) →
+hiPhive effective harmonic fc₂(T) → phonopy dispersion on M-Γ-K-M → top-branch
+frequency + Kohn-kink at Γ/K. Atom order follows phonopy's supercell so the
+hiphive fc₂ maps straight on; the ClusterSpace is built from a freshly-rebuilt
+*symmetric* primitive at the model's relaxed `a` (the relaxer's in-plane shear
+otherwise trips hiphive's orbit enumeration). All on the RTX 2060, ≈ 20 min total
+(≈ 400 s / T). Thermalization is on target (T_inst = 103 / 308 / 609 K).
+
+| T (K) | Γ-E₂g (cm⁻¹) | K-A₁′ (cm⁻¹) | kink_Γ | kink_K | fit rmse (meV/Å) |
+|---|---|---|---|---|---|
+| 0 (M1.1 fc) | 1399 | 1192 | 6.6 | ~98 | — |
+| 100 | 1397 | 1181 | 5.7 | 95.3 | 64 |
+| 300 | 1381 | 1170 | 6.0 | 95.4 | 174 |
+| 600 | 1364 | 1158 | 5.8 | 92.4 | 325 |
+
+**Findings (all (L)-channel).**
+1. **Monotonic thermal softening** of both optical modes: Γ-E₂g −33 cm⁻¹ (−2.4%)
+   and K-A₁′ −34 cm⁻¹ (−2.9%) over 0→600 K — the phonon-population / anharmonic
+   renormalization the MLIP *can* see (fig `graphene_td_dispersion.png`).
+2. **The K-A₁′ cusp persists across T** (kink_K ≈ 95, flat to 300 K, slight
+   broadening to 92 at 600 K) — in the (L) channel the anomaly is only weakly
+   T-dependent.
+3. **The Γ cusp stays washed out at every T** (kink_Γ ≈ 6), consistent with M1.1.
+4. **Fit rmse grows with T** (64→174→325 meV/Å) — expected: larger displacements
+   → more fc₃⁺ anharmonicity outside the effective fc₂ (motivates adding fc₃ for
+   linewidths later).
+
+> **Honesty (the plan's core tension).** This is the **(L) lattice-anharmonic**
+> channel ONLY. The **(E) electronic** channel — Fermi-Dirac smearing that
+> broadens/moves the Kohn anomaly with electronic temperature — is **not in the
+> MLIP** (ground-state BO PES). Real graphene's K-anomaly would broaden more
+> strongly with T from (E); quantifying that needs DFPT-with-smearing (M1.3,
+> FP64/rental). So the reportable M1.2 result is: *the (L) channel gives a small
+> monotonic softening and a weakly-T-broadening K cusp; the electronic broadening
+> is a separate, MLIP-inaccessible channel.*
+
 ## Artifacts
-- code: `scripts/{td_common,td_structures,harmonic_dispersion_2d,anomaly_locate,graphene_sc_convergence,plot_graphene_anomaly,plot_sc_convergence}.py`
-- data: `data/td_phonon/{graphene,mos2,nbse2}.xyz`, `results/td_phonon/disp_graphene_{base,ft}.npz`, `results/td_phonon/graphene_sc_convergence.csv`
-- figures: `results/figures/graphene_kohn_anomaly.png`, `results/figures/graphene_sc_convergence.png`
+- code: `scripts/{td_common,td_structures,harmonic_dispersion_2d,anomaly_locate,graphene_sc_convergence,td_phonon,plot_graphene_anomaly,plot_sc_convergence,plot_td_dispersion}.py`
+- data: `data/td_phonon/{graphene,mos2,nbse2}.xyz`, `results/td_phonon/disp_graphene_{base,ft}.npz`, `results/td_phonon/graphene_sc_convergence.csv`, `results/td_phonon/td_graphene_ft.{npz,csv}`
+- figures: `results/figures/graphene_kohn_anomaly.png`, `graphene_sc_convergence.png`, `graphene_td_dispersion.png`
