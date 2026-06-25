@@ -249,6 +249,21 @@ with DFT forces makes the model accurate where the simulation actually samples.
 > downstream validation (ω(q,T) / linewidths). CPU-QE made this feasible (~2 min/config);
 > scaling to 100s of configs wants GPU-QE.
 
+## MoS₂ negative control — the locator does NOT false-positive  ✅
+A gapped semiconductor has no Fermi surface, so the locator should find *nothing*.
+MoS₂ monolayer dispersion (5×5×1, M-Γ-K-M) + the anomaly locator, on the 2060:
+
+| top-branch kink \|dv\| | Γ | K |
+|---|---|---|
+| MoS₂ foundation MACE | 2.1 | 0.3 |
+| MoS₂ FC-distilled | 0.7 | 0.3 |
+| *graphene (contrast)* | ~11 | **~86–100** |
+
+MoS₂ shows **no cusp** (kink ≤ 2 at Γ/K) vs graphene's strong K-A₁′ cusp (~86–100) —
+confirming the locator flags anomalies only where the e-ph physics actually produces
+them, not numerical artifacts. (MoS₂ optical modes: foundation ~348, FT ~368–381 cm⁻¹,
+both softened vs exp ~400 — the §2.1 softening is present here too, but cusp-free.)
+
 ## Artifacts
 - code: `scripts/{td_common,td_structures,harmonic_dispersion_2d,anomaly_locate,graphene_sc_convergence,td_phonon,td_anharmonic,plot_graphene_anomaly,plot_sc_convergence,plot_td_dispersion,plot_anharm_diag}.py`
 - M1.3 / Path-P code: `scripts/{m1_3_graphene_bands,path_p_make_data,path_p_eval}.py`
