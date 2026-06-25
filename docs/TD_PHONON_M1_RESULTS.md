@@ -264,6 +264,25 @@ confirming the locator flags anomalies only where the e-ph physics actually prod
 them, not numerical artifacts. (MoS₂ optical modes: foundation ~348, FT ~368–381 cm⁻¹,
 both softened vs exp ~400 — the §2.1 softening is present here too, but cusp-free.)
 
+## Cross-model — softening is model-universal (graphene Γ-E₂g)  ✅
+Re-ran the graphene harmonic dispersion with **SevenNet** (7net-0, isolated env on the
+2060, CPU) to test whether the softening is MACE-specific:
+
+| model | Γ-E₂g (cm⁻¹) | vs lit ~1600 | kink_Γ | kink_K |
+|---|---|---|---|---|
+| MACE foundation | 1254 | **−22%** | ~11 | ~86 |
+| **SevenNet (7net-0)** | **1382** | **−14%** | 24 | 0.3 |
+| MACE-FT graphene (M1.1b) | 1556 | −3% | 7 | 0.9 |
+| DFT (QE) | 1568 | −2% | 7 | 0.8 |
+
+- **Both foundation MLIPs soften Γ-E₂g** (MACE −22%, SevenNet −14%) → the softening is
+  **model-universal**, not a MACE artifact (consistent with the main paper §2.1, where
+  MACE/SevenNet/MatterSim all soften). MatterSim not re-run here — two backbones already
+  make the point, and §2.1 already has MatterSim.
+- **SevenNet's K is smooth** (kink 0.3, high at 1231) like DFT (0.8), **not** dipped like
+  MACE foundation (kink ~86) — independently confirms the M1.1b-tighten finding that the
+  MACE "K cusp" is a softening artifact, not a faithful Kohn anomaly.
+
 ## NbSe₂ MLIP preview — Gate #2: the soft mode is missed  ⚠️
 Monolayer NbSe₂ (metallic, strong Kohn anomaly → CDW) harmonic dispersion with the
 foundation and general-FC-distilled MLIP (6×6×1, Γ-M-K-Γ; 2060, MLIP-only):
