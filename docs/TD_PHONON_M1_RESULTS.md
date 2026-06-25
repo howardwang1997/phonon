@@ -264,6 +264,22 @@ confirming the locator flags anomalies only where the e-ph physics actually prod
 them, not numerical artifacts. (MoS₂ optical modes: foundation ~348, FT ~368–381 cm⁻¹,
 both softened vs exp ~400 — the §2.1 softening is present here too, but cusp-free.)
 
+## NbSe₂ MLIP preview — Gate #2: the soft mode is missed  ⚠️
+Monolayer NbSe₂ (metallic, strong Kohn anomaly → CDW) harmonic dispersion with the
+foundation and general-FC-distilled MLIP (6×6×1, Γ-M-K-Γ; 2060, MLIP-only):
+
+| | min freq (THz) | n_imaginary (<−0.1 THz) | soft mode? |
+|---|---|---|---|
+| NbSe₂ foundation | −0.013 | 0 | none |
+| NbSe₂ FC-distilled | −0.005 | 0 | none |
+
+**Both MLIPs show NbSe₂ as dynamically stable** — no soft/imaginary mode along Γ-M,
+where real monolayer NbSe₂ has a CDW instability. The d-electron-driven soft mode is
+**missed** by the bulk-trained MLIPs (plan risk R4). **Gate #2 preview = the soft mode
+needs DFT distillation**: M3 (NbSe₂) cannot ride cheap MLIP compute; it requires NbSe₂'s
+own DFPT fc₂/fc₃ as a distillation target (FP64) — the heavy path the plan flagged. (Top
+optical ~210–230 cm⁻¹, also softened.) *Cheap MLIP check that de-risks the M3 budget.*
+
 ## Artifacts
 - code: `scripts/{td_common,td_structures,harmonic_dispersion_2d,anomaly_locate,graphene_sc_convergence,td_phonon,td_anharmonic,plot_graphene_anomaly,plot_sc_convergence,plot_td_dispersion,plot_anharm_diag}.py`
 - M1.3 / Path-P code: `scripts/{m1_3_graphene_bands,path_p_make_data,path_p_eval}.py`
