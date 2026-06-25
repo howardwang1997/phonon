@@ -181,3 +181,17 @@ def get_mace_calc(model: str, device: str = "cuda"):
     from phonon_accel.mlip_calc import get_calculator
 
     return get_calculator("mace", device=device, model=model)
+
+
+def get_calc(model_type: str, model: str, device: str = "cuda"):
+    """Generic foundation-MLIP loader for the cross-model TD study."""
+    from phonon_accel.mlip_calc import get_calculator
+
+    mt = model_type.lower()
+    if mt in ("mace", "mace-mp", "mace_mp"):
+        return get_calculator("mace", device=device, model=model)
+    if mt in ("sevennet", "sevenn", "7net"):
+        return get_calculator("sevennet", device=device, model=model)
+    if mt == "mattersim":
+        return get_calculator("mattersim", device=device, load_path=model)
+    raise ValueError(f"unknown model_type {model_type!r}")

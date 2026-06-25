@@ -45,6 +45,8 @@ def main() -> int:
                     help="override lattice const: rebuild monolayer at this a (A)")
     ap.add_argument("--no-relax", action="store_true",
                     help="evaluate at the given geometry without relaxing (fixed-a eval)")
+    ap.add_argument("--model-type", default="mace",
+                    help="mace | sevennet | mattersim (cross-model TD)")
     a = ap.parse_args()
 
     sc = tuple(int(x) for x in a.supercell.split(","))
@@ -54,8 +56,8 @@ def main() -> int:
         print(f"[{a.tag}] rebuilt {name} at a={a.a} A", flush=True)
     else:
         at0 = read(ROOT / a.structure)
-    print(f"[{a.tag}] loaded ({len(at0)} atoms); model={a.model} on {a.device} ...", flush=True)
-    calc = tdc.get_mace_calc(a.model, device=a.device)
+    print(f"[{a.tag}] loaded ({len(at0)} atoms); {a.model_type} model={a.model} on {a.device} ...", flush=True)
+    calc = tdc.get_calc(a.model_type, a.model, device=a.device)
 
     t0 = time.perf_counter()
     if a.no_relax:
