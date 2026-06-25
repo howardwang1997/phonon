@@ -264,24 +264,36 @@ confirming the locator flags anomalies only where the e-ph physics actually prod
 them, not numerical artifacts. (MoS₂ optical modes: foundation ~348, FT ~368–381 cm⁻¹,
 both softened vs exp ~400 — the §2.1 softening is present here too, but cusp-free.)
 
-## Cross-model — softening is model-universal (graphene Γ-E₂g)  ✅
-Re-ran the graphene harmonic dispersion with **SevenNet** (7net-0, isolated env on the
-2060, CPU) to test whether the softening is MACE-specific:
+## Cross-model (3 backbones × 3 systems) — a more nuanced picture  ✅
+Re-ran the harmonic dispersion with **SevenNet** (7net-0) and **MatterSim** (v1.0.0-5M)
+in isolated envs on the 2060 (CPU), alongside MACE, on all three monolayers.
+
+**Graphene Γ-E₂g — softening is *model-dependent*, NOT universal:**
 
 | model | Γ-E₂g (cm⁻¹) | vs lit ~1600 | kink_Γ | kink_K |
 |---|---|---|---|---|
 | MACE foundation | 1254 | **−22%** | ~11 | ~86 |
-| **SevenNet (7net-0)** | **1382** | **−14%** | 24 | 0.3 |
+| SevenNet (7net-0) | 1382 | **−14%** | 24 | 0.3 |
+| **MatterSim (5M)** | **1563** | **−2%** | 8 | 1.5 |
 | MACE-FT graphene (M1.1b) | 1556 | −3% | 7 | 0.9 |
 | DFT (QE) | 1568 | −2% | 7 | 0.8 |
 
-- **Both foundation MLIPs soften Γ-E₂g** (MACE −22%, SevenNet −14%) → the softening is
-  **model-universal**, not a MACE artifact (consistent with the main paper §2.1, where
-  MACE/SevenNet/MatterSim all soften). MatterSim not re-run here — two backbones already
-  make the point, and §2.1 already has MatterSim.
-- **SevenNet's K is smooth** (kink 0.3, high at 1231) like DFT (0.8), **not** dipped like
-  MACE foundation (kink ~86) — independently confirms the M1.1b-tighten finding that the
-  MACE "K cusp" is a softening artifact, not a faithful Kohn anomaly.
+> **Correction to the earlier "softening is universal" reading:** with all three backbones
+> the severity clearly varies — MACE softens hardest (−22%), SevenNet middle (−14%), and
+> **MatterSim barely softens graphene's E₂g at all (−2%, essentially DFT)**. So the Γ-E₂g
+> softening is **model-specific**; §2.1's −10.7% MatterSim figure is a *median over bulk
+> materials* — graphene is a case where MatterSim happens to be excellent. Also: only MACE
+> shows the spurious dipped K (kink ~86); SevenNet/MatterSim/DFT all keep K smooth (kink
+> ≤1.5) — confirming the MACE "K cusp" is a softening artifact, model-specifically.
+
+**MoS₂ negative control — universal (all 3 cusp-free):** kink_Γ/K ≤ 3 for every backbone
+(MACE, SevenNet 2.2/1.3, MatterSim 2.7/0.0) — the locator never false-positives. Optical
+mode: MACE 368 (softened), SevenNet 431, MatterSim 458 (vs exp ~400) — again model-specific.
+
+**NbSe₂ soft mode — the MISS is universal (all 3 stable, 0 imaginary):** MACE −0.013,
+SevenNet −0.00, MatterSim −0.00 THz; n_imaginary = 0 for all. **Every backbone misses the
+CDW soft mode** → Gate #2 is robust across models: **M3 needs NbSe₂-specific DFT
+distillation regardless of the MLIP backbone.**
 
 ## NbSe₂ MLIP preview — Gate #2: the soft mode is missed  ⚠️
 Monolayer NbSe₂ (metallic, strong Kohn anomaly → CDW) harmonic dispersion with the
