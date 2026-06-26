@@ -249,6 +249,27 @@ with DFT forces makes the model accurate where the simulation actually samples.
 > downstream validation (ω(q,T) / linewidths). CPU-QE made this feasible (~2 min/config);
 > scaling to 100s of configs wants GPU-QE.
 
+### Path P PRODUCTION — multi-T, 150 configs on GPU-QE  ✅
+With GPU-QE built (~19× faster DFT; see `docs/GPU_QE_BUILD.md`), scaled Path P to **3
+temperatures (100/300/600 K) × 50 snapshots = 150 DFT-labelled configs** (train 97 / val
+16 / **held-out test 37**, spanning all T). Force-only fine-tune (energy_weight 0) from
+the MACE-small foundation. The anharmonic gap *grows with T* (harmonic-FT force error 92
+meV/Å at 300 K → 180 at 600 K; mean 128).
+
+| model | force RMSE vs DFT (held-out, 100–600 K) |
+|---|---|
+| foundation (MACE-small) | 294 meV/Å |
+| harmonic-FT (M1.1b, 0 K-distilled) | 149 meV/Å |
+| **Path-P production** | **21 meV/Å** |
+
+**Gap closed 149 → 21 meV/Å (86%)**, now across the full 100–600 K range and on a *held-out*
+test set (vs the one-shot's 138→17 at 300 K only). The 21 (vs 17) is *because* the test
+includes 600 K configs where anharmonicity is strongest — so this is the stronger result:
+**one model accurate across the whole thermal range**, not just near 300 K. The DFT
+labelling (150 single-points) took ~40 min on the one V100 GPU — would have been ~5 h on
+CPU. Data `data/path_p/{train,val,test}.xyz` + `split.json`; model `ft_path_p.model`
+(gitignored). The original GPU-QE motivation (scale Path P) is realised.
+
 ## MoS₂ negative control — the locator does NOT false-positive  ✅
 A gapped semiconductor has no Fermi surface, so the locator should find *nothing*.
 MoS₂ monolayer dispersion (5×5×1, M-Γ-K-M) + the anomaly locator, on the 2060:
