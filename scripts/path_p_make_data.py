@@ -50,7 +50,10 @@ def main() -> int:
     ap.add_argument("--a", type=float, default=2.46)
     ap.add_argument("--supercell", type=int, default=3)
     ap.add_argument("--T", type=float, default=300.0)
-    ap.add_argument("--nsnap", type=int, default=40)
+    ap.add_argument("--temps", default="",
+                    help="comma list of temperatures (production); overrides --T")
+    ap.add_argument("--nsnap", type=int, default=40,
+                    help="snapshots PER temperature")
     ap.add_argument("--equil", type=int, default=1500)
     ap.add_argument("--stride", type=int, default=40)
     ap.add_argument("--dt", type=float, default=1.0)
@@ -68,27 +71,31 @@ def main() -> int:
     work = ROOT / "results/path_p/dft"
     work.mkdir(parents=True, exist_ok=True)
 
-    # 1) MD with the harmonic graphene-FT model
+    # 1) MD with the harmonic graphene-FT model, looped over temperatures
+    temps = ([float(x) for x in a.temps.split(",")] if a.temps else [a.T])
     calc = tdc.get_mace_calc(a.model, device=a.device)
     prim = tdc.build_monolayer("graphene", a=a.a)
-    cell = prim.repeat((a.supercell, a.supercell, 1))
-    cell.wrap()
-    print(f"[pathP] graphene {a.supercell}x{a.supercell} = {len(cell)} atoms; "
-          f"MD {a.T:.0f} K with {a.model} ...", flush=True)
-    cell.calc = calc
-    MaxwellBoltzmannDistribution(cell, temperature_K=a.T, rng=np.random.default_rng(0))
-    Stationary(cell); ZeroRotation(cell)
-    dyn = Langevin(cell, a.dt * units.fs, temperature_K=a.T, friction=0.02,
-                   rng=np.random.default_rng(1))
-    dyn.run(a.equil)
     snaps = []
-    for _ in range(a.nsnap):
-        dyn.run(a.stride)
-        s = cell.copy()
-        s.info["mace_forces_rms"] = float(np.sqrt(np.mean(cell.get_forces() ** 2)))
-        s.arrays["mace_forces"] = cell.get_forces()
-        snaps.append(s)
-    print(f"[pathP] sampled {len(snaps)} snapshots", flush=True)
+    for ti, T in enumerate(temps):
+        cell = prim.repeat((a.supercell, a.supercell, 1))
+        cell.wrap()
+        print(f"[pathP] graphene {a.supercell}x{a.supercell} = {len(cell)} atoms; "
+              f"MD {T:.0f} K ({ti+1}/{len(temps)}) with {a.model} ...", flush=True)
+        cell.calc = calc
+        MaxwellBoltzmannDistribution(cell, temperature_K=T,
+                                     rng=np.random.default_rng(100 + ti))
+        Stationary(cell); ZeroRotation(cell)
+        dyn = Langevin(cell, a.dt * units.fs, temperature_K=T, friction=0.02,
+                       rng=np.random.default_rng(200 + ti))
+        dyn.run(a.equil)
+        for _ in range(a.nsnap):
+            dyn.run(a.stride)
+            s = cell.copy()
+            s.info["T"] = T
+            s.info["mace_forces_rms"] = float(np.sqrt(np.mean(cell.get_forces() ** 2)))
+            s.arrays["mace_forces"] = cell.get_forces()
+            snaps.append(s)
+    print(f"[pathP] sampled {len(snaps)} snapshots over T={temps}", flush=True)
 
     # 2) DFT-label each snapshot
     cm_err = []
@@ -128,7 +135,8 @@ def main() -> int:
     write(out / "test.xyz", test, format="extxyz")
     summary = {
         "n_train": len(train) - nval, "n_val": nval, "n_test": len(test),
-        "supercell": a.supercell, "T": a.T, "natoms": len(cell),
+        "supercell": a.supercell, "temps": temps, "natoms": len(snaps[0]),
+        "nsnap_per_T": a.nsnap, "kpts": a.kpts,
         "harmonic_model_force_rmse_meVA": round(float(np.mean(cm_err)), 1),
         "source_model": a.model,
     }
