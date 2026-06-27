@@ -492,11 +492,20 @@ The rigorous version of C (free-energy Hessian — the correct tool near an inst
   `liblapack`/`LIBRARY_PATH`** → `cellconstructor-1.6.2` + `python-sscha-1.6.1` import cleanly.
 - **Driver written** — `scripts/vq3e_nbse2_sscha.py` (load DFT fc₂ → ForcePositiveDefinite →
   SSCHA free-energy Hessian per T with the FT MLIP).
-- **Blocked:** cellconstructor 1.6.2's phonopy→dyn conversion is broken on current numpy —
-  `load_phonopy` deprecated, `phonopy_fc2_to_tensor2` needs an `np.int` shim, and
-  `ForceTensor.Tensor2.SetupFromTensor` **core-dumps (SIGFPE)** on the converted tensor.
-  *Fix:* pin an older CC/numpy, or assemble the starting dyn from scratch (q-space DM).
-  The TDEP result (C: soft mode stabilizes ~150 K) stands as the (L)-channel answer meanwhile.
+- **Blocked — two distinct cellconstructor version walls (bisected):**
+  - **CC 1.6.2** (numpy 2.x): `phonopy_fc2_to_tensor2` needs an `np.int` shim, then the
+    Structure/Tensor2 construction **core-dumps (SIGFPE)** in compiled f90.
+  - **CC 1.4.1** (fresh `sscha14` env, numpy 1.23; pip *and* conda-forge builds): **no SIGFPE**
+    (the downgrade fixes that) but `Structure.generate_supercell` fails in f2py —
+    `ValueError: failed converting 'ityp' to C/Fortran array` (numpy-1.23 default int64 vs
+    Fortran int32). A basic supercell op, so it blocks every dyn build; not patchable from
+    outside (many f2py call sites).
+  - *Remaining fix:* the exact numpy/f2py-compatible CC+python-sscha combo the SSCHA devs test
+    against (likely numpy ≤1.22 or a CC with explicit int32 casts) — a focused version-bisection,
+    a separate effort. The install itself is fully solved (Tsinghua mirror + ToS + liblapack).
+  **The TDEP result (C: soft mode stabilizes ~150 K) stands as the (L)-channel answer.** Driver
+  `scripts/vq3e_nbse2_sscha.py` + conversion probe `scripts/test_cc_conversion.py` are ready for
+  when a working CC env exists.
 
 ### #4 — cross-model NbSe₂ distillation  ✅ DONE: the cure is UNIVERSAL across backbones
 Distilled the NbSe₂ DFT fc₂ into **SevenNet** (7net-0) — `sevenn_preset fine_tune` → fine-tune from
