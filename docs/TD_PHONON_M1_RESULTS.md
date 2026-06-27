@@ -484,28 +484,34 @@ tight threshold made ph.x crawl) + drop el-ph. `scripts/vq2b_graphene_dfpt.sh`,
 `results/vq2b_dfpt/dfpt_smearing.csv`; fig `results/figures/dfpt_smearing.png`,
 plotter `scripts/plot_dfpt_smearing.py`.
 
-### #1 — NbSe₂ SSCHA  ⚠️ INSTALL SOLVED, driver blocked by a cellconstructor bug
-The rigorous version of C (free-energy Hessian — the correct tool near an instability).
-- **Install solved (the hard part).** python-sscha/cellconstructor would not build on the
-  2060; root cause = conda on the `defaults` channel only + China-blocked anaconda.org +
-  conda **ToS** wall. Fixed via **Tsinghua conda-forge mirror + `conda tos accept` +
-  `liblapack`/`LIBRARY_PATH`** → `cellconstructor-1.6.2` + `python-sscha-1.6.1` import cleanly.
-- **Driver written** — `scripts/vq3e_nbse2_sscha.py` (load DFT fc₂ → ForcePositiveDefinite →
-  SSCHA free-energy Hessian per T with the FT MLIP).
-- **Blocked — two distinct cellconstructor version walls (bisected):**
-  - **CC 1.6.2** (numpy 2.x): `phonopy_fc2_to_tensor2` needs an `np.int` shim, then the
-    Structure/Tensor2 construction **core-dumps (SIGFPE)** in compiled f90.
-  - **CC 1.4.1** (fresh `sscha14` env, numpy 1.23; pip *and* conda-forge builds): **no SIGFPE**
-    (the downgrade fixes that) but `Structure.generate_supercell` fails in f2py —
-    `ValueError: failed converting 'ityp' to C/Fortran array` (numpy-1.23 default int64 vs
-    Fortran int32). A basic supercell op, so it blocks every dyn build; not patchable from
-    outside (many f2py call sites).
-  - *Remaining fix:* the exact numpy/f2py-compatible CC+python-sscha combo the SSCHA devs test
-    against (likely numpy ≤1.22 or a CC with explicit int32 casts) — a focused version-bisection,
-    a separate effort. The install itself is fully solved (Tsinghua mirror + ToS + liblapack).
-  **The TDEP result (C: soft mode stabilizes ~150 K) stands as the (L)-channel answer.** Driver
-  `scripts/vq3e_nbse2_sscha.py` + conversion probe `scripts/test_cc_conversion.py` are ready for
-  when a working CC env exists.
+### #1 — NbSe₂ SSCHA  ✅ DONE (rigorous free-energy-Hessian T-evolution)
+The rigorous version of C: SSCHA gives the free-energy Hessian — the correct tool near an
+instability (TDEP's perturbative footing is weak there). At fixed a=3.44 with the FT MLIP:
+
+| T (K) | 20 | 100 | 200 | 300 | 400 |
+|---|---|---|---|---|---|
+| SSCHA free-energy-Hessian min freq (cm⁻¹) | 0 | 0 | 0 | 0 | 0 |
+| n_imaginary | 0 | 0 | 0 | 0 | 0 |
+
+**Finding.** The bare harmonic DFT fc₂ has the CDW soft mode (−126.6 cm⁻¹ on the 3×3), but the
+**SSCHA free-energy Hessian shows no imaginary modes at any T (20–400 K)** — the soft mode is
+**fully anharmonically/quantum-stabilized** in the FT MLIP. This **refines TDEP-C**: TDEP (perturbative)
+reported a low-T soft mode stabilizing ~150 K, but the rigorous SSCHA stabilizes it at *all* T — a
+clean illustration that **SSCHA > TDEP near an instability** (the plan's explicit caveat). It also
+exposes a real limitation: the **harmonic** FC-distillation reproduces the soft fc₂ but does *not*
+constrain the MLIP's anharmonic CDW double-well, so under SSCHA fluctuations the MLIP doesn't sustain
+the CDW — capturing the CDW *landscape* would need Path-P-style **anharmonic** distillation. Data
+`results/td_phonon/nbse2_sscha.csv`.
+
+- **The blocker was trivial, masked by an env cascade.** The "SIGFPE / f2py `ityp` dtype" errors were
+  red herrings — the real bug was passing the **3×3 supercell matrix** to CC where it wants the
+  **diagonal `[nx,ny,nz]`** (`np.prod(matrix)`=0 from the off-diagonal zeros → empty arrays). Build the
+  dyn from the full (3·nat_sc, 3·nat_sc) FC in Ry/Bohr² (×0.020582 from eV/Å²) via
+  `Tensor2(struc, sc, dim).SetupFromTensor(M); GeneratePhonons(dim)`.
+- **Working `sscha14` env (all via Tsinghua mirror):** `cellconstructor==1.4.1` + `python-sscha==1.4.1`
+  + **numpy 1.23** (CC's `symph` f90 ext breaks on numpy 2.x) + **spglib 1.16 + phonopy 2.18** (CC's
+  symmetry needs spglib<2, phonopy≥4 needs spglib≥2 → pin phonopy 2.18) + mace-torch 0.3.16; run with
+  `LD_LIBRARY_PATH=$envs/sscha14/lib`. Scripts `vq3e_nbse2_sscha.py`, `test_cc_conversion.py`.
 
 ### #4 — cross-model NbSe₂ distillation  ✅ DONE: the cure is UNIVERSAL across backbones
 Distilled the NbSe₂ DFT fc₂ into **SevenNet** (7net-0) — `sevenn_preset fine_tune` → fine-tune from
