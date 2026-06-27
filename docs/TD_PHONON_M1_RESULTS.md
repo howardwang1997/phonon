@@ -426,6 +426,15 @@ points. So the plan's "q\* ≈ 2k_F" hypothesis is **material-dependent**: clean
 fails for the d-electron CDW (a full χ(q)/EPW analysis is the proper tool; this is a first-order
 bands check). Scripts `vq3c_nbse2_bands.py`; fig `results/figures/nbse2_ebands.png`.
 
+*Rigorous follow-up (#2, `vq3d_nbse2_nesting.py`):* the full Fermi-surface **nesting function ξ(q)**
+(FFT autocorrelation of the FS density on a 36×36 DFT grid) confirms it — ξ(q) **does not peak at
+q_CDW**: it is largest near Γ (forward, ξ=1.0), has only a **weak local bump at q_CDW (ξ=0.53)**, and
+a comparable feature near K (0.63); the global q≠0 max sits at q≈0. So NbSe₂'s CDW has at most *weak*
+nesting at q_CDW and is **not nesting-driven** — the textbook Johannes–Mazin result. Fig
+`results/figures/nbse2_nesting.png`; data `results/vq3d/nbse2_nesting.npz`. This makes the
+material-dependence sharp: **graphene = nesting (q\*=2k_F, M1.3); NbSe₂ = momentum-dependent e-ph
+coupling (no nesting peak)** — two distinct anomaly mechanisms, both resolved by the same pipeline.
+
 **C — soft-mode T-evolution (L channel) ✅.** Distilled-FT NbSe₂ at fixed a=3.44 → hiPhive-TDEP
 ω(q,T), 20–400 K. The TDEP min freq **thermally stabilizes**:
 
@@ -445,8 +454,62 @@ even the 20 K TDEP soft mode (−0.48) is milder than the harmonic 0 K value (�
 already folds in thermal renormalization. Data `results/td_phonon/td_nbse2_ft_Tfix.csv`; fig
 `results/figures/nbse2_Tevolution.png`; `td_phonon.py` gained `--no-relax/--a/--thickness`.
 
+## Rigor follow-ups #1–#4 + the flagship large-scale survey (2026-06-27)
+Four "rigor" experiments harden the three soft spots; status is mixed (one clean, one
+running, two blocked at the *tool* level — not compute). Plus the planned 8×V100 flagship.
+
+### #2 — χ(q) Fermi-surface nesting  ✅ DONE
+See the B follow-up above: the DFT nesting function ξ(q) does **not** peak at q_CDW
+(ξ(q_CDW)=0.53 vs 1.0 at Γ) → NbSe₂ CDW is **not nesting-driven** (rigorously confirms B).
+
+### #3 — graphene DFPT-with-smearing  🔄 RUNNING (frequencies-only)
+ph.x linear-response Γ-E₂g vs degauss (gold-standard version of the V-Q2 frozen-phonon
+(E)-channel), conda-QE CPU (same version as pw.x). The electron–phonon **linewidth**
+(`electron_phonon='simple'`) needs a 2-pass dvscf/DeltaVscf save — deferred; frequencies first.
+`scripts/vq2b_graphene_dfpt.sh`.
+
+### #1 — NbSe₂ SSCHA  ⚠️ INSTALL SOLVED, driver blocked by a cellconstructor bug
+The rigorous version of C (free-energy Hessian — the correct tool near an instability).
+- **Install solved (the hard part).** python-sscha/cellconstructor would not build on the
+  2060; root cause = conda on the `defaults` channel only + China-blocked anaconda.org +
+  conda **ToS** wall. Fixed via **Tsinghua conda-forge mirror + `conda tos accept` +
+  `liblapack`/`LIBRARY_PATH`** → `cellconstructor-1.6.2` + `python-sscha-1.6.1` import cleanly.
+- **Driver written** — `scripts/vq3e_nbse2_sscha.py` (load DFT fc₂ → ForcePositiveDefinite →
+  SSCHA free-energy Hessian per T with the FT MLIP).
+- **Blocked:** cellconstructor 1.6.2's phonopy→dyn conversion is broken on current numpy —
+  `load_phonopy` deprecated, `phonopy_fc2_to_tensor2` needs an `np.int` shim, and
+  `ForceTensor.Tensor2.SetupFromTensor` **core-dumps (SIGFPE)** on the converted tensor.
+  *Fix:* pin an older CC/numpy, or assemble the starting dyn from scratch (q-space DM).
+  The TDEP result (C: soft mode stabilizes ~150 K) stands as the (L)-channel answer meanwhile.
+
+### #4 — cross-model NbSe₂ distillation  ⚠️ env-blocked
+Distil the NbSe₂ DFT fc₂ into **SevenNet / MatterSim** → does the CDW-soft-mode recovery
+generalize beyond MACE (universality of the §2.2 cure)? SevenNet's training CLI is present
+(`sevenn`, `sevenn_graph_build`, `sevenn_preset`), but the `sevennet` conda env's **numpy is
+broken** (`_multiarray_umath` ImportError) → env repair needed first. *Pipeline:* regen
+distillation data → `sevenn_preset fine_tune` from 7net-0 → `sevenn_graph_build` → train →
+`harmonic_dispersion_2d.py --model-type sevennet` eval (min freq < 0 = soft mode recovered?).
+
+### FLAGSHIP (planned — needs 8×V100): systematic 2D Kohn-anomaly / CDW survey
+Turn the three case studies into a **systematic, mechanistic law** across a family of 2D
+materials: graphene + h-BN (sp² controls), MoS₂/MoSe₂/WS₂ (gapped negative controls), and the
+CDW metals **NbSe₂ / NbS₂ / TaS₂ / TaSe₂ / TiSe₂ / 1T-VSe₂**. For each material:
+- (a) DFT fc₂ (+ fc₃) → **material-specific FC distillation** (the §2.2 cure at scale);
+- (b) **(E)-channel DFPT-with-smearing** → the electronic-temperature broadening q*(T);
+- (c) **EPW** (electron-phonon Wannier) → Eliashberg α²F, mode-resolved linewidths γ_qν, and
+  the rigorous anomaly mechanism (nesting vs momentum-dependent EPC) per material;
+- (d) MLIP + TDEP/SSCHA ω(q,T) → the (L)-channel T-evolution / CDW transition temperature.
+
+**Why 8×V100:** EPW on a converged fine k/q grid is FP64-heavy (~hours/material), fc₃ + SSCHA
+ensembles add more, and the family is ~10 materials × several T/smearing values — weeks on one
+V100, a few days on eight. **Payoff:** the paper graduates from "3 worked examples" to a
+benchmarked survey that (i) validates the FC-distillation cure across a chemical family, and
+(ii) cleanly separates nesting-driven (graphene, q*=2k_F) from EPC-driven (NbSe₂) anomalies —
+with EPW as ground truth and the cheap MLIP+TDEP as the high-throughput surrogate.
+
 ## Artifacts
 - code: `scripts/{td_common,td_structures,harmonic_dispersion_2d,anomaly_locate,graphene_sc_convergence,td_phonon,td_anharmonic,plot_graphene_anomaly,plot_sc_convergence,plot_td_dispersion,plot_anharm_diag}.py`
+- rigor #1–#4 code: `scripts/{vq3d_nbse2_nesting,vq3e_nbse2_sscha}.py`, `scripts/vq2b_graphene_dfpt.sh`; fig `results/figures/nbse2_nesting.png`
 - V-Q code: `scripts/{m1_1b_graphene_dft (now --degauss/--smearing),vq3_nbse2_dft}.py`, `scripts/{vq_queue,vq3_downstream,vq3_eval}.sh`
 - M1.3 / Path-P code: `scripts/{m1_3_graphene_bands,path_p_make_data,path_p_eval}.py`
 - M1.1b code: `scripts/{m1_1b_graphene_dft,m1_1b_make_graphene_data,plot_m1_1b_compare}.py`, `scripts/finetune_graphene.sh`
