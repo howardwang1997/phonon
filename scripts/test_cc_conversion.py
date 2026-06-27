@@ -29,26 +29,27 @@ except Exception as e:
 # Route 2: phonopy_fc2_to_tensor2 -> Tensor2 -> GeneratePhonons
 try:
     import phonopy
-    import cellconstructor.Methods
     import cellconstructor.ForceTensor
     import cellconstructor.Structure
     from ase import Atoms
-    ph = phonopy.load(yaml)
+    EV_A2_TO_RY_BOHR2 = (1.0 / 13.605693009) / (1.8897259886 ** 2)  # 0.020582
+    ph = phonopy.load(yaml, is_compact_fc=False)
+    nat_sc = len(ph.supercell)
+    fc = np.asarray(ph.force_constants)              # (nat_sc, nat_sc, 3, 3), eV/A^2
+    M = fc.transpose(0, 2, 1, 3).reshape(3 * nat_sc, 3 * nat_sc) * EV_A2_TO_RY_BOHR2
     prim = ph.primitive
     uc = Atoms(numbers=prim.numbers, scaled_positions=prim.scaled_positions,
                cell=prim.cell, pbc=True)
     struc = CC.Structure.Structure()
     struc.generate_from_ase_atoms(uc)
-    res = CC.Methods.phonopy_fc2_to_tensor2(ph.force_constants, ph)
-    tens = res[0] if isinstance(res, tuple) else res
-    scmat = np.ascontiguousarray(ph.supercell_matrix, dtype=np.intc)
-    sc = struc.generate_supercell(scmat)
-    t2 = CC.ForceTensor.Tensor2(struc, sc, np.array(ph.supercell_matrix))
-    t2.SetupFromTensor(tens)
-    dyn = t2.GeneratePhonons(np.array(ph.supercell_matrix))
-    dyn.ForcePositiveDefinite()
+    scm = np.array(ph.supercell_matrix)
+    dim = np.array([scm[i, i] for i in range(3)], dtype=np.intc)
+    sc = struc.generate_supercell(dim)
+    t2 = CC.ForceTensor.Tensor2(struc, sc, dim)      # supercell_size = diagonal [nx,ny,nz]
+    t2.SetupFromTensor(M)
+    dyn = t2.GeneratePhonons(dim)                     # do NOT ForcePositiveDefinite: want the soft mode
     w, _ = dyn.DiagonalizeSupercell()
-    print("ROUTE2 tensor OK: supercell", dyn.GetSupercell(),
+    print("ROUTE2 OK: supercell", dyn.GetSupercell(), "nq", len(dyn.q_tot),
           "minfreq_cm", round(float(w.min()) * RY_TO_CM, 1))
 except Exception as e:
     import traceback

@@ -44,20 +44,44 @@ def main() -> int:
     ap.add_argument("--outdir", default="results/td_phonon")
     a = ap.parse_args()
 
+    if not hasattr(np, "int"):
+        np.int = int
+        np.float = float
     import cellconstructor as CC
     import cellconstructor.Phonons
+    import cellconstructor.ForceTensor
+    import cellconstructor.Structure
+    import phonopy
+    from ase import Atoms
     from sscha.Ensemble import Ensemble
     from sscha.SchaMinimizer import SSCHA_Minimizer
     from sscha.Relax import SSCHA
 
     temps = [float(x) for x in a.temperatures.split(",")]
 
-    # starting dyn from the DFT fc2 (force constants embedded in the yaml)
-    dyn = CC.Phonons.Phonons()
-    dyn.load_phonopy(str(ROOT / a.phonopy) if not Path(a.phonopy).is_absolute() else a.phonopy)
-    print(f"[sscha] loaded dyn: {dyn.structure.N_atoms} atoms/cell, supercell {dyn.GetSupercell()}",
-          flush=True)
-    dyn.ForcePositiveDefinite()
+    # --- build the starting CC dyn from the DFT fc2 (full supercell FC -> Tensor2) ---
+    # CC wants the diagonal supercell size [nx,ny,nz] (NOT the 3x3 matrix), and the
+    # full (3*nat_sc, 3*nat_sc) FC in Ry/Bohr^2.
+    EV_A2_TO_RY_BOHR2 = (1.0 / 13.605693009) / (1.8897259886 ** 2)
+    ypath = str(ROOT / a.phonopy) if not Path(a.phonopy).is_absolute() else a.phonopy
+    ph = phonopy.load(ypath, is_compact_fc=False)
+    nat_sc = len(ph.supercell)
+    fc = np.asarray(ph.force_constants)                    # (nat_sc, nat_sc, 3, 3) eV/A^2
+    M = fc.transpose(0, 2, 1, 3).reshape(3 * nat_sc, 3 * nat_sc) * EV_A2_TO_RY_BOHR2
+    prim = ph.primitive
+    uc = Atoms(numbers=prim.numbers, scaled_positions=prim.scaled_positions,
+               cell=prim.cell, pbc=True)
+    struc = CC.Structure.Structure(); struc.generate_from_ase_atoms(uc)
+    scm = np.array(ph.supercell_matrix)
+    dim = np.array([scm[i, i] for i in range(3)], dtype=np.intc)
+    sc = struc.generate_supercell(dim)
+    t2 = CC.ForceTensor.Tensor2(struc, sc, dim)
+    t2.SetupFromTensor(M)
+    dyn = t2.GeneratePhonons(dim)
+    w_bare, _ = dyn.DiagonalizeSupercell()
+    print(f"[sscha] bare DFT-fc2 dyn: supercell {dyn.GetSupercell()}, min freq "
+          f"{w_bare.min()*RY_TO_CM:.1f} cm^-1 (soft mode if < 0)", flush=True)
+    dyn.ForcePositiveDefinite()    # SSCHA needs a positive-definite trial dyn
     dyn.Symmetrize()
     w0, _ = dyn.DiagonalizeSupercell()
     print(f"[sscha] starting (pos-def) min freq = {w0.min()*RY_TO_CM:.1f} cm^-1", flush=True)
