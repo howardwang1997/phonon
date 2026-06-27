@@ -35,7 +35,7 @@ import td_common as tdc
 
 
 def make_espresso(pw, mpirun, nproc, pseudo_dir, pseudo, ecutwfc, ecutrho,
-                  kpts, degauss=0.02, conv_thr=1e-9, directory=None):
+                  kpts, degauss=0.02, smearing="cold", conv_thr=1e-9, directory=None):
     from ase.calculators.espresso import Espresso, EspressoProfile
 
     cmd = f"{mpirun} --allow-run-as-root -np {nproc} {pw}" if nproc > 1 else pw
@@ -44,8 +44,10 @@ def make_espresso(pw, mpirun, nproc, pseudo_dir, pseudo, ecutwfc, ecutrho,
         "control": {"calculation": "scf", "tprnfor": True, "tstress": False,
                     "disk_io": "low", "verbosity": "low"},
         "system": {"ecutwfc": ecutwfc, "ecutrho": ecutrho,
-                   "occupations": "smearing", "smearing": "cold", "degauss": degauss},
-        "electrons": {"conv_thr": conv_thr, "mixing_beta": 0.4},
+                   "occupations": "smearing", "smearing": smearing, "degauss": degauss},
+        "electrons": {"conv_thr": conv_thr, "mixing_beta": 0.4,
+                      "electron_maxstep": 200, "diago_david_ndim": 4,
+                      "startingwfc": "atomic+random"},
     }
     kw = {"directory": Path(directory)} if directory else {}
     return Espresso(profile=profile, pseudopotentials={"C": pseudo},
@@ -65,6 +67,8 @@ def main() -> int:
     ap.add_argument("--ecutwfc", type=float, default=60.0)
     ap.add_argument("--ecutrho", type=float, default=240.0)
     ap.add_argument("--kpts", type=int, default=4, help="supercell k-mesh (k,k,1)")
+    ap.add_argument("--degauss", type=float, default=0.02, help="electronic smearing (Ry); V-Q2 scans this")
+    ap.add_argument("--smearing", default="cold", help="cold|fermi-dirac (V-Q2 uses fermi-dirac: degauss=k_B*T_el)")
     ap.add_argument("--npoints", type=int, default=201)
     ap.add_argument("--workdir", default="results/m1_1b/dft")
     ap.add_argument("--tag", default="graphene_dft")
@@ -80,7 +84,7 @@ def main() -> int:
     atoms = tdc.build_monolayer("graphene", a=a.a)
     atoms.wrap()
     print(f"[{a.tag}] graphene a={a.a} A, supercell {a.supercell}x{a.supercell}x1, "
-          f"ecutwfc={a.ecutwfc} kpts={a.kpts} nproc={a.nproc}", flush=True)
+          f"ecutwfc={a.ecutwfc} kpts={a.kpts} degauss={a.degauss} nproc={a.nproc}", flush=True)
 
     sc = np.diag([a.supercell, a.supercell, 1])
     phon = PhononCalculation(atoms, supercell_matrix=sc, primitive_matrix=np.eye(3),
@@ -94,7 +98,8 @@ def main() -> int:
         d = workdir / f"disp-{i:03d}"
         d.mkdir(parents=True, exist_ok=True)
         scell.calc = make_espresso(a.pw, a.mpirun or "mpirun", a.nproc, pseudo_dir,
-                                   a.pseudo, a.ecutwfc, a.ecutrho, a.kpts, directory=d)
+                                   a.pseudo, a.ecutwfc, a.ecutrho, a.kpts,
+                                   degauss=a.degauss, smearing=a.smearing, directory=d)
         forces.append(scell.get_forces())
         print(f"[{a.tag}]   disp {i}: max|F|={np.abs(forces[-1]).max():.4f} eV/A "
               f"({time.perf_counter()-t0:.0f}s)", flush=True)

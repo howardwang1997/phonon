@@ -133,8 +133,9 @@ sharpens the verdict (`harmonic_dispersion_2d.py --a 2.46 --no-relax`;
 - **Revises the M1.1/M1.2 "K cusp survives in the MLIPs" reading:** the large
   foundation/bulk K kink (~86) is a *softening artifact* — their top branch dips to
   ~1110 at K — **not** a faithful Kohn anomaly; DFT and graphene-FT keep K high (~1365)
-  and smooth. *Caveat:* the 5×5 DFT may itself under-resolve a true K-A₁′ Kohn dip; the
-  converged K needs a larger-supercell / denser-k DFT (deferred).
+  and smooth. *Caveat (now resolved — see V-Q1):* the 5×5 DFT **did** under-resolve a true
+  K-A₁′ Kohn dip — the K-commensurate 6×6 DFT gives K=1292 cm⁻¹ with a sharp cusp (kink 14.4),
+  so converged DFT is *not* smooth at K; the foundation MLIP still over-softens it (~1110).
 
 ## M1.3 — (E)-channel: Dirac point + q* ≈ 2k_F  ✅
 DFT electronic bands of graphene (QE, 18×18 SCF + M-Γ-K-M bands;
@@ -331,11 +332,89 @@ where real monolayer NbSe₂ has a CDW instability. The d-electron-driven soft m
 needs DFT distillation**: M3 (NbSe₂) cannot ride cheap MLIP compute; it requires NbSe₂'s
 own DFPT fc₂/fc₃ as a distillation target (FP64) — the heavy path the plan flagged. (Top
 optical ~210–230 cm⁻¹, also softened.) *Cheap MLIP check that de-risks the M3 budget.*
+**→ RESOLVED in V-Q3 (Gate #2 PASS):** the NbSe₂-specific DFT fc₂ *does* capture the CDW soft
+mode and distilling it recovers the mode in the MLIP (foundation −0.2 THz → distilled-FT −2.23,
+matching DFT −2.18). See the V-Q DFT-queue section below.
+
+## V-Q DFT queue (rented 1×V100, GPU-QE, 2026-06-27) — converged-K, (E)-channel, NbSe₂ Gate #2
+Three follow-up DFT experiments, run as an autonomous single-card queue on the V100
+(GPU-QE pw.x, finite-displacement). They close the three open questions left by M1.1b /
+M1.3 / the NbSe₂ preview. Graphene at fixed a=2.46; NbSe₂ at literature a=3.44.
+
+### V-Q1 — converged-K graphene: the K-A₁′ Kohn anomaly is **real**  ✅
+M1.1b's 5×5 DFT made K look high and smooth (1362 cm⁻¹, kink 0.8) — but K=(⅓,⅓) is **not
+commensurate** with a 5×5 supercell, so that value is *interpolated*. Re-running at larger
+supercells (GPU-QE finite-disp, matched electronic k-density) resolves it:
+
+| supercell | Γ-E₂g (cm⁻¹) | K-A₁′ (cm⁻¹) | kink_Γ | kink_K | K sampled |
+|---|---|---|---|---|---|
+| 5×5 (M1.1b) | 1568 | 1362 | 6.96 | 0.84 | interpolated |
+| **6×6 (V-Q1b)** | 1571 | **1292** | 9.29 | **14.41** | **direct (commensurate)** |
+| 7×7 (V-Q1) | 1570 | 1324 | 11.41 | 8.30 | interpolated |
+
+**Finding.** Γ-E₂g is fully converged (1568→1571, ≤0.2%). But at the **K-commensurate 6×6**,
+where K is sampled directly, **K-A₁′ = 1292 cm⁻¹ (right on lit ~1300) with a strong cusp
+(kink 14.4)** — the 5×5 under-resolved a genuine Kohn anomaly into a smooth-looking 1362.
+The 7×7 (also interpolated) gives 1324/8.3, consistent. **This revises the M1.1b/M1.2
+reading**: the converged DFT K-A₁′ is *not* smooth — it has a real, sharp cusp at ~1292.
+So the truth is intermediate: DFT has a genuine K Kohn cusp (kink ~14 resolved), the foundation
+MACE grossly *over*-softens it (dips to ~1110, kink ~86), and bulk-FC-distillation sits between.
+9×9 was attempted but needs **45 GB > V100's 32 GB** (hard VRAM wall) → 6×6 is the converged
+commensurate point. Files `results/vq1/disp_graphene_sc{6_k6,7_k5}.npz`.
+
+### V-Q2 — (E)-channel: electronic-temperature scan of the anomaly  ✅
+Frozen-phonon Γ/K at fixed 5×5 geometry with **Fermi-Dirac smearing** (degauss = k_B·T_el),
+sweeping the electronic temperature — a GPU-affordable proxy for the (E)-channel that the
+MLIP structurally cannot see (heavy DFPT-with-smearing was the alternative):
+
+| T_el (K) | degauss (Ry) | Γ-E₂g | K-A₁′ | **kink_Γ** | kink_K |
+|---|---|---|---|---|---|
+| 789 | 0.005 | 1559 | 1362 | **8.18** | 0.75 |
+| 1579 | 0.010 | 1568 | 1361 | **6.99** | 0.91 |
+| 3158 | 0.020 | 1567 | 1356 | **6.71** | 1.22 |
+| 6315 | 0.040 | 1553 | 1361 | **5.81** | 1.25 |
+
+**Finding.** The mode *frequencies* are electronic-T-insensitive (≲1%, within k-noise), but the
+**Γ-E₂g cusp sharpness decreases monotonically (kink 8.2→5.8) as electronic T rises 790→6300 K**
+— the frozen-phonon fingerprint of Fermi-surface smearing **broadening the Kohn anomaly**, i.e.
+the (E) channel acts on the *cusp lineshape*, not the zone-centre frequency. (K's kink is
+noise-level here because 5×5 under-resolves K, per V-Q1.) Honest scope: frozen-phonon at
+commensurate q captures the *trend* in cusp sharpness; the full anomaly linewidth still needs
+DFPT linear response. Files `results/vq2/disp_graphene_dg*.npz`.
+
+### V-Q3 — NbSe₂ CDW **Gate #2: distillation recovers the soft mode**  ✅✅ (headline)
+The decisive metallic-CDW test. (1) DFT fc₂ of monolayer NbSe₂ on a **3×3×1 supercell** (hosts
+the 3×3 CDW), GPU-QE, ONCV-PBE Nb/Se, dense k, degauss 0.015. (2) Distil 133 harmonic configs
+from that fc₂ → fine-tune MACE-small (force RMSE 11.5 meV/Å). (3) Re-evaluate the MLIP dispersion
+at the **same geometry (a=3.44, no-relax) and supercell** as the DFT — foundation vs distilled-FT:
+
+| | min freq, 3×3 (THz) | min freq, 6×6 (THz) | top optical Γ/K (cm⁻¹) |
+|---|---|---|---|
+| **DFT (this work, 3×3)** | **−2.18** (232 imag.) | — | — |
+| foundation MACE-small | **−0.20** | −0.33 | 249 / 236 |
+| **distilled-FT (NbSe₂ DFT fc₂)** | **−2.23** | −3.22 | 294 / 268 |
+
+**Finding — Gate #2 PASS.** DFT **captures the CDW soft mode** (−2.18 THz, strongly imaginary)
+that every foundation/general MLIP backbone misses. The foundation MACE at the *same* geometry
+is essentially stable (−0.2 THz — no CDW). **Distilling the NbSe₂-specific DFT fc₂ transfers the
+instability into the MLIP**: the FT min freq is −2.23 THz at 3×3, **matching the DFT −2.18**.
+So material-specific DFT distillation recovers even a *structural instability* (a metallic CDW
+soft mode) — the M1.1b graphene-cusp cure repeated for the much harder d-electron CDW case, and
+the resolution of the NbSe₂ preview's Gate #2. **Honest caveats**: (i) literature geometry
+a=3.44 (not DFT-relaxed) — the absolute −2.2 THz magnitude is geometry-sensitive, but the
+*same-geometry* foundation(−0.2)→FT(−2.2) contrast and FT≈DFT agreement are robust; (ii) the FT
+faithfully reproduces its fc₂ training target (as expected) — the non-trivial part is that an
+unstable/soft fc₂ *can* be distilled into a foundation MLIP that otherwise enforces stability;
+(iii) full CDW physics (incommensuration, fc₃, electronic-T) is beyond this harmonic 3×3 pass.
+Scripts `scripts/{vq3_nbse2_dft,vq3_downstream.sh,vq3_eval.sh}`; data `results/vq3/*`; model
+`results/finetune_nbse2/ft_nbse2.model` (gitignored, on the V100).
 
 ## Artifacts
 - code: `scripts/{td_common,td_structures,harmonic_dispersion_2d,anomaly_locate,graphene_sc_convergence,td_phonon,td_anharmonic,plot_graphene_anomaly,plot_sc_convergence,plot_td_dispersion,plot_anharm_diag}.py`
+- V-Q code: `scripts/{m1_1b_graphene_dft (now --degauss/--smearing),vq3_nbse2_dft}.py`, `scripts/{vq_queue,vq3_downstream,vq3_eval}.sh`
 - M1.3 / Path-P code: `scripts/{m1_3_graphene_bands,path_p_make_data,path_p_eval}.py`
 - M1.1b code: `scripts/{m1_1b_graphene_dft,m1_1b_make_graphene_data,plot_m1_1b_compare}.py`, `scripts/finetune_graphene.sh`
 - data: `data/td_phonon/{graphene,mos2,nbse2}.xyz`, `results/td_phonon/disp_graphene_{base,ft}.npz`, `graphene_sc_convergence.csv`, `td_graphene_ft.{npz,csv}`, `td_graphene_ft_m2.{npz,csv}`
 - M1.1b data: `results/m1_1b/dft/{graphene_dft_phonopy.yaml,disp_graphene_dft.npz}`, `results/m1_1b/disp_graphene_ftgraphene.npz`, `results/m1_1b/fixed/disp_graphene_{base,ftbulk,ftg}_a246.npz` (model `ft_graphene.model` gitignored, on the V100)
 - figures: `results/figures/{graphene_kohn_anomaly,graphene_sc_convergence,graphene_td_dispersion,graphene_td_m2,graphene_anharmonicity,m1_1b_graphene_compare,m1_1b_fixed_geom_compare}.png`
+- V-Q data + figures: `results/vq1/disp_graphene_sc{6_k6,7_k5}.npz`, `results/vq2/disp_graphene_dg*.npz`, `results/vq3/{nbse2_dft_phonopy.yaml,disp_nbse2_{dft,base,ft}_sc*.npz}`; plotters `scripts/plot_{nbse2_gate2,vq1_convergence}.py`; figures `results/figures/{nbse2_gate2,vq1_converged_K}.png`
