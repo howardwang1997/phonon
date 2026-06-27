@@ -498,13 +498,25 @@ The rigorous version of C (free-energy Hessian — the correct tool near an inst
   *Fix:* pin an older CC/numpy, or assemble the starting dyn from scratch (q-space DM).
   The TDEP result (C: soft mode stabilizes ~150 K) stands as the (L)-channel answer meanwhile.
 
-### #4 — cross-model NbSe₂ distillation  ⚠️ env-blocked
-Distil the NbSe₂ DFT fc₂ into **SevenNet / MatterSim** → does the CDW-soft-mode recovery
-generalize beyond MACE (universality of the §2.2 cure)? SevenNet's training CLI is present
-(`sevenn`, `sevenn_graph_build`, `sevenn_preset`), but the `sevennet` conda env's **numpy is
-broken** (`_multiarray_umath` ImportError) → env repair needed first. *Pipeline:* regen
-distillation data → `sevenn_preset fine_tune` from 7net-0 → `sevenn_graph_build` → train →
-`harmonic_dispersion_2d.py --model-type sevennet` eval (min freq < 0 = soft mode recovered?).
+### #4 — cross-model NbSe₂ distillation  ✅ DONE: the cure is UNIVERSAL across backbones
+Distilled the NbSe₂ DFT fc₂ into **SevenNet** (7net-0) — `sevenn_preset fine_tune` → fine-tune from
+SevenNet-0 (val force RMSE 12.7 meV/Å, 80 epochs) → eval the dispersion at the DFT geometry (a=3.44,
+3×3, no-relax), foundation vs FT:
+
+| model | min freq, 3×3 (THz) | top optical Γ/K (cm⁻¹) |
+|---|---|---|
+| foundation **SevenNet-0** | **−0.04** | 286 / 221 |
+| **distilled-FT SevenNet** | **−1.99** | 295 / 271 |
+| *(MACE: foundation −0.20 → FT −2.23; DFT −2.18)* | | |
+
+**Finding — Gate #2 is backbone-universal.** SevenNet behaves exactly like MACE: the foundation model
+misses the CDW soft mode (−0.04 THz, essentially stable), and **distilling the NbSe₂-specific DFT fc₂
+recovers it (−1.99 THz, ≈ DFT −2.18 and MACE-FT −2.23)**. So "material-specific DFT distillation
+transfers the CDW instability into the MLIP" is **not a MACE artifact — it holds across MLIP backbones**,
+strengthening V-Q3. (MatterSim deferred — its fine-tune path is less standard.) *Env gotchas (memory):*
+the sevennet env needs **its own** `LD_LIBRARY_PATH` (libstdc++ GLIBCXX); its torch is cu130 → CPU-only
+on the 2060 driver. Data `results/vq3/disp_sevenn_{base,ft}.npz`; config/model in
+`results/sevenn_ft_nbse2/`.
 
 ### FLAGSHIP (planned — needs 8×V100): systematic 2D Kohn-anomaly / CDW survey
 Turn the three case studies into a **systematic, mechanistic law** across a family of 2D
