@@ -34,13 +34,13 @@ ATOMIC_POSITIONS (crystal)
  C 0.000000000 0.000000000 0.0
  C 0.333333333 0.666666667 0.0
 K_POINTS automatic
- 36 36 1 0 0 0
+ 24 24 1 0 0 0
 EOF
   cat > ph.in <<EOF
 graphene Gamma E2g phonon (frequencies only; el-ph linewidth needs a 2-pass dvscf)
 &inputph
  prefix='gr', outdir='./tmp', fildyn='gr.dyn',
- tr2_ph=1d-16, ldisp=.false., trans=.true., epsil=.false.
+ tr2_ph=1d-14, ldisp=.false., trans=.true., epsil=.false.
 /
 0.0 0.0 0.0
 EOF

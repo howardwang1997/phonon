@@ -462,11 +462,27 @@ running, two blocked at the *tool* level — not compute). Plus the planned 8×V
 See the B follow-up above: the DFT nesting function ξ(q) does **not** peak at q_CDW
 (ξ(q_CDW)=0.53 vs 1.0 at Γ) → NbSe₂ CDW is **not nesting-driven** (rigorously confirms B).
 
-### #3 — graphene DFPT-with-smearing  🔄 RUNNING (frequencies-only)
-ph.x linear-response Γ-E₂g vs degauss (gold-standard version of the V-Q2 frozen-phonon
-(E)-channel), conda-QE CPU (same version as pw.x). The electron–phonon **linewidth**
-(`electron_phonon='simple'`) needs a 2-pass dvscf/DeltaVscf save — deferred; frequencies first.
-`scripts/vq2b_graphene_dfpt.sh`.
+### #3 — graphene DFPT-with-smearing  ✅ DONE (the rigorous (E) channel)
+ph.x linear-response Γ-E₂g vs electronic smearing (conda-QE CPU; el-ph linewidth via
+`electron_phonon='simple'` needs a 2-pass dvscf — deferred, frequencies first). The DFPT Γ-E₂g
+**hardens monotonically with electronic temperature**:
+
+| T_el (K) | 789 | 1579 | 3158 | 6315 |
+|---|---|---|---|---|
+| **DFPT Γ-E₂g (cm⁻¹)** | **1473** | 1531 | 1560 | **1575** |
+| V-Q2 frozen-phonon (DFT) | 1559 | 1568 | 1567 | 1553 |
+
+**Finding (headline (E)-channel result).** DFPT shows the E₂g **softens by ~100 cm⁻¹ (6.5%) at low
+electronic T** — at a sharp Fermi surface the e-ph (Kohn) coupling is strongest, maximally softening
+the mode; as T_el smears the Fermi–Dirac occupation the anomaly fills in and the phonon hardens to
+its "bare" value. **The frozen-phonon (MLIP-style) approach structurally misses this** — V-Q2's
+frozen-phonon Γ-E₂g is electronic-T-insensitive (flat ~1555–1568). So this is a clean, *direct*
+demonstration of the (L)/(E) decomposition: **the electronic-temperature dependence of the Kohn
+anomaly is a linear-response effect the ground-state-PES MLIP cannot produce** — exactly the part the
+plan reserved for "targeted DFPT with smearing". Fix that unblocked it: `tr2_ph` 1d-16→1d-14 (the
+tight threshold made ph.x crawl) + drop el-ph. `scripts/vq2b_graphene_dfpt.sh`,
+`results/vq2b_dfpt/dfpt_smearing.csv`; fig `results/figures/dfpt_smearing.png`,
+plotter `scripts/plot_dfpt_smearing.py`.
 
 ### #1 — NbSe₂ SSCHA  ⚠️ INSTALL SOLVED, driver blocked by a cellconstructor bug
 The rigorous version of C (free-energy Hessian — the correct tool near an instability).
