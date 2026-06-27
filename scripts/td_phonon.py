@@ -120,6 +120,11 @@ def main() -> int:
     ap.add_argument("--stride", type=int, default=40, help="MD steps between snapshots")
     ap.add_argument("--npoints", type=int, default=201)
     ap.add_argument("--outdir", default="results/td_phonon")
+    ap.add_argument("--no-relax", action="store_true",
+                    help="skip MLIP relax; build the clean primitive at --a/--thickness "
+                         "(use to pin an unstable/soft-mode material at a fixed DFT geometry)")
+    ap.add_argument("--a", type=float, default=0.0, help="fixed in-plane a (A) when --no-relax")
+    ap.add_argument("--thickness", type=float, default=0.0, help="fixed thickness (A) when --no-relax")
     a = ap.parse_args()
 
     def log(m):
@@ -136,12 +141,20 @@ def main() -> int:
     # relax to get the model's equilibrium (a, thickness), then rebuild a clean
     # symmetric primitive at those values -- the relaxer's in-plane shear leaves
     # the cell slightly off-hexagonal and trips hiphive's orbit enumeration.
-    prim, info = tdc.relax_monolayer(at0, calc)
     name = Path(a.structure).stem
-    prim = tdc.build_monolayer(name, vacuum=7.5, a=info["a"], thickness=info["thickness"])
-    prim.wrap()
-    log(f"[{a.tag}] relaxed a={info['a']:.4f} A thickness={info['thickness']:.3f} A "
-        f"-> clean {name} primitive")
+    if a.no_relax:
+        aa = a.a if a.a > 0 else float(np.linalg.norm(at0.cell[0]))
+        tt = a.thickness if a.thickness > 0 else None
+        prim = tdc.build_monolayer(name, vacuum=7.5, a=aa, thickness=tt)
+        prim.wrap()
+        log(f"[{a.tag}] NO-RELAX: clean {name} primitive at a={aa:.4f} A "
+            f"thickness={a.thickness or 'lit'}")
+    else:
+        prim, info = tdc.relax_monolayer(at0, calc)
+        prim = tdc.build_monolayer(name, vacuum=7.5, a=info["a"], thickness=info["thickness"])
+        prim.wrap()
+        log(f"[{a.tag}] relaxed a={info['a']:.4f} A thickness={info['thickness']:.3f} A "
+            f"-> clean {name} primitive")
     from phonon_accel.phonons import ase_to_phonopy, phonopy_to_ase
     from phonopy import Phonopy
     ph0 = Phonopy(ase_to_phonopy(prim), supercell_matrix=sc_matrix,

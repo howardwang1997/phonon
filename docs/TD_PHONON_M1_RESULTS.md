@@ -409,6 +409,42 @@ unstable/soft fc₂ *can* be distilled into a foundation MLIP that otherwise enf
 Scripts `scripts/{vq3_nbse2_dft,vq3_downstream.sh,vq3_eval.sh}`; data `results/vq3/*`; model
 `results/finetune_nbse2/ft_nbse2.model` (gitignored, on the V100).
 
+### V-Q3 follow-up A/B/C (2026-06-27) — de-risk geometry + electronic/thermal cross-checks
+**A — clean geometry (removes the literature-a caveat).** DFT in-plane vc-relax
+(`cell_dofree=2Dxy`) → PBE equilibrium **a = 3.474 Å** (lit 3.44; +1%, thickness ~unchanged).
+Recomputing the 3×3 fc₂ at the relaxed geometry **keeps the CDW soft mode: min freq −2.05 THz**
+(vs −2.18 at lit a). So the soft mode is **robust to geometry** — the Gate #2 result is not a
+literature-lattice artifact. Scripts `vq3b_nbse2_relax.py`; `results/vq3b/*`.
+
+**B — q\* ≈ 2k_F Fermi-surface cross-check (qualified NEGATIVE, and that's the right answer).**
+DFT bands at the relaxed geometry: a single **shallow Nb-4d band** crosses E_F at k_F = 0.46 of
+Γ-M, so 2k_F = 0.46 b₁ — which does **not** match q_CDW = ⅓ b₁ = 0.33 b₁. **Simple 2k_F nesting
+does not explain the NbSe₂ CDW.** This is consistent with the literature: monolayer NbSe₂'s CDW is
+driven by **momentum-dependent electron–phonon coupling / a shallow band grazing E_F**, *not*
+Fermi-surface nesting — in contrast to graphene (M1.3), where q\* = 2k_F holds cleanly at the Dirac
+points. So the plan's "q\* ≈ 2k_F" hypothesis is **material-dependent**: clean for the semimetal,
+fails for the d-electron CDW (a full χ(q)/EPW analysis is the proper tool; this is a first-order
+bands check). Scripts `vq3c_nbse2_bands.py`; fig `results/figures/nbse2_ebands.png`.
+
+**C — soft-mode T-evolution (L channel) ✅.** Distilled-FT NbSe₂ at fixed a=3.44 → hiPhive-TDEP
+ω(q,T), 20–400 K. The TDEP min freq **thermally stabilizes**:
+
+| T (K) | 20 | 100 | 200 | 300 | 400 |
+|---|---|---|---|---|---|
+| min freq (THz) | −0.48 | −0.55 | 0.00 | 0.00 | 0.00 |
+| TDEP fit rmse (meV/Å) | 79 | 143 | 184 | 213 | 234 |
+
+The soft mode renormalizes from unstable (−0.5 THz, 20–100 K) to **stable (≥0) above ~150–200 K** —
+the **(L)-channel signature of the CDW order–disorder transition**. The stabilization window (~150 K)
+is, encouragingly, near the experimental monolayer-NbSe₂ T_CDW ≈ 145 K (order-of-magnitude only).
+**Honest caveats**: (i) a first relax-geometry run drifted to a=3.358 Å (FT force-only equilibrium
+drift) where the soft mode vanishes → re-run at fixed a=3.44 via the new `td_phonon.py --no-relax`;
+(ii) the TDEP fit rmse is large and grows with T (79→234) — the effective-harmonic footing is weak
+near the instability, so **SSCHA is the rigorous tool** (plan M3) and this is a TDEP estimate; (iii)
+even the 20 K TDEP soft mode (−0.48) is milder than the harmonic 0 K value (−2.23) because TDEP
+already folds in thermal renormalization. Data `results/td_phonon/td_nbse2_ft_Tfix.csv`; fig
+`results/figures/nbse2_Tevolution.png`; `td_phonon.py` gained `--no-relax/--a/--thickness`.
+
 ## Artifacts
 - code: `scripts/{td_common,td_structures,harmonic_dispersion_2d,anomaly_locate,graphene_sc_convergence,td_phonon,td_anharmonic,plot_graphene_anomaly,plot_sc_convergence,plot_td_dispersion,plot_anharm_diag}.py`
 - V-Q code: `scripts/{m1_1b_graphene_dft (now --degauss/--smearing),vq3_nbse2_dft}.py`, `scripts/{vq_queue,vq3_downstream,vq3_eval}.sh`
