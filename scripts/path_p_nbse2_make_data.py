@@ -54,7 +54,10 @@ def soft_eigen(ph):
                    cell=np.array(sc.cell), pbc=[True, True, True])
     masses = atoms0.get_masses()
     N = len(atoms0)
-    fc = np.asarray(ph.force_constants)          # (N,N,3,3) eV/A^2
+    fc = np.asarray(ph.force_constants)          # (N,N,3,3) or compact (n_patom,N,3,3)
+    if fc.shape[0] != N:                          # compact -> full
+        from phonopy.harmonic.force_constants import compact_fc_to_full_fc
+        fc = np.asarray(compact_fc_to_full_fc(ph.primitive, fc))
     D = fc.transpose(0, 2, 1, 3).reshape(3 * N, 3 * N)
     D = 0.5 * (D + D.T)
     msqrt = np.repeat(np.sqrt(masses), 3)
@@ -151,7 +154,7 @@ def main() -> int:
     import phonopy
     from ase.io import write
 
-    ph = phonopy.load(a.yaml)
+    ph = phonopy.load(a.yaml, is_compact_fc=False)
     atoms0, e_cart, w2, soft_cm = soft_eigen(ph)
     masses = atoms0.get_masses()
     n_imag = int((w2 < -1e-6).sum())
