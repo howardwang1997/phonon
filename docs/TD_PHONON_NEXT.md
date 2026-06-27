@@ -88,3 +88,38 @@ MLIP+SSCHA ω(q,T). Turns 3 case studies into a benchmarked law. Stays deferred 
 
 **Immediate next action:** kick off P1 step 1–2 (sample NbSe₂ thermal configs + queue DFT forces on
 the V100), while running P2's fc₃ diagnostic on the 2060.
+
+---
+
+## Machine-mapped execution plan (LIVE RUN — Path-P NbSe₂ centerpiece)
+
+**Machines.** `V100` = `v100ts` (ubuntu22, Tesla V100-32GB, GPU pw.x `/root/gpupw.sh`, envs
+`qe`+`phonon`, repo `/root/phonon`) = the DFT workhorse. `2060` = `howardwang@100.105.21.7`
+(howard-pc, RTX 2060S 8 GB, harmonic NbSe₂-FT `results/finetune_nbse2/ft_nbse2.model`, env `phonon`)
+= MLIP fine-tune + SSCHA. `local` (mac) = orchestration / analysis / plots / git.
+
+**Inputs (all confirmed present):** DFT fc₂ target `results/vq3/nbse2_dft_phonopy.yaml` (also the soft-
+eigenvector source); Nb/Se ONCV pseudos on the V100; harmonic NbSe₂-FT model on the 2060.
+
+**Sampling design (MD-free, robust — the harmonic-FT has the soft mode so MD would blow up).** Load
+the yaml → exact 3×3 (27-atom) supercell + soft eigenvector ê (most-negative-ω² mode = the CDW
+distortion). Generate configs = (a) **double-well scan** x₀+A·ê, A∈linspace(−0.18,0.18,13) [maps the
+reaction coordinate], (b) **thermal rattle** around x₀ at T=100/300 K, (c) **rattle around the ±well
+minima**. DFT-label each (GPU pw.x, ONCV, cold smearing degauss=0.015, kpts 6, ecutwfc 70 — identical
+to V-Q3) → `data/path_p_nbse2/{train,test}.xyz` with REF_energy/REF_forces. The rigor is in the DFT
+labels; the sampler only needs to cover the relevant region. Self-contained: phonopy+ase+numpy only.
+
+| Stage | machine | what | est. |
+|---|---|---|---|
+| **A** sample + DFT-label | **V100** | `path_p_nbse2_make_data.py`: smoke (3 cfg, time a SCF) → full ~70 cfg in background+watcher | ~3–6 GPU-hr |
+| **B** free figures/diag | **2060/local** | (parallel) MLIP double-well E(A) for harmonic-FT (baseline P1 must beat) + ω(q,T) figure + ballistic G(T) | ~0 GPU |
+| **C** fine-tune | **2060** (or V100) | foundation MACE → anharmonic-FT on the thermal DFT forces (`finetune_mace.sh`) | ~0.5–1 hr |
+| **D** re-SSCHA | **2060** | `vq3e_nbse2_sscha.py --model <anharmonic-FT>` 20–400 K; compare vs harmonic-FT (#1) + bare DFT | ~minutes |
+| **E** eval + writeup | local | force RMSE (harmonic vs anharmonic FT vs DFT) + the double-well E(A) plot (DFT vs both FT) + re-SSCHA T-evolution → doc + commit | — |
+| **F** (stretch) EPW | V100 | only if rental margin after A–E: Wannier90+EPW graphene α²F/γ_qν (P3) | ~tens GPU-hr |
+
+**Decision rule at E.** anharmonic-FT *reproduces the DFT double-well* AND re-SSCHA now shows a real
+T-evolution (soft/imag at low T → stabilizes near T_CDW) ⇒ **positive**: anharmonic distillation
+captures the CDW landscape harmonic distillation can't. Else ⇒ **honest boundary** (commensurate-cell
+limit). Both are written up. Then proceed to F if time remains.
+
