@@ -5,6 +5,7 @@
 # (no kmesh_tol works: loose->"too many neighbours", tight->"not enough bvectors").
 # A less anisotropic cell makes the shell search well-conditioned.
 set -e
+source /root/miniconda3/etc/profile.d/conda.sh && conda activate phonon
 WORK="${WORK:-/data/graphene_epw3}"
 PSEUDO="${PSEUDO:-/root/phonon/pseudo}"
 NP="${NP:-8}"; MPI="mpirun --allow-run-as-root -np $NP"
