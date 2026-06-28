@@ -578,6 +578,26 @@ T). Data `results/vq3f/nbse2_echannel.{csv,npz}`; fig `results/figures/nbse2_ech
 GPU-QE copied from box A over the datacenter public path — tailscale relayed via Tokyo at ~10 KB/s, the
 direct public path gave ~17 MB/s.
 
+## E7 — graphene K-point (E)-channel: A₁′ anomaly vs electronic smearing  ✅ DONE (2026-06-29, box A)
+Extends #3 (Γ-E₂g vs smearing) to the **K-A₁′** Kohn anomaly. Graphene DFPT on a 3×3 q-grid (includes
+Γ *and* K=(1/3,1/3)) scanned vs Fermi-Dirac smearing (degauss = k_B·T_el). conda qe ph.x, box A.
+
+| T_el (K) | Γ-E₂g (cm⁻¹) | K-A₁′ (cm⁻¹) |
+|---|---|---|
+| 474  | 1531.8 | 1250.9 |
+| 947  | 1559.9 | 1285.7 |
+| 1579 | 1569.9 | 1300.1 |
+| 3158 | 1571.3 | 1318.7 |
+| 6315 | 1558.2 | 1354.0 |
+
+**Both Kohn-anomaly modes stiffen with electronic temperature, but K-A₁′ far more** (Δ≈103 vs Γ-E₂g's
+Δ≈40 cm⁻¹, and monotonic vs Γ's turn-over at high T_el). Expected physics — the K-A₁′ Kohn anomaly in
+graphene/graphite is the **sharper/deeper** one (Piscanec 2004), so smearing the Fermi point fills it in
+more strongly. The (E)-channel thus acts on *both* anomalies and is **q-selective** — strongest where the
+bare e-ph Kohn anomaly is sharpest. Complements the EPW linewidths (E2) and confirms #3's mechanism
+generalizes across the BZ. Data `results/td_phonon/graphene_K_echannel.csv`; fig
+`graphene_K_echannel.png`; driver `scripts/run_graphene_K_echannel.sh`.
+
 ## E2 — graphene EPW: α²F, λ, phonon linewidths  ✅ DONE (2026-06-28, box B)
 The **canonical** Kohn-anomaly observable — the Eliashberg spectral function α²F(ω), the e-ph coupling
 λ, and mode-resolved phonon linewidths γ_qν — the rigorous (E)-channel that #3 (DFPT frequency vs
