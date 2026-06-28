@@ -26,6 +26,12 @@ import sys, numpy as np
 from ase.io import read, write
 d = sys.argv[1]
 configs = read(f"{d}/train.xyz", ":")
+# Path-P data has ABSOLUTE DFT energies (~-18627 eV); shift to relative so the
+# E0s=0 / force-dominated recipe (proven for harmonic distillation) works.
+emean = float(np.mean([float(a.info["REF_energy"]) for a in configs]))
+for a in configs:
+    a.info["REF_energy"] = float(a.info["REF_energy"]) - emean
+print(f"[split] subtracted emean={emean:.1f} eV (energies now relative)")
 rng = np.random.default_rng(0)
 idx = rng.permutation(len(configs))
 nval = max(2, int(round(0.10*len(configs))))
@@ -53,7 +59,7 @@ echo "pathP-nbse2 fine-tune: epochs=$EPOCHS device=$DEVICE E0s=$E0S data=$DATA o
   --energy_key REF_energy \
   --forces_key REF_forces \
   --E0s "$E0S" \
-  --energy_weight "${ENERGY_WEIGHT:-1.0}" \
+  --energy_weight "${ENERGY_WEIGHT:-0.01}" \
   --forces_weight "${FORCES_WEIGHT:-100.0}" \
   --max_num_epochs "$EPOCHS" \
   --batch_size 4 \
