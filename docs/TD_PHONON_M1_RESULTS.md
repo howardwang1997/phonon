@@ -550,6 +550,34 @@ benchmarked survey that (i) validates the FC-distillation cure across a chemical
 (ii) cleanly separates nesting-driven (graphene, q*=2k_F) from EPC-driven (NbSe₂) anomalies —
 with EPW as ground truth and the cheap MLIP+TDEP as the high-throughput surrogate.
 
+## E1 — NbSe₂ (E)-channel: CDW soft mode melts with electronic temperature  ✅ DONE (2026-06-28, box B)
+The (E)/(L) decomposition's missing piece for the centerpiece material. We had NbSe₂'s **(L)-channel**
+(SSCHA #1 + TDEP-C); the **(E)-channel** — the dependence on *electronic* temperature (Fermi-Dirac
+smearing, degauss = k_B·T_el) — a ground-state-PES MLIP structurally cannot produce. Method:
+frozen-phonon along the CDW soft eigenvector (DFT forces from GPU pw.x), ω² = generalized-force
+curvature −(g(+Q₀)−g(−Q₀))/2Q₀, scanned vs Fermi-Dirac degauss:
+
+| T_el (K) | 474 | 947 | 1579 | 2368 | 3158 | 4737 |
+|---|---|---|---|---|---|---|
+| soft-mode freq (cm⁻¹) | **−14.1** | +56.1 | +89.6 | +110.3 | +120.6 | +128.9 |
+
+**Finding.** The CDW soft mode **hardens monotonically through zero** — soft (−14.1 cm⁻¹) at low T_el,
+crossing to stable between 474–947 K, stiffening to +129 cm⁻¹ at 4737 K → **electronic T_CDW ≈ 500–570 K**
+(ω²=0 crossing). *Mechanism:* rising electronic T smears the Fermi surface → weakens the
+momentum-dependent e-ph coupling that drives the CDW (consistent with **#2**: EPC-driven, not nesting)
+→ soft mode hardens → **CDW electronically melts**. The absolute T_el scale is order-of-magnitude (DFT
+smearing is a broadening, not a literal temperature; the soft-mode magnitude is geometry/functional-
+sensitive), but the **trend + zero-crossing are the (E)-channel signature**, and the MLIP (no electronic
+T in its PES) is structurally blind to it.
+
+**This completes the (E)/(L) decomposition for NbSe₂:** (L) lattice-anharmonic stabilization (SSCHA #1:
+no imaginary modes at any lattice T) **+** (E) electronic melting (this: ω² crosses 0 at T_el≈500 K) —
+the two channels are independent and both real. Mirrors graphene's **#3** (Γ-E₂g hardens with electronic
+T). Data `results/vq3f/nbse2_echannel.{csv,npz}`; fig `results/figures/nbse2_echannel.png`; driver
+`scripts/vq3f_nbse2_echannel.py` (2 GPU SCF/degauss, ~13 min each). *Infra:* 2nd rented V100 (box B);
+GPU-QE copied from box A over the datacenter public path — tailscale relayed via Tokyo at ~10 KB/s, the
+direct public path gave ~17 MB/s.
+
 ## Artifacts
 - code: `scripts/{td_common,td_structures,harmonic_dispersion_2d,anomaly_locate,graphene_sc_convergence,td_phonon,td_anharmonic,plot_graphene_anomaly,plot_sc_convergence,plot_td_dispersion,plot_anharm_diag}.py`
 - rigor #1–#4 code: `scripts/{vq3d_nbse2_nesting,vq3e_nbse2_sscha}.py`, `scripts/vq2b_graphene_dfpt.sh`; fig `results/figures/nbse2_nesting.png`
