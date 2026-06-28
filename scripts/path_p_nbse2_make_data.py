@@ -87,7 +87,7 @@ def make_espresso(pw, pseudo_dir, ecutwfc, ecutrho, kpts, degauss, directory):
     profile = EspressoProfile(command=pw, pseudo_dir=str(pseudo_dir))
     input_data = {
         "control": {"calculation": "scf", "tprnfor": True, "tstress": False,
-                    "disk_io": "low", "verbosity": "low"},
+                    "disk_io": "none", "verbosity": "low"},
         "system": {"ecutwfc": ecutwfc, "ecutrho": ecutrho,
                    "occupations": "smearing", "smearing": "cold", "degauss": degauss},
         "electrons": {"conv_thr": 1e-8, "mixing_beta": 0.3,
@@ -169,6 +169,10 @@ def main() -> int:
           f"temps={a.temps}){' [SMOKE limit %d]' % a.limit if a.limit else ''}", flush=True)
 
     workdir = Path(a.workdir); workdir.mkdir(parents=True, exist_ok=True)
+    outdir = Path(a.outdir); outdir.mkdir(parents=True, exist_ok=True)
+    allxyz = outdir / "all.xyz"
+    if allxyz.exists():
+        allxyz.unlink()                          # fresh run
     pseudo_dir = Path(a.pseudo_dir)
     labelled = []
     t0 = time.perf_counter()
@@ -189,6 +193,11 @@ def main() -> int:
         # strip calculator so extxyz writes our REF_* not calc results
         at.calc = None
         labelled.append(at)
+        # incremental write-out (crash-safe) + keep disk flat
+        from ase.io import write as _write
+        _write(allxyz, at, format="extxyz", append=True)
+        import shutil
+        shutil.rmtree(d, ignore_errors=True)
         dt = time.perf_counter() - t0
         print(f"[pathP-nbse2]   {i+1}/{len(configs)} {tag}: "
               f"max|F|={np.abs(f).max():.3f} eV/A  E={e:.4f}  "
