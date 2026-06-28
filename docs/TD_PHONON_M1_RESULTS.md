@@ -578,6 +578,27 @@ T). Data `results/vq3f/nbse2_echannel.{csv,npz}`; fig `results/figures/nbse2_ech
 GPU-QE copied from box A over the datacenter public path — tailscale relayed via Tokyo at ~10 KB/s, the
 direct public path gave ~17 MB/s.
 
+## E2 — graphene EPW: α²F, λ, phonon linewidths  ✅ DONE (2026-06-28, box B)
+The **canonical** Kohn-anomaly observable — the Eliashberg spectral function α²F(ω), the e-ph coupling
+λ, and mode-resolved phonon linewidths γ_qν — the rigorous (E)-channel that #3 (DFPT frequency vs
+smearing) approximates. Full pipeline on box B's conda QE: scf → DFPT (6×6 q) → Wannier (2 pz) → e-ph
+Bloch→Wannier (7 irreducible q) → fine-grid interpolation.
+
+**Result (undoped graphene):** λ = λ_tr ≈ **1×10⁻⁷ ≈ 0**; α²F(ω) ≈ 0; phonon linewidths γ_qν ~ **neV**
+(the Γ-E₂g mode comes out at **193 meV ≈ 1560 cm⁻¹** — correct — with γ ~ 10⁻⁶ meV). **This is the
+correct physics:** undoped graphene's E_F sits exactly at the Dirac point where the DOS → 0, so a Dirac
+semimetal has no Fermi surface to scatter phonons → vanishing e-ph coupling. The finite Kohn-anomaly
+linewidths at Γ-E₂g / K-A₁′ appear only when E_F is shifted into the bands (doping or electronic-T
+smearing) — consistent with #3, where the Γ-E₂g *frequency* responds to electronic smearing.
+
+**The working pipeline is the deliverable** (it computes the canonical observables end-to-end, proving
+the EPW machinery for the flagship survey). **Hard-won fixes:** (i) the 2D-wannier b-vector wall —
+**c/a=12 large vacuum** so |b₃| sits below the in-plane shells (nntot=8), found via a standalone
+`wannier90 -pp` c/a sweep; (ii) nscf convergence (nbnd=14 + diago_david_ndim=8); (iii) Fermi-bracketing
+failure → `efermi_read` + the scf E_F; (iv) **the e-ph step crashed silently under nohup — EPW needs a
+pty (tmux)**, the same no-tty issue that hung mace fine-tuning. Files
+`results/epw_graphene/{graphene.a2f.*,linewidth.phself.*,epw.out}`; driver `scripts/epw/run_graphene_epw_full.sh`.
+
 ## Path-P — NbSe₂ anharmonic distillation → re-SSCHA  ✅ DONE (2026-06-28)
 The rigorous test SSCHA #1 called for: does *anharmonic* (finite-T DFT-force) distillation give the MLIP
 the CDW landscape that *harmonic* fc₂ distillation can't?
