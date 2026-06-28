@@ -61,13 +61,13 @@ echo "pathP-nbse2 fine-tune: epochs=$EPOCHS device=$DEVICE E0s=$E0S data=$DATA o
   --energy_key REF_energy \
   --forces_key REF_forces \
   --E0s "$E0S" \
-  --energy_weight "${ENERGY_WEIGHT:-0.01}" \
+  --energy_weight "${ENERGY_WEIGHT:-0.001}" \
   --forces_weight "${FORCES_WEIGHT:-100.0}" \
   --max_num_epochs "$EPOCHS" \
   --batch_size 4 \
   --valid_batch_size 4 \
   --eval_interval 5 \
-  --lr 0.001 \
+  --lr 0.0001 \
   --default_dtype float32 \
   --device "$DEVICE" \
   --seed 1 \
