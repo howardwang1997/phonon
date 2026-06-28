@@ -102,6 +102,6 @@ EOF
   $MPI pw.x -in graphene.nscf.in > graphene.nscf.out 2>&1
   grep -q "JOB DONE" graphene.nscf.out && echo "[epw] NSCF_DONE"
   echo "[epw] epw.x (uses epw.in -- finalize windows from Ef first) ..."
-  $MPI epw.x -in graphene.epw.in > graphene.epw.out 2>&1
+  $MPI epw.x -npool $NP -in graphene.epw.in > graphene.epw.out 2>&1
   echo "[epw] EPW_DONE (check graphene.epw.out for lambda / a2f / linewidths)"
 fi

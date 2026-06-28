@@ -13,10 +13,11 @@
   wannierize  = .true.
   nbndsub     = 2
   num_iter    = 400
-  dis_num_iter = 400
   proj(1)     = 'C:pz'
   dis_win_max  = 4.0
   dis_froz_max = 0.0
+  ! 2D hexagonal mesh: force the first shell (6 in-plane b-vectors, B1-complete in 2D)
+  wdata(1) = 'shell_list = 1'
 
   ! --- observables: phonon linewidths (Kohn anomaly) + Eliashberg a2F/lambda ---
   phonselfen  = .true.
