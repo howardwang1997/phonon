@@ -9,7 +9,7 @@ source /root/miniconda3/etc/profile.d/conda.sh && conda activate phonon
 WORK="${WORK:-/data/graphene_epw3}"
 PSEUDO="${PSEUDO:-/root/phonon/pseudo}"
 NP="${NP:-8}"; MPI="mpirun --allow-run-as-root -np $NP"
-A=4.6488; COA=3.0; NK=12; NQ=6; NKF=60; NQF=60
+A=4.6488; COA=12.0; NK=12; NQ=6; NKF=60; NQF=60
 mkdir -p "$WORK"; cd "$WORK"; export OMP_NUM_THREADS=1
 
 cat > scf.in <<EOF
