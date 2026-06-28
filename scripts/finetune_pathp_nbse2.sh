@@ -54,6 +54,8 @@ echo "pathP-nbse2 fine-tune: epochs=$EPOCHS device=$DEVICE E0s=$E0S data=$DATA o
   --foundation_model small \
   --multiheads_finetuning False \
   --foundation_model_elements True \
+  --scaling no_scaling \
+  --save_cpu \
   --train_file "$DATA/train_fit.xyz" \
   --valid_file "$DATA/val.xyz" \
   --energy_key REF_energy \
