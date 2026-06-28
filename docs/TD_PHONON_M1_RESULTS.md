@@ -578,6 +578,47 @@ T). Data `results/vq3f/nbse2_echannel.{csv,npz}`; fig `results/figures/nbse2_ech
 GPU-QE copied from box A over the datacenter public path — tailscale relayed via Tokyo at ~10 KB/s, the
 direct public path gave ~17 MB/s.
 
+## Path-P — NbSe₂ anharmonic distillation → re-SSCHA  ✅ DONE (2026-06-28)
+The rigorous test SSCHA #1 called for: does *anharmonic* (finite-T DFT-force) distillation give the MLIP
+the CDW landscape that *harmonic* fc₂ distillation can't?
+
+- **Data (Stage A):** DFT forces (GPU pw.x, 2nd V100) on 69 configs sampling the CDW reaction coordinate
+  — soft-eigenvector double-well scan A∈[−0.18,0.18] + thermal rattle 100/300 K (MD-free: the harmonic-FT
+  is dynamically unstable so MD would blow up).
+- **Model (Stage C):** fine-tune foundation MACE on the thermal DFT forces. **Required care** — the naive
+  recipe (lr=1e-3, energy-weighted) **diverged** (per-epoch *normalized* RMSE looked fine, but the saved
+  model gave 30,842 meV/Å forces — worse than the untrained foundation). An **lr sweep gated on the
+  saved-model force RMSE** found the stable regime: **lr=5e-4, forces-dominant (energy_weight 0.001) →
+  151 meV/Å** (vs foundation 366, harmonic-FT 699 → Path-P is **4.6× more accurate**).
+
+**The landscape (Stage E) — the key plot `nbse2_doublewell.png`:**
+
+| along the CDW soft eigenvector | edge E (A=±0.18) | well depth |
+|---|---|---|
+| **DFT (truth)** | +2047 meV (stiff) | **−3 meV** (marginally unstable) |
+| harmonic-FT | +390 (5× too soft) | −19 meV (spurious, too deep) |
+| **anharmonic-FT (Path-P)** | **+2073 ≈ DFT** | ≈DFT (no real well) |
+
+The bare fc₂ "soft mode" (−43…−126 cm⁻¹) is **largely a harmonic artifact** — the true DFT landscape is
+**stiff with only a −3 meV well**. **Harmonic distillation distorts it** (fits the A=0 curvature but is
+5× too soft at large A, with a spurious −19 meV well); **anharmonic Path-P distillation faithfully
+reproduces the true DFT landscape.**
+
+- **Re-SSCHA (Stage D):** with the anharmonic-FT, the free-energy Hessian has **no imaginary modes at any
+  T (20–400 K, n_imag=0)** — *identical to harmonic-FT (#1)*. For Path-P this is the **correct** physics
+  (the DFT well is shallow → quantum/thermally washed out); for harmonic-FT the same outcome was partly
+  fortuitous (its spurious deeper well still gets quantum-melted).
+
+**Conclusion (honest — and it strengthens the method story).** (i) Rigorous SSCHA confirms the NbSe₂ CDW
+soft mode on the 3×3 commensurate cell is **anharmonically/quantum-stabilized at all T**, *robust to the
+distillation scheme.* (ii) **Anharmonic distillation is the more faithful distillation** — it reproduces
+the stiff, marginally-unstable DFT landscape (4.6× better forces) that harmonic distillation overstates.
+(iii) Capturing a *sustained* CDW would need the incommensurate/larger cell and/or a functional beyond
+PBE — a clean boundary on FC distillation. Data `results/td_phonon/nbse2_sscha_pathp.csv`,
+`nbse2_pathp_analysis.npz`; figs `nbse2_doublewell.png`, `nbse2_softmode_TDEP_vs_SSCHA.png`. *(Ops note:
+fine-tune needs tmux — mace hangs detached without a tty — and the lr-sweep gate on saved-model force
+RMSE, since the per-epoch normalized metric hides divergence.)*
+
 ## Artifacts
 - code: `scripts/{td_common,td_structures,harmonic_dispersion_2d,anomaly_locate,graphene_sc_convergence,td_phonon,td_anharmonic,plot_graphene_anomaly,plot_sc_convergence,plot_td_dispersion,plot_anharm_diag}.py`
 - rigor #1–#4 code: `scripts/{vq3d_nbse2_nesting,vq3e_nbse2_sscha}.py`, `scripts/vq2b_graphene_dfpt.sh`; fig `results/figures/nbse2_nesting.png`
