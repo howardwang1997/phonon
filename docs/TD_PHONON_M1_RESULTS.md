@@ -578,6 +578,21 @@ T). Data `results/vq3f/nbse2_echannel.{csv,npz}`; fig `results/figures/nbse2_ech
 GPU-QE copied from box A over the datacenter public path — tailscale relayed via Tokyo at ~10 KB/s, the
 direct public path gave ~17 MB/s.
 
+## E5 — graphene SSCHA: rigorous (L)-channel  ✅ DONE (2026-06-29, 2060)
+Symmetry partner to NbSe₂ SSCHA #1 — the rigorous (lattice-anharmonic) channel for graphene. SSCHA
+free-energy Hessian on the graphene DFT fc₂ (foundation MACE-MP-0 L1; graphene is well-described by it,
+unlike NbSe₂'s CDW).
+
+| T (K) | 0 | 300 | 600 | 900 |
+|---|---|---|---|---|
+| SSCHA min freq (cm⁻¹) | ~0 | ~0 | ~0 | ~0 |
+| n_imag | 0 | 0 | 0 | 0 |
+
+**Graphene is dynamically stable at all T (n_imag=0, no imaginary modes)** — the clean **contrast** to
+NbSe₂: graphene has *no* lattice instability to begin with, whereas NbSe₂ has a CDW soft mode that the
+SSCHA *quantum-stabilizes* (#1, Path-P). Same SSCHA verdict (n_imag=0), opposite physics — graphene is
+intrinsically stable, NbSe₂'s stability is fluctuation-driven. Data `results/td_phonon/graphene_sscha.csv`.
+
 ## E7 — graphene K-point (E)-channel: A₁′ anomaly vs electronic smearing  ✅ DONE (2026-06-29, box A)
 Extends #3 (Γ-E₂g vs smearing) to the **K-A₁′** Kohn anomaly. Graphene DFPT on a 3×3 q-grid (includes
 Γ *and* K=(1/3,1/3)) scanned vs Fermi-Dirac smearing (degauss = k_B·T_el). conda qe ph.x, box A.
