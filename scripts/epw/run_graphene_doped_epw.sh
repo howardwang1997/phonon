@@ -7,7 +7,7 @@ set -e
 source /root/miniconda3/etc/profile.d/conda.sh && { conda activate qe 2>/dev/null || conda activate phonon; }
 WORK="${WORK:-/data/graphene_doped_epw}"; PSEUDO="${PSEUDO:-/root/phonon/pseudo}"
 NP="${NP:-8}"; MPI="mpirun --allow-run-as-root -np $NP"
-A=4.6488; COA=12.0; NK=12; NQ=6; NKF=36; NQF=36
+A=4.6488; COA=12.0; NK=12; NQ=6; NKF="${NKF:-36}"; NQF="${NQF:-36}"
 TOT="${TOT_CHARGE:--0.04}"        # -0.04 e/cell n-doping -> E_F ~0.8 eV into pi*
 mkdir -p "$WORK"; cd "$WORK"; export OMP_NUM_THREADS=1
 SYS="ibrav=4, celldm(1)=$A, celldm(3)=$COA, nat=2, ntyp=1, ecutwfc=60, ecutrho=240
