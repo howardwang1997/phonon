@@ -82,6 +82,7 @@ PY
  proj(1)='Nb:d', proj(2)='Se:p'
  dis_win_max=8.0
  phonselfen=.true., a2f=.true., elecselfen=.false.
+ efermi_read=.true., fermi_energy=-2.7613
  fsthick=4.0, degaussw=0.2, nsmear=1, delta_smear=0.1
  dvscf_dir='./save'
  nk1=$NK, nk2=$NK, nk3=1, nq1=$NQ, nq2=$NQ, nq3=1
