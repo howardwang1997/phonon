@@ -75,7 +75,7 @@ $ATOMS
 K_POINTS crystal
 EOF
   cat kpts.txt; } > nscf.in
-$MPI pw.x -in nscf.in > nscf.out 2>&1; grep -q "JOB DONE" nscf.out && echo "  NSCF ok"
+grep -q "JOB DONE" nscf.out 2>/dev/null || $MPI pw.x -in nscf.in > nscf.out 2>&1; grep -q "JOB DONE" nscf.out && echo "  NSCF ok"
 
 cat > epw.in <<EOF
 --
@@ -83,7 +83,7 @@ cat > epw.in <<EOF
  prefix='graphene', outdir='./tmp'
  elph=.true., epbwrite=.true., epwwrite=.true.
  wannierize=.true., nbndsub=2, num_iter=400, proj(1)='C:pz'
- dis_win_max=4.0, dis_froz_max=0.0
+ dis_win_max=4.0
  phonselfen=.true., a2f=.true., elecselfen=.false.
  efermi_read=.true., fermi_energy=$EF
  fsthick=6.0, degaussw=0.05, nsmear=1, delta_smear=0.01
