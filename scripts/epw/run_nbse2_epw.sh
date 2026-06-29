@@ -72,7 +72,7 @@ import sys; nk=int(sys.argv[1]); p=[(i/nk,j/nk,0.0) for i in range(nk) for j in 
 print(len(p)); [print(f"{x:.10f} {y:.10f} {z:.10f} 1.0") for x,y,z in p]
 PY
   { echo "&control"; echo " calculation='nscf', prefix='nbse2', outdir='./tmp', pseudo_dir='$PSEUDO', verbosity='high'"; echo "/"; write_struct " nbnd=30"; echo "K_POINTS crystal"; cat kpts.txt; } > nscf.in
-  $MPI pw.x -in nscf.in > nscf.out 2>&1; grep -q "JOB DONE" nscf.out && echo "  NSCF ok" || { echo "NSCF FAIL"; exit 1; }
+  grep -q "JOB DONE" nscf.out 2>/dev/null || $MPI pw.x -in nscf.in > nscf.out 2>&1; grep -q "JOB DONE" nscf.out && echo "  NSCF ok" || { echo "NSCF FAIL"; exit 1; }
   cat > epw.in <<EOF
 --
 &inputepw
@@ -80,7 +80,7 @@ PY
  elph=.true., epbwrite=.true., epwwrite=.true.
  wannierize=.true., nbndsub=11, num_iter=600
  proj(1)='Nb:d', proj(2)='Se:p'
- dis_win_max=8.0, dis_froz_max=2.0
+ dis_win_max=8.0
  phonselfen=.true., a2f=.true., elecselfen=.false.
  fsthick=4.0, degaussw=0.2, nsmear=1, delta_smear=0.1
  dvscf_dir='./save'
