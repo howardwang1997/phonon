@@ -634,6 +634,25 @@ failure → `efermi_read` + the scf E_F; (iv) **the e-ph step crashed silently u
 pty (tmux)**, the same no-tty issue that hung mace fine-tuning. Files
 `results/epw_graphene/{graphene.a2f.*,linewidth.phself.*,epw.out}`; driver `scripts/epw/run_graphene_epw_full.sh`.
 
+## E2b — doped-graphene EPW: finite λ + Kohn-anomaly linewidths  ✅ DONE (2026-06-29, box A)
+Completes E2. Undoped graphene gave λ≈0 (E_F at the Dirac point, DOS→0). Doping (tot_charge=−0.04 →
+E_F shifted to −0.94 eV, ~1 eV into the π\* band → a real Fermi surface) **turns the coupling on**:
+
+| | undoped (E2) | doped (E_F≈+1 eV) |
+|---|---|---|
+| **λ** | 1×10⁻⁷ ≈ 0 | **0.96** |
+| λ_tr | ~0 | 0.27 |
+| max γ_qν | ~neV | **~1.0 meV** |
+
+The electron-phonon coupling in graphene is **entirely a Fermi-surface effect** — vanishing at the
+undoped Dirac point (no states to scatter), substantial (λ~1) once E_F sits in the band; the phonon
+linewidths (the directly-measurable Kohn-anomaly observable) jump neV→meV. This pairs with E7 (frequency
+stiffening vs electronic smearing): both show the (E)-channel is **gated by the Fermi-surface DOS**.
+*Caveat:* the coarse 6×6 q-grid + heavy doping likely overestimate the absolute λ; the undoped→doped
+**contrast** is the robust, qualitative result. Same pipeline as E2 + `tot_charge`; the two doped-EPW
+bugs (no `python` on box A's qe env → awk; `dis_froz_max` frozen-window > target WFs → removed) are the
+generic EPW gotchas. Data `results/epw_graphene_doped/`; driver `scripts/epw/run_graphene_doped_epw.sh`.
+
 ## Path-P — NbSe₂ anharmonic distillation → re-SSCHA  ✅ DONE (2026-06-28)
 The rigorous test SSCHA #1 called for: does *anharmonic* (finite-T DFT-force) distillation give the MLIP
 the CDW landscape that *harmonic* fc₂ distillation can't?
