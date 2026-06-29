@@ -653,6 +653,33 @@ stiffening vs electronic smearing): both show the (E)-channel is **gated by the 
 bugs (no `python` on box A's qe env → awk; `dis_froz_max` frozen-window > target WFs → removed) are the
 generic EPW gotchas. Data `results/epw_graphene_doped/`; driver `scripts/epw/run_graphene_doped_epw.sh`.
 
+## E6 — NbSe₂ EPW: momentum-resolved EPC at the soft mode  ✅ DONE (2026-06-30, box B)
+The deep (E)-channel for the CDW material. Full EPW on box B (scf → DFPT 3×3 [~6 h, metal] → nscf →
+Wannier Nb:d+Se:p [11 WF] → e-ph, 2h37m). Needed the same EPW gotcha fixes (no frozen window;
+`efermi_read` + scf E_F to bypass the `efermig: cannot bracket Ef`).
+
+**The integrated λ is ill-defined (=140, unphysical).** The CDW soft mode (ω→0) makes λ=∫(2/ω)α²F
+diverge (logavg≈0). *For a soft-mode material the total λ is not the right observable* — the
+**momentum/mode-resolved linewidth γ_qν is.**
+
+**γ of the soft mode peaks at q_CDW (broadly):**
+
+| q (frac) | γ_soft (meV) |
+|---|---|
+| **(0.333, 0.083) ≈ q_CDW** | 47.8 |
+| (0.500, 0.417) | 52.4 |
+| (0.667, 0.417) | 40.1 |
+
+The soft phonon is strongly damped (γ ~ 40–52 meV) in a **broad region** around q_CDW≈(⅓,0) and the
+M–K zone boundary — **the EPC drives the CDW**, and the *breadth* (not a sharp spike) is consistent with
+#2 (χ(q) only weakly peaked → not nesting-driven; Johannes–Mazin). Fig `nbse2_epw_gamma_softmode.png`.
+
+**Caveats (honest, important):** (i) total λ diverges — **do not report it**; (ii) soft-mode
+interpolation on the 24×24 fine grid is noisy (some γ<0 near ω→0); (iii) the 3×3 coarse q + this grid
+are **not converged**. So E6 is **qualitative** evidence of strong, broad EPC at the soft mode;
+quantitative λ_q needs a denser coarse grid + the soft mode regularized (compute at a stabilizing
+electronic smearing/geometry so ω stays finite). Data `results/epw_nbse2/`.
+
 ## Path-P — NbSe₂ anharmonic distillation → re-SSCHA  ✅ DONE (2026-06-28)
 The rigorous test SSCHA #1 called for: does *anharmonic* (finite-T DFT-force) distillation give the MLIP
 the CDW landscape that *harmonic* fc₂ distillation can't?
