@@ -32,7 +32,7 @@ $ATOMS
 K_POINTS automatic
  $NK $NK 1 0 0 0
 EOF
-echo "[doped] scf tot_charge=$TOT ..."; $MPI pw.x -in scf.in > scf.out 2>&1
+echo "[doped] scf tot_charge=$TOT ..."; grep -q "JOB DONE" scf.out 2>/dev/null || $MPI pw.x -in scf.in > scf.out 2>&1
 grep -q "JOB DONE" scf.out || { echo "SCF FAIL"; tail -5 scf.out; exit 1; }
 EF=$(grep -i 'the Fermi energy' scf.out | tail -1 | grep -oE '[-0-9.]+' | head -1)
 echo "  SCF ok, doped E_F = $EF eV"
@@ -44,7 +44,7 @@ doped graphene DFPT
  ldisp=.true., nq1=$NQ, nq2=$NQ, nq3=1, tr2_ph=1.0d-14, electron_phonon='dvscf'
 /
 EOF
-echo "[doped] ph DFPT ${NQ}x${NQ} (metallic now) ..."; $MPI ph.x -in ph.in > ph.out 2>&1
+echo "[doped] ph DFPT ${NQ}x${NQ} (metallic now) ..."; grep -q "JOB DONE" ph.out 2>/dev/null || $MPI ph.x -in ph.in > ph.out 2>&1
 grep -q "JOB DONE" ph.out || { echo "PH FAIL"; tail -6 ph.out; exit 1; }; echo "  PH ok"
 
 echo "[doped] gather dvscf -> save/ ..."
@@ -59,12 +59,7 @@ done
 echo "  gathered $nq q-points"
 
 echo "[doped] nscf full ${NK}x${NK} k ..."
-python - "$NK" > kpts.txt <<'PY'
-import sys
-nk=int(sys.argv[1]); pts=[(i/nk,j/nk,0.0) for i in range(nk) for j in range(nk)]
-print(len(pts))
-for x,y,z in pts: print(f"{x:.10f} {y:.10f} {z:.10f} 1.0")
-PY
+awk -v nk="$NK" 'BEGIN{print nk*nk; for(i=0;i<nk;i++)for(j=0;j<nk;j++)printf "%.10f %.10f 0.0 1.0\n", i/nk, j/nk}' > kpts.txt
 { cat <<EOF
 &control
  calculation='nscf', prefix='graphene', outdir='./tmp', pseudo_dir='$PSEUDO', verbosity='high'
