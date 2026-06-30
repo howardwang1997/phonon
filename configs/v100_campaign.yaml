@@ -1,0 +1,76 @@
+# =============================================================================
+# V100 single-card campaign config — the FP64 half (complements the H20 MLIP half)
+# -----------------------------------------------------------------------------
+# Two single-V100 boxes. Two resource lanes per box:
+#   GPU lane (pw.x, FP64) : relax -> fc2 -> bands -> chi(q) -> Path-P   (continuous)
+#   CPU lane (ph.x + epw) : (E)-channel DFPT-with-smearing + EPW gamma_qv (sequential)
+# The lanes overlap (GPU fills the idle GPU while EPW chews CPU).
+#
+# Scope (decided): full-family DFT fc2 + electronic anchors (11), and (E)-channel
+# EPW for ALL 7 known-CDW members. Maps to NCS_ROADMAP §0b·2(b).
+# Family list mirrors configs/h20_campaign.yaml so the (L)+(E) origin-map lines up.
+# =============================================================================
+
+runtime:
+  pw: /root/gpupw.sh            # GPU pw.x launcher (sources nvhpc_env)
+  pseudo_dir: /root/phonon/pseudo
+  nproc_gpu: 1                  # GPU-lane MPI ranks (keep low -> don't starve CPU lane)
+  np_epw: 8                     # CPU-lane MPI ranks for scf/DFPT/nscf
+  conda_env: phonon            # env with ase+phonopy (GPU pw.x via --pw wrapper)
+
+# shared DFT settings (the NbSe2 V-Q3 template, validated)
+dft:
+  ecutwfc: 70
+  ecutrho: 280
+  degauss: 0.015               # (E)-knob for fc2/bands (modest -> CDW survives)
+  fc2_supercell: 3             # n x n x 1 (3 hosts a 3x3 CDW)
+  fc2_disp: 0.03
+  fc2_kpts: 6
+  bands_nk: 18
+
+# (E)-channel EPW settings (the production gamma_qv run, per material)
+epw:
+  degauss: 0.02                # representative T_el ~ 3160 K
+  nq: 3
+  nk: 12
+  nkf: 24
+  nbndsub: 11                  # M:d (5) + 2× X:p (6) = 11 Wannier funcs (2H & 1T alike)
+  dis_win_max: 8.0
+
+# Path-P anharmonic DFT (GPU single-points; the (L) anharmonic labels). CDW-only.
+path_p:
+  n_scan: 13
+  amax: 0.18
+  temps: "100,300"
+  n_therm: 12
+  n_well: 8
+
+# --- the family (sched. mirrors H20). cdw=true -> gets EPW + Path-P -----------
+# masses: Nb 92.906 Se 78.971 S 32.06 Ta 180.95 Ti 47.867 V 50.942 Mo 95.95 W 183.84
+materials:
+  - {name: NbSe2,    formula: NbSe2, polytype: 2H, a: 3.44, thickness: 3.34, M: Nb, X: Se, Mmass: 92.906, Xmass: 78.971, cdw: true}
+  - {name: NbS2,     formula: NbS2,  polytype: 2H, a: 3.33, thickness: 3.00, M: Nb, X: S,  Mmass: 92.906, Xmass: 32.06,  cdw: true}
+  - {name: 2H-TaS2,  formula: TaS2,  polytype: 2H, a: 3.31, thickness: 3.00, M: Ta, X: S,  Mmass: 180.95, Xmass: 32.06,  cdw: true}
+  - {name: 1T-TaS2,  formula: TaS2,  polytype: 1T, a: 3.36, thickness: 2.90, M: Ta, X: S,  Mmass: 180.95, Xmass: 32.06,  cdw: true}
+  - {name: 2H-TaSe2, formula: TaSe2, polytype: 2H, a: 3.43, thickness: 3.30, M: Ta, X: Se, Mmass: 180.95, Xmass: 78.971, cdw: true}
+  - {name: 1T-TiSe2, formula: TiSe2, polytype: 1T, a: 3.53, thickness: 2.90, M: Ti, X: Se, Mmass: 47.867, Xmass: 78.971, cdw: true}
+  - {name: 1T-TiS2,  formula: TiS2,  polytype: 1T, a: 3.40, thickness: 2.70, M: Ti, X: S,  Mmass: 47.867, Xmass: 32.06,  cdw: false}
+  - {name: 1T-VSe2,  formula: VSe2,  polytype: 1T, a: 3.34, thickness: 3.00, M: V,  X: Se, Mmass: 50.942, Xmass: 78.971, cdw: true}
+  - {name: 1T-VS2,   formula: VS2,   polytype: 1T, a: 3.18, thickness: 2.95, M: V,  X: S,  Mmass: 50.942, Xmass: 32.06,  cdw: false}
+  - {name: MoS2,     formula: MoS2,  polytype: 2H, a: 3.18, thickness: 3.13, M: Mo, X: S,  Mmass: 95.95,  Xmass: 32.06,  cdw: false}  # gapped control
+  - {name: WSe2,     formula: WSe2,  polytype: 2H, a: 3.28, thickness: 3.36, M: W,  X: Se, Mmass: 183.84, Xmass: 78.971, cdw: false}  # gapped control
+
+# pseudopotentials: ONCV-PBE (SG15), resolved by glob {Element}_ONCV_PBE*.upf in
+# pseudo_dir so version suffixes don't matter. fetch_pseudos.sh downloads these.
+pseudo_elements: [Nb, Se, S, Ta, Ti, V, Mo, W]
+
+# --- per-box assignment (two single-V100 boxes) ------------------------------
+# epw = this box's (E)-channel materials (CPU lane). NbSe2 EPW is already running.
+# gpu = this box's fc2/bands/chi(q)/Path-P share (GPU lane).
+boxes:
+  A:
+    epw: [NbS2, 2H-TaS2, 1T-TaS2]
+    gpu: [NbSe2, NbS2, 2H-TaS2, 1T-TaS2, 1T-TiS2, MoS2]
+  B:
+    epw: [2H-TaSe2, 1T-TiSe2, 1T-VSe2]
+    gpu: [2H-TaSe2, 1T-TiSe2, 1T-VSe2, 1T-VS2, WSe2]
