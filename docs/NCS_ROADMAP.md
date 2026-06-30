@@ -1,12 +1,79 @@
 # Roadmap → Nature Computational Science
-## A closed-loop, GPU-accelerated framework for near-DFT phonons at scale
+## A foundation-model framework that repairs the phonon blind spot — and turns it into a discovery engine for electronically-driven lattice instabilities
 
-**One-line thesis.** Foundation MLIPs are fast but phonon-blind; high-throughput phonon DFT is
-accurate but the bottleneck. We close the gap by *co-designing the data engine and the model in a
-loop*: a GPU-accelerated finite-displacement DFT workflow (Line B) generates curvature-rich
-reference data cheaply; force-constant (FC) distillation injects that curvature into a foundation
-MLIP (Line A); and active learning lets MLIP uncertainty decide where the expensive DFT is spent —
-so the framework self-extends across the inorganic space at a fixed, small DFT budget.
+> **⚠ Strategy update (2026-06-30) — reframed; read §0 first.** From *"near-DFT phonons at scale
+> (a tool)"* → *"a tool that enables a discovery."* A pure tool paper is a strong **npj** but a
+> low-probability **NCS** (the components — MLIP phonons, distillation, active learning — are each
+> well-trodden); the fix is to **lead with the science the engine uniquely enables**: high-throughput
+> **decomposition of lattice instabilities into electronic vs lattice-anharmonic origins** (CDW origin
+> in 2D materials). The accuracy engine (§1–§8) becomes the *method*; the instability-origin study
+> becomes the *headline*. **Ballistic transport is explicitly out of scope.**
+
+**One-line thesis.** Foundation MLIPs are fast but **blind precisely to the physics that defines
+quantum materials** — the *electronically-driven* phonon anomalies (Kohn anomalies, charge-density-
+wave soft modes, soft-mode instabilities). We (i) repair this blind spot by *co-designing a data
+engine and the model in a loop* — a GPU finite-displacement DFT workflow (Line B) feeds force-
+constant (FC) distillation into a foundation MLIP (Line A), with active learning targeting the DFT;
+and (ii) **because the repaired framework is cheap *and* accurate on these hardest cases, it makes
+origin-decomposition of lattice instabilities high-throughput for the first time** — which we use to
+map and adjudicate CDW instabilities across the 2D transition-metal-dichalcogenide (TMD) family.
+
+---
+
+## 0. Strategy update (2026-06-30) — the merged story (READ FIRST)
+
+**Why this update.** §1–§8 describe the *accuracy engine* (Line A distillation + Line B GPU-DFT +
+active-learning loop). That engine is real and largely built — but **as a standalone "tool" paper it
+is a strong npj and a low-probability NCS** (~10–20%): MLIP phonons, FC distillation, and active
+learning are each well-trodden by well-resourced groups, so the framework risks reading as
+incremental, and NCS increasingly wants a *scientific payoff*, not a faster tool.
+
+**The fix — invert the framing.** Lead with the **science the engine uniquely enables**, not the engine:
+
+> **Headline capability.** Foundation MLIPs systematically fail on the *electronically-driven* phonon
+> anomalies (Kohn anomalies, CDW soft modes) that underlie quantum materials. The repaired framework
+> is the first that is **both cheap and accurate enough on these hardest cases to make high-throughput
+> *origin-decomposition* of lattice instabilities feasible** — separating each instability into its
+> **electronic (Fermi-surface / EPC)** vs **lattice-anharmonic** channel — which we use to **adjudicate
+> the long-debated origin of charge-density waves across the 2D-TMD family.**
+
+**Why merged > either half alone:**
+- the engine's novelty is *justified by the application it enables* (not "yet another phonon framework");
+- the discovery is made *tractable by the engine* — the cheap (L)-channel (distilled MLIP + SSCHA)
+  screens a whole family that full DFPT/EPW could never afford; (E)/EPW deep-dives only the flagships.
+
+**Already done toward the discovery half (this work — the "B-line" / anomaly thread, `TD_PHONON_*`):**
+- **(E)/(L) decomposition defined + validated on NbSe₂.** (L) = MLIP+SSCHA: the soft mode is
+  *quantum-stabilized* (bare DFT overestimates the instability; **Path-P** anharmonic distillation
+  reproduces the true landscape, 4.6× better forces than harmonic). (E) = DFPT-vs-smearing + EPW:
+  χ(q) only weakly peaked (#2) **and** EPW **γ_qν broad at q_CDW** (E6) → **EPC-driven, not nesting**
+  (Johannes–Mazin) — the **first family member adjudicated.**
+- **graphene** as the (E)-channel reference (Γ-E₂g + K-A₁′ vs electronic T; undoped EPW λ≈0 at the
+  Dirac point → doped EPW λ turns on — coupling is a pure Fermi-surface effect).
+- **Methodological maturity to sell as rigor, not weakness:** integrated λ is ill-defined at a soft
+  mode (it *diverges* — that divergence **is** the instability signal) → report q-resolved γ_qν/λ_qν;
+  2D acoustic-ASR subtleties (q2r `zasr='crystal'`); bare-DFT overestimation cured by SSCHA.
+
+**What the discovery half still needs (the NCS gate):**
+1. **Family breadth** — extend (E)/(L) from NbSe₂ to NbS₂, TaS₂, TaSe₂, TiSe₂, VSe₂, … (cheap (L)
+   screen over all; (E)/EPW on 3–5) → the **origin-classification map** (each material in the (E)–(L)
+   plane).
+2. **A discovery** — a *non-trivial* outcome: a material re-classified (assumed-nesting → EPC or
+   vice-versa), a predicted-but-unmeasured instability, or a clean (E)/(L)→T_CDW trend validated vs
+   experiment. **This is make-or-break; NCS probability ~25–40% even if it lands.**
+
+**Explicitly OUT of scope:** **ballistic transport (NEGF/Landauer)** — different method family, no
+shared backbone; bolting it on reads as scope creep and *lowers* acceptance.
+
+**Two-paper discipline (保底 + 冲刺) — to stop the drift this update corrects:**
+- **Paper 1 — npj (保底, ~2–4 wk):** graphene+NbSe₂ = the engine (Line A/B backbone) + (E)/(L)
+  decomposition on the two flagships. Lockable from current results + the ASR fix.
+- **Paper 2 — NCS (冲刺, +2–4 mo):** the family origin-map + the discovery + open tool/dataset. Lands
+  the discovery → NCS; doesn't → folds into a strong second npj.
+
+**Execution rule (this update's real purpose):** from here, work is tracked against *this* merged
+plan; revisit it before every compute campaign and log advance-vs-drift. The prior drift — a session
+spent deep on the B-line without reconciling against this roadmap — is exactly what §0 fixes.
 
 ---
 
@@ -202,6 +269,10 @@ displacements (wall-clock = GPU-hours / N_GPU).
   speedup decomposition (symmetry 48–384× *standard*; density+wfc reuse ~1.5× wall, iteration savings
   scale with SCF difficulty Si 1.0×→MgO 1.78×; GPU-SCF deferred); first **self-DFT phonon dataset**
   (11 materials, mean 1.4% vs MDR).
+- **B-line / anomaly thread** (`TD_PHONON_M1_RESULTS.md`) — **the seed of Paper 2 (§0):** (E)/(L)
+  decomposition validated on graphene + NbSe₂ — SSCHA quantum-stabilization, Path-P anharmonic
+  distillation, EPW **γ_qν broad at q_CDW** (EPC-driven, not nesting), (E)-channel vs electronic T,
+  doped-graphene λ turn-on. NbSe₂ = the **first TMD-family member adjudicated**.
 
 **Two hard bones remaining for NCS:**
 1. **Real GPU acceleration** — QE-GPU on rented A100/V100 for the GPU-SCF factor (~5–15×). H20 FP64 is
@@ -221,15 +292,23 @@ displacements (wall-clock = GPU-hours / N_GPU).
   URLs all failed from the China box → download on an open-internet machine.)
 - **A100/V100 rental** — required for both hard bones (GPU-SCF and κ).
 
-**Honest framing:** the *method backbone is strong now*; reaching NCS is **~2–4 weeks of real compute**
-(rented GPU + thousands of GPU-hr) gated on the two resource decisions above — not on more ideas.
+**Honest framing (corrected 2026-06-30 — see §0):** the *method backbone is strong now*, and the
+accuracy engine + (E)/(L) decomposition on graphene+NbSe₂ is **~2–4 weeks from a strong npj (Paper 1,
+保底)**. But **NCS is *not* 2–4 weeks away** — the prior estimate conflated "npj-ready backbone" with
+"NCS." NCS needs the §0 **discovery half**: the TMD-family origin-map + a *non-trivial discovery* +
+open tool/dataset (**+2–4 months; ~25–40% even if the discovery lands**). The two resource decisions
+below gate the *engine*; the **discovery is the real NCS gate**.
 
 ## 8. Milestones (indicative, ~6–9 months)
 - **M1 (1–2 mo):** E1 benchmark atlas + E2 diagnosis (public data). Submit-quality failure-mode figure.
 - **M2 (2–3 mo):** E3/E4 finalized with breadth law + generalization (pilot already done).
 - **M3 (3–5 mo):** E5 GPU-DFT engine ~50× demonstrated; E6 scoped.
 - **M4 (4–7 mo):** E7 active-learning loop beats random selection; E8 scale-out dataset.
-- **M5 (6–9 mo):** E9 downstream (κ/zT/stability) + E10; assemble, write, release tool+dataset.
+- **M5 (6–9 mo):** E9 downstream (κ/zT/stability) + E10; assemble, write, release tool+dataset → **Paper 1 (npj, 保底)**.
+- **M6 (Paper 2 — NCS, the §0 冲刺):** TMD-family (E)/(L) **origin-map** (cheap (L)-channel screen of
+  NbS₂/TaS₂/TaSe₂/TiSe₂/VSe₂ + (E)/EPW deep-dive on 3–5) → the origin-classification figure → **a
+  non-trivial discovery** → open instability-origin pipeline + dataset. *Gate = the discovery; ~+2–4 mo
+  after Paper 1; NCS probability ~25–40% if it lands, else folds into a strong second npj.*
 
 > Honesty clauses to keep in the paper (credibility): pure GPU-DFT single-SCF is only ~5–15×; the
 > ~50× is workflow-level; the ~10³× is the MLIP proxy. Every speedup is reported with its scope and
