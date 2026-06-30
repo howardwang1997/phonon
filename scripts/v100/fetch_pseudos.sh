@@ -21,7 +21,7 @@ for el in "${ELEMENTS[@]}"; do
   got=""
   for v in "${VERS[@]}"; do
     f="${el}_ONCV_PBE-${v}.upf"
-    if curl -fsSL "$BASE/$f" -o "$PSEUDO/$f" 2>/dev/null && [ -s "$PSEUDO/$f" ]; then
+    if curl -fsSL --connect-timeout 20 --max-time 180 "$BASE/$f" -o "$PSEUDO/$f" 2>/dev/null && [ -s "$PSEUDO/$f" ]; then
       echo "[$el] downloaded $f"; got=1; break
     else rm -f "$PSEUDO/$f"; fi
   done

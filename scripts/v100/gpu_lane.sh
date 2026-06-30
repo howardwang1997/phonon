@@ -10,6 +10,8 @@ BOX="${1:?need box A|B}"
 CONDA="$HOME/miniconda3"
 source "$CONDA/etc/profile.d/conda.sh"; conda activate phonon
 export LD_LIBRARY_PATH="$CONDA/envs/phonon/lib:${LD_LIBRARY_PATH:-}"
+# cap CPU footprint so the GPU-lane pw.x doesn't fight the running CPU-EPW
+export OMP_NUM_THREADS=2 MKL_NUM_THREADS=2 OPENBLAS_NUM_THREADS=2
 PY="$CONDA/envs/phonon/bin/python"
 PW=$("$PY" -c "import sys;sys.path.insert(0,'scripts/v100');import tmd_common as t;print(t.load_config()['runtime']['pw'])")
 PD=$("$PY" -c "import sys;sys.path.insert(0,'scripts/v100');import tmd_common as t;print(t.load_config()['runtime']['pseudo_dir'])")
