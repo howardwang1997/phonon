@@ -109,30 +109,53 @@ DFT/DFPT/EPW is the bottleneck (CPU, only the 2 V100s); MLIP / distillation / SS
 - **q2r.x / matdyn.x**: missing from the minimal conda QE build; needed for the **crystal-ASR** fix
   (clean absolute λ, 2D ZA mode). **conda-install full QE** on Box A/B (small).
 
-### 2 · Compute requirements
+### 2 · Compute requirements — GPU-hour estimates by hardware class
 
-**Doable NOW on the 3 machines (no rental):**
-| Task | Machine | Cost |
-|---|---|---|
-| λ(T_el) campaign (running) + ASR re-pass | 2× V100 | ~1 day |
-| graphene+NbSe₂ convergence + writeup | V100 + local | ~days |
-| TMD-family triage: foundation-MLIP SSCHA (no DFT) | 2060 | hours |
-| TMD-family **fc₂** (finite-displacement) on candidates | 2× V100 | ~1–3 h/material → ~1 day for ~6 |
-| distill harmonic-FT + **(L)-channel SSCHA** screen | 2060 | cheap |
-| **(E)/EPW deep-dive on 3–5 flagship TMDs** | 2× V100 | ~8.5 h each → ~1–2 days |
-| origin-classification map + **discovery attempt** | local | — |
+**Measured anchors (this project):** NbSe₂ DFPT ≈ 6 h, EPW ≈ 2.5 h (→ one NbSe₂-class (E)/EPW material
+≈ **8.5 box-h**, CPU); TMD fc₂ (finite-displacement) ≈ 1–3 h; SSCHA ≈ 15–30 min/(material·T); MLIP
+fine-tune ≈ 30–60 min/run; MLIP phonon inference ≈ ~1 min/material.
+*Unit note:* H20 numbers are true **GPU-h** (MLIP/FP32); V100 DFT runs on **CPU (16-core box)** → quoted
+as **box-h**, not GPU-h.
 
-→ **Paper-1 finish + Paper-2's discovery attempt fit on the 3 machines in ~1–2 weeks.**
+**(a) 8×H20 — the MLIP / (L)-channel / benchmark half** *(FP32; mostly zero new DFT):*
+| Workload | single-GPU GPU-h |
+|---|---|
+| Benchmark atlas (E1, ~1,500 mat × 6 models) | ~200–400 |
+| Diagnosis (E2) | ~50–100 |
+| FC-distillation + ablations (E3/E4) | ~100–200 |
+| Active-learning loop (E7→E8, MLIP side) | ~150–300 |
+| **(L)-channel SSCHA family screen** (Paper 2) | ~50–100 |
+| 10³–10⁴ MLIP phonon dataset (E8) | ~200–400 |
+| Cross-model generality (MatterSim/SevenNet/ORB) | ~50–100 |
+| κ — MLIP-force part (E9) | ~100–200 |
+| **Total** | **~900–1,800 GPU-h** → on 8 cards **~5–10 parallel-days** (w/ iteration ~2–3 wk) |
 
-**Needs rental (8-V100 / A100 fleet) — only AFTER the discovery shows signal:**
-| Task | Why rental | Est. |
-|---|---|---|
-| Benchmark atlas (~1,500 mat) | MLIP inference volume → fleet for speed | fleet-days |
-| 10³–10⁴ near-DFT dataset (E8) | active-learning scale-out DFT throughput | ~1,000–3,000 GPU-hr |
-| κ at scale (30–50 mat, E9) | heavy phono3py 3rd-order | ~500–1,500 GPU-hr |
-| GPU-DFT ~50× engine demo (E5) | needs **GPU-QE build** on A100/V100 (FP64) | ~300–800 GPU-hr |
-| family-wide **converged** EPW (dense grids) | CPU-EPW too slow at scale | rental |
-| real active-learning loop, new chemistry (E7→E8) | new-material DFT throughput | (folds into above) |
+**(b) 2×V100 + 2060 — the DFT/EPW half, NOW** *(no rental; FP64 = box-h):*
+| Task | box-h |
+|---|---|
+| λ(T_el) campaign (running; mostly spent) | ~35 |
+| ASR re-pass + convergence (graphene/NbSe₂) | ~20–40 |
+| TMD-family fc₂ labels (~12 mat) | ~15–45 |
+| (E)/EPW deep-dive on 3–5 flagship TMDs | ~40–90 |
+| **NOW subtotal (2×V100)** | **~110–210 box-h → ~1–2 wk on 2 boxes** |
+
+*(2060 is redundant once an H20 fleet exists — anything it does, H20 does faster.)*
+
+**(c) Rented V100/A100 — the FP64 scale half** *(Phase 3; only after the discovery gate):*
+| Task | GPU-h |
+|---|---|
+| GPU-QE ~50× engine demo (E5; needs A100/V100 FP64) | ~300–800 |
+| family-wide **converged** EPW (dense grids) | ~300–500 |
+| κ-at-scale DFT reference (3rd-order, E9) | ~500–1,500 |
+| 10³–10⁴ dataset DFT labels (active-learning chemistries) | ~1,000–3,000 |
+| **Rental subtotal (FP64)** | **~2,100–5,800 GPU-h** |
+
+**Summary.** ~900–1,800 GPU-h on **8×H20** (mostly zero new DFT) **+** ~110–210 **box-h** on the **2 V100s
+now** carries **Paper 1 to submission and Paper 2 to its go/no-go**. Only the **~2,100–5,800 FP64 GPU-h**
+of scale (engine demo + converged family EPW + κ-at-scale + 10³–10⁴ DFT labels) needs **rental — and only
+if the Phase-2 discovery gate passes**. *Ranges are wide; the two biggest unknowns are MLIP-inference
+speed (material size) and converged-EPW grid cost (could be 2–3× higher). A 3–5-material TMD pilot on the
+current machines would re-calibrate every number above.*
 
 ### 3 · Experiment plan (ordered, resource-tagged)
 
