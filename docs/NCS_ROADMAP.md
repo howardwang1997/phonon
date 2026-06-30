@@ -77,6 +77,92 @@ spent deep on the B-line without reconciling against this roadmap — is exactly
 
 ---
 
+## 0b. Execution plan — data · compute · experiments (merged, 3-machine)
+
+> Companion to §0. The full **engine** experiment list (E1–E10), public-data table, and engine
+> GPU-hour budget stay in §4 / §5 (unchanged). **This section is the actionable, resource-mapped plan
+> for the merged two-paper push, given the three machines actually in hand** and what is gated on rental.
+
+**Machines in hand**
+
+| Machine | Capability | Role |
+|---|---|---|
+| **Box A / Box B** — 2× V100, 16-core, conda **CPU-QE** (+ GPU pw.x) | DFT / DFPT / EPW (CPU; ~8.5 h per NbSe₂-class material) + MLIP | DFT/EPW **workhorses** |
+| **2060** — 8 GB | MLIP fine-tune (~7 GB) + SSCHA — **no QE/DFT** | distillation + (L)-channel |
+
+DFT/DFPT/EPW is the bottleneck (CPU, only the 2 V100s); MLIP / distillation / SSCHA is cheap (2060).
+
+### 1 · Data
+
+**Public (zero new DFT):**
+- MDR/PhononDB (10,034) + Petretto (1,521) harmonic DFPT → benchmark + FC-distillation labels (engine).
+- Togo phono3py κ DB → downstream κ reference. MPtrj → replay anti-forgetting.
+- **Experimental T_CDW / INS for the TMD family (literature)** → Paper-2 validation.
+
+**Self-generated (the 2 V100s):**
+- graphene + NbSe₂ DFT fc₂ / DFPT / dvscf / EPW — **done** (Paper-1 flagships).
+- **TMD family** (NbS₂, TaS₂, TaSe₂, TiSe₂, VSe₂, …) fc₂ + DFPT + dvscf — **to generate** (Paper 2).
+
+**Data ENABLERS (gating, low-cost, do now — not rental):**
+- **Broad pseudopotentials**: have C/Nb/Se(+few); the TMD family needs **Ta, Ti, V, S**. **Download** on
+  an open-internet machine. *Without these the family work cannot start.*
+- **q2r.x / matdyn.x**: missing from the minimal conda QE build; needed for the **crystal-ASR** fix
+  (clean absolute λ, 2D ZA mode). **conda-install full QE** on Box A/B (small).
+
+### 2 · Compute requirements
+
+**Doable NOW on the 3 machines (no rental):**
+| Task | Machine | Cost |
+|---|---|---|
+| λ(T_el) campaign (running) + ASR re-pass | 2× V100 | ~1 day |
+| graphene+NbSe₂ convergence + writeup | V100 + local | ~days |
+| TMD-family triage: foundation-MLIP SSCHA (no DFT) | 2060 | hours |
+| TMD-family **fc₂** (finite-displacement) on candidates | 2× V100 | ~1–3 h/material → ~1 day for ~6 |
+| distill harmonic-FT + **(L)-channel SSCHA** screen | 2060 | cheap |
+| **(E)/EPW deep-dive on 3–5 flagship TMDs** | 2× V100 | ~8.5 h each → ~1–2 days |
+| origin-classification map + **discovery attempt** | local | — |
+
+→ **Paper-1 finish + Paper-2's discovery attempt fit on the 3 machines in ~1–2 weeks.**
+
+**Needs rental (8-V100 / A100 fleet) — only AFTER the discovery shows signal:**
+| Task | Why rental | Est. |
+|---|---|---|
+| Benchmark atlas (~1,500 mat) | MLIP inference volume → fleet for speed | fleet-days |
+| 10³–10⁴ near-DFT dataset (E8) | active-learning scale-out DFT throughput | ~1,000–3,000 GPU-hr |
+| κ at scale (30–50 mat, E9) | heavy phono3py 3rd-order | ~500–1,500 GPU-hr |
+| GPU-DFT ~50× engine demo (E5) | needs **GPU-QE build** on A100/V100 (FP64) | ~300–800 GPU-hr |
+| family-wide **converged** EPW (dense grids) | CPU-EPW too slow at scale | rental |
+| real active-learning loop, new chemistry (E7→E8) | new-material DFT throughput | (folds into above) |
+
+### 3 · Experiment plan (ordered, resource-tagged)
+
+**Phase 0 — enablers** *(now · ~1 day · no rental)*
+- **E-0a** conda-install full QE (q2r.x/matdyn.x) on Box A/B → crystal-ASR fix.
+- **E-0b** download Ta/Ti/V/S pseudopotentials (open-internet machine).
+
+**Phase 1 — Paper 1 lock** *(now · ~2–4 wk · no rental)*
+- **E-1a** finish λ(T_el) campaign (running) + ASR re-pass on graphene/NbSe₂ → clean absolute λ.
+- **E-1b** convergence (k/q grid, smearing, supercell) on the flagships.
+- **E-1c** assemble graphene+NbSe₂ (engine + (E)/(L)) → **npj draft**.
+
+**Phase 2 — Paper 2 discovery attempt** *(now · ~1–2 wk · no rental · THE NCS GATE)*
+- **E-2a** TMD-family triage: foundation-MLIP SSCHA on 2060 (no DFT) → rank likely-unstable.
+- **E-2b** fc₂ (finite-displacement) on candidates @ Box A/B [needs E-0b pseudos] → distill + **(L)-channel SSCHA** @ 2060.
+- **E-2c** **(E)-channel** — DFPT-vs-smearing + EPW γ_qν — on 3–5 flagship TMDs @ Box A/B.
+- **E-2d** build the **(E)–(L) origin-classification map**; hunt the non-trivial discovery (re-classification / predicted instability / T_CDW trend vs experiment).
+- **★ GATE:** discovery signal? → **yes** → rent + Phase 3; → **no** → fold into a strong second npj.
+
+**Phase 3 — scale for NCS** *(rental · +2–4 mo · only if the Phase-2 gate passes)*
+- **E-3a** family-wide converged EPW + κ-at-scale + benchmark atlas + 10³–10⁴ dataset + GPU-DFT engine demo.
+- **E-3b** open-source the instability-origin pipeline + dataset.
+- **E-3c** assemble **Paper 2 (NCS)**.
+
+**Golden rule:** *don't rent until the Phase-2 discovery gate shows signal.* The 3 machines can carry
+Paper 1 to submission and Paper 2 to its go/no-go decision; rental buys only **scale**, after the
+science is de-risked.
+
+---
+
 ## 1. What problem we solve
 
 **Phonons gate a huge slice of materials science** — lattice thermal conductivity (thermal
