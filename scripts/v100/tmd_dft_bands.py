@@ -76,7 +76,10 @@ def main() -> int:
     ap.add_argument("--npoints", type=int, default=200)
     ap.add_argument("--nbnd", type=int, default=28)
     ap.add_argument("--workdir", default="results/v100/bands")
+    ap.add_argument("--scratch", default="/data/v100scratch",
+                    help="big QE scratch root (keep OFF the root fs)")
     a = ap.parse_args()
+    import shutil
 
     cfg = tc.load_config(a.config)
     mat = tc.material(cfg, a.name)
@@ -85,7 +88,7 @@ def main() -> int:
     if out.exists():
         print(f"[bands:{a.name}] {out.name} exists -> skip", flush=True)
         return 0
-    work = ROOT / a.workdir / a.name
+    work = Path(a.scratch) / "bands" / a.name
     work.mkdir(parents=True, exist_ok=True)
     pseudos = tc.pseudo_map(mat, a.pseudo_dir)
     pref = a.name.replace("-", "")
@@ -167,6 +170,7 @@ def main() -> int:
              kF_GM=np.array(crossings),
              nest_q=(qfrac if qfrac is not None else np.array([])),
              nest_xi=(xi if xi is not None else np.array([])), a=mat["a"])
+    shutil.rmtree(work, ignore_errors=True)     # free the QE scratch
     print(f"[bands:{a.name}] saved -> {out.relative_to(ROOT)}", flush=True)
     return 0
 

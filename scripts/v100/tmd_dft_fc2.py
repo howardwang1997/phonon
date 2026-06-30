@@ -35,8 +35,11 @@ def make_espresso(pw, mpirun, nproc, pseudo_dir, pseudos, ecutwfc, ecutrho,
     cmd = f"{mpirun} --allow-run-as-root -np {nproc} {pw}" if nproc > 1 else pw
     profile = EspressoProfile(command=cmd, pseudo_dir=str(pseudo_dir))
     input_data = {
+        # disk_io='none': forces only (tprnfor) -> no wfc/charge written. The
+        # finite-displacement scratch would otherwise be ~GBs/disp and fill the
+        # root fs. Scratch dirs live on /data (see --scratch) and are cleaned after.
         "control": {"calculation": "scf", "tprnfor": True, "tstress": False,
-                    "disk_io": "low", "verbosity": "low"},
+                    "disk_io": "none", "verbosity": "low"},
         "system": {"ecutwfc": ecutwfc, "ecutrho": ecutrho,
                    "occupations": "smearing", "smearing": "cold", "degauss": degauss},
         "electrons": {"conv_thr": 1e-8, "mixing_beta": 0.3,
@@ -57,8 +60,11 @@ def main() -> int:
     ap.add_argument("--nproc", type=int, default=1)
     ap.add_argument("--pseudo-dir", default="/root/phonon/pseudo")
     ap.add_argument("--workdir", default="results/v100/fc2")
+    ap.add_argument("--scratch", default="/data/v100scratch",
+                    help="big QE scratch root (keep OFF the root fs)")
     a = ap.parse_args()
 
+    import shutil
     from phonon_accel.phonons import PhononCalculation
 
     cfg = tc.load_config(a.config)
@@ -68,7 +74,7 @@ def main() -> int:
     if out_yaml.exists():
         print(f"[fc2:{a.name}] {out_yaml.name} exists -> skip", flush=True)
         return 0
-    work = ROOT / a.workdir / a.name
+    work = Path(a.scratch) / "fc2" / a.name
     work.mkdir(parents=True, exist_ok=True)
     pseudos = tc.pseudo_map(mat, a.pseudo_dir)
 
@@ -115,6 +121,7 @@ def main() -> int:
     n_imag = int((freq < -0.1).sum())
     print(f"[fc2:{a.name}] min freq = {fmin:.3f} THz, n_imag(<-0.1) = {n_imag} -> "
           f"{'SOFT MODE (CDW captured)' if fmin < -0.1 else 'stable'}; saved {out_yaml.name}", flush=True)
+    shutil.rmtree(work, ignore_errors=True)     # free the QE scratch
     return 0
 
 

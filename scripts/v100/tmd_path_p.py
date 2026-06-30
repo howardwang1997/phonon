@@ -58,7 +58,7 @@ def main() -> int:
         "--degauss", str(d["degauss"]), "--n-scan", str(pcfg["n_scan"]),
         "--amax", str(pcfg["amax"]), "--temps", str(pcfg["temps"]),
         "--n-therm", str(pcfg["n_therm"]), "--n-well", str(pcfg["n_well"]),
-        "--workdir", f"results/v100/path_p/{a.name}", "--outdir", outdir,
+        "--workdir", f"/data/v100scratch/path_p/{a.name}", "--outdir", outdir,
     ]
     print(f"[pathP:{a.name}] pseudos={pp.PSEUDOS} fc2={yaml}", flush=True)
     return pp.main()
