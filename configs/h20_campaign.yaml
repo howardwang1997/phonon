@@ -33,7 +33,7 @@ models:
 
 # --- E1: full-band MLIP-vs-DFPT benchmark over a stratified MDR subset --------
 e1:
-  pool_size: 200          # bootstrap fetches a stratified ~N-material MDR subset
+  pool_size: 100          # capped to the 109 locally-cached MDR materials (network to MDR source is blocked)
   pool_file: data/benchmark/e1_pool.txt
   nshards: 12             # per-model parallelism: 6 models × 12 = 72 E1 jobs
   mesh: 24

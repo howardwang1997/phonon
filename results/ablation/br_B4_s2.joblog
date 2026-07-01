@@ -1,0 +1,38 @@
+=== [br_B4_s2] ft.model exists -> eval only Fri Jun 19 12:10:31 CST 2026 ===
+/root/miniconda3/envs/phonon/lib/python3.11/site-packages/e3nn/o3/_wigner.py:10: UserWarning: Environment variable TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD detected, since the`weights_only` argument was not explicitly passed to `torch.load`, forcing weights_only=False.
+  _Jd, _W3j_flat, _W3j_indices = torch.load(os.path.join(os.path.dirname(__file__), 'constants.pt'))
+/root/miniconda3/envs/phonon/lib/python3.11/site-packages/mace/calculators/mace.py:226: UserWarning: Environment variable TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD detected, since the`weights_only` argument was not explicitly passed to `torch.load`, forcing weights_only=False.
+  torch.load(f=model_path, map_location=device)
+WARNING:root:Default dtype float64 does not match model dtype float32, converting models to float64.
+/root/phonon/src/phonon_accel/phonons.py:113: PrimitiveMatrixAutoDefaultWarning: primitive_matrix defaulted to 'auto' and was resolved to a non-identity matrix:
+  [-0.50000,  0.50000,  0.50000]
+  [ 0.50000, -0.50000,  0.50000]
+  [ 0.50000,  0.50000, -0.50000]
+This differs from phonopy v3, whose default was the identity matrix. Pass primitive_matrix='P' (or --pa P on the command line) to restore the v3 behaviour.
+  self.phonon = Phonopy(
+/root/phonon/src/phonon_accel/phonons.py:113: PrimitiveMatrixAutoDefaultWarning: primitive_matrix defaulted to 'auto' and was resolved to a non-identity matrix:
+  [ 0.00000,  0.50000,  0.50000]
+  [ 0.50000,  0.00000,  0.50000]
+  [ 0.50000,  0.50000,  0.00000]
+This differs from phonopy v3, whose default was the identity matrix. Pass primitive_matrix='P' (or --pa P on the command line) to restore the v3 behaviour.
+  self.phonon = Phonopy(
+== fine-tuned ==
+cuequivariance or cuequivariance_torch is not available. Cuequivariance acceleration will be disabled.
+  [finetuned] train   mp-4651   MAE=0.185 THz  soft= +0.1%  imag=10
+  [finetuned] train   mp-661    MAE=0.085 THz  soft= -1.3%  imag=0
+  [finetuned] train   mp-9946   MAE=0.050 THz  soft= -2.0%  imag=0
+  [finetuned] train   mp-23193  MAE=0.068 THz  soft= -0.5%  imag=0
+  [finetuned] holdout mp-7140   MAE=2.429 THz  soft=-17.1%  imag=0
+  [finetuned] holdout mp-984    MAE=5.686 THz  soft=-27.2%  imag=0
+  [finetuned] holdout mp-1138   MAE=0.996 THz  soft=-10.5%  imag=0
+  [finetuned] holdout mp-2605   MAE=0.283 THz  soft= -1.3%  imag=0
+  [finetuned] holdout mp-20351  MAE=0.490 THz  soft=-10.8%  imag=0
+  [finetuned] holdout mp-390    MAE=1.441 THz  soft= -9.8%  imag=0
+
+wrote results/ablation/eval_br_B4_s2.csv
+
+                   n  freq_mae  softening  imag
+variant   split                                
+finetuned holdout  6  1.887666 -12.789522     0
+          train    4  0.097054  -0.954161    10
+=== [br_B4_s2] DONE Fri Jun 19 12:12:05 CST 2026 ===

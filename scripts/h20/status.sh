@@ -8,7 +8,7 @@ H=results/h20
 
 echo "================= H20 campaign status $(date) ================="
 if [ -f "$H/jobs.jsonl" ]; then
-  "$PHPY" scripts/h20/queue.py status
+  "$PHPY" scripts/h20/hqueue.py status
 else
   echo "(no manifest yet — run scripts/h20/run_campaign.sh)"
 fi

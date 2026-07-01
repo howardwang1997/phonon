@@ -60,12 +60,13 @@ def get_calculator(name: str, device: Optional[str] = None, **kwargs):
     if name in ("mace-omat", "mace_omat"):
         from mace.calculators import mace_mp
 
+        kwargs.pop("model", None)  # discard caller's model; OMAT uses its own
         return mace_mp(model="medium-omat-0", device=device, default_dtype="float64", **kwargs)
 
     if name == "mattersim":
         from mattersim.forcefield import MatterSimCalculator
 
-        model = kwargs.pop("load_path", "MatterSim-v1.0.0-5M.pth")
+        model = kwargs.pop("load_path", None) or kwargs.pop("model", None) or "MatterSim-v1.0.0-5M.pth"
         return MatterSimCalculator(load_path=model, device=device, **kwargs)
 
     if name in ("sevennet", "7net", "sevenn"):

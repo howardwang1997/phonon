@@ -60,7 +60,7 @@ build_model_env() {           # $1 env  $2 import-probe  $3 pip-spec
   "$py" -m ensurepip --upgrade >>"$STATUS" 2>&1 || true
   "$py" -m pip install --upgrade pip -i "$MIRROR" >>"$STATUS" 2>&1
   "$py" -m pip install torch==2.6.0 -i "$MIRROR" >>"$STATUS" 2>&1
-  "$py" -m pip install $spec phonopy ase pandas numpy -i "$MIRROR" >>"$STATUS" 2>&1
+  "$py" -m pip install $spec phonopy ase seekpath pandas numpy -i "$MIRROR" >>"$STATUS" 2>&1
   if imp "$env" "$probe"; then
     log "[$env]   OK ($("$py" -c 'import torch;print("cuda",torch.cuda.is_available())' 2>/dev/null))"
   else

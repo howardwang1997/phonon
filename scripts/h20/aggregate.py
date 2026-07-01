@@ -117,9 +117,35 @@ def _parse_sscha(p):
         elif line and not line.startswith("T_K"):
             parts = line.split(",")
             if len(parts) >= 2:
-                rows.append((_f(parts[0]), _f(parts[1])))
-    minf = min((m for _, m in rows), default=float("nan"))
+                # (T, sscha_minfreq_cm, n_imag)
+                rows.append((_f(parts[0]), _f(parts[1]), _f(parts[2]) if len(parts) > 2 else None))
+    minf = min((m for _, m, _ in rows), default=float("nan"))
     return meta, minf, rows
+
+
+# 4x4x1 TMD supercell of a 3-atom MX2 primitive => 48 atoms => 144 modes.
+# SSCHA free-energy-Hessian regression on a noisy MLIP can diverge (all 144
+# modes imaginary, |minfreq| > 1e3 cm^-1). Detect that so the origin map does
+# not report garbage min-freqs as physical "L-unstable" signals.
+_SSCHA_TOTAL_MODES_441 = 144
+_SSCHA_ABSURD_CM = 500.0   # |minfreq| above this at any T => non-converged
+
+
+def _sscha_relabel(bare, rows):
+    """Override the run-time label if the SSCHA Hessian diverged. Returns
+    (label, converged_topT_minf_cm). Falls back to the bare harmonic fc2 as the
+    only reliable signal when SSCHA did not converge."""
+    if not rows:
+        return "?", float("nan")
+    topT = max(rows, key=lambda r: r[0])
+    top_minf, top_nimag = topT[1], topT[2]
+    absurd = any(abs(m) > _SSCHA_ABSURD_CM for _, m, _ in rows)
+    half_imag = (top_nimag is not None and top_nimag > 0.5 * _SSCHA_TOTAL_MODES_441)
+    if absurd or half_imag:
+        # SSCHA diverged: trust only the bare harmonic fc2.
+        return ("L-stable" if (bare == bare and bare >= -1.0)
+                else "L-unstable(nh,SSCHA-diverged)"), top_minf
+    return None, top_minf   # None => keep the run-time label
 
 
 def agg_lchannel(lines: list[str]):
@@ -138,12 +164,15 @@ def agg_lchannel(lines: list[str]):
                 mat[key]["polytype"] = r.get("polytype", "")
                 mat[key]["label_tri"] = r.get("label", "")
     for p in ssc:
-        meta, minf, _ = _parse_sscha(p)
+        meta, minf, rows = _parse_sscha(p)
         key = (meta.get("name", Path(p).stem), meta.get("model", "?"))
         d = mat.setdefault(key, {})
-        d["sscha_label"] = meta.get("label", "?")
-        d["sscha_minf"] = minf
-        d["bare"] = _f(meta.get("bare_minfreq_cm"))
+        bare = _f(meta.get("bare_minfreq_cm"))
+        override, top_minf = _sscha_relabel(bare, rows)
+        d["sscha_label"] = override if override is not None else meta.get("label", "?")
+        # show the highest-T (most physical) min-freq, not the divergent low-T one
+        d["sscha_minf"] = top_minf
+        d["bare"] = bare
         d["cdw"] = meta.get("cdw_exp_K", "null")
         d["polytype"] = d.get("polytype", meta.get("polytype", ""))
 

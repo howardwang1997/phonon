@@ -26,7 +26,7 @@ bash scripts/h20/bootstrap_h20_full.sh || echo "!! bootstrap reported issues —
   echo "!! manifest generation failed — aborting"; exit 1; }
 
 # 3. free claims left by a crashed prior run so they get retried
-"$PHPY" scripts/h20/queue.py release-stale
+"$PHPY" scripts/h20/hqueue.py release-stale
 
 run_wave() {
   local wave="$1" pids=()
@@ -43,7 +43,7 @@ run_wave() {
 run_wave A
 
 # 5. Wave B — only if every Wave A job produced its done-marker (canon model ready)
-if "$PHPY" scripts/h20/queue.py wave-ready --wave B; then
+if "$PHPY" scripts/h20/hqueue.py wave-ready --wave B; then
   run_wave B
 else
   echo "!! Wave A has unfinished/failed jobs -> SKIPPING Wave B."
@@ -54,4 +54,4 @@ fi
 "$PHPY" scripts/h20/aggregate.py || echo "!! aggregate failed (results still in $H/)"
 
 echo "############ H20 campaign done $(date) ############"
-"$PHPY" scripts/h20/queue.py status
+"$PHPY" scripts/h20/hqueue.py status

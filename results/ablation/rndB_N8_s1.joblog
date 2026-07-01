@@ -1,0 +1,111 @@
+=== [rndB_N8_s1] gpu=4 seed=1 ncfg=30 mode=pt1000 model=small Sat Jun 20 01:55:24 CST 2026 ===
+building fine-tune data from 8 materials: ['mp-557465', 'mp-543028', 'mp-2172', 'mp-23154', 'mp-804', 'mp-23202', 'mp-685097', 'mp-644419']
+{
+  "n_train": 456,
+  "n_val": 80,
+  "per_material": {
+    "mp-557465": 67,
+    "mp-543028": 67,
+    "mp-2172": 67,
+    "mp-23154": 67,
+    "mp-804": 67,
+    "mp-23202": 67,
+    "mp-685097": 67,
+    "mp-644419": 67
+  },
+  "train_path": "data/finetune_rndB_N8_s1/train.xyz",
+  "val_path": "data/finetune_rndB_N8_s1/val.xyz",
+  "train_materials": [
+    "mp-557465",
+    "mp-543028",
+    "mp-2172",
+    "mp-23154",
+    "mp-804",
+    "mp-23202",
+    "mp-685097",
+    "mp-644419"
+  ],
+  "holdout_materials": [
+    "mp-804",
+    "mp-1138",
+    "mp-2605",
+    "mp-20351",
+    "mp-984",
+    "mp-390"
+  ]
+}
+/root/miniconda3/envs/phonon/lib/python3.11/site-packages/e3nn/o3/_wigner.py:10: UserWarning: Environment variable TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD detected, since the`weights_only` argument was not explicitly passed to `torch.load`, forcing weights_only=False.
+  _Jd, _W3j_flat, _W3j_indices = torch.load(os.path.join(os.path.dirname(__file__), 'constants.pt'))
+cuequivariance or cuequivariance_torch is not available. Cuequivariance acceleration will be disabled.
+2026-06-20 01:55:34.120 INFO: ===========VERIFYING SETTINGS===========
+2026-06-20 01:55:34.120 INFO: MACE version: 0.3.16
+2026-06-20 01:55:34.683 INFO: CUDA version: 12.4, CUDA device: 0
+2026-06-20 01:55:34.733 INFO: Using foundation model mace small as initial checkpoint.
+/root/miniconda3/envs/phonon/lib/python3.11/site-packages/mace/calculators/mace.py:226: UserWarning: Environment variable TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD detected, since the`weights_only` argument was not explicitly passed to `torch.load`, forcing weights_only=False.
+  torch.load(f=model_path, map_location=device)
+Using Materials Project MACE for MACECalculator with /root/.cache/mace/20231210mace128L0_energy_epoch249model
+Using float32 for MACECalculator, which is faster but less accurate. Recommended for MD. Use float64 for geometry optimization.
+2026-06-20 01:55:34.984 INFO: CUDA version: 12.4, CUDA device: 0
+2026-06-20 01:55:34.986 INFO: Using head Default out of  ['Default']
+2026-06-20 01:55:34.986 WARNING: Default dtype float32 does not match model dtype float64, converting models to float32.
+2026-06-20 01:55:34.997 INFO: Multihead finetuning mode, setting learning rate to 0.0001 and EMA to True. To use a different learning rate, set --force_mh_ft_lr=True.
+2026-06-20 01:55:34.997 INFO: Using multiheads finetuning mode, setting learning rate to 0.0001 and EMA to True
+2026-06-20 01:55:34.997 INFO: Using foundation model for multiheads finetuning with Materials Project data
+2026-06-20 01:55:34.997 INFO: ===========LOADING INPUT DATA===========
+2026-06-20 01:55:34.997 INFO: Using heads: ['Default', 'pt_head']
+2026-06-20 01:55:34.997 INFO: Using the key specifications to parse data:
+2026-06-20 01:55:34.997 INFO: Default: KeySpecification(info_keys={'energy': 'REF_energy', 'stress': 'REF_stress', 'virials': 'REF_virials', 'dipole': 'dipole', 'head': 'head', 'elec_temp': 'elec_temp', 'total_charge': 'total_charge', 'polarizability': 'polarizability', 'total_spin': 'total_spin'}, arrays_keys={'forces': 'REF_forces', 'charges': 'REF_charges'})
+2026-06-20 01:55:34.997 INFO: pt_head: KeySpecification(info_keys={'energy': 'energy', 'stress': 'stress', 'virials': 'REF_virials', 'dipole': 'dipole', 'head': 'head', 'elec_temp': 'elec_temp', 'total_charge': 'total_charge', 'polarizability': 'polarizability', 'total_spin': 'total_spin'}, arrays_keys={'forces': 'forces', 'charges': 'REF_charges'})
+2026-06-20 01:55:34.997 INFO: =============    Processing head Default     ===========
+2026-06-20 01:55:35.264 INFO: Training set 1/1 [energy: 456, stress: 0, virials: 0, dipole components: 0, head: 456, elec_temp: 0, total_charge: 0, polarizability: 0, total_spin: 0, forces: 456, charges: 0]
+2026-06-20 01:55:35.266 INFO: Total Training set [energy: 456, stress: 0, virials: 0, dipole components: 0, head: 456, elec_temp: 0, total_charge: 0, polarizability: 0, total_spin: 0, forces: 456, charges: 0]
+2026-06-20 01:55:35.320 INFO: Validation set 1/1 [energy: 80, stress: 0, virials: 0, dipole components: 0, head: 80, elec_temp: 0, total_charge: 0, polarizability: 0, total_spin: 0, forces: 80, charges: 0]
+2026-06-20 01:55:35.321 INFO: Total Validation set [energy: 80, stress: 0, virials: 0, dipole components: 0, head: 80, elec_temp: 0, total_charge: 0, polarizability: 0, total_spin: 0, forces: 80, charges: 0]
+2026-06-20 01:55:35.321 INFO: Total number of configurations: train=456, valid=80, tests=[],
+2026-06-20 01:55:35.321 INFO: =============    Processing head pt_head     ===========
+2026-06-20 01:55:35.321 INFO: Using filtered Materials Project data for replay (1000, none, random). You can also construct a different subset using `fine_tuning_select.py` script.
+2026-06-20 01:55:35.321 INFO: Reading /root/.cache/mace/mp_traj_combinedxyz
+2026-06-20 01:55:39.763 INFO: Filtering configurations based on the finetuning set, filtering type: none, elements: []
+2026-06-20 01:55:39.768 INFO: Subsample data
+2026-06-20 01:55:39.768 INFO: Subselecting 1000 from filtered 13000 using random sampling
+2026-06-20 01:55:39.770 INFO: Saving the selected configurations
+2026-06-20 01:55:40.053 INFO: Saving a combined XYZ file
+Traceback (most recent call last):
+  File "/root/miniconda3/envs/phonon/lib/python3.11/site-packages/mace/tools/multihead_tools.py", line 199, in assemble_replay_data
+    collections_mp, _ = get_dataset_from_xyz(
+                        ^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/phonon/lib/python3.11/site-packages/mace/tools/scripts_utils.py", line 106, in get_dataset_from_xyz
+    ae_dict, train_configs = data.load_from_xyz(
+                             ^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/phonon/lib/python3.11/site-packages/mace/data/utils.py", line 248, in load_from_xyz
+    atoms_list = ase.io.read(file_path, index=":")
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/phonon/lib/python3.11/site-packages/ase/io/formats.py", line 784, in read
+    return list(_iread(filename, index, format, io, parallel=parallel,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/phonon/lib/python3.11/site-packages/ase/parallel.py", line 301, in new_generator
+    for result in generator(*args, **kwargs):
+  File "/root/miniconda3/envs/phonon/lib/python3.11/site-packages/ase/io/formats.py", line 853, in _iread
+    for dct in io.read(fd, *args, **kwargs):
+  File "/root/miniconda3/envs/phonon/lib/python3.11/site-packages/ase/io/formats.py", line 611, in wrap_read_function
+    yield from read(filename, index, **kwargs)
+  File "/root/miniconda3/envs/phonon/lib/python3.11/site-packages/ase/io/extxyz.py", line 733, in read_xyz
+    assert int(fileobj.readline()) == natoms
+           ^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: invalid literal for int() with base 10: ''
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/root/miniconda3/envs/phonon/bin/mace_run_train", line 6, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/root/miniconda3/envs/phonon/lib/python3.11/site-packages/mace/cli/run_train.py", line 85, in main
+    run(args)
+  File "/root/miniconda3/envs/phonon/lib/python3.11/site-packages/mace/cli/run_train.py", line 310, in run
+    collections = assemble_replay_data(
+                  ^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/phonon/lib/python3.11/site-packages/mace/tools/multihead_tools.py", line 219, in assemble_replay_data
+    raise RuntimeError(
+RuntimeError: Foundation model replay data or descriptors cached data not found and download failed
+[rndB_N8_s1] TRAIN FAIL

@@ -1,0 +1,324 @@
+=== [rndF_N48_s1] gpu=1 seed=1 ncfg=30 mode=pt1000 model=small Sat Jun 20 04:13:14 CST 2026 ===
+/root/miniconda3/envs/phonon/lib/python3.11/site-packages/phonopy/cui/load.py:307: PrimitiveMatrixAutoDefaultWarning: primitive_matrix defaulted to 'auto' and was resolved to a non-identity matrix:
+  [-1.00000, -1.00000, -0.00000]
+  [-0.00000, -0.00000, -1.00000]
+  [-0.00000, -1.00000,  0.00000]
+This differs from phonopy v3, whose default was the identity matrix. Pass primitive_matrix='P' (or --pa P on the command line) to restore the v3 behaviour.
+  phonon = Phonopy(
+building fine-tune data from 48 materials: ['mp-2741', 'mp-2242', 'mp-753671', 'mp-632229', 'mp-661', 'mp-644419', 'mp-543028', 'mp-760411', 'mp-23154', 'mp-581967', 'mp-673245', 'mp-753378', 'mp-561412', 'mp-20878', 'mp-776097', 'mp-542613', 'mp-776016', 'mp-685097', 'mp-23193', 'mp-557465', 'mp-1986', 'mp-560381', 'mp-768257', 'mp-558134', 'mp-36066', 'mp-560998', 'mp-149', 'mp-568348', 'mp-600038', 'mp-29312', 'mp-29510', 'mp-561203', 'mp-673798', 'mp-2172', 'mp-556328', 'mp-29226', 'mp-677103', 'mp-778064', 'mp-22862', 'mp-406', 'mp-2472', 'mp-2490', 'mp-34381', 'mp-567269', 'mp-557082', 'mp-761842', 'mp-530033', 'mp-23202']
+{
+  "n_train": 2734,
+  "n_val": 482,
+  "per_material": {
+    "mp-2741": 67,
+    "mp-2242": 67,
+    "mp-753671": 67,
+    "mp-632229": 67,
+    "mp-661": 67,
+    "mp-644419": 67,
+    "mp-543028": 67,
+    "mp-760411": 67,
+    "mp-23154": 67,
+    "mp-581967": 67,
+    "mp-673245": 67,
+    "mp-753378": 67,
+    "mp-561412": 67,
+    "mp-20878": 67,
+    "mp-776097": 67,
+    "mp-542613": 67,
+    "mp-776016": 67,
+    "mp-685097": 67,
+    "mp-23193": 67,
+    "mp-557465": 67,
+    "mp-1986": 67,
+    "mp-560381": 67,
+    "mp-768257": 67,
+    "mp-558134": 67,
+    "mp-36066": 67,
+    "mp-560998": 67,
+    "mp-149": 67,
+    "mp-568348": 67,
+    "mp-600038": 67,
+    "mp-29312": 67,
+    "mp-29510": 67,
+    "mp-561203": 67,
+    "mp-673798": 67,
+    "mp-2172": 67,
+    "mp-556328": 67,
+    "mp-29226": 67,
+    "mp-677103": 67,
+    "mp-778064": 67,
+    "mp-22862": 67,
+    "mp-406": 67,
+    "mp-2472": 67,
+    "mp-2490": 67,
+    "mp-34381": 67,
+    "mp-567269": 67,
+    "mp-557082": 67,
+    "mp-761842": 67,
+    "mp-530033": 67,
+    "mp-23202": 67
+  },
+  "train_path": "data/finetune_rndF_N48_s1/train.xyz",
+  "val_path": "data/finetune_rndF_N48_s1/val.xyz",
+  "train_materials": [
+    "mp-2741",
+    "mp-2242",
+    "mp-753671",
+    "mp-632229",
+    "mp-661",
+    "mp-644419",
+    "mp-543028",
+    "mp-760411",
+    "mp-23154",
+    "mp-581967",
+    "mp-673245",
+    "mp-753378",
+    "mp-561412",
+    "mp-20878",
+    "mp-776097",
+    "mp-542613",
+    "mp-776016",
+    "mp-685097",
+    "mp-23193",
+    "mp-557465",
+    "mp-1986",
+    "mp-560381",
+    "mp-768257",
+    "mp-558134",
+    "mp-36066",
+    "mp-560998",
+    "mp-149",
+    "mp-568348",
+    "mp-600038",
+    "mp-29312",
+    "mp-29510",
+    "mp-561203",
+    "mp-673798",
+    "mp-2172",
+    "mp-556328",
+    "mp-29226",
+    "mp-677103",
+    "mp-778064",
+    "mp-22862",
+    "mp-406",
+    "mp-2472",
+    "mp-2490",
+    "mp-34381",
+    "mp-567269",
+    "mp-557082",
+    "mp-761842",
+    "mp-530033",
+    "mp-23202"
+  ],
+  "holdout_materials": [
+    "mp-804",
+    "mp-1138",
+    "mp-2605",
+    "mp-20351",
+    "mp-984",
+    "mp-390"
+  ]
+}
+/root/miniconda3/envs/phonon/lib/python3.11/site-packages/e3nn/o3/_wigner.py:10: UserWarning: Environment variable TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD detected, since the`weights_only` argument was not explicitly passed to `torch.load`, forcing weights_only=False.
+  _Jd, _W3j_flat, _W3j_indices = torch.load(os.path.join(os.path.dirname(__file__), 'constants.pt'))
+cuequivariance or cuequivariance_torch is not available. Cuequivariance acceleration will be disabled.
+2026-06-20 04:14:05.574 INFO: ===========VERIFYING SETTINGS===========
+2026-06-20 04:14:05.574 INFO: MACE version: 0.3.16
+2026-06-20 04:14:06.232 INFO: CUDA version: 12.4, CUDA device: 0
+2026-06-20 04:14:06.262 INFO: Using foundation model mace small as initial checkpoint.
+/root/miniconda3/envs/phonon/lib/python3.11/site-packages/mace/calculators/mace.py:226: UserWarning: Environment variable TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD detected, since the`weights_only` argument was not explicitly passed to `torch.load`, forcing weights_only=False.
+  torch.load(f=model_path, map_location=device)
+Using Materials Project MACE for MACECalculator with /root/.cache/mace/20231210mace128L0_energy_epoch249model
+Using float32 for MACECalculator, which is faster but less accurate. Recommended for MD. Use float64 for geometry optimization.
+2026-06-20 04:14:06.509 INFO: CUDA version: 12.4, CUDA device: 0
+2026-06-20 04:14:06.511 INFO: Using head Default out of  ['Default']
+2026-06-20 04:14:06.511 WARNING: Default dtype float32 does not match model dtype float64, converting models to float32.
+2026-06-20 04:14:06.520 INFO: Multihead finetuning mode, setting learning rate to 0.0001 and EMA to True. To use a different learning rate, set --force_mh_ft_lr=True.
+2026-06-20 04:14:06.520 INFO: Using multiheads finetuning mode, setting learning rate to 0.0001 and EMA to True
+2026-06-20 04:14:06.520 INFO: Using foundation model for multiheads finetuning with Materials Project data
+2026-06-20 04:14:06.520 INFO: ===========LOADING INPUT DATA===========
+2026-06-20 04:14:06.520 INFO: Using heads: ['Default', 'pt_head']
+2026-06-20 04:14:06.520 INFO: Using the key specifications to parse data:
+2026-06-20 04:14:06.520 INFO: Default: KeySpecification(info_keys={'energy': 'REF_energy', 'stress': 'REF_stress', 'virials': 'REF_virials', 'dipole': 'dipole', 'head': 'head', 'elec_temp': 'elec_temp', 'total_charge': 'total_charge', 'polarizability': 'polarizability', 'total_spin': 'total_spin'}, arrays_keys={'forces': 'REF_forces', 'charges': 'REF_charges'})
+2026-06-20 04:14:06.520 INFO: pt_head: KeySpecification(info_keys={'energy': 'energy', 'stress': 'stress', 'virials': 'REF_virials', 'dipole': 'dipole', 'head': 'head', 'elec_temp': 'elec_temp', 'total_charge': 'total_charge', 'polarizability': 'polarizability', 'total_spin': 'total_spin'}, arrays_keys={'forces': 'forces', 'charges': 'REF_charges'})
+2026-06-20 04:14:06.520 INFO: =============    Processing head Default     ===========
+2026-06-20 04:14:08.098 INFO: Training set 1/1 [energy: 2734, stress: 0, virials: 0, dipole components: 0, head: 2734, elec_temp: 0, total_charge: 0, polarizability: 0, total_spin: 0, forces: 2734, charges: 0]
+2026-06-20 04:14:08.108 INFO: Total Training set [energy: 2734, stress: 0, virials: 0, dipole components: 0, head: 2734, elec_temp: 0, total_charge: 0, polarizability: 0, total_spin: 0, forces: 2734, charges: 0]
+2026-06-20 04:14:08.369 INFO: Validation set 1/1 [energy: 482, stress: 0, virials: 0, dipole components: 0, head: 482, elec_temp: 0, total_charge: 0, polarizability: 0, total_spin: 0, forces: 482, charges: 0]
+2026-06-20 04:14:08.370 INFO: Total Validation set [energy: 482, stress: 0, virials: 0, dipole components: 0, head: 482, elec_temp: 0, total_charge: 0, polarizability: 0, total_spin: 0, forces: 482, charges: 0]
+2026-06-20 04:14:08.371 INFO: Total number of configurations: train=2734, valid=482, tests=[],
+2026-06-20 04:14:08.371 INFO: =============    Processing head pt_head     ===========
+2026-06-20 04:14:08.371 INFO: Using filtered Materials Project data for replay (1000, none, random). You can also construct a different subset using `fine_tuning_select.py` script.
+2026-06-20 04:14:08.371 INFO: Reading /root/.cache/mace/mp_traj_combinedxyz
+2026-06-20 04:14:12.981 INFO: Filtering configurations based on the finetuning set, filtering type: none, elements: []
+2026-06-20 04:14:12.986 INFO: Subsample data
+2026-06-20 04:14:12.986 INFO: Subselecting 1000 from filtered 13000 using random sampling
+2026-06-20 04:14:12.988 INFO: Saving the selected configurations
+2026-06-20 04:14:13.274 INFO: Saving a combined XYZ file
+2026-06-20 04:14:13.964 WARNING: Since ASE version 3.23.0b1, using energy_key 'energy' is no longer safe when communicating between MACE and ASE. We recommend using a different key, rewriting 'energy' to 'REF_energy'. You need to use --energy_key='REF_energy' to specify the chosen key name.
+2026-06-20 04:14:14.054 WARNING: Since ASE version 3.23.0b1, using forces_key 'forces' is no longer safe when communicating between MACE and ASE. We recommend using a different key, rewriting 'forces' to 'REF_forces'. You need to use --forces_key='REF_forces' to specify the chosen key name.
+2026-06-20 04:14:14.141 WARNING: Since ASE version 3.23.0b1, using stress_key 'stress' is no longer safe when communicating between MACE and ASE. We recommend using a different key, rewriting 'stress' to 'REF_stress'. You need to use --stress_key='REF_stress' to specify the chosen key name.
+2026-06-20 04:14:14.253 INFO: Training set 1/1 [energy: 1000, stress: 1000, virials: 0, dipole components: 0, head: 1000, elec_temp: 0, total_charge: 0, polarizability: 0, total_spin: 0, forces: 1000, charges: 0]
+2026-06-20 04:14:14.256 INFO: Total Training set [energy: 1000, stress: 1000, virials: 0, dipole components: 0, head: 1000, elec_temp: 0, total_charge: 0, polarizability: 0, total_spin: 0, forces: 1000, charges: 0]
+2026-06-20 04:14:14.256 INFO: No validation set provided, splitting training data instead.
+2026-06-20 04:14:14.257 INFO: Using random 10% of training set for validation with indices saved in: ./ft_valid_indices_1.txt
+2026-06-20 04:14:14.260 INFO: Random Split Training set [energy: 900, stress: 900, virials: 0, dipole components: 0, head: 900, elec_temp: 0, total_charge: 0, polarizability: 0, total_spin: 0, forces: 900, charges: 0]
+2026-06-20 04:14:14.260 INFO: Random Split Validation set [energy: 100, stress: 100, virials: 0, dipole components: 0, head: 100, elec_temp: 0, total_charge: 0, polarizability: 0, total_spin: 0, forces: 100, charges: 0]
+2026-06-20 04:14:14.261 INFO: ==================Using multiheads finetuning mode==================
+2026-06-20 04:14:14.261 INFO: Total number of configurations in pretraining: train=900, valid=100
+2026-06-20 04:14:14.294 INFO: Atomic Numbers used: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 89, 90, 91, 92, 93, 94]
+2026-06-20 04:14:14.294 INFO: Isolated Atomic Energies (E0s) not in training file, using command line argument
+2026-06-20 04:14:14.299 INFO: Atomic Energies used (z: eV) for head Default: {1: 0.0, 3: 0.0, 5: 0.0, 6: 0.0, 7: 0.0, 8: 0.0, 9: 0.0, 11: 0.0, 13: 0.0, 14: 0.0, 15: 0.0, 16: 0.0, 17: 0.0, 19: 0.0, 20: 0.0, 29: 0.0, 30: 0.0, 31: 0.0, 32: 0.0, 33: 0.0, 35: 0.0, 37: 0.0, 38: 0.0, 41: 0.0, 48: 0.0, 49: 0.0, 50: 0.0, 52: 0.0, 53: 0.0, 72: 0.0, 73: 0.0, 80: 0.0, 81: 0.0, 82: 0.0, 83: 0.0}
+2026-06-20 04:14:14.299 INFO: Atomic Energies used (z: eV) for head pt_head: {1: -3.667168140411377, 3: -3.482100486755371, 4: -4.736697196960449, 5: -7.724935531616211, 6: -8.405573844909668, 7: -7.360100269317627, 8: -7.2845988273620605, 9: -4.896491050720215, 11: -2.7593612670898438, 12: -2.8140475749969482, 13: -4.84688138961792, 14: -7.694793224334717, 15: -6.963295936584473, 16: -4.672630310058594, 17: -2.8116893768310547, 19: -2.617645502090454, 20: -5.390460968017578, 21: -7.8857951164245605, 22: -10.268392562866211, 23: -8.66514778137207, 24: -9.233050346374512, 25: -8.304951667785645, 26: -7.048986434936523, 27: -5.577439785003662, 28: -5.172747611999512, 29: -3.252072811126709, 30: -1.2901611328125, 31: -3.5270822048187256, 32: -4.708459377288818, 33: -3.976511001586914, 34: -3.886230945587158, 35: -2.518493890762329, 37: -2.5634958744049072, 38: -4.938005447387695, 39: -10.149818420410156, 40: -11.846858024597168, 41: -12.138895988464355, 42: -8.791678428649902, 43: -8.786949157714844, 44: -7.780932426452637, 45: -6.8500213623046875, 46: -4.891018867492676, 47: -2.063429594039917, 48: -0.6395695805549622, 49: -2.7887442111968994, 50: -3.8186042308807373, 51: -3.5870683193206787, 52: -2.8804047107696533, 53: -1.6355986595153809, 55: -2.765284538269043, 56: -4.9909563064575195, 57: -8.933684349060059, 58: -8.735590934753418, 59: -8.018965721130371, 60: -8.25149154663086, 61: -7.591719627380371, 62: -8.169659614562988, 63: -13.59266471862793, 64: -18.51752281188965, 65: -7.647396564483643, 66: -8.122981071472168, 67: -7.607787132263184, 68: -6.850290775299072, 69: -7.826882362365723, 70: -3.5847866535186768, 71: -7.455406188964844, 72: -12.796283721923828, 73: -14.10812759399414, 74: -9.3549165725708, 75: -11.387537956237793, 76: -9.621909141540527, 77: -7.324393272399902, 78: -5.304696559906006, 79: -2.3800926208496094, 80: 0.24948924779891968, 81: -2.323978900909424, 82: -3.7300424575805664, 83: -3.4387922286987305, 89: -5.062878131866455, 90: -11.024625778198242, 91: -12.265613555908203, 92: -13.855648040771484, 93: -14.93309211730957, 94: -15.28282642364502}
+2026-06-20 04:14:14.299 INFO: Processing datasets for head 'Default'
+2026-06-20 04:14:24.648 INFO: Combining 1 list datasets for head 'Default'
+2026-06-20 04:14:26.312 INFO: Combining 1 list datasets for head 'Default_valid'
+2026-06-20 04:14:26.312 INFO: Combined validation datasets for Default
+2026-06-20 04:14:26.312 INFO: Head 'Default' training dataset size: 2734
+2026-06-20 04:14:26.312 INFO: Processing datasets for head 'pt_head'
+2026-06-20 04:14:27.574 INFO: Combining 1 list datasets for head 'pt_head'
+2026-06-20 04:14:27.710 INFO: Combining 1 list datasets for head 'pt_head_valid'
+2026-06-20 04:14:27.710 INFO: Combined validation datasets for pt_head
+2026-06-20 04:14:27.710 INFO: Head 'pt_head' training dataset size: 900
+2026-06-20 04:14:27.711 INFO: Average number of neighbors: 61.964672446250916
+2026-06-20 04:14:27.711 INFO: During training the following quantities will be reported: energy, forces, stress
+2026-06-20 04:14:27.711 INFO: ===========MODEL DETAILS===========
+2026-06-20 04:14:28.695 INFO: Loading FOUNDATION model
+2026-06-20 04:14:28.697 INFO: Using all elements from foundation model: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 89, 90, 91, 92, 93, 94]
+2026-06-20 04:14:28.697 INFO: Model configuration extracted from foundation model
+2026-06-20 04:14:28.697 INFO: Using universal loss function for fine-tuning
+2026-06-20 04:14:28.697 INFO: Message passing with hidden irreps 128x0e)
+2026-06-20 04:14:28.697 INFO: 2 layers, each with correlation order: 3 (body order: 4) and spherical harmonics up to: l=3
+2026-06-20 04:14:28.697 INFO: Radial cutoff: 6.0 A (total receptive field for each atom: 12.0 A)
+2026-06-20 04:14:28.697 INFO: Distance transform for radial basis functions: None
+/root/miniconda3/envs/phonon/lib/python3.11/site-packages/torch/jit/_check.py:178: UserWarning: The TorchScript type system doesn't support instance-level annotations on empty non-base types in `__init__`. Instead, either 1) use a type annotation in the class body, or 2) wrap the type in `torch.jit.Attribute`.
+  warnings.warn(
+/root/miniconda3/envs/phonon/lib/python3.11/site-packages/torch/jit/_check.py:178: UserWarning: The TorchScript type system doesn't support instance-level annotations on empty non-base types in `__init__`. Instead, either 1) use a type annotation in the class body, or 2) wrap the type in `torch.jit.Attribute`.
+  warnings.warn(
+/root/miniconda3/envs/phonon/lib/python3.11/site-packages/torch/jit/_check.py:178: UserWarning: The TorchScript type system doesn't support instance-level annotations on empty non-base types in `__init__`. Instead, either 1) use a type annotation in the class body, or 2) wrap the type in `torch.jit.Attribute`.
+  warnings.warn(
+/root/miniconda3/envs/phonon/lib/python3.11/site-packages/torch/jit/_check.py:178: UserWarning: The TorchScript type system doesn't support instance-level annotations on empty non-base types in `__init__`. Instead, either 1) use a type annotation in the class body, or 2) wrap the type in `torch.jit.Attribute`.
+  warnings.warn(
+/root/miniconda3/envs/phonon/lib/python3.11/site-packages/torch/jit/_check.py:178: UserWarning: The TorchScript type system doesn't support instance-level annotations on empty non-base types in `__init__`. Instead, either 1) use a type annotation in the class body, or 2) wrap the type in `torch.jit.Attribute`.
+  warnings.warn(
+/root/miniconda3/envs/phonon/lib/python3.11/site-packages/torch/jit/_check.py:178: UserWarning: The TorchScript type system doesn't support instance-level annotations on empty non-base types in `__init__`. Instead, either 1) use a type annotation in the class body, or 2) wrap the type in `torch.jit.Attribute`.
+  warnings.warn(
+/root/miniconda3/envs/phonon/lib/python3.11/site-packages/torch/jit/_check.py:178: UserWarning: The TorchScript type system doesn't support instance-level annotations on empty non-base types in `__init__`. Instead, either 1) use a type annotation in the class body, or 2) wrap the type in `torch.jit.Attribute`.
+  warnings.warn(
+/root/miniconda3/envs/phonon/lib/python3.11/site-packages/torch/jit/_check.py:178: UserWarning: The TorchScript type system doesn't support instance-level annotations on empty non-base types in `__init__`. Instead, either 1) use a type annotation in the class body, or 2) wrap the type in `torch.jit.Attribute`.
+  warnings.warn(
+/root/miniconda3/envs/phonon/lib/python3.11/site-packages/torch/jit/_check.py:178: UserWarning: The TorchScript type system doesn't support instance-level annotations on empty non-base types in `__init__`. Instead, either 1) use a type annotation in the class body, or 2) wrap the type in `torch.jit.Attribute`.
+  warnings.warn(
+/root/miniconda3/envs/phonon/lib/python3.11/site-packages/torch/jit/_check.py:178: UserWarning: The TorchScript type system doesn't support instance-level annotations on empty non-base types in `__init__`. Instead, either 1) use a type annotation in the class body, or 2) wrap the type in `torch.jit.Attribute`.
+  warnings.warn(
+/root/miniconda3/envs/phonon/lib/python3.11/site-packages/torch/jit/_check.py:178: UserWarning: The TorchScript type system doesn't support instance-level annotations on empty non-base types in `__init__`. Instead, either 1) use a type annotation in the class body, or 2) wrap the type in `torch.jit.Attribute`.
+  warnings.warn(
+/root/miniconda3/envs/phonon/lib/python3.11/site-packages/torch/jit/_check.py:178: UserWarning: The TorchScript type system doesn't support instance-level annotations on empty non-base types in `__init__`. Instead, either 1) use a type annotation in the class body, or 2) wrap the type in `torch.jit.Attribute`.
+  warnings.warn(
+/root/miniconda3/envs/phonon/lib/python3.11/site-packages/torch/jit/_check.py:178: UserWarning: The TorchScript type system doesn't support instance-level annotations on empty non-base types in `__init__`. Instead, either 1) use a type annotation in the class body, or 2) wrap the type in `torch.jit.Attribute`.
+  warnings.warn(
+/root/miniconda3/envs/phonon/lib/python3.11/site-packages/torch/jit/_check.py:178: UserWarning: The TorchScript type system doesn't support instance-level annotations on empty non-base types in `__init__`. Instead, either 1) use a type annotation in the class body, or 2) wrap the type in `torch.jit.Attribute`.
+  warnings.warn(
+2026-06-20 04:14:29.534 INFO: ===========OPTIMIZER INFORMATION===========
+2026-06-20 04:14:29.534 INFO: Using ADAM as parameter optimizer
+2026-06-20 04:14:29.534 INFO: Batch size: 32
+2026-06-20 04:14:29.534 INFO: Using Exponential Moving Average with decay: 0.99999
+2026-06-20 04:14:29.534 INFO: Number of gradient updates: 5678
+2026-06-20 04:14:29.534 INFO: Learning rate: 0.0001, weight decay: 5e-07
+2026-06-20 04:14:29.534 INFO: UniversalLoss(energy_weight=0.010, forces_weight=100.000, stress_weight=1.000)
+2026-06-20 04:14:29.535 INFO: === Layer's learning rates ===
+2026-06-20 04:14:29.535 INFO: Param group 0: lr = 0.0001
+2026-06-20 04:14:29.535 INFO: Param group 1: lr = 0.0001
+2026-06-20 04:14:29.535 INFO: Param group 2: lr = 0.0001
+2026-06-20 04:14:29.535 INFO: Param group 3: lr = 0.0001
+2026-06-20 04:14:29.535 INFO: Param group 4: lr = 0.0001
+2026-06-20 04:14:29.536 INFO: Using gradient clipping with tolerance=10.000
+2026-06-20 04:14:29.536 INFO: 
+2026-06-20 04:14:29.536 INFO: ===========TRAINING===========
+2026-06-20 04:14:29.536 INFO: Started training, reporting errors on validation set
+2026-06-20 04:14:29.536 INFO: Loss metrics on validation set
+2026-06-20 04:14:31.685 INFO: Initial: head: pt_head, loss=0.00233148, RMSE_E_per_atom=   22.89 meV, RMSE_F=  159.63 meV / A, RMSE_stress=    4.47 meV / A^3
+2026-06-20 04:14:33.994 INFO: Initial: head: Default, loss=0.00247590, RMSE_E_per_atom=  780.09 meV, RMSE_F=  138.74 meV / A, RMSE_stress=None meV / A^3
+2026-06-20 04:15:02.974 INFO: Epoch 0: head: pt_head, loss=0.00267108, RMSE_E_per_atom=   26.03 meV, RMSE_F=  164.89 meV / A, RMSE_stress=    5.20 meV / A^3
+2026-06-20 04:15:04.508 INFO: Epoch 0: head: Default, loss=0.00088387, RMSE_E_per_atom=  781.41 meV, RMSE_F=   62.06 meV / A, RMSE_stress=None meV / A^3
+2026-06-20 04:19:22.701 INFO: Epoch 10: head: pt_head, loss=0.00276122, RMSE_E_per_atom=   33.91 meV, RMSE_F=  169.60 meV / A, RMSE_stress=    4.68 meV / A^3
+2026-06-20 04:19:24.272 INFO: Epoch 10: head: Default, loss=0.00042847, RMSE_E_per_atom=  767.47 meV, RMSE_F=   35.30 meV / A, RMSE_stress=None meV / A^3
+2026-06-20 04:23:40.713 INFO: Epoch 20: head: pt_head, loss=0.00277862, RMSE_E_per_atom=   41.67 meV, RMSE_F=  171.32 meV / A, RMSE_stress=    4.66 meV / A^3
+2026-06-20 04:23:42.247 INFO: Epoch 20: head: Default, loss=0.00034707, RMSE_E_per_atom=  766.75 meV, RMSE_F=   29.05 meV / A, RMSE_stress=None meV / A^3
+2026-06-20 04:27:58.223 INFO: Epoch 30: head: pt_head, loss=0.00278242, RMSE_E_per_atom=   48.49 meV, RMSE_F=  172.72 meV / A, RMSE_stress=    4.73 meV / A^3
+2026-06-20 04:27:59.759 INFO: Epoch 30: head: Default, loss=0.00031336, RMSE_E_per_atom=  767.37 meV, RMSE_F=   26.40 meV / A, RMSE_stress=None meV / A^3
+2026-06-20 04:32:16.500 INFO: Epoch 40: head: pt_head, loss=0.00278339, RMSE_E_per_atom=   54.86 meV, RMSE_F=  173.49 meV / A, RMSE_stress=    4.84 meV / A^3
+2026-06-20 04:32:18.050 INFO: Epoch 40: head: Default, loss=0.00029123, RMSE_E_per_atom=  767.68 meV, RMSE_F=   24.83 meV / A, RMSE_stress=None meV / A^3
+2026-06-20 04:36:10.541 INFO: Training complete
+2026-06-20 04:36:10.542 INFO: 
+2026-06-20 04:36:10.542 INFO: ===========RESULTS===========
+2026-06-20 04:36:10.542 INFO: Loading checkpoint: results/ablation/rndF_N48_s1/ft_run-1_epoch-40.pt
+/root/miniconda3/envs/phonon/lib/python3.11/site-packages/mace/tools/checkpoint.py:187: UserWarning: Environment variable TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD detected, since the`weights_only` argument was not explicitly passed to `torch.load`, forcing weights_only=False.
+  torch.load(f=checkpoint_info.path, map_location=device),
+2026-06-20 04:36:10.579 INFO: Loaded Stage one model from epoch 40 for evaluation
+2026-06-20 04:36:10.579 INFO: Saving model to results/ablation/rndF_N48_s1/ft_run-1.model
+2026-06-20 04:36:10.735 INFO: Compiling model, saving metadata to results/ablation/rndF_N48_s1/ft_compiled.model
+2026-06-20 04:36:11.287 INFO: Computing metrics for training, validation, and test sets
+2026-06-20 04:36:11.287 INFO: Skipping evaluation for heads: ['pt_head']
+2026-06-20 04:36:11.288 INFO: Evaluating train_Default ...
+2026-06-20 04:36:20.259 INFO: Skipping evaluation of train_pt_head (in skip_heads list)
+2026-06-20 04:36:20.259 INFO: Evaluating valid_Default ...
+2026-06-20 04:36:21.815 INFO: Skipping evaluation of valid_pt_head (in skip_heads list)
+2026-06-20 04:36:21.824 INFO: Error-table on TRAIN and VALID:
++---------------+---------------------+------------------+-------------------+---------------------------------------+
+|  config_type  | RMSE E / meV / atom | RMSE F / meV / A | relative F RMSE % | RMSE Stress (Virials) / meV / A (A^3) |
++---------------+---------------------+------------------+-------------------+---------------------------------------+
+| train_Default |          759.0      |         24.6     |          7.15     |                  None                 |
+| valid_Default |          767.7      |         24.8     |          7.35     |                  None                 |
++---------------+---------------------+------------------+-------------------+---------------------------------------+
+2026-06-20 04:36:33.954 INFO: Done
+/root/miniconda3/envs/phonon/lib/python3.11/site-packages/e3nn/o3/_wigner.py:10: UserWarning: Environment variable TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD detected, since the`weights_only` argument was not explicitly passed to `torch.load`, forcing weights_only=False.
+  _Jd, _W3j_flat, _W3j_indices = torch.load(os.path.join(os.path.dirname(__file__), 'constants.pt'))
+/root/miniconda3/envs/phonon/lib/python3.11/site-packages/mace/calculators/mace.py:226: UserWarning: Environment variable TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD detected, since the`weights_only` argument was not explicitly passed to `torch.load`, forcing weights_only=False.
+  torch.load(f=model_path, map_location=device)
+WARNING:root:Default dtype float64 does not match model dtype float32, converting models to float64.
+/root/phonon/src/phonon_accel/phonons.py:113: PrimitiveMatrixAutoDefaultWarning: primitive_matrix defaulted to 'auto' and was resolved to a non-identity matrix:
+  [ 0.00000,  0.50000,  0.50000]
+  [ 0.50000,  0.00000,  0.50000]
+  [ 0.50000,  0.50000,  0.00000]
+This differs from phonopy v3, whose default was the identity matrix. Pass primitive_matrix='P' (or --pa P on the command line) to restore the v3 behaviour.
+  self.phonon = Phonopy(
+/root/phonon/src/phonon_accel/phonons.py:113: PrimitiveMatrixAutoDefaultWarning: primitive_matrix defaulted to 'auto' and was resolved to a non-identity matrix:
+  [-0.50000,  0.50000,  0.50000]
+  [ 0.50000, -0.50000,  0.50000]
+  [ 0.50000,  0.50000, -0.50000]
+This differs from phonopy v3, whose default was the identity matrix. Pass primitive_matrix='P' (or --pa P on the command line) to restore the v3 behaviour.
+  self.phonon = Phonopy(
+/root/phonon/src/phonon_accel/phonons.py:113: PrimitiveMatrixAutoDefaultWarning: primitive_matrix defaulted to 'auto' and was resolved to a non-identity matrix:
+  [ 0.50000,  0.50000,  0.00000]
+  [-0.50000,  0.50000,  0.00000]
+  [ 0.00000,  0.00000,  1.00000]
+This differs from phonopy v3, whose default was the identity matrix. Pass primitive_matrix='P' (or --pa P on the command line) to restore the v3 behaviour.
+  self.phonon = Phonopy(
+/root/miniconda3/envs/phonon/lib/python3.11/site-packages/phonopy/phonon/thermal_properties.py:97: RuntimeWarning: overflow encountered in square
+  return get_physical_units().KB * x**2 * expVal / (expVal - 1.0) ** 2
+== fine-tuned ==
+cuequivariance or cuequivariance_torch is not available. Cuequivariance acceleration will be disabled.
+  [finetuned] train   mp-2741   MAE=0.072 THz  soft= +0.6%  imag=0
+  [finetuned] train   mp-2242   MAE=0.244 THz  soft= -2.3%  imag=216
+  [finetuned] train   mp-753671 MAE=0.178 THz  soft= +0.9%  imag=10
+  [finetuned] train   mp-632229 MAE=0.829 THz  soft= -5.4%  imag=0
+  [finetuned] train   mp-661    MAE=0.090 THz  soft= -1.3%  imag=0
+  [finetuned] train   mp-644419 MAE=0.813 THz  soft= -0.4%  imag=3532
+  [finetuned] train   mp-543028 MAE=0.098 THz  soft= +0.5%  imag=1017
+  [finetuned] train   mp-760411 MAE=0.159 THz  soft= -3.9%  imag=1222
+  [finetuned] holdout mp-7140   MAE=1.151 THz  soft=-10.0%  imag=0
+  [finetuned] holdout mp-984    MAE=4.817 THz  soft=-24.7%  imag=0
+  [finetuned] holdout mp-1138   MAE=0.747 THz  soft= -8.0%  imag=0
+  [finetuned] holdout mp-2605   MAE=0.281 THz  soft= +2.8%  imag=0
+  [finetuned] holdout mp-20351  MAE=0.544 THz  soft= +6.3%  imag=0
+  [finetuned] holdout mp-390    MAE=1.155 THz  soft=-11.6%  imag=0
+
+wrote results/ablation/eval_rndF_N48_s1.csv
+
+                   n  freq_mae  softening  imag
+variant   split                                
+finetuned holdout  6  1.449158  -7.519834     0
+          train    8  0.310410  -1.428184  5997
+=== [rndF_N48_s1] DONE Sat Jun 20 04:38:59 CST 2026 ===

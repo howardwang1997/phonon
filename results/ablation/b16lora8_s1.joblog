@@ -1,0 +1,253 @@
+=== [b16lora8_s1] gpu=6 seed=1 ncfg=30 mode=lora8 model=small Tue Jun 30 06:28:56 PM CST 2026 ===
+building fine-tune data from 16 materials: ['mp-4651', 'mp-661', 'mp-9946', 'mp-23193', 'mp-2490', 'mp-2741', 'mp-406', 'mp-149', 'mp-1265', 'mp-22862', 'mp-2172', 'mp-1960', 'mp-804', 'mp-1986', 'mp-2472', 'mp-1143']
+{
+  "n_train": 912,
+  "n_val": 160,
+  "per_material": {
+    "mp-4651": 67,
+    "mp-661": 67,
+    "mp-9946": 67,
+    "mp-23193": 67,
+    "mp-2490": 67,
+    "mp-2741": 67,
+    "mp-406": 67,
+    "mp-149": 67,
+    "mp-1265": 67,
+    "mp-22862": 67,
+    "mp-2172": 67,
+    "mp-1960": 67,
+    "mp-804": 67,
+    "mp-1986": 67,
+    "mp-2472": 67,
+    "mp-1143": 67
+  },
+  "train_path": "data/finetune_b16lora8_s1/train.xyz",
+  "val_path": "data/finetune_b16lora8_s1/val.xyz",
+  "train_materials": [
+    "mp-4651",
+    "mp-661",
+    "mp-9946",
+    "mp-23193",
+    "mp-2490",
+    "mp-2741",
+    "mp-406",
+    "mp-149",
+    "mp-1265",
+    "mp-22862",
+    "mp-2172",
+    "mp-1960",
+    "mp-804",
+    "mp-1986",
+    "mp-2472",
+    "mp-1143"
+  ],
+  "holdout_materials": [
+    "mp-804",
+    "mp-1138",
+    "mp-2605",
+    "mp-20351",
+    "mp-984",
+    "mp-390"
+  ]
+}
+/root/miniconda3/envs/phonon/lib/python3.11/site-packages/e3nn/o3/_wigner.py:10: UserWarning: Environment variable TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD detected, since the`weights_only` argument was not explicitly passed to `torch.load`, forcing weights_only=False.
+  _Jd, _W3j_flat, _W3j_indices = torch.load(os.path.join(os.path.dirname(__file__), 'constants.pt'))
+cuequivariance or cuequivariance_torch is not available. Cuequivariance acceleration will be disabled.
+2026-06-30 18:29:11.838 INFO: ===========VERIFYING SETTINGS===========
+2026-06-30 18:29:11.838 INFO: MACE version: 0.3.16
+2026-06-30 18:29:12.496 INFO: CUDA version: 12.4, CUDA device: 0
+2026-06-30 18:29:12.535 INFO: Using foundation model mace small as initial checkpoint.
+/root/miniconda3/envs/phonon/lib/python3.11/site-packages/mace/calculators/mace.py:226: UserWarning: Environment variable TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD detected, since the`weights_only` argument was not explicitly passed to `torch.load`, forcing weights_only=False.
+  torch.load(f=model_path, map_location=device)
+Using Materials Project MACE for MACECalculator with /root/.cache/mace/20231210mace128L0_energy_epoch249model
+Using float32 for MACECalculator, which is faster but less accurate. Recommended for MD. Use float64 for geometry optimization.
+2026-06-30 18:29:12.772 INFO: CUDA version: 12.4, CUDA device: 0
+2026-06-30 18:29:12.774 INFO: Using head Default out of  ['Default']
+2026-06-30 18:29:12.774 WARNING: Default dtype float32 does not match model dtype float64, converting models to float32.
+2026-06-30 18:29:12.785 INFO: ===========LOADING INPUT DATA===========
+2026-06-30 18:29:12.785 INFO: Using heads: ['Default']
+2026-06-30 18:29:12.785 INFO: Using the key specifications to parse data:
+2026-06-30 18:29:12.785 INFO: Default: KeySpecification(info_keys={'energy': 'REF_energy', 'stress': 'REF_stress', 'virials': 'REF_virials', 'dipole': 'dipole', 'head': 'head', 'elec_temp': 'elec_temp', 'total_charge': 'total_charge', 'polarizability': 'polarizability', 'total_spin': 'total_spin'}, arrays_keys={'forces': 'REF_forces', 'charges': 'REF_charges'})
+2026-06-30 18:29:12.785 INFO: =============    Processing head Default     ===========
+2026-06-30 18:29:13.193 INFO: Training set 1/1 [energy: 912, stress: 0, virials: 0, dipole components: 0, head: 912, elec_temp: 0, total_charge: 0, polarizability: 0, total_spin: 0, forces: 912, charges: 0]
+2026-06-30 18:29:13.197 INFO: Total Training set [energy: 912, stress: 0, virials: 0, dipole components: 0, head: 912, elec_temp: 0, total_charge: 0, polarizability: 0, total_spin: 0, forces: 912, charges: 0]
+2026-06-30 18:29:13.276 INFO: Validation set 1/1 [energy: 160, stress: 0, virials: 0, dipole components: 0, head: 160, elec_temp: 0, total_charge: 0, polarizability: 0, total_spin: 0, forces: 160, charges: 0]
+2026-06-30 18:29:13.277 INFO: Total Validation set [energy: 160, stress: 0, virials: 0, dipole components: 0, head: 160, elec_temp: 0, total_charge: 0, polarizability: 0, total_spin: 0, forces: 160, charges: 0]
+2026-06-30 18:29:13.277 INFO: Total number of configurations: train=912, valid=160, tests=[],
+2026-06-30 18:29:13.284 INFO: Atomic Numbers used: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 89, 90, 91, 92, 93, 94]
+2026-06-30 18:29:13.284 INFO: Isolated Atomic Energies (E0s) not in training file, using command line argument
+2026-06-30 18:29:13.285 INFO: Atomic Energies used (z: eV) for head Default: {3: 0.0, 7: 0.0, 8: 0.0, 9: 0.0, 11: 0.0, 12: 0.0, 13: 0.0, 14: 0.0, 15: 0.0, 16: 0.0, 17: 0.0, 19: 0.0, 20: 0.0, 22: 0.0, 30: 0.0, 31: 0.0, 33: 0.0, 38: 0.0, 48: 0.0, 52: 0.0}
+2026-06-30 18:29:13.285 INFO: Processing datasets for head 'Default'
+2026-06-30 18:29:17.049 INFO: Combining 1 list datasets for head 'Default'
+2026-06-30 18:29:17.699 INFO: Combining 1 list datasets for head 'Default_valid'
+2026-06-30 18:29:17.699 INFO: Combined validation datasets for Default
+2026-06-30 18:29:17.699 INFO: Head 'Default' training dataset size: 912
+2026-06-30 18:29:17.700 INFO: Computing average number of neighbors
+2026-06-30 18:29:18.009 INFO: Average number of neighbors: 68.56649017333984
+2026-06-30 18:29:18.009 INFO: During training the following quantities will be reported: energy, forces
+2026-06-30 18:29:18.009 INFO: ===========MODEL DETAILS===========
+2026-06-30 18:29:18.233 INFO: Loading FOUNDATION model
+2026-06-30 18:29:18.235 INFO: Using all elements from foundation model: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 89, 90, 91, 92, 93, 94]
+2026-06-30 18:29:18.235 INFO: Model configuration extracted from foundation model
+2026-06-30 18:29:18.235 INFO: Using weighted loss function for fine-tuning
+2026-06-30 18:29:18.235 INFO: Message passing with hidden irreps 128x0e)
+2026-06-30 18:29:18.235 INFO: 2 layers, each with correlation order: 3 (body order: 4) and spherical harmonics up to: l=3
+2026-06-30 18:29:18.235 INFO: Radial cutoff: 6.0 A (total receptive field for each atom: 12.0 A)
+2026-06-30 18:29:18.235 INFO: Distance transform for radial basis functions: None
+/root/miniconda3/envs/phonon/lib/python3.11/site-packages/torch/jit/_check.py:178: UserWarning: The TorchScript type system doesn't support instance-level annotations on empty non-base types in `__init__`. Instead, either 1) use a type annotation in the class body, or 2) wrap the type in `torch.jit.Attribute`.
+  warnings.warn(
+/root/miniconda3/envs/phonon/lib/python3.11/site-packages/torch/jit/_check.py:178: UserWarning: The TorchScript type system doesn't support instance-level annotations on empty non-base types in `__init__`. Instead, either 1) use a type annotation in the class body, or 2) wrap the type in `torch.jit.Attribute`.
+  warnings.warn(
+/root/miniconda3/envs/phonon/lib/python3.11/site-packages/torch/jit/_check.py:178: UserWarning: The TorchScript type system doesn't support instance-level annotations on empty non-base types in `__init__`. Instead, either 1) use a type annotation in the class body, or 2) wrap the type in `torch.jit.Attribute`.
+  warnings.warn(
+/root/miniconda3/envs/phonon/lib/python3.11/site-packages/torch/jit/_check.py:178: UserWarning: The TorchScript type system doesn't support instance-level annotations on empty non-base types in `__init__`. Instead, either 1) use a type annotation in the class body, or 2) wrap the type in `torch.jit.Attribute`.
+  warnings.warn(
+/root/miniconda3/envs/phonon/lib/python3.11/site-packages/torch/jit/_check.py:178: UserWarning: The TorchScript type system doesn't support instance-level annotations on empty non-base types in `__init__`. Instead, either 1) use a type annotation in the class body, or 2) wrap the type in `torch.jit.Attribute`.
+  warnings.warn(
+/root/miniconda3/envs/phonon/lib/python3.11/site-packages/torch/jit/_check.py:178: UserWarning: The TorchScript type system doesn't support instance-level annotations on empty non-base types in `__init__`. Instead, either 1) use a type annotation in the class body, or 2) wrap the type in `torch.jit.Attribute`.
+  warnings.warn(
+/root/miniconda3/envs/phonon/lib/python3.11/site-packages/torch/jit/_check.py:178: UserWarning: The TorchScript type system doesn't support instance-level annotations on empty non-base types in `__init__`. Instead, either 1) use a type annotation in the class body, or 2) wrap the type in `torch.jit.Attribute`.
+  warnings.warn(
+/root/miniconda3/envs/phonon/lib/python3.11/site-packages/torch/jit/_check.py:178: UserWarning: The TorchScript type system doesn't support instance-level annotations on empty non-base types in `__init__`. Instead, either 1) use a type annotation in the class body, or 2) wrap the type in `torch.jit.Attribute`.
+  warnings.warn(
+/root/miniconda3/envs/phonon/lib/python3.11/site-packages/torch/jit/_check.py:178: UserWarning: The TorchScript type system doesn't support instance-level annotations on empty non-base types in `__init__`. Instead, either 1) use a type annotation in the class body, or 2) wrap the type in `torch.jit.Attribute`.
+  warnings.warn(
+/root/miniconda3/envs/phonon/lib/python3.11/site-packages/torch/jit/_check.py:178: UserWarning: The TorchScript type system doesn't support instance-level annotations on empty non-base types in `__init__`. Instead, either 1) use a type annotation in the class body, or 2) wrap the type in `torch.jit.Attribute`.
+  warnings.warn(
+/root/miniconda3/envs/phonon/lib/python3.11/site-packages/torch/jit/_check.py:178: UserWarning: The TorchScript type system doesn't support instance-level annotations on empty non-base types in `__init__`. Instead, either 1) use a type annotation in the class body, or 2) wrap the type in `torch.jit.Attribute`.
+  warnings.warn(
+/root/miniconda3/envs/phonon/lib/python3.11/site-packages/torch/jit/_check.py:178: UserWarning: The TorchScript type system doesn't support instance-level annotations on empty non-base types in `__init__`. Instead, either 1) use a type annotation in the class body, or 2) wrap the type in `torch.jit.Attribute`.
+  warnings.warn(
+/root/miniconda3/envs/phonon/lib/python3.11/site-packages/torch/jit/_check.py:178: UserWarning: The TorchScript type system doesn't support instance-level annotations on empty non-base types in `__init__`. Instead, either 1) use a type annotation in the class body, or 2) wrap the type in `torch.jit.Attribute`.
+  warnings.warn(
+/root/miniconda3/envs/phonon/lib/python3.11/site-packages/torch/jit/_check.py:178: UserWarning: The TorchScript type system doesn't support instance-level annotations on empty non-base types in `__init__`. Instead, either 1) use a type annotation in the class body, or 2) wrap the type in `torch.jit.Attribute`.
+  warnings.warn(
+2026-06-30 18:29:19.032 INFO: Injecting LoRA layers with rank=8 and alpha=8.0
+2026-06-30 18:29:19.033 INFO: Original model has 3847706 trainable parameters.
+/root/miniconda3/envs/phonon/lib/python3.11/site-packages/torch/jit/_check.py:178: UserWarning: The TorchScript type system doesn't support instance-level annotations on empty non-base types in `__init__`. Instead, either 1) use a type annotation in the class body, or 2) wrap the type in `torch.jit.Attribute`.
+  warnings.warn(
+/root/miniconda3/envs/phonon/lib/python3.11/site-packages/torch/jit/_check.py:178: UserWarning: The TorchScript type system doesn't support instance-level annotations on empty non-base types in `__init__`. Instead, either 1) use a type annotation in the class body, or 2) wrap the type in `torch.jit.Attribute`.
+  warnings.warn(
+/root/miniconda3/envs/phonon/lib/python3.11/site-packages/torch/jit/_check.py:178: UserWarning: The TorchScript type system doesn't support instance-level annotations on empty non-base types in `__init__`. Instead, either 1) use a type annotation in the class body, or 2) wrap the type in `torch.jit.Attribute`.
+  warnings.warn(
+/root/miniconda3/envs/phonon/lib/python3.11/site-packages/torch/jit/_check.py:178: UserWarning: The TorchScript type system doesn't support instance-level annotations on empty non-base types in `__init__`. Instead, either 1) use a type annotation in the class body, or 2) wrap the type in `torch.jit.Attribute`.
+  warnings.warn(
+/root/miniconda3/envs/phonon/lib/python3.11/site-packages/torch/jit/_check.py:178: UserWarning: The TorchScript type system doesn't support instance-level annotations on empty non-base types in `__init__`. Instead, either 1) use a type annotation in the class body, or 2) wrap the type in `torch.jit.Attribute`.
+  warnings.warn(
+/root/miniconda3/envs/phonon/lib/python3.11/site-packages/torch/jit/_check.py:178: UserWarning: The TorchScript type system doesn't support instance-level annotations on empty non-base types in `__init__`. Instead, either 1) use a type annotation in the class body, or 2) wrap the type in `torch.jit.Attribute`.
+  warnings.warn(
+/root/miniconda3/envs/phonon/lib/python3.11/site-packages/torch/jit/_check.py:178: UserWarning: The TorchScript type system doesn't support instance-level annotations on empty non-base types in `__init__`. Instead, either 1) use a type annotation in the class body, or 2) wrap the type in `torch.jit.Attribute`.
+  warnings.warn(
+/root/miniconda3/envs/phonon/lib/python3.11/site-packages/torch/jit/_check.py:178: UserWarning: The TorchScript type system doesn't support instance-level annotations on empty non-base types in `__init__`. Instead, either 1) use a type annotation in the class body, or 2) wrap the type in `torch.jit.Attribute`.
+  warnings.warn(
+/root/miniconda3/envs/phonon/lib/python3.11/site-packages/torch/jit/_check.py:178: UserWarning: The TorchScript type system doesn't support instance-level annotations on empty non-base types in `__init__`. Instead, either 1) use a type annotation in the class body, or 2) wrap the type in `torch.jit.Attribute`.
+  warnings.warn(
+/root/miniconda3/envs/phonon/lib/python3.11/site-packages/torch/jit/_check.py:178: UserWarning: The TorchScript type system doesn't support instance-level annotations on empty non-base types in `__init__`. Instead, either 1) use a type annotation in the class body, or 2) wrap the type in `torch.jit.Attribute`.
+  warnings.warn(
+/root/miniconda3/envs/phonon/lib/python3.11/site-packages/torch/jit/_check.py:178: UserWarning: The TorchScript type system doesn't support instance-level annotations on empty non-base types in `__init__`. Instead, either 1) use a type annotation in the class body, or 2) wrap the type in `torch.jit.Attribute`.
+  warnings.warn(
+/root/miniconda3/envs/phonon/lib/python3.11/site-packages/torch/jit/_check.py:178: UserWarning: The TorchScript type system doesn't support instance-level annotations on empty non-base types in `__init__`. Instead, either 1) use a type annotation in the class body, or 2) wrap the type in `torch.jit.Attribute`.
+  warnings.warn(
+/root/miniconda3/envs/phonon/lib/python3.11/site-packages/torch/jit/_check.py:178: UserWarning: The TorchScript type system doesn't support instance-level annotations on empty non-base types in `__init__`. Instead, either 1) use a type annotation in the class body, or 2) wrap the type in `torch.jit.Attribute`.
+  warnings.warn(
+/root/miniconda3/envs/phonon/lib/python3.11/site-packages/torch/jit/_check.py:178: UserWarning: The TorchScript type system doesn't support instance-level annotations on empty non-base types in `__init__`. Instead, either 1) use a type annotation in the class body, or 2) wrap the type in `torch.jit.Attribute`.
+  warnings.warn(
+/root/miniconda3/envs/phonon/lib/python3.11/site-packages/torch/jit/_check.py:178: UserWarning: The TorchScript type system doesn't support instance-level annotations on empty non-base types in `__init__`. Instead, either 1) use a type annotation in the class body, or 2) wrap the type in `torch.jit.Attribute`.
+  warnings.warn(
+/root/miniconda3/envs/phonon/lib/python3.11/site-packages/torch/jit/_check.py:178: UserWarning: The TorchScript type system doesn't support instance-level annotations on empty non-base types in `__init__`. Instead, either 1) use a type annotation in the class body, or 2) wrap the type in `torch.jit.Attribute`.
+  warnings.warn(
+/root/miniconda3/envs/phonon/lib/python3.11/site-packages/torch/jit/_check.py:178: UserWarning: The TorchScript type system doesn't support instance-level annotations on empty non-base types in `__init__`. Instead, either 1) use a type annotation in the class body, or 2) wrap the type in `torch.jit.Attribute`.
+  warnings.warn(
+/root/miniconda3/envs/phonon/lib/python3.11/site-packages/torch/jit/_check.py:178: UserWarning: The TorchScript type system doesn't support instance-level annotations on empty non-base types in `__init__`. Instead, either 1) use a type annotation in the class body, or 2) wrap the type in `torch.jit.Attribute`.
+  warnings.warn(
+/root/miniconda3/envs/phonon/lib/python3.11/site-packages/torch/jit/_check.py:178: UserWarning: The TorchScript type system doesn't support instance-level annotations on empty non-base types in `__init__`. Instead, either 1) use a type annotation in the class body, or 2) wrap the type in `torch.jit.Attribute`.
+  warnings.warn(
+/root/miniconda3/envs/phonon/lib/python3.11/site-packages/torch/jit/_check.py:178: UserWarning: The TorchScript type system doesn't support instance-level annotations on empty non-base types in `__init__`. Instead, either 1) use a type annotation in the class body, or 2) wrap the type in `torch.jit.Attribute`.
+  warnings.warn(
+2026-06-30 18:29:19.525 INFO: Model with LoRA has 3890834 trainable parameters.
+2026-06-30 18:29:19.526 INFO: ===========OPTIMIZER INFORMATION===========
+2026-06-30 18:29:19.526 INFO: Using ADAM as parameter optimizer
+2026-06-30 18:29:19.526 INFO: Batch size: 32
+2026-06-30 18:29:19.526 INFO: Number of gradient updates: 1425
+2026-06-30 18:29:19.526 INFO: Learning rate: 0.001, weight decay: 5e-07
+2026-06-30 18:29:19.526 INFO: WeightedEnergyForcesLoss(energy_weight=0.010, forces_weight=100.000)
+2026-06-30 18:29:19.527 INFO: === Layer's learning rates ===
+2026-06-30 18:29:19.527 INFO: Param group 0: lr = 0.001
+2026-06-30 18:29:19.527 INFO: Param group 1: lr = 0.001
+2026-06-30 18:29:19.527 INFO: Param group 2: lr = 0.001
+2026-06-30 18:29:19.527 INFO: Param group 3: lr = 0.001
+2026-06-30 18:29:19.527 INFO: Param group 4: lr = 0.001
+2026-06-30 18:29:19.527 INFO: Using gradient clipping with tolerance=10.000
+2026-06-30 18:29:19.527 INFO: 
+2026-06-30 18:29:19.527 INFO: ===========TRAINING===========
+2026-06-30 18:29:19.527 INFO: Started training, reporting errors on validation set
+2026-06-30 18:29:19.527 INFO: Loss metrics on validation set
+2026-06-30 18:29:22.723 INFO: Initial: head: Default, loss=0.00575011, RMSE_E_per_atom=  919.94 meV, RMSE_F=   41.97 meV / A
+2026-06-30 18:29:32.071 INFO: Epoch 0: head: Default, loss=0.00148042, RMSE_E_per_atom=  890.38 meV, RMSE_F=   19.88 meV / A
+2026-06-30 18:30:30.039 INFO: Epoch 10: head: Default, loss=0.00049445, RMSE_E_per_atom=  734.09 meV, RMSE_F=   10.22 meV / A
+2026-06-30 18:31:28.060 INFO: Epoch 20: head: Default, loss=0.00032335, RMSE_E_per_atom=  551.55 meV, RMSE_F=    8.55 meV / A
+2026-06-30 18:32:26.060 INFO: Epoch 30: head: Default, loss=0.00024682, RMSE_E_per_atom=  443.57 meV, RMSE_F=    7.70 meV / A
+2026-06-30 18:33:24.461 INFO: Epoch 40: head: Default, loss=0.00061399, RMSE_E_per_atom=  367.45 meV, RMSE_F=   13.57 meV / A
+2026-06-30 18:34:16.517 INFO: Training complete
+2026-06-30 18:34:16.517 INFO: 
+2026-06-30 18:34:16.517 INFO: ===========RESULTS===========
+2026-06-30 18:34:16.518 INFO: Loading checkpoint: results/ablation/b16lora8_s1/ft_run-1_epoch-30.pt
+/root/miniconda3/envs/phonon/lib/python3.11/site-packages/mace/tools/checkpoint.py:187: UserWarning: Environment variable TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD detected, since the`weights_only` argument was not explicitly passed to `torch.load`, forcing weights_only=False.
+  torch.load(f=checkpoint_info.path, map_location=device),
+2026-06-30 18:34:16.547 INFO: Loaded Stage one model from epoch 30 for evaluation
+2026-06-30 18:34:16.547 INFO: Saving model to results/ablation/b16lora8_s1/ft_run-1.model
+2026-06-30 18:34:16.676 INFO: Merging LoRA weights into base model
+2026-06-30 18:34:16.771 INFO: Compiling model, saving metadata to results/ablation/b16lora8_s1/ft_compiled.model
+2026-06-30 18:34:17.340 INFO: Computing metrics for training, validation, and test sets
+2026-06-30 18:34:17.341 INFO: Skipping evaluation for heads: ['pt_head']
+2026-06-30 18:34:17.341 INFO: Evaluating train_Default ...
+2026-06-30 18:34:19.732 INFO: Evaluating valid_Default ...
+2026-06-30 18:34:20.223 INFO: Error-table on TRAIN and VALID:
++---------------+---------------------+------------------+-------------------+
+|  config_type  | RMSE E / meV / atom | RMSE F / meV / A | relative F RMSE % |
++---------------+---------------------+------------------+-------------------+
+| train_Default |          427.9      |          7.7     |          3.79     |
+| valid_Default |          443.6      |          7.7     |          3.91     |
++---------------+---------------------+------------------+-------------------+
+2026-06-30 18:34:23.249 INFO: Done
+/root/miniconda3/envs/phonon/lib/python3.11/site-packages/e3nn/o3/_wigner.py:10: UserWarning: Environment variable TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD detected, since the`weights_only` argument was not explicitly passed to `torch.load`, forcing weights_only=False.
+  _Jd, _W3j_flat, _W3j_indices = torch.load(os.path.join(os.path.dirname(__file__), 'constants.pt'))
+/root/miniconda3/envs/phonon/lib/python3.11/site-packages/mace/calculators/mace.py:226: UserWarning: Environment variable TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD detected, since the`weights_only` argument was not explicitly passed to `torch.load`, forcing weights_only=False.
+  torch.load(f=model_path, map_location=device)
+WARNING:root:Default dtype float64 does not match model dtype float32, converting models to float64.
+/root/phonon/src/phonon_accel/phonons.py:113: PrimitiveMatrixAutoDefaultWarning: primitive_matrix defaulted to 'auto' and was resolved to a non-identity matrix:
+  [-0.50000,  0.50000,  0.50000]
+  [ 0.50000, -0.50000,  0.50000]
+  [ 0.50000,  0.50000, -0.50000]
+This differs from phonopy v3, whose default was the identity matrix. Pass primitive_matrix='P' (or --pa P on the command line) to restore the v3 behaviour.
+  self.phonon = Phonopy(
+/root/phonon/src/phonon_accel/phonons.py:113: PrimitiveMatrixAutoDefaultWarning: primitive_matrix defaulted to 'auto' and was resolved to a non-identity matrix:
+  [ 0.00000,  0.50000,  0.50000]
+  [ 0.50000,  0.00000,  0.50000]
+  [ 0.50000,  0.50000,  0.00000]
+This differs from phonopy v3, whose default was the identity matrix. Pass primitive_matrix='P' (or --pa P on the command line) to restore the v3 behaviour.
+  self.phonon = Phonopy(
+== fine-tuned ==
+cuequivariance or cuequivariance_torch is not available. Cuequivariance acceleration will be disabled.
+  [finetuned] train   mp-4651   MAE=0.138 THz  soft= -0.0%  imag=1
+  [finetuned] train   mp-661    MAE=0.107 THz  soft= -0.6%  imag=0
+  [finetuned] train   mp-9946   MAE=0.065 THz  soft= -1.9%  imag=1
+  [finetuned] train   mp-23193  MAE=0.110 THz  soft= -0.2%  imag=0
+  [finetuned] train   mp-2490   MAE=0.184 THz  soft= -2.1%  imag=0
+  [finetuned] train   mp-2741   MAE=0.095 THz  soft= +1.1%  imag=0
+  [finetuned] train   mp-406    MAE=0.083 THz  soft= -2.8%  imag=0
+  [finetuned] train   mp-149    MAE=0.294 THz  soft= -1.3%  imag=0
+  [finetuned] holdout mp-7140   MAE=2.906 THz  soft=-19.1%  imag=0
+  [finetuned] holdout mp-984    MAE=4.242 THz  soft=-21.0%  imag=0
+  [finetuned] holdout mp-1138   MAE=0.393 THz  soft= +2.5%  imag=0
+  [finetuned] holdout mp-2605   MAE=0.239 THz  soft= +9.4%  imag=0
+  [finetuned] holdout mp-20351  MAE=0.831 THz  soft=+12.5%  imag=0
+  [finetuned] holdout mp-390    MAE=0.803 THz  soft= -2.6%  imag=0
+
+wrote results/ablation/eval_b16lora8_s1.csv
+
+                   n  freq_mae  softening  imag
+variant   split                                
+finetuned holdout  6  1.568859  -3.058615     0
+          train    8  0.134531  -0.962383     2
+=== [b16lora8_s1] DONE Tue Jun 30 06:35:45 PM CST 2026 ===

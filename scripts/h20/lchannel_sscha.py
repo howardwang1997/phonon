@@ -168,7 +168,7 @@ def run_sscha(a) -> int:
         t0 = time.perf_counter()
         ens = Ensemble(dyn, T0=T, supercell=supercell)
         minim = SSCHA_Minimizer(ens)
-        minim.min_step_dyn = 0.05
+        minim.min_step_dyn = a.min_step
         minim.kong_liu_ratio = 0.5
         relax = SSCHA(minim, ase_calculator=calc, N_configs=a.nconfigs, max_pop=a.maxpop)
         relax.relax(get_stress=False)
@@ -221,6 +221,8 @@ def main() -> int:
     ap.add_argument("--temperatures", default="50,100,150,200,300")
     ap.add_argument("--nconfigs", type=int, default=200)
     ap.add_argument("--maxpop", type=int, default=5)
+    ap.add_argument("--min-step", dest="min_step", type=float, default=0.05,
+                    help="SSCHA minimizer min_step_dyn (smaller=more stable/slower)")
     ap.add_argument("--cdw-exp-K", dest="cdw_exp_K", default="null")
     ap.add_argument("--device", default="cuda")
     ap.add_argument("--out", required=True)

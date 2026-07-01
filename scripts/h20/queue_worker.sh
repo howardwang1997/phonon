@@ -11,7 +11,7 @@ export CLAIM_GPU="$G"
 PY="$HOME/miniconda3/envs/phonon/bin/python"
 
 while true; do
-  line=$("$PY" scripts/h20/queue.py claim --wave "$WAVE")
+  line=$("$PY" scripts/h20/hqueue.py claim --wave "$WAVE")
   rc=$?
   [ $rc -ne 0 ] && break          # 1 = nothing claimable, 2 = wave not ready
   IFS=$'\t' read -r JID ENVN GPU GROUP DONE CMD <<<"$line"
