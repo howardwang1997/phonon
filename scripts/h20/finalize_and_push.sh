@@ -56,9 +56,17 @@ else
   log "commit FAILED (nothing changed?)"; exit 1
 fi
 
-# 4. push
+# 4. integrate any upstream changes, then push
+log "fetching upstream ..."
+if git fetch origin td-phonon-anomaly >>results/h20/push.log 2>&1; then
+  if [ "$(git rev-parse HEAD)" != "$(git rev-parse origin/td-phonon-anomaly)" ] && \
+     ! git merge-base --is-ancestor origin/td-phonon-anomaly HEAD; then
+    log "upstream moved -> rebase ..."
+    git rebase origin/td-phonon-anomaly >>results/h20/push.log 2>&1 || log "rebase had conflict (push will fail)"
+  fi
+fi
 log "pushing ..."
-if git push origin HEAD 2>results/h20/push.log; then
+if git push origin HEAD 2>>results/h20/push.log; then
   log "PUSH OK"
 else
   log "PUSH FAILED (see push.log) — commit is local."
