@@ -1,6 +1,11 @@
 # Roadmap → Nature Computational Science
 ## A foundation-model framework that repairs the phonon blind spot — and turns it into a discovery engine for electronically-driven lattice instabilities
 
+> **⚠ Strategy update (2026-07-01) — now ONE complete flagship paper (not two). Read §0.** The engine
+> (method) and the (E)/(L) CDW-origin decomposition (discovery) merge into a **single high-level paper** —
+> **Part I (method) + Part II (discovery)** — no npj保底 / NCS冲刺 split. *Scope is unchanged; only the
+> packaging merges.* Target: a single flagship submission (NCS / Nature Materials class).
+>
 > **⚠ Strategy update (2026-06-30) — reframed; read §0 first.** From *"near-DFT phonons at scale
 > (a tool)"* → *"a tool that enables a discovery."* A pure tool paper is a strong **npj** but a
 > low-probability **NCS** (the components — MLIP phonons, distillation, active learning — are each
@@ -65,11 +70,19 @@ incremental, and NCS increasingly wants a *scientific payoff*, not a faster tool
 **Explicitly OUT of scope:** **ballistic transport (NEGF/Landauer)** — different method family, no
 shared backbone; bolting it on reads as scope creep and *lowers* acceptance.
 
-**Two-paper discipline (保底 + 冲刺) — to stop the drift this update corrects:**
-- **Paper 1 — npj (保底, ~2–4 wk):** graphene+NbSe₂ = the engine (Line A/B backbone) + (E)/(L)
-  decomposition on the two flagships. Lockable from current results + the ASR fix.
-- **Paper 2 — NCS (冲刺, +2–4 mo):** the family origin-map + the discovery + open tool/dataset. Lands
-  the discovery → NCS; doesn't → folds into a strong second npj.
+**Single-flagship discipline (updated 2026-07-01) — ONE complete paper, tracked to stop drift:**
+The plan is now **one complete, high-level paper** (no longer two), whose arc is *method → the discovery
+it enables*:
+- **Part I — the method (~2–4 wk to submittable):** graphene+NbSe₂ = the engine (Line A/B backbone) +
+  (E)/(L) decomposition on the two flagships. Lockable from current results + the ASR fix.
+- **Part II — the discovery (+2–4 mo):** the TMD-family origin-map + the non-trivial CDW-origin finding
+  + open tool/dataset. **Integral, not optional** — the paper is not complete until it lands.
+- **Target:** a single flagship submission (Nature Computational Science / Nature Materials class) — the
+  complete method + discovery.
+- **Honest risk:** one flagship = higher variance, longer runway, **no npj保底 fallback**; needs both
+  halves airtight (the method half stays independently strong as an implicit floor).
+- **Anti-drift:** **scope is unchanged from the two-paper plan — only the packaging merges.** Every
+  experiment below (E1–E10 engine + the family origin-map/EPW/SSCHA/κ) is retained.
 
 **Execution rule (this update's real purpose):** from here, work is tracked against *this* merged
 plan; revisit it before every compute campaign and log advance-vs-drift. The prior drift — a session
@@ -81,7 +94,7 @@ spent deep on the B-line without reconciling against this roadmap — is exactly
 
 > Companion to §0. The full **engine** experiment list (E1–E10), public-data table, and engine
 > GPU-hour budget stay in §4 / §5 (unchanged). **This section is the actionable, resource-mapped plan
-> for the merged two-paper push, given the three machines actually in hand** and what is gated on rental.
+> for the merged single-flagship-paper push, given the three machines actually in hand** and what is gated on rental.
 
 **Machines in hand**
 
@@ -97,11 +110,11 @@ DFT/DFPT/EPW is the bottleneck (CPU, only the 2 V100s); MLIP / distillation / SS
 **Public (zero new DFT):**
 - MDR/PhononDB (10,034) + Petretto (1,521) harmonic DFPT → benchmark + FC-distillation labels (engine).
 - Togo phono3py κ DB → downstream κ reference. MPtrj → replay anti-forgetting.
-- **Experimental T_CDW / INS for the TMD family (literature)** → Paper-2 validation.
+- **Experimental T_CDW / INS for the TMD family (literature)** → Part-II (discovery) validation.
 
 **Self-generated (the 2 V100s):**
-- graphene + NbSe₂ DFT fc₂ / DFPT / dvscf / EPW — **done** (Paper-1 flagships).
-- **TMD family** (NbS₂, TaS₂, TaSe₂, TiSe₂, VSe₂, …) fc₂ + DFPT + dvscf — **to generate** (Paper 2).
+- graphene + NbSe₂ DFT fc₂ / DFPT / dvscf / EPW — **done** (Part-I flagships).
+- **TMD family** (NbS₂, TaS₂, TaSe₂, TiSe₂, VSe₂, …) fc₂ + DFPT + dvscf — **to generate** (Part II).
 
 **Data ENABLERS (gating, low-cost, do now — not rental):**
 - **Broad pseudopotentials**: have C/Nb/Se(+few); the TMD family needs **Ta, Ti, V, S**. **Download** on
@@ -124,7 +137,7 @@ as **box-h**, not GPU-h.
 | Diagnosis (E2) | ~50–100 |
 | FC-distillation + ablations (E3/E4) | ~100–200 |
 | Active-learning loop (E7→E8, MLIP side) | ~150–300 |
-| **(L)-channel SSCHA family screen** (Paper 2) | ~50–100 |
+| **(L)-channel SSCHA family screen** (Part II) | ~50–100 |
 | 10³–10⁴ MLIP phonon dataset (E8) | ~200–400 |
 | Cross-model generality (MatterSim/SevenNet/ORB) | ~50–100 |
 | κ — MLIP-force part (E9) | ~100–200 |
@@ -151,7 +164,7 @@ as **box-h**, not GPU-h.
 | **Rental subtotal (FP64)** | **~2,100–5,800 GPU-h** |
 
 **Summary.** ~900–1,800 GPU-h on **8×H20** (mostly zero new DFT) **+** ~110–210 **box-h** on the **2 V100s
-now** carries **Paper 1 to submission and Paper 2 to its go/no-go**. Only the **~2,100–5,800 FP64 GPU-h**
+now** carries the **single paper to a core-complete draft (Part I + the Part II origin-map)**. Only the **~2,100–5,800 FP64 GPU-h**
 of scale (engine demo + converged family EPW + κ-at-scale + 10³–10⁴ DFT labels) needs **rental — and only
 if the Phase-2 discovery gate passes**. *Ranges are wide; the two biggest unknowns are MLIP-inference
 speed (material size) and converged-EPW grid cost (could be 2–3× higher). A 3–5-material TMD pilot on the
@@ -163,25 +176,25 @@ current machines would re-calibrate every number above.*
 - **E-0a** conda-install full QE (q2r.x/matdyn.x) on Box A/B → crystal-ASR fix.
 - **E-0b** download Ta/Ti/V/S pseudopotentials (open-internet machine).
 
-**Phase 1 — Paper 1 lock** *(now · ~2–4 wk · no rental)*
+**Phase 1 — Part I (method) lock** *(now · ~2–4 wk · no rental)*
 - **E-1a** finish λ(T_el) campaign (running) + ASR re-pass on graphene/NbSe₂ → clean absolute λ.
 - **E-1b** convergence (k/q grid, smearing, supercell) on the flagships.
-- **E-1c** assemble graphene+NbSe₂ (engine + (E)/(L)) → **npj draft**.
+- **E-1c** assemble graphene+NbSe₂ (engine + (E)/(L)) → **Part-I draft**.
 
-**Phase 2 — Paper 2 discovery attempt** *(now · ~1–2 wk · no rental · THE NCS GATE)*
+**Phase 2 — Part II (discovery) attempt** *(now · ~1–2 wk · no rental · THE COMPLETENESS BAR)*
 - **E-2a** TMD-family triage: foundation-MLIP SSCHA on 2060 (no DFT) → rank likely-unstable.
 - **E-2b** fc₂ (finite-displacement) on candidates @ Box A/B [needs E-0b pseudos] → distill + **(L)-channel SSCHA** @ 2060.
 - **E-2c** **(E)-channel** — DFPT-vs-smearing + EPW γ_qν — on 3–5 flagship TMDs @ Box A/B.
 - **E-2d** build the **(E)–(L) origin-classification map**; hunt the non-trivial discovery (re-classification / predicted instability / T_CDW trend vs experiment).
-- **★ GATE:** discovery signal? → **yes** → rent + Phase 3; → **no** → fold into a strong second npj.
+- **★ the discovery** (integral to the paper): origin-map + ≥1 non-trivial result → then rent for the Phase-3 scale-up. If it underdelivers, strengthen/reposition — there is no npj fallback.
 
 **Phase 3 — scale for NCS** *(rental · +2–4 mo · only if the Phase-2 gate passes)*
 - **E-3a** family-wide converged EPW + κ-at-scale + benchmark atlas + 10³–10⁴ dataset + GPU-DFT engine demo.
 - **E-3b** open-source the instability-origin pipeline + dataset.
-- **E-3c** assemble **Paper 2 (NCS)**.
+- **E-3c** assemble the complete flagship paper (Part I method + Part II discovery).
 
 **Golden rule:** *don't rent until the Phase-2 discovery gate shows signal.* The 3 machines can carry
-Paper 1 to submission and Paper 2 to its go/no-go decision; rental buys only **scale**, after the
+the single paper to a core-complete draft (Part I + the Part II origin-map); rental buys only **scale**, after the
 science is de-risked.
 
 ---
@@ -378,7 +391,7 @@ displacements (wall-clock = GPU-hours / N_GPU).
   speedup decomposition (symmetry 48–384× *standard*; density+wfc reuse ~1.5× wall, iteration savings
   scale with SCF difficulty Si 1.0×→MgO 1.78×; GPU-SCF deferred); first **self-DFT phonon dataset**
   (11 materials, mean 1.4% vs MDR).
-- **B-line / anomaly thread** (`TD_PHONON_M1_RESULTS.md`) — **the seed of Paper 2 (§0):** (E)/(L)
+- **B-line / anomaly thread** (`TD_PHONON_M1_RESULTS.md`) — **the seed of Part II, the discovery (§0):** (E)/(L)
   decomposition validated on graphene + NbSe₂ — SSCHA quantum-stabilization, Path-P anharmonic
   distillation, EPW **γ_qν broad at q_CDW** (EPC-driven, not nesting), (E)-channel vs electronic T,
   doped-graphene λ turn-on. NbSe₂ = the **first TMD-family member adjudicated**.
@@ -401,23 +414,26 @@ displacements (wall-clock = GPU-hours / N_GPU).
   URLs all failed from the China box → download on an open-internet machine.)
 - **A100/V100 rental** — required for both hard bones (GPU-SCF and κ).
 
-**Honest framing (corrected 2026-06-30 — see §0):** the *method backbone is strong now*, and the
-accuracy engine + (E)/(L) decomposition on graphene+NbSe₂ is **~2–4 weeks from a strong npj (Paper 1,
-保底)**. But **NCS is *not* 2–4 weeks away** — the prior estimate conflated "npj-ready backbone" with
-"NCS." NCS needs the §0 **discovery half**: the TMD-family origin-map + a *non-trivial discovery* +
-open tool/dataset (**+2–4 months; ~25–40% even if the discovery lands**). The two resource decisions
-below gate the *engine*; the **discovery is the real NCS gate**.
+**Honest framing (updated 2026-07-01 — see §0):** the *method backbone is strong now* — the accuracy
+engine + (E)/(L) decomposition on graphene+NbSe₂ is **~2–4 weeks from a submittable Part I (method)**.
+But the **complete flagship paper is *not* 2–4 weeks away** — the prior estimate conflated a "ready
+method backbone" with the whole paper. The paper also needs the §0 **Part II discovery**: the TMD-family
+origin-map + a *non-trivial discovery* + open tool/dataset (**+2–4 months; the discovery is ~25–40%
+even if it lands**). The two resource decisions below gate the *engine*; the **discovery is the real
+completeness bar for the single paper** (higher variance, no npj fallback).
 
 ## 8. Milestones (indicative, ~6–9 months)
 - **M1 (1–2 mo):** E1 benchmark atlas + E2 diagnosis (public data). Submit-quality failure-mode figure.
 - **M2 (2–3 mo):** E3/E4 finalized with breadth law + generalization (pilot already done).
 - **M3 (3–5 mo):** E5 GPU-DFT engine ~50× demonstrated; E6 scoped.
 - **M4 (4–7 mo):** E7 active-learning loop beats random selection; E8 scale-out dataset.
-- **M5 (6–9 mo):** E9 downstream (κ/zT/stability) + E10; assemble, write, release tool+dataset → **Paper 1 (npj, 保底)**.
-- **M6 (Paper 2 — NCS, the §0 冲刺):** TMD-family (E)/(L) **origin-map** (cheap (L)-channel screen of
-  NbS₂/TaS₂/TaSe₂/TiSe₂/VSe₂ + (E)/EPW deep-dive on 3–5) → the origin-classification figure → **a
-  non-trivial discovery** → open instability-origin pipeline + dataset. *Gate = the discovery; ~+2–4 mo
-  after Paper 1; NCS probability ~25–40% if it lands, else folds into a strong second npj.*
+- **M5 (6–9 mo) — Part I complete:** E9 downstream (κ/zT/stability) + E10; the engine + (E)/(L) on the
+  two flagships assembled as **Part I (the method)** of the single paper.
+- **M6 — Part II, the discovery (the §0 headline; integral to the same paper):** TMD-family (E)/(L)
+  **origin-map** (cheap (L)-channel screen of NbS₂/TaS₂/TaSe₂/TiSe₂/VSe₂ + (E)/EPW deep-dive on 3–5) →
+  the origin-classification figure → **a non-trivial discovery** → open instability-origin pipeline +
+  dataset. *The discovery is the completeness bar; ~+2–4 mo after Part I is drafted; single flagship =
+  higher variance, ~25–40% if the discovery lands, no npj fallback.*
 
 > Honesty clauses to keep in the paper (credibility): pure GPU-DFT single-SCF is only ~5–15×; the
 > ~50× is workflow-level; the ~10³× is the MLIP proxy. Every speedup is reported with its scope and

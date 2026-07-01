@@ -2,13 +2,13 @@
 
 **Week ending 2026-07-01**  ·  branch `td-phonon-anomaly`  ·  machines: 2×V100 (FP64 DFT/EPW) + 1×RTX 2060 (MLIP/proxy); 8×H20 fleet offline this week.
 
-> **One-line status.** The engine (foundation-MLIP failure atlas → material-specific FC-distillation → anharmonic Path-P) and the (E)/(L) origin-decomposition are **validated on both flagships (graphene + NbSe₂)** — Paper-1 (npj) is data-complete pending a convergence/ASR pass. This week we launched the **TMD-family FP64 campaign** on the two V100 boxes that produces the Paper-2 (NCS) origin-map; **2 of 11 materials (NbSe₂, 2H-TaSe₂) are DFT-complete**, a third (NbS₂) is finishing, and the first family (E)-channel EPW is running.
+> **One-line status.** The engine (foundation-MLIP failure atlas → material-specific FC-distillation → anharmonic Path-P) and the (E)/(L) origin-decomposition are **validated on both flagships (graphene + NbSe₂)** — the paper's **Part I (method)** is data-complete pending a convergence/ASR pass. This week we launched the **TMD-family FP64 campaign** on the two V100 boxes that builds the **Part II (discovery)** origin-map; **2 of 11 materials (NbSe₂, 2H-TaSe₂) are DFT-complete**, a third (NbS₂) is finishing, and the first family (E)-channel EPW is running.
 
 ---
 
 ## 0. Executive summary
 
-This project builds a cheap-and-accurate phonon engine and uses it for a science payoff foundation MLIPs cannot reach: **decomposing lattice instabilities (Kohn anomalies, CDW soft modes) into their electronic (E) and lattice-anharmonic (L) origins**, across the 2D-TMD family. Two papers: **Paper 1 (npj, 保底)** = the engine + (E)/(L) on graphene & NbSe₂; **Paper 2 (NCS, 冲刺)** = the family origin-map + a non-trivial discovery.
+This project builds a cheap-and-accurate phonon engine and uses it for a science payoff foundation MLIPs cannot reach: **decomposing lattice instabilities (Kohn anomalies, CDW soft modes) into their electronic (E) and lattice-anharmonic (L) origins**, across the 2D-TMD family. **One complete, high-level paper** merges the two halves into a single arc: **Part I (method)** = the engine + (E)/(L) on graphene & NbSe₂; **Part II (discovery)** = the TMD-family origin-map + a non-trivial CDW-origin finding.
 
 **Banked this reporting period and before (all validated):**
 
@@ -30,18 +30,22 @@ This project builds a cheap-and-accurate phonon engine and uses it for a science
 
 ---
 
-## 1. Framing — the merged two-paper story
+## 1. Framing — one complete, high-level paper (method → discovery)
 
-**Reframe (2026-06-30):** a pure "near-DFT phonons at scale" tool is a strong **npj** but a low-probability **NCS** (~10–20 %). The fix is to lead with the science the engine *uniquely enables*: high-throughput **origin-decomposition of lattice instabilities**. The accuracy engine becomes the *method*; the CDW-origin study becomes the *headline*.
+**Strategy (2026-07-01): merged into a single flagship paper.** The plan is no longer two papers (an npj 保底 + an NCS 冲刺). It is **one complete, high-level paper** whose arc is *method → the discovery it enables*:
 
-- **Paper 1 — npj (保底, ~2–4 wk, no rental):** graphene + NbSe₂ = engine (Line A benchmark/distillation + Line B GPU-DFT) + the (E)/(L) decomposition on the two flagships. Lockable from current results + an ASR/convergence pass.
-- **Paper 2 — NCS (冲刺, +2–4 mo):** the TMD-family **(E)–(L) origin-classification map** + a non-trivial discovery + open tool/dataset. NCS probability **~25–40 % even if the discovery lands**; if it doesn't, it folds into a strong second npj.
-- **Why merged > either half:** the cheap (L)-channel (distilled MLIP + SSCHA) screens a whole family that full DFPT/EPW could never afford; the expensive (E)/EPW deep-dive adjudicates only the flagships. Engine novelty is *justified by* the discovery it enables.
+- **Part I — the method (engine).** Foundation MLIPs are blind precisely to the electronically-driven phonon anomalies (Kohn anomalies, CDW soft modes) that define quantum materials (blind-spot atlas → Hessian-supervision diagnosis). We repair it by co-designing a GPU finite-displacement DFT data engine (Line B) with material-specific FC-distillation + anharmonic Path-P into a foundation MLIP (Line A) — near-DFT accuracy on exactly the hardest cases, a breadth-not-depth generalization law, and a downstream κ payoff.
+- **Part II — the discovery it enables.** Because the repaired framework is cheap *and* accurate on these hardest cases, high-throughput **origin-decomposition of lattice instabilities** becomes feasible for the first time: separate each CDW into its **electronic (Fermi-surface / EPC)** vs **lattice-anharmonic** channel, build the **(E)–(L) origin-classification map** across the 2D-TMD family, and adjudicate the long-debated origin of these CDWs (NbSe₂ = first member: EPC-driven, not nesting).
+- **Why one paper, not two:** the method's novelty is *justified by* the discovery it enables (not "yet another phonon framework"); the discovery is *tractable only because of* the method (the cheap (L)-channel screens a whole family full DFPT/EPW could never afford). The two halves are one argument, not two packages.
+- **Target:** a single flagship submission (Nature Computational Science / Nature Materials class) — the complete method + discovery.
+- **Honest risk:** one flagship = higher variance and a longer runway than an npj — it needs *both* the method airtight *and* the discovery to land; there is **no npj保底 fallback**. (The method half remains independently strong — an implicit floor if repositioning were ever forced.)
 - **Out of scope (explicit):** ballistic transport (NEGF/Landauer) — different method family, reads as scope creep.
+
+> **Anti-drift note (per the roadmap's track-vs-drift rule).** This merge changes *packaging, not scope*: **every experiment in the NCS roadmap is retained** — the E1–E10 engine program *and* the family (E)/(L) origin-map + EPW + SSCHA + κ — now as sections of one paper. The long-term goal is unchanged: *origin-decomposition of lattice instabilities, made high-throughput by the engine*. Tracked against `docs/NCS_ROADMAP.md` §0; revisit before each compute campaign and log advance-vs-drift.
 
 ![Fig 2 — the (E)–(L) origin map](figs/fig2_origin_map.png)
 
-*Fig 2. The Paper-2 headline object: every CDW material placed in the **(E) electronic** (Fermi-surface nesting → momentum-dependent EPC) × **(L) lattice-anharmonic** (harmonic → quantum-stabilized) plane. Only **NbSe₂ is adjudicated so far** (EPC-driven, not nesting; anharmonically stabilized ~150 K ≈ exp 145 K); graphene is the (E)-channel calibrator. Filling this plane for NbS₂/TaS₂/TaSe₂/TiSe₂/VSe₂ is the NCS gate.*
+*Fig 2. The paper's Part-II headline object: every CDW material placed in the **(E) electronic** (Fermi-surface nesting → momentum-dependent EPC) × **(L) lattice-anharmonic** (harmonic → quantum-stabilized) plane. Only **NbSe₂ is adjudicated so far** (EPC-driven, not nesting; anharmonically stabilized ~150 K ≈ exp 145 K); graphene is the (E)-channel calibrator. Filling this plane for NbS₂/TaS₂/TaSe₂/TiSe₂/VSe₂ is the paper's discovery.*
 
 ---
 
@@ -151,7 +155,7 @@ Two single-V100 boxes, two non-competing lanes each. Scope: full-family DFT fc�
 
 ## 4. Experiments still needed
 
-### 4.1 Near-term — close the current campaign & lock Paper 1 (no rental)
+### 4.1 Near-term — close the current campaign & lock Part I (no rental)
 
 | Task | What it produces | Est. compute | Data needed |
 |---|---|---|---|
@@ -160,11 +164,11 @@ Two single-V100 boxes, two non-competing lanes each. Scope: full-family DFT fc�
 | Finish (E)-EPW γ_qν (5 remaining CDW) | q-resolved EPC per material | ~40–90 box-h (CPU lane, bottleneck) | dvscf + Wannier per material |
 | **λ(T_el) / λ_q convergence (NbSe₂ first, then flagships)** | defensible λ: **nkf 24→48(→60)** convergence + unified smearing + ≥5 T_el points | ~1 day (nkf, reuse DFPT) + ~½ day/new-T_el point | — |
 | **ASR re-pass** (q2r `zasr='crystal'`) on graphene/NbSe₂ | clean absolute λ + correct 2D ZA acoustic mode | ~20–40 box-h | conda-install full QE (q2r/matdyn) |
-| Convergence sweeps (k/q, smearing, supercell) on flagships | seed error bars on every Paper-1 headline number | included above | — |
+| Convergence sweeps (k/q, smearing, supercell) on flagships | seed error bars on every Part-I headline number | included above | — |
 
-*Expected outcome:* the family DFT truth table + a converged NbSe₂ λ(T_el)/γ_q, closing Paper 1 to submission.
+*Expected outcome:* the family DFT truth table + a converged NbSe₂ λ(T_el)/γ_q, bringing Part I (the method) to a submittable state.
 
-### 4.2 NCS roadmap — the discovery half (Phase 2 gate)
+### 4.2 Part II — the discovery half (from the NCS roadmap)
 
 | Roadmap step | Expected result | Compute (hardware) | Data |
 |---|---|---|---|
@@ -172,11 +176,11 @@ Two single-V100 boxes, two non-competing lanes each. Scope: full-family DFT fc�
 | **E-2b** fc₂ + material-specific distill + (L)-SSCHA on candidates | quantum-stabilization T per material (L-channel of the map) | fc₂ in §4.1; SSCHA 8×90 min | family fc₂ labels |
 | **E-2c** (E)-channel DFPT-smearing + EPW on 3–5 flagships | γ_qν breadth / nesting verdict (E-channel of the map) | in §4.1 EPW budget | dvscf + Wannier |
 | **E-2d** build (E)–(L) origin map + hunt the discovery | **a material re-classified, or a predicted instability, or a clean (E)/(L)→T_CDW trend vs experiment** | synthesis | exp T_CDW / INS (literature) |
-| ★ **GATE** | discovery signal? yes → rent + Phase 3; no → second npj | — | — |
+| ★ **the discovery** (integral, not optional) | origin-map + ≥1 non-trivial result = the paper's Part II; then rent for the scale-up | — | exp T_CDW/INS |
 
 **H20 MLIP half (offline this week — resume when fleet returns):** E1 benchmark atlas (≥6 foundation MLIPs × ~1,500-material stratified MDR; 72 jobs), E3/E4 distillation + anti-forgetting/LoRA/breadth ablations (7 finetunes; canon = b64/pt1000), (L)-SSCHA family screen (8 SSCHA, supercell 4×4×1, T={50,100,150,200,300}), E9 κ (phono3py, 5 covalent references) → **~900–1,800 GPU-h ≈ 5–10 parallel-days**.
 
-**Phase 3 — scale for NCS (rental FP64, only if gate passes):** family-wide converged EPW (dense grids) + κ-at-scale 3rd-order + GPU-DFT ~50× engine demo + 10³–10⁴ active-learning dataset → **~2,100–5,800 GPU-h** on rented A100/V100.
+**Phase 3 — scale-up (rental FP64, after the discovery lands):** family-wide converged EPW (dense grids) + κ-at-scale 3rd-order + GPU-DFT ~50× engine demo + 10³–10⁴ active-learning dataset → **~2,100–5,800 GPU-h** on rented A100/V100.
 
 ---
 
@@ -192,20 +196,20 @@ Two single-V100 boxes, two non-competing lanes each. Scope: full-family DFT fc�
 | E5 GPU-DFT engine | **~50× workflow-level** speedup (SCF ~5–15× × density-reuse ~2–4× × non-diagonal supercells) — each factor reported separately |
 | E7/E8 active learning | reach target accuracy with **N× less DFT** than random; coverage-driven acquisition wins, naive uncertainty loses |
 | E9 downstream κ/zT | near-DFT **κ** and stability screening at ~10³× speed |
-| **(E)/(L) origin-map (Paper 2)** | each TMD placed in the (E)–(L) plane; **≥1 non-trivial reclassification/prediction** = the NCS discovery |
+| **(E)/(L) origin-map (Part II — the discovery)** | each TMD placed in the (E)–(L) plane; **≥1 non-trivial reclassification/prediction** = the paper's headline discovery |
 
 ### 5.2 Compute required
 
 ![Fig 3 — compute budget](figs/fig3_compute_budget.png)
 
-*Fig 3. Budget by phase and hardware class. Machines in hand (2×V100 now + 8×H20) carry Paper 1 to submission and Paper 2 to its go/no-go; only the FP64 scale half needs rental, and only after the discovery gate.*
+*Fig 3. Budget by phase and hardware class. Machines in hand (2×V100 now + 8×H20) carry the complete paper to a core-complete draft (Part I + the Part II origin-map); only the FP64 scale-up needs rental, and only after the discovery lands.*
 
 | Bucket | Workload | Estimate | Hardware | Unit note |
 |---|---|---|---|---|
 | V100 now — DFT fc₂ + anchors | family harmonic truth | ~30–45 | 2×V100 GPU lane | box-h (rides idle GPU ~free) |
 | V100 now — Path-P (7 CDW) | anharmonic (L) labels | ~5–8 | 2×V100 GPU lane | box-h |
 | V100 now — (E)-EPW (6 new) | q-resolved EPC | ~40–90 | 2×V100 CPU lane | box-h (bottleneck) |
-| V100 now — λ(T_el)+ASR+conv | clean Paper-1 numbers | ~20–40 | 2×V100 CPU lane | box-h |
+| V100 now — λ(T_el)+ASR+conv | clean Part-I numbers | ~20–40 | 2×V100 CPU lane | box-h |
 | **V100 now subtotal** | | **~110–210 box-h ≈ 1–2 wk** | 2×V100 | — |
 | H20 — MLIP half (E1/E3/E4/(L)-SSCHA/κ) | benchmark + distill + screen | **~900–1,800** | 8×H20 | GPU-h (≈5–10 parallel-days) |
 | **Rental — FP64 scale (gated)** | dense EPW + κ-at-scale + engine demo + dataset | **~2,100–5,800** | rented A100/V100 | GPU-h (only if gate passes) |
@@ -222,9 +226,9 @@ Two single-V100 boxes, two non-competing lanes each. Scope: full-family DFT fc�
 | Pre-training trajectories | MPtrj (`mp_traj_combinedxyz`, **~56 MB**) | ✅ | replay anti-forgetting (E3) | gitignored; manual relay to H20 |
 | Foundation pseudopotentials | **SG15 ONCV-PBE (69 elem)** | ✅ | self-DFT across the periodic table | blocker solved |
 | **TMD-family pseudos: Ta, Ti, V, S** | PseudoDojo ONCV-PBE | ✅ | family DFT — *gating* | present on both boxes ✅ |
-| Experimental T_CDW / INS (TMD family) | literature | ✅ | Paper-2 validation | to compile |
-| graphene + NbSe₂ DFT fc₂/DFPT/dvscf/EPW | self (2×V100) | ❌ | Paper-1 flagships | **done** |
-| TMD-family fc₂ + DFPT + dvscf + EPW | self (2×V100) | ❌ | Paper-2 origin-map | **in progress (2/11)** |
+| Experimental T_CDW / INS (TMD family) | literature | ✅ | Part-II validation | to compile |
+| graphene + NbSe₂ DFT fc₂/DFPT/dvscf/EPW | self (2×V100) | ❌ | Part-I flagships | **done** |
+| TMD-family fc₂ + DFPT + dvscf + EPW | self (2×V100) | ❌ | Part-II origin-map | **in progress (2/11)** |
 | `q2r.x` / `matdyn.x` (crystal-ASR) | conda full-QE | ✅ | clean absolute λ + 2D ZA mode | to install on boxes |
 
 **Enablers still to do (low-cost, now):** conda-install full QE (q2r/matdyn) on Box A/B; compile the literature T_CDW / INS table for the family.
@@ -236,9 +240,9 @@ Two single-V100 boxes, two non-competing lanes each. Scope: full-family DFT fc�
 **Risks / blockers**
 - **EPW is the throughput bottleneck** (CPU-bound, ~8.5 box-h/material, 5 more (E)-channel materials queued) — the campaign is a ~1–2 week job on 2 boxes.
 - **λ diverges at soft modes** (physics, not a bug): report q-resolved γ_qν/λ_qν, never absolute λ, for CDW materials.
-- **8×H20 fleet offline 7 days** → the MLIP half (E1/E3/E4/(L)-SSCHA/κ) is paused; Paper-1 MLIP tables and the family (L)-screen wait on its return.
-- **Fixes not in git** (§3.3) and **Box B transient oversubscription** (jconv/jlq6 overlap).
-- **NCS gate is the discovery** — not compute: the origin-map must yield ≥1 non-trivial result.
+- **8×H20 fleet offline 7 days** → the MLIP half (E1/E3/E4/(L)-SSCHA/κ) is paused; the Part-I MLIP tables and the family (L)-screen wait on its return.
+- **Fixes not in git** (§3.3); Box B transient oversubscription **resolved** this session (legacy jconv/jlq6 queues paused + serialized behind the campaign).
+- **The discovery is the completeness bar** — not compute: the single paper is not submittable until the origin-map yields ≥1 non-trivial result. **Single-flagship = higher variance** (no npj保底 fallback; the method half stays independently strong as a floor).
 
 **Next week**
 1. Let the family DFT/EPW campaign run (self-healing); land NbS₂ + 2H-TaSe₂ (E)-channel EPW as the first two family γ_qν points.
@@ -263,7 +267,7 @@ Two single-V100 boxes, two non-competing lanes each. Scope: full-family DFT fc�
 
 Tables: §0 banked results · §2.1–2.4 per-flagship number tables · §4.1–4.2 remaining/roadmap experiments · §5.1 expected results · §5.2 compute · §5.3 data.
 
-## Appendix B — honest-framing clauses (carried into both papers)
+## Appendix B — honest-framing clauses (for the paper)
 
 - Pure GPU-DFT single-SCF speedup is only ~5–15×; "~50×" is **workflow-level**; "~10³×" is the **MLIP proxy** — every speedup quoted with its scope.
 - Every accuracy headline carries **seed error bars**; κ reported as **mean + median**; negative results kept (naive-uncertainty acquisition; NbSe₂ non-nesting; harmonic-FT backfire).

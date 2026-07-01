@@ -1,6 +1,6 @@
 # Data-efficient force-constant distillation for near-DFT phonons and thermal conductivity in foundation machine-learning potentials
 
-*Manuscript draft. Intended for npj Computational Materials / Nature Computational Science.*
+*Manuscript draft. Intended for one flagship submission aiming for a top venue (Nature Computational Science / Nature Materials class) — the single merged paper: Part I (the method) + Part II (the discovery).*
 
 **Authors.** [Author list TBD]
 **Affiliations.** [TBD]

@@ -7,14 +7,16 @@
 > **交付方式（重要）**：作者无法 SSH 进这台机器。所有脚本+文档走 GitHub，你
 > `git pull` 后跑**一条命令**，脚本自愈式装环境、自己排队、自己续跑。
 
+> **Strategy update (2026-07-01):** merged to ONE flagship paper (Part I method + Part II discovery); every experiment below is unchanged — see docs/NCS_ROADMAP.md §0.
+
 对应 NCS roadmap §0b·2(a) 的 4 个组：
 
 | 组 | roadmap | 这台机器产出 | 服务于 |
 |---|---|---|---|
-| **E1** benchmark atlas | E1 | ≥6 基础 MLIP × MDR 分层子集的声子精度主表 + 失效模式统计 | Paper-1 |
-| **E3/E4** FC-蒸馏 + 消融 | E3/E4 | 蒸馏前后精度 + breadth/anti-forgetting/LoRA 数据效率曲线 | Paper-1 |
-| **(L)-通道** TMD 家族 SSCHA | Paper-2 种子 | TMD 家族 (L)-通道 origin-map（晶格非简谐 vs 电子驱动的分流） | Paper-2 |
-| **E9** κ | E9 | κ(MLIP) vs 实验（impact line） | Paper-1 |
+| **E1** benchmark atlas | E1 | ≥6 基础 MLIP × MDR 分层子集的声子精度主表 + 失效模式统计 | Part I（方法） |
+| **E3/E4** FC-蒸馏 + 消融 | E3/E4 | 蒸馏前后精度 + breadth/anti-forgetting/LoRA 数据效率曲线 | Part I（方法） |
+| **(L)-通道** TMD 家族 SSCHA | Part II 种子 | TMD 家族 (L)-通道 origin-map（晶格非简谐 vs 电子驱动的分流） | Part II（发现） |
+| **E9** κ | E9 | κ(MLIP) vs 实验（impact line） | Part I（方法） |
 
 ---
 
@@ -131,29 +133,33 @@ results/ablation/eval_*.csv # E3/E4 微调的留出集评测（沿用既有路�
   老 phonopy，和 MACE 主环境冲突（见 §4 gotchas）。triage 只用 phonopy+MLIP，留在
   `phonon` 环境。
 - **为什么有 Wave B**：蒸馏模型是 Wave A 的*产物*，用它重跑 L-通道和全池 benchmark
-  才能给出「蒸馏前 vs 蒸馏后」的对照——这是 Paper-1 的 headline 和 Paper-2 origin-map
+  才能给出「蒸馏前 vs 蒸馏后」的对照——这是 Part I 的 headline 和 Part II origin-map
   的第二列。Wave B 在 Wave A 全绿后才放闸（canon 模型必须先存在）。
 
 ### 2.2 每组怎么喂给下一步
 
 1. **E1 → E3/E4**：E1 主表告诉你*哪个基础模型最准、失效模式最轻*。它就是该蒸馏的
-   `distill_base`（默认 MACE）。E1 同时量化「blind spot」——Paper-1 的 Act 1。
+   `distill_base`（默认 MACE）。E1 同时量化「blind spot」——Part I 的 Act 1。
 2. **E3/E4 → (L)-通道 / κ**：蒸馏出的 canon 模型是 Wave B 的输入。蒸馏数据效率曲线
-   （breadth B16/B32/B64 + anti-forgetting pt vs single vs LoRA）= Paper-1 的 Act 3
+   （breadth B16/B32/B64 + anti-forgetting pt vs single vs LoRA）= Part I 的 Act 3
    「便宜地修好它」。
 3. **(L)-通道 + (E)-通道（链下）→ origin-map**：这台机器只产**(L) 半边**（晶格非简谐，
    MLIP+SSCHA）。**(E) 半边**（电子 Fermi-面/EPC，DFPT-smearing+EPW）是 FP64，在
-   V100/租机上做。两半合起来才是 Paper-2 的 (E)/(L) 分解 origin-map。**这台机器的
+   V100/租机上做。两半合起来才是 Part II 的 (E)/(L) 分解 origin-map。**这台机器的
    L-通道筛选，正是用来决定哪些材料值得花钱去做 (E) 半边**（见 §3）。
 4. **κ**：独立的 impact line（E9），证明蒸馏模型在下游热输运上也接近 DFT。
 
-### 2.3 映射到两篇论文（track 不 drift）
+### 2.3 映射到单篇论文的两个部分 (Part I 方法 / Part II 发现)（track 不 drift）
 
-- **Paper 1（npj 保底）**：E1（blind spot）+ E3/E4（FC-蒸馏修复 + 数据效率）+ E9（κ impact）。
-  **这台 H20 基本能把 Paper-1 跑全**（DFT 参考数据用既有的 + 公开 MDR）。
-- **Paper 2（NCS 冲刺）**：(L)-通道 TMD 家族 origin-map 是**种子**；headline 发现需要
+本清单的所有实验服务于**一篇 flagship 论文**（one flagship submission，top venue）的两个部分：
+
+- **Part I — the method**：E1（blind spot）+ E3/E4（FC-蒸馏修复 + 数据效率）+ E9（κ impact）。
+  **这台 H20 基本能把 Part I 跑全**（DFT 参考数据用既有的 + 公开 MDR）。
+- **Part II — the discovery**：(L)-通道 TMD 家族 origin-map 是**种子**；headline 发现需要
   (E) 半边（链下 FP64）合体。NbSe₂ 已是第一个被判定的家族成员
-  （见 `docs/NCS_ROADMAP.md §0` 和 `[[td-phonon-m1-status]]`）。
+  （见 `docs/NCS_ROADMAP.md §0` 和 `[[td-phonon-m1-status]]`）。**Part II 是这篇论文不可或缺的一半——
+  origin-map + 发现不落地，论文就不算完成**；它不是「方法之外可选的加分项」。
+- ⚠️ **诚实的风险**：单篇 flagship = 更高方差，要求 Part I（方法）与 Part II（发现）两半都无懈可击。
 
 ---
 
@@ -167,7 +173,7 @@ results/ablation/eval_*.csv # E3/E4 微调的留出集评测（沿用既有路�
 | 看到 | 含义 | 下一步 |
 |---|---|---|
 | 某模型 freq-MAE 明显最低、虚频最少 | 它是最佳蒸馏底座 | 把 `finetune.distill_base` / `canon` 指到它；若不是 MACE，改 `lchannel`/`e9` 的 `model_type` |
-| 所有模型在某类材料（极性/重元素/层状）系统性 softening | blind spot 的结构 | Paper-1 Act 1 的核心图；这些类别优先进蒸馏训练集 |
+| 所有模型在某类材料（极性/重元素/层状）系统性 softening | blind spot 的结构 | Part I Act 1 的核心图；这些类别优先进蒸馏训练集 |
 | 虚频集中在某些空间群 | 失效模式可定位 | E3/E4 训练集按这些空间群分层补样 |
 
 ### 3.2 E3/E4（FC-蒸馏）
@@ -175,11 +181,11 @@ results/ablation/eval_*.csv # E3/E4 微调的留出集评测（沿用既有路�
 | 看到 | 含义 | 下一步 |
 |---|---|---|
 | breadth 曲线（B16→B32→B64）仍在降、未到膝点 | 数据还不够广 | 加 `finetune.jobs` 里更大的 train 集（B79…），或扩 MDR 池 |
-| `pt*`(anti-forgetting) ≫ `single`/`lora` | 多头 replay 是关键 | canon 用 pt；写进 Paper-1 differentiation |
+| `pt*`(anti-forgetting) ≫ `single`/`lora` | 多头 replay 是关键 | canon 用 pt；写进 Part I differentiation |
 | 留出集 MAE 没降 / 反升 | 过拟合或灾难遗忘 | 调 `energy_weight`/replay 强度；或 LoRA |
-| 蒸馏后 E1-after 全池虚频大幅下降 | headline 成立 | 锁 Paper-1，进入 §7b 的「立即可做」清单 |
+| 蒸馏后 E1-after 全池虚频大幅下降 | headline 成立 | 锁 Part I，进入 §7b 的「立即可做」清单 |
 
-### 3.3 (L)-通道 origin-map（**Paper-2 的发现闸门 / 决定租不租 FP64**）
+### 3.3 (L)-通道 origin-map（**Part II 的发现闸门 / 决定租不租 FP64**）
 
 读法：`triage 谐波 min-freq < 0` ⇒ MLIP 看到谐波软化；`SSCHA label` 给出量子/热修
 正后的 (L) 判定。对照实验 `T_CDW`：
@@ -199,14 +205,14 @@ results/ablation/eval_*.csv # E3/E4 微调的留出集评测（沿用既有路�
 
 | 看到 | 含义 | 下一步 |
 |---|---|---|
-| κ(MLIP) 在共价材料上 vs 实验误差小（<~20%） | 蒸馏模型下游可用 | 直接进 Paper-1 impact 图 |
+| κ(MLIP) 在共价材料上 vs 实验误差小（<~20%） | 蒸馏模型下游可用 | 直接进 Part I impact 图 |
 | 某材料 κ 误差大 | 三阶 FC（非简谐）不准 | 给该材料加 fc₃ 蒸馏（Path-P 风格，链下 DFT）；或检查 mesh/supercell 收敛 |
 
 ### 3.5 闸门串起来（一句话）
 
 E1 选底座 → E3/E4 蒸出 canon 并量化「修好了多少」→ (L)-通道把 TMD 家族分流成
 「晶格驱动（深挖即可）」和「电子驱动（值得租 FP64 做 (E) 半边）」→ 只对后者租机做
-EPW → (E)+(L) 合体成 origin-map = Paper-2 的发现。κ 是平行的 impact 证据。
+EPW → (E)+(L) 合体成 origin-map = Part II 的发现。κ 是平行的 impact 证据。
 
 ---
 

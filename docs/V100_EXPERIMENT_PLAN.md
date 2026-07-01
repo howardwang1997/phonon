@@ -1,8 +1,10 @@
 # V100 单卡实验计划与运行手册（FP64 半边）
 
+> **Strategy update (2026-07-01):** merged to ONE flagship paper (Part I method + Part II discovery); experiments unchanged — see docs/NCS_ROADMAP.md §0.
+
 > 两台单卡 V100 上的 **FP64 DFT/DFPT/EPW** —— H20 那套纯 MLIP 的**互补半边**。
 > H20 出 (L)-通道（MLIP+SSCHA），这里出 **DFT fc₂ 真值** + **(E)-通道**（DFPT-with-
-> smearing + EPW γ_qν + nesting），两半合成 Paper-2 的 (E)/(L) origin-map。
+> smearing + EPW γ_qν + nesting），两半合成单篇旗舰论文 **Part II — the discovery** 的 (E)/(L) origin-map。
 >
 > 这两台**可以 SSH**（和 H20 不同），但脚本仍做成幂等可续跑、一条命令一台。
 
@@ -115,7 +117,7 @@ build TMD → │  DFT fc₂ ──┬─→ bands + χ(q) nesting             �
 | **H20**（results/h20/SUMMARY.md） | (L)：MLIP triage 软不软 + SSCHA 是否稳住 |
 | **V100**（results/v100/SUMMARY.md） | DFT fc₂ 真值软模 + 2k_F/nesting + EPW γ_qν |
 
-每个 TMD 一行，(L)+(E) 一起读 → 判它是晶格非简谐驱动还是电子驱动 = **Paper-2 的发现**。
+每个 TMD 一行，(L)+(E) 一起读 → 判它是晶格非简谐驱动还是电子驱动 = **Part II — the discovery（单篇旗舰论文的发现半边）**。
 
 ---
 
@@ -126,7 +128,7 @@ build TMD → │  DFT fc₂ ──┬─→ bands + χ(q) nesting             �
 | **DFT fc₂ 有软模、H20 (L)-triage 却判稳定** | MLIP 漏掉了这个不稳定 | 用这材料的 DFT fc₂ 做**材料专属蒸馏**（Path-P/V-Q3），把不稳定灌进 MLIP；H20 (L)-列据此修正 |
 | **DFT fc₂ 无软模、实验却是 CDW** | 这是 1×1 cell 的局限（CDW 在更大超胞）或电子驱动 | 检查更大超胞 / 看 (E)-通道 γ_qν |
 | **2k_F≈q_CDW 且 nesting ξ(q) 在 q_CDW 峰** | nesting 驱动的 Kohn 反常 | 归类"nesting-driven"，origin-map 标注 |
-| **nesting 不峰、但 EPW γ_qν 在 q_CDW 宽峰**（NbSe₂ 模式） | **EPC 驱动**（动量依赖电声耦合），不是 nesting | 归类"EPC-driven" = 与文献一致的非平庸结论，Paper-2 主线 |
+| **nesting 不峰、但 EPW γ_qν 在 q_CDW 宽峰**（NbSe₂ 模式） | **EPC 驱动**（动量依赖电声耦合），不是 nesting | 归类"EPC-driven" = 与文献一致的非平庸结论，Part II — the discovery 主线 |
 | **λ 发散 / minfreq=-1 常数** | 软模处 1/ω² 发散 + Γ-声学 ASR 残差 | λ 绝对值不可信；只报 **γ_qν** 和它的 q-依赖（已知坑） |
 | **某材料 EPW Wannier 不收敛 / 虚频太多** | `dis_win_max`/proj 窗口对该材料不合适 | 调 `epw.dis_win_max`（per-material），step guard 让重跑只重 EPW 段 |
 | **GPU 车道早早跑完、GPU 又闲** | fc₂/bands 是有限的 | 把更多 CDW 材料的 Path-P 加密（`path_p.n_therm/n_well`），或给非-CDW 材料也加 Path-P 风格热数据 |

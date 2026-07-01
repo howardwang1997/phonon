@@ -34,7 +34,7 @@ def fig1_status_matrix():
               "(E)-EPW\nγ_qν", "(L)-SSCHA\nω(q,T)"]
     # 0 N/A(control) · 1 pending · 2 running · 3 done
     S = np.array([
-        [3,3,3,3,3],   # NbSe2  — all done (Paper-1 flagship)
+        [3,3,3,3,3],   # NbSe2  — all done (Part-I flagship)
         [3,3,3,2,1],   # 2H-TaSe2 — fc2/bands/PathP done, EPW running (box B), SSCHA pending
         [3,3,2,2,1],   # NbS2 — fc2/bands done, PathP running, EPW running (box A)
         [2,1,1,1,1],   # 1T-TiSe2 — fc2 running (box B)
@@ -82,7 +82,7 @@ def fig2_origin_map():
     ax.axvline(5, color="#ccc", lw=1, ls="--"); ax.axhline(5, color="#ccc", lw=1, ls="--")
     ax.set_xlabel("(E) electronic channel  —  Fermi-surface nesting  →  momentum-dependent EPC")
     ax.set_ylabel("(L) lattice-anharmonic channel  —  harmonic  →  strongly quantum-stabilized")
-    ax.set_title("Fig 2  The (E)–(L) CDW origin-classification map (Paper-2 headline)")
+    ax.set_title("Fig 2  The (E)–(L) CDW origin-classification map (Part II — the discovery)")
     # quadrant labels
     ax.text(2.5, 9.3, "nesting-driven", ha="center", color="#888", fontsize=9, style="italic")
     ax.text(7.5, 9.3, "EPC-driven", ha="center", color="#888", fontsize=9, style="italic")
@@ -142,7 +142,7 @@ def fig3_compute_budget():
            Patch(fc=CB["red"], label="rental FP64 — only if discovery gate passes")]
     ax.legend(handles=leg, loc="lower right", fontsize=8)
     ax.axvline(210, color="#888", ls=":", lw=1)
-    ax.text(210, len(rows)-0.4, " Paper-1 + go/no-go\n carried by machines in hand",
+    ax.text(210, len(rows)-0.4, " core-complete draft\n carried by machines in hand",
             fontsize=7.5, color="#666", rotation=0)
     fig.savefig(f"{OUT}/fig3_compute_budget.png"); plt.close(fig)
     print("wrote fig3_compute_budget.png")
