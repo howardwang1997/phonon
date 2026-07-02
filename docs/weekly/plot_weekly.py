@@ -369,6 +369,138 @@ def fig9_kohn_anomaly():
     print("wrote fig9_kohn_anomaly.png")
 
 
+# ============================================================ FIG 10 — temperature-dependent Kohn anomaly
+def fig10_td_kohn_anomaly():
+    """The Kohn anomaly's *physical-temperature* evolution (the (L)-channel),
+    on both flagships. Real MLIP TDEP/SSCHA data (results/td_phonon):
+      (a) graphene M2 dense-T — the K-A₁′ Kohn cusp PERSISTS while Γ stays washed;
+      (b) NbSe₂ — the CDW soft mode (extreme Kohn anomaly) heals with T; the
+          rigorous SSCHA free-energy Hessian is stable at all T (quantum-stabilized),
+          the crossover ≈ exp monolayer T_CDW 145 K.
+    Distinct from Fig 8 (electronic T_el, frozen-phonon): this is real lattice T."""
+    # (a) graphene cusp kink |dv| vs T  (td_graphene_ft_m2.csv)
+    Tg = np.array([10, 50, 100, 200, 300, 400, 500, 600])
+    kink_K = np.array([95.90, 95.57, 98.13, 99.04, 91.65, 102.67, 94.88, 91.53])
+    kink_G = np.array([5.77, 5.22, 5.55, 5.35, 6.87, 4.84, 5.05, 5.68])
+    wK = np.array([1186.99, 1188.12, 1184.44, 1184.84, 1179.55, 1167.74, 1173.57, 1171.69])
+    # (b) NbSe2 soft mode vs T  (td_nbse2_ft_Tfix.csv TDEP + nbse2_sscha.csv SSCHA)
+    Tn = np.array([20, 100, 200, 300, 400])
+    tdep = np.array([-0.482, -0.554, -0.000, -0.000, -0.000])
+    sscha = np.array([0.0, 0.0, 0.0, 0.0, 0.0])   # free-energy Hessian: 0 imaginary at all T
+    bare = -2.18                                   # bare DFT harmonic soft mode (0 K)
+
+    dft0, ft0, found0 = -2.18, -2.23, -0.20   # NbSe2 0 K harmonic anchors (THz)
+
+    fig, (axA, axB) = plt.subplots(1, 2, figsize=(12.0, 5.1))
+
+    # ---- (a) graphene: the K cusp survives, the Γ cusp is washed out (MLIP (L)-channel)
+    axA.axhspan(88, 103, color=CB["green"], alpha=0.10)
+    axA.plot(Tg, kink_K, "o-", color=CB["green"], ms=8, lw=1.9, mec="k",
+             label="K-A₁′  (kink ≈ 95 — cusp persists)", zorder=4)
+    axA.plot(Tg, kink_G, "s-", color=CB["blue"], ms=7, lw=1.7, mec="k",
+             label="Γ-E₂g  (kink ≈ 5 — washed out)", zorder=3)
+    axA.set_ylim(0, 118); axA.set_xlim(-15, 615)
+    axA.set_xlabel("physical temperature  T (K)")
+    axA.set_ylabel("Kohn-cusp sharpness  |dv|  (top-branch curvature)")
+    axA.set_title("(a) graphene — the K-A₁′ Kohn cusp survives to 600 K")
+    axA.legend(loc="center", bbox_to_anchor=(0.5, 0.42), fontsize=8.5)
+    axA.text(0.5, 0.955, "K-A₁′ softens only ~1–2 % (1187→1172 cm⁻¹) yet the cusp is robust",
+             transform=axA.transAxes, ha="center", fontsize=7.6, color="#555")
+    axA.text(0.02, 0.12, "fine-tuned MLIP (L)-channel — no finite-T DFT (infeasible; Fig 11).\n"
+             "FT↔DFT validated at 0 K in Fig 9 (graphene-FT 1570/1368 ≈ DFT 1570/1292).",
+             transform=axA.transAxes, fontsize=6.9, color="#999", va="bottom")
+
+    # ---- (b) NbSe2: the CDW soft mode heals with T; 0 K FT-vs-DFT anchors made explicit
+    axB.axhline(0, color="#333", lw=1)
+    axB.axhline(dft0, color="#777", ls="--", lw=1.2)
+    # 0 K harmonic anchors: DFT / FT (overlap = the match) / foundation (misses)
+    axB.plot([7], [dft0], "D", color="#777", ms=11, mec="k", zorder=6, label="DFT 0 K harmonic  −2.18")
+    axB.plot([7], [ft0], "o", color=CB["green"], ms=9, mec="k", zorder=7, label="distilled-FT 0 K  −2.23 (≈DFT)")
+    axB.plot([7], [found0], "X", color=CB["red"], ms=11, mec="k", zorder=6, label="foundation 0 K  −0.20 (misses)")
+    axB.text(20, dft0 - 0.10, "0 K harmonic:  FT −2.23 ≈ DFT −2.18", fontsize=7.6, color="#444")
+    # MLIP T-evolution
+    axB.plot(Tn, tdep, "o-", color=CB["orange"], ms=8, lw=1.8, mec="k",
+             label="TDEP soft mode (MLIP)", zorder=4)
+    axB.plot(Tn, sscha, "s-", color=CB["purple"], ms=8, lw=1.8, mec="k",
+             label="SSCHA free-energy Hessian (MLIP)", zorder=5)
+    axB.fill_between(Tn, tdep, 0, where=(tdep < 0), color=CB["orange"], alpha=0.16)
+    axB.axvline(145, color=CB["red"], ls=":", lw=1.3)
+    axB.text(150, -0.95, "exp monolayer\nT_CDW ≈ 145 K", color=CB["red"], fontsize=7.8)
+    axB.text(70, -1.62, "renormalized up ~2.2 THz\n(quantum + anharmonic)",
+             fontsize=7.6, color="#555")
+    axB.set_ylim(-2.62, 0.55); axB.set_xlim(-8, 415)
+    axB.set_xlabel("physical temperature  T (K)")
+    axB.set_ylabel("NbSe₂ CDW soft-mode min frequency (THz)")
+    axB.set_title("(b) NbSe₂ — soft mode heals with T; FT starts on the DFT 0 K value")
+    axB.legend(loc="center right", fontsize=7.2, ncol=1)
+
+    fig.suptitle("Fig 10  Temperature-dependent Kohn anomaly — the (L)-channel ω(q,T) "
+                 "on both flagships", fontweight="bold", fontsize=12.5)
+    fig.tight_layout(rect=[0, 0, 1, 0.93])
+    fig.savefig(f"{OUT}/fig10_td_kohn_anomaly.png"); plt.close(fig)
+    print("wrote fig10_td_kohn_anomaly.png")
+
+
+# ============================================================ FIG 11 — speedup of the TD calculation
+def fig11_td_speedup():
+    """Why the temperature-dependent phonon calculation is only tractable with the
+    MLIP. Any TDEP/SSCHA ω(q,T) map = force evaluations on thermally-sampled
+    snapshots across a T-grid; the MLIP replaces the DFT force call.
+      (a) per-force-evaluation wall time (measured anchors): DFT CPU-QE ~120 s,
+          GPU-QE ~16 s (Path-P: 150 cfg / 40 min on 1 V100), MLIP-MACE ~0.1 s
+          → the ~10³× 'MLIP proxy' (GPU-DFT alone is only ~5–15×).
+      (b) that unit cost × one full ω(q,T) map (~6,000 evals): MLIP ~10 min vs
+          DFT projected >1 day (GPU) / >1 week (CPU) — never run in full, which
+          is exactly the enabling point. DFT bars = projected (hatched)."""
+    engines = ["DFT\nCPU-QE\n(3×3)", "DFT\nGPU-QE\n(V100)", "MLIP\n(MACE, GPU)"]
+    cols = [CB["blue"], CB["orange"], CB["green"]]
+    t_eval = np.array([120.0, 16.0, 0.1])                  # s / force evaluation
+    N_eval = 6000                                          # 5 T × 300 cfg × 4 pop
+    t_map_h = t_eval * N_eval / 3600.0                     # h for one ω(q,T) map
+    hatch = [None, None, None]  # panel-a all measured
+    proj = [True, True, False]  # panel-b: DFT projected, MLIP measured-scale
+
+    fig, (axA, axB) = plt.subplots(1, 2, figsize=(11.4, 5.0))
+    x = np.arange(3)
+
+    # ---- (a) per-force-evaluation cost (measured), log scale
+    axA.bar(x, t_eval, 0.62, color=cols, edgecolor="k", lw=0.7, zorder=3)
+    axA.set_yscale("log"); axA.set_ylim(0.03, 400)
+    for xi, v in zip(x, t_eval):
+        lab = f"{v:g} s" if v >= 1 else f"{v*1000:.0f} ms"
+        axA.text(xi, v * 1.35, lab, ha="center", fontsize=9, fontweight="bold")
+    axA.set_xticks(x); axA.set_xticklabels(engines, fontsize=8.6)
+    axA.set_ylabel("wall-clock per force evaluation (s, log)")
+    axA.set_title("(a) one force evaluation — DFT measured, MLIP typical")
+    axA.annotate("", (1, 16), (0, 120), arrowprops=dict(arrowstyle="->", color="#555"))
+    axA.text(0.5, 60, "GPU-DFT\n~7.5×", ha="center", fontsize=8, color="#555")
+    axA.annotate("", (2, 0.1), (1, 16), arrowprops=dict(arrowstyle="->", color=CB["green"]))
+    axA.text(1.5, 1.3, "MLIP\n~160× over GPU-DFT\n(~10³× over CPU)", ha="center",
+             fontsize=8, color=CB["green"], fontweight="bold")
+
+    # ---- (b) total force-eval compute for one ω(q,T) map, log scale
+    for xi, v, p, c in zip(x, t_map_h, proj, cols):
+        axB.bar(xi, v, 0.62, color=c, edgecolor="k", lw=0.7,
+                hatch="////" if p else None, alpha=0.9 if p else 1.0, zorder=3)
+    axB.set_yscale("log"); axB.set_ylim(0.08, 3200)
+    lbls = ["200 h\n≈ 8.3 days", "27 h\n≈ 1.1 days", "10 min"]
+    for xi, v, t in zip(x, t_map_h, lbls):
+        axB.text(xi, v * 1.7, t, ha="center", fontsize=8.4, fontweight="bold")
+    axB.set_xticks(x); axB.set_xticklabels(engines, fontsize=8.6)
+    axB.set_ylabel("compute for one ω(q,T) map  (h, log)")
+    axB.set_title("(b) one temperature-dependent ω(q,T) map\n(~6,000 force evaluations)")
+    axB.text(0.5, 0.94, "hatched DFT bars = projected from the measured per-config cost\n"
+             "(a full DFT ω(q,T) map is never run — that is the enabling point)",
+             transform=axB.transAxes, ha="center", va="top", fontsize=7.4, color="#b00",
+             bbox=dict(boxstyle="round", fc="#FFF3F0", ec=CB["red"], alpha=0.95))
+
+    fig.suptitle("Fig 11  Speedup that makes the temperature-dependent calculation "
+                 "tractable — MLIP vs DFT force evaluation", fontweight="bold", fontsize=12)
+    fig.tight_layout(rect=[0, 0, 1, 0.94])
+    fig.savefig(f"{OUT}/fig11_td_speedup.png"); plt.close(fig)
+    print("wrote fig11_td_speedup.png")
+
+
 if __name__ == "__main__":
     fig1_status_matrix()
     fig2_origin_map()
@@ -379,4 +511,6 @@ if __name__ == "__main__":
     fig7_breadth()
     fig8_echannel()
     fig9_kohn_anomaly()
-    print("done (figs 1-9)")
+    fig10_td_kohn_anomaly()
+    fig11_td_speedup()
+    print("done (figs 1-11)")

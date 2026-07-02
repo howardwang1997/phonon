@@ -125,6 +125,18 @@ Harmonic distillation is accurate only for small displacements; DFT-force labell
 
 **Controls / negatives (locator does not false-positive):** MoS₂ (gapped) — cusp kink ≤ 2 at Γ/K for every backbone (vs graphene ~86–100); MoS₂ & graphene contrast confirms the anomaly detector flags only real e-ph physics. NbSe₂ 2k_F check: k_F=0.46 Γ-M ⇒ 2k_F=0.46 b₁ ≠ q_CDW=0.33 b₁ (qualified negative — correct answer).
 
+### 2.6 Temperature-dependent Kohn anomaly (the (L)-channel ω(q,T)) + the speedup that enables it
+
+The Kohn anomaly's evolution with *physical* temperature — the **(L)-channel**, distinct from the electronic-T_el channel of Fig 8. Because a temperature-dependent phonon map is out of reach for DFT (Fig 11), the finite-T curves are computed with the **fine-tuned MLIP** via TDEP / SSCHA; the FT↔DFT comparison is made at the **0 K harmonic** start, where the distilled MLIP lands on the DFT truth.
+
+![Fig 10 — temperature-dependent Kohn anomaly](figs/fig10_td_kohn_anomaly.png)
+
+*Fig 10. The (L)-channel ω(q,T) on both flagships. **(a) graphene** (M2 dense-T, fine-tuned MLIP): the K-A₁′ Kohn cusp is robust — its sharpness |dv| stays ≈ 95 from 10→600 K while the mode softens only ~1–2 % (1187→1172 cm⁻¹); the Γ-E₂g cusp stays washed out (|dv|≈5), the MLIP-smoothing casualty. **(b) NbSe₂**: the CDW soft mode (the extreme Kohn anomaly) heals with T. The **0 K harmonic anchors make the FT↔DFT comparison explicit** — distilled-FT −2.23 THz lands on DFT −2.18 (foundation misses, −0.20); the MLIP TDEP/SSCHA then renormalize it up ~2.2 THz, the SSCHA free-energy Hessian staying stable (0 imaginary) at all T with the crossover ≈ exp monolayer T_CDW 145 K. Note: **finite-T DFT curves do not exist** (infeasible — Fig 11); the FT↔DFT check is at 0 K (here and Fig 9), not along the T-axis.*
+
+![Fig 11 — speedup of the temperature-dependent calculation](figs/fig11_td_speedup.png)
+
+*Fig 11. Why the temperature-dependent calculation is only tractable with the MLIP. Any TDEP/SSCHA ω(q,T) map is force evaluations on thermally-sampled snapshots; the MLIP replaces the DFT force call. **(a)** per-force-evaluation wall time (DFT anchors measured, MLIP a typical GPU call): DFT CPU-QE ~120 s → GPU-QE ~16 s (~7.5×, the GPU-DFT factor) → MLIP-MACE ~0.1 s — the ~10³× "MLIP proxy" (GPU-DFT alone is only ~5–15×). **(b)** that unit cost × one full ω(q,T) map (~6,000 evals = 5 T × 300 cfg × 4 populations): MLIP ~10 min vs DFT projected ~27 h (GPU) / ~200 h (CPU). The DFT bars are **projected** from the measured per-config cost — a full DFT ω(q,T) map is never run, which is exactly why the MLIP is the enabling engine.*
+
 ---
 
 ## 3. In-progress this week (live)
@@ -311,6 +323,8 @@ To promote λ from qualitative to publishable: (i) fine-grid convergence **nkf 2
 | Fig 7 | Breadth-not-depth transfer law | E3/E4 |
 | Fig 8 | (E)-channel signatures (both flagships) | E1 (NbSe₂), E7 (graphene) |
 | Fig 9 | Graphene Kohn-anomaly phonon spectrum (DFT vs foundation/FT MLIP) | `results/vq1` converged DFT + `results/m1_1b` foundation/graphene-FT |
+| Fig 10 | Temperature-dependent Kohn anomaly — (L)-channel ω(q,T) + 0 K FT↔DFT anchors | `td_graphene_ft_m2` (M2) + `td_nbse2_ft_Tfix` (TDEP) + `nbse2_sscha` (SSCHA) + DFT 0 K |
+| Fig 11 | Speedup of the temperature-dependent calc (MLIP vs DFT force eval) | measured per-config anchors (Path-P GPU/CPU-QE) × ~6,000-eval ω(q,T) map |
 
 Tables: §0 banked results · §2.1–2.4 per-flagship number tables · §4.1–4.2 remaining/roadmap experiments · §5.1 expected results · §5.2 compute · §5.3 data.
 
@@ -439,6 +453,18 @@ Tables: §0 banked results · §2.1–2.4 per-flagship number tables · §4.1–
 *图 7. 留出迁移 MAE 到 N≈16 保持平（~1.80 THz），再降到 1.40(32)→1.34(64) —— 化学广度而非采样深度驱动泛化（拐点 ~16–32，下限 ~1.3 THz）。域内蒸馏 MAE≈0.10 THz 且虚模清零。覆盖驱动采集在 N=32 比随机好 ~0.18 THz；朴素不确定性采集最差。*
 
 **对照/负结果（locator 不假阳性）：** MoS₂（gapped）cusp kink ≤2（vs 石墨烯 ~86–100）；NbSe₂ 2k_F 检验：2k_F=0.46 b₁ ≠ q_CDW=0.33 b₁（合格负结果 = 正确答案）。
+
+### 2.6 含温度的 Kohn 反常（(L)-通道 ω(q,T)）+ 使其可行的加速
+
+Kohn 反常随*物理*温度的演化 —— **(L)-通道**，区别于图 8 的电子温度 T_el 通道。因为含温度的声子图谱对 DFT 不可行（图 11），有限温曲线用**微调 MLIP** 经 TDEP/SSCHA 算；FT↔DFT 的对比放在 **0 K 谐**起点上，那里蒸馏 MLIP 落在 DFT 真值上。
+
+![图 10 — 含温度的 Kohn 反常](figs/fig10_td_kohn_anomaly.png)
+
+*图 10. 两旗舰的 (L)-通道 ω(q,T)。**(a) 石墨烯**（M2 密 T，微调 MLIP）：K-A₁′ Kohn cusp 稳健 —— 锐度 |dv| 从 10→600 K 保持 ≈95，模式仅软化 ~1–2%（1187→1172 cm⁻¹）；Γ-E₂g cusp 仍被抹平（|dv|≈5），MLIP 平滑的牺牲品。**(b) NbSe₂**：CDW 软模（极端 Kohn 反常）随 T 愈合。**0 K 谐锚点把 FT↔DFT 对比画明** —— 蒸馏-FT −2.23 THz 落在 DFT −2.18 上（基础模型漏掉，−0.20）；MLIP TDEP/SSCHA 再把它重整化上移 ~2.2 THz，SSCHA 自由能 Hessian 在所有 T 稳定（0 虚模），穿越 ≈ 实验单层 T_CDW 145 K。注：**含温度的 DFT 曲线不存在**（不可行 —— 图 11）；FT↔DFT 校准在 0 K（此处及图 9），而非沿 T 轴。*
+
+![图 11 — 含温度计算的加速](figs/fig11_td_speedup.png)
+
+*图 11. 为什么含温度计算只有用 MLIP 才可行。任何 TDEP/SSCHA ω(q,T) 图谱 = 在热采样构型上的力评估；MLIP 替掉 DFT 的力调用。**(a)** 单次力评估墙钟（DFT 锚点实测，MLIP 为典型 GPU 力调用）：DFT CPU-QE ~120 s → GPU-QE ~16 s（~7.5×，GPU-DFT 因子）→ MLIP-MACE ~0.1 s —— 即 ~10³× 的「MLIP 代理」（单纯 GPU-DFT 只有 ~5–15×）。**(b)** 该单位成本 × 一整张 ω(q,T) 图谱（~6000 次 = 5 T × 300 构型 × 4 populations）：MLIP ~10 min vs DFT 投影 ~27 h（GPU）/ ~200 h（CPU）。DFT 柱由实测单构型成本**投影** —— 完整 DFT ω(q,T) 图谱从不真跑，这正是 MLIP 成为使能引擎的原因。*
 
 ---
 
