@@ -290,7 +290,10 @@ method paper (PRB-class) to a **framework + tool + dataset** of the scope NCS pu
   (~2–4×) × (iii) symmetry + non-diagonal supercells (~2–10×) → **target ~50× workflow-level** on a
   benchmark set; report each factor separately and label "workflow-level vs single-SCF."
 - **E6 (stretch) ML-accelerated SCF.** Predict converged density / one-shot Harris forces as SCF
-  warm start; *evaluate whether the force accuracy suffices for phonons* (the known open risk).
+  warm start; *evaluate whether the force accuracy suffices for phonons* (the known open risk). This
+  is the **(L)-side** ML-SCF (cheaper density for the finite-displacement engine); the **(E)-side**
+  analog — ML the *electronic response* to make the smearing/EPC/Kohn-anomaly channel cheap — is the
+  two-route plan in **§9** (E11/E12).
 
 ### Phase III — Fuse: the closed loop (the novelty) · *self-generated, budgeted*
 - **E7 Active-learning loop.** Acquisition function selects materials for Line B DFT → FC-distill →
@@ -418,7 +421,83 @@ below gate the *engine*; the **discovery is the real NCS gate**.
   NbS₂/TaS₂/TaSe₂/TiSe₂/VSe₂ + (E)/EPW deep-dive on 3–5) → the origin-classification figure → **a
   non-trivial discovery** → open instability-origin pipeline + dataset. *Gate = the discovery; ~+2–4 mo
   after Paper 1; NCS probability ~25–40% if it lands, else folds into a strong second npj.*
+- **M7 (stretch, Paper-2+): make the (E) channel cheap — §9.** Route ① (E)-convergence emulator
+  reproduces the σ→0 Kohn-anomaly kink / γ_qν from ≤4 DFT anchors (near-term, low-risk); Route ②
+  ML-electronic-Hamiltonian → ML-EPW reproduces DFT γ_qν and scales the family (E)-map (mid-term;
+  = the B2 stretch realized). Turns the (E)/(L) origin-map from a few affordable deep-dives into
+  high-throughput.
 
 > Honesty clauses to keep in the paper (credibility): pure GPU-DFT single-SCF is only ~5–15×; the
 > ~50× is workflow-level; the ~10³× is the MLIP proxy. Every speedup is reported with its scope and
 > every accuracy number with seed error bars.
+
+---
+
+## 9. (E)-channel ML acceleration — two-route long-term plan
+
+> **Positioning (decided 2026-07-02):** E11–E13 are the **(E)-channel instrument of the flagship's Part-II discovery** (the family (E)/(L) origin-map), **not a standalone method paper**. The science headline is the **temperature-resolved origin-adjudication** — reading each instability's origin from `kink(T_el, T_lat)`; the ML is the enabler, reported with scope and subordinate to the discovery. Full plan: `docs/SMEARING_KINK_ML_EXECPLAN.md`.
+
+**Why this section.** The thesis is "cheap *and* accurate on the hardest cases," but today only the
+**(L) channel** is cheap (MLIP + SSCHA). The **(E) channel** — Fermi-surface / EPC / Kohn-anomaly, i.e.
+the smearing-dependent physics of the graphene DFPT scan (weekly-report Fig 12) *and* the family EPW
+γ_qν — is **DFT / DFPT / EPW-only** and is the **family-scale bottleneck**. A standard MLIP
+*structurally cannot* help: electronic smearing is an occupation (T_el) knob and an MLIP has no Fermi
+surface. Two ML routes make the (E) channel cheap **without** an MLIP.
+
+**Hard constraint (from Fig 5/9 — do not violate).** The anomaly is a *non-analytic cusp* at 2k_F;
+smooth ML regressors smooth it (that is exactly how foundation MLIPs fail). So **neither route learns
+the cusp directly**: Route ① learns only the *smooth* smearing dependence (smearing regularizes the
+singularity); Route ② computes the singular Fermi-surface part *analytically* and learns only the
+(smooth) electronic structure feeding it.
+
+### E11 · Route ① — (E)-convergence emulator (Δ-ML / GP) · *near-term, low-risk*
+- **Goal.** Recover the **σ→0, k→∞ converged** Kohn-anomaly kink (and γ_qν) from a handful of DFT
+  anchors — cutting the dense-k × many-smearing DFT that Piscanec-class convergence needs (≈72×72 k ×
+  smearing 0.01–0.20).
+- **Method.** GP / small-NN, or **Δ-ML** (cheap large-σ / coarse-k → converged), over the surface
+  (degauss σ, k-density N_k, [Fermi-surface / material descriptors]) → converged {kink, ω, γ_qν}. It
+  extrapolates a *regular* function to the limit; it never fits the cusp itself.
+- **Data.** Existing graphene V-Q2 (4 σ, 5×5) + a small **6×6 K-commensurate** anchor set + a few
+  NbSe₂ / TMD σ-points (self-DFT, V100). **Compute:** a handful of DFT anchors per material; ML ≈ free.
+- **Validate.** Graphene has a *known* σ→0 answer (Γ-E₂g cusp; K-A₁′ 1292 cm⁻¹ / kink 14.4, V-Q1) →
+  reproduce it from ≤4 anchors, then apply to the family γ_qν.
+- **Deliverable.** "Converged (E)-datum from cheap anchors" — turns the Fig-12 caveat (K needs 6×6 ×
+  0.01–0.20) into a few-anchor + extrapolation job. **Risk:** the σ→0 nonadiabatic regime and the
+  *double* (σ, N_k) limit; mitigate by keeping k in the emulator and pinning ≥1 fully-converged point.
+
+### E12 · Route ② — ML electronic Hamiltonian + analytic e-ph · *mid-term, high-novelty (= B2 realized)*
+- **Goal.** Replace the expensive SCF / DFPT / Wannier with an **ML Hamiltonian H(R)** → bands / EPC →
+  phonon self-energy, with **occupation / smearing applied analytically** (T_el free) → scale the (E)
+  channel to the whole TMD family = **ML-accelerated EPW**.
+- **Method.** DeepH / HamGNN-type equivariant model predicting the DFT Hamiltonian (+ overlap) in a
+  local basis; Wannier-interpolate EPC g_qν; compute χ(q,T_el), γ_qν, λ with exact Fermi-surface sums.
+  **The non-analytic cusp comes from the formula, not the net** — faithful *iff* bands/EPC are right.
+- **Data.** DFT H(R) + EPC per material (self-generated; **reuses the EPW campaign's dvscf / Wannier**);
+  Route ① is the cheap oracle / active-learning selector for where to spend DFT. **Compute:** moderate
+  training-data DFT (V100 / rental); inference cheap → family-scale.
+- **Validate.** (a) ML H(R) reproduces DFT bands + EPC on graphene / NbSe₂; (b) ML-EPW reproduces DFT
+  γ_qν (NbSe₂ 40–52 meV, broad @ q_CDW); (c) scale to NbS₂ / TaS₂ / TaSe₂ / TiSe₂ / VSe₂.
+- **Deliverable.** An **ML-EPW engine** → the family-wide (E)/(L) origin-map made cheap = the true
+  high-throughput enabler of Part II. **Risk:** EPC-matrix-element accuracy for the anomaly *slope* is
+  the unproven crux and the largest build — the genuine stretch.
+
+**E13 · long-range MLIP for the Kohn anomaly (architecture note).** Making a short-range MLIP
+T_el-aware (the E12/Engine-2 conditioned route) hits a hard limit: the Kohn cusp is a *long-range,
+oscillating* Fermi-surface force constant (~cos(2k_F·R)/R^d, Friedel/RKKY), and enlarging the cutoff
+brute-forces it (never converges). Empirically a distilled MLIP's K is *grid-independent* (5×5 = 6×6 =
+3×3), so "distill 5×5, infer 6×6" changes nothing — the lever is training + architecture, not the
+inference cell. **Standard long-range MLIP terms don't help** (Ewald/charge/QEq/4G, LODE, D3 target
+electrostatics/dispersion, not the metallic 2k_F singularity — a near-empty frontier). The Kohn-relevant
+term must carry electronic info: an explicit **Friedel/RKKY kernel with k_F**, or **electronic-state
+conditioning**, or (faithful) the ML-EPW of E12. Ceiling: the *static* anomaly is in the BO PES (a
+long-range MLIP can target it), but the T_el-dependence and the non-adiabatic part (Lazzeri–Mauri) are
+not in any single static PES → conditioning or EPW only. Full analysis + compute/data:
+`docs/SMEARING_KINK_ML_EXECPLAN.md` §3.1 / §5 (sub-line `smearing-kink-ml`).
+
+**How the two interlock.** ① ships now (extrapolate the converged (E)-datum; non-blocking) and doubles
+as ②'s validation oracle + active-learning selector; ② is the engine that makes the *whole* (E)
+channel cheap. Together they make "cheap AND accurate" true for **both** channels — turning the family
+origin-map from "afford a handful of EPW deep-dives" into high-throughput, i.e. the Part-II discovery
+at scale. **Non-blocking:** every current (E) conclusion stands on the DFT EPW γ_qν; these
+*accelerate / scale*, they do not revise — and each speedup is reported with its scope, like the ~50×
+(workflow) and ~10³× (MLIP proxy) elsewhere.
