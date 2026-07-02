@@ -302,6 +302,73 @@ def fig8_echannel():
     print("wrote fig8_echannel.png")
 
 
+# ============================================================ FIG 9 — Kohn anomaly phonon spectrum
+def fig9_kohn_anomaly():
+    """Graphene phonon dispersion (M–Γ–K–M) that exhibits the Kohn anomaly.
+    Real computed data (converged DFT vs foundation MACE-MP-0 vs graphene-FT),
+    embedded in docs/weekly/figdata/*.npz (601 q-pts × 6 branches, a=2.46)."""
+    THZ2CM = 33.35641
+    FD = os.path.join(os.path.dirname(__file__), "figdata")
+    def load(name):
+        d = np.load(os.path.join(FD, name), allow_pickle=True)
+        return (d["distances"], d["frequencies"] * THZ2CM,
+                d["label_positions"], [str(x) for x in d["labels"]])
+    xd, fd, lp, lab = load("graphene_dft_conv.npz")        # converged DFT — real cusp
+    xm, fm, _,  _   = load("graphene_foundation_mace.npz")  # foundation MACE — washed out
+    xg, fg, _,  _   = load("graphene_ft.npz")               # graphene-specific FT — recovers
+    lab = ["M", "Γ", "K", "M"]
+    gi, ki = np.argmin(np.abs(xd - lp[1])), np.argmin(np.abs(xd - lp[2]))
+
+    fig, (axA, axB) = plt.subplots(1, 2, figsize=(11.6, 5.0),
+                                   gridspec_kw={"width_ratios": [1.12, 1]})
+
+    # ---- (a) full dispersion: DFT (truth) vs foundation MACE, all branches
+    for b in range(fd.shape[1]):
+        axA.plot(xd, fd[:, b], color=CB["blue"], lw=1.9,
+                 label="DFT (converged, truth)" if b == 0 else None, zorder=3)
+        axA.plot(xm, fm[:, b], color=CB["orange"], lw=1.7, ls="--",
+                 label="foundation MACE-MP-0" if b == 0 else None, zorder=2)
+    for xpos in lp:
+        axA.axvline(xpos, color="#bbb", lw=0.8, zorder=1)
+    axA.set_xticks(lp); axA.set_xticklabels(lab)
+    axA.set_xlim(xd.min(), xd.max()); axA.set_ylim(-30, 1780)
+    axA.set_ylabel("phonon frequency (cm⁻¹)")
+    axA.set_title("(a) graphene dispersion — the Kohn anomaly is a DFT feature\n"
+                  "the foundation MLIP softens & washes it out")
+    axA.legend(loc="center", bbox_to_anchor=(0.5, 0.42), fontsize=8.8,
+               frameon=True, framealpha=0.85, facecolor="white", edgecolor="none")
+    axA.annotate("Γ-E₂g\nKohn cusp", (lp[1], fd[gi].max()), (lp[1] + 0.028, 1690),
+                 fontsize=8.5, color=CB["blue"], ha="center", fontweight="bold",
+                 arrowprops=dict(arrowstyle="->", color=CB["blue"]))
+    axA.annotate("K-A₁′\nKohn cusp", (lp[2], fd[ki].max()), (lp[2] - 0.005, 1660),
+                 fontsize=8.5, color=CB["blue"], ha="center", fontweight="bold",
+                 arrowprops=dict(arrowstyle="->", color=CB["blue"]))
+
+    # ---- (b) top optical branch zoom: who keeps the cusp
+    top = fd.shape[1] - 1
+    axB.plot(xd, fd[:, top], color=CB["blue"],  lw=2.3,               label="DFT (truth)        1570 / 1292", zorder=4)
+    axB.plot(xg, fg[:, top], color=CB["green"], lw=1.9, ls=(0,(1,1)), label="graphene-FT       1570 / 1368", zorder=3)
+    axB.plot(xm, fm[:, top], color=CB["orange"],lw=1.9, ls="--",      label="foundation MACE  1238 / 1113", zorder=2)
+    for xpos in lp:
+        axB.axvline(xpos, color="#bbb", lw=0.8, zorder=1)
+    axB.scatter([lp[1], lp[2]], [fd[gi].max(), fd[ki].max()], s=42,
+                facecolor="white", edgecolor=CB["blue"], lw=1.6, zorder=5)
+    axB.set_xticks(lp); axB.set_xticklabels(lab)
+    axB.set_xlim(xd.min(), xd.max())
+    axB.set_ylabel("highest optical branch (cm⁻¹)")
+    axB.set_title("(b) top branch zoom — DFT & graphene-FT keep the cusp;\n"
+                  "foundation MLIP over-softens (Γ −21 %) and smooths it")
+    axB.legend(loc="lower center", fontsize=7.8, title="  Γ-E₂g / K-A₁′  (cm⁻¹)",
+               title_fontsize=8, ncol=1,
+               frameon=True, framealpha=0.85, facecolor="white", edgecolor="none")
+
+    fig.suptitle("Fig 9  A phonon spectrum exhibiting the Kohn anomaly — graphene (M–Γ–K–M)",
+                 fontweight="bold", fontsize=12.5)
+    fig.tight_layout(rect=[0, 0, 1, 0.93])
+    fig.savefig(f"{OUT}/fig9_kohn_anomaly.png"); plt.close(fig)
+    print("wrote fig9_kohn_anomaly.png")
+
+
 if __name__ == "__main__":
     fig1_status_matrix()
     fig2_origin_map()
@@ -311,4 +378,5 @@ if __name__ == "__main__":
     fig6_pathp()
     fig7_breadth()
     fig8_echannel()
-    print("done (figs 1-8)")
+    fig9_kohn_anomaly()
+    print("done (figs 1-9)")
