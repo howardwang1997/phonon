@@ -34,20 +34,21 @@ def fig1_status_matrix():
               "(E)-EPW\nγ_qν", "(L)-SSCHA\nω(q,T)"]
     # 0 N/A(control) · 1 pending · 2 running · 3 done
     S = np.array([
-        [3,3,3,3,3],   # NbSe2  — all done (Part-I flagship)
-        [3,3,3,2,1],   # 2H-TaSe2 — fc2/bands/PathP done, EPW running (box B), SSCHA pending
-        [3,3,2,2,1],   # NbS2 — fc2/bands done, PathP running, EPW running (box A)
-        [2,1,1,1,1],   # 1T-TiSe2 — fc2 running (box B)
-        [1,1,1,1,1],   # 2H-TaS2
-        [1,1,1,1,1],   # 1T-TaS2
-        [1,1,1,1,1],   # 1T-VSe2
-        [1,1,0,0,0],   # 1T-TiS2 (control) — fc2/bands only
-        [1,1,0,0,0],   # 1T-VS2  (control)
-        [1,1,0,0,0],   # MoS2    (gapped control)
-        [1,1,0,0,0],   # WSe2    (gapped control)
+        [3,3,3,3,1],   # NbSe2   — fc2/bands/PathP/EPW done; SSCHA pending (H20 offline)
+        [3,3,3,3,1],   # 2H-TaSe2 — complete; SSCHA pending
+        [3,3,3,3,1],   # NbS2    — complete; SSCHA pending
+        [3,3,3,3,1],   # 1T-TiSe2 — complete; EPW off-instability (3×3 stable) → re-run 2×2
+        [3,3,3,3,1],   # 2H-TaS2 — complete; SSCHA pending
+        [3,3,3,3,1],   # 1T-TaS2 — complete; soft mode partial (true CDW √13×√13)
+        [3,3,3,3,1],   # 1T-VSe2 — complete; EPW off-instability (3×3 stable) → re-run
+        [3,3,0,0,0],   # 1T-TiS2 (control) — fc2/bands only
+        [3,3,0,0,0],   # 1T-VS2  (control)
+        [3,3,0,0,0],   # MoS2    (gapped control)
+        [3,3,0,0,0],   # WSe2    (gapped control)
     ])
     # annotations: captured DFT soft modes (THz) on fc2-done cells
-    soft = {(0,0): "−2.18", (1,0): "−2.18", (2,0): "−1.89"}
+    soft = {(0,0): "−2.18", (1,0): "−2.18", (2,0): "−1.89", (3,0): "−0.03",
+            (4,0): "−1.97", (5,0): "−0.75", (6,0): "−0.00"}
     cmap = ListedColormap(["#E8E8E8", "#FbE9C7", CB["orange"], CB["green"]])
     fig, ax = plt.subplots(figsize=(7.6, 6.2))
     ax.imshow(S, cmap=cmap, vmin=0, vmax=3, aspect="auto")
@@ -63,7 +64,7 @@ def fig1_status_matrix():
             c = "white" if S[i, j] >= 2 else ("#999" if S[i, j] == 0 else "#666")
             ax.text(j, i, lbl, ha="center", va="center", color=c,
                     fontsize=8.5, fontweight="bold")
-    ax.set_title("Fig 1  V100 FP64 campaign — status matrix (2026-07-01)")
+    ax.set_title("Fig 1  V100 FP64 campaign — status matrix (2026-07-02, complete)")
     leg = [Patch(fc=CB["green"], label="done"), Patch(fc=CB["orange"], label="running"),
            Patch(fc="#FbE9C7", label="pending"), Patch(fc="#E8E8E8", label="n/a (non-CDW)")]
     ax.legend(handles=leg, ncol=4, loc="upper center", bbox_to_anchor=(0.5, -0.09))

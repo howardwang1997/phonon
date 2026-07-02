@@ -1,8 +1,8 @@
 # TD-Phonon / Kohn-Anomaly — Weekly Report
 
-**Week ending 2026-07-01**  ·  branch `td-phonon-anomaly`  ·  machines: 2×V100 (FP64 DFT/EPW) + 1×RTX 2060 (MLIP/proxy); 8×H20 fleet offline this week.
+**Week ending 2026-07-01**  ·  **live update 2026-07-02**  ·  branch `td-phonon-anomaly`  ·  machines: 2×V100 (FP64 DFT/EPW) + 1×RTX 2060 (MLIP/proxy); 8×H20 fleet offline this week.
 
-> **One-line status.** The engine (foundation-MLIP failure atlas → material-specific FC-distillation → anharmonic Path-P) and the (E)/(L) origin-decomposition are **validated on both flagships (graphene + NbSe₂)** — the paper's **Part I (method)** is data-complete pending a convergence/ASR pass. This week we launched the **TMD-family FP64 campaign** on the two V100 boxes that builds the **Part II (discovery)** origin-map; **2 of 11 materials (NbSe₂, 2H-TaSe₂) are DFT-complete**, a third (NbS₂) is finishing, and the first family (E)-channel EPW is running.
+> **One-line status.** The engine (foundation-MLIP failure atlas → material-specific FC-distillation → anharmonic Path-P) and the (E)/(L) origin-decomposition are **validated on both flagships (graphene + NbSe₂)** — the paper's **Part I (method)** is data-complete pending a convergence/ASR pass. This week we launched the **TMD-family FP64 campaign** on the two V100 boxes that builds the **Part II (discovery)** origin-map. *(Live update 2026-07-02 14:25 — campaign complete:)* **all 11 materials have DFT fc₂+bands**, **all 7 CDW Path-P anharmonic datasets are complete**, and **all 7 CDW (E)-channel EPW γ_qν points are banked** — the raw material for the (E)/(L) origin-map is in hand. Both boxes' campaign lanes have exited cleanly (finished ahead of the ~1-day estimate); only `aggregate.py` → origin-map synthesis + two commensurate-cell re-runs (1T-TiSe₂/VSe₂) remain (§3.1, §6).
 
 ---
 
@@ -22,7 +22,7 @@ This project builds a cheap-and-accurate phonon engine and uses it for a science
 | **Anharmonic Path-P** closes the thermal-force gap | graphene / NbSe₂ | 149→**21 meV/Å** (86 %); NbSe₂ **4.6×** better than harmonic-FT | ✅ |
 | **Breadth-not-depth** generalization law | cross-material | transfer MAE flat ~1.80 THz to N=16, → 1.34 at N=64; floor ~1.3 THz | ✅ |
 
-**In flight this week (live):** the two-lane V100 campaign (Fig 1) — GPU lane (DFT fc₂ → bands/χ(q) → Path-P) + CPU lane ((E)-channel DFPT-smearing → EPW γ_qν) across all 11 TMDs. **NbSe₂ and 2H-TaSe₂ are DFT-complete with soft modes captured (−2.18 THz); NbS₂ soft mode captured (−1.89 THz), Path-P + EPW running; 1T-TiSe₂ fc₂ running.**
+**Campaign complete (live 2026-07-02 14:25):** both V100 boxes finished the two-lane family campaign (Fig 1) — all 11 DFT fc₂+bands, 7 CDW Path-P, and 7 CDW (E)-channel EPW γ_qν are done; both boxes are now idle (only the legacy `jlq6` NbSe₂ NQ=6 λ-convergence run still grinds on Box B, §3.2). **The full 11-material DFT fc₂ truth table and the 7-material γ_qν table are in §3.1.** Headline: all four **2H** CDWs show the soft mode *and* large EPC γ_qν at the DFT level, and all four non-CDW/gapped controls are stable (0 false positives); the **1T** members (TiSe₂, VSe₂, and the √13 TaS₂) need commensurate supercells before their (E)-verdict is final.
 
 ![Fig 1 — campaign status matrix](figs/fig1_status_matrix.png)
 
@@ -127,20 +127,61 @@ Harmonic distillation is accurate only for small displacements; DFT-force labell
 
 ### 3.1 V100 FP64 campaign (see Fig 1)
 
-Two single-V100 boxes, two non-competing lanes each. Scope: full-family DFT fc₂ + bands/χ(q) (11 materials) + Path-P (7 CDW) + (E)-channel EPW γ_qν (7 CDW). Live positions (2026-07-01):
+Two single-V100 boxes, two non-competing lanes each. Scope (all delivered): full-family DFT fc₂ + bands/χ(q) (11 materials) + Path-P (7 CDW) + (E)-channel EPW γ_qν (7 CDW). **Status 2026-07-02 14:25 — COMPLETE; both boxes idle.**
 
 | Box | GPU lane (fc₂→bands→Path-P) | CPU lane ((E)-EPW) |
 |---|---|---|
-| **A** (v100-rental) | NbSe₂ ✅ → **NbS₂ Path-P (4/69)** → queued: 2H-TaS₂, 1T-TaS₂, 1T-TiS₂, MoS₂ | **NbS₂ EPW** — DFPT on last q-point (rep 5/9) |
-| **B** (v100b) | 2H-TaSe₂ ✅ → **1T-TiSe₂ fc₂ (disp 2/3)** → queued: 1T-VSe₂, 1T-VS₂, WSe₂ | **2H-TaSe₂ EPW** DFPT started; queued 1T-TiSe₂, 1T-VSe₂ |
+| **A** (v100-rental) | ✅ fc₂+bands ×6 (NbSe₂/NbS₂/2H-TaS₂/1T-TaS₂/1T-TiS₂/MoS₂) · Path-P ×4 CDW (NbSe₂/NbS₂/2H-TaS₂/1T-TaS₂) | ✅ EPW ×3 (NbS₂/2H-TaS₂/1T-TaS₂) |
+| **B** (v100b) | ✅ fc₂+bands ×5 (2H-TaSe₂/1T-TiSe₂/1T-VSe₂/1T-VS₂/WSe₂) · Path-P ×3 CDW (2H-TaSe₂/1T-TiSe₂/1T-VSe₂) | ✅ EPW ×3 (2H-TaSe₂/1T-TiSe₂/1T-VSe₂) |
 
-**DFT ground truth captured so far:** NbSe₂ −2.18 THz, 2H-TaSe₂ −2.175 THz, NbS₂ −1.893 THz (all show the CDW soft mode at the DFT level — the labels the H20 (L)-screen will be calibrated against).
+**(a) DFT fc₂ truth table (all 11, 3×3 supercell)** — the ground truth the H20 (L)-screen is calibrated against:
 
-### 3.2 NbSe₂ λ(T_el) — PRELIMINARY (not publication values yet)
+| material | poly | CDW (exp) | fc₂ ω_min (THz) | soft @3×3 | note |
+|---|---|:---:|---:|:---:|---|
+| NbSe₂ | 2H | ✔ | **−2.18** | ✅ | 3×3-commensurate CDW |
+| 2H-TaSe₂ | 2H | ✔ | **−2.175** | ✅ | 3×3 |
+| 2H-TaS₂ | 2H | ✔ | **−1.965** | ✅ | 3×3 |
+| NbS₂ | 2H | ✔ | **−1.893** | ✅ | 3×3 |
+| 1T-TaS₂ | 1T | ✔ | −0.752 | ⚠️ partial | true CDW √13×√13 — 3×3 catches *a* softening, not q_CDW |
+| 1T-TiSe₂ | 1T | ✔ | −0.026 | ✗ | CDW **2×2** — not 3×3-commensurate → re-run |
+| 1T-VSe₂ | 1T | ✔ | −0.000 | ✗ | CDW ≈4×4 / √3×√3 — re-run |
+| 1T-TiS₂ | 1T | ✗ | −0.000 | ✗ | non-CDW — correct ✓ |
+| 1T-VS₂ | 1T | ✗ | −0.000 | ✗ | non-CDW — correct ✓ |
+| MoS₂ | 2H | ✗ | −0.000 | ✗ | gapped control — correct ✓ |
+| WSe₂ | 2H | ✗ | −0.000 | ✗ | gapped control — correct ✓ |
+
+Clean result: **every 2H CDW is captured at 3×3; every non-CDW/gapped control is stable (0 false positives); the 1T CDWs are missed only because their periodicity isn't 3×3** — a commensurability limit, not a physics failure (the plan's expected branch).
+
+**(b) (E)-channel EPW γ_qν (all 7 CDW)** — the (E)-column of the origin-map. Integrated λ divergent throughout → report γ (§3.2):
+
+| material | poly | fc₂ soft? | max γ_qν (meV) | (E)-reading |
+|---|---|:---:|---:|---|
+| 2H-TaS₂ | 2H | ✅ | ~363* | strong EPC (magnitude overdamped/noisy on 3×3) |
+| 2H-TaSe₂ | 2H | ✅ | ~105 | strong EPC |
+| NbSe₂ (E6) | 2H | ✅ | 40–52 (broad @ q_CDW) | **EPC-driven, not nesting** |
+| NbS₂ | 2H | ✅ | ~40 | moderate–strong EPC |
+| 1T-TaS₂ | 1T | ⚠️ | ~4.3 | weak — soft mode partial / wrong-q |
+| 1T-VSe₂ | 1T | ✗ | ~2.8 | off-instability (no 3×3 soft mode) |
+| 1T-TiSe₂ | 1T | ✗ | ~1.2 | off-instability (no 3×3 soft mode) |
+
+\*γ magnitudes on the 3×3 coarse-q / nkf=24 grid are **qualitative** (soft-mode interpolation noise; 2H-TaS₂'s 363 meV exceeds the phonon energy = overdamped) — the robust reading is the **order-of-magnitude split: 2H soft-mode γ ~ 40–360 meV (strong EPC) vs 1T ~ 1–4 meV**. Crucially the 1T γ is measured *off* the instability (their soft mode isn't in the 3×3 cell), so it is **not yet an (E)-verdict** — the 1T commensurate re-runs (§6) must land first, and the magnitudes converge via method ③ (§3.2).
+
+### 3.2 λ divergence at soft modes — problem, fix methods, and status
+
+**Problem (physics, not a bug).** The integrated electron–phonon coupling λ = ∫ (2/ω) α²F(ω) dω carries a 1/ω² weight; at a CDW soft mode ω→0 it **diverges** (NbSe₂: λ ≈ 140, ill-defined; 2H-TaSe₂ this week: λ ≈ 188). The divergence *is* the instability signal — a single "λ" is simply the **wrong observable** for a soft-mode material. Three fix methods, in the order we rely on them:
+
+**① Adopted resolution — report the momentum/mode-resolved linewidth γ_qν, not the absolute λ.  ✅ DONE.**
+γ_qν stays finite and physical at the soft mode and carries the same science: NbSe₂ γ_soft = **40–52 meV, broad** around q_CDW ⇒ **EPC-driven** (not a sharp nesting spike). This is the settled position everywhere it matters — the results doc (E6), the campaign aggregator (`scripts/v100/aggregate.py` prints the caveat + a γ_qν column, no bare λ), and the paper's honest-framing clauses (App. B). **Every Part-II conclusion stands on γ_qν and is independent of λ.** The graphene control validates the pipeline where there is *no* soft mode: λ converges cleanly (undoped λ ≈ 0 at the Dirac point; n-doped λ = 0.96, max γ_qν neV → 1.0 meV).
+
+**② Physical regularization — harden the soft mode with electronic smearing (degauss / T_el).  ⚠️ QUALITATIVE only.**
+Raising T_el smears the Fermi surface, stiffens ω, and *tames* the divergence (NbSe₂ λ: 140 → O(10–18) across degauss 0.03→0.06, i.e. T_el ≈ 4.7k → 9.5k K). But it is **not** a converged number: the swept λ is non-monotone (17 → 114 → 12 → 17) and the base point used a different EPW smearing ruler (nsmear=1 / degaussw=0.2 vs 4 / 0.1). Only the *qualitative* reading (soft mode melts + λ tames with T_el) is used; Fig 4 stays **preliminary**.
+
+**③ Convergence pass for a defensible absolute λ — route (partly in flight).  ◻ IN PROGRESS / PLANNED, non-blocking.**
+To promote λ from qualitative to publishable: (i) fine-grid convergence **nkf 24 → 48 (→ 60)**; (ii) denser coarse q **NQ 3 → 6** — the `jlq6` run on Box B (NbSe₂ degauss 0.03, 6×6 DFPT; **~27 h in as of 2026-07-02 14:25, still in DFPT with no `res_q6.csv`** — the 6×6 metal DFPT is proving very slow, decide finish-vs-kill in §6); (iii) one **unified EPW smearing** across all points (fix the "not one ruler" issue in ②); (iv) an **ASR re-pass** (`q2r zasr='crystal'`) to remove the residual Γ-acoustic term and fix the 2D ZA mode; (v) ≥ 5 T_el points. Est. ~1 day (nkf, reusing DFPT) + ~½ day / T_el point. The `jconv` graphene λ(nkf) run pins the fine-grid protocol on the clean, no-soft-mode case first. Treated as **polish** — the paper's claims do not depend on a converged λ.
 
 ![Fig 4 — NbSe2 lambda(T_el) preliminary](figs/fig4_lambda_Tel.png)
 
-*Fig 4. NbSe₂ integrated EPW λ vs electronic temperature (degauss sweep). The qualitative physics is right — raising T_el hardens the soft mode and tames the λ divergence (140 → O(10–18)). **This is NOT a converged result:** (i) λ is inflated by the 1/ω² weight of the near-imaginary soft mode; (ii) the base point uses different EPW smearing (nsmear=1, degaussw=0.2) than d050/d060 (nsmear=4, 0.1) — not one ruler; (iii) nkf=24 is too coarse for the metallic Fermi surface. Convergence plan in §4.1.*
+*Fig 4. NbSe₂ integrated EPW λ vs electronic temperature (degauss sweep) — method ② above. The qualitative physics is right (raising T_el hardens the soft mode and tames the λ divergence, 140 → O(10–18)); this is **not** a converged number (1/ω² inflation near the soft mode; base point on a different smearing ruler; nkf=24 too coarse). Convergence route = method ③ / §4.1.*
 
 ### 3.3 Infrastructure fixes this week
 
@@ -238,17 +279,18 @@ Two single-V100 boxes, two non-competing lanes each. Scope: full-family DFT fc�
 ## 6. Risks, blockers, next-week plan
 
 **Risks / blockers**
-- **EPW is the throughput bottleneck** (CPU-bound, ~8.5 box-h/material, 5 more (E)-channel materials queued) — the campaign is a ~1–2 week job on 2 boxes.
+- **EPW throughput** (CPU-bound, ~8.5 box-h/material) — *no longer blocking:* all 7 CDW γ_qν landed in ~2 days on the 2 boxes (well under the earlier ~1–2 wk estimate). Remaining EPW work = the 1T commensurate re-runs + λ convergence (method ③).
 - **λ diverges at soft modes** (physics, not a bug): report q-resolved γ_qν/λ_qν, never absolute λ, for CDW materials.
 - **8×H20 fleet offline 7 days** → the MLIP half (E1/E3/E4/(L)-SSCHA/κ) is paused; the Part-I MLIP tables and the family (L)-screen wait on its return.
-- **Fixes not in git** (§3.3); Box B transient oversubscription **resolved** this session (legacy jconv/jlq6 queues paused + serialized behind the campaign).
+- **Fixes not in git** (§3.3). Box B oversubscription **still live (2026-07-02):** the legacy `jlq6` NbSe₂ NQ=6 λ_q run is ~13 h into its 6×6 DFPT and is contending with the campaign's 1T-TiSe₂ EPW on 8 cores — kill it (`tmux kill-session -t jlq6`) to give the family EPW the CPU, or let it finish as the method-③ NQ-convergence down-payment. `jconv` (graphene λ conv) is nearly idle.
 - **The discovery is the completeness bar** — not compute: the single paper is not submittable until the origin-map yields ≥1 non-trivial result. **Single-flagship = higher variance** (no npj保底 fallback; the method half stays independently strong as a floor).
 
 **Next week**
-1. Let the family DFT/EPW campaign run (self-healing); land NbS₂ + 2H-TaSe₂ (E)-channel EPW as the first two family γ_qν points.
-2. Run the NbSe₂ λ(T_el) **convergence** (nkf 24→48, unified smearing) → upgrade Fig 4 from preliminary to defensible.
-3. Commit the lane fixes to `td-phonon-anomaly`; serialize the Box B EPW queues.
-4. On H20 return: kick E1 + E3/E4 + (L)-SSCHA triage for the family map.
+1. ✅ *Done 2026-07-02:* the family DFT/EPW campaign completed (all 11 fc₂/bands, 7 CDW Path-P, 7 CDW EPW γ_qν). **Next:** run `scripts/v100/aggregate.py` → `results/v100/SUMMARY.md` and assemble the (E)/(L) origin-map (Fig 2).
+2. **Re-run 1T-TiSe₂ (2×2) and 1T-VSe₂ (commensurate) fc₂ + EPW** so their soft mode and γ_qν are on-instability — required before the 1T (E)-verdicts (§3.1); rides the now-idle GPU lanes. (Optionally 1T-TaS₂ on a √13 cell.)
+3. Decide `jlq6` (NbSe₂ NQ=6, ~27 h and still in DFPT): let it finish as the method-③ NQ down-payment, or kill it to free Box B. Then the NbSe₂ λ convergence (nkf 24→48, unified smearing, ASR) → upgrade Fig 4.
+4. Commit the lane fixes + this campaign's outputs to `td-phonon-anomaly`.
+5. On H20 return: kick E1 + E3/E4 + (L)-SSCHA triage for the family map.
 
 ---
 
@@ -277,3 +319,251 @@ Tables: §0 banked results · §2.1–2.4 per-flagship number tables · §4.1–
 ---
 
 *Generated 2026-07-01. Figures reproducible via `conda run -n phonon python docs/weekly/plot_weekly.py` (data embedded, no external files). Numbers sourced from `docs/TD_PHONON_M1_RESULTS.md`, `docs/NCS_ROADMAP.md`, `configs/{v100,h20}_campaign.yaml`, and the live campaign logs.*
+
+---
+---
+
+# 中文版 · TD-Phonon / Kohn 反常 —— 周报
+
+**截至 2026-07-01（实时更新至 2026-07-02 14:25）** · 分支 `td-phonon-anomaly` · 机器：2×V100（FP64 DFT/EPW）+ 1×RTX 2060（MLIP/代理）；8×H20 本周离线。
+
+> **一句话状态。** 引擎（基础 MLIP 失效图谱 → 材料专属 FC 蒸馏 → 非谐 Path-P）与 (E)/(L) 起源分解已在两个旗舰体系（石墨烯 + NbSe₂）上验证 —— 论文 **Part I（方法）** 数据已齐，待一轮收敛/ASR。本周在两台 V100 上启动的 **TMD 家族 FP64 campaign**（构建 **Part II 发现** 的起源图谱）**已于 2026-07-02 全部跑完**：11 个材料的 DFT fc₂+bands、7 个 CDW 的 Path-P、7 个 CDW 的 (E)-通道 EPW γ_qν 全部到手。
+
+## 0. 执行摘要
+
+本项目造一个又便宜又准的声子引擎，并用它做基础 MLIP 够不到的科学：**把晶格不稳定性（Kohn 反常、CDW 软模）分解成电子 (E) 与晶格非谐 (L) 两个起源**，覆盖 2D-TMD 家族。**一篇完整的高水平论文**把两半合成单一叙事：**Part I（方法）** = 引擎 + 石墨烯/NbSe₂ 上的 (E)/(L)；**Part II（发现）** = TMD 家族起源图谱 + 一个非平庸的 CDW 起源结论。
+
+**已入账（本期及之前，全部验证）：**
+
+| 结果 | 体系 | 关键数字 | 状态 |
+|---|---|---|---|
+| 基础 MLIP 的 Kohn 反常失效**依模型而异** | 石墨烯 Γ-E₂g | MACE −22%、SevenNet −14%、MatterSim −2%（vs DFT 1568 cm⁻¹）| ✅ |
+| **材料专属 FC 蒸馏治好 cusp** | 石墨烯 Γ-E₂g | 石墨烯-FT 1570 vs DFT 1568（**补齐 101%**）；bulk-FT 仅 8% | ✅ |
+| 收敛 DFT 揭示**真实的 K-A₁′ Kohn cusp** | 石墨烯 | 6×6 公度 K-A₁′=1292 cm⁻¹，kink 0.8→**14.4** | ✅ |
+| **蒸馏把结构不稳定性搬进 MLIP** | NbSe₂ | 基础 −0.20 → 蒸馏-FT **−2.23 THz** ≈ DFT −2.18（骨架无关）| ✅ |
+| NbSe₂ CDW 是 **EPC 驱动、非 nesting**（家族首个判决）| NbSe₂ | χ(q) ξ=0.53 @q_CDW（不成峰）+ EPW γ_qν 40–52 meV **宽峰** | ✅ |
+| **非谐 Path-P** 补齐热力学力误差 | 石墨烯/NbSe₂ | 149→**21 meV/Å**（86%）；NbSe₂ 比谐-FT **好 4.6×** | ✅ |
+| **广度优于深度**的泛化律 | 跨材料 | 迁移 MAE ~1.80 THz 平到 N=16，→1.34@N=64；下限 ~1.3 THz | ✅ |
+
+**本周新入账（V100 campaign 完成，2026-07-02）：** 全 11 材料 DFT fc₂+bands、7 CDW Path-P、7 CDW (E)-EPW γ_qν —— 起源图谱的原料齐了（详见 §3）。
+
+![图 1 — campaign 状态矩阵](figs/fig1_status_matrix.png)
+
+*图 1. V100 FP64 campaign 状态矩阵（2026-07-02，已完成）。行 = 11 个 TMD 家族成员（带 * = 非 CDW/gapped 对照）；列 = 每材料五个流水线阶段。fc₂ 格里标注捕到的 DFT 软模 ω_min（THz）—— 负值 = DFT 级别看到 CDW 不稳定，即校准 MLIP 半边的真值。(L)-SSCHA 列待 H20 返回。*
+
+---
+
+## 1. 定位 —— 一篇完整的高水平论文（方法 → 发现）
+
+**策略（2026-07-01）：合并为单篇旗舰论文。** 不再是两篇（npj 保底 + NCS 冲刺），而是**一篇完整高水平论文**，叙事弧 = *方法 → 它使能的发现*：
+
+- **Part I —— 方法（引擎）。** 基础 MLIP 恰恰对定义量子材料的电子驱动声子反常（Kohn 反常、CDW 软模）视而不见。我们用 GPU 有限位移 DFT 数据引擎（Line B）+ 材料专属 FC 蒸馏 + 非谐 Path-P（Line A）协同修复 —— 在最难的 case 上做到近 DFT 精度、一个广度优于深度的泛化律、以及下游 κ 收益。
+- **Part II —— 它使能的发现。** 因为修复后的框架在这些最难 case 上又便宜又准，高通量的**晶格不稳定性起源分解**首次可行：把每个 CDW 分成**电子（费米面/EPC）**与**晶格非谐**两个通道，建 **(E)–(L) 起源分类图谱**，判定长期争议的 CDW 起源（NbSe₂ = 首个成员：EPC 驱动、非 nesting）。
+- **为什么一篇：** 方法的新意由它使能的发现来*背书*；发现又只因方法才*可行*。两半是一个论证。
+- **目标：** 单篇旗舰（Nature Computational Science / Nature Materials 级）。**风险：** 单篇 = 方差更大、无 npj 保底（方法半边独立够强作为下限）。**排除：** 弹道输运（NEGF/Landauer）。
+
+![图 2 — (E)–(L) 起源图谱](figs/fig2_origin_map.png)
+
+*图 2. 论文 Part-II 的核心对象：每个 CDW 材料放进 **(E) 电子**（费米面 nesting → 动量依赖 EPC）×**(L) 晶格非谐**（谐 → 量子稳定化）平面。目前仅 **NbSe₂ 已判决**（EPC 驱动、非 nesting；非谐约 150 K 稳定 ≈ 实验 145 K）；石墨烯为 (E)-通道标定。把 NbS₂/TaS₂/TaSe₂/TiSe₂/VSe₂ 填进去 = 论文的发现。*
+
+---
+
+## 2. 已完成结果（入账的科学）
+
+### 2.1 引擎旗舰 #1 —— 石墨烯 Kohn 反常 + FC 蒸馏
+
+基础 MLIP 低估中心区光学模、**抹平最非解析的 Kohn cusp**（Γ-E₂g），且失效大小/符号**依模型而异**。蒸馏材料自己的 DFPT fc₂ 能恢复；收敛的公度 DFT 网格显示 K-A₁′ cusp 是真实的。
+
+| 量（石墨烯）| 基础 | 蒸馏(bulk) | 蒸馏(石墨烯) | DFT(本工作) | 文献 |
+|---|---|---|---|---|---|
+| Γ-E₂g @a=2.46 (cm⁻¹) | 1238 | 1265 | **1570** | 1568 | ~1600 |
+| K-A₁′ @a=2.46 (cm⁻¹) | 1113 | 1107 | **1368** | 1362 | ~1300 |
+| Γ-cusp 补齐 | — | 8% | **101%** | 真值 | — |
+| 收敛 K-A₁′（6×6 公度）| — | — | — | **1292, kink 14.4** | ~1300 |
+
+![图 5 — 石墨烯 Kohn 治愈](figs/fig5_graphene_cure.png)
+
+*图 5. (a) Γ-E₂g 软化依模型而异（−22%~−2%）；bulk 蒸馏几乎没用（+8%），石墨烯专属蒸馏落到 DFT（+101%）。(b) V-Q1：K 公度 6×6 网格上 K-A₁′ cusp 变尖（kink 0.8→14.4）= 真实 Kohn 反常；基础 MLIP 反而把 K 过软化到 ~1110 cm⁻¹（假 cusp）。*
+
+石墨烯 DFT 蒸馏力 RMSE **18 meV/Å**。Gate #1 = **PASS**。
+
+### 2.2 引擎旗舰 #2 —— NbSe₂ CDW 软模捕获
+
+每个基础/bulk 蒸馏 MLIP 都判 NbSe₂ 稳定（min freq≈0）—— d 电子 CDW 软模被漏。蒸馏 NbSe₂ 自己的 3×3 DFT fc₂ 把不稳定搬进 MLIP，且骨架无关。
+
+| 量（NbSe₂, 3×3, a=3.44 不弛豫）| 基础 | 蒸馏-FT | DFT(本工作) |
+|---|---|---|---|
+| min freq — MACE (THz) | −0.20 | **−2.23** | −2.18 |
+| min freq — SevenNet (THz) | −0.04 | **−1.99** | −2.18 |
+| 蒸馏力 RMSE (meV/Å) | — | 11.5 / 12.7 | — |
+
+- **T 演化（L 通道）：** TDEP 软模 −0.48 THz(20K)→0(≥200K)；**SSCHA 自由能 Hessian 在 20–400 K 全无虚模** —— 软模被量子/非谐完全稳定，窗口 ~150 K ≈ **实验单层 T_CDW 145 K**。Gate #2 = **PASS**。
+
+### 2.3 (E) 电子通道 —— 两个旗舰上都演示（MLIP 看不见）
+
+- **NbSe₂（frozen-phonon vs Fermi-Dirac T_el）：** CDW 软模随 T_el 单调穿零（−14.1 cm⁻¹@474K → +129@4737K）→ **电子 T_CDW ≈ 500–570 K**；升 T_el 抹平费米面、熔化 CDW ⇒ EPC 驱动。
+- **石墨烯（DFPT-smearing）：** 两个 Kohn 模随 T_el 变硬但 **q 选择性** —— K-A₁′ Δ≈103 cm⁻¹ vs Γ-E₂g Δ≈40。
+- **石墨烯 EPW：** 未掺杂 λ≈0（Dirac 点无费米面）；掺到 E_F=−0.94 eV 打开 **λ=0.96**，max γ_qν neV→**1.0 meV** = EPC 是纯费米面效应。
+- **NbSe₂ EPW（E6）：** 软模 γ_qν = **40–52 meV 宽峰**（q_CDW≈(⅓,0) 及 M–K 边界）；积分 λ **发散(≈140)** → 只报 γ_qν。
+
+![图 8 — (E)-通道指纹](figs/fig8_echannel.png)
+
+*图 8. (a) NbSe₂ CDW 软模随电子温度熔化（ω²=0 约 500–570 K）。(b) 石墨烯 Kohn 反常随 T_el 变硬，K-A₁′ 比 Γ-E₂g 强 2.6×。都是 MLIP 完全漏掉的 frozen-phonon/DFPT 效应。*
+
+**Nesting 交叉检验：** 36×36 网格上 nesting 函数 ξ(q) **不在 q_CDW 成峰**（ξ=0.53 vs Γ 的 1.0）→ NbSe₂ CDW **非 nesting 驱动**（Johannes–Mazin）。对比石墨烯 q*=2k_F 干净。
+
+### 2.4 非谐 Path-P —— 超越谐蒸馏
+
+| 力 RMSE vs DFT (meV/Å) | 基础 | 谐-FT | Path-P |
+|---|---|---|---|
+| 石墨烯（150 构型, 100–600 K）| 294 | 149 | **21**（补齐 86%）|
+| NbSe₂（69 构型, CDW 坐标）| 366 | **699**（反效果）| **151**（好 4.6×）|
+
+![图 6 — Path-P 误差补齐](figs/fig6_pathp.png)
+
+*图 6. Path-P（非谐蒸馏，绿）在两个体系上补齐留出的热力学力误差。注意 NbSe₂ **谐**-FT（699）比基础（366）更差 —— 0 K 蒸馏模型在非谐 CDW 势面上主动误导；必须非谐标注。*
+
+### 2.5 广度 vs 深度迁移律 + 对照
+
+![图 7 — 广度律](figs/fig7_breadth.png)
+
+*图 7. 留出迁移 MAE 到 N≈16 保持平（~1.80 THz），再降到 1.40(32)→1.34(64) —— 化学广度而非采样深度驱动泛化（拐点 ~16–32，下限 ~1.3 THz）。域内蒸馏 MAE≈0.10 THz 且虚模清零。覆盖驱动采集在 N=32 比随机好 ~0.18 THz；朴素不确定性采集最差。*
+
+**对照/负结果（locator 不假阳性）：** MoS₂（gapped）cusp kink ≤2（vs 石墨烯 ~86–100）；NbSe₂ 2k_F 检验：2k_F=0.46 b₁ ≠ q_CDW=0.33 b₁（合格负结果 = 正确答案）。
+
+---
+
+## 3. 本周进展（实时）—— V100 家族 campaign
+
+### 3.1 V100 FP64 campaign —— 已完成（2026-07-02 14:25）
+
+两台单卡 V100，每台两条互不抢资源的泳道。范围（全部交付）：全家族 DFT fc₂+bands/χ(q)（11）+ Path-P（7 CDW）+ (E)-通道 EPW γ_qν（7 CDW）。**两台 box 泳道均已干净退出、GPU 空闲。**
+
+| Box | GPU 泳道（fc₂→bands→Path-P）| CPU 泳道（(E)-EPW）|
+|---|---|---|
+| **A** | ✅ fc₂+bands ×6（NbSe₂/NbS₂/2H-TaS₂/1T-TaS₂/1T-TiS₂/MoS₂）· Path-P ×4 CDW | ✅ EPW ×3（NbS₂/2H-TaS₂/1T-TaS₂）|
+| **B** | ✅ fc₂+bands ×5（2H-TaSe₂/1T-TiSe₂/1T-VSe₂/1T-VS₂/WSe₂）· Path-P ×3 CDW | ✅ EPW ×3（2H-TaSe₂/1T-TiSe₂/1T-VSe₂）|
+
+**(a) DFT fc₂ 真值表（全 11，3×3 超胞）** —— 校准 H20 (L)-筛选的真值：
+
+| 材料 | 型 | CDW(实验) | fc₂ ω_min (THz) | 3×3 软模 | 备注 |
+|---|---|:---:|---:|:---:|---|
+| NbSe₂ | 2H | ✔ | **−2.18** | ✅ | 3×3 公度 CDW |
+| 2H-TaSe₂ | 2H | ✔ | **−2.175** | ✅ | 3×3 |
+| 2H-TaS₂ | 2H | ✔ | **−1.965** | ✅ | 3×3 |
+| NbS₂ | 2H | ✔ | **−1.893** | ✅ | 3×3 |
+| 1T-TaS₂ | 1T | ✔ | −0.752 | ⚠️部分 | 真 CDW √13×√13，3×3 只抓到部分软化、非真 q_CDW |
+| 1T-TiSe₂ | 1T | ✔ | −0.026 | ✗ | CDW **2×2** 不公度 → 重跑 |
+| 1T-VSe₂ | 1T | ✔ | −0.000 | ✗ | CDW ≈4×4/√3×√3 → 重跑 |
+| 1T-TiS₂ | 1T | ✗ | −0.000 | ✗ | 非 CDW —— 正确 ✓ |
+| 1T-VS₂ | 1T | ✗ | −0.000 | ✗ | 非 CDW —— 正确 ✓ |
+| MoS₂ | 2H | ✗ | −0.000 | ✗ | gapped 对照 —— 正确 ✓ |
+| WSe₂ | 2H | ✗ | −0.000 | ✗ | gapped 对照 —— 正确 ✓ |
+
+干净结论：**每个 2H CDW 都在 3×3 捕到；每个非 CDW/gapped 对照都稳定（零假阳性）；1T CDW 漏掉只因周期不是 3×3**（公度限制，非物理失败 —— 正是计划预期的分支）。
+
+**(b) (E)-通道 EPW γ_qν（全 7 CDW）** —— 起源图谱的 (E)-列。积分 λ 全程发散 → 报 γ（§3.2）：
+
+| 材料 | 型 | fc₂软? | max γ_qν (meV) | (E)-读数 |
+|---|---|:---:|---:|---|
+| 2H-TaS₂ | 2H | ✅ | ~363* | 强 EPC（3×3 上量级过阻尼/噪声）|
+| 2H-TaSe₂ | 2H | ✅ | ~105 | 强 EPC |
+| NbSe₂(E6) | 2H | ✅ | 40–52（q_CDW 宽峰）| **EPC 驱动、非 nesting** |
+| NbS₂ | 2H | ✅ | ~40 | 中–强 EPC |
+| 1T-TaS₂ | 1T | ⚠️ | ~4.3 | 弱 —— 软模部分/错 q |
+| 1T-VSe₂ | 1T | ✗ | ~2.8 | 离开不稳定点（3×3 无软模）|
+| 1T-TiSe₂ | 1T | ✗ | ~1.2 | 离开不稳定点（3×3 无软模）|
+
+\* 3×3 粗 q / nkf=24 上 γ 量级仅**定性**（软模插值噪声；2H-TaS₂ 363 meV > 声子能量 = 过阻尼）—— 稳健读数是**量级分裂：2H 软模 γ~40–360 meV（强 EPC）vs 1T ~1–4 meV**。但 1T 的 γ 是**离开不稳定点**测的（软模不在 3×3 里），**还不是 (E)-判决** —— 须先做 1T 公度重跑（§6），量级收敛靠方法③（§3.2）。
+
+### 3.2 软模处 λ 发散 —— 问题、修复方法、状态
+
+**问题（物理，非 bug）。** 积分电声耦合 λ=∫(2/ω)α²F(ω)dω 带 1/ω² 权重；软模 ω→0 时**发散**（NbSe₂ λ≈140；本周 2H-TaSe₂ λ≈188）。发散**本身**就是不稳定信号 —— 对软模材料，单个 "λ" 就是**错的可观测量**。三条修复方法，按依赖顺序：
+
+**① 采用方案 —— 报动量/模式分辨线宽 γ_qν，不报绝对 λ。✅ 已完成。**
+γ_qν 在软模处有限且物理，承载同样的科学：NbSe₂ γ_soft=**40–52 meV，q_CDW 附近宽峰** ⇒ **EPC 驱动**（非尖锐 nesting）。这是各处统一口径 —— 结果文档(E6)、campaign 汇总器（`aggregate.py` 打印警示 + γ_qν 列、不给裸 λ）、论文诚实措辞（附录 B）。**Part II 全部结论立在 γ_qν 上、独立于 λ。** 石墨烯对照验证管线（无软模时 λ 干净收敛：未掺杂≈0；n 掺杂 λ=0.96）。
+
+**② 物理正则化 —— 用电子 smearing（degauss/T_el）硬化软模。⚠️ 仅定性。**
+升 T_el 抹平费米面、变硬 ω、*压制*发散（NbSe₂ λ：140→O(10–18)，degauss 0.03→0.06 即 T_el≈4.7k→9.5k K）。但**不是收敛值**：扫出来的 λ 非单调（17→114→12→17），且基准点用了不同 EPW smearing 尺（nsmear=1/0.2 vs 4/0.1）。只取**定性**读数（软模熔化 + λ 随 T_el 被压制）；图 4 仍标 preliminary。
+
+**③ 收敛 pass 拿到可信绝对 λ —— 路线（部分在跑）。◻ 进行中/计划，非阻塞。**
+把 λ 从定性升到可发表：(i) 细网格收敛 **nkf 24→48(→60)**；(ii) 粗 q 加密 **NQ 3→6** —— Box B 的 `jlq6`（NbSe₂ degauss 0.03，6×6 DFPT；**截至 2026-07-02 14:25 已跑 ~27h 仍在 DFPT、无 res_q6**，6×6 金属 DFPT 太慢，去留见 §6）；(iii) 全点**统一 smearing**；(iv) **ASR 重跑**（`q2r zasr='crystal'`）修残余 Γ-声学项 + 2D ZA 模；(v) ≥5 个 T_el 点。估 ~1 天(nkf 复用 DFPT) + ~½ 天/T_el。`jconv` 石墨烯 λ(nkf) 先在干净无软模 case 上定协议。当作 **polish** —— 论文结论不依赖收敛 λ。
+
+![图 4 — NbSe₂ λ(T_el) 初步](figs/fig4_lambda_Tel.png)
+
+*图 4. NbSe₂ 积分 EPW λ vs 电子温度（degauss 扫描）= 上面方法②。定性物理对（升 T_el 硬化软模、压制 λ 发散，140→O(10–18)）；这**不是**收敛值（软模附近 1/ω² 膨胀；基准点用了不同 smearing 尺；nkf=24 太粗）。收敛路线 = 方法③/§4.1。*
+
+### 3.3 本周基础设施修复
+
+- **CPU 过订阅治好：** EPW 泳道曾 `-np 8×OMP=2`=16 线程压 8 物理核（load 21）→ OMP→1（load 21→12）。
+- **静默吞吐 bug 修好：** 泳道 `cmd | while read MAT` 循环里内层 mpirun/pw.x/epw.x 吞掉物料清单 → 每泳道只处理第一个材料就报 "DONE"。改为内层 `</dev/null`；端到端验证。
+- **自愈重启器**：跑着的泳道在退出时被打过补丁的版本幂等接管（靠 `EPW_DONE` + `JOB DONE` step-guard 跳过已完成）。
+- ⚠️ **仍活跃（2026-07-02）：** 遗留 `jlq6`（NbSe₂ NQ=6）~27h 仍在 6×6 DFPT，曾与 campaign 抢 Box B 的 CPU；`jconv` 近乎空闲。去留见 §6。
+- **注（尚未进 git）：** 三个泳道脚本修复是 scp 上机、未提交；GitHub 仍是旧版，重 clone 会带回 bug —— 建议提交。
+
+---
+
+## 4. 还需的实验
+
+### 4.1 近期 —— 收尾 campaign、锁定 Part I（无需租卡）
+
+| 任务 | 产出 | 估计 | 状态 |
+|---|---|---|---|
+| ~~家族 DFT fc₂+bands（11）~~ | 真值软模 + nesting | — | ✅ 已完成 |
+| ~~家族 Path-P（7 CDW）~~ | 非谐 (L) 标签 | — | ✅ 已完成 |
+| ~~家族 (E)-EPW γ_qν（7 CDW）~~ | q 分辨 EPC | — | ✅ 已完成 |
+| **1T-TiSe₂(2×2)/VSe₂ 公度重跑** fc₂+EPW | 让 1T 软模+γ 落在不稳定点上 | ~½ 天 GPU（搭空闲泳道）| 待跑 |
+| **λ 收敛（方法③）** nkf 24→48 + 统一 smearing + ASR + ≥5 T_el | 可信 λ | ~1 天 + ~½ 天/T_el | 部分在跑(jlq6) |
+| `aggregate.py` → SUMMARY + (E)/(L) 起源图谱 | 图 2 填表 | 小时级 | 待跑 |
+
+### 4.2 Part II —— 发现半边（来自 NCS roadmap）
+
+- **E-2a** 家族 (L)-triage（基础 MLIP SSCHA，全 11）—— H20，~50–100 GPU-h
+- **E-2b** fc₂ + 材料专属蒸馏 + (L)-SSCHA —— fc₂ 已有；SSCHA 8×90 min
+- **E-2c** (E)-通道 DFPT-smearing + EPW —— 已完成 7 个 γ_qν
+- **E-2d** 建 (E)–(L) 起源图谱 + 找发现 —— 综合
+- ★ **发现**（整体、非可选）：一个材料被重分类，或一个预测的不稳定，或一条干净的 (E)/(L)→T_CDW 趋势 vs 实验
+
+**H20 MLIP 半边（本周离线，回来再跑）：** E1 benchmark、E3/E4 蒸馏+消融、(L)-SSCHA 家族筛、E9 κ → ~900–1800 GPU-h ≈ 5–10 并行天。
+
+---
+
+## 5. 算力预算
+
+![图 3 — 算力预算](figs/fig3_compute_budget.png)
+
+*图 3. 按阶段/硬件的预算。手上机器（2×V100 + 8×H20）足以把整篇论文带到核心完成稿（Part I + Part II 起源图谱）；只有 FP64 scale-up 需租卡，且在发现落地之后。*
+
+| 桶 | 工作 | 估计 | 硬件 |
+|---|---|---|---|
+| V100 —— DFT fc₂+锚点 | 家族谐真值 | ~30–45 box-h | 2×V100 GPU |
+| V100 —— Path-P（7 CDW）| 非谐 (L) 标签 | ~5–8 box-h | 2×V100 GPU |
+| V100 —— (E)-EPW（6 新）| q 分辨 EPC | ~40–90 box-h | 2×V100 CPU（瓶颈）|
+| V100 —— λ+ASR+收敛 | 干净 Part-I 数字 | ~20–40 box-h | 2×V100 CPU |
+| **V100 小计** | | **~110–210 box-h ≈ 1–2 周** | |
+| H20 —— MLIP 半边 | benchmark+蒸馏+筛 | **~900–1800 GPU-h** | 8×H20 |
+| **租卡 —— FP64 scale（gated）** | 密网 EPW + κ + 引擎 demo + 数据集 | **~2100–5800 GPU-h** | A100/V100 |
+
+*实测锚点：* NbSe₂ 级 DFPT≈6h + EPW≈2.5h = **~8.5 box-h/材料**；TMD fc₂≈1–3h；SSCHA≈15–30 min/(材料·T)；MLIP 微调≈30–60 min；MLIP 声子推理≈1 min/材料。
+
+---
+
+## 6. 风险、阻塞、下周计划
+
+**风险/阻塞**
+- **EPW 吞吐**（CPU 限、~8.5 box-h/材料）—— *不再阻塞：* 全 7 CDW γ_qν 在 2 台机器上 ~2 天跑完（远快于之前估的 ~1–2 周）。剩余 EPW = 1T 公度重跑 + λ 收敛。
+- **软模处 λ 发散**（物理非 bug）：CDW 材料只报 q 分辨 γ_qν，绝不报绝对 λ。
+- **8×H20 离线 7 天** → MLIP 半边暂停。
+- **修复未进 git**（§3.3）。Box B `jlq6`（NQ=6）~27h 仍在 DFPT、仍占 Box B —— `tmux kill-session -t jlq6` 释放，或让它跑完当方法③的 NQ 首付。
+- **发现才是完成门槛**（不是算力）：起源图谱产出 ≥1 个非平庸结论前论文不可投。单篇 = 高方差（无 npj 保底）。
+
+**下周**
+1. ✅ 家族 DFT/EPW campaign 已完成。**下一步：** `aggregate.py` → SUMMARY，拼 (E)/(L) 起源图谱（图 2）。
+2. **1T-TiSe₂(2×2)/VSe₂ 公度重跑 fc₂+EPW**（1T 判决前提；搭空闲 GPU）。
+3. `jlq6` 去留决策，随后 NbSe₂ λ 收敛（nkf 24→48、统一 smearing、ASR）→ 升级图 4。
+4. 提交泳道修复 + campaign 产出到 `td-phonon-anomaly`。
+5. H20 返回后：起 E1 + E3/E4 + (L)-SSCHA 家族 triage。
+
+---
+
+*中文版生成于 2026-07-02，内容与上方英文版一致；图片同源（`docs/weekly/plot_weekly.py`，图 1 已更新为 campaign 完成状态）。*
