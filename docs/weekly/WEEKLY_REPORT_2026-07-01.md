@@ -69,7 +69,7 @@ Foundation MLIPs under-predict the zone-centre optical modes and **wash out the 
 
 ![Fig 9 — graphene Kohn-anomaly phonon spectrum](figs/fig9_kohn_anomaly.png)
 
-*Fig 9. A computed phonon spectrum that **exhibits the Kohn anomaly** — graphene along M–Γ–K–M (converged DFT, a=2.46, 601 q-points, from `results/vq1`). (a) Full dispersion: the two Kohn anomalies — the **Γ-E₂g** cusp (highest optical mode at Γ) and the **K-A₁′** cusp — are sharp, non-analytic features in the DFT truth (blue) that foundation MACE-MP-0 (orange dashed) both **over-softens** (Γ 1570→1238 cm⁻¹, −21 %) and **washes out**. (b) Top optical branch zoomed: DFT (blue) and the graphene-specific FC-distilled MLIP (green dotted) keep the cusp (graphene-FT 1570/1368 ≈ DFT 1570/1292 cm⁻¹ at Γ/K); the foundation model is smooth and ~330 cm⁻¹ too soft. This is §2.1's cure shown as the raw dispersion — the anomaly the engine is built to recover.*
+*Fig 9. A computed phonon spectrum that **exhibits the Kohn anomaly** — graphene along M–Γ–K–M (converged DFT, a=2.46, 601 q-points, from `results/vq1`). (a) Full dispersion: the two Kohn anomalies — the **Γ-E₂g** cusp (highest optical mode at Γ) and the **K-A₁′** cusp — are sharp, non-analytic features in the DFT truth (blue) that foundation MACE-MP-0 (orange dashed) both **over-softens** (Γ 1570→1238 cm⁻¹, −21 %) and **washes out**. (b) Top optical branch zoomed (all three now on the **same 6×6 K-commensurate** grid): the **6×6-distilled** graphene FC-distilled MLIP (green dotted) **recovers the K-A₁′ cusp** — graphene-FT **1572/1309, kink 10.8 ≈ DFT 1570/1292, kink 14.4** at Γ/K (**~75 % of the K cusp** recovered); the residual ~25 % is the **long-range limit** a short-range MLIP cannot fully learn (→ the `smearing-kink-ml` long-range-term / ML-EPW routes). The foundation model is smooth and ~330 cm⁻¹ too soft. **Fix note:** earlier drafts plotted the FT on a **non-commensurate 5×5** grid → an artifact K=1368 / flat (kink 0.9); distilling *and* evaluating on the **K-commensurate 6×6** grid restores the cusp.*
 
 Force-fit quality: graphene DFT-distill force RMSE **18 meV/Å** (harmonic configs). Gate #1 (graphene fuse) = **PASS**.
 
@@ -427,7 +427,7 @@ Tables: §0 banked results · §2.1–2.4 per-flagship number tables · §4.1–
 
 ![图 9 — 石墨烯科恩反常声子谱](figs/fig9_kohn_anomaly.png)
 
-*图 9. 一张**体现科恩反常**的计算声子谱 —— 石墨烯 M–Γ–K–M（收敛 DFT，a=2.46，601 个 q 点，来自 `results/vq1`）。(a) 全色散：两处科恩反常 —— **Γ-E₂g** cusp（Γ 处最高光学模）与 **K-A₁′** cusp —— 在 DFT 真值（蓝）里是尖锐的非解析特征，而基础 MACE-MP-0（橙虚线）既**过度软化**（Γ 1570→1238 cm⁻¹，−21%）又**抹平**它们。(b) 顶部光学支放大：DFT（蓝）与石墨烯专属 FC 蒸馏 MLIP（绿点线）都保住 cusp（石墨烯-FT 1570/1368 ≈ DFT 1570/1292 cm⁻¹，Γ/K 处）；基础模型平滑且软了 ~330 cm⁻¹。这就是 §2.1「治愈」的原始色散版 —— 引擎要恢复的正是这个反常。*
+*图 9. 一张**体现科恩反常**的计算声子谱 —— 石墨烯 M–Γ–K–M（收敛 DFT，a=2.46，601 个 q 点，来自 `results/vq1`）。(a) 全色散：两处科恩反常 —— **Γ-E₂g** cusp（Γ 处最高光学模）与 **K-A₁′** cusp —— 在 DFT 真值（蓝）里是尖锐的非解析特征，而基础 MACE-MP-0（橙虚线）既**过度软化**（Γ 1570→1238 cm⁻¹，−21%）又**抹平**它们。(b) 顶部光学支放大（三条现在都在**同一 6×6 K-公度**网格上）：**6×6 蒸馏**的石墨烯 FC 蒸馏 MLIP（绿点线）**恢复了 K-A₁′ cusp** —— 石墨烯-FT **1572/1309、kink 10.8 ≈ DFT 1570/1292、kink 14.4**（Γ/K 处;恢复 **~75% 的 K cusp**）；残余 ~25% 是短程 MLIP 学不全的**长程极限**（→ `smearing-kink-ml` 的长程项/ML-EPW 路线）。基础模型平滑且软了 ~330 cm⁻¹。**修复注：** 早先草稿把 FT 画在**非公度 5×5** 网格上 → 假象 K=1368/平（kink 0.9）;在 **K-公度 6×6** 网格上蒸馏+评估即恢复 cusp。*
 
 石墨烯 DFT 蒸馏力 RMSE **18 meV/Å**。Gate #1 = **PASS**。
 

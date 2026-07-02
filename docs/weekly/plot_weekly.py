@@ -346,9 +346,9 @@ def fig9_kohn_anomaly():
 
     # ---- (b) top optical branch zoom: who keeps the cusp
     top = fd.shape[1] - 1
-    axB.plot(xd, fd[:, top], color=CB["blue"],  lw=2.3,               label="DFT (truth)        1570 / 1292", zorder=4)
-    axB.plot(xg, fg[:, top], color=CB["green"], lw=1.9, ls=(0,(1,1)), label="graphene-FT       1570 / 1368", zorder=3)
-    axB.plot(xm, fm[:, top], color=CB["orange"],lw=1.9, ls="--",      label="foundation MACE  1238 / 1113", zorder=2)
+    axB.plot(xd, fd[:, top], color=CB["blue"],  lw=2.3,               label="DFT (truth)           1570 / 1292  (kink 14.4)", zorder=4)
+    axB.plot(xg, fg[:, top], color=CB["green"], lw=1.9, ls=(0,(1,1)), label="graphene-FT (6×6)  1572 / 1309  (kink 10.8)", zorder=3)
+    axB.plot(xm, fm[:, top], color=CB["orange"],lw=1.9, ls="--",      label="foundation MACE     1240 / 1113  (over-soft)", zorder=2)
     for xpos in lp:
         axB.axvline(xpos, color="#bbb", lw=0.8, zorder=1)
     axB.scatter([lp[1], lp[2]], [fd[gi].max(), fd[ki].max()], s=42,
@@ -356,8 +356,8 @@ def fig9_kohn_anomaly():
     axB.set_xticks(lp); axB.set_xticklabels(lab)
     axB.set_xlim(xd.min(), xd.max())
     axB.set_ylabel("highest optical branch (cm⁻¹)")
-    axB.set_title("(b) top branch zoom — DFT & graphene-FT keep the cusp;\n"
-                  "foundation MLIP over-softens (Γ −21 %) and smooths it")
+    axB.set_title("(b) top branch zoom — the 6×6-distilled FT recovers the K-A₁′ cusp\n"
+                  "(kink 10.8 vs DFT 14.4 ≈ 75%; residual = the long-range limit)")
     axB.legend(loc="lower center", fontsize=7.8, title="  Γ-E₂g / K-A₁′  (cm⁻¹)",
                title_fontsize=8, ncol=1,
                frameon=True, framealpha=0.85, facecolor="white", edgecolor="none")
@@ -407,7 +407,7 @@ def fig10_td_kohn_anomaly():
     axA.text(0.5, 0.955, "K-A₁′ softens only ~1–2 % (1187→1172 cm⁻¹) yet the cusp is robust",
              transform=axA.transAxes, ha="center", fontsize=7.6, color="#555")
     axA.text(0.02, 0.12, "fine-tuned MLIP (L)-channel — no finite-T DFT (infeasible; Fig 11).\n"
-             "FT↔DFT validated at 0 K in Fig 9 (graphene-FT 1570/1368 ≈ DFT 1570/1292).",
+             "FT↔DFT validated at 0 K in Fig 9 (graphene-FT 1572/1309 ≈ DFT 1570/1292).",
              transform=axA.transAxes, fontsize=6.9, color="#999", va="bottom")
 
     # ---- (b) NbSe2: the CDW soft mode heals with T; 0 K FT-vs-DFT anchors made explicit
