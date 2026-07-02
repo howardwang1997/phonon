@@ -501,6 +501,89 @@ def fig11_td_speedup():
     print("wrote fig11_td_speedup.png")
 
 
+# ============================================================ FIG 12 — Kohn anomaly vs electronic smearing
+def fig12_smearing_kohn():
+    """Graphene Kohn anomaly vs electronic smearing (degauss) — the (E)-channel
+    resolution. Real DFT frozen-phonon dispersions (results/vq2, 5×5 grid),
+    embedded in figdata/graphene_dg*.npz (601-q M–Γ–K–M, 6 branches). The Γ-E₂g
+    cusp weakens monotonically as smearing rises (kink 8.2→5.8); K-A₁′ is
+    under-resolved on the non-commensurate 5×5 grid (kink ~1) — the real K cusp
+    needs a 6×6 K-commensurate grid (V-Q1: kink 14.4). Classic reference:
+    Piscanec et al., PRL 93, 185503 (2004), which sweeps smearing 0.01–0.20."""
+    THZ2CM = 33.35641
+    FD = os.path.join(os.path.dirname(__file__), "figdata")
+    dgs = [0.005, 0.01, 0.02, 0.04]
+
+    def load(dg):
+        d = np.load(os.path.join(FD, f"graphene_dg{dg}.npz"), allow_pickle=True)
+        return (np.asarray(d["distances"]), np.asarray(d["frequencies"]),
+                np.asarray(d["label_positions"]))
+    D = {dg: load(dg) for dg in dgs}
+    dist0, _, lp = D[0.005]
+    gpos, kpos = lp[1], lp[2]
+    labels = ["M", "Γ", "K", "M"]
+    cramp = plt.cm.Blues(np.linspace(0.92, 0.5, len(dgs)))  # sequential: dark = low smearing (sharp)
+
+    def kink(dist, ythz, x0, span=8):
+        i = int(np.argmin(np.abs(dist - x0)))
+        lo, hi = max(0, i - span), min(len(dist) - 1, i + span)
+        sl = np.polyfit(dist[lo:i + 1], ythz[lo:i + 1], 1)[0]
+        sr = np.polyfit(dist[i:hi + 1], ythz[i:hi + 1], 1)[0]
+        return abs(sr - sl)
+    kinks_g = [kink(D[dg][0], D[dg][1][:, -1], gpos) for dg in dgs]
+
+    fig, (axA, axB) = plt.subplots(1, 2, figsize=(12.4, 5.0),
+                                   gridspec_kw=dict(width_ratios=[1.55, 1]))
+    # ---- (a) full spectrum (all branches; top optical branch bold)
+    for c, dg in zip(cramp, dgs):
+        dist, f, _ = D[dg]
+        fcm = f * THZ2CM
+        for b in range(f.shape[1] - 1):
+            axA.plot(dist, fcm[:, b], color=c, lw=0.6, alpha=0.5, zorder=2)
+        axA.plot(dist, fcm[:, -1], color=c, lw=1.9, zorder=3)
+    for xp in lp:
+        axA.axvline(xp, color="#ccc", lw=0.8, zorder=1)
+    axA.set_xticks(lp); axA.set_xticklabels(labels)
+    axA.set_xlim(dist0.min(), dist0.max()); axA.set_ylim(-20, 1740)
+    axA.set_ylabel("phonon frequency (cm⁻¹)")
+    axA.set_title("(a) full graphene phonon spectrum vs electronic smearing\n"
+                  "(DFT frozen-phonon, 5×5 grid; top optical branch bold)")
+    axA.annotate("Γ-E₂g\nKohn cusp", (gpos, 1580), (gpos - 0.03, 1330),
+                 fontsize=8.2, color="#333", ha="center", fontweight="bold",
+                 arrowprops=dict(arrowstyle="->"))
+    axA.annotate("K-A₁′\n(under-resolved, 5×5)", (kpos, 1360), (kpos + 0.015, 1010),
+                 fontsize=8, color="#999", ha="center",
+                 arrowprops=dict(arrowstyle="->", color="#999"))
+    # ---- (b) Γ-E₂g cusp zoom
+    for c, dg in zip(cramp, dgs):
+        dist, f, _ = D[dg]
+        mm = (dist >= gpos - 0.11) & (dist <= gpos + 0.11)
+        axB.plot(dist[mm], (f[:, -1] * THZ2CM)[mm], color=c, lw=2.2, zorder=3)
+    axB.axvline(gpos, color="#ccc", lw=0.8)
+    axB.set_xticks([gpos - 0.08, gpos, gpos + 0.08])
+    axB.set_xticklabels(["←M", "Γ", "K→"])
+    axB.set_ylabel("Γ-E₂g optical branch (cm⁻¹)")
+    axB.set_title("(b) the Γ-E₂g cusp sharpens as smearing → 0")
+    txt = "cusp kink |dv|:\n" + "\n".join(
+        f"  degauss {dg}: {kk:.1f}" for dg, kk in zip(dgs, kinks_g))
+    axB.text(0.03, 0.03, txt, transform=axB.transAxes, fontsize=8, va="bottom",
+             bbox=dict(boxstyle="round", fc="white", ec="#bbb", alpha=0.92))
+    axB.text(0.97, 0.97, "K-A₁′: flat on 5×5 (kink ~1, under-resolved)\n"
+             "real K cusp needs 6×6 → kink 14.4 (V-Q1)\n"
+             "classic: Piscanec PRL 2004 (smearing 0.01–0.20)",
+             transform=axB.transAxes, fontsize=6.9, va="top", ha="right", color="#b00")
+    handles = [plt.Line2D([], [], color=c, lw=2.6,
+                          label=f"degauss {dg} Ry  (T_el {int(dg*157887)} K)")
+               for c, dg in zip(cramp, dgs)]
+    fig.legend(handles=handles, loc="lower center", ncol=4, fontsize=8.2,
+               bbox_to_anchor=(0.5, -0.005))
+    fig.suptitle("Fig 12  Graphene Kohn anomaly vs electronic smearing — "
+                 "DFT frozen-phonon (E-channel)", fontweight="bold", fontsize=12.5)
+    fig.tight_layout(rect=[0, 0.06, 1, 0.93])
+    fig.savefig(f"{OUT}/fig12_smearing_kohn.png"); plt.close(fig)
+    print("wrote fig12_smearing_kohn.png; Γ kinks:", [round(k, 1) for k in kinks_g])
+
+
 if __name__ == "__main__":
     fig1_status_matrix()
     fig2_origin_map()
@@ -513,4 +596,5 @@ if __name__ == "__main__":
     fig9_kohn_anomaly()
     fig10_td_kohn_anomaly()
     fig11_td_speedup()
-    print("done (figs 1-11)")
+    fig12_smearing_kohn()
+    print("done (figs 1-12)")

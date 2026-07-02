@@ -137,6 +137,26 @@ The Kohn anomaly's evolution with *physical* temperature — the **(L)-channel**
 
 *Fig 11. Why the temperature-dependent calculation is only tractable with the MLIP. Any TDEP/SSCHA ω(q,T) map is force evaluations on thermally-sampled snapshots; the MLIP replaces the DFT force call. **(a)** per-force-evaluation wall time (DFT anchors measured, MLIP a typical GPU call): DFT CPU-QE ~120 s → GPU-QE ~16 s (~7.5×, the GPU-DFT factor) → MLIP-MACE ~0.1 s — the ~10³× "MLIP proxy" (GPU-DFT alone is only ~5–15×). **(b)** that unit cost × one full ω(q,T) map (~6,000 evals = 5 T × 300 cfg × 4 populations): MLIP ~10 min vs DFT projected ~27 h (GPU) / ~200 h (CPU). The DFT bars are **projected** from the measured per-config cost — a full DFT ω(q,T) map is never run, which is exactly why the MLIP is the enabling engine.*
 
+### 2.7 Graphene Kohn anomaly vs electronic smearing (the (E)-channel resolution)
+
+A direct DFT frozen-phonon probe of the (E) channel: sweep the electronic smearing (degauss) and watch the Kohn anomaly wash out — the canonical test of **Piscanec et al., PRL 93, 185503 (2004)** ("Kohn Anomalies and Electron-Phonon Interactions in Graphite"), which sweeps smearing **0.01–0.20** with a dense k-grid and shows the anomaly's slope ∝ EPC². Here the Γ-E₂g cusp **sharpens monotonically as smearing → 0**, its kink |dv| rising 5.8 → 8.2 (T_el 6315 → 789 K).
+
+![Fig 12 — Kohn anomaly vs electronic smearing](figs/fig12_smearing_kohn.png)
+
+*Fig 12. Graphene DFT frozen-phonon (`results/vq2`, 5×5, 601-q M–Γ–K–M) at four smearings. **(a)** the full phonon spectrum — only the top optical branch (E₂g / A₁′) responds to smearing; the acoustic and lower-optical branches are smearing-insensitive. **(b)** the Γ-E₂g Kohn cusp sharpens as the Fermi surface sharpens (smearing → 0). Colour is a sequential ramp in degauss (dark = low smearing). K-A₁′ is deliberately not drawn as a cusp — the 5×5 grid is not K-commensurate (kink ~1, an interpolation artifact); see the caveat under the table.*
+
+**Γ vs K cusp kink |dv| across smearing** (top optical branch):
+
+| degauss (Ry) | T_el (K) | Γ-E₂g ω (cm⁻¹) | **Γ kink \|dv\|** | K-A₁′ ω (cm⁻¹) | K kink \|dv\| |
+|---|---|---|---|---|---|
+| 0.005 | 789 | 1558.9 | **8.2** | 1361.6 | 0.7 † |
+| 0.010 | 1579 | 1567.7 | **7.0** | 1360.7 | 0.9 † |
+| 0.020 | 3158 | 1566.7 | **6.7** | 1356.0 | 1.2 † |
+| 0.040 | 6315 | 1553.4 | **5.8** | 1360.7 | 1.2 † |
+| *6×6 K-commensurate (V-Q1, ref.)* | — | — | — | *1292* | ***14.4*** |
+
+† **K on the 5×5 grid is under-resolved.** K=(⅓,⅓) is not commensurate with a 5×5 supercell, so the K-A₁′ cusp is smoothed into an interpolation artifact (kink ~1) — not the real anomaly. The physical K cusp requires a **6×6 K-commensurate** grid, where V-Q1 finds kink **14.4** (ω 1292 cm⁻¹). A proper K-kink-vs-smearing sweep to Piscanec's 0.20 therefore needs 6×6 DFT at each smearing — a V100 job, **not yet run**. The **Γ result (5.8 → 8.2) is clean and grid-converged**; it is the reportable (E)-channel-smearing datum today.
+
 ---
 
 ## 3. In-progress this week (live)
@@ -325,6 +345,7 @@ To promote λ from qualitative to publishable: (i) fine-grid convergence **nkf 2
 | Fig 9 | Graphene Kohn-anomaly phonon spectrum (DFT vs foundation/FT MLIP) | `results/vq1` converged DFT + `results/m1_1b` foundation/graphene-FT |
 | Fig 10 | Temperature-dependent Kohn anomaly — (L)-channel ω(q,T) + 0 K FT↔DFT anchors | `td_graphene_ft_m2` (M2) + `td_nbse2_ft_Tfix` (TDEP) + `nbse2_sscha` (SSCHA) + DFT 0 K |
 | Fig 11 | Speedup of the temperature-dependent calc (MLIP vs DFT force eval) | measured per-config anchors (Path-P GPU/CPU-QE) × ~6,000-eval ω(q,T) map |
+| Fig 12 | Graphene Kohn anomaly vs electronic smearing (Γ cusp weakening; K under-resolved caveat) | `results/vq2` DFT frozen-phonon 5×5 (degauss 0.005–0.04) + V-Q1 6×6 K reference; classic ref Piscanec PRL 2004 |
 
 Tables: §0 banked results · §2.1–2.4 per-flagship number tables · §4.1–4.2 remaining/roadmap experiments · §5.1 expected results · §5.2 compute · §5.3 data.
 
@@ -465,6 +486,26 @@ Kohn 反常随*物理*温度的演化 —— **(L)-通道**，区别于图 8 的
 ![图 11 — 含温度计算的加速](figs/fig11_td_speedup.png)
 
 *图 11. 为什么含温度计算只有用 MLIP 才可行。任何 TDEP/SSCHA ω(q,T) 图谱 = 在热采样构型上的力评估；MLIP 替掉 DFT 的力调用。**(a)** 单次力评估墙钟（DFT 锚点实测，MLIP 为典型 GPU 力调用）：DFT CPU-QE ~120 s → GPU-QE ~16 s（~7.5×，GPU-DFT 因子）→ MLIP-MACE ~0.1 s —— 即 ~10³× 的「MLIP 代理」（单纯 GPU-DFT 只有 ~5–15×）。**(b)** 该单位成本 × 一整张 ω(q,T) 图谱（~6000 次 = 5 T × 300 构型 × 4 populations）：MLIP ~10 min vs DFT 投影 ~27 h（GPU）/ ~200 h（CPU）。DFT 柱由实测单构型成本**投影** —— 完整 DFT ω(q,T) 图谱从不真跑，这正是 MLIP 成为使能引擎的原因。*
+
+### 2.7 石墨烯 Kohn 反常 vs 电子 smearing（(E)-通道分辨）
+
+对 (E) 通道的直接 DFT 冻结声子探针：扫电子 smearing（degauss），看 Kohn 反常被抹平 —— 即经典判据 **Piscanec et al., PRL 93, 185503 (2004)**（"Kohn Anomalies and Electron-Phonon Interactions in Graphite"），该文扫 smearing **0.01–0.20** 配密 k 网格，证明反常斜率 ∝ EPC²。这里 Γ-E₂g cusp 随 smearing → 0 **单调变尖**，kink |dv| 从 5.8 升到 8.2（T_el 6315 → 789 K）。
+
+![图 12 — Kohn 反常 vs 电子 smearing](figs/fig12_smearing_kohn.png)
+
+*图 12. 石墨烯 DFT 冻结声子（`results/vq2`，5×5，601-q M–Γ–K–M），四个 smearing。**(a)** 完整声子谱 —— 只有最高光学支（E₂g / A₁′）响应 smearing，声学与低光学支对 smearing 不敏感。**(b)** Γ-E₂g Kohn cusp 随费米面变尖（smearing → 0）而变尖。颜色为 degauss 的顺序色阶（深 = 低 smearing）。K-A₁′ 特意不画成 cusp —— 5×5 网格与 K 不公度（kink ~1，插值假象），见表下注。*
+
+**Γ 与 K 的 cusp kink |dv| 随 smearing 对比**（最高光学支）：
+
+| degauss (Ry) | T_el (K) | Γ-E₂g ω (cm⁻¹) | **Γ kink \|dv\|** | K-A₁′ ω (cm⁻¹) | K kink \|dv\| |
+|---|---|---|---|---|---|
+| 0.005 | 789 | 1558.9 | **8.2** | 1361.6 | 0.7 † |
+| 0.010 | 1579 | 1567.7 | **7.0** | 1360.7 | 0.9 † |
+| 0.020 | 3158 | 1566.7 | **6.7** | 1356.0 | 1.2 † |
+| 0.040 | 6315 | 1553.4 | **5.8** | 1360.7 | 1.2 † |
+| *6×6 K-公度（V-Q1，参考）* | — | — | — | *1292* | ***14.4*** |
+
+† **5×5 网格上 K 欠解析。** K=(⅓,⅓) 与 5×5 超胞不公度，K-A₁′ cusp 被平滑成插值假象（kink ~1），非真实反常。真实 K cusp 需 **6×6 K-公度** 网格，V-Q1 在那里得 kink **14.4**（ω 1292 cm⁻¹）。要正经把 K-kink-vs-smearing 扫到 Piscanec 的 0.20，需在每个 smearing 上做 6×6 DFT —— 一个 V100 job，**尚未跑**。**Γ 结果（5.8 → 8.2）干净且网格收敛**，是当下可报的 (E)-通道-smearing 数据。
 
 ---
 
