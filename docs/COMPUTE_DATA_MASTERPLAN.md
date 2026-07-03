@@ -99,13 +99,13 @@ The physics: the Kohn cusp is a **long-range oscillating FC ~cos(2k_F·R)/R^d** 
 short-range MLIP structurally recovers only ~75 % of it (Fig 9). This section = the compute to
 close the residual. **Two engines + the done baseline.**
 
-| Engine | What it learns | Training data (have?) | Compute | Machine |
-|---|---|---|---|---|
-| **Baseline: GP few-shot emulator** | kink(T) *scalar* | kink CSVs (✅) | ~free (CPU) | any — **DONE (S2)** |
-| **E2a: T_el-conditioned MLIP** | T_el as global feature; forces shift with T_el | 12 graphene fc₂(T_el) for FC-distill PoC (✅); force set for robust (❌) | ~5–10 variants × ~15–30 min = **~2–5 GPU-h** | **2060** |
-| **E2b: explicit long-range term** (Friedel/RKKY kernel or Ewald+k_F) | oscillating FC tail w/ k_F | same + k_F from bands (✅ family bands) | **~1–3 GPU-days** (mostly *implementation*/iteration) | **2060** |
-| **E2c: cutoff-scaling ceiling** (rc 4→6→8→10 Å) | proves short-range ceiling | same (✅ for PoC) | 4–8 fine-tunes × ~15–40 min = **~2–5 GPU-h** | **2060** |
-| **E1: ML-EPW** (DeepH/HamGNN → EPC → γ_qν) | DFT Hamiltonian → EPC; smearing analytic | family DFT **H(R)** dump (❌ — extra ~10–30 box-h V100 DFT) | **~1–4 GPU-weeks** + new pipeline; needs **>8 GB** | **H20 / rental** |
+| Engine | What it learns | Training data (have?) | Compute | Machine | Status |
+|---|---|---|---|---|---|
+| **Baseline: GP few-shot emulator** | kink(T) *scalar* | kink CSVs (✅) | ~free (CPU) | any | ✅ **DONE (S2)** |
+| **E2b: explicit long-range term** (Friedel 2k_F kernel) | oscillating FC tail w/ k_F | 12 fc₂(T_el) (✅) + k_F from bands | ~1 day (mostly impl.) | 2060/local | ✅ **DONE 2026-07-03** — see §4.2 |
+| **E2c: cutoff-scaling ceiling** (r_max 3→6, eff 6→12 Å) | proves short-range ceiling | reference fc₂ (✅) | done | 2060 | ✅ **DONE** (r_max sweep + fc₂-truncation) — see §4.2 |
+| **E2a: T_el-conditioned MLIP** | smearing-specific backbone reproduces its own kink | 12 fc₂(T_el) (✅) | ~1–1.5 GPU-h (3 smearings) | 2060 | ⏳ **RUNNING** (`gr_backbone_distill.sh`, launched 16:12) |
+| **E1: ML-EPW** (DeepH/HamGNN → EPC → γ_qν) | DFT Hamiltonian → EPC; smearing analytic | family DFT **H(R)** dump (❌ — extra ~10–30 box-h V100 DFT) | **~1–4 GPU-weeks** + new pipeline; needs **>8 GB** | **H20 / rental** | gated |
 
 **Engine-2 total (the long-range term): ~3–8 GPU-days, all on the 2060** (8 GB is ample — the
 fine-tunes use <2 GB; the cost is research iteration, not VRAM). **No rental.** Data for the **PoC is
@@ -136,6 +136,41 @@ vs. adapt:
 T_el-conditioned / long-range architecture and measure whether the K-A₁′ kink residual (~25 %, i.e.
 DFT 14.4 vs FT 10.8) closes. **Runnable on the 2060 today** once the 12 fc₂ are copied over
 (V100 → 2060, ~small).
+
+### 4.2 Status & results (2026-07-03)
+
+**E2b — DONE (full writeup `docs/LONGRANGE_TERM_FINDINGS.md`).** The (E)-channel long-range term is a
+**2-parameter thermally-damped Friedel oscillation** `fc₂(R;T_el)=backbone+B(T_el)·e^{−κ(T_el)R}·D0(R)`,
+D0 = full-tensor Fermi-surface waveform. Results on graphene 6×6, 12 smearings (kink_K, DFT 22.63→0.22):
+- **Fit** reproduces the whole smearing collapse, MAE ≈1.7 (backbone flat = 0.22); B≈1.1 (≈T_el-indep), κ↑.
+- **Few-shot:** smooth B, κ(T)=a·T^0.61 from **3 smearings** → 8 held-out kinks **MAE 0.87** ⇒ ξ∝T_el^(−0.6..−0.7).
+- **Transfer:** a=2.46 law → held-out kinks at **a=2.44 (MAE 0.27), a=2.48 (MAE 0.52)** from 2 anchors.
+- **Deployment:** `FriedelMACECalculator` (`scripts/smearing_kink/friedel_calc.py`) wraps any MLIP + adds the
+  Friedel harmonic term; validated round-trip (calc==direct add_template); composes with `mace_mp`.
+- **Analytic-template (drop the measured D0):** attempted, **negative** — graphene RKKY is sublattice-
+  dependent with fc-period ~2.3 Å (< 2π/|K|=3.69 Å); simple `cos(q*·R)` captures only ~19%. Keep the
+  measured 1-smearing template (cheap).
+- Code: `friedel_module/fit_friedel/transfer_friedel/friedel_calc/plot_*/analytic_template/_diag_kink.py`.
+  Figs: `results/smearing_kink/{friedel_module,friedel_transfer}.png`.
+
+**E2c — DONE.** From-scratch MACE r_max 3→6 Å (eff range 6→12) all reproduce kink_K ≈15 **in-distribution**
+(`graphene_rmax_sweep_kink.csv`) → no cutoff ceiling for *fitting*; but the two models give **opposite
+kink-vs-a transfer trends** (`graphene_rmax_transfer_a.csv`) → short-range MLIPs do **not** transfer, and
+fc₂-truncation kills the cusp below ~7–8 Å (`graphene_fc2_truncation.csv`). This is exactly the evidence
+that the explicit long-range term (E2b) is needed — which then transfers (MAE 0.27).
+
+**E2a — RUNNING on the 2060** (`gr_backbone_distill.sh`, launched 16:12, ~1–1.5 GPU-h): FC-distill a real
+graphene MACE at dg{0.002,0.010,0.080}; each should reproduce its own kink (conditioning baseline), and
+dg0.080 = the smearing-blind backbone for a quantitative `FriedelMACECalculator` deployment (replaces the
+poor MACE-MP-0). Eval: `scripts/smearing_kink/eval_backbone_deploy.py`.
+
+### 4.3 What the 2060 can run now (idle-GPU queue, all data-ready, no rental)
+
+1. **E2a backbone distillation** — *running*. On completion → `eval_backbone_deploy.py` = quantitative deployment.
+2. **(L)-axis kink(T_lat)** family (S-a): FT + TDEP for NbSe₂ + 2 TMDs — needs the fine-tuned models (have graphene; family FT small on 2060).
+3. **Family Friedel generalization** — repeat E2b on NbSe₂/TiSe₂ *once their DFT smearing-scan fc₂ lands* (V100, §2/§3); the 2060 does the fit/few-shot/transfer (CPU-cheap).
+4. **Cross-model backbone check** — distill the graphene backbone with SevenNet / MatterSim (`--model-type`) to show the Friedel module is backbone-agnostic.
+5. **Data-efficiency of the few-shot law** — how few smearings suffice for κ(T) (2 vs 3 vs 4 anchors); pure analysis on existing fc₂ (~free).
 
 ---
 
