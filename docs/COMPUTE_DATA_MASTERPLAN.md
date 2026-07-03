@@ -170,13 +170,21 @@ graphene MACE at dg{0.002,0.010,0.080} (~1 GPU-h). Results:
   validation, now with a genuine trained MACE (vs MACE-MP-0's broken bare kink=101). Models in
   `results/gr_backbone/dg{0.002,0.010,0.080}/` on the 2060.
 
-### 4.3 What the 2060 can run now (idle-GPU queue, all data-ready, no rental)
+### 4.3 2060 queue — status
 
-1. **E2a backbone distillation** — *running*. On completion → `eval_backbone_deploy.py` = quantitative deployment.
-2. **(L)-axis kink(T_lat)** family (S-a): FT + TDEP for NbSe₂ + 2 TMDs — needs the fine-tuned models (have graphene; family FT small on 2060).
-3. **Family Friedel generalization** — repeat E2b on NbSe₂/TiSe₂ *once their DFT smearing-scan fc₂ lands* (V100, §2/§3); the 2060 does the fit/few-shot/transfer (CPU-cheap).
-4. **Cross-model backbone check** — distill the graphene backbone with SevenNet / MatterSim (`--model-type`) to show the Friedel module is backbone-agnostic.
-5. **Data-efficiency of the few-shot law** — how few smearings suffice for κ(T) (2 vs 3 vs 4 anchors); pure analysis on existing fc₂ (~free).
+1. **E2a backbone distillation** — ✅ **DONE** (see §4.2).
+2. **Data-efficiency of the few-shot law** — ✅ **DONE** (`few_shot_dataeff.py`): the κ(T)=a·T^b law fit from
+   **3 anchor smearings** predicts held-out kinks to MAE ~1.6 → the few-shot law is data-cheap.
+3. **Cross-model backbone check** — ✅ **DONE**. Built a dedicated `phonon-sevenn` env (torch 2.6+cu124 GPU +
+   sevenn 0.13), fine-tuned **SevenNet** (7net-0 → graphene dg0.080, 50 ep) → backbone kink 0.23 (≈DFT 0.22).
+   **SevenNet + Friedel = 20.1/14.0/7.3** at T_el 316/1579/6315 — *identical* to MACE + Friedel (20.0/14.0/7.4).
+   ⇒ the Friedel module is **backbone-agnostic** across two MLIP frameworks (given a reference-matched
+   backbone; an off-the-shelf foundation model gives artifacts — the reference-mismatch, not the module).
+   `cross_model_check.py <checkpoint>`; env recipe in `setup_sevenn.sh` + `fix_sevenn_torch.sh` (2060).
+4. **(L)-axis kink(T_lat)** family (S-a): FT + TDEP for NbSe₂ + 2 TMDs — needs family FT models (⏳).
+5. **Family Friedel generalization** — repeat E2b on NbSe₂/TiSe₂/**VSe₂** once their DFT smearing-scan fc₂
+   lands (VSe₂ scan running on Box B); the 2060 does the fit/few-shot/transfer (CPU-cheap) (⏳ data).
+6. **E1 ML-EPW** — 🔒 gated → H20/rental (needs H(R) dump).
 
 ---
 
