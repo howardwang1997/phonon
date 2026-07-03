@@ -26,7 +26,8 @@ from friedel_calc import FriedelCorrection, FriedelMACECalculator, fc2_from_calc
 YDIR = ROOT / "results" / "vq_kink6"
 
 
-def sevennet_calc():
+def sevennet_calc(model="7net-0"):
+    """model = '7net-0' (foundation) or a path to a fine-tuned checkpoint .pth."""
     from sevenn.calculator import SevenNetCalculator
     dev = "cpu"
     try:
@@ -34,14 +35,12 @@ def sevennet_calc():
         dev = "cuda" if torch.cuda.is_available() else "cpu"
     except Exception:
         pass
-    for kw in ({"model": "7net-0"}, {}):     # API varies by version
+    for args in [((), {"model": model, "device": dev}),
+                 ((model,), {"device": dev})]:
         try:
-            return SevenNetCalculator(device=dev, **kw)
-        except TypeError:
-            try:
-                return SevenNetCalculator("7net-0", device=dev)
-            except Exception:
-                continue
+            return SevenNetCalculator(*args[0], **args[1])
+        except Exception:
+            continue
     raise RuntimeError("could not construct SevenNetCalculator")
 
 
@@ -53,8 +52,10 @@ def main():
     from phonon_accel.phonons import phonopy_to_ase
     ref_atoms = phonopy_to_ase(ph.supercell)
 
-    print("# cross-model: base = foundation SevenNet-0 (a DIFFERENT MLIP framework)")
-    base = sevennet_calc()
+    model = sys.argv[1] if len(sys.argv) > 1 else "7net-0"
+    tag = "fine-tuned dg0.080" if model != "7net-0" else "foundation 7net-0"
+    print(f"# cross-model: base = SevenNet ({tag}) — a DIFFERENT MLIP framework")
+    base = sevennet_calc(model)
     _, fc_b = fc2_from_calc(ph, base, subtract_ref=True)
     kb = fm.kink_of(ph, fc_b)[0]
     print(f"  SevenNet backbone only              -> kink_K={kb:6.2f}")
