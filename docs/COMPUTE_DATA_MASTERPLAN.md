@@ -104,7 +104,7 @@ close the residual. **Two engines + the done baseline.**
 | **Baseline: GP few-shot emulator** | kink(T) *scalar* | kink CSVs (✅) | ~free (CPU) | any | ✅ **DONE (S2)** |
 | **E2b: explicit long-range term** (Friedel 2k_F kernel) | oscillating FC tail w/ k_F | 12 fc₂(T_el) (✅) + k_F from bands | ~1 day (mostly impl.) | 2060/local | ✅ **DONE 2026-07-03** — see §4.2 |
 | **E2c: cutoff-scaling ceiling** (r_max 3→6, eff 6→12 Å) | proves short-range ceiling | reference fc₂ (✅) | done | 2060 | ✅ **DONE** (r_max sweep + fc₂-truncation) — see §4.2 |
-| **E2a: T_el-conditioned MLIP** | smearing-specific backbone reproduces its own kink | 12 fc₂(T_el) (✅) | ~1–1.5 GPU-h (3 smearings) | 2060 | ⏳ **RUNNING** (`gr_backbone_distill.sh`, launched 16:12) |
+| **E2a: T_el-conditioned MLIP** | smearing-specific backbone reproduces its own kink | 12 fc₂(T_el) (✅) | ~1 GPU-h (3 smearings) | 2060 | ✅ **DONE 2026-07-03** — see §4.2 |
 | **E1: ML-EPW** (DeepH/HamGNN → EPC → γ_qν) | DFT Hamiltonian → EPC; smearing analytic | family DFT **H(R)** dump (❌ — extra ~10–30 box-h V100 DFT) | **~1–4 GPU-weeks** + new pipeline; needs **>8 GB** | **H20 / rental** | gated |
 
 **Engine-2 total (the long-range term): ~3–8 GPU-days, all on the 2060** (8 GB is ample — the
@@ -159,10 +159,16 @@ kink-vs-a transfer trends** (`graphene_rmax_transfer_a.csv`) → short-range MLI
 fc₂-truncation kills the cusp below ~7–8 Å (`graphene_fc2_truncation.csv`). This is exactly the evidence
 that the explicit long-range term (E2b) is needed — which then transfers (MAE 0.27).
 
-**E2a — RUNNING on the 2060** (`gr_backbone_distill.sh`, launched 16:12, ~1–1.5 GPU-h): FC-distill a real
-graphene MACE at dg{0.002,0.010,0.080}; each should reproduce its own kink (conditioning baseline), and
-dg0.080 = the smearing-blind backbone for a quantitative `FriedelMACECalculator` deployment (replaces the
-poor MACE-MP-0). Eval: `scripts/smearing_kink/eval_backbone_deploy.py`.
+**E2a — DONE on the 2060** (`gr_backbone_distill.sh` + `eval_backbone_deploy.py`). FC-distilled a real
+graphene MACE at dg{0.002,0.010,0.080} (~1 GPU-h). Results:
+- **Conditioning baseline:** each smearing-specific MACE reproduces its own kink — dg0.002 → **23.74** (DFT
+  22.63), dg0.010 → **13.66** (13.33), dg0.080 → **0.22** (0.22, exact). ⇒ the backbone is expressive
+  enough for any single smearing; a single *fixed* model gives one kink, so T_el needs conditioning + the
+  long-range term.
+- **Quantitative deployment (real MLIP):** base = the dg0.080 MACE backbone + Friedel module → kink(T_el) =
+  20.0/16.9/14.0/10.7/7.4 vs DFT 22.6/15.7/13.3/9.8/3.9 (MAE ~1.5) — same quality as the harmonic-base
+  validation, now with a genuine trained MACE (vs MACE-MP-0's broken bare kink=101). Models in
+  `results/gr_backbone/dg{0.002,0.010,0.080}/` on the 2060.
 
 ### 4.3 What the 2060 can run now (idle-GPU queue, all data-ready, no rental)
 
