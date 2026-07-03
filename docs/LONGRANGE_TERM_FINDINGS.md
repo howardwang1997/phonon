@@ -64,14 +64,57 @@ fc₂(T_el) = MACE_short-range(smearing-blind)  +  Friedel_module(R; 2k_F, A(T_e
   (electrostatic long-range template); "Long-range electrostatics for MLIPs is easier than we
   thought", *JCP* 2026.
 
-## Status
+## Module BUILT & VALIDATED (2026-07-03)
 
-- **Proven (science):** steps 1–5 above — the (E)-channel long-range term is a 2-parameter damped
-  Friedel oscillation, necessary and sufficient for smearing-accurate graphene phonons. Committed.
-- **Remaining (engineering):** implement the Friedel module in MACE, fit A/ξ, run few-shot + transfer.
-  Compute: 2060 (8 GB ample; ~GPU-hours). No rental.
-- **Data in hand:** 12 graphene fc₂(T_el) (`results/vq_kink6/`, symlinked to `/data`), the r_max
-  models (`results/gr_rmax_sweep/` on 2060), the fc₂ on the 2060 (`results/vq1/…yaml`).
+Implemented and validated the module on the 12 graphene fc₂(T_el) (CPU numerics, local `phonon`
+env; no GPU/rental needed). Code: `scripts/smearing_kink/friedel_module.py` (geometry + kernel +
+fc assembly + kink readout), `fit_friedel.py` (fit + few-shot), `transfer_friedel.py` (cross-a),
+`plot_friedel.py` / `plot_transfer.py`.
+
+**Realized model** (the physically-correct form, after a decisive diagnostic):
+```
+fc₂(R; T_el) = fc₂_backbone(dg0.080)  +  B(T_el) · exp(−κ(T_el)·R) · D0(R)
+```
+- `D0(R)` = the **full 3×3-tensor** Fermi-surface Friedel waveform, measured once at the sharpest
+  smearing (`fc₂(dg0.002) − fc₂(dg0.080)`). Correct directionality + tensor structure baked in.
+- Two thermal parameters per smearing: amplitude `B(T_el)` and **extra damping rate**
+  `κ(T_el) = 1/ξ(T_el) − 1/ξ_ref`. Applied with the ASR self-term → a genuine, ASR-preserving
+  force-constant correction (plugs into phonopy; as an additive pair term, into an MLIP).
+
+**Decisive diagnostic (`_diag_kink.py`) — why the naive form failed first:** the Kohn cusp lives in
+the **off-diagonal / transverse** fc₂ components, NOT the bond-longitudinal one. A longitudinal-only
+(bond-stretch) correction reconstructs kink_K = 0.27 (dead); the **full tensor** is required. And the
+cusp is genuinely long-range: exact-Δ truncated to R≥3.5/5.5 Å gives kink 17.2/12.1 of the full 22.6.
+
+**Results (kink_K in THz/q-unit; DFT range 22.63 → 0.22):**
+- **Fit:** the 2-param envelope reproduces the entire kink collapse across all 12 smearings,
+  MAE ≈ 1.7 (vs the smearing-blind backbone which is flat at 0.22). `B ≈ 1.1` (≈T_el-independent
+  amplitude), `κ` monotonically increasing (thermal damping). A mild systematic +2 overshoot at
+  intermediate smearings is the one limitation — a single global waveform can't follow the small
+  drift of 2k_F with T_el (future: T_el-dependent 2k_F / rank-2 shape term). → `results/smearing_kink/friedel_fit.csv`
+- **Few-shot:** fitting smooth laws `B ≈ const` and `κ(T_el) = a·T_el^b` (b ≈ 0.6–0.7) from **just 3
+  anchor smearings** predicts the kink at the **8 held-out smearings with MAE 0.87** — the smooth law
+  regularises away the per-smearing overshoot. ⇒ `ξ(T_el) = 1/κ ∝ T_el^(−0.6…−0.7)` thermal damping length.
+- **Transfer across lattice constant:** the law fit at **a=2.46** (`κ ∝ T_el^0.74`) predicts the
+  held-out-smearing kinks at **a=2.44 with MAE 0.27**, measuring only 2 DFT points at the new `a`
+  (template + backbone). ⇒ the damping *physics* transfers; only the Fermi-surface waveform D0 is
+  re-measured once per material. (Second lattice constant a=2.48 pulling to confirm.) →
+  `results/smearing_kink/friedel_transfer.csv`
+- **Figures:** `results/smearing_kink/friedel_module.png` (collapse + few-shot + the fc₂ Friedel
+  tail), `friedel_transfer.png`.
+
+**What this establishes:** the (E)-channel long-range term is quantitatively a **2-parameter
+thermally-damped Friedel oscillation** — amplitude ~T_el-independent, damping length ξ ∝ T_el^(−0.6..−0.7)
+— that is both **few-shot** (3 smearings) and **cross-lattice transferable** (2 anchors at a new `a`).
+This is the metallic BAMBOO long-range module, validated at the force-constant level. Remaining
+(deployment, optional): wrap `add_template` as an additive term inside a MACE ASE-calculator so a
+finite-displacement run through it reproduces fc₂(T_el) directly; and generalise D0 → an analytic
+directional cos(q*·R) waveform to drop the one measured template per material.
+
+## Data in hand
+- 12 graphene fc₂(T_el) at a=2.46: `results/vq_kink6/graphene_sc6_dg*_phonopy.yaml` (also on Box A `/data`).
+- Held-out lattice constants (2D-surface DFT): `results/vq_surface/gr_a{2.44,2.48,2.50}_dg*_phonopy.yaml`.
+- r_max from-scratch models on the 2060 (`results/gr_rmax_sweep/`).
 
 ## Hardware notes
 
