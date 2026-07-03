@@ -118,8 +118,17 @@ backbone kink (0.22) and, at each T_el, a kink that **matches the direct `add_te
 (round-trip is faithful) and tracks DFT via the few-shot law. It also **composes with a real foundation
 MACE** (`mace_mp` medium): the Friedel term adds the correct T_el-dependence on top — though MACE-MP-0 is
 itself a poor graphene backbone (bare kink ~101 vs DFT ~14, a known foundation-model graphene failure), so
-a graphene-fine-tuned backbone is what production would use. **Remaining (optional):** generalise D0 → an
-analytic directional cos(q*·R) waveform to drop the one measured template per material.
+a graphene-fine-tuned backbone is what production would use.
+
+**Analytic-template attempt (`analytic_template.py`) — NEGATIVE, informative.** Tried to replace the one
+measured waveform D0 with a fully analytic Fermi-surface form `W(R)=Σ_{K∈star}cos(K·R+φ)·e^{−R/ξ₀}/R^p`
+times an in-plane tensor `(cL n̂n̂ + cT t̂t̂ + cz ẑẑ)`, even sublattice-resolved (independent A-A / A-B
+coeffs). It captures only ~19% of D0 (rel-resid 0.90) and the kink goes dead. Reason: graphene's Friedel/
+RKKY is genuinely harder than a K-cosine sum — the real-space fc oscillation period is **~2.3 Å**, *shorter*
+than the naïve K-period 2π/|K|=3.69 Å, and it is sublattice-dependent (√3×√3). A correct analytic waveform
+needs the proper nesting vector + sublattice-resolved RKKY tensor (Bessel radial envelopes), a research
+problem of its own. **Conclusion:** keep the **measured 1-smearing template per material** — it is cheap
+(one DFT fc₂), and the module already delivers few-shot (3 smearings) + cross-lattice transfer on top of it.
 
 ## Data in hand
 - 12 graphene fc₂(T_el) at a=2.46: `results/vq_kink6/graphene_sc6_dg*_phonopy.yaml` (also on Box A `/data`).
