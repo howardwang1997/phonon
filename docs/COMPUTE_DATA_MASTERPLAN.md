@@ -1,0 +1,197 @@
+# Compute & Data Master Plan — TD-phonon / Kohn-anomaly project
+
+**Date:** 2026-07-03 · **Scope:** all remaining experiments across **Part I (method)**, **Part II
+(discovery)**, the **`smearing-kink-ml` sub-line**, and the **long-range-MLIP training** — with the
+data required, the compute cost (computed from *measured* throughput), and which hardware runs each.
+Supersedes the single-V100 draft. Hardware specs below are **verified 2026-07-03**.
+
+---
+
+## 0. Hardware inventory (verified)
+
+| Machine | GPU / VRAM | CUDA / driver | Role | Torch |
+|---|---|---|---|---|
+| **Box A** `v100ts` / `v100` (root) | Tesla V100-SXM2 **32 GB** | 12.4 / 550 | graphene+NbSe₂ **DFT+EPW** | **CPU-only** (phonon env) |
+| **Box B** `v100bts` / `v100b` (root) | Tesla V100 **32 GB** | 12.4 / 550 | **full TMD family** DFT+EPW | CPU-only |
+| **2060** `howardwang@100.105.21.7` (`howard-pc`) | RTX **2060 SUPER 8 GB** (free) | 12.5 / 555 | **MLIP training / eval** | ✅ **GPU** — `~/miniconda3/envs/phonon`: torch 2.6.0+cu124, mace 0.3.16, e3nn 0.4.4 (verified: 200 train steps 0.26 s). 16 cores / 46 GB / 91 GB disk. Repo `~/phonon` (behind → needs `git pull`). |
+| **H20** 8× (96 GB) | — | — | MLIP **mass** train/benchmark | **OFFLINE this week** (resume when fleet returns) |
+
+**Lane model:** each V100 runs a **GPU-DFT lane** (`pw.x` via `gpupw.sh`) **∥** a **CPU lane**
+(`ph.x`/`epw.x`; MACE-CPU) concurrently (verified). The 2060 is **one 8 GB GPU-training lane**.
+The **TMD family is Box-B-bound** (pseudos + `tmd_*` scripts). Box A carries graphene/NbSe₂ + MLIP-CPU.
+
+**Key consequence for training:** the V100 phonon envs are **CPU-torch** → MLIP *training* there is
+impractical. Training belongs on the **2060 (GPU-torch, verified)**; the V100 32 GB GPUs *could* train
+(install CUDA-torch) but are saturated by the DFT/EPW critical path. **No rental is needed for MLIP
+training** — the 2060 suffices for every fine-tune below; only Engine-1 (ML-EPW, GPU-weeks, >8 GB)
+needs H20/rental.
+
+## 0.1 Measured per-unit cost (2026-07-03, V100 + 2060)
+
+| Task | Cost | Machine | Note |
+|---|---|---|---|
+| fc₂ **2×2** (k12) | ~14 min | V100 GPU-DFT | TiSe₂ scan 3 pts / 42 min |
+| fc₂ **4×4** (k8) | ~1–2 h | V100 GPU-DFT | 48 atoms |
+| graphene **6×6** fc₂ (k6) | ~8 min/pt | V100 GPU-DFT | 12-pt kink sweep ~1.6 h |
+| graphene 6×6 fc₂ (k12, low degauss) | **stuck >2 h** ⚠ | — | semimetal+low smearing — **avoid** |
+| **on-instability EPW**, strong soft mode | **~6–9 h** ⚠ | V100 CPU | TiSe₂ @0.005 (22 imag) >9 h |
+| EPW, mild/no soft mode | ~3–5 h | V100 CPU | NbSe₂/graphene ref |
+| (L)-channel TDEP (3 T) | ~0.5–1.5 h | V100 CPU (MACE) | running now |
+| **MACE fine-tune / FC-distill** | **~10–30 min** | **2060 GPU** | vs ~40 min on V100-CPU; 8 GB fits batch 1–4 |
+| SSCHA per material | ~1.5 h | V100/2060 | roadmap anchor |
+| χ(q) nesting (bands) | ~20–40 min | V100 GPU-DFT | per material |
+
+*Unit = "box-h" (one lane busy 1 h). Wall-clock assumes continuous running.*
+
+---
+
+## 1. Part I — Method lock (V100, no rental)
+
+Flagship rigor (NbSe₂ + graphene) to make the **method** submittable.
+
+| # | Experiment | Materials | Lane | Cost | Data needed (have?) |
+|---|---|---|---|---|---|
+| P1-a | **λ(T_el)/λ_q convergence** nkf 24→48→60, unified smearing, ≥5 T_el | NbSe₂ | CPU-EPW | ~18–30 h | reuse DFPT (✅) |
+| P1-b | **ASR re-pass** (q2r `zasr='crystal'`) | graphene, NbSe₂ | GPU+CPU | ~5–8 h | full-QE conda install (❌ needed) |
+| P1-c | convergence/error-bar sweeps (k,q,smearing,cell) | 2 flagships | GPU-DFT | ~10–18 h | — (✅) |
+
+**Part I:** **~33–56 box-h** = ~20–35 h CPU-EPW + ~15–25 h GPU-DFT. **Box A. Wall ≈ 1.5–2.5 d.**
+
+## 2. Part II — Discovery / (E)–(L) origin-map (V100, no rental)
+
+Family = 7 CDW (NbSe₂✓, TiSe₂✓, VSe₂◐, **NbS₂, 2H-TaS₂, 1T-TaS₂, 2H-TaSe₂**) + 4 controls.
+
+| # | Experiment | Remaining | Lane | Cost | Data needed (have?) |
+|---|---|---|---|---|---|
+| P2-a | **fc₂ + re-commensuration** (2×2→4×4/√3) | NbS₂, TaS₂×2, TaSe₂ (+VSe₂ 4×4 running) | GPU-DFT | ~12–18 h | Ta/Ti/V/S ONCV (✅ Box B) |
+| P2-b | **χ(q) nesting** | same 4 | GPU-DFT | ~2–3 h | bands (✅) |
+| P2-c | control fc₂ (confirm stable) | TiS₂,VS₂,MoS₂,WSe₂ | GPU-DFT | ~1–2 h | (✅) |
+| P2-d | **(E)-EPW γ_qν on-instability** ⚠ **bottleneck** | 5 CDW | **CPU-EPW** | **~30–55 h** | dvscf+Wannier per mat (gen'd) |
+| P2-e | **Path-P (L) labels** + distill | 6 CDW | GPU+CPU/2060 | ~10–15 h | fc₂ soft eigvecs (from P2-a) |
+| P2-f | **origin-map synthesis** + hunt re-classification | — | — | ~0 | exp T_CDW/INS (literature) |
+
+**Part II:** **~55–90 box-h** = ~30–55 h CPU-EPW (P2-d critical) + ~15–23 h GPU-DFT + ~7 h MLIP.
+**All Box-B-bound. Wall ≈ 3–5 d**, set by 5 serial family EPWs.
+> ⚠ **Cost driver + mitigation:** strongly-soft EPW is ~6–9 h & fragile (TiSe₂ >9 h). For each material
+> find the **marginal degauss** (just-soft, few imag) via a cheap 2×2 scan first → marginal EPWs
+> converge far faster. If a member still won't converge, its (E)-verdict falls back to fc₂-softness +
+> χ(q)-nesting (as TiSe₂/VSe₂ already show).
+
+## 3. Sub-line — the `kink(T_el, T_lat)` surface (V100 + 2060)
+
+S1/S2 already banked for graphene (Fig 13). Remaining single-V100 + 2060 work:
+
+| # | Experiment | Materials | Lane | Cost | Data needed (have?) |
+|---|---|---|---|---|---|
+| S-a | **(L)-axis kink(T_lat)** via FT+TDEP | graphene (running), NbSe₂, +2 TMD | V100-CPU/2060 | ~4–5 h | new FT (✅) |
+| S-b | **NbSe₂ (E) T_el finer sweep** (S6★ member) | NbSe₂ | GPU-DFT | ~2.5 h | (gen'd) |
+| S-c | **`kink(T_el,T_lat)` 2D surface** (degauss × lattice-T grid) | graphene | GPU-DFT | ~3–4 h | (gen'd) |
+| S-d | **few-shot emulator** per material | all done | 2060/local | ~0 | kink CSVs (✅) |
+
+**Sub-line:** **~10–12 box-h** = ~6–7 h GPU-DFT + ~5 h MLIP. Mostly Box A + 2060. **Wall ≈ 0.5–1 d**
+(hidden under Part I). **S1 ✓, S2 ✓ done.**
+
+---
+
+## 4. Long-range-MLIP training (the "put long-range into the MLIP") — **2060 / H20**
+
+The physics: the Kohn cusp is a **long-range oscillating FC ~cos(2k_F·R)/R^d** (Friedel/RKKY); a
+short-range MLIP structurally recovers only ~75 % of it (Fig 9). This section = the compute to
+close the residual. **Two engines + the done baseline.**
+
+| Engine | What it learns | Training data (have?) | Compute | Machine |
+|---|---|---|---|---|
+| **Baseline: GP few-shot emulator** | kink(T) *scalar* | kink CSVs (✅) | ~free (CPU) | any — **DONE (S2)** |
+| **E2a: T_el-conditioned MLIP** | T_el as global feature; forces shift with T_el | 12 graphene fc₂(T_el) for FC-distill PoC (✅); force set for robust (❌) | ~5–10 variants × ~15–30 min = **~2–5 GPU-h** | **2060** |
+| **E2b: explicit long-range term** (Friedel/RKKY kernel or Ewald+k_F) | oscillating FC tail w/ k_F | same + k_F from bands (✅ family bands) | **~1–3 GPU-days** (mostly *implementation*/iteration) | **2060** |
+| **E2c: cutoff-scaling ceiling** (rc 4→6→8→10 Å) | proves short-range ceiling | same (✅ for PoC) | 4–8 fine-tunes × ~15–40 min = **~2–5 GPU-h** | **2060** |
+| **E1: ML-EPW** (DeepH/HamGNN → EPC → γ_qν) | DFT Hamiltonian → EPC; smearing analytic | family DFT **H(R)** dump (❌ — extra ~10–30 box-h V100 DFT) | **~1–4 GPU-weeks** + new pipeline; needs **>8 GB** | **H20 / rental** |
+
+**Engine-2 total (the long-range term): ~3–8 GPU-days, all on the 2060** (8 GB is ample — the
+fine-tunes use <2 GB; the cost is research iteration, not VRAM). **No rental.** Data for the **PoC is
+already in hand** (12 fc₂). **Engine-1 stays H20/rental** (GPU-weeks, needs H(R) dump first).
+
+### 4.1 Architecture reference for E2b — BAMBOO
+
+**BAMBOO** (ByteDance; *Nat. Mach. Intell.* 2025 / arXiv:2404.07181; open-source `bytedance/bamboo`)
+is the template for the long-range term. It bolts an **explicit, analytic long-range module**
+(predicted atomic charges → Ewald/Coulomb `1/r`) onto a **local graph-equivariant-transformer (GET)**
+backbone, and stabilises training with **density-based ensemble knowledge distillation**. What we take
+vs. adapt:
+
+- **Adopt (the scaffold):** local equivariant GNN **+ a separate analytic long-range module + ensemble
+  distillation** — a proven, forkable pattern for reaching *beyond the local cutoff analytically*
+  (exactly the mechanism our fc₂-truncation result demands: the K-A₁′ cusp needs ~8–12 Å, §sub-line).
+- **Swap (the physics):** BAMBOO's long-range is **electrostatic** (net charges, Coulomb — for
+  *insulating* electrolytes). Graphene/TMD metals are ~charge-neutral; the Kohn cusp is instead a
+  **metallic Friedel/RKKY 2k_F oscillation** `~cos(2k_F·R)/R^d`. So **E2b = BAMBOO's scaffold with a
+  Fermi-surface 2k_F kernel** (k_F from the bands) in place of the Coulomb module — a long-range term
+  no existing MLIP has, and the genuine methodological novelty of the sub-line.
+- **Reuse (the training trick):** BAMBOO's ensemble distillation maps onto our FC-distillation of the
+  12 fc₂(T_el) → stability without a huge dataset.
+- **Compute note:** GET is heavier than MACE-small; the graphene PoC still fits the 2060's 8 GB, but a
+  full multi-material BAMBOO-style train may want H20 on return.
+
+**S3 test (the near-term deliverable):** FC-distill the 12 graphene fc₂(T_el) into a
+T_el-conditioned / long-range architecture and measure whether the K-A₁′ kink residual (~25 %, i.e.
+DFT 14.4 vs FT 10.8) closes. **Runnable on the 2060 today** once the 12 fc₂ are copied over
+(V100 → 2060, ~small).
+
+---
+
+## 5. Data requirements & gaps (per line)
+
+| Line | Data it needs | Have | Missing → cost to fill |
+|---|---|---|---|
+| **Part I** | NbSe₂ DFPT (reuse), full-QE (q2r) | DFPT ✅ | conda-install full QE (~1 h) |
+| **Part II** | family fc₂ + dvscf + Wannier + χ(q) | NbSe₂/TiSe₂ ✅, VSe₂◐ | 4–5 CDW fc₂/EPW → in §2 (~50–75 box-h) |
+| **Sub-line** | kink(T_el) + kink(T_lat) per material | graphene both ✅ | family (E)/(L) sweeps → in §3 |
+| **Long-range E2 (PoC)** | fc₂(T_el) spanning T_el, ≥1 material | **12 graphene fc₂ ✅** | none — **PoC-ready** |
+| **Long-range E2 (robust)** | diverse configs × degauss forces | ~1 config/degauss (sparse) ❌ | **~50–90 GPU-h V100 DFT** — reuse (L)-TDEP thermal snapshots (~360 configs) × 4–6 degauss |
+| **Long-range E1 (ML-EPW)** | family DFT H(R) + EPC | ❌ | H(R) dump ~10–30 box-h V100 + H20 training |
+
+**The one data gap that matters:** the robust long-range MLIP needs a proper **(E)-channel force
+dataset** (diverse configs × several degauss). **Smart fill:** the (L)-channel TDEP already emits
+~120 thermal snapshots/T × 3 T ≈ **360 physically-relevant configs**; re-run SCF on them at 4–6
+degauss → a combined **(E)×(L) training set for ~50–90 GPU-h** on a V100 GPU-DFT lane. This is the
+one item to **add to the V100 queue** if we go past the S3 PoC.
+
+---
+
+## 6. Totals, wall-clock, critical path
+
+| Line | GPU-DFT (V100) | CPU-EPW (V100) | MLIP (2060/CPU) | Total |
+|---|---|---|---|---|
+| Part I | 15–25 | 20–35 | — | 33–56 box-h |
+| Part II | 15–23 | 30–55 | 7 | 55–90 box-h |
+| Sub-line | 6–7 | — | 5 | 10–12 box-h |
+| **V100 subtotal** | **36–55** | **50–90** | **12** | **~100–160 box-h** |
+| Long-range E2 (2060) | — | — | ~3–8 GPU-**days** | (2060, parallel) |
+| Long-range robust-data (V100) | +50–90 | — | — | optional add-on |
+| Long-range E1 (H20/rental) | H(R) +10–30 | — | ~1–4 GPU-**weeks** | gated |
+
+**Critical path = V100 CPU-EPW (~50–90 box-h), Box-B-serial → ~3–5 days.** Everything else hides under it:
+- Box A: Part I + sub-line → ~2 d.
+- **2060: Engine-2 long-range training runs fully in parallel** (independent machine) → ~3–8 d of iteration, gated only on the 12 fc₂ (already have) for the PoC.
+
+**Two nearly-free accelerators:**
+1. **Copy TMD pseudos+scripts → Box A** (~15 min) = 2nd parallel CPU-EPW lane → family EPW wall **~halved** → whole V100 plan **~2.5–3 d**.
+2. **2060 starts the long-range PoC now** — it's idle and PoC-data-ready, so it costs nothing against the V100 critical path.
+
+---
+
+## 7. Suggested ordering (saturate all three machines)
+
+1. **Box B (now→t+2 d):** GPU-lane runs family fc₂ + re-commensuration (P2-a/b/c) — each finished fc₂
+   unblocks an EPW; CPU-lane drains the family EPW queue (P2-d) at the **marginal degauss**.
+2. **Box A (parallel):** Part I rigor (P1-a/c) + sub-line (S-a running, S-b, S-c); add ASR (P1-b) after
+   full-QE install. Optionally become 2nd EPW lane (accelerator #1) once Part I frees its CPU.
+3. **2060 (parallel, independent):** `git pull`; copy the **12 graphene fc₂** from Box A → run the
+   **S3 long-range/conditioned FC-distill PoC** (E2a→E2c). If it closes the residual, escalate to the
+   robust dataset (fill via TDEP-snapshots×degauss on a V100 lane, §5).
+4. **t+3–5 d:** all fc₂/EPW/Path-P in → build the **(E)/(L) origin-map (P2-f)** + graphene 2D surface →
+   Part I submittable, Part II discovery in hand, long-range verdict (does the term recover the cusp?).
+5. **Gated on S2–S4 signal:** Engine-1 ML-EPW + family-scale dense EPW → **H20 (on return) / rental**.
+
+**Out of single-machine scope (H20 mass / rental):** E1 ML-EPW GPU-weeks, family-wide dense-grid EPW
+scale-up, the E1/E3/E4 MLIP benchmark-atlas + ablations + (L)-SSCHA family screen + E9 κ (~900–1,800 GPU-h).
