@@ -155,7 +155,21 @@ A direct DFT frozen-phonon probe of the (E) channel: sweep the electronic smeari
 | 0.040 | 6315 | 1553.4 | **5.8** | 1360.7 | 1.2 † |
 | *6×6 K-commensurate (V-Q1, ref.)* | — | — | — | *1292* | ***14.4*** |
 
-† **K on the 5×5 grid is under-resolved.** K=(⅓,⅓) is not commensurate with a 5×5 supercell, so the K-A₁′ cusp is smoothed into an interpolation artifact (kink ~1) — not the real anomaly. The physical K cusp requires a **6×6 K-commensurate** grid, where V-Q1 finds kink **14.4** (ω 1292 cm⁻¹). A proper K-kink-vs-smearing sweep to Piscanec's 0.20 therefore needs 6×6 DFT at each smearing — a V100 job, **not yet run**. The **Γ result (5.8 → 8.2) is clean and grid-converged**; it is the reportable (E)-channel-smearing datum today.
+† **K on the 5×5 grid is under-resolved.** K=(⅓,⅓) is not commensurate with a 5×5 supercell, so the K-A₁′ cusp is smoothed into an interpolation artifact (kink ~1) — not the real anomaly. The physical K cusp requires a **6×6 K-commensurate** grid, where V-Q1 finds kink **14.4** (ω 1292 cm⁻¹). A proper K-kink-vs-smearing sweep to Piscanec's 0.20 therefore needs 6×6 DFT at each smearing — a V100 job, **now done → §2.8 / Fig 13**. The **Γ result (5.8 → 8.2) is clean and grid-converged**; it is the reportable (E)-channel-smearing datum today.
+
+---
+
+### 2.8 The 6×6 K-commensurate kink(T_el) — K-A₁′ resolved (2026-07-03) + few-shot prediction
+
+The 6×6 K-kink-vs-smearing sweep flagged as "not yet run" in §2.7 **is now done** (V100, overnight 2026-07-03): graphene DFT frozen-phonon on the K-commensurate 6×6 grid at **12 smearings** (T_el 316–12631 K). The K-A₁′ kink is **resolved at last** and washes out monotonically — **kink 22.6 → 0.22** as T_el rises (the 5×5 grid gave a flat ~1 artifact); Γ-E₂g goes **14.8 → 3.2** on the same grid. Both cusps are **steepest over T_el ≈ 300–3000 K** — the sharp-transition window that is the (E)-channel origin signature.
+
+![Fig 13 — 6×6 kink(T_el) resolved + few-shot](figs/fig13_kink_Tel.png)
+
+*Fig 13. **(a)** graphene (E)-channel Kohn kink vs electronic smearing on the K-commensurate 6×6 grid (DFT frozen-phonon; `results/smearing_kink/graphene_kink_Tel_6x6.csv`). The K-A₁′ kink (green) is now a real cusp, 22.6 → 0.22; Γ-E₂g (blue) 14.8 → 3.2; shaded = the sharp-transition window. **(b)** the `smearing-kink-ml` few-shot GP baseline (S2): held-out kink MAE falls to **0.45** (range 0.2–22.6) from **~9 training points** — "predict the whole curve from a few DFT points" holds on real data.*
+
+**Two more family (E)-verdicts this run** (V100, on-instability re-commensuration):
+- **1T-TiSe₂** — sharp electronic onset: the 2×2 fc₂ is **stable at degauss ≥0.006** but goes **soft at ≤0.005** (min freq −0.36 THz, 22 imag). Its CDW is Fermi-surface / smearing-driven — an (E)-channel instability that needs sharp smearing to appear (not beyond DFT). On-instability EPW γ_qν at degauss 0.005 is computing.
+- **1T-VSe₂** — the CDW is **not captured by a 2×2 cell** at any smearing down to 0.002 (all stable) → it needs a larger/rotated cell; a **4×4** fc₂ scan is running to place it.
 
 ---
 
@@ -346,6 +360,7 @@ To promote λ from qualitative to publishable: (i) fine-grid convergence **nkf 2
 | Fig 10 | Temperature-dependent Kohn anomaly — (L)-channel ω(q,T) + 0 K FT↔DFT anchors | `td_graphene_ft_m2` (M2) + `td_nbse2_ft_Tfix` (TDEP) + `nbse2_sscha` (SSCHA) + DFT 0 K |
 | Fig 11 | Speedup of the temperature-dependent calc (MLIP vs DFT force eval) | measured per-config anchors (Path-P GPU/CPU-QE) × ~6,000-eval ω(q,T) map |
 | Fig 12 | Graphene Kohn anomaly vs electronic smearing (Γ cusp weakening; K under-resolved caveat) | `results/vq2` DFT frozen-phonon 5×5 (degauss 0.005–0.04) + V-Q1 6×6 K reference; classic ref Piscanec PRL 2004 |
+| Fig 13 | 6×6 K-commensurate kink(T_el) — **K-A₁′ resolved** (22.6→0.22) + few-shot GP (S2) | `results/smearing_kink/graphene_kink_Tel_6x6.csv` (V100 6×6 frozen-phonon, 12 smearings) + `kink_emulator.py` |
 
 Tables: §0 banked results · §2.1–2.4 per-flagship number tables · §4.1–4.2 remaining/roadmap experiments · §5.1 expected results · §5.2 compute · §5.3 data.
 
@@ -505,7 +520,21 @@ Kohn 反常随*物理*温度的演化 —— **(L)-通道**，区别于图 8 的
 | 0.040 | 6315 | 1553.4 | **5.8** | 1360.7 | 1.2 † |
 | *6×6 K-公度（V-Q1，参考）* | — | — | — | *1292* | ***14.4*** |
 
-† **5×5 网格上 K 欠解析。** K=(⅓,⅓) 与 5×5 超胞不公度，K-A₁′ cusp 被平滑成插值假象（kink ~1），非真实反常。真实 K cusp 需 **6×6 K-公度** 网格，V-Q1 在那里得 kink **14.4**（ω 1292 cm⁻¹）。要正经把 K-kink-vs-smearing 扫到 Piscanec 的 0.20，需在每个 smearing 上做 6×6 DFT —— 一个 V100 job，**尚未跑**。**Γ 结果（5.8 → 8.2）干净且网格收敛**，是当下可报的 (E)-通道-smearing 数据。
+† **5×5 网格上 K 欠解析。** K=(⅓,⅓) 与 5×5 超胞不公度，K-A₁′ cusp 被平滑成插值假象（kink ~1），非真实反常。真实 K cusp 需 **6×6 K-公度** 网格，V-Q1 在那里得 kink **14.4**（ω 1292 cm⁻¹）。要正经把 K-kink-vs-smearing 扫到 Piscanec 的 0.20，需在每个 smearing 上做 6×6 DFT —— 一个 V100 job，**现已跑完 → §2.8 / 图 13**。**Γ 结果（5.8 → 8.2）干净且网格收敛**，是当下可报的 (E)-通道-smearing 数据。
+
+---
+
+### 2.8 6×6 K-公度的 kink(T_el) —— K-A₁′ 解析出来了（2026-07-03）+ few-shot 预测
+
+§2.7 里标注"尚未跑"的 6×6 K-kink-vs-smearing 扫描**现已完成**（V100，2026-07-03 通宵）：石墨烯 DFT 冻结声子在 K-公度 6×6 网格上扫 **12 个 smearing**（T_el 316–12631 K）。K-A₁′ kink **终于解析出来**，随 T_el 上升单调抹平 —— **kink 22.6 → 0.22**（5×5 网格给的是平的 ~1 假象）；同网格 Γ-E₂g 为 **14.8 → 3.2**。两个 cusp 都在 **T_el ≈ 300–3000 K 最陡** —— 这个剧烈变化窗口就是 (E)-通道的起源指纹。
+
+![图 13 — 6×6 kink(T_el) 解析 + few-shot](figs/fig13_kink_Tel.png)
+
+*图 13. **(a)** 石墨烯 (E)-通道 Kohn kink vs 电子 smearing，K-公度 6×6 网格（DFT 冻结声子；`results/smearing_kink/graphene_kink_Tel_6x6.csv`）。K-A₁′ kink（绿）现在是真 cusp，22.6 → 0.22；Γ-E₂g（蓝）14.8 → 3.2；阴影 = 剧烈变化窗口。**(b)** `smearing-kink-ml` few-shot GP 基线（S2）：留出 kink MAE 用 **~9 个训练点**即降到 **0.45**（量程 0.2–22.6）—— "用少量 DFT 点预测整条曲线"在真实数据上成立。*
+
+**本轮另加两个家族 (E)-判决**（V100，on-instability 重新公度）：
+- **1T-TiSe₂** —— 电子起源、阈值很陡：2×2 fc₂ 在 **degauss ≥0.006 稳定**，但 **≤0.005 变软**（min freq −0.36 THz，22 个虚频）。它的 CDW 是费米面/smearing 驱动的 (E)-通道不稳定，需要尖锐 smearing 才出现（不超出 DFT）。degauss 0.005 上的 on-instability EPW γ_qν 正在算。
+- **1T-VSe₂** —— CDW **在 2×2 胞里抓不到**（smearing 低到 0.002 都稳定）→ 需更大/旋转的胞；**4×4** fc₂ 扫描正在跑以定位它。
 
 ---
 

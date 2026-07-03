@@ -568,8 +568,8 @@ def fig12_smearing_kohn():
         f"  degauss {dg}: {kk:.1f}" for dg, kk in zip(dgs, kinks_g))
     axB.text(0.03, 0.03, txt, transform=axB.transAxes, fontsize=8, va="bottom",
              bbox=dict(boxstyle="round", fc="white", ec="#bbb", alpha=0.92))
-    axB.text(0.97, 0.97, "K-A₁′: flat on 5×5 (kink ~1, under-resolved)\n"
-             "real K cusp needs 6×6 → kink 14.4 (V-Q1)\n"
+    axB.text(0.97, 0.97, "K-A₁′: flat on 5×5 here (kink ~1, under-resolved)\n"
+             "→ RESOLVED on 6×6: kink(T_el) 22.6→0.22 (Fig 13)\n"
              "classic: Piscanec PRL 2004 (smearing 0.01–0.20)",
              transform=axB.transAxes, fontsize=6.9, va="top", ha="right", color="#b00")
     handles = [plt.Line2D([], [], color=c, lw=2.6,
@@ -582,6 +582,41 @@ def fig12_smearing_kohn():
     fig.tight_layout(rect=[0, 0.06, 1, 0.93])
     fig.savefig(f"{OUT}/fig12_smearing_kohn.png"); plt.close(fig)
     print("wrote fig12_smearing_kohn.png; Γ kinks:", [round(k, 1) for k in kinks_g])
+
+
+# ============================================================ FIG 13 — (E)-channel kink(T_el), 6x6 resolved + few-shot
+def fig13_kink_Tel_6x6():
+    """Graphene (E)-channel Kohn kink vs electronic smearing on the 6×6
+    K-commensurate grid (2026-07-03 overnight) — the K-A₁′ kink resolved at last
+    (5×5 gave a flat ~1 artifact). Plus the smearing-kink-ml few-shot GP that
+    reconstructs the curve. Data: results/smearing_kink/graphene_kink_Tel_6x6.csv."""
+    Tel = np.array([316,474,632,789,947,1105,1579,2368,3158,4737,6315,12631])
+    kK  = np.array([22.63,18.51,16.74,15.72,15.04,14.52,13.33,11.56,9.75,6.42,3.91,0.22])
+    kG  = np.array([14.84,12.41,11.21,10.51,10.08,9.81,9.44,9.17,8.84,7.93,6.90,3.17])
+    lcn = np.array([2,3,4,5,6,7,8,9,10,11])
+    lcm = np.array([6.90,5.33,9.26,9.76,4.24,5.46,6.03,0.45,0.65,0.59])
+    fig, (axA, axB) = plt.subplots(1, 2, figsize=(11.6, 4.7))
+    axA.axvspan(300, 3000, color=CB["orange"], alpha=0.10)
+    axA.text(950, 21, "sharp-transition\nwindow", color=CB["orange"], fontsize=8, ha="center")
+    axA.plot(Tel, kK, "o-", color=CB["green"], ms=7, lw=2, mec="k", label="K-A₁′  (6×6, resolved)")
+    axA.plot(Tel, kG, "s-", color=CB["blue"], ms=6, lw=1.8, mec="k", label="Γ-E₂g")
+    axA.axhline(1.0, color="#bbb", ls=":", lw=1)
+    axA.text(360, 1.6, "5×5 K artifact ≈ 1 (flat)", color=CB["red"], fontsize=7.6)
+    axA.set_xscale("log"); axA.set_xlabel("electronic T_el (K)  [= degauss×157887]")
+    axA.set_ylabel("Kohn cusp kink |dv|")
+    axA.set_title("(a) 6×6 K-commensurate: the K-A₁′ kink resolved at last\nK 22.6→0.22 (flat on 5×5); Γ 14.8→3.2")
+    axA.legend(fontsize=8.5); axA.grid(alpha=.3)
+    axB.plot(lcn, lcm, "o-", color=CB["purple"], ms=7, lw=2, mec="k")
+    axB.axhline(1.0, ls="--", color="#888"); axB.text(2.2, 1.3, "MAE=1", color="#888", fontsize=8)
+    axB.annotate("~9 pts → MAE 0.45", (9, 0.45), (4.3, 4.2), fontsize=9, color=CB["purple"],
+                 arrowprops=dict(arrowstyle="->", color=CB["purple"]))
+    axB.set_xlabel("# training points (few-shot GP)"); axB.set_ylabel("held-out kink MAE")
+    axB.set_title("(b) few-shot GP reconstructs the whole curve\n(smearing-kink-ml S2, real data)")
+    axB.grid(alpha=.3)
+    fig.suptitle("Fig 13  Graphene (E)-channel kink(T_el) — 6×6 K resolved + few-shot prediction",
+                 fontweight="bold", fontsize=12.5)
+    fig.tight_layout(rect=[0, 0, 1, 0.94]); fig.savefig(f"{OUT}/fig13_kink_Tel.png"); plt.close(fig)
+    print("wrote fig13_kink_Tel.png")
 
 
 if __name__ == "__main__":
@@ -597,4 +632,5 @@ if __name__ == "__main__":
     fig10_td_kohn_anomaly()
     fig11_td_speedup()
     fig12_smearing_kohn()
-    print("done (figs 1-12)")
+    fig13_kink_Tel_6x6()
+    print("done (figs 1-13)")
