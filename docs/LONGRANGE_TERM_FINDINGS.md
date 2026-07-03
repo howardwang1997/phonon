@@ -106,10 +106,20 @@ cusp is genuinely long-range: exact-Δ truncated to R≥3.5/5.5 Å gives kink 17
 **What this establishes:** the (E)-channel long-range term is quantitatively a **2-parameter
 thermally-damped Friedel oscillation** — amplitude ~T_el-independent, damping length ξ ∝ T_el^(−0.6..−0.7)
 — that is both **few-shot** (3 smearings) and **cross-lattice transferable** (2 anchors at a new `a`).
-This is the metallic BAMBOO long-range module, validated at the force-constant level. Remaining
-(deployment, optional): wrap `add_template` as an additive term inside a MACE ASE-calculator so a
-finite-displacement run through it reproduces fc₂(T_el) directly; and generalise D0 → an analytic
-directional cos(q*·R) waveform to drop the one measured template per material.
+This is the metallic BAMBOO long-range module, validated at the force-constant level.
+
+**Deployment DONE — `scripts/smearing_kink/friedel_calc.py`.** The module is now an **ASE calculator**
+(`FriedelMACECalculator`) that wraps *any* base MLIP and adds the Friedel term as an additive
+**harmonic** long-range correction `E_Friedel(u) = ½·uᵀ·Δfc(T_el)·u`, `F = −Δfc(T_el)·u` (u = displacement
+from the reference supercell; exact in the finite-displacement phonon regime the term targets). T_el is a
+calculator argument; B(T_el), κ(T_el) come from the few-shot laws. Validation: driving a
+`HarmonicCalculator(DFT dg0.080 backbone)` + Friedel through phonopy finite-displacement recovers the
+backbone kink (0.22) and, at each T_el, a kink that **matches the direct `add_template` result to ~0.1**
+(round-trip is faithful) and tracks DFT via the few-shot law. It also **composes with a real foundation
+MACE** (`mace_mp` medium): the Friedel term adds the correct T_el-dependence on top — though MACE-MP-0 is
+itself a poor graphene backbone (bare kink ~101 vs DFT ~14, a known foundation-model graphene failure), so
+a graphene-fine-tuned backbone is what production would use. **Remaining (optional):** generalise D0 → an
+analytic directional cos(q*·R) waveform to drop the one measured template per material.
 
 ## Data in hand
 - 12 graphene fc₂(T_el) at a=2.46: `results/vq_kink6/graphene_sc6_dg*_phonopy.yaml` (also on Box A `/data`).
