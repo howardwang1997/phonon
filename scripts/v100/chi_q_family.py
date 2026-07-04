@@ -86,10 +86,12 @@ def main():
     efermi = scf.get_fermi_level()
     print(f"[nest:{a.name}] E_F={efermi:.3f} eV ({time.perf_counter()-t0:.0f}s); nscf {nk}x{nk} ...", flush=True)
 
-    # dense nscf on an explicit uniform grid
-    grid = [(i / nk, j / nk, 0.0) for i in range(nk) for j in range(nk)]
+    # dense nscf on an explicit uniform grid, IN THE SCF DIR (reuse charge density);
+    # explicit k-points need a weights column so ASE writes "K_POINTS crystal".
+    grid = np.array([[i / nk, j / nk, 0.0] for i in range(nk) for j in range(nk)])
+    grid4 = np.column_stack([grid, np.ones(len(grid))])
     nscf = espresso(a.pw, a.mpirun, a.nproc, pdir, pseudos, a.ecutwfc, a.ecutrho,
-                    a.degauss, "nscf", work / "nscf", kpts=grid, nbnd=a.nbnd)
+                    a.degauss, "nscf", work / "scf", kpts=grid4, nbnd=a.nbnd)
     atoms.calc = nscf
     try:
         atoms.get_potential_energy()
