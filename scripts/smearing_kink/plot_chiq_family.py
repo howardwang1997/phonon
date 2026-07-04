@@ -7,11 +7,11 @@ import matplotlib; matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 
 OI = {"2H-TaS2":"#0072B2","2H-TaSe2":"#56B4E9","1T-VSe2":"#E69F00",
-      "1T-TiSe2":"#009E73","NbS2":"#999999"}
-QCDW = {"2H-TaS2":1/3.,"2H-TaSe2":1/3.,"1T-VSe2":1/4.,"1T-TiSe2":1/2.,"NbS2":None}
+      "1T-TiSe2":"#009E73","NbS2":"#999999","NbSe2":"#CC79A7"}
+QCDW = {"2H-TaS2":1/3.,"2H-TaSe2":1/3.,"1T-VSe2":1/4.,"1T-TiSe2":1/2.,"NbS2":None,"NbSe2":1/3.}
 LAB = {"NbS2":"2H-NbS$_2$ (no CDW)","2H-TaS2":"2H-TaS$_2$","2H-TaSe2":"2H-TaSe$_2$",
-       "1T-VSe2":"1T-VSe$_2$","1T-TiSe2":"1T-TiSe$_2$"}
-order = ["2H-TaS2","2H-TaSe2","1T-VSe2","1T-TiSe2","NbS2"]
+       "1T-VSe2":"1T-VSe$_2$","1T-TiSe2":"1T-TiSe$_2$","NbSe2":"2H-NbSe$_2$"}
+order = ["2H-TaS2","2H-TaSe2","NbSe2","1T-VSe2","1T-TiSe2","NbS2"]
 
 fig, ax = plt.subplots(figsize=(6.4,4.4))
 data = {str(np.load(f,allow_pickle=True)["name"]): np.load(f,allow_pickle=True) for f in glob.glob("results/v100/chi_q/*/*_nesting.npz")}
