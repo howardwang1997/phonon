@@ -182,8 +182,12 @@ graphene MACE at dg{0.002,0.010,0.080} (~1 GPU-h). Results:
    backbone; an off-the-shelf foundation model gives artifacts — the reference-mismatch, not the module).
    `cross_model_check.py <checkpoint>`; env recipe in `setup_sevenn.sh` + `fix_sevenn_torch.sh` (2060).
 4. **(L)-axis kink(T_lat)** family (S-a): FT + TDEP for NbSe₂ + 2 TMDs — needs family FT models (⏳).
-5. **Family Friedel generalization** — repeat E2b on NbSe₂/TiSe₂/**VSe₂** once their DFT smearing-scan fc₂
-   lands (VSe₂ scan running on Box B); the 2060 does the fit/few-shot/transfer (CPU-cheap) (⏳ data).
+5. **Family Friedel generalization** — ✅ **DONE** (`friedel_family.py`, on 2060 + Box B CPU lane). The
+   (E)-channel damped-Friedel law **generalizes from graphene to real CDW materials**: the 2-parameter
+   envelope reproduces the soft-mode **min-freq(T_el) melting curve** to **MAE 0.018 THz for 1T-VSe₂**
+   (−2.18→−1.20→0→0 THz) and **0.010 THz for 2H-TaS₂** (−3.60→−2.88→−1.94→−0.46) — across polytypes.
+   (For these CDW soft modes the amplitude B(T_el) alone carries the melting, κ≈0 — simpler than graphene's
+   kink which needed both.) Adds NbS₂/2H-TaSe₂ once their scans finish.
 6. **E1 ML-EPW** — 🔒 gated → H20/rental (needs H(R) dump).
 
 ---
