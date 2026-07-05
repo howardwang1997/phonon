@@ -120,10 +120,15 @@ def main() -> int:
 
         fc2, rmse2, _ = tdp.effective_fc2(prim, ideal, sc_matrix, snaps, a.cutoff2)
         dist, freq, lp, labs = tdp.band_from_phonopy(ph0, fc2, npoints=a.npoints)
-        wG = al.branch_freq_at_label(dist, freq, lp, labs, r"$\Gamma$") * CM
-        wK = al.branch_freq_at_label(dist, freq, lp, labs, "K") * CM
-        kinks = {k["label"]: k for k in al.high_sym_kinks(dist, freq, lp, labs)}
-        kG, kK = kinks[r"$\Gamma$"]["kink_strength"], kinks["K"]["kink_strength"]
+        minf = float(freq.min())  # THz; the key TMD (soft-mode) observable
+        # graphene-specific readout (w_gamma/w_k, Kohn kink) — NaN for non-hexagonal/TMD paths
+        try:
+            wG = al.branch_freq_at_label(dist, freq, lp, labs, r"$\Gamma$") * CM
+            wK = al.branch_freq_at_label(dist, freq, lp, labs, "K") * CM
+            kinks = {k["label"]: k for k in al.high_sym_kinks(dist, freq, lp, labs)}
+            kG, kK = kinks[r"$\Gamma$"]["kink_strength"], kinks["K"]["kink_strength"]
+        except (KeyError, ValueError, IndexError):
+            wG = wK = kG = kK = float("nan")
 
         rmse23, fc3n, frac_cubic = float("nan"), float("nan"), float("nan")
         if not a.no_fc3:
