@@ -118,8 +118,12 @@ def main() -> int:
         F = np.concatenate([s.get_forces().ravel() for s in snaps])
         frms = float(np.sqrt(np.mean(F ** 2)))
 
-        fc2, rmse2, _ = tdp.effective_fc2(prim, ideal, sc_matrix, snaps, a.cutoff2)
-        dist, freq, lp, labs = tdp.band_from_phonopy(ph0, fc2, npoints=a.npoints)
+        try:
+            fc2, rmse2, _ = tdp.effective_fc2(prim, ideal, sc_matrix, snaps, a.cutoff2)
+            dist, freq, lp, labs = tdp.band_from_phonopy(ph0, fc2, npoints=a.npoints)
+        except Exception as e:
+            log(f"[{a.tag}] T={T:.0f} K: fc2 fit failed ({type(e).__name__}: {e}); skipping T")
+            continue
         minf = float(freq.min())  # THz; the key TMD (soft-mode) observable
         # graphene-specific readout (w_gamma/w_k, Kohn kink) — NaN for non-hexagonal/TMD paths
         try:
