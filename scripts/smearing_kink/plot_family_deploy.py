@@ -5,8 +5,8 @@ import matplotlib; matplotlib.use('Agg'); import matplotlib.pyplot as plt
 rows=list(csv.DictReader(open('results/smearing_kink/family_deploy_mlip.csv')))
 mats={}
 for r in rows: mats.setdefault(r['material'],[]).append((float(r['T_el']),float(r['MLIP_term']),float(r['DFT']),float(r['MAE'])))
-OI={'NbS2':'#D55E00','2H-TaS2':'#0072B2','2H-TaSe2':'#56B4E9','1T-VSe2':'#E69F00','NbSe2':'#CC79A7'}
-LAB={'NbS2':'2H-NbS$_2$','2H-TaS2':'2H-TaS$_2$','2H-TaSe2':'2H-TaSe$_2$','1T-VSe2':'1T-VSe$_2$','NbSe2':'2H-NbSe$_2$'}
+OI={'NbS2':'#D55E00','2H-TaS2':'#0072B2','2H-TaSe2':'#56B4E9','1T-VSe2':'#E69F00','NbSe2':'#CC79A7','1T-TiSe2':'#009E73'}
+LAB={'NbS2':'2H-NbS$_2$','2H-TaS2':'2H-TaS$_2$','2H-TaSe2':'2H-TaSe$_2$','1T-VSe2':'1T-VSe$_2$','NbSe2':'2H-NbSe$_2$','1T-TiSe2':'1T-TiSe$_2$'}
 fig,ax=plt.subplots(figsize=(6.8,4.7))
 for m,p in mats.items():
     p=sorted(p); T=np.array([x[0] for x in p])/1000; mlip=[x[1] for x in p]; dft=[x[2] for x in p]; mae=p[0][3]
