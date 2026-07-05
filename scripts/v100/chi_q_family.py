@@ -102,6 +102,8 @@ def main():
     E = E.reshape(nk, nk, -1)
 
     rho = np.exp(-(E / a.sigma) ** 2).sum(axis=2)
+    dos_ef = float(rho.sum() / (nk * nk) / (a.sigma * np.sqrt(np.pi)))  # states/eV/cell/spin
+    print(f"[nest:{a.name}] DOS(Ef) = {dos_ef:.4f} states/eV/cell/spin", flush=True)
     F = np.fft.fft2(rho)
     xi = np.fft.ifft2(np.abs(F) ** 2).real / (nk * nk)
     xi = xi / xi[0, 0]
