@@ -41,22 +41,34 @@ td_anharmonic.py:foundation MACE Langevin MD → 有效 fc₂(T) + **fc3 非谐�
 
 **目的**:T0–T2 是 MLIP triage(foundation 对 2D 不准 → 定性);T3 是 **DFT 验证的定量 (L)-T-演化**,达到可发表门槛。
 
-### 选材(只做 1–2 个,~3 天/材料)
-1. **1T-VSe₂**(必做):T0 露出的 (L) 异常(M 点软模)→ T3 验证它是不是真有 (L) 分量 = **非平凡发现**。
-2. **一个 2H 对照**(NbSe₂ 已有 SSCHA,可选 TaS₂):证明 2H 的 (L) 弱。
+### 框架修正(2026-07-06):T3 不是"租算力",是"非谐微调家族铺开"
+Path-P 非谐微调 = **手上算力**(V100 DFT + 2060 微调/SSCHA),不是 rental。这是 (E) 通道"FC-蒸馏 backbone + 长程项"的 (L) 类比。**全家族 6 个 CDW 材料铺开**(NbSe₂ 复用既有 Path-P 结果)。详见 `~/.claude/plans/...moonlit-marshmallow.md`。
+
+### T3 执行进度表(每材料:fc₂ → Path-P → 微调 → SSCHA → 验证)
+
+| 材料 | fc₂(dg0.015) | Path-P 数据 | 微调 MACE | SSCHA(T_lat) | 验证 |
+|---|---|---|---|---|---|
+| 1T-VSe₂ | 🔵 Box A(4×4) | ⏳ | ⏳ | ⏳ | ⏳ |
+| NbS₂ | ✅(既有) | 🔵 Box A | ⏳ | ⏳ | ⏳ |
+| 2H-TaS₂ | 🔵 Box B(3×3) | ⏳ | ⏳ | ⏳ | ⏳ |
+| 2H-TaSe₂ | ✅(既有) | 🔵 Box B | ⏳ | ⏳ | ⏳ |
+| 1T-TiSe₂ | ✅(既有) | 🔵 Box B | ⏳ | ⏳ | ⏳ |
+| NbSe₂ | ✅(既有) | ✅(既有) | ✅(既有 Stage C) | 🔵 复用 | ⏳ |
+
+**编排**:`scripts/smearing_kink/run_L_boxA.sh` + `run_L_boxB.sh`(V100:fc₂→Path-P,带 relay)+ `run_L_2060.sh`(2060:监听数据→微调→SSCHA)+ `relay_to_2060.sh`(box→2060 推 Path-P 数据)。
 
 ### 每材料流程(复用 NbSe₂ Path-P 那套)
 | 步 | 内容 | 机器 | 估时 |
 |---|---|---|---|
-| a | Path-P 非谐 DFT:热位移超胞(2–3 个 T_lat)的力/能 | Box A/B GPU-DFT | 1–2 天 |
-| b | 非谐微调 MACE(Path-P 力 + 曲率监督) | 2060 | 0.5–1 天 |
-| c | SSCHA(T_lat) 用非谐微调模型 → 软模(T_lat) vs DFT | 2060/Box | 几 h |
-| d | 与 (E)-melting 合成 → 该材料 (E)/(L) origin 结论 | 本地 | — |
+| a | Path-P 非谐 DFT:CDW 软模方向双井 + 热位移的力(~69 SCF) | Box A/B GPU-DFT | 2–3 h/材料 |
+| b | 非谐微调 MACE(`finetune_pathp_nbse2.sh`,energy-aware) | 2060 | 0.5–1 h/材料 |
+| c | SSCHA(T_lat) → 软模(T_lat) | 2060 | 15–30 min/材料 |
+| d | foundation vs 微调 backbone 软模;(L)-crossover vs 实验 T_CDW | 本地 | — |
 
 ### 数据/算力需求
-- **数据**:Path-P 非谐 DFT 力(贵,V100 GPU-DFT,~每材料 1–2 天)。这是 T3 瓶颈。
-- **算力**:Box A/B(V100 GPU-DFT,产 Path-P)+ 2060(微调 + SSCHA)。
-- **诚实边界**:foundation/distilled MLIP 的 (L)-TDEP/SSCHA 是 triage;只有 Path-P 非谐微调模型给出的 (L)-T-演化才是定论级。T3 只对 VSe₂(+1 对照)做。
+- **数据**:Path-P 非谐 DFT 力(V100 GPU-DFT,~69 SCF/材料)。瓶颈但手上可做。
+- **算力**:Box A/B(V100 GPU-DFT)+ 2060(微调 + SSCHA)。**不租 H100**(只有 C2 cutoff-scaling、C3 Engine-1 才租)。
+- **诚实边界**:foundation/distilled MLIP 的 (L)-TDEP/SSCHA 是 triage;Path-P 非谐微调模型给出的 (L)-T-演化才是定论级。
 
 ### 验收
 VSe₂ 的 (L)-软模(T_lat) 定量曲线 + 判定 (L) 分量是否显著 → 坐实/否定"T0 的 VSe₂ 异常"= 一个具体的非平凡 origin 发现。
