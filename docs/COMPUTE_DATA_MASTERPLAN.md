@@ -71,6 +71,14 @@ Family = 7 CDW (NbSe₂✓, TiSe₂✓, VSe₂◐, **NbS₂, 2H-TaS₂, 1T-TaS�
 | P2-f | **origin-map synthesis** + hunt re-classification | — | — | ~0 | exp T_CDW/INS (literature) |
 
 **Part II:** **~55–90 box-h** = ~30–55 h CPU-EPW (P2-d critical) + ~15–23 h GPU-DFT + ~7 h MLIP.
+
+> **(L)-channel rigor + (E) ceiling are rental (C-series, `RENTAL_EXPERIMENTS.md`):**
+> P2-e (Path-P) on V100 gives MLIP-triage (L)-curves; the **DFT-validated rigorous (L)** for the
+> VSe₂ anomaly + 1 control = **C1** (rental, ~5–7 d). The long-range-term convergence ceiling
+> (graphene 10×10/12×12) = **C2** (needs an 80 GB A100/H100 — 10×10 OOMs on 32 GB V100). The dynamic
+> (E) ceiling (Engine-1 ML-EPW) = **C3** (H20 train + V100 H(R) dump, ~2–4 wk). All gated on the
+> no-rental screens. See `docs/LCHANNEL_FAMILY_PLAN.md`.
+
 **All Box-B-bound. Wall ≈ 3–5 d**, set by 5 serial family EPWs.
 > ⚠ **Cost driver + mitigation:** strongly-soft EPW is ~6–9 h & fragile (TiSe₂ >9 h). For each material
 > find the **marginal degauss** (just-soft, few imag) via a cheap 2×2 scan first → marginal EPWs

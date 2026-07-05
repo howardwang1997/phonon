@@ -195,6 +195,16 @@ results/ablation/eval_*.csv # E3/E4 微调的留出集评测（沿用既有路�
 > **黄金法则**：FP64 租机只投给「L-通道判定为电子驱动候选」的材料。origin-map 把
 > 几十个候选收敛成少数几个值得做 EPW 的——这就是 engine「让发现变得 tractable」的地方。
 
+> **2026-07-05 update — (L)-screen executed + rental items logged.** The (L)-triage (T0) +
+> SSCHA (T1) + TDEP (T2) family screen has RUN (on 2060 + V100, no rental); see
+> `docs/LCHANNEL_FAMILY_PLAN.md`. **Result**: 2H CDW family is (L)-stable under foundation MACE
+> (→ electronic-origin candidates, as expected); **1T-VSe₂ shows a real (L) soft mode (−0.96 THz @ M)**
+> = the non-trivial-finding candidate → gated to **C1 (Path-P T3, rental)** for DFT validation.
+> The rigorous (L) curves (C1), long-range cutoff ceiling (C2, needs 80 GB card), and Engine-1
+> ML-EPW (C3, **H20 8-card train** + V100 H(R) dump) are now registered in `RENTAL_EXPERIMENTS.md`
+> C-series. H20's role: C3's DeepH/HamGNN fit (GPU-weeks, FP32 — H20's strength) + any R1
+> multi-material long-range-term BAMBOO train (`COMPUTE_DATA_MASTERPLAN.md` §4).
+
 ### 3.4 E9（κ）
 
 | 看到 | 含义 | 下一步 |
