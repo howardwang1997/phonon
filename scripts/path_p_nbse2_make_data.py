@@ -90,7 +90,7 @@ def make_espresso(pw, pseudo_dir, ecutwfc, ecutrho, kpts, degauss, directory):
                     "disk_io": "none", "verbosity": "low"},
         "system": {"ecutwfc": ecutwfc, "ecutrho": ecutrho,
                    "occupations": "smearing", "smearing": "cold", "degauss": degauss},
-        "electrons": {"conv_thr": 1e-8, "mixing_beta": 0.3,
+        "electrons": {"conv_thr": 1e-8, "mixing_beta": 0.2, "mixing_mode": "local-TF",
                       "electron_maxstep": 250, "diago_david_ndim": 4,
                       "startingwfc": "atomic+random"},
     }
