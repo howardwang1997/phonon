@@ -38,6 +38,10 @@ warnings.filterwarnings("ignore")
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "src"))
 sys.path.insert(0, str(ROOT / "scripts"))
+# drop this script's own dir (scripts/h20) from sys.path: its queue.py shadows stdlib
+# `queue` which sscha/torch import. Invoked by absolute path elsewhere, so safe to drop here.
+_here = str(Path(__file__).resolve().parent)
+sys.path = [p for p in sys.path if p != _here]
 
 import numpy as np   # noqa: E402
 
