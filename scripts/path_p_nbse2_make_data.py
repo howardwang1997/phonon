@@ -42,7 +42,7 @@ VASP_TO_THZ = 15.633302         # sqrt(eV/A^2/amu) -> THz
 THZ_TO_CM = 33.356410           # THz -> cm^-1
 KB_EV = 8.617333262e-5          # eV/K
 
-PSEUDOS = {"Nb": "Nb_ONCV_PBE-1.2.upf", "Se": "Se_ONCV_PBE-1.2.upf"}
+PSEUDOS = {e: f"{e}_ONCV_PBE-1.2.upf" for e in ("Nb", "Ta", "Ti", "V", "S", "Se", "Mo", "W", "C")}
 
 
 def soft_eigen(ph):
