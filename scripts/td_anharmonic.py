@@ -90,7 +90,11 @@ def main() -> int:
 
     prim0, info = tdc.relax_monolayer(at0, calc)
     name = Path(a.structure).stem
-    prim = tdc.build_monolayer(name, vacuum=7.5, a=info["a"], thickness=info["thickness"])
+    try:
+        prim = tdc.build_monolayer(name, vacuum=7.5, a=info["a"], thickness=info["thickness"])
+    except (ValueError, KeyError):
+        # family generalization: unknown monolayer (any TMD) -> use the relaxed primitive directly
+        prim = prim0
     prim.wrap()
     from phonon_accel.phonons import ase_to_phonopy, phonopy_to_ase
     from phonopy import Phonopy
