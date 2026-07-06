@@ -240,3 +240,20 @@ data/benchmark/e1_pool.txt
 # V100 campaign runtime artifacts (regenerated on the box each run)
 results/v100/
 data/v100/
+
+# SSCHA + QE scratch dumped into the repo root by cellconstructor / pw.x
+dyn_pop*
+espresso.*
+pwscf.save/
+pwscf.xml
+# Large regenerable training/index data
+mp_finetuning-*.xyz
+ft_valid_indices_*.txt
+data/anharm_Si/
+data/anharm2_Si/
+data/curv_Si/
+data/dft_ref/
+data/finetune_rndB_N8_s1/
+data/benchmark/._*
+# driver stdout captures
+results/h20/*.out
