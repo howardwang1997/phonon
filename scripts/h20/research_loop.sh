@@ -25,6 +25,14 @@ log "phase 1 runs done. regenerating SUMMARY + commit/push"
 bash scripts/h20/finalize_and_push.sh >> results/h20/finalize.log 2>&1
 log "phase 1 committed/pushed."
 
+# Phase 2: κ cell-convergence at sc4 for the underestimated materials (Ge/GaAs/BAs/C)
+log "phase 2: κ at sc4 for Ge/GaAs/BAs/C (b64,B79) — cell-convergence test ..."
+bash scripts/h20/run_kappa_sc4.sh >> results/h20/kappa_sc4.log 2>&1
+log "phase 2 runs done. regenerating SUMMARY + commit/push"
+"$PY" scripts/h20/aggregate.py >> results/h20/aggregate_final.log 2>&1
+bash scripts/h20/finalize_and_push.sh >> results/h20/finalize.log 2>&1
+log "phase 2 committed/pushed."
+
 # --- append further conceived phases below this line ---
 
 log "=== research loop end ==="
