@@ -87,13 +87,19 @@ Family = 7 CDW (NbSe₂✓, TiSe₂✓, VSe₂◐, **NbS₂, 2H-TaS₂, 1T-TaS�
 
 ## 3. Sub-line — the `kink(T_el, T_lat)` surface (V100 + 2060)
 
+**MISSION (refined 2026-07-08):** ONE unified MLIP+long-range-fine-tuned model reproduces the
+Kohn-anomaly **kink** in BOTH (E) smearing (T_el) and (L) temperature (T_lat) spectra. (E) kink(T_el)
+✅ done (graphene 0.31, 5 CDW 0.011–0.16); **(L) kink(T_lat) via MLIP+LR = central remaining deliverable**
+(extend Friedel LR term to T_lat-conditioning, fed by MD-TDEP fc₂(T_lat)). Strategic plan =
+`docs/UNIFIED_KINK_GOAL_2026-07-08.md`; ops = `docs/THREE_MACHINES_PHASE2_2026-07-07.md`.
+
 S1/S2 already banked for graphene (Fig 13). Remaining single-V100 + 2060 work:
 
 | # | Experiment | Materials | Lane | Cost | Data needed (have?) |
 |---|---|---|---|---|---|
-| S-a | **(L)-axis kink(T_lat)** via FT+TDEP | graphene (running), NbSe₂, +2 TMD | V100-CPU/2060 | ~4–5 h | new FT (✅) |
+| S-a | **(L)-axis kink(T_lat)** via FT+TDEP → feeds T_lat-LR term | VSe₂ 🔵(B1 running), TiSe₂, graphene, NbSe₂ | 2060 | ~11 h | Path-P FT (✅ VSe₂/TiSe₂) |
 | S-b | **NbSe₂ (E) T_el finer sweep** (S6★ member) | NbSe₂ | GPU-DFT | ~2.5 h | (gen'd) |
-| S-c | **`kink(T_el,T_lat)` 2D surface** (degauss × lattice-T grid) | graphene | GPU-DFT | ~3–4 h | (gen'd) |
+| S-c | **`kink(T_el,T_lat)` 2D surface** via unified MLIP+LR | graphene (+ VSe₂) | 2060+local | ~5 h + code | B1 fc₂(T_lat) (⏳) |
 | S-d | **few-shot emulator** per material | all done | 2060/local | ~0 | kink CSVs (✅) |
 
 **Sub-line:** **~10–12 box-h** = ~6–7 h GPU-DFT + ~5 h MLIP. Mostly Box A + 2060. **Wall ≈ 0.5–1 d**
@@ -189,7 +195,10 @@ graphene MACE at dg{0.002,0.010,0.080} (~1 GPU-h). Results:
    ⇒ the Friedel module is **backbone-agnostic** across two MLIP frameworks (given a reference-matched
    backbone; an off-the-shelf foundation model gives artifacts — the reference-mismatch, not the module).
    `cross_model_check.py <checkpoint>`; env recipe in `setup_sevenn.sh` + `fix_sevenn_torch.sh` (2060).
-4. **(L)-axis kink(T_lat)** family (S-a): FT + TDEP for NbSe₂ + 2 TMDs — needs family FT models (⏳).
+4. **(L)-axis kink(T_lat)** family (S-a, = the refined goal's central gap): MD-TDEP fc₂(T_lat) →
+   feeds the T_lat-conditioned Friedel LR term (B2). **B1 VSe₂ MD-TDEP 🔵 running** (2060,
+   `run_B1_2060_vse2_tdep.sh`, across T_CDW=110K); TiSe₂ + graphene next. NbSe₂ NQ=4 clean-λ EPW
+   queued on Box A (`run_EPW_boxA_nbse2_nq4.sh`); NbSe₂ NQ=3 λ=17 vetted as soft-mode divergence.
 5. **Family Friedel generalization** — ✅ **DONE** (`friedel_family.py`, on 2060 + Box B CPU lane). The
    (E)-channel damped-Friedel law **generalizes from graphene to real CDW materials**: the 2-parameter
    envelope reproduces the soft-mode **min-freq(T_el) melting curve** to **MAE 0.018 THz for 1T-VSe₂**
