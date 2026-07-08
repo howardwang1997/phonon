@@ -32,6 +32,8 @@ for m in sorted(set(r["material"] for r in melting)):
 # --- (L)-depth per material: most-negative SSCHA min-freq (cm^-1) ---
 L_DEPTH = {  # material -> |min SSCHA freq| (cm^-1); 0 = no (L)-instability
     "1T-VSe2": 411.9,   # fine sweep, 50K deepest
+    "1T-TiSe2": 552.0,  # 20K deepest (second 1T lattice-driven point, crossover=T_CDW=200K)
+    "TiSe2": 552.0,
     "2H-NbS2": 0.0, "NbS2": 0.0,
     "2H-TaS2": 0.0, "2H-TaSe2": 0.0,
     "NbSe2": 0.0,       # pathp SSCHA ~0 all T (electronic origin; Stage-D old model marginal)
