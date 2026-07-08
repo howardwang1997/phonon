@@ -73,6 +73,23 @@ class HarmonicCalculator(Calculator):
 
 
 # ------------------------------------------------ the Friedel long-range module
+def unified_kink_law(Tstar, p=4.44, q=3.00, B0=1.0):
+    """Cross-validated unified kink law (B2, 2026-07-08): the long-range Friedel
+    amplitude heals with reduced temperature on BOTH axes as
+        B(T) = B0 * max(0, 1 - (T/Tstar)**p) ** q
+    with UNIVERSAL (p,q)=(4.44, 3.00) fit on VSe2 (combined (E)+(L) soft-mode
+    MAE 0.026; cross-axis prediction MAE 0.024-0.037). Tstar = axis-specific heal
+    point: T_el* (smearing-melt) for the (E) axis, T_CDW for the (L) axis.
+    Returns a B_law callable for FriedelCorrection. See docs/UNIFIED_KINK_GOAL_2026-07-08.md.
+
+    Physics scope (honest): B-conditioning is the (E)-smearing MECHANISM (Friedel
+    amplitude decays as the Fermi surface smears). The (L) axis shares the same
+    reduced-T healing FORM empirically (cross-validated) but its healing is
+    anharmonic -- captured by the Path-P backbone, not by decaying B. So this law
+    is the (E)-deploy B(T_el); for (L) it describes the healing shape, not the mechanism."""
+    return lambda T: B0 * max(0.0, 1.0 - (float(T) / Tstar) ** p) ** q
+
+
 class FriedelCorrection:
     """Builds Delta_fc(T_el) (full fc) from the validated template-envelope model.
 
