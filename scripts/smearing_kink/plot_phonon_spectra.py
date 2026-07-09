@@ -250,9 +250,52 @@ def plot_kink_comparison():
     fig.savefig(out, dpi=150, bbox_inches="tight"); print("wrote", out)
 
 
+def plot_deploy_vs_dft():
+    """MLIP+long-range vs DFT full spectrum (does the method reproduce DFT?).
+    NbSe2: deployed (backbone + Friedel) vs DFT vs smearing-blind backbone."""
+    npz = SK / "deploy_vs_dft_NbSe2.npz"
+    if not npz.exists():
+        print(f"  [deploy] skip: {npz} missing"); return
+    d = np.load(npz, allow_pickle=True)
+    qs = d["qs"]
+    seglen = np.linalg.norm(np.diff(qs, axis=0), axis=1)
+    x = np.concatenate([[0.0], np.cumsum(seglen)])
+    seg_len = len(x) // 3
+    tick_x = [x[0], x[seg_len - 1], x[2 * seg_len - 1], x[-1]]
+    Ts = [int(t) for t in d["tel"]]
+    fig, axes = plt.subplots(1, len(Ts), figsize=(6.8 * len(Ts), 5.2), sharey=True)
+    if len(Ts) == 1:
+        axes = [axes]
+    for ax, T in zip(axes, Ts):
+        ax.plot(x, d[f"dft_T{T}"], color="#222", lw=2.0, alpha=0.9, label="DFT (target)")
+        ax.plot(x, d[f"mlip_T{T}"], color="#c0504d", lw=1.5, ls="--", alpha=0.95,
+                label="MLIP + long-range Friedel")
+        ax.plot(x, d["backbone"], color="#2f6f9f", lw=1.0, alpha=0.5,
+                label="backbone (smearing-blind)")
+        ax.set_xticks(tick_x); ax.set_xticklabels(LABELS)
+        for xt in tick_x[1:-1]:
+            ax.axvline(xt, color="#ccc", lw=0.6)
+        ax.axhline(0, color="#aaa", lw=0.6)
+        mae = np.mean(np.abs(d[f"mlip_T{T}"] - d[f"dft_T{T}"]))
+        ax.set_title(f"NbSe$_2$  $T_{{el}}$={T} K  (full-band MAE = {mae:.2f} cm$^{{-1}}$)", fontsize=10.5)
+        ax.set_xlim(tick_x[0], tick_x[-1]); ax.set_ylim(-115, 300)
+        for s in ("top", "right"):
+            ax.spines[s].set_visible(False)
+    axes[0].set_ylabel("frequency [cm$^{-1}$]")
+    # single shared legend OUTSIDE (top)
+    handles, labels = axes[0].get_legend_handles_labels()
+    fig.legend(handles, labels, loc="upper center", ncol=3, bbox_to_anchor=(0.5, 1.0),
+               frameon=False, fontsize=9.5)
+    fig.suptitle("MLIP + long-range fine-tuning reproduces DFT — incl. the Kohn anomaly (NbSe$_2$)", fontsize=11.5, y=0.93)
+    fig.subplots_adjust(left=0.07, bottom=0.13, right=0.98, top=0.80, wspace=0.10)
+    out = SK / "deploy_vs_dft_NbSe2.png"
+    fig.savefig(out, dpi=150); print("wrote", out)
+
+
 if __name__ == "__main__":
     which = sys.argv[1] if len(sys.argv) > 1 else "E"
     if which in ("E", "both"): plot_E()
     if which in ("L", "both"): plot_L()
     if which in ("Ltdep", "all"): plot_L_tdep()
     if which in ("kink", "all"): plot_kink_comparison()
+    if which in ("deploy", "all"): plot_deploy_vs_dft()

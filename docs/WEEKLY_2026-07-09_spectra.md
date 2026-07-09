@@ -41,6 +41,18 @@ foundation MACE 对 2D-TMD 不准(抹平 CDW 软模)。**Path-P 非谐微调**:�
 
 > 注:这是 **DFT fc2** 的色散(展示 smearing 的物理效应);MLIP+长程项部署复现它到 MAE 0.011–0.16(见 §1)。
 
+### 2.1 方法精度:MLIP+长程微调 vs DFT(能不能复现 DFT?)
+**图 `results/smearing_kink/deploy_vs_dft_NbSe2.png`**:NbSe₂ 的 Γ-M-K-Γ 全色散,**MLIP+长程(蒸馏 backbone + T_el-条件化 Friedel 长程项)vs DFT vs smearing-blind backbone**,两档 T_el。
+
+![MLIP+长程 vs DFT — NbSe2 全色散(MLIP 复现 DFT,含 Kohn 软模;backbone 单独抓不到)](../results/smearing_kink/deploy_vs_dft_NbSe2.png)
+
+| T_el | DFT soft-mode | MLIP+长程 soft-mode | 全色散 MAE |
+|---|---|---|---|
+| 789 K(dg0.005,锐) | −98.6 cm⁻¹ | **−97.7 cm⁻¹** | **0.65 cm⁻¹** |
+| 3158 K(dg0.020,宽) | −38.4 cm⁻¹ | −36.5 cm⁻¹ | 0.65 cm⁻¹ |
+
+**结论:能。** MLIP+长程微调以 **全色散 MAE 0.65 cm⁻¹** 复现 DFT,包括 **Kohn 软模**(−97.7 vs −98.6)。关键:**smearing-blind 的 backbone 单独只给 −36.5 cm⁻¹(抓不到锐 Kohn)→ 加上长程 Friedel 项后恢复到 −97.7** —— 正是长程项把 Kohn 反常(2k_F 奇异)加回来。这验证了"MLIP + 长程微调"框架的准确性:backbone 提供短程 MLIP 精度,长程项补上金属屏蔽的 smearing 依赖。
+
 ---
 
 ## 3. (L) 含温度谱 — 具体材料,温度对比
