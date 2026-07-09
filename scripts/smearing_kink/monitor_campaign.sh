@@ -28,13 +28,13 @@ while true; do
     fi
   fi
 
-  # M2 lambda rows (new)
+  # M2 lambda rows (new) — M2 runs on Box A (moved from Box B to free Box B for M1)
   while IFS= read -r r; do
     [ -z "$r" ] && continue
     case "$r" in material,*) continue;; esac
     seen "m2:$r" && continue
     mark "m2:$r"; echo "M2 lambda: $r"
-  done < <(sq "$BOXB" 'cat /root/family_lambda_stage2.csv 2>/dev/null')
+  done < <(sq "$BOXA" 'cat /root/family_lambda_stage2.csv 2>/dev/null')
 
   # M1 Box B all done — positive check on the driver's completion echo (robust to SSH hiccups;
   # a transient ssh failure must NOT look like "done"). M2 wait-driver checks tmux locally on Box B.
