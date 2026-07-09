@@ -26,6 +26,8 @@ foundation MACE 对 2D-TMD 不准(抹平 CDW 软模)。**Path-P 非谐微调**:�
 
 **图 `results/smearing_kink/spectra_E_smearing.png`**:VSe₂(1T)+ NbSe₂(2H)的 Γ-M-K-Γ 全色散,4 档 smearing(degauss 0.005→0.020,T_el≈789→3158 K)叠加。
 
+![(E) 含 smearing 全色散 — 4 材料 × 4 degauss,Kohn 软模随 smearing 熔化](../results/smearing_kink/spectra_E_smearing.png)
+
 | 材料 | degauss 0.005(锐)soft-mode | degauss 0.020(宽) | 现象 |
 |---|---|---|---|
 | **1T-VSe₂** | **−73 cm⁻¹**(−2.2 THz,q≈(1/4,0) on Γ-M) | ~0 | Kohn 软模随 smearing **熔化**(B(T_el) 衰减) |
@@ -46,6 +48,8 @@ foundation MACE 对 2D-TMD 不准(抹平 CDW 软模)。**Path-P 非谐微调**:�
 ### 3.1 软模随温度演化(全家族)
 **图 `results/smearing_kink/family_L_crossover.png`**:6 材料 SSCHA soft-mode vs T_lat。
 
+![(L) SSCHA 虚软模(T_lat)曲线 — 1T heal@T_CDW,2H 惰性](../results/smearing_kink/family_L_crossover.png)
+
 | 材料 | T_lat=20K | T_CDW | 现象 |
 |---|---|---|---|
 | **1T-VSe₂** | −360 cm⁻¹(50K 最深 −412) | **110K** heal→0 | 强 (L)-不稳定,precisely 在 T_CDW 消失 |
@@ -54,6 +58,8 @@ foundation MACE 对 2D-TMD 不准(抹平 CDW 软模)。**Path-P 非谐微调**:�
 
 ### 3.2 全色散随温度(TDEP effective fc₂)— 实频重整化色散
 **图 `results/smearing_kink/spectra_L_temperature.png`**:1T-VSe₂ 的 M-Γ-K-M 全色散,6 档 T_lat(50/80/110/150/200/300K)叠加,由 **TDEP effective fc₂(T)**(MLIP-MD → 拟有效谐振 fc₂ at each T → phonopy 色散)给出。
+
+![(L) 含温度全色散 — VSe₂ TDEP effective fc₂(T),6 档 T_lat(实频重整化色散)](../results/smearing_kink/spectra_L_temperature.png)
 
 **读图**:完整色散(声学 + 光学支)在 6 个温度下叠加。TDEP 给的是**实频重整化**(soft mode 已 heal 到 ~0/正频),所以温度依赖相对温和(soft mode 平坦 ~1.9 THz,见 B1 诊断)——这是 TDEP 的本质:它本征给实频,看不到 SSCHA 的虚软模 crossover。
 
@@ -94,6 +100,14 @@ foundation MACE 对 2D-TMD 不准(抹平 CDW 软模)。**Path-P 非谐微调**:�
 - `spectra_E_smearing.png` — **(E) 含 smearing 全色散**,4 材料(VSe₂/NbSe₂/NbS₂/TaSe₂)× 4 degauss。
 - `spectra_L_temperature.png` — **(L) 含温度全色散**(TDEP effective fc₂),VSe₂ × 6 T_lat。
 - `family_L_crossover.png` — (L) SSCHA 虚软模(T_lat)曲线,6 CDW 材料(1T heal@T_CDW,2H 惰性)。
-- `origin_map.png` / `breadth_contrast.png` / `b2d_unified_kink_law.png` —(此前)origin 分流、MoS₂ gapped 对照、统一 kink 律。
+- `origin_map.png` / `breadth_contrast.png` / `b2_unified_kink_law.png` —(此前)origin 分流、MoS₂ gapped 对照、统一 kink 律。
+
+**支撑图(嵌入)**:
+
+![origin map — 2H 电子 / 1T-VSe₂ 晶格 象限](../results/smearing_kink/origin_map.png)
+
+![MoS₂ gapped 对照 — FLAT(无 Fermi 面 → 无 smearing 依赖)vs 5 CDW 熔化](../results/smearing_kink/breadth_contrast.png)
+
+![统一 reduced-T kink 律 — (E)+(L) 塌缩到同 healing 形式](../results/smearing_kink/b2_unified_kink_law.png)
 
 **脚本**:`scripts/smearing_kink/plot_phonon_spectra.py`(fc2→Γ-M-K-Γ 色散;(E)/(L)/(L-tdep) 三种图)。
