@@ -119,7 +119,7 @@ def main():
     # --- heatmap ---
     import matplotlib; matplotlib.use("Agg")
     import matplotlib.pyplot as plt
-    data = np.array([[float(x) for x in r] for r in csv.reader(open(out_csv))][1:])
+    data = np.array([[float(x) for x in r] for r in list(csv.reader(open(out_csv)))[1:]])
     Z = np.full((len(Tlat), len(Tel)), np.nan)
     for row in data:
         i = Tlat.index(row[1]); j = Tel.index(row[0]); Z[i, j] = row[3]
