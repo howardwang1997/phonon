@@ -30,6 +30,10 @@ foundation MACE 对 2D-TMD 不准(抹平 CDW 软模)。**Path-P 非谐微调**:�
 |---|---|---|---|
 | **1T-VSe₂** | **−73 cm⁻¹**(−2.2 THz,q≈(1/4,0) on Γ-M) | ~0 | Kohn 软模随 smearing **熔化**(B(T_el) 衰减) |
 | **2H-NbSe₂** | **−99 cm⁻¹**(−3.0 THz,近 M) | ~−1.2 | 同样软化→熔化 |
+| **2H-NbS₂** | −69 cm⁻¹ | ~0 | 同(2H 全熔化,电子屏蔽普适)|
+| **2H-TaSe₂** | −89 cm⁻¹ | ~0 | 同 |
+
+**图覆盖 4 个材料**(VSe₂ 1T + NbSe₂/NbS₂/TaSe₂ 2H),每个 4 档 smearing —— 全家族的 Kohn 软模都随 smearing 熔化,印证 (E)-kink 是金属屏蔽的普适效应。
 
 **读图**:色散的**声学支**在 Γ-M 段下凹成虚频(soft mode),degauss 越小(Fermi 面越锐)下凹越深;degauss 增大(smearing 熔 Fermi 面)→ Friedel 振幅 B(T_el) 衰减 → soft mode heal 向 0。**光学支基本不动**(smearing 只影响 2k_F 奇异通道)。这正是 (E)-channel 的物理:**Kohn 反常 = 电子屏蔽驱动,smearing 直接调控**。
 
@@ -48,10 +52,19 @@ foundation MACE 对 2D-TMD 不准(抹平 CDW 软模)。**Path-P 非谐微调**:�
 | **1T-TiSe₂** | −552 cm⁻¹ | **200K** heal→0 | 同(第二个 1T 点)|
 | 2H(NbSe₂/NbS₂/TaS₂/TaSe₂) | ~0(全 T) | n/a | (L)-惰性 → 电子起源 |
 
-### 3.2 全色散随温度 — follow-up(CC API 限制)
-完整 (L) 色散(Γ-M-K-Γ 全路径 at each T_lat)需把 SSCHA 自由能 Hessian 的 fc₂ 提取出来喂给 phonopy 插值。CellConstructor 的 `DyagDinQ` 只接受**整数 q-index**(对超胞存储的 q 点对角化),不支持任意 q 插值 → 需走 fc₂-extraction(从 hess.Tensor 取力常数 → phonopy)。这是**已知 follow-up**(实现量小,但本轮未完成)。
+### 3.2 全色散随温度(TDEP effective fc₂)— 实频重整化色散
+**图 `results/smearing_kink/spectra_L_temperature.png`**:1T-VSe₂ 的 M-Γ-K-M 全色散,6 档 T_lat(50/80/110/150/200/300K)叠加,由 **TDEP effective fc₂(T)**(MLIP-MD → 拟有效谐振 fc₂ at each T → phonopy 色散)给出。
 
-**注**:(L) 的核心物理——soft mode 随 T_lat 在 T_CDW 处 heal——已由 §3.1 的 soft-mode(T_lat) 曲线完整捕获。全色散只是把同一个 soft mode 放进完整 dispersion 的语境(光学支随 T 几乎不变),增量信息有限。
+**读图**:完整色散(声学 + 光学支)在 6 个温度下叠加。TDEP 给的是**实频重整化**(soft mode 已 heal 到 ~0/正频),所以温度依赖相对温和(soft mode 平坦 ~1.9 THz,见 B1 诊断)——这是 TDEP 的本质:它本征给实频,看不到 SSCHA 的虚软模 crossover。
+
+### 3.3 两个 (L) 视角的互补(重要)
+| | SSCHA 自由能 Hessian | TDEP effective fc₂ |
+|---|---|---|
+| 给出 | **虚软模**(低温 −360 cm⁻¹)→ heal@T_CDW(§3.1 曲线)| **实频**全色散(§3.2)|
+| 擅长 | 抓 CDW 不稳定(虚频 crossover,T_CDW 判决)| 给完整 dispersion 语境 |
+| 弱点 | 只给 soft-mode min(超胞对角化);全路径插值被 CC↔phonopy interop 卡住 | 看不到虚软模(本征实频) |
+
+**为什么没有 "SSCHA 虚软模的全色散"**:SSCHA 自由能 Hessian 是 CellConstructor 对象,它的 `DiagonalizeSupercell`(给超胞 freq,含虚软模)正常;但插值到任意 q 走全路径需要 fc₂-extraction,而 CC 的 `SetupFromPhonons`/`tensor2_to_phonopy_fc2` round-trip 不保真(Γ 处 ASR 破坏,−650 cm⁻¹),`DyagDinQ` 只接整数 q-index 且 q-约定与 phonopy 不一致。所以**虚软模的全色散**需另写 fc₂-extraction(从 Hessian.dynmats 反傅里叶 → phonopy),是已知 follow-up。当前用 **TDEP 实频全色散 + SSCHA 虚软模曲线** 互补覆盖。
 
 ---
 
@@ -76,6 +89,11 @@ foundation MACE 对 2D-TMD 不准(抹平 CDW 软模)。**Path-P 非谐微调**:�
 3. 统一 reduced-T 律是软模层描述符;(E)+(L) 合成单一 2D-deploy SSCHA 模型 = 负结果(谐振 Friedel 项与非谐采样器不兼容)。
 4. NbSe₂ EPW λ=23 divergent(Kohn 软脊 → 任何 q-grid 发散);报"强耦合+软模增强",不报绝对 λ。
 
-## 6. 产物
-- 脚本:`scripts/smearing_kink/{plot_phonon_spectra.py (fc2→Γ-M-K-Γ), vq3e_sscha_bands.py (SSCHA Hessian→bands), run_R3_2060_sscha_bands.sh}`。
-- 图:`results/smearing_kink/{spectra_E_smearing.png, family_L_crossover.png, spectra_L_temperature.png(待R3)}`。
+## 6. 产物(图 + 脚本)
+**图(`results/smearing_kink/`)**:
+- `spectra_E_smearing.png` — **(E) 含 smearing 全色散**,4 材料(VSe₂/NbSe₂/NbS₂/TaSe₂)× 4 degauss。
+- `spectra_L_temperature.png` — **(L) 含温度全色散**(TDEP effective fc₂),VSe₂ × 6 T_lat。
+- `family_L_crossover.png` — (L) SSCHA 虚软模(T_lat)曲线,6 CDW 材料(1T heal@T_CDW,2H 惰性)。
+- `origin_map.png` / `breadth_contrast.png` / `b2d_unified_kink_law.png` —(此前)origin 分流、MoS₂ gapped 对照、统一 kink 律。
+
+**脚本**:`scripts/smearing_kink/plot_phonon_spectra.py`(fc2→Γ-M-K-Γ 色散;(E)/(L)/(L-tdep) 三种图)。
