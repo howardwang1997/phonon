@@ -214,7 +214,6 @@ def plot_kink_comparison():
     axE.set_xlabel("electronic smearing  $T_{el}$ [K]  (degauss$\\times$157888)", fontsize=10)
     axE.set_ylabel("|Kohn soft-mode (kink depth)|  [THz]", fontsize=10)
     axE.set_title("(E): kink melts with smearing", fontsize=11)
-    axE.legend(fontsize=8, loc="upper right", frameon=False)
     axE.axhline(0, color="#aaa", lw=0.6)
     for s in ("top", "right"):
         axE.spines[s].set_visible(False)
@@ -239,15 +238,18 @@ def plot_kink_comparison():
     axL.set_xlabel("lattice temperature  $T_{lat}$ [K]", fontsize=10)
     axL.set_ylabel("|Kohn soft-mode (kink depth)|  [THz]", fontsize=10)
     axL.set_title("(L): kink heals with temperature (at $T_{CDW}$)", fontsize=11)
-    axL.legend(fontsize=8, loc="upper right", frameon=False)
     axL.set_xlim(0, 320)
     for s in ("top", "right"):
         axL.spines[s].set_visible(False)
+    # shared legend OUTSIDE (top) for both panels
+    handles, labels = axE.get_legend_handles_labels()
+    fig.legend(handles, labels, loc="upper center", ncol=4, bbox_to_anchor=(0.5, 1.0),
+               frameon=False, fontsize=9)
     fig.suptitle("Kohn-anomaly kink depth vs smearing ($T_{el}$) and temperature ($T_{lat}$) — the two channels of $kink(T_{el},T_{lat})$",
-                 fontsize=11, y=1.0)
-    fig.tight_layout()
+                 fontsize=11, y=0.95)
+    fig.subplots_adjust(left=0.08, bottom=0.13, right=0.97, top=0.80, wspace=0.22)
     out = SK / "kink_vs_Tel_Tlat.png"
-    fig.savefig(out, dpi=150, bbox_inches="tight"); print("wrote", out)
+    fig.savefig(out, dpi=150); print("wrote", out)
 
 
 def plot_deploy_vs_dft(mat="NbSe2", label=None, ylim=(-115, 300)):
@@ -299,5 +301,7 @@ if __name__ == "__main__":
     if which in ("Ltdep", "all"): plot_L_tdep()
     if which in ("kink", "all"): plot_kink_comparison()
     if which in ("deploy", "all"):
-        plot_deploy_vs_dft("NbSe2", "NbSe$_2$ (2H)")
-        plot_deploy_vs_dft("1T-VSe2", "1T-VSe$_2$ (1T, sharp-melting)")
+        for mat, lab in [("NbSe2", "NbSe$_2$ (2H)"), ("2H-TaSe2", "2H-TaSe$_2$ (2H)"),
+                         ("2H-TaS2", "2H-TaS$_2$ (2H)"), ("NbS2", "NbS$_2$ (2H)"),
+                         ("1T-VSe2", "1T-VSe$_2$ (1T, sharp-melting)")]:
+            plot_deploy_vs_dft(mat, lab)

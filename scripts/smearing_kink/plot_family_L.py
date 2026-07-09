@@ -70,11 +70,11 @@ ax.set_xlabel("lattice temperature  $T_{\\rm lat}$  [K]", fontsize=11)
 ax.set_ylabel("SSCHA soft-mode min freq  [cm$^{-1}$]", fontsize=11)
 ax.set_ylim(-620, 80)
 ax.set_xlim(0, 320)
-ax.legend(loc="lower right", frameon=False, fontsize=10)
+ax.legend(loc="center left", bbox_to_anchor=(1.01, 0.5), frameon=False, fontsize=9.5)
 ax.set_title("(L)-channel: 1T soft mode heals at $T_{\\rm CDW}$; 2H inert (3$\\times$3)", fontsize=11)
 for s in ("top", "right"):
     ax.spines[s].set_visible(False)
-fig.tight_layout()
+fig.subplots_adjust(left=0.10, bottom=0.10, right=0.72, top=0.93)
 fig.savefig(FIG, dpi=150)
 
 # csv summary: per-material (L)-depth + crossover T

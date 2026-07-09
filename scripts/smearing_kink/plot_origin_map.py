@@ -75,11 +75,11 @@ ax.text(0.98, 0.96, "strong (L)-instability\n(lattice origin)", transform=ax.tra
 # polytype legend (2 entries -> small, legal)
 for p, lab in [("2H", "2H (electronic)"), ("1T", "1T (lattice)")]:
     ax.scatter([], [], s=120, c=COL[p], label=lab, edgecolor="white")
-ax.legend(loc="lower right", frameon=False, fontsize=9)
+ax.legend(loc="center left", bbox_to_anchor=(1.01, 0.5), frameon=False, fontsize=9)
 ax.set_title("(E)/(L) origin map: 2H = electronic, 1T-VSe$_2$ = lattice", fontsize=12)
 for s in ("top", "right"):
     ax.spines[s].set_visible(False)
-fig.tight_layout()
+fig.subplots_adjust(left=0.12, bottom=0.13, right=0.78, top=0.95)
 fig.savefig(FIG, dpi=150)
 print("wrote", OUT, "and", FIG)
 for r in rows_out:
