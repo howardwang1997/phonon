@@ -4,7 +4,7 @@
 # Auto-launches are handled by the wait-drivers (M2 waits for M1 tmux; M4 for .M1_2060_all_done).
 BOXA=root@100.80.236.112; BOXB=root@100.123.220.57; R2060=howardwang@100.105.21.7
 SEENF=/tmp/campaign_seen.txt; touch "$SEENF"; hb=0
-sq(){ ssh -o ControlPath=none -o ConnectTimeout=10 "$@" 2>/dev/null; }
+sq(){ ssh -o ControlPath=none -o ConnectTimeout=25 -o ServerAliveInterval=5 "$@" 2>/dev/null; }
 seen(){ grep -qxF "$1" "$SEENF" 2>/dev/null; }
 mark(){ echo "$1" >> "$SEENF"; }
 
