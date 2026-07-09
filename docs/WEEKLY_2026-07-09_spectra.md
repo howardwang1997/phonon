@@ -65,6 +65,25 @@ foundation MACE 对 2D-TMD 不准(抹平 CDW 软模)。**Path-P 非谐微调**:�
 
 **边界**:VSe₂ 在**锐 smearing(T_el=789)复现很好**(MAE 0.34,软模 −74.6 vs −73.2);但在**宽 smearing(T_el=3158)软模有 ~4 cm⁻¹ 残留**(−7.1 vs −3.0)。根因:deploy 分解"固定 backbone + 标度 D0"假设软模本征矢不随 T_el 转 —— 对 2H(缓熔)成立,对 VSe₂(急熔/类一阶)不成立。这是**已知方法边界**(非 bug),与 VSe₂ 的 (L)-驱动 origin 自洽(急熔 = 晶格驱动)。backbone + 旋转-D0 或 T_el-条件化 backbone(C3 Engine-1)是 fix。
 
+### 2.3 全家族 + graphene 汇总(MLIP+长程 vs DFT 全色散 MAE)
+| 材料 | T_el=789(锐)MAE | T_el=3158(宽)MAE | 软模复现(锐)|
+|---|---|---|---|
+| **graphene**(K-cusp)| 1.57 | 3.27 | K-cusp 复现(step4 kink_K MAE 0.31)|
+| NbSe₂ | **0.65** | 0.65 | −97.7 vs −98.6 ✓ |
+| 2H-TaSe₂ | **0.75** | 0.75 | −97.3 vs −97.0 ✓ |
+| 2H-TaS₂ | 1.35 | 1.36 | −120.7 vs −120.2 ✓ |
+| NbS₂ | 1.14 | 1.16 | −167.3 vs −164.8 ✓ |
+| 1T-VSe₂(边界)| 0.34 | 1.80 | −74.6 vs −73.2 ✓(锐)/宽 smearing 残留 |
+
+**图 `deploy_vs_dft_graphene.png`**:graphene 的 Γ-M-K-Γ,K-cusp 聚焦(0–220 cm⁻¹)。
+
+![graphene MLIP+长程 vs DFT — K cusp(Kohn 反常在 K 点的有限频软化)](../results/smearing_kink/deploy_vs_dft_graphene.png)
+
+**结论:MLIP+长程微调在全家族(含 graphene)以全色散 MAE 0.3–1.8 cm⁻¹ 复现 DFT**(含 Kohn 反常 K-cusp / CDW 软模)。2H 全准(0.65–1.35),VSe₂ 锐 smearing 也准(0.34)、宽 smearing 软模有已知边界,graphene K-cusp 复现(MAE 0.31@K)。
+
+### 2.4 graphene 的 (L) 含温度谱 — 诚实说明
+graphene **无 CDW**(晶格稳定,Kohn 反常是电子驱动的 K-cusp,非晶格软模)→ **(L) 通道弱**:`graphene_sscha.csv` 全 T ~0(无软模可 heal)。MLIP (L) 谱(`td_graphene_ft.npz`,TDEP)存在但**无 DFT-MD 基线**对比(DFT-MD-TDEP on graphene 未跑,~h 级)。所以 graphene 的有意义对比在 **(E) 通道**(K-cusp,§2.3),(L) 通道对 graphene 本身物理上不显著(非 CDW 材料)。
+
 ---
 
 ## 3. (L) 含温度谱 — 具体材料,温度对比

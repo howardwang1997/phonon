@@ -56,9 +56,16 @@ def main():
     a = ap.parse_args()
 
     rows = [r for r in csv.DictReader(open(SK / "friedel_family.csv")) if r["material"] == a.mat]
-    Tb = np.array([float(r["T_el"]) for r in rows]); Bb = np.array([float(r["B"]) for r in rows])
-    Kb = np.array([float(r["kappa"]) for r in rows]); o = np.argsort(Tb)
-    Tb, Bb, Kb = Tb[o], Bb[o], Kb[o]
+    if rows:
+        Tb = np.array([float(r["T_el"]) for r in rows]); Bb = np.array([float(r["B"]) for r in rows])
+        Kb = np.array([float(r["kappa"]) for r in rows]); o = np.argsort(Tb)
+        Tb, Bb, Kb = Tb[o], Bb[o], Kb[o]
+    else:
+        # graphene (not in family csv): B/kappa from friedel_fit.csv
+        fit = list(csv.DictReader(open(SK / "friedel_fit.csv")))
+        Tb = np.array([float(r["T_el"]) for r in fit]); Bb = np.array([float(r["B"]) for r in fit])
+        Kb = np.array([float(r["kappa"]) for r in fit]); o = np.argsort(Tb)
+        Tb, Bb, Kb = Tb[o], Bb[o], Kb[o]
     Blaw = lambda T: float(np.interp(T, Tb, Bb)); Klaw = lambda T: float(np.interp(T, Tb, Kb))
 
     ph = fm.load_ph(a.backbone_yaml); fc_bg = ph.force_constants
