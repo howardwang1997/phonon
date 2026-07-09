@@ -87,6 +87,15 @@ foundation MACE 对 2D-TMD 不准(抹平 CDW 软模)。**Path-P 非谐微调**:�
 
 **核心结论**:同一套 MLIP+微调框架,两条通道分别用**长程项(电子)**和**非谐 backbone(晶格)**机制,准确复现 kink 在 smearing/温度下的变化;**两轴共享 reduced-T healing 律 (p,q)=(4.44,3.00)**(B2 统一律,交叉验证)。
 
+### 4.1 科恩反常点 kink 随 smearing / 温度的变化(并列对比)
+**图 `results/smearing_kink/kink_vs_Tel_Tlat.png`**:Kohn 软模(kink 深度)在两条通道下的变化。
+
+![Kohn kink 深度 vs smearing(T_el,左)和温度(T_lat,右)—— 两通道的 kink(T_el,T_lat) 变化](../results/smearing_kink/kink_vs_Tel_Tlat.png)
+
+- **左 (E)**:kink 深度随 T_el(smearing)增大而**熔化**(Fermi 面模糊 → Friedel 振幅衰减);全家族都熔化。
+- **右 (L)**:kink 深度随 T_lat(温度)增大而 **heal**,1T 精确在 **T_CDW**(VSe₂ 110K、TiSe₂ 200K)处归零 → 晶格驱动 CDW。
+- 两轴形式相同(reduced-T healing 律),机制不同(电子屏蔽 vs 非谐)。
+
 ---
 
 ## 5. 诚实边界(写文章须交代)

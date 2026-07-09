@@ -88,7 +88,7 @@ def plot_E():
     ]
     cmap = plt.cm.Blues
     n = 4
-    fig, axes = plt.subplots(2, 2, figsize=(12.5, 8.5))
+    fig, axes = plt.subplots(2, 2, figsize=(12.5, 9.2))
     for ax, (mat, ylim, files) in zip(axes.flat, mats):
         tick_x = None
         for i, (dg, yml) in enumerate(files):
@@ -105,14 +105,17 @@ def plot_E():
         ax.axhline(0, color="#aaa", lw=0.6)
         ax.set_title(f"(E) smearing — {mat}", fontsize=10)
         ax.set_ylim(*ylim)
-        ax.legend(fontsize=7, loc="upper right", frameon=False)
         for s in ("top", "right"):
             ax.spines[s].set_visible(False)
     for ax in axes[:, 0]:
         ax.set_ylabel("frequency [cm$^{-1}$]")
+    # single shared legend OUTSIDE (below the panels) — generous bottom margin, no tight crop
+    handles, labels = axes.flat[0].get_legend_handles_labels()
+    fig.legend(handles, labels, loc="lower center", ncol=4, bbox_to_anchor=(0.5, 0.015),
+               frameon=False, fontsize=10, title="degauss (Ry) — darker = sharper Fermi surface")
     fig.suptitle("(E)-channel: phonon dispersion vs electronic smearing  (Kohn soft mode melts with T$_{el}$=degauss×157888 K)",
-                 fontsize=11.5)
-    fig.tight_layout()
+                 fontsize=11.5, y=0.98)
+    fig.subplots_adjust(left=0.07, bottom=0.12, right=0.97, top=0.93, hspace=0.28, wspace=0.13)
     out = SK / "spectra_E_smearing.png"
     fig.savefig(out, dpi=150); print("wrote", out)
 
@@ -165,27 +168,86 @@ def plot_L_tdep():
     d = np.load(npz, allow_pickle=True)
     Ts = [50, 80, 110, 150, 200, 300]
     cmap = plt.cm.Reds
-    fig, ax = plt.subplots(figsize=(7.5, 5.2))
+    fig, ax = plt.subplots(figsize=(8.2, 5.2))
     ticks = d["label_positions"]; labels = [str(l) for l in d["labels"]]
     for i, T in enumerate(Ts):
         if f"T{T}_freq" not in d:
             continue
         dist = d[f"T{T}_dist"]; freq = d[f"T{T}_freq"] * 33.356  # THz -> cm^-1
         ax.plot(dist, freq, color=cmap(0.30 + 0.62 * i / (len(Ts) - 1)), lw=1.2, alpha=0.8,
-                label=f"T$_{{lat}}$={T} K")
+                label=f"{T} K")
     ax.set_xticks(ticks); ax.set_xticklabels(labels)
     for t in ticks[1:-1]:
         ax.axvline(t, color="#ccc", lw=0.6)
     ax.axhline(0, color="#aaa", lw=0.6)
     ax.set_ylabel("frequency [cm$^{-1}$]"); ax.set_ylim(-15, 360)
     ax.set_xlim(ticks[0], ticks[-1])
-    ax.legend(fontsize=8, loc="upper right", frameon=False)
+    # legend OUTSIDE (top, horizontal) so it never covers the bands
+    ax.legend(title="$T_{lat}$", loc="upper center", bbox_to_anchor=(0.5, 1.12), ncol=6,
+              frameon=False, fontsize=8.5, title_fontsize=9)
     ax.set_title("(L) temperature spectrum — 1T-VSe$_2$  (TDEP effective fc$_2$(T), real freqs)", fontsize=10.5)
     for s in ("top", "right"):
         ax.spines[s].set_visible(False)
-    fig.tight_layout()
+    fig.subplots_adjust(left=0.10, bottom=0.10, right=0.97, top=0.80)
     out = SK / "spectra_L_temperature.png"
     fig.savefig(out, dpi=150); print("wrote", out)
+
+
+def plot_kink_comparison():
+    """Kohn-anomaly kink (soft-mode depth at CDW q) vs T_el (smearing) AND vs T_lat (temperature).
+    Left: (E) kink melts with electronic smearing. Right: (L) kink heals with lattice temperature
+    (at T_CDW). The two channels of the kink(T_el, T_lat) variation."""
+    import csv
+    fig, (axE, axL) = plt.subplots(1, 2, figsize=(12.5, 4.8))
+    # ---- (E): |soft-mode| vs T_el (smearing), from family_melting.csv ----
+    melt_path = SK / "family_melting.csv"
+    if melt_path.exists():
+        melt = list(csv.DictReader(open(melt_path)))
+        for mat, col in [("1T-VSe$_2$", "#c0504d"), ("NbSe$_2$", "#2f6f9f"),
+                         ("2H-TaS$_2$", "#2f9f6f"), ("2H-TaSe$_2$", "#9f6f2f")]:
+            rows = sorted([r for r in melt if r["material"] == mat], key=lambda r: float(r["T_el_K"]))
+            if not rows:
+                continue
+            T = [float(r["T_el_K"]) for r in rows]
+            d = [abs(float(r["minfreq_THz"])) for r in rows]
+            axE.plot(T, d, "-o", color=col, lw=1.8, ms=6, label=mat)
+    axE.set_xlabel("electronic smearing  $T_{el}$ [K]  (degauss$\\times$157888)", fontsize=10)
+    axE.set_ylabel("|Kohn soft-mode (kink depth)|  [THz]", fontsize=10)
+    axE.set_title("(E): kink melts with smearing", fontsize=11)
+    axE.legend(fontsize=8, loc="upper right", frameon=False)
+    axE.axhline(0, color="#aaa", lw=0.6)
+    for s in ("top", "right"):
+        axE.spines[s].set_visible(False)
+
+    # ---- (L): |soft-mode| vs T_lat (temperature), from SSCHA csv ----
+    CM2THZ = 1.0 / 33.356
+    for mat, files, col, Tcdw in [("1T-VSe$_2$", ["1T-VSe2_fine.csv", "1T-VSe2_L.csv"], "#c0504d", 110),
+                                   ("1T-TiSe$_2$", ["1T-TiSe2_L.csv"], "#e08a2e", 200)]:
+        pts = []
+        for fn in files:
+            p = TD / fn
+            if not p.exists():
+                continue
+            pts += [(float(r["T_K"]), abs(float(r["sscha_minfreq_cm"])) * CM2THZ)
+                    for r in csv.DictReader(open(p))]
+        pts = sorted(set(pts))
+        if pts:
+            axL.plot([p[0] for p in pts], [p[1] for p in pts], "-o", color=col, lw=1.8, ms=6, label=mat)
+            axL.axvline(Tcdw, color=col, ls=":", lw=1.0, alpha=0.6)
+            axL.text(Tcdw, axL.get_ylim()[1] * 0.85 if axL.get_ylim()[1] > 0 else 8,
+                     f"$T_{{CDW}}$={Tcdw}K", color=col, fontsize=8, ha="center")
+    axL.set_xlabel("lattice temperature  $T_{lat}$ [K]", fontsize=10)
+    axL.set_ylabel("|Kohn soft-mode (kink depth)|  [THz]", fontsize=10)
+    axL.set_title("(L): kink heals with temperature (at $T_{CDW}$)", fontsize=11)
+    axL.legend(fontsize=8, loc="upper right", frameon=False)
+    axL.set_xlim(0, 320)
+    for s in ("top", "right"):
+        axL.spines[s].set_visible(False)
+    fig.suptitle("Kohn-anomaly kink depth vs smearing ($T_{el}$) and temperature ($T_{lat}$) — the two channels of $kink(T_{el},T_{lat})$",
+                 fontsize=11, y=1.0)
+    fig.tight_layout()
+    out = SK / "kink_vs_Tel_Tlat.png"
+    fig.savefig(out, dpi=150, bbox_inches="tight"); print("wrote", out)
 
 
 if __name__ == "__main__":
@@ -193,3 +255,4 @@ if __name__ == "__main__":
     if which in ("E", "both"): plot_E()
     if which in ("L", "both"): plot_L()
     if which in ("Ltdep", "all"): plot_L_tdep()
+    if which in ("kink", "all"): plot_kink_comparison()
