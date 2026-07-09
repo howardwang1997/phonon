@@ -36,6 +36,13 @@ while true; do
     mark "m2:$r"; echo "M2 lambda: $r"
   done < <(sq "$BOXA" 'cat /root/family_lambda_stage2.csv 2>/dev/null')
 
+  # M2 failures (EPW generalization is untested — emit on crash, silence != success)
+  while IFS= read -r fl; do
+    [ -z "$fl" ] && continue
+    seen "m2f:$fl" && continue
+    mark "m2f:$fl"; echo "M2 FAIL: $fl"
+  done < <(sq "$BOXA" 'grep -E "FAILED|SCF FAIL|PH FAIL|NSCF FAIL|Traceback" /tmp/M2.log 2>/dev/null | tail -4')
+
   # M1 Box B all done — positive check on the driver's completion echo (robust to SSH hiccups;
   # a transient ssh failure must NOT look like "done"). M2 wait-driver checks tmux locally on Box B.
   if ! seen "m1b"; then
@@ -56,9 +63,10 @@ while true; do
   # hourly heartbeat
   hb=$((hb+1))
   if [ $((hb % 4)) -eq 0 ]; then
-    m1b=$(sq "$BOXB" 'tail -1 /tmp/M1_boxB.log 2>/dev/null | cut -c1-55')
-    m12060=$(sq "$R2060" 'tail -1 /tmp/M1_2060.log 2>/dev/null | cut -c1-55')
-    echo "HEARTBEAT: M1-boxB[$m1b] | M1-2060[$m12060]"
+    m1b=$(sq "$BOXB" 'tail -1 /tmp/M1_boxB.log 2>/dev/null | cut -c1-50')
+    m12060=$(sq "$R2060" 'tail -1 /tmp/M1_2060.log 2>/dev/null | cut -c1-50')
+    m2a=$(sq "$BOXA" 'tail -1 /tmp/M2.log 2>/dev/null | cut -c1-50')
+    echo "HEARTBEAT: M1boxB[$m1b] | M1-2060[$m12060] | M2boxA[$m2a]"
   fi
   sleep 1080
 done
