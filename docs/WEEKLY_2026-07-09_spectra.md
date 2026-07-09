@@ -48,10 +48,10 @@ foundation MACE 对 2D-TMD 不准(抹平 CDW 软模)。**Path-P 非谐微调**:�
 | **1T-TiSe₂** | −552 cm⁻¹ | **200K** heal→0 | 同(第二个 1T 点)|
 | 2H(NbSe₂/NbS₂/TaS₂/TaSe₂) | ~0(全 T) | n/a | (L)-惰性 → 电子起源 |
 
-### 3.2 全色散随温度(SSCHA 自由能 Hessian)— *[R3 跑完补图]*
-`scripts/smearing_kink/vq3e_sscha_bands.py`:在每个 T_lat 把 SSCHA 自由能 Hessian 插值到 Γ-M-K-Γ 全路径,给出含温度的**完整色散**(不只 soft mode)。VSe₂ + NbSe₂,4 档 T_lat(20/100/200/300K)。**图 `spectra_L_temperature.png` 待 R3 完成生成**(预期:VSe₂ 的 Γ-M 软模在 20K 深虚、110K heal;NbSe₂ 弱)。
+### 3.2 全色散随温度 — follow-up(CC API 限制)
+完整 (L) 色散(Γ-M-K-Γ 全路径 at each T_lat)需把 SSCHA 自由能 Hessian 的 fc₂ 提取出来喂给 phonopy 插值。CellConstructor 的 `DyagDinQ` 只接受**整数 q-index**(对超胞存储的 q 点对角化),不支持任意 q 插值 → 需走 fc₂-extraction(从 hess.Tensor 取力常数 → phonopy)。这是**已知 follow-up**(实现量小,但本轮未完成)。
 
-**读图(预期)**:(L) 谱的 soft mode 随 T_lat **heal**(非谐重整化),与 (E) 的 smearing 熔化形成对比 —— 两条通道的 kink 变化机制不同(电子屏蔽 vs 晶格非谐),但共享同一 reduced-T healing 形式(B2 统一律)。
+**注**:(L) 的核心物理——soft mode 随 T_lat 在 T_CDW 处 heal——已由 §3.1 的 soft-mode(T_lat) 曲线完整捕获。全色散只是把同一个 soft mode 放进完整 dispersion 的语境(光学支随 T 几乎不变),增量信息有限。
 
 ---
 
