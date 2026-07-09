@@ -21,14 +21,16 @@ CM = 33.356
 
 
 def make_espresso(pw, pseudo_dir, ecutwfc, ecutrho, kpts, degauss, directory):
-    import phonopy
     from ase.calculators.espresso import Espresso, EspressoProfile
     PSEUDO = {"C": "C_ONCV_PBE-1.2.upf"}
     profile = EspressoProfile(command=pw, pseudo_dir=str(pseudo_dir))
-    inp = {"occupations": "smearing", "smearing": "cold", "degauss": degauss,
-           "conv_thr": 1e-8, "mixing_beta": 0.3, "electron_maxstep": 200}
+    inp = {"control": {"calculation": "scf", "tprnfor": True, "tstress": False,
+                       "prefix": "graphene", "pseudo_dir": str(pseudo_dir)},
+           "system": {"ecutwfc": ecutwfc, "ecutrho": ecutrho, "occupations": "smearing",
+                      "smearing": "cold", "degauss": degauss, "ibrav": 0},
+           "electrons": {"conv_thr": 1e-8, "mixing_beta": 0.3, "electron_maxstep": 200}}
     return Espresso(profile=profile, pseudopotentials=PSEUDO, input_data=inp,
-                    ecutwfc=ecutwfc, ecutrho=ecutrho, kpts=kpts, directory=str(directory))
+                    kpts=kpts, directory=str(directory))
 
 
 def main():
