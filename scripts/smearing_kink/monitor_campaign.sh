@@ -36,9 +36,10 @@ while true; do
     mark "m2:$r"; echo "M2 lambda: $r"
   done < <(sq "$BOXB" 'cat /root/family_lambda_stage2.csv 2>/dev/null')
 
-  # M1 Box B all done (triggers M2)
+  # M1 Box B all done — positive check on the driver's completion echo (robust to SSH hiccups;
+  # a transient ssh failure must NOT look like "done"). M2 wait-driver checks tmux locally on Box B.
   if ! seen "m1b"; then
-    if ! sq "$BOXB" 'tmux has-session -t M1 2>/dev/null'; then
+    if sq "$BOXB" 'grep -q "BOX B 2H-4x4 ALL DONE" /tmp/M1_boxB.log 2>/dev/null'; then
       mark "m1b"; echo "M1 Box B DONE: 2H 4x4 all relayed (M2 wait-driver should now start EPW)"
     fi
   fi
