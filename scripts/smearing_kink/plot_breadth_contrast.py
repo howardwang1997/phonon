@@ -47,5 +47,5 @@ ax.legend(loc="center left", bbox_to_anchor=(1.01, 0.5), frameon=False, fontsize
 for s in ("top", "right"):
     ax.spines[s].set_visible(False)
 fig.subplots_adjust(left=0.12, bottom=0.12, right=0.72, top=0.90)
-fig.savefig(SK / "breadth_contrast.png", dpi=150)
+fig.savefig(SK / "breadth_contrast.png", dpi=150, bbox_inches="tight")
 print("saved", SK / "breadth_contrast.png")

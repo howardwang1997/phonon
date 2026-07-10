@@ -117,7 +117,7 @@ def plot_E():
                  fontsize=11.5, y=0.98)
     fig.subplots_adjust(left=0.07, bottom=0.12, right=0.97, top=0.93, hspace=0.28, wspace=0.13)
     out = SK / "spectra_E_smearing.png"
-    fig.savefig(out, dpi=150); print("wrote", out)
+    fig.savefig(out, dpi=150, bbox_inches="tight"); print("wrote", out)
 
 
 def plot_L():
@@ -155,7 +155,7 @@ def plot_L():
     fig.suptitle("(L)-channel: SSCHA phonon dispersion vs lattice temperature (Path-P anharmonic backbone)", fontsize=12)
     fig.tight_layout()
     out = SK / "spectra_L_temperature.png"
-    fig.savefig(out, dpi=150); print("wrote", out)
+    fig.savefig(out, dpi=150, bbox_inches="tight"); print("wrote", out)
 
 
 def plot_L_tdep():
@@ -190,7 +190,7 @@ def plot_L_tdep():
         ax.spines[s].set_visible(False)
     fig.subplots_adjust(left=0.10, bottom=0.10, right=0.97, top=0.80)
     out = SK / "spectra_L_temperature.png"
-    fig.savefig(out, dpi=150); print("wrote", out)
+    fig.savefig(out, dpi=150, bbox_inches="tight"); print("wrote", out)
 
 
 def plot_kink_comparison():
@@ -249,7 +249,7 @@ def plot_kink_comparison():
                  fontsize=11, y=0.95)
     fig.subplots_adjust(left=0.08, bottom=0.13, right=0.97, top=0.80, wspace=0.22)
     out = SK / "kink_vs_Tel_Tlat.png"
-    fig.savefig(out, dpi=150); print("wrote", out)
+    fig.savefig(out, dpi=150, bbox_inches="tight"); print("wrote", out)
 
 
 def plot_deploy_vs_dft(mat="NbSe2", label=None, ylim=(-115, 300)):
@@ -291,7 +291,7 @@ def plot_deploy_vs_dft(mat="NbSe2", label=None, ylim=(-115, 300)):
     fig.suptitle(f"MLIP + long-range fine-tuning vs DFT — {lab}", fontsize=11.5, y=0.93)
     fig.subplots_adjust(left=0.07, bottom=0.13, right=0.98, top=0.80, wspace=0.10)
     out = SK / f"deploy_vs_dft_{mat}.png"
-    fig.savefig(out, dpi=150); print("wrote", out)
+    fig.savefig(out, dpi=150, bbox_inches="tight"); print("wrote", out)
 
 
 def plot_graphene_L():
@@ -321,7 +321,7 @@ def plot_graphene_L():
         ax.spines[s].set_visible(False)
     fig.subplots_adjust(left=0.10, bottom=0.12, right=0.72, top=0.92)
     out = SK / "graphene_L_dft_vs_mlip.png"
-    fig.savefig(out, dpi=150); print("wrote", out)
+    fig.savefig(out, dpi=150, bbox_inches="tight"); print("wrote", out)
 
 
 if __name__ == "__main__":

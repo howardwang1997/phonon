@@ -75,7 +75,7 @@ ax.set_title("(L)-channel: 1T soft mode heals at $T_{\\rm CDW}$; 2H inert (3$\\t
 for s in ("top", "right"):
     ax.spines[s].set_visible(False)
 fig.subplots_adjust(left=0.10, bottom=0.10, right=0.72, top=0.93)
-fig.savefig(FIG, dpi=150)
+fig.savefig(FIG, dpi=150, bbox_inches="tight")
 
 # csv summary: per-material (L)-depth + crossover T
 rows = [["material", "polytype", "L_depth_cm", "crossover_K", "origin"]]

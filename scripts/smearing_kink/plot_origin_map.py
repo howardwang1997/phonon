@@ -80,7 +80,7 @@ ax.set_title("(E)/(L) origin map: 2H = electronic, 1T-VSe$_2$ = lattice", fontsi
 for s in ("top", "right"):
     ax.spines[s].set_visible(False)
 fig.subplots_adjust(left=0.12, bottom=0.13, right=0.78, top=0.95)
-fig.savefig(FIG, dpi=150)
+fig.savefig(FIG, dpi=150, bbox_inches="tight")
 print("wrote", OUT, "and", FIG)
 for r in rows_out:
     print(f"  {r['material']:12s} {r['polytype']}  E={r['E_response_mThz_per_K']}  L={r['L_depth_cm']}  -> {r['origin']}")
