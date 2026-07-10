@@ -111,11 +111,11 @@ def plot_E():
         ax.set_ylabel("frequency [cm$^{-1}$]")
     # single shared legend OUTSIDE (below the panels) — generous bottom margin, no tight crop
     handles, labels = axes.flat[0].get_legend_handles_labels()
-    fig.legend(handles, labels, loc="lower center", ncol=4, bbox_to_anchor=(0.5, 0.015),
+    fig.legend(handles, labels, loc="lower center", ncol=4, bbox_to_anchor=(0.5, 0.005),
                frameon=False, fontsize=10, title="degauss (Ry) — darker = sharper Fermi surface")
     fig.suptitle("(E)-channel: phonon dispersion vs electronic smearing  (Kohn soft mode melts with T$_{el}$=degauss×157888 K)",
-                 fontsize=11.5, y=0.98)
-    fig.subplots_adjust(left=0.07, bottom=0.12, right=0.97, top=0.93, hspace=0.28, wspace=0.13)
+                 fontsize=11.5, y=0.99)
+    fig.subplots_adjust(left=0.07, bottom=0.17, right=0.97, top=0.93, hspace=0.30, wspace=0.13)
     out = SK / "spectra_E_smearing.png"
     fig.savefig(out, dpi=150, bbox_inches="tight"); print("wrote", out)
 
@@ -182,13 +182,13 @@ def plot_L_tdep():
     ax.axhline(0, color="#aaa", lw=0.6)
     ax.set_ylabel("frequency [cm$^{-1}$]"); ax.set_ylim(-15, 360)
     ax.set_xlim(ticks[0], ticks[-1])
-    # legend OUTSIDE (top, horizontal) so it never covers the bands
-    ax.legend(title="$T_{lat}$", loc="upper center", bbox_to_anchor=(0.5, 1.12), ncol=6,
+    # legend OUTSIDE (bottom, horizontal) so it never covers the bands
+    ax.legend(title="$T_{lat}$", loc="upper center", bbox_to_anchor=(0.5, -0.13), ncol=6,
               frameon=False, fontsize=8.5, title_fontsize=9)
     ax.set_title("(L) temperature spectrum — 1T-VSe$_2$  (TDEP effective fc$_2$(T), real freqs)", fontsize=10.5)
     for s in ("top", "right"):
         ax.spines[s].set_visible(False)
-    fig.subplots_adjust(left=0.10, bottom=0.10, right=0.97, top=0.80)
+    fig.subplots_adjust(left=0.10, bottom=0.20, right=0.97, top=0.92)
     out = SK / "spectra_L_temperature.png"
     fig.savefig(out, dpi=150, bbox_inches="tight"); print("wrote", out)
 
@@ -203,14 +203,14 @@ def plot_kink_comparison():
     melt_path = SK / "family_melting.csv"
     if melt_path.exists():
         melt = list(csv.DictReader(open(melt_path)))
-        for mat, col in [("1T-VSe$_2$", "#c0504d"), ("NbSe$_2$", "#2f6f9f"),
-                         ("2H-TaS$_2$", "#2f9f6f"), ("2H-TaSe$_2$", "#9f6f2f")]:
-            rows = sorted([r for r in melt if r["material"] == mat], key=lambda r: float(r["T_el_K"]))
+        for fmat, lab, col in [("1T-VSe2", "1T-VSe$_2$", "#c0504d"), ("NbSe2", "NbSe$_2$", "#2f6f9f"),
+                               ("2H-TaS2", "2H-TaS$_2$", "#2f9f6f"), ("2H-TaSe2", "2H-TaSe$_2$", "#9f6f2f")]:
+            rows = sorted([r for r in melt if r["material"] == fmat], key=lambda r: float(r["T_el_K"]))
             if not rows:
                 continue
             T = [float(r["T_el_K"]) for r in rows]
             d = [abs(float(r["minfreq_THz"])) for r in rows]
-            axE.plot(T, d, "-o", color=col, lw=1.8, ms=6, label=mat)
+            axE.plot(T, d, "-o", color=col, lw=1.8, ms=6, label=lab)
     axE.set_xlabel("electronic smearing  $T_{el}$ [K]  (degauss$\\times$157888)", fontsize=10)
     axE.set_ylabel("|Kohn soft-mode (kink depth)|  [THz]", fontsize=10)
     axE.set_title("(E): kink melts with smearing", fontsize=11)
@@ -252,7 +252,7 @@ def plot_kink_comparison():
     fig.savefig(out, dpi=150, bbox_inches="tight"); print("wrote", out)
 
 
-def plot_deploy_vs_dft(mat="NbSe2", label=None, ylim=(-115, 300)):
+def plot_deploy_vs_dft(mat="NbSe2", label=None, ylim=None):
     """MLIP+long-range vs DFT full spectrum (does the method reproduce DFT?).
     deployed (backbone + Friedel) vs DFT vs smearing-blind backbone."""
     npz = SK / f"deploy_vs_dft_{mat}.npz"
@@ -266,7 +266,7 @@ def plot_deploy_vs_dft(mat="NbSe2", label=None, ylim=(-115, 300)):
     tick_x = [x[0], x[seg_len - 1], x[2 * seg_len - 1], x[-1]]
     Ts = [int(t) for t in d["tel"]]
     lab = label or mat
-    fig, axes = plt.subplots(1, len(Ts), figsize=(6.8 * len(Ts), 5.2), sharey=True)
+    fig, axes = plt.subplots(1, len(Ts), figsize=(7.2 * len(Ts), 5.5), sharey=True)
     if len(Ts) == 1:
         axes = [axes]
     for ax, T in zip(axes, Ts):
@@ -281,15 +281,20 @@ def plot_deploy_vs_dft(mat="NbSe2", label=None, ylim=(-115, 300)):
         ax.axhline(0, color="#aaa", lw=0.6)
         mae = np.mean(np.abs(d[f"mlip_T{T}"] - d[f"dft_T{T}"]))
         ax.set_title(f"{lab}  $T_{{el}}$={T} K  (full-band MAE = {mae:.2f} cm$^{{-1}}$)", fontsize=10.5)
-        ax.set_xlim(tick_x[0], tick_x[-1]); ax.set_ylim(*ylim)
+        ax.set_xlim(tick_x[0], tick_x[-1])
         for s in ("top", "right"):
             ax.spines[s].set_visible(False)
+    # auto ylim from data (no cropping); or use provided
+    if ylim is None:
+        allf = np.concatenate([d[f"dft_T{T}"].ravel() for T in Ts] + [d["backbone"].ravel()])
+        ylim = (min(allf.min() * 1.1, -10), allf.max() * 1.1 + 5)
+    axes[0].set_ylim(*ylim)
     axes[0].set_ylabel("frequency [cm$^{-1}$]")
     handles, labels = axes[0].get_legend_handles_labels()
-    fig.legend(handles, labels, loc="upper center", ncol=3, bbox_to_anchor=(0.5, 1.0),
+    fig.legend(handles, labels, loc="lower center", ncol=3, bbox_to_anchor=(0.5, 0.005),
                frameon=False, fontsize=9.5)
-    fig.suptitle(f"MLIP + long-range fine-tuning vs DFT — {lab}", fontsize=11.5, y=0.93)
-    fig.subplots_adjust(left=0.07, bottom=0.13, right=0.98, top=0.80, wspace=0.10)
+    fig.suptitle(f"MLIP + long-range fine-tuning vs DFT — {lab}", fontsize=11.5, y=0.99)
+    fig.subplots_adjust(left=0.07, bottom=0.18, right=0.98, top=0.93, wspace=0.10)
     out = SK / f"deploy_vs_dft_{mat}.png"
     fig.savefig(out, dpi=150, bbox_inches="tight"); print("wrote", out)
 
