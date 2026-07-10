@@ -51,6 +51,7 @@ def main():
     ap.add_argument("--cutoff2", type=float, default=4.5)
     ap.add_argument("--workroot", default="/data/gr_dftmd")
     ap.add_argument("--tag", default="graphene_dft_tdep")
+    ap.add_argument("--mlip-model", default=None, help="if set, use MACE MLIP (not Espresso) for MD")
     a = ap.parse_args()
 
     import phonopy
@@ -70,7 +71,11 @@ def main():
         t0 = time.perf_counter()
         work = Path(a.workroot) / f"T{int(T)}"
         work.mkdir(parents=True, exist_ok=True)
-        calc = make_espresso(a.pw, a.pseudo_dir, a.ecutwfc, a.ecutrho, kpts, a.degauss, work)
+        if a.mlip_model:
+            from mace.calculators import MACECalculator
+            calc = MACECalculator(model_paths=a.mlip_model, device="cuda", default_dtype="float32")
+        else:
+            calc = make_espresso(a.pw, a.pseudo_dir, a.ecutwfc, a.ecutrho, kpts, a.degauss, work)
         print(f"[{a.tag}] T={T:.0f} K: DFT-MD (n_snap={a.nsnap}, equil={a.equil}, stride={a.stride})...", flush=True)
         snaps = tdp.sample_md(ideal, calc, T, a.dt, a.equil, a.nsnap, a.stride, seed=int(T), log=print)
         # save snapshots so the fc2 fit can be re-tuned without re-running the (slow) DFT-MD
