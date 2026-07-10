@@ -81,6 +81,14 @@ foundation MACE 对 2D-TMD 不准(抹平 CDW 软模)。**Path-P 非谐微调**:�
 
 **结论:MLIP+长程微调在全家族(含 graphene)以全色散 MAE 0.3–1.8 cm⁻¹ 复现 DFT**(含 Kohn 反常 K-cusp / CDW 软模)。2H 全准(0.65–1.35),VSe₂ 锐 smearing 也准(0.34)、宽 smearing 软模有已知边界,graphene K-cusp 复现(MAE 0.31@K)。
 
+**全家族 per-material deploy 图**:
+
+![2H-TaSe₂ MLIP+长程 vs DFT(全色散 MAE 0.75 cm⁻¹)](../results/smearing_kink/deploy_vs_dft_2H-TaSe2.png)
+
+![2H-TaS₂ MLIP+长程 vs DFT(全色散 MAE 1.35 cm⁻¹)](../results/smearing_kink/deploy_vs_dft_2H-TaS2.png)
+
+![NbS₂ MLIP+长程 vs DFT(全色散 MAE 1.14 cm⁻¹)](../results/smearing_kink/deploy_vs_dft_NbS2.png)
+
 ### 2.4 graphene 的 (L) 含温度谱 — DFT-MD-TDEP 基线已跑
 graphene **无 CDW**(晶格稳定,Kohn 反常是电子驱动的 K-cusp,非晶格软模)。**DFT-MD-TDEP**(Box A,32-atom,V100)给出 DFT (L) 基线:
 
