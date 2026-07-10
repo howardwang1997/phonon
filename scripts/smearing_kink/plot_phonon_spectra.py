@@ -88,7 +88,7 @@ def plot_E():
     ]
     cmap = plt.cm.Blues
     n = 4
-    fig, axes = plt.subplots(2, 2, figsize=(12.5, 9.2))
+    fig, axes = plt.subplots(2, 2, figsize=(12.5, 10.2))
     for ax, (mat, ylim, files) in zip(axes.flat, mats):
         tick_x = None
         for i, (dg, yml) in enumerate(files):
@@ -115,7 +115,7 @@ def plot_E():
                frameon=False, fontsize=10, title="degauss (Ry) — darker = sharper Fermi surface")
     fig.suptitle("(E)-channel: phonon dispersion vs electronic smearing  (Kohn soft mode melts with T$_{el}$=degauss×157888 K)",
                  fontsize=11.5, y=0.99)
-    fig.subplots_adjust(left=0.07, bottom=0.17, right=0.97, top=0.93, hspace=0.30, wspace=0.13)
+    fig.subplots_adjust(left=0.07, bottom=0.20, right=0.97, top=0.93, hspace=0.32, wspace=0.13)
     out = SK / "spectra_E_smearing.png"
     fig.savefig(out, dpi=150, bbox_inches="tight"); print("wrote", out)
 
@@ -266,7 +266,7 @@ def plot_deploy_vs_dft(mat="NbSe2", label=None, ylim=None):
     tick_x = [x[0], x[seg_len - 1], x[2 * seg_len - 1], x[-1]]
     Ts = [int(t) for t in d["tel"]]
     lab = label or mat
-    fig, axes = plt.subplots(1, len(Ts), figsize=(7.2 * len(Ts), 5.5), sharey=True)
+    fig, axes = plt.subplots(1, len(Ts), figsize=(7.2 * len(Ts), 6.5), sharey=True)
     if len(Ts) == 1:
         axes = [axes]
     for ax, T in zip(axes, Ts):
@@ -294,7 +294,7 @@ def plot_deploy_vs_dft(mat="NbSe2", label=None, ylim=None):
     fig.legend(handles, labels, loc="lower center", ncol=3, bbox_to_anchor=(0.5, 0.005),
                frameon=False, fontsize=9.5)
     fig.suptitle(f"MLIP + long-range fine-tuning vs DFT — {lab}", fontsize=11.5, y=0.99)
-    fig.subplots_adjust(left=0.07, bottom=0.18, right=0.98, top=0.93, wspace=0.10)
+    fig.subplots_adjust(left=0.07, bottom=0.24, right=0.98, top=0.93, wspace=0.10)
     out = SK / f"deploy_vs_dft_{mat}.png"
     fig.savefig(out, dpi=150, bbox_inches="tight"); print("wrote", out)
 
@@ -338,6 +338,7 @@ if __name__ == "__main__":
     if which in ("deploy", "all"):
         for mat, lab in [("NbSe2", "NbSe$_2$ (2H)"), ("2H-TaSe2", "2H-TaSe$_2$ (2H)"),
                          ("2H-TaS2", "2H-TaS$_2$ (2H)"), ("NbS2", "NbS$_2$ (2H)"),
-                         ("1T-VSe2", "1T-VSe$_2$ (1T, sharp-melting)")]:
+                         ("1T-VSe2", "1T-VSe$_2$ (1T)"),
+                         ("graphene", "graphene (K cusp)")]:
             plot_deploy_vs_dft(mat, lab)
     if which in ("grL", "all"): plot_graphene_L()
