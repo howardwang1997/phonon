@@ -48,7 +48,7 @@ def main():
     ap.add_argument("--equil", type=int, default=50)
     ap.add_argument("--stride", type=int, default=10)
     ap.add_argument("--dt", type=float, default=1.0)
-    ap.add_argument("--cutoff2", type=float, default=5.0)
+    ap.add_argument("--cutoff2", type=float, default=4.5)
     ap.add_argument("--workroot", default="/data/gr_dftmd")
     ap.add_argument("--tag", default="graphene_dft_tdep")
     a = ap.parse_args()
@@ -73,6 +73,11 @@ def main():
         calc = make_espresso(a.pw, a.pseudo_dir, a.ecutwfc, a.ecutrho, kpts, a.degauss, work)
         print(f"[{a.tag}] T={T:.0f} K: DFT-MD (n_snap={a.nsnap}, equil={a.equil}, stride={a.stride})...", flush=True)
         snaps = tdp.sample_md(ideal, calc, T, a.dt, a.equil, a.nsnap, a.stride, seed=int(T), log=print)
+        # save snapshots so the fc2 fit can be re-tuned without re-running the (slow) DFT-MD
+        np.savez(work / f"snaps_T{int(T)}.npz",
+                 positions=np.array([s.positions for s in snaps]),
+                 forces=np.array([s.get_forces() for s in snaps]),
+                 numbers=ideal.numbers, cell=ideal.cell)
         try:
             fc2, rmse2, _ = tdp.effective_fc2(prim, ideal, scm, snaps, a.cutoff2)
             dist, freq, lp, labs = tdp.band_from_phonopy(ph0, fc2, npoints=60)

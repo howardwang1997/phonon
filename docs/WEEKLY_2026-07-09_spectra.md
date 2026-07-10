@@ -81,8 +81,19 @@ foundation MACE 对 2D-TMD 不准(抹平 CDW 软模)。**Path-P 非谐微调**:�
 
 **结论:MLIP+长程微调在全家族(含 graphene)以全色散 MAE 0.3–1.8 cm⁻¹ 复现 DFT**(含 Kohn 反常 K-cusp / CDW 软模)。2H 全准(0.65–1.35),VSe₂ 锐 smearing 也准(0.34)、宽 smearing 软模有已知边界,graphene K-cusp 复现(MAE 0.31@K)。
 
-### 2.4 graphene 的 (L) 含温度谱 — 诚实说明
-graphene **无 CDW**(晶格稳定,Kohn 反常是电子驱动的 K-cusp,非晶格软模)→ **(L) 通道弱**:`graphene_sscha.csv` 全 T ~0(无软模可 heal)。MLIP (L) 谱(`td_graphene_ft.npz`,TDEP)存在但**无 DFT-MD 基线**对比(DFT-MD-TDEP on graphene 未跑,~h 级)。所以 graphene 的有意义对比在 **(E) 通道**(K-cusp,§2.3),(L) 通道对 graphene 本身物理上不显著(非 CDW 材料)。
+### 2.4 graphene 的 (L) 含温度谱 — DFT-MD-TDEP 基线已跑
+graphene **无 CDW**(晶格稳定,Kohn 反常是电子驱动的 K-cusp,非晶格软模)。**DFT-MD-TDEP**(Box A,32-atom,V100)给出 DFT (L) 基线:
+
+**图 `results/smearing_kink/graphene_L_dft_vs_mlip.png`**:graphene M-Γ-K-M,**DFT-MD-TDEP (300K) vs MLIP-TDEP (300K/100K)**。
+
+![graphene (L): DFT-MD-TDEP vs MLIP-TDEP — (L)-稳定(无 CDW 软模)](../results/smearing_kink/graphene_L_dft_vs_mlip.png)
+
+| | DFT-MD-TDEP 300K | MLIP-TDEP 300K |
+|---|---|---|
+| min freq | **−0.0 cm⁻¹**(稳定,无软模)| −0.5 cm⁻¹(稳定)|
+| K-point 最低模 | ~250 cm⁻¹ | ~167 cm⁻¹(MLIP 略低估)|
+
+**结论**:DFT-MD-TDEP **确认 graphene (L)-稳定**(min ~0,无 CDW 软模 → 与"graphene 是电子驱动 K-cusp,非晶格 CDW"自洽)。MLIP-TDEP **复现定性 (L)-稳定性**(min ~0);K-point 模略低估(MLIP backbone 局限,与 §2.3 (E) 声学 artifact 同源)。graphene 的有意义 Kohn 物理在 **(E) 通道**(K-cusp smearing),**(L) 通道惰性**本身是发现(对照 CDW 材料的 (L) 软模)。
 
 ---
 

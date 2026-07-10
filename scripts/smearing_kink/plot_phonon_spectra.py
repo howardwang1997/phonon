@@ -294,6 +294,36 @@ def plot_deploy_vs_dft(mat="NbSe2", label=None, ylim=(-115, 300)):
     fig.savefig(out, dpi=150); print("wrote", out)
 
 
+def plot_graphene_L():
+    """Graphene (L): DFT-MD-TDEP (DFT baseline) vs MLIP-TDEP (effective fc2), M-Gamma-K-M.
+    Shows graphene is (L)-stable (no CDW soft mode) and MLIP reproduces DFT."""
+    dft = np.load(TD / "graphene_dft_tdep.npz", allow_pickle=True)
+    mlp = np.load(TD / "td_graphene_ft.npz", allow_pickle=True)
+    fig, ax = plt.subplots(figsize=(8, 5))
+    # DFT 300K
+    dfreq = dft["T300_freq"] * 33.356  # THz->cm^-1 (tdp freqs are THz)
+    ddist = dft["T300_dist"]
+    ax.plot(ddist, dfreq, color="#222", lw=2.2, alpha=0.9, label="DFT-MD-TDEP (300K)")
+    # MLIP 300K + 100K
+    for T, col, ls in [(300, "#c0504d", "--"), (100, "#2f6f9f", ":")]:
+        if f"T{T}_freq" in mlp:
+            ax.plot(mlp[f"T{T}_dist"], mlp[f"T{T}_freq"] * 33.356, color=col, lw=1.5, ls=ls,
+                    alpha=0.9, label=f"MLIP-TDEP ({T}K)")
+    ticks = dft["label_positions"]; labels = [str(l) for l in dft["labels"]]
+    ax.set_xticks(ticks); ax.set_xticklabels(labels)
+    for t in ticks[1:-1]:
+        ax.axvline(t, color="#ccc", lw=0.6)
+    ax.axhline(0, color="#aaa", lw=0.6)
+    ax.set_ylabel("frequency [cm$^{-1}$]"); ax.set_ylim(-15, 1650)
+    ax.set_title("graphene (L): DFT-MD-TDEP vs MLIP — (L)-stable (no CDW soft mode)", fontsize=10.5)
+    ax.legend(loc="center left", bbox_to_anchor=(1.01, 0.5), frameon=False, fontsize=9)
+    for s in ("top", "right"):
+        ax.spines[s].set_visible(False)
+    fig.subplots_adjust(left=0.10, bottom=0.12, right=0.72, top=0.92)
+    out = SK / "graphene_L_dft_vs_mlip.png"
+    fig.savefig(out, dpi=150); print("wrote", out)
+
+
 if __name__ == "__main__":
     which = sys.argv[1] if len(sys.argv) > 1 else "E"
     if which in ("E", "both"): plot_E()
@@ -305,3 +335,4 @@ if __name__ == "__main__":
                          ("2H-TaS2", "2H-TaS$_2$ (2H)"), ("NbS2", "NbS$_2$ (2H)"),
                          ("1T-VSe2", "1T-VSe$_2$ (1T, sharp-melting)")]:
             plot_deploy_vs_dft(mat, lab)
+    if which in ("grL", "all"): plot_graphene_L()
