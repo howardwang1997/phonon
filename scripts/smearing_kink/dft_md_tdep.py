@@ -79,9 +79,14 @@ def main():
         print(f"[{a.tag}] T={T:.0f} K: DFT-MD (n_snap={a.nsnap}, equil={a.equil}, stride={a.stride})...", flush=True)
         snaps = tdp.sample_md(ideal, calc, T, a.dt, a.equil, a.nsnap, a.stride, seed=int(T), log=print)
         # save snapshots so the fc2 fit can be re-tuned without re-running the (slow) DFT-MD
+        try:
+            energies = np.array([float(s.get_potential_energy()) for s in snaps])
+        except Exception:
+            energies = np.zeros(len(snaps))
         np.savez(work / f"snaps_T{int(T)}.npz",
                  positions=np.array([s.positions for s in snaps]),
                  forces=np.array([s.get_forces() for s in snaps]),
+                 energies=energies,
                  numbers=ideal.numbers, cell=ideal.cell)
         try:
             fc2, rmse2, _ = tdp.effective_fc2(prim, ideal, scm, snaps, a.cutoff2)
