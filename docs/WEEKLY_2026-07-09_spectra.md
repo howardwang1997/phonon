@@ -103,6 +103,34 @@ graphene **无 CDW**(晶格稳定,Kohn 反常是电子驱动的 K-cusp,非晶格
 
 **结论**:DFT-MD-TDEP **确认 graphene (L)-稳定**(min ~0,无 CDW 软模 → 与"graphene 是电子驱动 K-cusp,非晶格 CDW"自洽)。MLIP-TDEP **复现定性 (L)-稳定性**(min ~0);K-point 模略低估(MLIP backbone 局限,与 §2.3 (E) 声学 artifact 同源)。graphene 的有意义 Kohn 物理在 **(E) 通道**(K-cusp smearing),**(L) 通道惰性**本身是发现(对照 CDW 材料的 (L) 软模)。
 
+### 2.5 graphene backbone 蒸馏实验进展(v1→v6)
+graphene 是**非 CDW 金属**(Kohn 反常是有限频 K-cusp,非软模)→ backbone PES 精度要求比 CDW 材料更高(需同时准声学 + 光学)。系统实验了 6 种蒸馏策略:
+
+| 版本 | 训练数据 | (E) backbone min | (E) optical MAE | (L) TDEP min |
+|---|---|---|---|---|
+| **v1** (FC 6×6) | ~60 cfg,fc2 谐振力 | −42 cm⁻¹(差) | **4 cm⁻¹** ✓ | −0.5 ✓ |
+| **v2** (FC 8×8) | ~100 cfg,fc2 谐振力 | −27(差) | **4** ✓ | −0.5 ✓ |
+| **v3** (MD 300K) | 17 cfg,真实 DFT-MD 力 | −11.6(改善) | 32 ✗ | −29.2 ✗ |
+| **v4** (MD 300K) | 60 cfg,真实 DFT-MD 力 | −2.2 ✓ | 32 ✗ | −29.2 ✗ |
+| **v5** (MD 100+300K)| 120 cfg,真实 DFT-MD 力 | **−0.2** ✓ | 32 ✗ | −29.2 ✗ |
+| **v6** (FC+MD 组合)| 293 cfg,fc2+DFT-MD 力 | **−0.9** ✓ | **17.5**(改善!) | −12.0(改善) |
+
+**发现**:
+- **FC 蒸馏**(fc2 力)→ 光学准(MAE 4,K-point 准),但**声学 artifact**(−27~−42)。
+- **MD 蒸馏**(真实力)→ **声学修好**(−0.2),但光学丢(MAE 32)—— 热位移太大,高曲率光学模式约束不足。
+- **v6 组合**(FC+MD)→ 声学保持好(−0.9),光学**改善**(17.5 vs 32),但不如纯 FC(4)。MD 数据"稀释"了 FC 光学精度。
+- **(L) TDEP**:old FT backbone (−0.5) 仍是最好;v6 改善到 −12(从 v5 的 −29),但仍不如 FT。
+
+**核心矛盾**:graphene(非 CDW 金属)的 backbone 需**同时**准声学(需 MD 力,真实 PES)和光学(需 FC 力,fc2 曲率)——两者训练信号不同。CDW 家族(5 材料)无此矛盾(CDW 软模主导,Path-P 微调直接抓)。
+
+**图 `graphene_L_dft_vs_mlip.png`** 已更新为 v6(FC+MD)对比 DFT + old FT。
+
+![graphene (L): DFT vs MLIP v6 (FC+MD) vs old FT](../results/smearing_kink/graphene_L_dft_vs_mlip.png)
+
+**图 `deploy_vs_dft_graphene.png`** 已更新为 v6(声学 −0.9,光学 MAE 17.5)。
+
+![graphene (E): MLIP v6 vs DFT(声学准,光学改善中)](../results/smearing_kink/deploy_vs_dft_graphene.png)
+
 ---
 
 ## 3. (L) 含温度谱 — 具体材料,温度对比
