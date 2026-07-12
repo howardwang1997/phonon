@@ -114,12 +114,18 @@ graphene 是**非 CDW 金属**(Kohn 反常是有限频 K-cusp,非软模)→ back
 | **v4** (MD 300K) | 60 cfg,真实 DFT-MD 力 | −2.2 ✓ | 32 ✗ | −29.2 ✗ |
 | **v5** (MD 100+300K)| 120 cfg,真实 DFT-MD 力 | **−0.2** ✓ | 32 ✗ | −29.2 ✗ |
 | **v6** (FC+MD 组合)| 293 cfg,fc2+DFT-MD 力 | **−0.9** ✓ | **17.5**(改善!) | −12.0(改善) |
+| **v7** (FC+MD 2.9:1)| 233 cfg,4 FC seeds+MD | **−0.2** ✓ | **13.7** | −14.0 |
+| **v8** (FC 混 smearing)| 406 cfg,2 smearing FC | −1.2 | 21.65 ✗(劣化) | −24.6 |
+| **v9-pre** (4 FC seeds)| 752 cfg,4 diverse seeds | **+0.2** ✓ | **8.3** ✓ | −13.0 |
+| **v10** (8 FC seeds)| 1444 cfg,8 diverse seeds | **−1.3** ✓ | **6.3** ✓ | −15.3 |
+| **v11** (16 FC seeds)| 2828 cfg,16 diverse seeds | **−1.5** ✓ | **4.4** ✓✓ | −14.5 |
 
 **发现**:
-- **FC 蒸馏**(fc2 力)→ 光学准(MAE 4,K-point 准),但**声学 artifact**(−27~−42)。
+- **FC 蒸馏**(fc2 力)→ 光学准(MAE 4,K-point 准),但**声学 artifact**(−27~−42)—— 单 seed 采样不足。
 - **MD 蒸馏**(真实力)→ **声学修好**(−0.2),但光学丢(MAE 32)—— 热位移太大,高曲率光学模式约束不足。
-- **v6 组合**(FC+MD)→ 声学保持好(−0.9),光学**改善**(17.5 vs 32),但不如纯 FC(4)。MD 数据"稀释"了 FC 光学精度。
-- **(L) TDEP**:old FT backbone (−0.5) 仍是最好;v6 改善到 −12(从 v5 的 −29),但仍不如 FT。
+- **v6-v8 组合**(FC+MD)→ 折中(17.5→13.7);混 smearing FC 劣化(v8)。
+- **★ v9-pre→v11 突破**:**diverse FC seeds**(4→8→16 seeds)→ 声学 artifact **消失**(−27→+0.2→−1.5),光学**持续改善**(17.5→8.3→6.3→**4.4**)。**v11(16 seeds)达 v2 纯 FC 的光学质量(MAE 4.4≈4.0)且无声学 artifact** → graphene backbone 达 CDW 家族质量。关键:diverse FC seeds → 充分采样 PES → 声学 + 光学同时准。
+- **(L) TDEP**:old FT backbone (−0.5) 仍是最好;v11 (−14.5) 有 spurious(能量训练缺失,在测 v11-ew energy_weight 修法)。
 
 **核心矛盾**:graphene(非 CDW 金属)的 backbone 需**同时**准声学(需 MD 力,真实 PES)和光学(需 FC 力,fc2 曲率)——两者训练信号不同。CDW 家族(5 材料)无此矛盾(CDW 软模主导,Path-P 微调直接抓)。
 
