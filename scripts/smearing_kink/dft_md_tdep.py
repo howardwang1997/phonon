@@ -20,12 +20,17 @@ from phonon_accel.phonons import ase_to_phonopy, phonopy_to_ase
 CM = 33.356
 
 
-def make_espresso(pw, pseudo_dir, ecutwfc, ecutrho, kpts, degauss, directory):
+def make_espresso(pw, pseudo_dir, ecutwfc, ecutrho, kpts, degauss, directory, numbers=None):
+    from ase.data import chemical_symbols
     from ase.calculators.espresso import Espresso, EspressoProfile
-    PSEUDO = {"C": "C_ONCV_PBE-1.2.upf"}
+    if numbers is not None:
+        els = sorted(set(chemical_symbols[z] for z in numbers))
+        PSEUDO = {el: f"{el}_ONCV_PBE-1.2.upf" for el in els}
+    else:
+        PSEUDO = {"C": "C_ONCV_PBE-1.2.upf"}
     profile = EspressoProfile(command=pw, pseudo_dir=str(pseudo_dir))
     inp = {"control": {"calculation": "scf", "tprnfor": True, "tstress": False,
-                       "prefix": "graphene", "pseudo_dir": str(pseudo_dir)},
+                       "prefix": "md", "pseudo_dir": str(pseudo_dir)},
            "system": {"ecutwfc": ecutwfc, "ecutrho": ecutrho, "occupations": "smearing",
                       "smearing": "cold", "degauss": degauss, "ibrav": 0},
            "electrons": {"conv_thr": 1e-8, "mixing_beta": 0.3, "electron_maxstep": 200}}
@@ -75,7 +80,7 @@ def main():
             from mace.calculators import MACECalculator
             calc = MACECalculator(model_paths=a.mlip_model, device="cuda", default_dtype="float32")
         else:
-            calc = make_espresso(a.pw, a.pseudo_dir, a.ecutwfc, a.ecutrho, kpts, a.degauss, work)
+            calc = make_espresso(a.pw, a.pseudo_dir, a.ecutwfc, a.ecutrho, kpts, a.degauss, work, numbers=ideal.numbers)
         print(f"[{a.tag}] T={T:.0f} K: DFT-MD (n_snap={a.nsnap}, equil={a.equil}, stride={a.stride})...", flush=True)
         snaps = tdp.sample_md(ideal, calc, T, a.dt, a.equil, a.nsnap, a.stride, seed=int(T), log=print)
         # save snapshots so the fc2 fit can be re-tuned without re-running the (slow) DFT-MD
