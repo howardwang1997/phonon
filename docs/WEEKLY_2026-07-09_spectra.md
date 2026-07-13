@@ -119,23 +119,27 @@ graphene 是**非 CDW 金属**(Kohn 反常是有限频 K-cusp,非软模)→ back
 | **v9-pre** (4 FC seeds)| 752 cfg,4 diverse seeds | **+0.2** ✓ | **8.3** ✓ | −13.0 |
 | **v10** (8 FC seeds)| 1444 cfg,8 diverse seeds | **−1.3** ✓ | **6.3** ✓ | −15.3 |
 | **v11** (16 FC seeds)| 2828 cfg,16 diverse seeds | **−1.5** ✓ | **4.4** ✓✓ | −14.5 |
+| **v9-final** (v11+real DFT)| 2948 cfg,v11+10K/50K DFT-MD | **−0.2** ✓ | 5.0(略劣于 v11) | — |
 
-**发现**:
-- **FC 蒸馏**(fc2 力)→ 光学准(MAE 4,K-point 准),但**声学 artifact**(−27~−42)—— 单 seed 采样不足。
+**★ 最终结论:V11(16 FC seeds,MAE 4.4)是 graphene backbone 的最终最优解。** 优化收敛(v9-final 加入真实 DFT-MD 力反而稀释了 FC 精度,MAE 4.4→5.0)。
+
+**关键发现**:
+- **FC 蒸馏**(fc2 谐振力)→ 光学准(MAE 4),但**声学 artifact**(−27~−42)—— 单 seed 采样不足。
 - **MD 蒸馏**(真实力)→ **声学修好**(−0.2),但光学丢(MAE 32)—— 热位移太大,高曲率光学模式约束不足。
-- **v6-v8 组合**(FC+MD)→ 折中(17.5→13.7);混 smearing FC 劣化(v8)。
-- **★ v9-pre→v11 突破**:**diverse FC seeds**(4→8→16 seeds)→ 声学 artifact **消失**(−27→+0.2→−1.5),光学**持续改善**(17.5→8.3→6.3→**4.4**)。**v11(16 seeds)达 v2 纯 FC 的光学质量(MAE 4.4≈4.0)且无声学 artifact** → graphene backbone 达 CDW 家族质量。关键:diverse FC seeds → 充分采样 PES → 声学 + 光学同时准。
-- **(L) TDEP**:old FT backbone (−0.5) 仍是最好;v11 (−14.5) 有 spurious(能量训练缺失,在测 v11-ew energy_weight 修法)。
+- **★ diverse FC seeds(4→8→16 seeds)是关键杠杆**:声学 artifact **消失**(−27→+0.2→−1.5),光学**持续改善**(17.5→8.3→6.3→**4.4**)。→ diverse FC seeds 充分采样 PES → 声学 + 光学同时准。
+- **混 smearing FC 劣化**(v8: MAE 21.6)→ backbone 必须 single-smearing。
+- **真实 DFT-MD 力稀释 FC 精度**(v9-final: MAE 5.0 > v11 4.4)→ fc2 谐振力在小位移下比 DFT-MD 力更精确。
+- **(L) TDEP**:(E)/(L) 本质矛盾 —— v11(flexible PES)声学好但 (L) TDEP 有 spurious mode(−14.5);old FT(stiff PES)(L) 好(−0.5)但声学差(−27)。用 **v11 for (E)、old FT for (L)**。
 
-**核心矛盾**:graphene(非 CDW 金属)的 backbone 需**同时**准声学(需 MD 力,真实 PES)和光学(需 FC 力,fc2 曲率)——两者训练信号不同。CDW 家族(5 材料)无此矛盾(CDW 软模主导,Path-P 微调直接抓)。
+**核心矛盾**:graphene(非 CDW 金属)的 backbone 需**同时**准声学(需 flexible PES)和光学/curvature(需 FC 精度)—— diverse FC seeds 是两者兼顾的解。CDW 家族(5 材料)无此矛盾(soft mode 主导,Path-P 微调直接抓)。
 
-**图 `graphene_L_dft_vs_mlip.png`** 已更新为 v6(FC+MD)对比 DFT + old FT。
+**图 `graphene_L_dft_vs_mlip.png`**:graphene (L) DFT vs MLIP(DFT-MD-TDEP vs old FT;v11 backbone TDEP min −14.5,old FT −0.5)。
 
-![graphene (L): DFT vs MLIP v6 (FC+MD) vs old FT](../results/smearing_kink/graphene_L_dft_vs_mlip.png)
+![graphene (L): DFT vs MLIP — (L)-stable, no CDW](../results/smearing_kink/graphene_L_dft_vs_mlip.png)
 
-**图 `deploy_vs_dft_graphene.png`** 已更新为 v6(声学 −0.9,光学 MAE 17.5)。
+**图 `deploy_vs_dft_graphene.png`**:graphene (E) MLIP+长程(v11 backbone)vs DFT — **MAE 4.4, 声学 −1.5(无 artifact)**。
 
-![graphene (E): MLIP v6 vs DFT(声学准,光学改善中)](../results/smearing_kink/deploy_vs_dft_graphene.png)
+![graphene (E): MLIP v11 vs DFT(MAE 4.4, CDW 家族质量)](../results/smearing_kink/deploy_vs_dft_graphene.png)
 
 ---
 
