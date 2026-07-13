@@ -220,3 +220,26 @@ graphene 是**非 CDW 金属**(Kohn 反常是有限频 K-cusp,非软模)→ back
 ![统一 reduced-T kink 律 — (E)+(L) 塌缩到同 healing 形式](../results/smearing_kink/b2_unified_kink_law.png)
 
 **脚本**:`scripts/smearing_kink/plot_phonon_spectra.py`(fc2→Γ-M-K-Γ 色散;(E)/(L)/(L-tdep) 三种图)。
+
+---
+
+## 7. 算力消耗对比:DFT vs MLIP+微调
+
+**图 `results/smearing_kink/compute_cost_compare.png`**:DFT vs MLIP+微调 在三种声子谱任务上的时间消耗(含训练+推理)。
+
+![算力对比:DFT vs MLIP+微调 — 0K / Smearing / Temperature 声子谱(加速比标注)](../results/smearing_kink/compute_cost_compare.png)
+
+| 任务 | DFT (V100) | MLIP 训练 (2060,一次性) | MLIP 推理 (2060) | 加速比 |
+|---|---|---|---|---|
+| **NbSe₂ 0K fc₂** (1 谱) | ~1.5h | ~1h(蒸馏) | ~10 min | ~1× |
+| **NbSe₂ Smearing** (4 degauss) | ~6h(4×fc₂) | 同上(摊销) | ~4 min(Friedel deploy) | **~86×** |
+| **NbSe₂ Temperature** (4 T_lat) | ~34h(4×DFT-MD ×8.5h) | 同上(摊销) | ~8 min(TDEP) | **~262×** |
+| **graphene 0K fc₂** (1 谱) | ~3h(8×8) | ~4h(v11 16 seeds) | ~10 min | ~0.7× |
+| **graphene Smearing** (4 degauss) | ~6h | 同上(摊销) | ~4 min | **~86×** |
+| **graphene Temperature** (4 T_lat) | ~34h | 同上(摊销) | ~8 min | **~262×** |
+
+**关键洞察**:
+- **单次查询**:MLIP 无优势(训练 + 推理 ≈ DFT 直接算)。
+- **多查询(Smearing/温度)**:MLIP 训练是一次性的,之后**每次 T_el / T_lat 查询仅需分钟级**(DFT 需完整重算 → 小时级)→ **加速 86–262×**。
+- **多材料家族**:5 个 CDW 材料 × 4 smearing × 4 T_lat = 80 个谱 → DFT 需 ~600h;MLIP 需 ~5h 训练 + ~1h 推理 = ~6h → **加速 ~100×**。
+- DFT-MD-TDEP 的 ~8.5h/温度 是本项目的实测值(32-原子 graphene on V100 GPU-QE,~640 MD 步 × ~48s/步)。
