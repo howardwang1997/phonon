@@ -219,7 +219,7 @@ graphene 是**非 CDW 金属**(Kohn 反常是有限频 K-cusp,非软模)→ back
 
 ![统一 reduced-T kink 律 — (E)+(L) 塌缩到同 healing 形式](../results/smearing_kink/b2_unified_kink_law.png)
 
-**脚本**:`scripts/smearing_kink/plot_phonon_spectra.py`(fc2→Γ-M-K-Γ 色散;(E)/(L)/(L-tdep) 三种图)。
+**脚本**:`scripts/smearing_kink/plot_phonon_spectra.py`(fc2→Γ-M-K-Γ 色散;(E)/(L)/(L-tdep) 三种图)+ `plot_graphene_0K_300K.py`(0K vs 300K 并列)+ `plot_cost_compare.py`(算力对比)。
 
 ---
 
@@ -243,3 +243,12 @@ graphene 是**非 CDW 金属**(Kohn 反常是有限频 K-cusp,非软模)→ back
 - **多查询(Smearing/温度)**:MLIP 训练是一次性的,之后**每次 T_el / T_lat 查询仅需分钟级**(DFT 需完整重算 → 小时级)→ **加速 86–262×**。
 - **多材料家族**:5 个 CDW 材料 × 4 smearing × 4 T_lat = 80 个谱 → DFT 需 ~600h;MLIP 需 ~5h 训练 + ~1h 推理 = ~6h → **加速 ~100×**。
 - DFT-MD-TDEP 的 ~8.5h/温度 是本项目的实测值(32-原子 graphene on V100 GPU-QE,~640 MD 步 × ~48s/步)。
+
+### 7.1 graphene: 0K 谐振 vs 300K 非谐声子谱(DFT vs MLIP+微调 并列)
+
+**图 `results/smearing_kink/graphene_0K_vs_300K.png`**:graphene 在 0K(谐振,MLIP+长程)和 300K(非谐,MLIP-TDEP)两档温度下,DFT vs MLIP+微调的全色散对比。
+
+![graphene: DFT vs MLIP+fine-tuning — 0K harmonic vs 300K anharmonic phonon spectrum](../results/smearing_kink/graphene_0K_vs_300K.png)
+
+- **左(0K 谐振)**:DFT fc₂ vs MLIP v11 backbone + Friedel 长程项 vs backbone 单独。MAE **4.4 cm⁻¹**(全色散),backbone 单独有微弱声学 artifact。
+- **右(300K 非谐)**:DFT-MD-TDEP vs MLIP-TDEP(effective fc₂ from MLIP-MD)。两条谱都实频(graphene 无 CDW,(L)-稳定),MLIP 在光学支有 ~100-200 cm⁻¹ 偏移(MLIP backbone 局限)。
