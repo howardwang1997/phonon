@@ -9,12 +9,32 @@
 ## 1. 方法
 
 ### (E) 含 Smearing 谱 — MLIP + 解析长程 Friedel 项
-金属的 Kohn 反常是**长程 Friedel/RKKY 振荡** `Φ_LR ~ cos(2k_F·R)·e^(−R/ξ(T_el))/R^d`,标准 MLIP(cutoff 有限)结构上**抓不到**。本项目在 smearing-blind 的 MACE backbone 上**叠加一个 T_el-条件化的解析长程项**:
+金属的 Kohn 反常是**长程 Friedel/RKKY 振荡** `Φ_LR ~ cos(2k_F·R)·e^(−R/ξ(T_el))/R^d`,标准 MLIP(cutoff 有限)结构上**抓不到**。本项目在 smearing-blind 的 MACE backbone 上**叠加一个 T_el-条件化的解析长程项**(metallic-BAMBOO 模式:短程 NN backbone + 解析长程物理项)。完整计算公式如下(`scripts/smearing_kink/friedel_module.py` + `friedel_calc.py` + `fit_friedel.py`):
+
+**① 力常数分解**(核心——所有 T_el 依赖只进长程项):
 ```
-fc₂(R; T_el) = backbone + B(T_el)·exp(−κ(T_el)·R)·D₀(R)
+fc₂(R; T_el) = fc₂_backbone(R) + Δfc(R; T_el)
+Δfc(R; T_el) = B(T_el) · exp(−κ(T_el)·R) · D₀(R)
 ```
-- D₀(R)=全张量 Fermi 面波形(最锐 smearing 处测一次);B, κ = 2 个热参,从 2–3 个 DFT smearing 锚点 few-shot 拟合。
-- 部署:`FriedelMACECalculator`(`scripts/smearing_kink/friedel_calc.py`)包任意 MLIP + 加谐振 Friedel 项;变 T_el(degauss×157888 K)→ 含 smearing 谱。
+- **`fc₂_backbone(R)`** — smearing-blind 短程 backbone(MACE MLIP,单 smearing FC 蒸馏)。物理上锚定在**最大 smearing(degauss 0.080)**的 fc₂:此处 Friedel 振荡被完全阻尼,只剩纯短程部分。
+- **`D₀(R)`** — **全 3×3 张量** Fermi 面 Friedel 波形 `= fc₂(ref) − fc₂_backbone`,在**最锐 smearing(degauss 0.002,阻尼最弱)**处测一次后**固定**(全局不变)。携带正确方向性 + 张量结构,含 Kohn cusp 所在的 off-diagonal/横向分量(diagnostic T2:Kohn cusp 不只在键纵向通道)。
+- **`B(T_el)`** 振幅、**`κ(T_el)`** 额外热阻尼率 `= 1/ξ(T_el) − 1/ξ_ref`。在参考 smearing 处 `B=1, κ=0`(精确还原);T_el 升高 → `B↓, κ↑`(Friedel 范围缩短)。
+
+**② 少样本热参律**(graphene,3 锚点 dg 0.002/0.010/0.040 few-shot 拟合,见 `fit_friedel.py`):
+```
+B(T_el)  ≈ 1.08                      (≈ 常数:Friedel 振幅 ~ T_el 无关)
+κ(T_el)  = 8.318×10⁻⁴ · T_el^0.61     [Å⁻¹]
+T_el     = degauss × 157888  K         (degauss[Ry] → 电子温度;dg0.005=789K, dg0.020=3158K)
+```
+
+**③ 部署为 calculator**(`FriedelMACECalculator`,加性**谐振**校正,作用在参考超胞的位移 u 上;最小镜像 wrap):
+```
+E_total(u) = E_backbone(u) + ½ · uᵀ · Δfc(T_el) · u
+F_total(u) = F_backbone(u) − Δfc(T_el) · u
+```
+→ 在选定 T_el 下跑 phonopy 有限位移 → 含 smearing 的 fc₂(T_el) → Γ-M-K-Γ 色散。**声学和定则(ASR)**:对偶校正加到 cross-block,自块补 `−Σ校正`,保证 Γ 声学支 = 0(谐振区精确,与 MLIP 能量加性可叠加)。
+
+**④ 物理内核(RKKY 形式 + 统一律)**:`g(R) = A·cos(2k_F·R + φ)·exp(−R/ξ)/R^p`,`k_F, φ, p` 为 smearing 无关全局量,`ξ ~ v_F/(k_BT_el)` 热屏蔽长度。B₂ 统一 reduced-T 律:`B(T) = B₀·max(0, 1−(T/T*)^p)^q`,`(p,q)=(4.44, 3.00)`,`T* = T_el*`(smearing 熔点,(E) 轴)或 `T_CDW`((L) 轴)。注意:`B(T_el)` 条件化是 **(E)-smearing 机制**(Friedel 振幅随 Fermi 面模糊而衰减);(L) 轴仅经验上共享同一 healing 形式(机制是非谐,由 backbone 承载,非 B 衰减)。
 - **结果**:家族 5 CDW 材料 soft-mode(T_el) MLIP vs DFT MAE **0.011–0.16 THz**(TaSe₂ 0.011 / TaS₂ 0.035 / TiSe₂ 0.034 / NbS₂ 0.071 / NbSe₂ 0.160);graphene K-cusp MAE 0.31 cm⁻¹。**MoS₂ gapped 对照 = FLAT**(无 Fermi 面 → 无 smearing 依赖,反证 (E)-kink 是金属屏蔽驱动)。
 
 ### (L) 含温度谱 — Path-P 非谐微调 MACE + SSCHA

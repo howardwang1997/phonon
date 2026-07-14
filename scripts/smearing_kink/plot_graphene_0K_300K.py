@@ -90,9 +90,10 @@ for xt in (tick8 if dgs else tick)[1:-1]:
     ax1.axvline(xt, color="#ccc", lw=0.6)
 ax1.axhline(0, color="#aaa", lw=0.6)
 ax1.set_ylabel("frequency [cm$^{-1}$]", fontsize=11)
-ax1.set_ylim(-30, 360)
+ax1.set_ylim(-30, 1650)   # full graphene dispersion (optical G-band ~1615; was 360, cut off)
 ax1.set_xlim(0, tick8[-1])
-ax1.legend(loc="upper center", frameon=False, fontsize=7.5, ncol=2)
+ax1.legend(loc="upper center", bbox_to_anchor=(0.5, -0.12),
+           frameon=False, fontsize=7.5, ncol=3)
 ax1.set_title("(E): graphene smearing 谱 (DFT multi-smearing + MLIP+LR)", fontsize=10.5)
 for s in ("top", "right"):
     ax1.spines[s].set_visible(False)
