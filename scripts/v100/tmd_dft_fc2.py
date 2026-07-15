@@ -30,7 +30,7 @@ import td_common as tdc   # noqa: E402 (make_band_path)
 
 
 def make_espresso(pw, mpirun, nproc, pseudo_dir, pseudos, ecutwfc, ecutrho,
-                  kpts, degauss, directory):
+                  kpts, degauss, directory, smearing="fd"):
     from ase.calculators.espresso import Espresso, EspressoProfile
     cmd = f"{mpirun} --allow-run-as-root -np {nproc} {pw}" if nproc > 1 else pw
     profile = EspressoProfile(command=cmd, pseudo_dir=str(pseudo_dir))
@@ -40,8 +40,11 @@ def make_espresso(pw, mpirun, nproc, pseudo_dir, pseudos, ecutwfc, ecutrho,
         # root fs. Scratch dirs live on /data (see --scratch) and are cleaned after.
         "control": {"calculation": "scf", "tprnfor": True, "tstress": False,
                     "disk_io": "none", "verbosity": "low"},
+        # smearing='fd' (Fermi-Dirac) by default: for the (E)-channel T_el axis
+        # degauss = k_B*T_el EXACTLY (cold-smearing degauss is only a broadener).
+        # Use --smearing cold to reproduce the earlier cold-smearing runs.
         "system": {"ecutwfc": ecutwfc, "ecutrho": ecutrho,
-                   "occupations": "smearing", "smearing": "cold", "degauss": degauss},
+                   "occupations": "smearing", "smearing": smearing, "degauss": degauss},
         "electrons": {"conv_thr": 1e-8, "mixing_beta": 0.3,
                       "electron_maxstep": 250, "diago_david_ndim": 4,
                       "startingwfc": "atomic+random"},
@@ -66,6 +69,8 @@ def main() -> int:
                     help="override config dft.degauss (Ry) — e.g. 0.002 for electronic-0K check")
     ap.add_argument("--supercell", type=int, default=None,
                     help="override config dft.fc2_supercell")
+    ap.add_argument("--smearing", default="fd",
+                    help="fd (Fermi-Dirac, default; degauss=k_B*T_el) | cold | gauss | mp")
     a = ap.parse_args()
 
     import shutil
@@ -103,7 +108,7 @@ def main() -> int:
         dd = work / f"disp-{i:03d}"; dd.mkdir(parents=True, exist_ok=True)
         scell.calc = make_espresso(a.pw, a.mpirun, a.nproc, a.pseudo_dir, pseudos,
                                    d["ecutwfc"], d["ecutrho"], d["fc2_kpts"],
-                                   d["degauss"], dd)
+                                   d["degauss"], dd, a.smearing)
         forces.append(scell.get_forces())
         print(f"[fc2:{a.name}]   disp {i+1}/{nd}: max|F|={np.abs(forces[-1]).max():.4f} "
               f"({time.perf_counter()-t0:.0f}s)", flush=True)
