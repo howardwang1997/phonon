@@ -62,6 +62,10 @@ def main() -> int:
     ap.add_argument("--workdir", default="results/v100/fc2")
     ap.add_argument("--scratch", default="/data/v100scratch",
                     help="big QE scratch root (keep OFF the root fs)")
+    ap.add_argument("--degauss", type=float, default=None,
+                    help="override config dft.degauss (Ry) — e.g. 0.002 for electronic-0K check")
+    ap.add_argument("--supercell", type=int, default=None,
+                    help="override config dft.fc2_supercell")
     a = ap.parse_args()
 
     import shutil
@@ -69,7 +73,11 @@ def main() -> int:
 
     cfg = tc.load_config(a.config)
     mat = tc.material(cfg, a.name)
-    d = cfg["dft"]
+    d = dict(cfg["dft"])
+    if a.degauss is not None:
+        d["degauss"] = a.degauss
+    if a.supercell is not None:
+        d["fc2_supercell"] = a.supercell
     out_yaml = ROOT / a.workdir / f"{a.name}_phonopy.yaml"
     if out_yaml.exists():
         print(f"[fc2:{a.name}] {out_yaml.name} exists -> skip", flush=True)
