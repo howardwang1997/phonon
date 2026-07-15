@@ -4,7 +4,7 @@ Plots our Gamma-M-K-Gamma dispersion (dg0.005, experimental-a fc2 — the
 literature-comparable set) zoomed to the acoustic/CDW region, marks the literature
 CDW wavevector q_CDW, and annotates the literature source + our soft-mode depth.
 
-Output: results/v100/verify_relax/cdw_lit_compare.png  (for WEEKLY_2026-07-15.md §5)
+Output: results/smearing_kink/cdw_lit_compare.png  (for WEEKLY_2026-07-15.md §5)
 """
 from __future__ import annotations
 import sys, warnings
@@ -87,7 +87,7 @@ for ax, (name, yml, qfrac, lit, ours) in zip(axes.flat, MATS):
 fig.suptitle("CDW imaginary soft mode: our PBE fc₂ vs literature  (pink = imaginary; red dashed = lit q_CDW)",
              fontsize=12.5, y=0.995)
 fig.tight_layout(rect=[0, 0, 1, 0.985])
-out = ROOT / "results" / "v100" / "verify_relax" / "cdw_lit_compare.png"
+out = ROOT / "results" / "smearing_kink" / "cdw_lit_compare.png"
 out.parent.mkdir(parents=True, exist_ok=True)
 fig.savefig(out, dpi=150, bbox_inches="tight")
 print("wrote", out)
