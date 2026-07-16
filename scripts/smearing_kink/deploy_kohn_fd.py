@@ -55,7 +55,7 @@ def main():
     ref_atoms = phonopy_to_ase(ph.supercell)
     # backbone fc2 through the MACE (subtract ref forces; MACE geom != exact min)
     _, fc_bb = fc2_from_calc(ph, mace, distance=0.03, subtract_ref=True)
-    corr = FriedelCorrection(ph, fc_bb, fc_dft[REF_DG],
+    corr = FriedelCorrection(ph, fc_dft["0.08"], fc_dft[REF_DG],
                              B_law=lambda T: Bm, kappa_law=lambda T: ka * T ** kb)
 
     kB = metrics(ph, fc_bb)[0]
@@ -74,7 +74,28 @@ def main():
             mK = metrics(ph, fc_t)[0]
         res += abs(mK - dK); n += 1
         print(f"{dg:>6} {T:>7.0f} {dK:>9.2f} {kB:>9.2f} {mK:>8.2f}")
-    print(f"# MAE kink_K (MACE+LR vs DFT) = {res/n:.2f} cm^-1   (backbone alone kink_K={kB:.2f})")
+    print(f"# MAE kink_K (MACE+LR law vs DFT) = {res/n:.2f} cm^-1   (backbone alone kink_K={kB:.2f})")
+
+    # ---- self-consistent per-T fit on the v11 backbone: can v11+Friedel REPRESENT each T? ----
+    tabs, _ = fm.pair_table(ph)
+    D0 = fm.template_delta(fc_dft[REF_DG], fc_dft["0.08"], tabs)
+    KAPPAS = np.linspace(0.0, 2.0, 161)
+    print("\n# reuse-v11, self-consistent per-T Friedel fit (D0 = DFT dg0.01 - v11 backbone):")
+    print(f"{'dg':>6} {'T_el':>7} {'DFT':>7} {'v11+LR(perT)':>13}")
+    rP = 0.0; nP = 0
+    for dg in DGS:
+        if dg not in fc_dft:
+            continue
+        dK = metrics(ph, fc_dft[dg])[0]
+        if dg == REF_DG:
+            kP = dK
+        else:
+            B, kap, _ = fm.fit_template_env(fc_dft[dg], fc_bb, tabs, D0, 1.0, 12.0, KAPPAS)
+            fcP = fm.add_template(fc_bb, tabs, D0, B, kap, 1.0, 12.0)
+            kP = metrics(ph, fcP)[0]
+        rP += abs(kP - dK); nP += 1
+        print(f"{dg:>6} {float(dg)*157887:>7.0f} {dK:>7.2f} {kP:>13.2f}")
+    print(f"# MAE kink_K (v11+perT-Friedel vs DFT) = {rP/max(nP,1):.2f} cm^-1")
 
 
 if __name__ == "__main__":
