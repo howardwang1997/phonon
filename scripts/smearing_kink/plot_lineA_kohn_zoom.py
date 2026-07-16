@@ -34,7 +34,7 @@ def style(ax):
         ax.spines[s].set_visible(False)
 
 
-fig, (axD, axM) = plt.subplots(1, 2, figsize=(13.5, 5.6))
+fig, (axD, axM) = plt.subplots(1, 2, figsize=(15, 5.6))
 for i, dg in enumerate(dgs):
     col = cmap(norm(float(dg)))                  # dark(viridis)=sharp, yellow=broad
     axD.plot(x, dft_b[i], color=col, lw=1.4, alpha=0.92)
@@ -47,7 +47,7 @@ axD.set_ylabel("frequency [cm$^{-1}$]", fontsize=10)
 
 # single shared colourbar (degauss -> T_el), off to the right; replaces the in-axes legend
 sm = plt.cm.ScalarMappable(cmap=cmap, norm=norm); sm.set_array([])
-cbar = fig.colorbar(sm, ax=[axD, axM], pad=0.02, aspect=28)
+cbar = fig.colorbar(sm, ax=axM, pad=0.06, fraction=0.03, aspect=30)
 cbar.set_label("degauss (Ry)  →  T$_{el}$ (K)", fontsize=9)
 ticks_dg = np.array([0.01, 0.03, 0.06, 0.10, 0.14])
 cbar.set_ticks(ticks_dg)
