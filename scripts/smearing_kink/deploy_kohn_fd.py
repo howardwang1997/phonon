@@ -40,6 +40,28 @@ def metrics(ph, fc):
     return kK, kG, float(f[0].max()), float(f[1].max())
 
 
+_PTS = [np.array([0., 0., 0.]), np.array([.5, 0., 0.]),
+        np.array([1/3, 1/3, 0.]), np.array([0., 0., 0.])]
+
+
+def band(ph, fc, nseg=40):
+    """Gamma-M-K-Gamma dispersion (cm^-1) from a compact fc, on a fresh phonopy copy."""
+    import phonopy
+    ph2 = phonopy.load(FD / "graphene_sc6_dg0.08_phonopy.yaml", is_compact_fc=False)
+    ph2.force_constants = fc
+    qs = []
+    for i in range(len(_PTS) - 1):
+        for j in range(1, nseg + 1):
+            qs.append(_PTS[i] + (_PTS[i + 1] - _PTS[i]) * j / nseg)
+    qs = np.array(qs)
+    ph2.run_qpoints(qs, with_dynamical_matrices=False)
+    freq = np.array(ph2.get_qpoints_dict()["frequencies"]) * 33.35641
+    seglen = np.linalg.norm(np.diff(qs, axis=0), axis=1)
+    x = np.concatenate([[0.0], np.cumsum(seglen)])
+    seg = len(x) // 3
+    return x, freq, [x[0], x[seg - 1], x[2 * seg - 1], x[-1]]
+
+
 def main():
     ph = fm.load_ph(FD / "graphene_sc6_dg0.08_phonopy.yaml")     # phonopy object (relaxed a, 6x6)
     fc_dft = {dg: fm.load_ph(FD / f"graphene_sc6_dg{dg}_phonopy.yaml").force_constants for dg in DGS
@@ -47,8 +69,9 @@ def main():
     fit = json.loads(FIT.read_text()) if FIT.exists() else {}
     # Use the PROVEN graphene Friedel laws (friedel_calc defaults; validated to MAE 0.31)
     # rather than the per-T power-law re-fit, which is noisy on this range.
-    Bm, ka, kb = 1.08, 8.318e-4, 0.61
-    print(f"# v11 backbone + fixed-D0 Friedel; PROVEN laws B={Bm}, kappa(T)={ka}*T^{kb}")
+    law = json.loads((FD / "kappa_law_tuned.json").read_text()) if (FD / "kappa_law_tuned.json").exists() else {"B":1.08,"a":8.318e-4,"b":0.61}
+    Bm, ka, kb = law["B"], law["a"], law["b"]
+    print(f"# v11 backbone + fixed-D0 Friedel; laws B={Bm}, kappa(T)={ka}*T^{kb} ({'tuned' if 'MAE' in law else 'proven'})")
 
     mace = mace_calc(BB_MODEL)
     from phonon_accel.phonons import phonopy_to_ase
@@ -59,22 +82,31 @@ def main():
                              B_law=lambda T: Bm, kappa_law=lambda T: ka * T ** kb)
 
     kB = metrics(ph, fc_bb)[0]
+    bb_x, bb_f, bb_tick = band(ph, fc_bb)
     print(f"\n{'dg':>6} {'T_el':>7} {'DFT_kinkK':>9} {'backbone':>9} {'MACE+LR':>8}")
+    dft_kink = {}; mlip_kink = {}; dft_b = {}; mlip_b = {}
     res = 0.0; n = 0
     for dg in DGS:
         if dg not in fc_dft:
             continue
         T = float(dg) * 157887
-        dK = metrics(ph, fc_dft[dg])[0]
-        if dg == REF_DG:
-            mK = dK
-        else:
-            calc = FriedelMACECalculator(mace, ref_atoms, corr, T)
-            _, fc_t = fc2_from_calc(ph, calc, distance=0.03, subtract_ref=True)
-            mK = metrics(ph, fc_t)[0]
-        res += abs(mK - dK); n += 1
-        print(f"{dg:>6} {T:>7.0f} {dK:>9.2f} {kB:>9.2f} {mK:>8.2f}")
-    print(f"# MAE kink_K (MACE+LR law vs DFT) = {res/n:.2f} cm^-1   (backbone alone kink_K={kB:.2f})")
+        dft_kink[dg] = metrics(ph, fc_dft[dg])[0]
+        _, dftf, _ = band(ph, fc_dft[dg]); dft_b[dg] = dftf
+        calc = FriedelMACECalculator(mace, ref_atoms, corr, T)
+        _, fc_t = fc2_from_calc(ph, calc, distance=0.03, subtract_ref=True)
+        mlip_kink[dg] = metrics(ph, fc_t)[0]
+        _, mlf, _ = band(ph, fc_t); mlip_b[dg] = mlf
+        res += abs(mlip_kink[dg] - dft_kink[dg]); n += 1
+        print(f"{dg:>6} {T:>7.0f} {dft_kink[dg]:>9.2f} {kB:>9.2f} {mlip_kink[dg]:>8.2f}")
+    print(f"# MAE kink_K (MACE+LR vs DFT) = {res/n:.2f} cm^-1   (backbone alone kink_K={kB:.2f})")
+    keep = [dg for dg in DGS if dg in fc_dft]
+    np.savez(FD / "deploy_lineA_bands.npz", x=bb_x, tick=bb_tick, dgs=np.array(keep),
+             dft_bands=np.array([dft_b[dg] for dg in keep]),
+             mlip_bands=np.array([mlip_b[dg] for dg in keep]),
+             dft_kink=np.array([dft_kink[dg] for dg in keep]),
+             mlip_kink=np.array([mlip_kink[dg] for dg in keep]),
+             backbone_band=bb_f, backbone_kink=kB)
+    print(f"# saved {FD/'deploy_lineA_bands.npz'}")
 
     # ---- self-consistent per-T fit on the v11 backbone: can v11+Friedel REPRESENT each T? ----
     tabs, _ = fm.pair_table(ph)
