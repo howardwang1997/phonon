@@ -1,0 +1,30 @@
+# MACE config: graphene FC-distillation backbone retrained on the fd dg0.08 fc2 (relaxed a=2.4576).
+# Architecture matches the existing v11 backbone (extracted: r_max=5, 2 interactions, 64x0e+64x1o).
+# From-scratch (no foundation) — light enough for V100 (32GB) or even 2060 (8GB).
+model: MACE
+num_interactions: 2
+hidden_irreps: 64x0e+64x1o
+r_max: 5.0
+num_radial_basis: 8
+num_cutoff_basis: 5
+correlation: 3
+
+train_file: /root/phonon/data/finetune_graphene_fd/train.xyz
+valid_file: /root/phonon/data/finetune_graphene_fd/val.xyz
+test_file: /root/phonon/data/finetune_graphene_fd/val.xyz
+E0s: average
+energy_key: energy
+forces_key: forces
+
+batch_size: 4
+valid_batch_size: 4
+lr: 0.005
+max_num_epochs: 600
+ema: true
+ema_decay: 0.99
+patience: 60
+weight_decay: 1.0e-8
+energy_weight: 1.0
+forces_weight: 1.0
+default_dtype: float64
+device: cuda
