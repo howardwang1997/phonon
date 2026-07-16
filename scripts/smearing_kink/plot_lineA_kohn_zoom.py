@@ -1,6 +1,7 @@
-"""Line A Kohn-anomaly ZOOM: high-frequency optical region only, near the anomaly
-points (Gamma E2g/G-band ~1575 and K iTO/A1' ~1300). No low-frequency clutter.
-DFT vs MLIP+long-range at 3 electronic temperatures, showing the anomaly + its melting.
+"""Line A Kohn-anomaly overlay: high-frequency optical region, all smearings overlaid.
+Two panels — DFT (all T_el overlaid) and MLIP+long-range (all T_el overlaid) — so the
+Kohn anomaly and its sharp melt with electronic temperature is visible as a family of
+curves (dark = sharp Fermi surface / anomaly present; light = broad / anomaly melted).
 
     conda run -n phonon python scripts/smearing_kink/plot_lineA_kohn_zoom.py
 """
@@ -19,38 +20,44 @@ d = np.load(FD / "deploy_lineA_bands.npz", allow_pickle=True)
 x = d["x"]; tick = list(d["tick"])
 dgs = [str(s) for s in d["dgs"]]
 dft_b = d["dft_bands"]; mlip_b = d["mlip_bands"]
-idx = {dg: i for i, dg in enumerate(dgs)}
-pick = [dg for dg in ["0.01", "0.04", "0.08"] if dg in idx]
+Tel = np.array([float(dg) * 157887 for dg in dgs])
+cmap = plt.cm.Blues
+n = len(dgs)
 
-fig, axes = plt.subplots(1, 3, figsize=(15.5, 5.2))
-for ax, dg in zip(axes, pick):
-    i = idx[dg]; T = float(dg) * 157887
-    # high-frequency optical region only: the top branches hosting the Kohn anomaly
-    ax.plot(x, dft_b[i], color="#1f1f1f", lw=1.6, alpha=0.9, label="DFT (PBE fc₂)")
-    ax.plot(x, mlip_b[i], color="#c0392b", lw=1.3, ls="--", alpha=0.95,
-            label="MLIP + long-range (reuse v11)")
+
+def style(ax):
     for xt in tick[1:-1]:
-        ax.axvline(xt, color="#e4e4e4", lw=0.7)
+        ax.axvline(xt, color="#e6e6e6", lw=0.7)
     ax.axhline(0, color="#bbb", lw=0.5)
     ax.set_xticks(tick); ax.set_xticklabels(LABELS)
-    ax.set_ylim(1240, 1620)              # high-freq optical only — no acoustic
-    ax.set_xlim(tick[0], tick[-1])
-    ax.set_title(f"degauss = {dg}   (T$_{{el}}$ = {T:.0f} K)", fontsize=10.5)
+    ax.set_ylim(1240, 1620); ax.set_xlim(tick[0], tick[-1])
     for s in ("top", "right"):
         ax.spines[s].set_visible(False)
-    if dg == pick[0]:
-        ax.set_ylabel("frequency [cm$^{-1}$]", fontsize=9.5)
-        ax.legend(frameon=False, fontsize=8, loc="lower right")
-    # annotate the two Kohn-anomaly points
-    ax.annotate("G-band\n(E2g, Γ)", xy=(tick[0], 1575), xytext=(tick[0] + 0.18 * (tick[-1] - tick[0]), 1500),
-                fontsize=7, color="#444", ha="left")
-    ax.annotate("Kohn anomaly\n(iTO, K)", xy=(tick[2], 1290), xytext=(tick[2] - 0.30 * (tick[-1] - tick[0]), 1330),
-                fontsize=7, color="#444", ha="left")
 
-fig.suptitle("graphene Kohn anomaly (high-frequency zoom): Γ E2g + K iTO  —  "
-             "DFT vs MLIP+long-range, melting with T$_{el}$",
-             fontsize=12, y=1.01)
+
+fig, (axD, axM) = plt.subplots(1, 2, figsize=(13, 5.6))
+for i, dg in enumerate(dgs):
+    col = cmap(0.85 - 0.55 * i / max(n - 1, 1))   # dark=sharp, light=broad
+    lab = f"dg={dg} (T$_{{el}}$={Tel[i]:.0f} K)" if i in (0, n - 1) else None
+    axD.plot(x, dft_b[i], color=col, lw=1.3, alpha=0.9, label=lab)
+    axM.plot(x, mlip_b[i], color=col, lw=1.3, alpha=0.9, ls="--", label=lab)
+for ax in (axD, axM):
+    style(ax)
+axD.set_title("DFT (PBE fc₂, Fermi-Dirac)", fontsize=11)
+axM.set_title("MLIP + long-range (reuse v11 + healing Friedel)", fontsize=11)
+axD.set_ylabel("frequency [cm$^{-1}$]", fontsize=10)
+axD.legend(frameon=False, fontsize=7.5, loc="lower right")
+axM.legend(frameon=False, fontsize=7.5, loc="lower right")
+# annotate the two Kohn-anomaly points on the DFT panel
+axD.annotate("G-band (E2g, Γ)", xy=(tick[0], 1575), xytext=(tick[0] + 0.05 * (tick[-1] - tick[0]), 1480),
+             fontsize=7.5, color="#333")
+axD.annotate("Kohn anomaly\n(iTO, K)", xy=(tick[2], 1290), xytext=(tick[2] - 0.22 * (tick[-1] - tick[0]), 1335),
+             fontsize=7.5, color="#333")
+mae = float(np.mean(np.abs(d["mlip_kink"] - d["dft_kink"])))
+fig.suptitle("graphene Kohn anomaly (high-frequency overlay): sharp melt with T$_{el}$  —  "
+             f"DFT vs MLIP+long-range, kink MAE {mae:.2f} cm$^{{-1}}$  (dark=sharp / anomaly present, light=broad / melted)",
+             fontsize=11, y=1.01)
 fig.tight_layout()
 out = OUT / "lineA_kohn_zoom.png"
 fig.savefig(out, dpi=150, bbox_inches="tight")
-print("wrote", out)
+print("wrote", out, "| kink MAE", round(mae, 2))

@@ -67,11 +67,11 @@ def main():
     fc_dft = {dg: fm.load_ph(FD / f"graphene_sc6_dg{dg}_phonopy.yaml").force_constants for dg in DGS
               if (FD / f"graphene_sc6_dg{dg}_phonopy.yaml").exists()}
     fit = json.loads(FIT.read_text()) if FIT.exists() else {}
-    # Use the PROVEN graphene Friedel laws (friedel_calc defaults; validated to MAE 0.31)
-    # rather than the per-T power-law re-fit, which is noisy on this range.
-    law = json.loads((FD / "kappa_law_tuned.json").read_text()) if (FD / "kappa_law_tuned.json").exists() else {"B":1.08,"a":8.318e-4,"b":0.61}
-    Bm, ka, kb = law["B"], law["a"], law["b"]
-    print(f"# v11 backbone + fixed-D0 Friedel; laws B={Bm}, kappa(T)={ka}*T^{kb} ({'tuned' if 'MAE' in law else 'proven'})")
+    # HEALING B(T_el) law (captures the sharp Kohn melt; fit on DFT backbone, MAE 0.18)
+    hl = json.loads((FD / "healing_law.json").read_text())
+    hB0, hTstar, hp, hq, hkap = hl["B0"], hl["Tstar"], hl["p"], hl["q"], hl["kappa"]
+    print(f"# v11 backbone + fixed-D0 Friedel; HEALING B(T)=B0*max(0,1-(T/T*)^p)^q  "
+          f"B0={hB0:.2f} T*={hTstar:.0f} p={hp:.2f} q={hq:.2f} kappa={hkap}")
 
     mace = mace_calc(BB_MODEL)
     from phonon_accel.phonons import phonopy_to_ase
@@ -79,7 +79,8 @@ def main():
     # backbone fc2 through the MACE (subtract ref forces; MACE geom != exact min)
     _, fc_bb = fc2_from_calc(ph, mace, distance=0.03, subtract_ref=True)
     corr = FriedelCorrection(ph, fc_dft["0.08"], fc_dft[REF_DG],
-                             B_law=lambda T: Bm, kappa_law=lambda T: ka * T ** kb)
+                             B_law=lambda T: hB0 * max(0.0, 1.0 - (T / hTstar) ** hp) ** hq,
+                             kappa_law=lambda T: hkap)
 
     kB = metrics(ph, fc_bb)[0]
     bb_x, bb_f, bb_tick = band(ph, fc_bb)
