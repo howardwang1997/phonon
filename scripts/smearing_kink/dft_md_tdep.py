@@ -41,19 +41,19 @@ def make_espresso(pw, pseudo_dir, ecutwfc, ecutrho, kpts, degauss, directory, nu
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--phonopy", required=True, help="graphene fc2 yaml (primitive/unit cell)")
-    ap.add_argument("--supercell", default="4,4,1")
+    ap.add_argument("--supercell", default="6,6,1")   # K=(1/3,1/3) on-grid; matches (E) sweep + td_phonon
     ap.add_argument("--pw", required=True)
     ap.add_argument("--pseudo-dir", required=True)
     ap.add_argument("--ecutwfc", type=float, default=60.0)
     ap.add_argument("--ecutrho", type=float, default=480.0)
-    ap.add_argument("--kpts", default="4,4,1")
-    ap.add_argument("--degauss", type=float, default=0.01)
-    ap.add_argument("--temperatures", default="300,1000")
-    ap.add_argument("--nsnap", type=int, default=30)
-    ap.add_argument("--equil", type=int, default=50)
-    ap.add_argument("--stride", type=int, default=10)
+    ap.add_argument("--kpts", default="4,4,1")         # on 6x6 cell = 24x24 primitive equiv (dense enough for Kohn)
+    ap.add_argument("--degauss", type=float, default=0.005)  # FIXED ref smearing = (E)-channel low anchor; isolates (L)
+    ap.add_argument("--temperatures", default="100,300,600")
+    ap.add_argument("--nsnap", type=int, default=60)   # was 30 -> rmse_fc2 67; 60 targets <10 meV/A
+    ap.add_argument("--equil", type=int, default=500)  # was 50; proper thermalization
+    ap.add_argument("--stride", type=int, default=20)  # was 10; decorrelation
     ap.add_argument("--dt", type=float, default=1.0)
-    ap.add_argument("--cutoff2", type=float, default=4.5)
+    ap.add_argument("--cutoff2", type=float, default=6.0)  # match td_phonon.py
     ap.add_argument("--workroot", default="/data/gr_dftmd")
     ap.add_argument("--tag", default="graphene_dft_tdep")
     ap.add_argument("--mlip-model", default=None, help="if set, use MACE MLIP (not Espresso) for MD")

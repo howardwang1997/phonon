@@ -15,7 +15,7 @@ def rd(p):
     rows=list(csv.DictReader(open(p))); 
     return {k:np.array([float(r[k]) for r in rows]) for k in rows[0]}
 E = rd("results/smearing_kink/friedel_fit.csv")           # E-channel: model vs dft vs fewshot
-L = rd("results/smearing_kink/graphene_kink_Tlat_Lchannel.csv")  # L-channel
+L = rd("results/td_phonon/td_graphene_ft.csv")            # L-channel: MLIP-TDEP v11 (real source; was a phantom hand-authored csv)
 
 BLU="#0072B2"; ORA="#E69F00"; GRY="#555555"; GRN="#009E73"
 fig,(axA,axB)=plt.subplots(1,2,figsize=(10.6,4.5))
@@ -40,9 +40,9 @@ axA.annotate("kink vanishes monotonically\nas Fermi surface is smeared", xy=(900
 
 # ---- Panel B: temperature (L, lattice-anharmonic) channel ----
 axB.plot(L["T_K"], L["kink_k"], "-o", color=GRN, lw=2.2, ms=7, mec="white", mew=1.3,
-         zorder=4, label="DFT thermal (SSCHA-style)")
+         zorder=4, label="MLIP-TDEP v11 (L)")
 axB.set_title("(B) TEMPERATURE-dependent spectrum  ·  (L) lattice-anharmonic channel\n"
-              r"kink$_K$($T_{lat}$)  —  essentially flat ($\Delta\approx$0.5)",fontsize=10)
+              r"kink$_K$($T_{lat}$)  —  MLIP-TDEP (DFT-MD-TDEP ref pending)",fontsize=10)
 axB.set_xlabel(r"lattice temperature $T_{\rm lat}$  (K)")
 axB.set_ylabel(r"Kohn kink at K  (cm$^{-1}$)")
 axB.set_ylim(0,8)

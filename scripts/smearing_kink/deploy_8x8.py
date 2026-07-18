@@ -10,7 +10,7 @@ import friedel_module as fm
 from friedel_calc import FriedelCorrection, FriedelMACECalculator, fc2_from_calc
 from phonon_accel.phonons import phonopy_to_ase
 SC=str(ROOT/"results/sc_conv/graphene_sc8_dg{}_phonopy.yaml")
-BB=ROOT/"results"/"gr_backbone"/"gr_backbone.model"
+BB=ROOT/"results"/"finetune_mace"/"ft_phonon.model"  # v11 backbone (was gr_backbone, renamed)
 def mace_calc(mp):
     from mace.calculators import MACECalculator
     import torch; dev="cuda" if torch.cuda.is_available() else "cpu"
@@ -25,7 +25,7 @@ _,fcm=fc2_from_calc(ph,base,subtract_ref=True); kb=fm.kink_of(ph,fcm)[0]
 print(f"# gr_backbone MACE alone (8x8) -> kink_K={kb:.2f}  (backbone DFT dg0.08 = 0.10)")
 DFT={789:6.12,1579:6.35,3158:6.45,6316:3.40,12631:0.10}
 print(f"# {'T_el':>6} {'MACE+Friedel':>12} {'8x8_DFT':>8} {'err':>6}")
-errs=[]; save_T={789,3158}
+errs=[]; save_T={789,1579,3158,12631}  # 1579=dg0.01 added so the MLIP@smearing-0.01 spectrum is saved
 for T,kd in DFT.items():
     calc=FriedelMACECalculator(base,ref_atoms,corr,T)
     _,fct=fc2_from_calc(ph,calc,subtract_ref=True); kK=fm.kink_of(ph,fct)[0]
