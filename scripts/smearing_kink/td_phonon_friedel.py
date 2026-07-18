@@ -66,7 +66,7 @@ def main():
     prim = phonopy_to_ase(ph0.unitcell); prim.wrap()
     ideal = phonopy_to_ase(ph0.supercell); ideal.wrap()
     sc_matrix = ph0.supercell_matrix
-    log(f"[{a.tag}] {a.bg.name}: prim {len(prim)} atoms, SC {len(ideal)} atoms, cutoff2={a.cutoff2}")
+    log(f"[{a.tag}] {Path(a.bg).name}: prim {len(prim)} atoms, SC {len(ideal)} atoms, cutoff2={a.cutoff2}")
     log(f"[{a.tag}] NOTE prim from yaml unitcell (phonopy round-trip) — if hiphive orbit bug, "
         f"fall back to td_phonon.py build_monolayer prim.")
 
