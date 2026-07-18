@@ -10,7 +10,7 @@ import friedel_module as fm
 from friedel_calc import FriedelCorrection, FriedelMACECalculator, fc2_from_calc
 from phonon_accel.phonons import phonopy_to_ase
 SC=str(ROOT/"results/sc_conv/graphene_sc8_dg{}_phonopy.yaml")
-BB=ROOT/"results"/"finetune_mace"/"ft_phonon.model"  # v11 backbone (was gr_backbone, renamed)
+BB=ROOT/"results"/"gr_backbone_v11"/"ft_graphene.model"  # v11 FC-distilled backbone (kink~0.24); finetune_mace/ft_phonon.model is the foundation-finetune ABLATION (kink~85)
 def mace_calc(mp):
     from mace.calculators import MACECalculator
     import torch; dev="cuda" if torch.cuda.is_available() else "cpu"
