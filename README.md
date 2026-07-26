@@ -66,3 +66,8 @@ On the GPU box use `--device cuda` (float64 is required for force constants;
 Apple MPS does not support float64, so the local dev box runs on CPU).
 
 See `docs/`/the plan file for the full research design and milestones.
+
+## Weekly reports
+
+- [2026-07-22 — graphene q-space 盲测结果与 `(L)` 通道补充](docs/WEEKLY_2026-07-22.md)
+- [2026-07-15 — 主要关注石墨烯：Kohn 反常的 DFT 盲测与声子谱复现](docs/WEEKLY_2026-07-15.md)

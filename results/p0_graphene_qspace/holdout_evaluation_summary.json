@@ -1,0 +1,136 @@
+{
+  "status": "PASS",
+  "evaluated_at_utc": "2026-07-25T06:27:29.260961+00:00",
+  "freeze_manifest_sha256": "c5114ce6fa9610026ef375d388836a831f6dfc96e31018eeb46d1ae5932e0e99",
+  "frozen_artifact_hashes_verified": true,
+  "direct_holdout_rows": 47,
+  "dynamical_matrix_audit": {
+    "status": "complete",
+    "n_files": 47,
+    "n_primary_k32": 42,
+    "n_convergence_k64": 5,
+    "max_hermitian_error": 0.0,
+    "max_eigenvector_orthogonality_error": 1.7491220001275565e-06,
+    "max_csv_frequency_error_cm-1": 0.0,
+    "max_matrix_frequency_error_cm-1": 0.00010666169009709847
+  },
+  "line_metrics": [
+    {
+      "degauss_Ry": 0.013,
+      "region": "G",
+      "n_q": 5,
+      "baseline_MAE_cm-1": 2.0594809962251475,
+      "qspace_MAE_cm-1": 0.08237165930290757,
+      "qspace_max_abs_error_cm-1": 0.13954412972179853,
+      "MAE_degradation_vs_baseline_cm-1": -1.97710933692224
+    },
+    {
+      "degauss_Ry": 0.013,
+      "region": "K",
+      "n_q": 9,
+      "baseline_MAE_cm-1": 30.74877322948699,
+      "qspace_MAE_cm-1": 0.4539921451446642,
+      "qspace_max_abs_error_cm-1": 1.5112215511210252,
+      "MAE_degradation_vs_baseline_cm-1": -30.294781084342326,
+      "K_center_abs_error_cm-1": 0.19715978041767812
+    },
+    {
+      "degauss_Ry": 0.027,
+      "region": "G",
+      "n_q": 5,
+      "baseline_MAE_cm-1": 2.8345370693644325,
+      "qspace_MAE_cm-1": 0.131223988946158,
+      "qspace_max_abs_error_cm-1": 0.16310334378977132,
+      "MAE_degradation_vs_baseline_cm-1": -2.7033130804182743
+    },
+    {
+      "degauss_Ry": 0.027,
+      "region": "K",
+      "n_q": 9,
+      "baseline_MAE_cm-1": 17.50329971009819,
+      "qspace_MAE_cm-1": 0.21877858460879906,
+      "qspace_max_abs_error_cm-1": 0.6029882334587455,
+      "MAE_degradation_vs_baseline_cm-1": -17.28452112548939,
+      "K_center_abs_error_cm-1": 0.10516253963692179
+    },
+    {
+      "degauss_Ry": 0.055,
+      "region": "G",
+      "n_q": 5,
+      "baseline_MAE_cm-1": 4.297482044681374,
+      "qspace_MAE_cm-1": 0.018685852851740493,
+      "qspace_max_abs_error_cm-1": 0.027390385350827273,
+      "MAE_degradation_vs_baseline_cm-1": -4.278796191829633
+    },
+    {
+      "degauss_Ry": 0.055,
+      "region": "K",
+      "n_q": 9,
+      "baseline_MAE_cm-1": 3.238446382983158,
+      "qspace_MAE_cm-1": 0.11022663244858046,
+      "qspace_max_abs_error_cm-1": 0.13408718108439643,
+      "MAE_degradation_vs_baseline_cm-1": -3.1282197505345772,
+      "K_center_abs_error_cm-1": 0.12731891886824087
+    }
+  ],
+  "acceptance_gates": {
+    "K_line_MAE_each_smearing": {
+      "threshold": 5.0,
+      "observed": {
+        "0.013": 0.4539921451446642,
+        "0.027": 0.21877858460879906,
+        "0.055": 0.11022663244858046
+      },
+      "pass": true
+    },
+    "K_center_abs_error_each_smearing": {
+      "threshold": 5.0,
+      "observed": {
+        "0.013": 0.19715978041767812,
+        "0.027": 0.10516253963692179,
+        "0.055": 0.12731891886824087
+      },
+      "pass": true
+    },
+    "K_slope_jump_relative_error_at_dg0.013": {
+      "threshold": 0.2,
+      "observed": 0.00029672551443072275,
+      "direct_THz_per_t": 16.48038113502342,
+      "predicted_THz_per_t": 16.485271284593725,
+      "pass": true
+    },
+    "Gamma_line_MAE_each_smearing": {
+      "threshold": 5.0,
+      "observed": {
+        "0.013": 0.08237165930290757,
+        "0.027": 0.131223988946158,
+        "0.055": 0.018685852851740493
+      },
+      "pass": true
+    },
+    "maximum_MAE_degradation_vs_uncorrected": {
+      "threshold": 1.0,
+      "observed": {
+        "G_0.013": -1.97710933692224,
+        "K_0.013": -30.294781084342326,
+        "G_0.027": -2.7033130804182743,
+        "K_0.027": -17.28452112548939,
+        "G_0.055": -4.278796191829633,
+        "K_0.055": -3.1282197505345772
+      },
+      "pass": true
+    },
+    "k32_k64_low_smearing_K_MAE": {
+      "threshold": 1.0,
+      "observed": 0.021276599999964674,
+      "signed_differences_cm-1": [
+        0.02043399999979556,
+        0.023199999999860665,
+        0.02698499999996784,
+        0.013575000000173532,
+        -0.02218900000002577
+      ],
+      "pass": true
+    }
+  }
+}

@@ -1,0 +1,199 @@
+{
+  "status": "frozen_before_holdout",
+  "frozen_at_utc": "2026-07-24T10:59:28.452992+00:00",
+  "git_head": "bd10943136a550fade7cdbc35cbc08055f504495",
+  "content_hashes_are_authoritative_for_uncommitted_files": true,
+  "authorized_holdout_campaigns": [
+    "HOLD_A",
+    "HOLD_B"
+  ],
+  "holdout_evaluated": false,
+  "direct_holdout_read": false,
+  "development_degauss_Ry": [
+    0.01,
+    0.02,
+    0.04,
+    0.06,
+    0.08
+  ],
+  "holdout_degauss_Ry": [
+    0.013,
+    0.027,
+    0.055
+  ],
+  "model": {
+    "target": "absolute direct-DFPT highest-optical squared frequency; the runtime dynamical-matrix correction is target minus frozen baseline",
+    "selected": {
+      "G": {
+        "kind": "rounded_cusp",
+        "width_scale_per_Ry": 4.0,
+        "n_parameters_per_smearing": 2,
+        "q_group_CV_MAE_cm-1": 0.06929284501773508,
+        "smearing_LOOCV_MAE_cm-1": 0.9172062047585768,
+        "smearing_LOOCV_by_degauss_cm-1": {
+          "0.02": 0.7198721347795072,
+          "0.04": 0.7506095319072301,
+          "0.06": 1.2811369475889933
+        },
+        "selection_score": 0.493249524888156
+      },
+      "K": {
+        "kind": "rounded_cusp",
+        "width_scale_per_Ry": 4.0,
+        "n_parameters_per_smearing": 2,
+        "q_group_CV_MAE_cm-1": 0.3996549954164948,
+        "smearing_LOOCV_MAE_cm-1": 0.3092038230244001,
+        "smearing_LOOCV_by_degauss_cm-1": {
+          "0.02": 0.401202438598754,
+          "0.04": 0.2057563283693374,
+          "0.06": 0.3206527021051089
+        },
+        "selection_score": 0.3544294092204474
+      }
+    },
+    "temperature_polynomial_degree": 3,
+    "temperature_polynomial_coefficients_high_to_low": {
+      "G": [
+        [
+          445639059.00275373,
+          -66708828.04450564,
+          790570.0437791133,
+          2475951.4228757154
+        ],
+        [
+          -1848786275.8336277,
+          155932132.2738685,
+          -4862546.852158421,
+          1043730.2019430129
+        ]
+      ],
+      "K": [
+        [
+          -232224982.87272012,
+          21655023.397648234,
+          4041815.2800554964,
+          1652038.2717670023
+        ],
+        [
+          -6413776959.599462,
+          880010136.8775823,
+          -56267054.10837976,
+          1801982.1484763464
+        ]
+      ]
+    },
+    "development_coefficients_by_degauss": {
+      "G": {
+        "0.01": [
+          2477201.6848742883,
+          1011616.9804711114
+        ],
+        "0.02": [
+          2469585.45589814,
+          988007.2211380658
+        ],
+        "0.04": [
+          2428419.948639223,
+          986452.0243061709
+        ],
+        "0.06": [
+          2380056.5118224104,
+          910362.4675405766
+        ],
+        "0.08": [
+          2340293.2892608154,
+          706978.470876946
+        ]
+      },
+      "K": {
+        "0.01": [
+          1694499.3811522182,
+          1317499.0594804147
+        ],
+        "0.02": [
+          1739438.8635534463,
+          984771.9342836291
+        ],
+        "0.04": [
+          1833736.4448123483,
+          541397.4488302828
+        ],
+        "0.06": [
+          1922200.722514912,
+          213081.788799759
+        ],
+        "0.08": [
+          1995110.7274442355,
+          -352233.54019252234
+        ]
+      }
+    }
+  },
+  "development_validation": {
+    "G": {
+      "q_group_CV_MAE_cm-1": 0.06929284501773508,
+      "smearing_LOOCV_MAE_cm-1": 0.9172062047585768
+    },
+    "K": {
+      "q_group_CV_MAE_cm-1": 0.3996549954164948,
+      "smearing_LOOCV_MAE_cm-1": 0.3092038230244001
+    }
+  },
+  "blind_prediction_audit": {
+    "n_primary_points": 42,
+    "baseline_replay_max_abs_cm-1": 0.0,
+    "projector_replay_max_abs_cm-1": 9.094947017729282e-13,
+    "projector_hermitian_max_abs": 5.49268972734535e-18,
+    "predicted_line_metrics": [
+      {
+        "degauss_Ry": 0.013,
+        "predicted_Gamma_center_cm-1": 1573.5101240595664,
+        "predicted_Gamma_near_slope_THz_per_t": 3.640331765425135,
+        "predicted_K_center_cm-1": 1306.8019632195824,
+        "predicted_K_slope_jump_THz_per_t": 16.485271284593725,
+        "predicted_K_local_cusp_depth_cm-1": 0.43926951747539533
+      },
+      {
+        "degauss_Ry": 0.027,
+        "predicted_Gamma_center_cm-1": 1567.6216354757478,
+        "predicted_Gamma_near_slope_THz_per_t": 1.9344343626175693,
+        "predicted_K_center_cm-1": 1331.308721539637,
+        "predicted_K_slope_jump_THz_per_t": 6.470416099697028,
+        "predicted_K_local_cusp_depth_cm-1": 0.1384588686225925
+      },
+      {
+        "degauss_Ry": 0.055,
+        "predicted_Gamma_center_cm-1": 1546.5386412535963,
+        "predicted_Gamma_near_slope_THz_per_t": 0.942933390146183,
+        "predicted_K_center_cm-1": 1378.8430390811318,
+        "predicted_K_slope_jump_THz_per_t": 1.2565118736584617,
+        "predicted_K_local_cusp_depth_cm-1": 0.024895214229900375
+      }
+    ]
+  },
+  "acceptance_thresholds": {
+    "K_line_MAE_each_smearing_cm-1": 5.0,
+    "K_center_abs_error_each_smearing_cm-1": 5.0,
+    "K_slope_jump_relative_error_at_dg0.013": 0.2,
+    "Gamma_line_MAE_each_smearing_cm-1": 5.0,
+    "maximum_MAE_degradation_vs_uncorrected_cm-1": 1.0,
+    "k32_k64_low_smearing_K_MAE_cm-1": 1.0
+  },
+  "file_sha256": {
+    "docs/GRAPHENE_KOHN_QSPACE_FIX_2026-07-23.md": "913b7d1d220ab8031903e32c09eb4d7740fac957f91da4b5ab2602a7bf4adcf0",
+    "scripts/smearing_kink/qspace_kohn_development.py": "51a76838cbf7dc04c899651a20c3621ea68bf666de8ee1d5aa67ccf7c742ce53",
+    "scripts/smearing_kink/qspace_kohn_model.py": "91daed30eb0b11d117a28ab8f490fcf100e99972894be29b6615d68b202b53dc",
+    "scripts/smearing_kink/freeze_graphene_qspace_model.py": "c833b748dbfe9275eea0fb13376b720df43372ec17712bafdfe1411129a76560",
+    "scripts/smearing_kink/qe_dyn.py": "d6c6a1cdbfd2a36a18b586505924e9aa0002431287001a5a7bfcfbbf20b1c250",
+    "scripts/v100/run_graphene_qspace_dfpt.sh": "530577304bb9c030cb1814913d09aad554e8374748fabe90860d585a5bf1762c",
+    "scripts/v100/watch_graphene_qspace_dfpt.sh": "38d853ca94e673c5b05183838af3a32eed89f78e6c9e04eb6c385f7b00be43cd",
+    "results/p0_graphene_dfpt/dfpt_linecuts_B.csv": "8b9525e86b5c0e0befe06a4d91ce4729191367fd78605c239f1e4d47bbf25fc2",
+    "results/p0_graphene_qspace/development_dfpt/DEV_A/dfpt_DEV_A.csv": "2c4bfad6aeb244c80068af27924189f8fe02e410fb8bcfe08e967b04b478d973",
+    "results/p0_graphene_qspace/development_dfpt/DEV_B/dfpt_DEV_B.csv": "79d535944cb5b90ac28f897499a5fec49cefa5b4e9378a1785318c0a5e22db97",
+    "results/p0_graphene_qspace/development_dfpt/development_campaign_audit.json": "404f4fd964496f5b13d868da74077c4a0251eaa32226c176a7bcc474b621a59f",
+    "results/p0_graphene_qspace/qspace_development_summary.json": "ef4bdac5df59c9ee23d61b7cc2de1b6318274b2ef5f1ebc84f1927fac45eb4ad",
+    "results/p0_graphene_qspace/holdout_baseline_summary.json": "8fb92be2f9fe7b0dd95064349c2e9acf4927fa908495753fa1be7a1dca19fb21",
+    "results/p0_graphene_qspace/holdout_baseline_predictions.csv": "2d0cb37db5caaf63115e638d986eea5b4e5787b5c4571a67cc36feedb466b57a",
+    "results/p0_graphene_qspace/holdout_blind_predictions.csv": "4ef2bba86c13cb980cb4ceefecf43c2e67894106bbacd80cd1d1ed736fa3c97c"
+  }
+}
