@@ -1,0 +1,129 @@
+{
+  "status": "extended_fixed_lattice_smearing_sweep_generated",
+  "scope": "zero plus six electronic smearings on one common static-lattice MLIP background and one common full-EPC reference constant",
+  "lattice_control": {
+    "condition": "fixed_static_lattice_reference",
+    "same_short_range_MLIP_Dq_for_every_smearing": true,
+    "thermal_lattice_or_TDEP_background_used": false,
+    "numeric_lattice_temperature_K": null
+  },
+  "integration": {
+    "coarse_nk": 144,
+    "patch_quadrature": "triangle_centroid",
+    "patch_n": 180,
+    "patch_halfwidth_fractional": 0.04,
+    "finite_eta_eV": 0.005,
+    "reference_degauss_Ry": 0.02,
+    "number_of_qpoints": 241,
+    "number_of_finite_smearings": 6,
+    "wall_time_seconds": 20.829276792006567,
+    "new_DFT_used": false
+  },
+  "smearings_degauss_Ry": [
+    0.0,
+    0.0019000869,
+    0.00285013035,
+    0.0038001738,
+    0.005,
+    0.01,
+    0.02
+  ],
+  "series_metrics": [
+    {
+      "smearing_degauss_Ry": 0.0,
+      "K_frequency_cm-1": 1282.182972,
+      "KG_d0.003_rise_cm-1": 1.9316360277480271,
+      "KG_d0.023_rise_cm-1": 13.145519372761783,
+      "KG_d0.060_rise_cm-1": 26.688514410084508,
+      "KM_d0.003_rise_cm-1": 1.9403208253311277,
+      "KM_d0.023_rise_cm-1": 13.487800985460808,
+      "KM_d0.060_rise_cm-1": 28.067802222909222
+    },
+    {
+      "smearing_degauss_Ry": 0.0019000869,
+      "K_frequency_cm-1": 1285.738447004553,
+      "KG_d0.003_rise_cm-1": 0.3277179600686395,
+      "KG_d0.023_rise_cm-1": 9.18579944509952,
+      "KG_d0.060_rise_cm-1": 22.979418622295952,
+      "KM_d0.003_rise_cm-1": 0.3299685345268699,
+      "KM_d0.023_rise_cm-1": 9.50090126140185,
+      "KM_d0.060_rise_cm-1": 24.4421395989325
+    },
+    {
+      "smearing_degauss_Ry": 0.00285013035,
+      "K_frequency_cm-1": 1287.2730029682953,
+      "KG_d0.003_rise_cm-1": 0.23445418720484668,
+      "KG_d0.023_rise_cm-1": 7.480622843954279,
+      "KG_d0.060_rise_cm-1": 21.33056831863587,
+      "KM_d0.003_rise_cm-1": 0.23628410866581362,
+      "KM_d0.023_rise_cm-1": 7.76470582091315,
+      "KM_d0.060_rise_cm-1": 22.799287345501853
+    },
+    {
+      "smearing_degauss_Ry": 0.0038001738,
+      "K_frequency_cm-1": 1288.8559705048208,
+      "KG_d0.003_rise_cm-1": 0.1779577330187294,
+      "KG_d0.023_rise_cm-1": 6.044991019310828,
+      "KG_d0.060_rise_cm-1": 19.528580368665416,
+      "KM_d0.003_rise_cm-1": 0.17966521378343714,
+      "KM_d0.023_rise_cm-1": 6.287463727127715,
+      "KM_d0.060_rise_cm-1": 20.99254381196306
+    },
+    {
+      "smearing_degauss_Ry": 0.005,
+      "K_frequency_cm-1": 1290.8824217773397,
+      "KG_d0.003_rise_cm-1": 0.13307471089842693,
+      "KG_d0.023_rise_cm-1": 4.656664817546698,
+      "KG_d0.060_rise_cm-1": 17.14789897300443,
+      "KM_d0.003_rise_cm-1": 0.13477888847342,
+      "KM_d0.023_rise_cm-1": 4.848915104659909,
+      "KM_d0.060_rise_cm-1": 18.5705187346598
+    },
+    {
+      "smearing_degauss_Ry": 0.01,
+      "K_frequency_cm-1": 1299.4603962918172,
+      "KG_d0.003_rise_cm-1": 0.053538905357527256,
+      "KG_d0.023_rise_cm-1": 1.754860392555429,
+      "KG_d0.060_rise_cm-1": 8.583515753178062,
+      "KM_d0.003_rise_cm-1": 0.055063681606497994,
+      "KM_d0.023_rise_cm-1": 1.8279020814857176,
+      "KM_d0.060_rise_cm-1": 9.473598354335536
+    },
+    {
+      "smearing_degauss_Ry": 0.02,
+      "K_frequency_cm-1": 1317.0295954217675,
+      "KG_d0.003_rise_cm-1": 0.00019559360475795984,
+      "KG_d0.023_rise_cm-1": 0.013367010163392479,
+      "KG_d0.060_rise_cm-1": 0.12471717285620798,
+      "KM_d0.003_rise_cm-1": 0.00018800011662278848,
+      "KM_d0.023_rise_cm-1": 0.009946752994437702,
+      "KM_d0.060_rise_cm-1": 0.06417191160448965
+    }
+  ],
+  "checks": {
+    "zero_curve_replay_max_abs_cm-1": 2.2737367544323206e-13,
+    "common_reference_constant_spread_cm-2": 5.820766091346741e-11,
+    "all_frequencies_finite": true,
+    "K_frequency_increases_monotonically_with_smearing": true,
+    "mean_d003_depth_decreases_monotonically_with_smearing": true,
+    "overlap_with_previous_four_curve_sweep": {
+      "available": true,
+      "matched_smearings_Ry": [
+        0.0,
+        0.0019000869,
+        0.00285013035,
+        0.0038001738
+      ],
+      "number_of_values": 964,
+      "maximum_absolute_error_cm-1": 0.0,
+      "RMSE_cm-1": 0.0
+    }
+  },
+  "limitations": [
+    "the 0.005, 0.010, and 0.020 Ry curves are full-EPC model predictions without new direct DFPT points",
+    "this isolates electronic smearing on a static lattice and is not a finite-lattice-temperature spectrum"
+  ],
+  "outputs": {
+    "csv": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/E42_extended_fixed_lattice_smearing_sweep/extended_fixed_lattice_smearing_sweep.csv"
+  }
+}

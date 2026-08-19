@@ -1,0 +1,111 @@
+{
+  "status": "fixed_smearing_lattice_temperature_comparison_generated",
+  "scope": "actual converged quantum-SSCHA spectra at two lattice temperatures with one shared finite-cell electronic operator",
+  "control": {
+    "fixed_smearing_degauss_Ry": 0.0019000869380739254,
+    "same_electronic_operator_temperature_K": 300,
+    "lattice_temperatures_K": [
+      300,
+      450
+    ],
+    "fixed_cell": true,
+    "thermal_lattice_or_SSCHA_background_changes": true
+  },
+  "case_metrics": [
+    {
+      "lattice_temperature_K": 300,
+      "operator_temperature_K": 300,
+      "smearing_degauss_Ry": 0.0019000869380739254,
+      "K_frequency_cm-1": 1282.0999011934014,
+      "n_configs": 300,
+      "final_population": 1,
+      "supercell_min_frequency_cm-1": -3.057292467266993e-05,
+      "imaginary_modes_below_minus_1_cm-1": 0,
+      "K_neighbourhood_rises": {
+        "KG": {
+          "d0.003_rise_cm-1": 0.04206742732344537,
+          "d0.008_rise_cm-1": 0.24848248633702497,
+          "d0.015_rise_cm-1": 0.8464065163170744,
+          "d0.025_rise_cm-1": 2.3227369354460734,
+          "d0.040_rise_cm-1": 5.766140130373515
+        },
+        "KM": {
+          "d0.003_rise_cm-1": 0.037230260658816405,
+          "d0.008_rise_cm-1": 0.24584664029157466,
+          "d0.015_rise_cm-1": 0.8541871693812482,
+          "d0.025_rise_cm-1": 2.3569441864347027,
+          "d0.040_rise_cm-1": 5.910882751774807
+        }
+      },
+      "sources": {
+        "result": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/S0_unified_short/Q0_quantum_sscha/formal_T300/result.npz",
+        "result_sha256": "1986d71ffd07d9d4b7b85cfc7ccae035d9cf370404d5ea4d706ffb6877cd5964",
+        "acceptance": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/S0_unified_short/Q0_quantum_sscha/formal_T300/acceptance.json",
+        "acceptance_sha256": "9ec9fdb07f332400041a7f9c123da822a17ac627fcc8dbd98ff59fd050135753"
+      }
+    },
+    {
+      "lattice_temperature_K": 450,
+      "operator_temperature_K": 300,
+      "smearing_degauss_Ry": 0.0019000869380739254,
+      "K_frequency_cm-1": 1263.7589318557348,
+      "n_configs": 300,
+      "final_population": 1,
+      "supercell_min_frequency_cm-1": -2.721716718607742e-05,
+      "imaginary_modes_below_minus_1_cm-1": 0,
+      "K_neighbourhood_rises": {
+        "KG": {
+          "d0.003_rise_cm-1": 0.031246583924712468,
+          "d0.008_rise_cm-1": 0.18397400723938517,
+          "d0.015_rise_cm-1": 0.6241582262014163,
+          "d0.025_rise_cm-1": 1.7038493604347877,
+          "d0.040_rise_cm-1": 4.204783830748056
+        },
+        "KM": {
+          "d0.003_rise_cm-1": 0.027800434291975762,
+          "d0.008_rise_cm-1": 0.1842814473375256,
+          "d0.015_rise_cm-1": 0.644132411737246,
+          "d0.025_rise_cm-1": 1.7948238939868588,
+          "d0.040_rise_cm-1": 4.5772815100101525
+        }
+      },
+      "sources": {
+        "result": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/S0_unified_short/X0_cross_development/sscha_Tlat450_Tel300/result.npz",
+        "result_sha256": "e05c2d55f7eaed76138aac6be88a3e8e0f0c38988683096b0c492a98c9169659",
+        "acceptance": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/S0_unified_short/X0_cross_development/sscha_Tlat450_Tel300/acceptance.json",
+        "acceptance_sha256": "63765e5fb28d7e695523f46332f3b527a6a04afbe77b4fa0ec345d7c897faab4"
+      }
+    }
+  ],
+  "comparison": {
+    "K_frequency_shift_450_minus_300_cm-1": -18.340969337666593,
+    "maximum_K_referenced_shape_difference_abs_d_le_0p04_cm-1": 1.5613562996254302,
+    "RMSE_K_referenced_shape_difference_abs_d_le_0p04_cm-1": 0.663623641049056
+  },
+  "X0_separability_gate": {
+    "status": "cross_term_exceeds_fixed_gate",
+    "passes_X0_cross_gate": false,
+    "metrics": {
+      "top_branch_max_abs_difference_cm-1": 17.962277069362724,
+      "top_branch_RMSE_cm-1": 9.058497845756733,
+      "high_symmetry_top_branch_difference_cm-1": {
+        "$\\Gamma$": -3.8120784366347826,
+        "K": -1.0429495917199225
+      },
+      "formula_K_kink_THz_per_q": 11.167468209445914,
+      "coupled_K_kink_THz_per_q": 8.150075993237607,
+      "K_kink_relative_change": 0.27019483374540254
+    },
+    "source": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/S0_unified_short/X0_cross_development/analysis/sscha_acceptance.json",
+    "source_sha256": "fd8936ce88d3b9c2ea3b7a2315d0c2b9af790a5e2b28ba967eda34ca644e59ad",
+    "interpretation": "the plotted curves are actual SSCHA results; the failed gate forbids using simple diagonal-operator recombination as a general predictor"
+  },
+  "limitations": [
+    "this comparison uses the earlier finite-cell q6 electronic operator, not the newer dense-q full-EPC long-range response",
+    "only the 300-to-450 K pair is available at this fixed smearing; there is no controlled 600 K result at the same smearing",
+    "the comparison is a development result on the shared MLIP/SSCHA model, not an independent DFT-MD trajectory validation"
+  ],
+  "outputs": {
+    "png": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/E47_fixed_smearing_lattice_temperature_comparison/fixed_smearing_lattice_temperature_comparison.png"
+  }
+}

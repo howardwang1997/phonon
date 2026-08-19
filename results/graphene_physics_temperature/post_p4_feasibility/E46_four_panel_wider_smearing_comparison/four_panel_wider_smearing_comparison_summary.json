@@ -1,0 +1,335 @@
+{
+  "status": "four_panel_wider_smearing_comparison_generated",
+  "layout": {
+    "a": "wide absolute, displayed d=+/-0.10",
+    "b": "wide K-referenced, displayed d=+/-0.10",
+    "c": "near-K absolute, d=+/-0.06",
+    "d": "near-K K-referenced, d=+/-0.025"
+  },
+  "ranges": {
+    "displayed_wide_signed_distance_d": [
+      -0.1,
+      0.1
+    ],
+    "displayed_wide_signed_q_distance_2pi_over_a": [
+      -0.06666666666666667,
+      0.06666666666666667
+    ],
+    "computed_diagnostic_signed_distance_d": [
+      -0.15,
+      0.15
+    ],
+    "computed_diagnostic_signed_q_distance_2pi_over_a": [
+      -0.1,
+      0.1
+    ],
+    "previous_signed_distance_d": [
+      -0.06,
+      0.06
+    ],
+    "previous_signed_q_distance_2pi_over_a": [
+      -0.04,
+      0.04
+    ]
+  },
+  "lattice_control": {
+    "same_static_short_range_MLIP_Dq_for_all_smearings": true,
+    "thermal_lattice_or_TDEP_background_used": false,
+    "per_smearing_K_reanchoring": false
+  },
+  "finite_smearing_DFPT_fits": {
+    "form": "delta_omega(d) = a*d^2 + b*d^3 + c*d^4",
+    "direction": "K to Gamma only",
+    "fit_domain_d": [
+      0.0,
+      0.025
+    ],
+    "zero_slope_at_K": true,
+    "mirrored_to_KM": false,
+    "extrapolated_beyond_measured_domain": false,
+    "series": {
+      "0.0019000869": {
+        "K_frequency_cm-1": 1288.039763,
+        "coefficients": {
+          "a_cm-1_per_d2": 43890.36368721092,
+          "b_cm-1_per_d3": -1438282.4851544292,
+          "c_cm-1_per_d4": 17543299.90663986
+        },
+        "maximum_residual_cm-1": 3.552713678800501e-15,
+        "minimum_derivative_cm-1_per_d": 0.0
+      },
+      "0.00285013035": {
+        "K_frequency_cm-1": 1289.791537,
+        "coefficients": {
+          "a_cm-1_per_d2": 23948.02252054246,
+          "b_cm-1_per_d3": -246341.68515419622,
+          "c_cm-1_per_d4": -3437133.426700073
+        },
+        "maximum_residual_cm-1": 1.7763568394002505e-15,
+        "minimum_derivative_cm-1_per_d": 0.0
+      },
+      "0.0038001738": {
+        "K_frequency_cm-1": 1291.406318,
+        "coefficients": {
+          "a_cm-1_per_d2": 16675.45673228546,
+          "b_cm-1_per_d3": -29181.546554990662,
+          "c_cm-1_per_d4": -4643378.669457435
+        },
+        "maximum_residual_cm-1": 0.0,
+        "minimum_derivative_cm-1_per_d": 0.0
+      }
+    }
+  },
+  "overlap_with_previous_range": {
+    "number_of_shared_values": 847,
+    "maximum_absolute_error_cm-1": 2.2737367544323206e-13,
+    "RMSE_cm-1": 1.0993375745220605e-13
+  },
+  "displayed_range_monotonicity_audit": [
+    {
+      "smearing_degauss_Ry": 0.0,
+      "direction": "KG",
+      "strictly_monotone_away_from_K": true,
+      "number_of_negative_steps": 0,
+      "largest_downward_step_cm-1": 0.0,
+      "first_negative_step_ends_at_d": null
+    },
+    {
+      "smearing_degauss_Ry": 0.0,
+      "direction": "KM",
+      "strictly_monotone_away_from_K": true,
+      "number_of_negative_steps": 0,
+      "largest_downward_step_cm-1": 0.0,
+      "first_negative_step_ends_at_d": null
+    },
+    {
+      "smearing_degauss_Ry": 0.0019000869,
+      "direction": "KG",
+      "strictly_monotone_away_from_K": true,
+      "number_of_negative_steps": 0,
+      "largest_downward_step_cm-1": 0.0,
+      "first_negative_step_ends_at_d": null
+    },
+    {
+      "smearing_degauss_Ry": 0.0019000869,
+      "direction": "KM",
+      "strictly_monotone_away_from_K": true,
+      "number_of_negative_steps": 0,
+      "largest_downward_step_cm-1": 0.0,
+      "first_negative_step_ends_at_d": null
+    },
+    {
+      "smearing_degauss_Ry": 0.00285013035,
+      "direction": "KG",
+      "strictly_monotone_away_from_K": true,
+      "number_of_negative_steps": 0,
+      "largest_downward_step_cm-1": 0.0,
+      "first_negative_step_ends_at_d": null
+    },
+    {
+      "smearing_degauss_Ry": 0.00285013035,
+      "direction": "KM",
+      "strictly_monotone_away_from_K": true,
+      "number_of_negative_steps": 0,
+      "largest_downward_step_cm-1": 0.0,
+      "first_negative_step_ends_at_d": null
+    },
+    {
+      "smearing_degauss_Ry": 0.0038001738,
+      "direction": "KG",
+      "strictly_monotone_away_from_K": true,
+      "number_of_negative_steps": 0,
+      "largest_downward_step_cm-1": 0.0,
+      "first_negative_step_ends_at_d": null
+    },
+    {
+      "smearing_degauss_Ry": 0.0038001738,
+      "direction": "KM",
+      "strictly_monotone_away_from_K": true,
+      "number_of_negative_steps": 0,
+      "largest_downward_step_cm-1": 0.0,
+      "first_negative_step_ends_at_d": null
+    },
+    {
+      "smearing_degauss_Ry": 0.005,
+      "direction": "KG",
+      "strictly_monotone_away_from_K": true,
+      "number_of_negative_steps": 0,
+      "largest_downward_step_cm-1": 0.0,
+      "first_negative_step_ends_at_d": null
+    },
+    {
+      "smearing_degauss_Ry": 0.005,
+      "direction": "KM",
+      "strictly_monotone_away_from_K": true,
+      "number_of_negative_steps": 0,
+      "largest_downward_step_cm-1": 0.0,
+      "first_negative_step_ends_at_d": null
+    },
+    {
+      "smearing_degauss_Ry": 0.01,
+      "direction": "KG",
+      "strictly_monotone_away_from_K": true,
+      "number_of_negative_steps": 0,
+      "largest_downward_step_cm-1": 0.0,
+      "first_negative_step_ends_at_d": null
+    },
+    {
+      "smearing_degauss_Ry": 0.01,
+      "direction": "KM",
+      "strictly_monotone_away_from_K": true,
+      "number_of_negative_steps": 0,
+      "largest_downward_step_cm-1": 0.0,
+      "first_negative_step_ends_at_d": null
+    },
+    {
+      "smearing_degauss_Ry": 0.02,
+      "direction": "KG",
+      "strictly_monotone_away_from_K": true,
+      "number_of_negative_steps": 0,
+      "largest_downward_step_cm-1": 0.0,
+      "first_negative_step_ends_at_d": null
+    },
+    {
+      "smearing_degauss_Ry": 0.02,
+      "direction": "KM",
+      "strictly_monotone_away_from_K": true,
+      "number_of_negative_steps": 0,
+      "largest_downward_step_cm-1": 0.0,
+      "first_negative_step_ends_at_d": null
+    }
+  ],
+  "computed_diagnostic_range_monotonicity_audit": [
+    {
+      "smearing_degauss_Ry": 0.0,
+      "direction": "KG",
+      "strictly_monotone_away_from_K": true,
+      "number_of_negative_steps": 0,
+      "largest_downward_step_cm-1": 0.0,
+      "first_negative_step_ends_at_d": null
+    },
+    {
+      "smearing_degauss_Ry": 0.0,
+      "direction": "KM",
+      "strictly_monotone_away_from_K": false,
+      "number_of_negative_steps": 1,
+      "largest_downward_step_cm-1": 0.030624897315192356,
+      "first_negative_step_ends_at_d": 0.125
+    },
+    {
+      "smearing_degauss_Ry": 0.0019000869,
+      "direction": "KG",
+      "strictly_monotone_away_from_K": false,
+      "number_of_negative_steps": 4,
+      "largest_downward_step_cm-1": 0.09227095298456334,
+      "first_negative_step_ends_at_d": 0.10400000000000001
+    },
+    {
+      "smearing_degauss_Ry": 0.0019000869,
+      "direction": "KM",
+      "strictly_monotone_away_from_K": false,
+      "number_of_negative_steps": 5,
+      "largest_downward_step_cm-1": 0.5576168856114236,
+      "first_negative_step_ends_at_d": 0.124
+    },
+    {
+      "smearing_degauss_Ry": 0.00285013035,
+      "direction": "KG",
+      "strictly_monotone_away_from_K": false,
+      "number_of_negative_steps": 4,
+      "largest_downward_step_cm-1": 0.0933981434202451,
+      "first_negative_step_ends_at_d": 0.10400000000000001
+    },
+    {
+      "smearing_degauss_Ry": 0.00285013035,
+      "direction": "KM",
+      "strictly_monotone_away_from_K": false,
+      "number_of_negative_steps": 5,
+      "largest_downward_step_cm-1": 0.5584265652537397,
+      "first_negative_step_ends_at_d": 0.124
+    },
+    {
+      "smearing_degauss_Ry": 0.0038001738,
+      "direction": "KG",
+      "strictly_monotone_away_from_K": false,
+      "number_of_negative_steps": 4,
+      "largest_downward_step_cm-1": 0.09292067451610819,
+      "first_negative_step_ends_at_d": 0.10400000000000001
+    },
+    {
+      "smearing_degauss_Ry": 0.0038001738,
+      "direction": "KM",
+      "strictly_monotone_away_from_K": false,
+      "number_of_negative_steps": 5,
+      "largest_downward_step_cm-1": 0.5576164144788436,
+      "first_negative_step_ends_at_d": 0.124
+    },
+    {
+      "smearing_degauss_Ry": 0.005,
+      "direction": "KG",
+      "strictly_monotone_away_from_K": false,
+      "number_of_negative_steps": 4,
+      "largest_downward_step_cm-1": 0.09113665659015169,
+      "first_negative_step_ends_at_d": 0.10400000000000001
+    },
+    {
+      "smearing_degauss_Ry": 0.005,
+      "direction": "KM",
+      "strictly_monotone_away_from_K": false,
+      "number_of_negative_steps": 5,
+      "largest_downward_step_cm-1": 0.5533804782794505,
+      "first_negative_step_ends_at_d": 0.124
+    },
+    {
+      "smearing_degauss_Ry": 0.01,
+      "direction": "KG",
+      "strictly_monotone_away_from_K": false,
+      "number_of_negative_steps": 3,
+      "largest_downward_step_cm-1": 0.061490319653785264,
+      "first_negative_step_ends_at_d": 0.125
+    },
+    {
+      "smearing_degauss_Ry": 0.01,
+      "direction": "KM",
+      "strictly_monotone_away_from_K": false,
+      "number_of_negative_steps": 4,
+      "largest_downward_step_cm-1": 0.41392164450644486,
+      "first_negative_step_ends_at_d": 0.124
+    },
+    {
+      "smearing_degauss_Ry": 0.02,
+      "direction": "KG",
+      "strictly_monotone_away_from_K": true,
+      "number_of_negative_steps": 0,
+      "largest_downward_step_cm-1": 0.0,
+      "first_negative_step_ends_at_d": null
+    },
+    {
+      "smearing_degauss_Ry": 0.02,
+      "direction": "KM",
+      "strictly_monotone_away_from_K": true,
+      "number_of_negative_steps": 0,
+      "largest_downward_step_cm-1": 0.0,
+      "first_negative_step_ends_at_d": null
+    }
+  ],
+  "displayed_number_of_nonmonotone_series_directions": 0,
+  "computed_number_of_nonmonotone_series_directions": 11,
+  "largest_computed_range_downward_step_cm-1": 0.5584265652537397,
+  "interpretation": [
+    "the displayed upper panels are model diagnostics beyond the direct zero-smearing DFPT support at |d|=0.023",
+    "the computed 0.10<|d|<=0.15 segment contains small nonmonotonic numerical structures and is deliberately excluded from the figure",
+    "the bottom panels retain the existing near-K comparison and available static-lattice DFPT evidence"
+  ],
+  "sources": {
+    "wide_sweep": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/E45_wider_fixed_lattice_smearing_sweep/extended_fixed_lattice_smearing_sweep.csv",
+    "near_sweep": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/E42_extended_fixed_lattice_smearing_sweep/extended_fixed_lattice_smearing_sweep.csv",
+    "zero_smearing_DFPT": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/E34_zero_raw_DFPT_kgrid_diagnostic/zero_smearing_raw_DFPT_kgrid_diagnostic.csv",
+    "finite_smearing_DFPT": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/E32_absolute_and_DFPT_comparison/MLIP_full_EPC_LR_vs_DFPT_points.csv"
+  },
+  "outputs": {
+    "png": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/E46_four_panel_wider_smearing_comparison/four_panel_wider_smearing_comparison.png",
+    "pdf": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/E46_four_panel_wider_smearing_comparison/four_panel_wider_smearing_comparison.pdf",
+    "publication_pdf": "/Users/howardwang/Desktop/playground/phonon/output/pdf/graphene_K_four_panel_wider_smearing_comparison.pdf"
+  }
+}

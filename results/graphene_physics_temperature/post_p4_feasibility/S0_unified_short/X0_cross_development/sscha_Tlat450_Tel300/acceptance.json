@@ -1,0 +1,60 @@
+{
+  "status": "passed",
+  "phase": "x0_first",
+  "condition": {
+    "lattice_temperature_K": 450,
+    "operator_temperature_K": 300,
+    "operator_degauss_Ry": 0.0019000869380739254,
+    "operator_degauss_formula": "k_B*T_operator/Ry"
+  },
+  "converged": true,
+  "all_outputs_finite": true,
+  "final_population": 1,
+  "maximum_populations": 5,
+  "n_configs_per_population": 300,
+  "maximum_population_is_not_automatically_accepted": true,
+  "random_seed": 453005,
+  "supercell_min_frequency_cm-1": -2.721716718607742e-05,
+  "supercell_imaginary_modes_below_minus_1_cm-1": 0,
+  "result": "/home/howardwang/phonon/results/graphene_physics_temperature/post_p4_feasibility/S0_unified_short/X0_cross_development/sscha_Tlat450_Tel300/result.npz",
+  "result_sha256": "e05c2d55f7eaed76138aac6be88a3e8e0f0c38988683096b0c492a98c9169659",
+  "input_provenance": {
+    "freeze_manifest": {
+      "path": "/home/howardwang/phonon/results/graphene_physics_temperature/post_p4_feasibility/S0_unified_short/Q0_X0_freeze_manifest.json",
+      "sha256": "77de1d23cbf33e3557de1a6bdc728274155fda32fc96f5597e759b912d66a383"
+    },
+    "initial_hessian": {
+      "kind": "Q0_formula_reconstructed_trial_hessian",
+      "diagonal_Q0_result": "/home/howardwang/phonon/results/graphene_physics_temperature/post_p4_feasibility/S0_unified_short/Q0_quantum_sscha/formal_T450/result.npz",
+      "diagonal_Q0_result_sha256": "0133fad7a4453f55a39263b62be808e720d31b6f15e30eec1329aa88f8326852",
+      "formula": "Phi_Q0(Tlat,Tlat) - Phi_operator(Tlat) + Phi_operator(Tel)"
+    },
+    "base_model": {
+      "path": "/home/howardwang/phonon/results/gr_backbone_v11/ft_graphene.model",
+      "sha256": "4d32426672d53e3adc86499d14e4c4164c05e879a56811ff54add03cd1bb6ce7"
+    },
+    "delta_model": {
+      "path": "/home/howardwang/phonon/results/graphene_physics_temperature/post_p4_feasibility/S0_unified_short/formal_240ep_2060_seed83_replayw16/selected_checkpoint.model",
+      "sha256": "6e863bdd2ed11fbe31a3147cdd5a7b88d4193d84467a973054460b36afe163b4",
+      "selected_checkpoint": "/home/howardwang/phonon/results/graphene_physics_temperature/post_p4_feasibility/S0_unified_short/formal_240ep_2060_seed83_replayw16/checkpoints/gr_physical_s0_delta32_seed83_replayw16_run-83_epoch-215.pt",
+      "selected_checkpoint_sha256": "02ec8fc925af2485ef03e8c917da5c94d425a789c28b0fcf9fad19e094072da9",
+      "selected_epoch": 215
+    },
+    "background": {
+      "path": "/home/howardwang/phonon/results/vq_kink6_fd/graphene_sc6_dg0.040_phonopy.yaml",
+      "sha256": "69144a1dd3c66df94c116259067be27d1ede3ca8ab01c66516504c5e1ec90c0a"
+    },
+    "operator": {
+      "path": "/home/howardwang/phonon/data/graphene_physical_s0/operators/T300_operator.npz",
+      "sha256": "114fb9a369ed106e5a89a9c05223aed7667fd737714f3d42516ebdb8e2e475c3"
+    }
+  },
+  "versions": {
+    "python-sscha": "1.6.1",
+    "cellconstructor": "1.6.2",
+    "phonopy": "4.1.0",
+    "mace-torch": "0.3.16",
+    "torch": "2.6.0+cu124"
+  },
+  "next_stage": "continue frozen Q0/X0 queue"
+}

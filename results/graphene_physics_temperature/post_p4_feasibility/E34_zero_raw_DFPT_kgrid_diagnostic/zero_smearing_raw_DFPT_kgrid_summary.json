@@ -1,0 +1,62 @@
+{
+  "status": "zero_smearing_raw_DFPT_kgrid_diagnostic_generated",
+  "electronic_integration": "tetrahedra_opt (no degauss)",
+  "raw_DFPT": {
+    "point_count_by_kgrid": {
+      "192": 13,
+      "240": 5,
+      "288": 3
+    },
+    "K_frequency_cm-1_by_kgrid": {
+      "192": 1281.164692,
+      "240": 1281.753275,
+      "288": 1282.182972
+    },
+    "d003_depth_cm-1_by_kgrid": {
+      "192": {
+        "KG_cm-1": 6.224608999999873,
+        "KM_cm-1": 6.251737999999932
+      },
+      "240": {
+        "KG_cm-1": 5.40660099999991,
+        "KM_cm-1": 5.437038999999913
+      },
+      "288": {
+        "KG_cm-1": 4.827133999999887,
+        "KM_cm-1": 4.855632000000014
+      }
+    },
+    "k240_to_k288_d003_relative_change": {
+      "KG_cm-1": 0.12004369466437764,
+      "KM_cm-1": 0.11973868695154359
+    },
+    "points_joined_or_fitted": false
+  },
+  "DFPT_1_over_Nk_depth_limit_cm-1": {
+    "KG": 2.045655710526254,
+    "KM": 2.078528289473819
+  },
+  "model": {
+    "name": "fixed-background MLIP + full EPC long-range correction",
+    "K_frequency_cm-1": 1282.182972,
+    "d003_depth_cm-1": {
+      "KG": 1.9316360277480271,
+      "KM": 1.9403208253311277
+    }
+  },
+  "plot_semantics": {
+    "solid_black": "MLIP + full EPC LR zero-smearing curve",
+    "open_markers": "raw zero-smearing DFPT at each k grid",
+    "green_stars": "d=0.003 DFPT 1/Nk depth limits; absolute values anchored at k288 K"
+  },
+  "limitations": [
+    "outer zero-smearing DFPT q points are available mainly at k192 and are not k-grid-converged",
+    "the 1/Nk result extrapolates the d=0.003 cusp depth, not the absolute K frequency",
+    "only three k grids support the current 1/Nk depth extrapolation"
+  ],
+  "outputs": {
+    "png": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/E34_zero_raw_DFPT_kgrid_diagnostic/zero_smearing_raw_DFPT_kgrid_diagnostic.png",
+    "pdf": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/E34_zero_raw_DFPT_kgrid_diagnostic/zero_smearing_raw_DFPT_kgrid_diagnostic.pdf",
+    "csv": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/E34_zero_raw_DFPT_kgrid_diagnostic/zero_smearing_raw_DFPT_kgrid_diagnostic.csv"
+  }
+}

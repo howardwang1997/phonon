@@ -1,0 +1,64 @@
+{
+  "status": "cross_term_exceeds_fixed_gate",
+  "mode": "sscha",
+  "scope": "first fixed non-diagonal X0 development condition",
+  "condition": {
+    "lattice_temperature_K": 450,
+    "operator_temperature_K": 300,
+    "operator_degauss_Ry": 0.0019000869380739254,
+    "operator_degauss_formula": "k_B*T_operator/Ry"
+  },
+  "formula": "Phi_Q0(Tlat,Tlat) - Phi_operator(Tlat) + Phi_operator(Tel)",
+  "thresholds": {
+    "top_branch_max_abs_difference_cm-1": 2.0,
+    "K_kink_relative_change": 0.2
+  },
+  "metrics": {
+    "top_branch_max_abs_difference_cm-1": 17.962277069362724,
+    "top_branch_RMSE_cm-1": 9.058497845756733,
+    "high_symmetry_top_branch_difference_cm-1": {
+      "$\\Gamma$": -3.8120784366347826,
+      "K": -1.0429495917199225
+    },
+    "formula_K_kink_THz_per_q": 11.167468209445914,
+    "coupled_K_kink_THz_per_q": 8.150075993237607,
+    "K_kink_relative_change": 0.27019483374540254
+  },
+  "passes_top_branch_gate": false,
+  "passes_K_kink_gate": false,
+  "passes_X0_cross_gate": false,
+  "comparison_spectra": {
+    "path": "/home/howardwang/phonon/results/graphene_physics_temperature/post_p4_feasibility/S0_unified_short/X0_cross_development/analysis/sscha_cross_comparison.npz",
+    "sha256": "51d583be8211ceace98667dd1c533c17c5db9bfbe1e6859f800d36f9fba02aa5"
+  },
+  "formula_grid_3x3": null,
+  "inputs": {
+    "freeze_manifest": {
+      "path": "/home/howardwang/phonon/results/graphene_physics_temperature/post_p4_feasibility/S0_unified_short/Q0_X0_freeze_manifest.json",
+      "sha256": "77de1d23cbf33e3557de1a6bdc728274155fda32fc96f5597e759b912d66a383"
+    },
+    "background": {
+      "path": "/home/howardwang/phonon/results/vq_kink6_fd/graphene_sc6_dg0.040_phonopy.yaml",
+      "sha256": "69144a1dd3c66df94c116259067be27d1ede3ca8ab01c66516504c5e1ec90c0a"
+    },
+    "diagonal_operator": {
+      "path": "/home/howardwang/phonon/data/graphene_physical_s0/operators/T450_operator.npz",
+      "sha256": "77bd333570c97e3134eb41b77d2eef7261cb6a7dfe77df2ce085b112e718d160"
+    },
+    "target_operator": {
+      "path": "/home/howardwang/phonon/data/graphene_physical_s0/operators/T300_operator.npz",
+      "sha256": "114fb9a369ed106e5a89a9c05223aed7667fd737714f3d42516ebdb8e2e475c3"
+    },
+    "diagonal_Q0": {
+      "path": "/home/howardwang/phonon/results/graphene_physics_temperature/post_p4_feasibility/S0_unified_short/Q0_quantum_sscha/formal_T450/result.npz",
+      "sha256": "0133fad7a4453f55a39263b62be808e720d31b6f15e30eec1329aa88f8326852",
+      "acceptance_sha256": "39083345604f261b3fdc46b50f421ac0a83e3512dc0ef581ab3de53ebf0dc1f6"
+    },
+    "coupled_X0": {
+      "path": "/home/howardwang/phonon/results/graphene_physics_temperature/post_p4_feasibility/S0_unified_short/X0_cross_development/sscha_Tlat450_Tel300/result.npz",
+      "sha256": "e05c2d55f7eaed76138aac6be88a3e8e0f0c38988683096b0c492a98c9169659",
+      "acceptance_sha256": "63765e5fb28d7e695523f46332f3b527a6a04afbe77b4fa0ec345d7c897faab4"
+    }
+  },
+  "next_stage": "run one fixed-seed classical-MD diagnostic, then stop"
+}
