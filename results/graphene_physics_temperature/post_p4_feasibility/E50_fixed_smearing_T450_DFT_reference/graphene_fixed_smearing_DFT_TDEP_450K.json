@@ -1,0 +1,162 @@
+{
+  "status": "complete",
+  "scope": "pooled 60-label fixed-smearing 450 K DFT-TDEP reference",
+  "temperature_K": 450,
+  "smearing": "fermi-dirac",
+  "degauss_Ry": 0.0019000869,
+  "n_structures": 60,
+  "n_structures_per_seed": 20,
+  "fit_RMSE_meV_A": 192.63371712641452,
+  "n_fit_parameters": 28,
+  "cutoff2_A": 6.0,
+  "K_top_cm-1": 1303.9148588698445,
+  "minimum_frequency_cm-1": -1.0690783574562437,
+  "per_seed": {
+    "0": {
+      "n_structures": 20,
+      "fit_RMSE_meV_A": 208.35192412080778,
+      "K_top_cm-1": 1299.6187739079196
+    },
+    "1": {
+      "n_structures": 20,
+      "fit_RMSE_meV_A": 181.9817390744632,
+      "K_top_cm-1": 1296.7986177765376
+    },
+    "2": {
+      "n_structures": 20,
+      "fit_RMSE_meV_A": 185.23112765490043,
+      "K_top_cm-1": 1320.26353362169
+    }
+  },
+  "per_seed_K_spread_cm-1": 23.46491584515229,
+  "leave_one_seed_out": {
+    "0": {
+      "omitted_seed": 0,
+      "n_structures": 40,
+      "fit_RMSE_meV_A": 183.94192261442265,
+      "K_top_cm-1": 1306.396895858069
+    },
+    "1": {
+      "omitted_seed": 1,
+      "n_structures": 40,
+      "fit_RMSE_meV_A": 197.60071496290965,
+      "K_top_cm-1": 1308.53407643928
+    },
+    "2": {
+      "omitted_seed": 2,
+      "n_structures": 40,
+      "fit_RMSE_meV_A": 195.75835085502098,
+      "K_top_cm-1": 1297.9836128109482
+    }
+  },
+  "leave_one_seed_out_K_spread_cm-1": 10.550463628331727,
+  "checks": {
+    "n_unique_seed_snapshot_keys": 60,
+    "cell_max_abs_error_A": 5.219999898997685e-08,
+    "all_force_labels_finite": true,
+    "all_frequencies_finite": true
+  },
+  "sources": [
+    {
+      "summary_json": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/E50_fixed_smearing_T450_DFT_reference/labels/shard_A/seed0/summary.json",
+      "summary_json_sha256": "5989329871e40305055fda93da31496a9681518cb638e951d045050cdabcfb73",
+      "summary_xyz": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/E50_fixed_smearing_T450_DFT_reference/labels/shard_A/seed0/summary.xyz",
+      "summary_xyz_sha256": "4dde7a643e6848727515cea0e8678cdd365eb3ba3953ca1d0029ed0b593e7796",
+      "trajectory_seed": 0,
+      "indices": [
+        3,
+        9,
+        15,
+        21,
+        27,
+        33,
+        39,
+        45,
+        51,
+        57,
+        63,
+        69,
+        75,
+        81,
+        87,
+        93,
+        99,
+        105,
+        111,
+        117
+      ]
+    },
+    {
+      "summary_json": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/E50_fixed_smearing_T450_DFT_reference/labels/shard_A/seed2/summary.json",
+      "summary_json_sha256": "97cf37d7ca135f84656e0f99f7bdca2a68407b6244b5f8fe51950bade2f63f82",
+      "summary_xyz": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/E50_fixed_smearing_T450_DFT_reference/labels/shard_A/seed2/summary.xyz",
+      "summary_xyz_sha256": "45e95991f1853848ab9d7c38e20b4250ebe02d2ddf76043aef12d1c53d159492",
+      "trajectory_seed": 2,
+      "indices": [
+        3,
+        9,
+        15,
+        21,
+        27,
+        33,
+        39,
+        45,
+        51,
+        57
+      ]
+    },
+    {
+      "summary_json": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/E50_fixed_smearing_T450_DFT_reference/labels/shard_B/seed1/summary.json",
+      "summary_json_sha256": "f7df6a0201d4e3f4806e465313cc3f587da41df927fa33b89c11cc99c28e7c95",
+      "summary_xyz": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/E50_fixed_smearing_T450_DFT_reference/labels/shard_B/seed1/summary.xyz",
+      "summary_xyz_sha256": "c4ec4ef0e43ff5f994590c70eeae2b76f806450277cc4416c64213685d3dce15",
+      "trajectory_seed": 1,
+      "indices": [
+        3,
+        9,
+        15,
+        21,
+        27,
+        33,
+        39,
+        45,
+        51,
+        57,
+        63,
+        69,
+        75,
+        81,
+        87,
+        93,
+        99,
+        105,
+        111,
+        117
+      ]
+    },
+    {
+      "summary_json": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/E50_fixed_smearing_T450_DFT_reference/labels/shard_B/seed2/summary.json",
+      "summary_json_sha256": "91d274a13b589506236e781f442d832f7962e240df0f1d106245b86b5506a0da",
+      "summary_xyz": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/E50_fixed_smearing_T450_DFT_reference/labels/shard_B/seed2/summary.xyz",
+      "summary_xyz_sha256": "ab9f7466571e605a69bf3d19038d3204ba645bbb03fd9ed9e069a5e5c6464881",
+      "trajectory_seed": 2,
+      "indices": [
+        63,
+        69,
+        75,
+        81,
+        87,
+        93,
+        99,
+        105,
+        111,
+        117
+      ]
+    }
+  ],
+  "outputs": {
+    "npz": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/E50_fixed_smearing_T450_DFT_reference/graphene_fixed_smearing_DFT_TDEP_450K.npz",
+    "csv": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/E50_fixed_smearing_T450_DFT_reference/graphene_fixed_smearing_DFT_TDEP_450K.csv",
+    "merged_all60": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/E50_fixed_smearing_T450_DFT_reference/merged/all60.xyz"
+  }
+}

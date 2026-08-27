@@ -1,0 +1,172 @@
+{
+  "status": "450K_off_policy_DFT_diagnostic_failed_as_thermodynamic_validation",
+  "electronic_control": {
+    "smearing": "fermi-dirac",
+    "degauss_Ry": 0.0019000869,
+    "same_dense_full_EPC_response_for_MLIP_and_DFT_hybrid": true
+  },
+  "metrics_by_lattice_temperature_K": {
+    "300": {
+      "MLIP_K_cm-1": 1281.5222106840686,
+      "DFT_TDEP_raw_K_cm-1": 1280.6700253215465,
+      "DFT_TDEP_plus_full_EPC_K_cm-1": 1280.0916895260063,
+      "MLIP_vs_DFT": {
+        "sign_convention": "MLIP+full-EPC minus DFT-TDEP+full-EPC",
+        "K_error_cm-1": 1.43052115806222,
+        "full_range": {
+          "RMSE_cm-1": 2.2226737378087162,
+          "MAE_cm-1": 2.1343822921705273,
+          "max_abs_cm-1": 3.501312230019039,
+          "K_referenced_shape_RMSE_cm-1": 0.9381424581169365,
+          "K_referenced_shape_max_abs_cm-1": 2.070791071956819
+        },
+        "abs_q_le_0.025_2pi_over_a": {
+          "RMSE_cm-1": 1.7309291398496478,
+          "MAE_cm-1": 1.7125549999129244,
+          "max_abs_cm-1": 2.2670449844720224,
+          "K_referenced_shape_RMSE_cm-1": 0.3779075910893467,
+          "K_referenced_shape_max_abs_cm-1": 0.8365238264098025
+        }
+      }
+    },
+    "450": {
+      "MLIP_K_cm-1": 1263.1728534454821,
+      "DFT_TDEP_raw_K_cm-1": 1303.9148588698445,
+      "DFT_TDEP_plus_full_EPC_K_cm-1": 1303.3468375754865,
+      "MLIP_vs_DFT": {
+        "sign_convention": "MLIP+full-EPC minus DFT-TDEP+full-EPC",
+        "K_error_cm-1": -40.17398413000433,
+        "full_range": {
+          "RMSE_cm-1": 39.22474858909314,
+          "MAE_cm-1": 39.217770537529454,
+          "max_abs_cm-1": 40.17398413000433,
+          "K_referenced_shape_RMSE_cm-1": 1.2090162851199708,
+          "K_referenced_shape_max_abs_cm-1": 2.6155674059752982
+        },
+        "abs_q_le_0.025_2pi_over_a": {
+          "RMSE_cm-1": 39.71390233069934,
+          "MAE_cm-1": 39.71222881380131,
+          "max_abs_cm-1": 40.17398413000433,
+          "K_referenced_shape_RMSE_cm-1": 0.5883357414412257,
+          "K_referenced_shape_max_abs_cm-1": 1.2348242398531966
+        }
+      }
+    }
+  },
+  "450K_diagnostics": {
+    "old_degauss_0.00285013035_raw_DFT_TDEP_K_cm-1": 1305.0493637373168,
+    "new_degauss_0.0019000869_raw_DFT_TDEP_K_cm-1": 1303.9148588698445,
+    "new_minus_old_smearing_shift_cm-1": -1.1345048674722875,
+    "per_seed_raw_K_cm-1": [
+      1299.6187739079196,
+      1296.7986177765376,
+      1320.26353362169
+    ],
+    "per_seed_raw_K_spread_cm-1": 23.46491584515229,
+    "leave_one_seed_out_hybrid_K_cm-1": [
+      1305.8299542222385,
+      1307.9680611694055,
+      1297.4129947561867
+    ],
+    "leave_one_seed_out_hybrid_K_spread_cm-1": 10.55506641321881,
+    "source_P4_status": "failed_C1",
+    "source_P4_passes_C1": false,
+    "source_P4_failed_metrics": [
+      {
+        "code": "force_point_RMSE_meV_A",
+        "observed": 51.43328723734987,
+        "threshold": 50.0,
+        "comparison": "<="
+      },
+      {
+        "code": "force_point_max_abs_meV_A",
+        "observed": 611.8910619944442,
+        "threshold": 250.0,
+        "comparison": "<="
+      },
+      {
+        "code": "force_bootstrap_RMSE_meV_A",
+        "observed": 59.55516589530019,
+        "threshold": 50.0,
+        "comparison": "<="
+      },
+      {
+        "code": "force_bootstrap_max_abs_meV_A",
+        "observed": 611.8910619944442,
+        "threshold": 250.0,
+        "comparison": "<="
+      },
+      {
+        "code": "qspace_bootstrap_G_line_MAE_cm_1",
+        "observed": 28.585587162016083,
+        "threshold": 10.0,
+        "comparison": "<"
+      },
+      {
+        "code": "qspace_bootstrap_K_line_MAE_cm_1",
+        "observed": 22.659308422829533,
+        "threshold": 10.0,
+        "comparison": "<"
+      },
+      {
+        "code": "qspace_bootstrap_G_high_symmetry_abs_error_cm_1",
+        "observed": 28.83078586940337,
+        "threshold": 15.0,
+        "comparison": "<"
+      },
+      {
+        "code": "qspace_bootstrap_K_high_symmetry_abs_error_cm_1",
+        "observed": 22.95667986428043,
+        "threshold": 15.0,
+        "comparison": "<"
+      },
+      {
+        "code": "qspace_bootstrap_G_central_block_MAE_cm_1",
+        "observed": 28.824152636597017,
+        "threshold": 10.0,
+        "comparison": "<"
+      },
+      {
+        "code": "qspace_bootstrap_K_central_block_MAE_cm_1",
+        "observed": 22.943519037596086,
+        "threshold": 10.0,
+        "comparison": "<"
+      },
+      {
+        "code": "qspace_bootstrap_K_kink_relative_error",
+        "observed": 0.5376923414340081,
+        "threshold": 0.2,
+        "comparison": "<"
+      },
+      {
+        "code": "finite_T_qspace_point_gate",
+        "observed": 1.0,
+        "threshold": 0.0,
+        "comparison": "must pass"
+      },
+      {
+        "code": "static_degauss_point_gate",
+        "observed": 1.0,
+        "threshold": 0.0,
+        "comparison": "must pass"
+      }
+    ]
+  },
+  "checks": {
+    "operator_geometry_error_A": 3.7682219008410606e-15,
+    "minimum_branch_overlap": 0.9999982458159297,
+    "maximum_FC2_reassembly_error_eV_A2": 1.1102230246251565e-16,
+    "all_frequencies_finite": true
+  },
+  "interpretation": {
+    "electronic_smearing_effect_at_450K": "changing degauss from 0.00285013035 to 0.0019000869 Ry moves the raw DFT-TDEP K frequency by only about -1.13 cm-1",
+    "dominant_failure": "the roughly 40 cm-1 450 K MLIP-DFT gap is not caused by electronic smearing; the labels are evaluated on an archived failed-C1 MLIP on-policy ensemble and do not define an equilibrium DFT temperature reference",
+    "allowed_use": "450 K data are a force/model diagnostic and development set, not a controlled DFT lattice-temperature curve"
+  },
+  "outputs": {
+    "png": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/E51_fixed_smearing_thermal_DFT_pair/MLIP_full_EPC_vs_DFT_TDEP_300K_450K.png",
+    "pdf": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/E51_fixed_smearing_thermal_DFT_pair/MLIP_full_EPC_vs_DFT_TDEP_300K_450K.pdf",
+    "csv": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/E51_fixed_smearing_thermal_DFT_pair/MLIP_full_EPC_vs_DFT_TDEP_300K_450K.csv",
+    "report": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/E51_fixed_smearing_thermal_DFT_pair/E51_RESULT.md"
+  }
+}

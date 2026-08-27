@@ -1,0 +1,19 @@
+{
+  "status": "passed_exact_fresh_output_replay",
+  "checked_at": "2026-08-21T19:35:00+12:00",
+  "environment": "conda environment phonon",
+  "command": "conda run -n phonon python scripts/smearing_kink/build_graphene_fixed_smearing_thermal_full_epc.py --output-dir <fresh-temporary-directory>",
+  "exit_code": 0,
+  "checks": {
+    "all_matrix_and_physics_gates_passed": true,
+    "csv_sha256_identical": true,
+    "matrix_npz_sha256_identical": true,
+    "png_sha256_identical": true
+  },
+  "output_sha256": {
+    "fixed_smearing_thermal_full_epc.csv": "d7b9bcaa0f3cf5b0b5d3b2d80e0d48b3161250e3351d5e065e5321919fbb268d",
+    "fixed_smearing_thermal_full_epc_matrices.npz": "915fd8f502c5668fe13e454570deabff5554f1bba457c32e0ad62c3905fe8c86",
+    "fixed_smearing_thermal_full_epc.png": "fef0664c12f947d1918cb7906207070cf2241b561f63605bbf615b5384d156fc"
+  },
+  "note": "The summary JSON contains the chosen output directory path, so byte identity was checked on the path-independent numerical CSV, matrix NPZ, and rendered PNG."
+}

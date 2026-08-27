@@ -13,3 +13,8 @@ displacements -> forces -> force-constants -> bands/DOS/thermal flow.
 __version__ = "0.1.0"
 
 from .phonons import PhononCalculation  # noqa: F401
+from .long_range import (  # noqa: F401
+    FewQChebyshevVertexAdapter,
+    ProjectedLongRangeResult,
+    apply_mode_projected_correction,
+)

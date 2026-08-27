@@ -1,0 +1,1017 @@
+{
+  "format": "graphene_r2as_r2ao_full_epc_acceptance_v2",
+  "status": "R2AT_PAIRED_QUANTITATIVE_KOHN_ANOMALY_SENSITIVITY_PASSED",
+  "spectral_acceptance_passed": true,
+  "general_MLIP_force_gate_passed": false,
+  "general_MLIP_force_gate_subject": "R2AO",
+  "force_gate_by_short_model": {
+    "S0": {
+      "path": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/S0_unified_short/formal_240ep_2060_seed83_replayw16/checkpoint_sweep.json",
+      "sha256": "c66115460d20ea5df134f5c077b49fef01a49d34c04017e008e9c6a7e015a1aa",
+      "fixed_thresholds": {
+        "thermal_force_RMSE_meV_A": 50.0,
+        "thermal_force_max_abs_meV_A": 250.0,
+        "harmonic_RMSE_relative_to_frozen_v11": 2.0,
+        "harmonic_RMSE_meV_A": 14.471470840998588
+      },
+      "selected_checkpoint_sha256": "02ec8fc925af2485ef03e8c917da5c94d425a789c28b0fcf9fad19e094072da9",
+      "selected_metrics": {
+        "thermal_total_force": {
+          "thermal300": {
+            "RMSE_meV_A": 26.294958720745317,
+            "max_abs_meV_A": 203.5818137940981
+          },
+          "thermal450": {
+            "RMSE_meV_A": 22.566322539684677,
+            "max_abs_meV_A": 174.2994470590211
+          },
+          "thermal600": {
+            "RMSE_meV_A": 27.343178683084354,
+            "max_abs_meV_A": 124.15155319915749
+          }
+        },
+        "harmonic_combined_force": {
+          "RMSE_meV_A": 13.931841667596812,
+          "max_abs_meV_A": 140.01433641143802
+        },
+        "normalized_worst_gate_score": 0.9627108274389793
+      },
+      "deployed_checkpoint_sha256_by_temperature_K": {
+        "300": "02ec8fc925af2485ef03e8c917da5c94d425a789c28b0fcf9fad19e094072da9",
+        "450": "02ec8fc925af2485ef03e8c917da5c94d425a789c28b0fcf9fad19e094072da9",
+        "600": "02ec8fc925af2485ef03e8c917da5c94d425a789c28b0fcf9fad19e094072da9"
+      },
+      "gates": {
+        "checkpoint_selection_status": true,
+        "selected_checkpoint_passed_fixed_gate": true,
+        "same_checkpoint_deployed_at_all_temperatures": true
+      },
+      "passed": true
+    },
+    "R2AO": {
+      "passed": false,
+      "scope": "fixed per-configuration OOF force/A-prime gate",
+      "authorized_use": "paired finite-lattice spectral sensitivity only"
+    }
+  },
+  "primary_force_gated_short_model": "S0",
+  "authorized_conclusion": "S0 plus frozen full-EPC response is the force-gated primary spectrum; R2AO is an independent paired spectral-sensitivity control and remains outside its general force gate",
+  "electronic_control": {
+    "smearing_degauss_Ry": 0.0019000869,
+    "shared_across_lattice_temperatures": true,
+    "lattice_temperature_and_electronic_smearing_are_distinct": true
+  },
+  "lattice_temperatures_K": [
+    300,
+    450,
+    600
+  ],
+  "comparison_label": "R2AT_shared_initial_and_configurations",
+  "formula": "D(q,Tlat)=D[Phi_SSCHA(Tlat,q6_300)-Phi_q6_300](q) + Pi_full_EPC(q,degauss_300)|e_A'><e_A'|",
+  "metrics_by_short_model_and_lattice_temperature_K": {
+    "R2AO": {
+      "300": {
+        "thermal_short": {
+          "K_frequency_cm-1": 1306.038666758923,
+          "KG_path_d0.003_rise_cm-1": 0.0077479178298744955,
+          "KG_path_d0.025_rise_cm-1": 0.5366237108455607,
+          "KG_path_d0.060_rise_cm-1": 3.0472620885741435,
+          "KG_q0.003_2pi_over_a_rise_cm-1": 0.017432466590207696,
+          "KG_q0.025_2pi_over_a_rise_cm-1": 1.2029269939939695,
+          "KG_q0.040_2pi_over_a_rise_cm-1": 3.0472620885741435,
+          "KM_path_d0.003_rise_cm-1": 0.007746685198071646,
+          "KM_path_d0.025_rise_cm-1": 0.5358726182219016,
+          "KM_path_d0.060_rise_cm-1": 3.034500083340845,
+          "KM_q0.003_2pi_over_a_rise_cm-1": 0.017428303200176742,
+          "KM_q0.025_2pi_over_a_rise_cm-1": 1.2002337909405014,
+          "KM_q0.040_2pi_over_a_rise_cm-1": 3.034500083340845
+        },
+        "finite_q6": {
+          "K_frequency_cm-1": 1275.0585783099639,
+          "KG_path_d0.003_rise_cm-1": 0.01641492222438501,
+          "KG_path_d0.025_rise_cm-1": 1.1252810221769778,
+          "KG_path_d0.060_rise_cm-1": 6.247765041717912,
+          "KG_q0.003_2pi_over_a_rise_cm-1": 0.0369116067208779,
+          "KG_q0.025_2pi_over_a_rise_cm-1": 2.5040799303442327,
+          "KG_q0.040_2pi_over_a_rise_cm-1": 6.247765041717912,
+          "KM_path_d0.003_rise_cm-1": 0.016446649316321782,
+          "KM_path_d0.025_rise_cm-1": 1.1427271678744546,
+          "KM_path_d0.060_rise_cm-1": 6.435868421617442,
+          "KM_q0.003_2pi_over_a_rise_cm-1": 0.037018585328496556,
+          "KM_q0.025_2pi_over_a_rise_cm-1": 2.5592577041511504,
+          "KM_q0.040_2pi_over_a_rise_cm-1": 6.435868421617442
+        },
+        "full_epc": {
+          "K_frequency_cm-1": 1274.4776961399834,
+          "KG_path_d0.003_rise_cm-1": 0.3383484463779496,
+          "KG_path_d0.025_rise_cm-1": 10.788541945002407,
+          "KG_path_d0.060_rise_cm-1": 26.119450454916432,
+          "KG_q0.003_2pi_over_a_rise_cm-1": 0.6771114777416187,
+          "KG_q0.025_2pi_over_a_rise_cm-1": 16.953591144192842,
+          "KG_q0.040_2pi_over_a_rise_cm-1": 26.119450454916432,
+          "KM_path_d0.003_rise_cm-1": 0.3406254639839972,
+          "KM_path_d0.025_rise_cm-1": 11.157685348588984,
+          "KM_path_d0.060_rise_cm-1": 27.639707825831465,
+          "KM_q0.003_2pi_over_a_rise_cm-1": 0.6883838881244628,
+          "KM_q0.025_2pi_over_a_rise_cm-1": 17.686091592790717,
+          "KM_q0.040_2pi_over_a_rise_cm-1": 27.639707825831465
+        }
+      },
+      "450": {
+        "thermal_short": {
+          "K_frequency_cm-1": 1298.045054415066,
+          "KG_path_d0.003_rise_cm-1": 0.007841965447141774,
+          "KG_path_d0.025_rise_cm-1": 0.5405119777158234,
+          "KG_path_d0.060_rise_cm-1": 3.0465726262980297,
+          "KG_q0.003_2pi_over_a_rise_cm-1": 0.01763822448697283,
+          "KG_q0.025_2pi_over_a_rise_cm-1": 1.208360344193352,
+          "KG_q0.040_2pi_over_a_rise_cm-1": 3.0465726262980297,
+          "KM_path_d0.003_rise_cm-1": 0.007851106135603914,
+          "KM_path_d0.025_rise_cm-1": 0.5457080671526455,
+          "KM_path_d0.060_rise_cm-1": 3.11246287793756,
+          "KM_q0.003_2pi_over_a_rise_cm-1": 0.017669063583753086,
+          "KM_q0.025_2pi_over_a_rise_cm-1": 1.2255051349359292,
+          "KM_q0.040_2pi_over_a_rise_cm-1": 3.11246287793756
+        },
+        "finite_q6": {
+          "K_frequency_cm-1": 1266.8695048598393,
+          "KG_path_d0.003_rise_cm-1": 0.016568651187526484,
+          "KG_path_d0.025_rise_cm-1": 1.1324941838663563,
+          "KG_path_d0.060_rise_cm-1": 6.261339890128056,
+          "KG_q0.003_2pi_over_a_rise_cm-1": 0.03724968471556167,
+          "KG_q0.025_2pi_over_a_rise_cm-1": 2.5161533799175686,
+          "KG_q0.040_2pi_over_a_rise_cm-1": 6.261339890128056,
+          "KM_path_d0.003_rise_cm-1": 0.016614289435437968,
+          "KM_path_d0.025_rise_cm-1": 1.1578303741166565,
+          "KM_path_d0.060_rise_cm-1": 6.548851947534786,
+          "KM_q0.003_2pi_over_a_rise_cm-1": 0.037403594037641597,
+          "KM_q0.025_2pi_over_a_rise_cm-1": 2.5973014628357305,
+          "KM_q0.040_2pi_over_a_rise_cm-1": 6.548851947534786
+        },
+        "full_epc": {
+          "K_frequency_cm-1": 1266.2848661262078,
+          "KG_path_d0.003_rise_cm-1": 0.3405844497124235,
+          "KG_path_d0.025_rise_cm-1": 10.858346805933934,
+          "KG_path_d0.060_rise_cm-1": 26.265477412264545,
+          "KG_q0.003_2pi_over_a_rise_cm-1": 0.6815908445682908,
+          "KG_q0.025_2pi_over_a_rise_cm-1": 17.059834685852593,
+          "KG_q0.040_2pi_over_a_rise_cm-1": 26.265477412264545,
+          "KM_path_d0.003_rise_cm-1": 0.34288683001818754,
+          "KM_path_d0.025_rise_cm-1": 11.235887361116056,
+          "KM_path_d0.060_rise_cm-1": 27.874344470514643,
+          "KM_q0.003_2pi_over_a_rise_cm-1": 0.69297199494099,
+          "KM_q0.025_2pi_over_a_rise_cm-1": 17.81703720174437,
+          "KM_q0.040_2pi_over_a_rise_cm-1": 27.874344470514643
+        }
+      },
+      "600": {
+        "thermal_short": {
+          "K_frequency_cm-1": 1288.2950368032084,
+          "KG_path_d0.003_rise_cm-1": 0.007618836389156058,
+          "KG_path_d0.025_rise_cm-1": 0.5259383044995047,
+          "KG_path_d0.060_rise_cm-1": 2.973764596721594,
+          "KG_q0.003_2pi_over_a_rise_cm-1": 0.017137956318492797,
+          "KG_q0.025_2pi_over_a_rise_cm-1": 1.1769886441381914,
+          "KG_q0.040_2pi_over_a_rise_cm-1": 2.973764596721594,
+          "KM_path_d0.003_rise_cm-1": 0.0076250049219197535,
+          "KM_path_d0.025_rise_cm-1": 0.5294226281205283,
+          "KM_path_d0.060_rise_cm-1": 3.0164487882518642,
+          "KM_q0.003_2pi_over_a_rise_cm-1": 0.01715876698926877,
+          "KM_q0.025_2pi_over_a_rise_cm-1": 1.188387679654852,
+          "KM_q0.040_2pi_over_a_rise_cm-1": 3.0164487882518642
+        },
+        "finite_q6": {
+          "K_frequency_cm-1": 1256.8776714160297,
+          "KG_path_d0.003_rise_cm-1": 0.0163520983746821,
+          "KG_path_d0.025_rise_cm-1": 1.1183951550697202,
+          "KG_path_d0.060_rise_cm-1": 6.194176154427623,
+          "KG_q0.003_2pi_over_a_rise_cm-1": 0.03676391468025031,
+          "KG_q0.025_2pi_over_a_rise_cm-1": 2.4861478586954036,
+          "KG_q0.040_2pi_over_a_rise_cm-1": 6.194176154427623,
+          "KM_path_d0.003_rise_cm-1": 0.016395535593119348,
+          "KM_path_d0.025_rise_cm-1": 1.1424811712740848,
+          "KM_path_d0.060_rise_cm-1": 6.465223682945407,
+          "KM_q0.003_2pi_over_a_rise_cm-1": 0.036910399903717916,
+          "KM_q0.025_2pi_over_a_rise_cm-1": 2.5631542954397446,
+          "KM_q0.040_2pi_over_a_rise_cm-1": 6.465223682945407
+        },
+        "full_epc": {
+          "K_frequency_cm-1": 1256.2883827929936,
+          "KG_path_d0.003_rise_cm-1": 0.3430041987749064,
+          "KG_path_d0.025_rise_cm-1": 10.925024243308599,
+          "KG_path_d0.060_rise_cm-1": 26.373726296182213,
+          "KG_q0.003_2pi_over_a_rise_cm-1": 0.6863618618278906,
+          "KG_q0.025_2pi_over_a_rise_cm-1": 17.152738637471884,
+          "KG_q0.040_2pi_over_a_rise_cm-1": 26.373726296182213,
+          "KM_path_d0.003_rise_cm-1": 0.34532177203163883,
+          "KM_path_d0.025_rise_cm-1": 11.303741833507502,
+          "KM_path_d0.060_rise_cm-1": 27.971143309368472,
+          "KM_q0.003_2pi_over_a_rise_cm-1": 0.6978229627554811,
+          "KM_q0.025_2pi_over_a_rise_cm-1": 17.90988012889011,
+          "KM_q0.040_2pi_over_a_rise_cm-1": 27.971143309368472
+        }
+      }
+    },
+    "S0": {
+      "300": {
+        "thermal_short": {
+          "K_frequency_cm-1": 1312.2620360355806,
+          "KG_path_d0.003_rise_cm-1": 0.006954133076078506,
+          "KG_path_d0.025_rise_cm-1": 0.48220790874006525,
+          "KG_path_d0.060_rise_cm-1": 2.74447199111205,
+          "KG_q0.003_2pi_over_a_rise_cm-1": 0.015647626099280387,
+          "KG_q0.025_2pi_over_a_rise_cm-1": 1.081760432170995,
+          "KG_q0.040_2pi_over_a_rise_cm-1": 2.74447199111205,
+          "KM_path_d0.003_rise_cm-1": 0.006951070988179708,
+          "KM_path_d0.025_rise_cm-1": 0.48040689397203096,
+          "KM_path_d0.060_rise_cm-1": 2.717738665430943,
+          "KM_q0.003_2pi_over_a_rise_cm-1": 0.01563728910696227,
+          "KM_q0.025_2pi_over_a_rise_cm-1": 1.0755603167817753,
+          "KM_q0.040_2pi_over_a_rise_cm-1": 2.717738665430943
+        },
+        "finite_q6": {
+          "K_frequency_cm-1": 1281.4324134626254,
+          "KG_path_d0.003_rise_cm-1": 0.015469800260689226,
+          "KG_path_d0.025_rise_cm-1": 1.0616718311362092,
+          "KG_path_d0.060_rise_cm-1": 5.904763969468377,
+          "KG_q0.003_2pi_over_a_rise_cm-1": 0.03478888185850337,
+          "KG_q0.025_2pi_over_a_rise_cm-1": 2.3640421045815856,
+          "KG_q0.040_2pi_over_a_rise_cm-1": 5.904763969468377,
+          "KM_path_d0.003_rise_cm-1": 0.015495309947027636,
+          "KM_path_d0.025_rise_cm-1": 1.07569005100936,
+          "KM_path_d0.060_rise_cm-1": 6.055005569901368,
+          "KM_q0.003_2pi_over_a_rise_cm-1": 0.03487489559665846,
+          "KM_q0.025_2pi_over_a_rise_cm-1": 2.4083301086623123,
+          "KM_q0.040_2pi_over_a_rise_cm-1": 6.055005569901368
+        },
+        "full_epc": {
+          "K_frequency_cm-1": 1280.854421903248,
+          "KG_path_d0.003_rise_cm-1": 0.3358890197935125,
+          "KG_path_d0.025_rise_cm-1": 10.682555153125577,
+          "KG_path_d0.060_rise_cm-1": 25.70177083276917,
+          "KG_q0.003_2pi_over_a_rise_cm-1": 0.6719992457265107,
+          "KG_q0.025_2pi_over_a_rise_cm-1": 16.753420651321903,
+          "KG_q0.040_2pi_over_a_rise_cm-1": 25.70177083276917,
+          "KM_path_d0.003_rise_cm-1": 0.3381528288280151,
+          "KM_path_d0.025_rise_cm-1": 11.048836338374485,
+          "KM_path_d0.060_rise_cm-1": 27.20099949026462,
+          "KM_q0.003_2pi_over_a_rise_cm-1": 0.6832092694717176,
+          "KM_q0.025_2pi_over_a_rise_cm-1": 17.478876294751217,
+          "KM_q0.040_2pi_over_a_rise_cm-1": 27.20099949026462
+        }
+      },
+      "450": {
+        "thermal_short": {
+          "K_frequency_cm-1": 1301.4708853094596,
+          "KG_path_d0.003_rise_cm-1": 0.007254510212078458,
+          "KG_path_d0.025_rise_cm-1": 0.501314756478223,
+          "KG_path_d0.060_rise_cm-1": 2.836714737246666,
+          "KG_q0.003_2pi_over_a_rise_cm-1": 0.016319825250548092,
+          "KG_q0.025_2pi_over_a_rise_cm-1": 1.1223346898350428,
+          "KG_q0.040_2pi_over_a_rise_cm-1": 2.836714737246666,
+          "KM_path_d0.003_rise_cm-1": 0.0072577674236526946,
+          "KM_path_d0.025_rise_cm-1": 0.5031318257035764,
+          "KM_path_d0.060_rise_cm-1": 2.8575445524586485,
+          "KM_q0.003_2pi_over_a_rise_cm-1": 0.016330810363342607,
+          "KM_q0.025_2pi_over_a_rise_cm-1": 1.1281838235486248,
+          "KM_q0.040_2pi_over_a_rise_cm-1": 2.8575445524586485
+        },
+        "finite_q6": {
+          "K_frequency_cm-1": 1270.3794096098181,
+          "KG_path_d0.003_rise_cm-1": 0.01587956100570409,
+          "KG_path_d0.025_rise_cm-1": 1.0873261454905787,
+          "KG_path_d0.060_rise_cm-1": 6.026611108039106,
+          "KG_q0.003_2pi_over_a_rise_cm-1": 0.03570490480410626,
+          "KG_q0.025_2pi_over_a_rise_cm-1": 2.4180902986965975,
+          "KG_q0.040_2pi_over_a_rise_cm-1": 6.026611108039106,
+          "KM_path_d0.003_rise_cm-1": 0.01591536210094091,
+          "KM_path_d0.025_rise_cm-1": 1.1071110095651875,
+          "KM_path_d0.060_rise_cm-1": 6.245629240830567,
+          "KM_q0.003_2pi_over_a_rise_cm-1": 0.035825629463261066,
+          "KM_q0.025_2pi_over_a_rise_cm-1": 2.481076686834058,
+          "KM_q0.040_2pi_over_a_rise_cm-1": 6.245629240830567
+        },
+        "full_epc": {
+          "K_frequency_cm-1": 1269.7963869050202,
+          "KG_path_d0.003_rise_cm-1": 0.33906204256618366,
+          "KG_path_d0.025_rise_cm-1": 10.790167311252844,
+          "KG_path_d0.060_rise_cm-1": 25.991128146687288,
+          "KG_q0.003_2pi_over_a_rise_cm-1": 0.6784039490889882,
+          "KG_q0.025_2pi_over_a_rise_cm-1": 16.929412217283925,
+          "KG_q0.040_2pi_over_a_rise_cm-1": 25.991128146687288,
+          "KM_path_d0.003_rise_cm-1": 0.34135205629308984,
+          "KM_path_d0.025_rise_cm-1": 11.163272288720009,
+          "KM_path_d0.060_rise_cm-1": 27.55084129192528,
+          "KM_q0.003_2pi_over_a_rise_cm-1": 0.6897334161178605,
+          "KM_q0.025_2pi_over_a_rise_cm-1": 17.673242299207686,
+          "KM_q0.040_2pi_over_a_rise_cm-1": 27.55084129192528
+        }
+      },
+      "600": {
+        "thermal_short": {
+          "K_frequency_cm-1": 1294.1115432918361,
+          "KG_path_d0.003_rise_cm-1": 0.00767006369255796,
+          "KG_path_d0.025_rise_cm-1": 0.5307737200939755,
+          "KG_path_d0.060_rise_cm-1": 3.007251805386659,
+          "KG_q0.003_2pi_over_a_rise_cm-1": 0.01725653523544679,
+          "KG_q0.025_2pi_over_a_rise_cm-1": 1.1889976748693698,
+          "KG_q0.040_2pi_over_a_rise_cm-1": 3.007251805386659,
+          "KM_path_d0.003_rise_cm-1": 0.007670029992368654,
+          "KM_path_d0.025_rise_cm-1": 0.5307028519225696,
+          "KM_path_d0.060_rise_cm-1": 3.0030076350412855,
+          "KM_q0.003_2pi_over_a_rise_cm-1": 0.01725641683401591,
+          "KM_q0.025_2pi_over_a_rise_cm-1": 1.188542496716309,
+          "KM_q0.040_2pi_over_a_rise_cm-1": 3.0030076350412855
+        },
+        "finite_q6": {
+          "K_frequency_cm-1": 1262.8388913608815,
+          "KG_path_d0.003_rise_cm-1": 0.01619915058222432,
+          "KG_path_d0.025_rise_cm-1": 1.1113108963752438,
+          "KG_path_d0.060_rise_cm-1": 6.1775507937404655,
+          "KG_q0.003_2pi_over_a_rise_cm-1": 0.036428102544505236,
+          "KG_q0.025_2pi_over_a_rise_cm-1": 2.4740947898785635,
+          "KG_q0.040_2pi_over_a_rise_cm-1": 6.1775507937404655,
+          "KM_path_d0.003_rise_cm-1": 0.01622757055361035,
+          "KM_path_d0.025_rise_cm-1": 1.1269085650262696,
+          "KM_path_d0.060_rise_cm-1": 6.343727772483817,
+          "KM_q0.003_2pi_over_a_rise_cm-1": 0.036523926411518914,
+          "KM_q0.025_2pi_over_a_rise_cm-1": 2.523293085016576,
+          "KM_q0.040_2pi_over_a_rise_cm-1": 6.343727772483817
+        },
+        "full_epc": {
+          "K_frequency_cm-1": 1262.2523857652372,
+          "KG_path_d0.003_rise_cm-1": 0.34147158587006743,
+          "KG_path_d0.025_rise_cm-1": 10.881166574417875,
+          "KG_path_d0.060_rise_cm-1": 26.298791805428664,
+          "KG_q0.003_2pi_over_a_rise_cm-1": 0.6833210735112516,
+          "KG_q0.025_2pi_over_a_rise_cm-1": 17.090287941631004,
+          "KG_q0.040_2pi_over_a_rise_cm-1": 26.298791805428664,
+          "KM_path_d0.003_rise_cm-1": 0.3437718859781853,
+          "KM_path_d0.025_rise_cm-1": 11.25452536121088,
+          "KM_path_d0.060_rise_cm-1": 27.84192698498714,
+          "KM_q0.003_2pi_over_a_rise_cm-1": 0.6947067294304361,
+          "KM_q0.025_2pi_over_a_rise_cm-1": 17.831995617850907,
+          "KM_q0.040_2pi_over_a_rise_cm-1": 27.84192698498714
+        }
+      }
+    }
+  },
+  "primary_S0_full_band_stability": {
+    "300": {
+      "commensurate_supercell_min_frequency_cm-1": -2.2156171009123555e-05,
+      "commensurate_supercell_imaginary_modes_below_minus_1_cm-1": 0,
+      "interpolated_full_band_min_frequency_cm-1_not_gated": -2.9918344968655184,
+      "interpolated_minimum_path_index": 168,
+      "interpolated_minimum_branch_index": 0
+    },
+    "450": {
+      "commensurate_supercell_min_frequency_cm-1": -3.133469244133709e-05,
+      "commensurate_supercell_imaginary_modes_below_minus_1_cm-1": 0,
+      "interpolated_full_band_min_frequency_cm-1_not_gated": -10.587416594947497,
+      "interpolated_minimum_path_index": 198,
+      "interpolated_minimum_branch_index": 0
+    },
+    "600": {
+      "commensurate_supercell_min_frequency_cm-1": -1.3147034405773477e-05,
+      "commensurate_supercell_imaginary_modes_below_minus_1_cm-1": 0,
+      "interpolated_full_band_min_frequency_cm-1_not_gated": -6.40271772806881,
+      "interpolated_minimum_path_index": 195,
+      "interpolated_minimum_branch_index": 0
+    }
+  },
+  "static_full_EPC_DFPT_validation": {
+    "metrics": {
+      "K_error_cm-1": -2.3013159954468847,
+      "K_referenced_shape_RMSE_cm-1": 0.9295790319570204,
+      "K_referenced_shape_max_abs_cm-1": 1.6408383758987384,
+      "direct_point_max_abs_error_cm-1": 3.942154371345623,
+      "cusp_depth": {
+        "d0.003": {
+          "DFPT_fit_depth_cm-1": 0.36098835615621283,
+          "full_EPC_model_depth_cm-1": 0.3277179600686395,
+          "relative_error": 0.09216473473503396,
+          "threshold": 0.15,
+          "passed": true
+        },
+        "d0.025": {
+          "DFPT_fit_depth_cm-1": 11.71196987683902,
+          "full_EPC_model_depth_cm-1": 10.170326624101335,
+          "relative_error": 0.13162971463804382,
+          "threshold": 0.15,
+          "passed": true
+        }
+      },
+      "DFPT_rounding_fit": {
+        "omega_K_cm-1": 1288.039763,
+        "slope_cm-1_per_d": 739.0682473773635,
+        "rounding_width_d": 0.00841203364218884,
+        "curvature_cm-1_per_d2": -2504.9488210968416,
+        "fit_RMSE_cm-1": 0.055684082105724564,
+        "fit_max_abs_cm-1": 0.09919512316105283,
+        "success": true
+      },
+      "full_EPC_model_rounding_fit_at_same_qpoints": {
+        "omega_K_cm-1": 1285.738447004553,
+        "slope_cm-1_per_d": 728.0741511815334,
+        "rounding_width_d": 0.009469812054453304,
+        "curvature_cm-1_per_d2": -3990.2727083323684,
+        "fit_RMSE_cm-1": 0.05296855850541045,
+        "fit_max_abs_cm-1": 0.09503863980717142,
+        "success": true
+      },
+      "rounding_width_relative_error": 0.12574586090091133
+    },
+    "thresholds": {
+      "K_abs_error_cm-1": 5.0,
+      "K_referenced_shape_RMSE_cm-1": 1.0,
+      "K_referenced_shape_max_abs_cm-1": 2.0,
+      "cusp_depth_relative_error": 0.15,
+      "rounding_width_relative_error": 0.15
+    },
+    "gates": {
+      "K_frequency": true,
+      "near_K_shape_RMSE": true,
+      "near_K_shape_max": true,
+      "cusp_depth_d0.003_and_d0.025": true,
+      "rounding_width": true
+    },
+    "passed": true,
+    "sources": {
+      "direct_DFPT_points": {
+        "path": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/E32_absolute_and_DFPT_comparison/MLIP_full_EPC_LR_vs_DFPT_points.csv",
+        "sha256": "f9cff9b5d3bfdc489acc83d1fc4e669cd4548bc6c05e7a5cf16f48a3b51e6280"
+      },
+      "DFPT_KG_line": {
+        "path": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physical_fd_dfpt/campaigns/FD300_LINE/graphene_FD300_LINE_dfpt.csv",
+        "sha256": "6cda8e4279a4aea2fec05c8a758b1a642f4b4a1b8af73e04e2113b535c22ab3a"
+      }
+    }
+  },
+  "finite_lattice_short_model_sensitivity": {
+    "by_lattice_temperature_K": {
+      "300": {
+        "metrics": {
+          "R2AO_minus_S0_K_cm-1": -6.376725763264631,
+          "near_K_absolute_RMSE_cm-1": 6.298189931696962,
+          "near_K_K_referenced_shape_RMSE_cm-1": 0.1007443379594267,
+          "near_K_K_referenced_shape_max_abs_cm-1": 0.20721529803950034,
+          "cusp_depth": {
+            "KG_d0.003": {
+              "R2AO_depth_cm-1": 0.3383484463779496,
+              "S0_depth_cm-1": 0.3358890197935125,
+              "relative_difference": 0.007322140467553918,
+              "passed": true
+            },
+            "KG_d0.025": {
+              "R2AO_depth_cm-1": 10.788541945002407,
+              "S0_depth_cm-1": 10.682555153125577,
+              "relative_difference": 0.009921483236697365,
+              "passed": true
+            },
+            "KM_d0.003": {
+              "R2AO_depth_cm-1": 0.3406254639839972,
+              "S0_depth_cm-1": 0.3381528288280151,
+              "relative_difference": 0.0073121823778669204,
+              "passed": true
+            },
+            "KM_d0.025": {
+              "R2AO_depth_cm-1": 11.157685348588984,
+              "S0_depth_cm-1": 11.048836338374485,
+              "relative_difference": 0.009851626622112926,
+              "passed": true
+            }
+          }
+        },
+        "gates": {
+          "K_frequency": true,
+          "near_K_shape_RMSE": true,
+          "near_K_shape_max": true,
+          "cusp_depth": true
+        }
+      },
+      "450": {
+        "metrics": {
+          "R2AO_minus_S0_K_cm-1": -3.5115207788123826,
+          "near_K_absolute_RMSE_cm-1": 3.4598375352833304,
+          "near_K_K_referenced_shape_RMSE_cm-1": 0.0668758603631869,
+          "near_K_K_referenced_shape_max_abs_cm-1": 0.14379490253668337,
+          "cusp_depth": {
+            "KG_d0.003": {
+              "R2AO_depth_cm-1": 0.3405844497124235,
+              "S0_depth_cm-1": 0.33906204256618366,
+              "relative_difference": 0.004490054783831159,
+              "passed": true
+            },
+            "KG_d0.025": {
+              "R2AO_depth_cm-1": 10.858346805933934,
+              "S0_depth_cm-1": 10.790167311252844,
+              "relative_difference": 0.006318668906086992,
+              "passed": true
+            },
+            "KM_d0.003": {
+              "R2AO_depth_cm-1": 0.34288683001818754,
+              "S0_depth_cm-1": 0.34135205629308984,
+              "relative_difference": 0.004496160772442848,
+              "passed": true
+            },
+            "KM_d0.025": {
+              "R2AO_depth_cm-1": 11.235887361116056,
+              "S0_depth_cm-1": 11.163272288720009,
+              "relative_difference": 0.006504819601096854,
+              "passed": true
+            }
+          }
+        },
+        "gates": {
+          "K_frequency": true,
+          "near_K_shape_RMSE": true,
+          "near_K_shape_max": true,
+          "cusp_depth": true
+        }
+      },
+      "600": {
+        "metrics": {
+          "R2AO_minus_S0_K_cm-1": -5.964002972243634,
+          "near_K_absolute_RMSE_cm-1": 5.93116815469943,
+          "near_K_K_referenced_shape_RMSE_cm-1": 0.03999321683096128,
+          "near_K_K_referenced_shape_max_abs_cm-1": 0.07788451103920124,
+          "cusp_depth": {
+            "KG_d0.003": {
+              "R2AO_depth_cm-1": 0.3430041987749064,
+              "S0_depth_cm-1": 0.34147158587006743,
+              "relative_difference": 0.004488258959918678,
+              "passed": true
+            },
+            "KG_d0.025": {
+              "R2AO_depth_cm-1": 10.925024243308599,
+              "S0_depth_cm-1": 10.881166574417875,
+              "relative_difference": 0.004030603574605198,
+              "passed": true
+            },
+            "KM_d0.003": {
+              "R2AO_depth_cm-1": 0.34532177203163883,
+              "S0_depth_cm-1": 0.3437718859781853,
+              "relative_difference": 0.0045084723814555056,
+              "passed": true
+            },
+            "KM_d0.025": {
+              "R2AO_depth_cm-1": 11.303741833507502,
+              "S0_depth_cm-1": 11.25452536121088,
+              "relative_difference": 0.00437303846382071,
+              "passed": true
+            }
+          }
+        },
+        "gates": {
+          "K_frequency": true,
+          "near_K_shape_RMSE": true,
+          "near_K_shape_max": true,
+          "cusp_depth": true
+        }
+      }
+    },
+    "K_temperature_shifts": {
+      "300_to_450": {
+        "R2AO_K_shift_cm-1": -8.19283001377562,
+        "S0_K_shift_cm-1": -11.058034998227868,
+        "difference_cm-1": 2.865204984452248,
+        "passed": true
+      },
+      "450_to_600": {
+        "R2AO_K_shift_cm-1": -9.9964833332142,
+        "S0_K_shift_cm-1": -7.544001139782949,
+        "difference_cm-1": -2.4524821934312513,
+        "passed": true
+      }
+    },
+    "thresholds": {
+      "K_abs_difference_cm-1": 10.0,
+      "K_referenced_shape_RMSE_cm-1": 1.0,
+      "K_referenced_shape_max_abs_cm-1": 2.0,
+      "cusp_depth_relative_difference": 0.15,
+      "K_temperature_shift_abs_difference_cm-1": 5.0
+    },
+    "per_temperature_passed": true,
+    "temperature_shift_passed": true,
+    "passed": true
+  },
+  "paired_sampling_validation": {
+    "required": true,
+    "method": "common initial Hessian, random seed, and first-population configurations",
+    "by_lattice_temperature_K": {
+      "300": {
+        "R2AO_xats": {
+          "path": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/R2R_multipolar_background/R2AP_fixed_smearing_SSCHA/formal_T300/ensembles/xats_pop1.npy",
+          "sha256": "88f0025b29658e9f6ac0f5ec8f11e0d0890ddcba2522da58285d9fb0dfd553b6"
+        },
+        "S0_xats": {
+          "path": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/R2R_multipolar_background/R2AT_s0_shared_initial_sensitivity/formal_T300_Tel300/ensembles/xats_pop1.npy",
+          "sha256": "88f0025b29658e9f6ac0f5ec8f11e0d0890ddcba2522da58285d9fb0dfd553b6"
+        },
+        "configuration_coordinate_max_abs": 0.0,
+        "configuration_coordinate_tolerance": 1e-12,
+        "array_shape": [
+          300,
+          72,
+          3
+        ],
+        "gates": {
+          "same_initial_hessian_sources": true,
+          "both_converged_on_first_population": true,
+          "configuration_array_shape": true,
+          "configuration_coordinate_replay": true
+        },
+        "passed": true
+      },
+      "450": {
+        "R2AO_xats": {
+          "path": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/R2R_multipolar_background/R2AP_fixed_smearing_SSCHA/formal_T450/ensembles/xats_pop1.npy",
+          "sha256": "ebebdfe1abd53417c82e787873308d5f3006142571d18b3be33270fcfdc2506c"
+        },
+        "S0_xats": {
+          "path": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/R2R_multipolar_background/R2AT_s0_shared_initial_sensitivity/formal_T450_Tel300/ensembles/xats_pop1.npy",
+          "sha256": "ebebdfe1abd53417c82e787873308d5f3006142571d18b3be33270fcfdc2506c"
+        },
+        "configuration_coordinate_max_abs": 0.0,
+        "configuration_coordinate_tolerance": 1e-12,
+        "array_shape": [
+          300,
+          72,
+          3
+        ],
+        "gates": {
+          "same_initial_hessian_sources": true,
+          "both_converged_on_first_population": true,
+          "configuration_array_shape": true,
+          "configuration_coordinate_replay": true
+        },
+        "passed": true
+      },
+      "600": {
+        "R2AO_xats": {
+          "path": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/R2R_multipolar_background/R2AP_fixed_smearing_SSCHA/formal_T600/ensembles/xats_pop1.npy",
+          "sha256": "8376163047e0b83a426d3e6cb316aa4653941d0347b6db85bb916c86dc53d70d"
+        },
+        "S0_xats": {
+          "path": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/R2R_multipolar_background/R2AT_s0_shared_initial_sensitivity/formal_T600_Tel300/ensembles/xats_pop1.npy",
+          "sha256": "8376163047e0b83a426d3e6cb316aa4653941d0347b6db85bb916c86dc53d70d"
+        },
+        "configuration_coordinate_max_abs": 0.0,
+        "configuration_coordinate_tolerance": 1e-12,
+        "array_shape": [
+          300,
+          72,
+          3
+        ],
+        "gates": {
+          "same_initial_hessian_sources": true,
+          "both_converged_on_first_population": true,
+          "configuration_array_shape": true,
+          "configuration_coordinate_replay": true
+        },
+        "passed": true
+      }
+    },
+    "passed": true
+  },
+  "matrix_assembly": {
+    "passed": true,
+    "limits": {
+      "FC2_remove_reassemble_max_abs_eV_A2": 1e-12,
+      "dynamical_matrix_linearity_max_abs": 1e-12,
+      "minimum_adjacent_mode_overlap": 0.95,
+      "tracked_vs_highest_max_abs_cm-1": 1e-06,
+      "saved_q6_K_replay_max_abs_cm-1": 1e-06,
+      "time_reversal_matrix_max_abs": 1e-12,
+      "time_reversal_frequency_max_abs_cm-1": 1e-06,
+      "total_hermitian_max_abs": 1e-12,
+      "correction_hermitian_max_abs": 1e-12,
+      "projector_idempotency_max_abs": 1e-12,
+      "orthogonal_correction_leakage_max_abs": 1e-12
+    },
+    "by_case": {
+      "R2AO": {
+        "300": {
+          "diagnostics": {
+            "FC2_remove_reassemble_max_abs_eV_A2": 2.7755575615628914e-17,
+            "dynamical_matrix_linearity_max_abs": 5.745404152435185e-15,
+            "minimum_adjacent_mode_overlap": 0.9999976324838593,
+            "tracked_vs_highest_max_abs_cm-1": 0.0,
+            "saved_q6_K_replay_max_abs_cm-1": 4.547473508864641e-13,
+            "time_reversal_matrix_max_abs": 0.0,
+            "time_reversal_frequency_max_abs_cm-1": 0.0,
+            "all_frequencies_finite": true,
+            "total_hermitian_max_abs": 0.0,
+            "correction_hermitian_max_abs": 0.0,
+            "projector_idempotency_max_abs": 4.996094870816246e-16,
+            "orthogonal_correction_leakage_max_abs": 1.3685921937883791e-17
+          },
+          "gates": {
+            "FC2_reassembly": true,
+            "matrix_linearity": true,
+            "mode_overlap": true,
+            "tracked_branch": true,
+            "saved_K_replay": true,
+            "time_reversal_matrix": true,
+            "time_reversal_frequency": true,
+            "Hermiticity": true,
+            "projector": true,
+            "finite": true
+          },
+          "passed": true
+        },
+        "450": {
+          "diagnostics": {
+            "FC2_remove_reassemble_max_abs_eV_A2": 2.7755575615628914e-17,
+            "dynamical_matrix_linearity_max_abs": 5.2735593669694936e-15,
+            "minimum_adjacent_mode_overlap": 0.9999975535063794,
+            "tracked_vs_highest_max_abs_cm-1": 0.0,
+            "saved_q6_K_replay_max_abs_cm-1": 2.2737367544323206e-13,
+            "time_reversal_matrix_max_abs": 0.0,
+            "time_reversal_frequency_max_abs_cm-1": 0.0,
+            "all_frequencies_finite": true,
+            "total_hermitian_max_abs": 0.0,
+            "correction_hermitian_max_abs": 0.0,
+            "projector_idempotency_max_abs": 4.552252871008668e-16,
+            "orthogonal_correction_leakage_max_abs": 1.6474135621887544e-17
+          },
+          "gates": {
+            "FC2_reassembly": true,
+            "matrix_linearity": true,
+            "mode_overlap": true,
+            "tracked_branch": true,
+            "saved_K_replay": true,
+            "time_reversal_matrix": true,
+            "time_reversal_frequency": true,
+            "Hermiticity": true,
+            "projector": true,
+            "finite": true
+          },
+          "passed": true
+        },
+        "600": {
+          "diagnostics": {
+            "FC2_remove_reassemble_max_abs_eV_A2": 2.7755575615628914e-17,
+            "dynamical_matrix_linearity_max_abs": 4.704570066849101e-15,
+            "minimum_adjacent_mode_overlap": 0.9999975148459771,
+            "tracked_vs_highest_max_abs_cm-1": 0.0,
+            "saved_q6_K_replay_max_abs_cm-1": 2.2737367544323206e-13,
+            "time_reversal_matrix_max_abs": 0.0,
+            "time_reversal_frequency_max_abs_cm-1": 0.0,
+            "all_frequencies_finite": true,
+            "total_hermitian_max_abs": 0.0,
+            "correction_hermitian_max_abs": 0.0,
+            "projector_idempotency_max_abs": 4.441578427584837e-16,
+            "orthogonal_correction_leakage_max_abs": 1.800101550964754e-17
+          },
+          "gates": {
+            "FC2_reassembly": true,
+            "matrix_linearity": true,
+            "mode_overlap": true,
+            "tracked_branch": true,
+            "saved_K_replay": true,
+            "time_reversal_matrix": true,
+            "time_reversal_frequency": true,
+            "Hermiticity": true,
+            "projector": true,
+            "finite": true
+          },
+          "passed": true
+        }
+      },
+      "S0": {
+        "300": {
+          "diagnostics": {
+            "FC2_remove_reassemble_max_abs_eV_A2": 2.7755575615628914e-17,
+            "dynamical_matrix_linearity_max_abs": 7.577272143066693e-15,
+            "minimum_adjacent_mode_overlap": 0.999997845071161,
+            "tracked_vs_highest_max_abs_cm-1": 0.0,
+            "saved_q6_K_replay_max_abs_cm-1": 0.0,
+            "time_reversal_matrix_max_abs": 0.0,
+            "time_reversal_frequency_max_abs_cm-1": 0.0,
+            "all_frequencies_finite": true,
+            "total_hermitian_max_abs": 0.0,
+            "correction_hermitian_max_abs": 0.0,
+            "projector_idempotency_max_abs": 3.8866649063850964e-16,
+            "orthogonal_correction_leakage_max_abs": 1.851346950259577e-17
+          },
+          "gates": {
+            "FC2_reassembly": true,
+            "matrix_linearity": true,
+            "mode_overlap": true,
+            "tracked_branch": true,
+            "saved_K_replay": true,
+            "time_reversal_matrix": true,
+            "time_reversal_frequency": true,
+            "Hermiticity": true,
+            "projector": true,
+            "finite": true
+          },
+          "passed": true
+        },
+        "450": {
+          "diagnostics": {
+            "FC2_remove_reassemble_max_abs_eV_A2": 2.7755575615628914e-17,
+            "dynamical_matrix_linearity_max_abs": 5.412337245047638e-15,
+            "minimum_adjacent_mode_overlap": 0.9999977021652613,
+            "tracked_vs_highest_max_abs_cm-1": 0.0,
+            "saved_q6_K_replay_max_abs_cm-1": 2.2737367544323206e-13,
+            "time_reversal_matrix_max_abs": 0.0,
+            "time_reversal_frequency_max_abs_cm-1": 0.0,
+            "all_frequencies_finite": true,
+            "total_hermitian_max_abs": 0.0,
+            "correction_hermitian_max_abs": 0.0,
+            "projector_idempotency_max_abs": 4.695944831791985e-16,
+            "orthogonal_correction_leakage_max_abs": 1.7191880415398405e-17
+          },
+          "gates": {
+            "FC2_reassembly": true,
+            "matrix_linearity": true,
+            "mode_overlap": true,
+            "tracked_branch": true,
+            "saved_K_replay": true,
+            "time_reversal_matrix": true,
+            "time_reversal_frequency": true,
+            "Hermiticity": true,
+            "projector": true,
+            "finite": true
+          },
+          "passed": true
+        },
+        "600": {
+          "diagnostics": {
+            "FC2_remove_reassemble_max_abs_eV_A2": 2.7755575615628914e-17,
+            "dynamical_matrix_linearity_max_abs": 5.218048215738236e-15,
+            "minimum_adjacent_mode_overlap": 0.99999787430036,
+            "tracked_vs_highest_max_abs_cm-1": 0.0,
+            "saved_q6_K_replay_max_abs_cm-1": 2.2737367544323206e-13,
+            "time_reversal_matrix_max_abs": 0.0,
+            "time_reversal_frequency_max_abs_cm-1": 0.0,
+            "all_frequencies_finite": true,
+            "total_hermitian_max_abs": 0.0,
+            "correction_hermitian_max_abs": 0.0,
+            "projector_idempotency_max_abs": 4.442032223292698e-16,
+            "orthogonal_correction_leakage_max_abs": 1.5829564370455605e-17
+          },
+          "gates": {
+            "FC2_reassembly": true,
+            "matrix_linearity": true,
+            "mode_overlap": true,
+            "tracked_branch": true,
+            "saved_K_replay": true,
+            "time_reversal_matrix": true,
+            "time_reversal_frequency": true,
+            "Hermiticity": true,
+            "projector": true,
+            "finite": true
+          },
+          "passed": true
+        }
+      }
+    },
+    "reconstructed_supercell_position_error_A": 3.7682219008410606e-15
+  },
+  "inherited_dense_response_crosscheck": {
+    "passed": true,
+    "gates": {
+      "operator_response_smearing_match": true,
+      "static_short_matrix_replay": true,
+      "static_full_EPC_matrix_replay": true,
+      "saved_SSCHA_K_replay": true,
+      "saved_SSCHA_near_K_curve_replay": true,
+      "FC2_exact_remove_reassemble": true,
+      "dynamical_matrix_linearity": true,
+      "mode_overlap": true,
+      "tracked_branch_is_highest": true,
+      "Hermiticity": true,
+      "projector_idempotency": true,
+      "orthogonal_leakage": true,
+      "time_reversal_matrix": true,
+      "time_reversal_frequency": true,
+      "K_star": true,
+      "nk720_path_symmetry": true,
+      "extended_response_agrees_with_nk720_within_1_cm-1": true,
+      "finite_output": true
+    }
+  },
+  "limitations": [
+    "R2AO did not pass the fixed per-configuration OOF force/A-prime gate.",
+    "The final dense full-EPC update is a targeted A-prime rank-one spectral correction.",
+    "The plotted full-path ZA branch has small negative Fourier-interpolation residues near Gamma; the commensurate supercell spectra have no modes below -1 cm-1 and define the stability gate.",
+    "The available finite-lattice DFT-TDEP series is not a converged independent 300/450/600 K thermodynamic reference; the final finite-T gate therefore relies on an independent short-model sensitivity comparison."
+  ],
+  "inputs": {
+    "response": {
+      "path": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/E42_extended_fixed_lattice_smearing_sweep/extended_fixed_lattice_smearing_sweep.csv",
+      "sha256": "ad9d70342c589fc11cabef526f801f60c70bdc5d6186eff70ac925d644be4407"
+    },
+    "operator": {
+      "path": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/E0_epw_matched/k18_q9_ex1_pifroz/operator_q6_450K/cartesian/T300_operator.npz",
+      "sha256": "114fb9a369ed106e5a89a9c05223aed7667fd737714f3d42516ebdb8e2e475c3"
+    },
+    "E48_crosscheck": {
+      "path": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/E48_fixed_smearing_thermal_full_epc/fixed_smearing_thermal_full_epc_summary.json",
+      "sha256": "0984344ecc4c5028c913d406f99fdde3526646071005b2f938876b40602de45e"
+    },
+    "S0_force_gate": {
+      "path": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/S0_unified_short/formal_240ep_2060_seed83_replayw16/checkpoint_sweep.json",
+      "sha256": "c66115460d20ea5df134f5c077b49fef01a49d34c04017e008e9c6a7e015a1aa"
+    },
+    "SSCHA": {
+      "R2AO": {
+        "300": {
+          "result": {
+            "path": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/R2R_multipolar_background/R2AP_fixed_smearing_SSCHA/formal_T300/result.npz",
+            "sha256": "c3ff5b9c7c09031a31903b832ee5a519924d7eaf586175a7040fd18172cdf983"
+          },
+          "acceptance": {
+            "path": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/R2R_multipolar_background/R2AP_fixed_smearing_SSCHA/formal_T300/acceptance.json",
+            "sha256": "a41582e52264ed4ad9263c3e8f1abde7608e21b9cdec8617432bdf9702b7952b"
+          }
+        },
+        "450": {
+          "result": {
+            "path": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/R2R_multipolar_background/R2AP_fixed_smearing_SSCHA/formal_T450/result.npz",
+            "sha256": "f33259b099510c3378200e57a5099f5ec227cafab0404079c0bbc3e08fbc4dcc"
+          },
+          "acceptance": {
+            "path": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/R2R_multipolar_background/R2AP_fixed_smearing_SSCHA/formal_T450/acceptance.json",
+            "sha256": "279467b048d92ba3164afc98e4955be32486ce48c97fadf9bf3f890b2dafeab2"
+          }
+        },
+        "600": {
+          "result": {
+            "path": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/R2R_multipolar_background/R2AP_fixed_smearing_SSCHA/formal_T600/result.npz",
+            "sha256": "df6b421d596699b16e082193a788cf157defcae7ece466c0f567fa619b07ff9e"
+          },
+          "acceptance": {
+            "path": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/R2R_multipolar_background/R2AP_fixed_smearing_SSCHA/formal_T600/acceptance.json",
+            "sha256": "7efd7336d555e160229b3412f1a9afb780a7fde190fb24f69f185ecea0c37087"
+          }
+        }
+      },
+      "S0": {
+        "300": {
+          "result": {
+            "path": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/R2R_multipolar_background/R2AT_s0_shared_initial_sensitivity/formal_T300_Tel300/result.npz",
+            "sha256": "c3de432f436517bd1d8fc90ec6761822b3b09c5593237a54492287c812d04a01"
+          },
+          "acceptance": {
+            "path": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/R2R_multipolar_background/R2AT_s0_shared_initial_sensitivity/formal_T300_Tel300/acceptance.json",
+            "sha256": "ec1b9f7f00a4c2ee39541bcc32fe76670de941c8db3325353a7550cd1fb9e1e9"
+          }
+        },
+        "450": {
+          "result": {
+            "path": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/R2R_multipolar_background/R2AT_s0_shared_initial_sensitivity/formal_T450_Tel300/result.npz",
+            "sha256": "04941795105f1a3de4c07bb34d3f8dd7ddf62287c1c96eceef3ce144e7b47115"
+          },
+          "acceptance": {
+            "path": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/R2R_multipolar_background/R2AT_s0_shared_initial_sensitivity/formal_T450_Tel300/acceptance.json",
+            "sha256": "15cfff6f5d88724f5e67481c1e4011b51bb410a4319c64648766585a3d39eebe"
+          }
+        },
+        "600": {
+          "result": {
+            "path": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/R2R_multipolar_background/R2AT_s0_shared_initial_sensitivity/formal_T600_Tel300/result.npz",
+            "sha256": "2efcc6cdab579fb84dfddb281375b7ef47af82837b7a12b5fdd28f394a952b6e"
+          },
+          "acceptance": {
+            "path": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/R2R_multipolar_background/R2AT_s0_shared_initial_sensitivity/formal_T600_Tel300/acceptance.json",
+            "sha256": "5ec243ca3120c9f3138b6a86a6b4bf5b6f5e1183c2082cf8b8f1304f78deaf06"
+          }
+        }
+      }
+    }
+  },
+  "outputs": {
+    "csv": {
+      "path": "results/graphene_physics_temperature/post_p4_feasibility/R2R_multipolar_background/R2AT_paired_full_epc_acceptance_20260827/r2ao_s0_fixed_smearing_full_epc.csv",
+      "sha256": "b60cb01e42498ed127bf692ca481e25ccf72db5dcaee02280613e30b23b2d370"
+    },
+    "png": {
+      "path": "results/graphene_physics_temperature/post_p4_feasibility/R2R_multipolar_background/R2AT_paired_full_epc_acceptance_20260827/r2ao_s0_fixed_smearing_full_epc.png",
+      "sha256": "9be8577764b5cac2e14d6ebbb5c161124d4fee61f83140068ec55d22a59d102f"
+    },
+    "pdf": {
+      "path": "results/graphene_physics_temperature/post_p4_feasibility/R2R_multipolar_background/R2AT_paired_full_epc_acceptance_20260827/r2ao_s0_fixed_smearing_full_epc.pdf",
+      "sha256": "acfbebf503b06475e938bf180c2ac496d375ed6e70af4a53f04e25a091a6f12f"
+    },
+    "full_band_png": {
+      "path": "results/graphene_physics_temperature/post_p4_feasibility/R2R_multipolar_background/R2AT_paired_full_epc_acceptance_20260827/s0_full_bands_with_dense_K_full_epc.png",
+      "sha256": "5e34e141c1a97af3c6b5384726fe948bd37c983f5cc5a1a4fffa3d6768a86111"
+    },
+    "full_band_pdf": {
+      "path": "results/graphene_physics_temperature/post_p4_feasibility/R2R_multipolar_background/R2AT_paired_full_epc_acceptance_20260827/s0_full_bands_with_dense_K_full_epc.pdf",
+      "sha256": "8b62cee7e520ffb2cdac90ae1bab465d0c2a49b1f449b45ae37e79c78394132c"
+    },
+    "matrices": {
+      "path": "results/graphene_physics_temperature/post_p4_feasibility/R2R_multipolar_background/R2AT_paired_full_epc_acceptance_20260827/r2ao_s0_fixed_smearing_full_epc_matrices.npz",
+      "sha256": "e8b77d32b852c74a99dc29f0dd04fd6e24dcd588a3a0cfb9f341e747b9f7f809"
+    },
+    "report": {
+      "path": "results/graphene_physics_temperature/post_p4_feasibility/R2R_multipolar_background/R2AT_paired_full_epc_acceptance_20260827/R2AT_RESULT.md",
+      "sha256": "4f4b56a97359e169ba35c6a1e77d707ee60856df78ad890ebbaddc588900c729"
+    }
+  }
+}

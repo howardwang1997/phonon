@@ -1,0 +1,128 @@
+{
+  "status": "provisional_300K_matched_smearing_DFT_comparison_450K_pending",
+  "scope": "300 K finite-lattice A-prime comparison near graphene K",
+  "electronic_control": {
+    "smearing": "fermi-dirac",
+    "smearing_degauss_Ry": 0.0019000869,
+    "same_full_EPC_response_in_MLIP_and_DFT_hybrid_curves": true
+  },
+  "lattice_temperature_K": 300,
+  "formula_DFT_hybrid": "D[Phi_DFT-TDEP(T=300 K,s)-Phi_q6(s)] + Pi_full_EPC(q,s)|e_DFT-short><e_DFT-short|",
+  "K_frequencies_cm-1": {
+    "MLIP_plus_full_EPC": 1281.5222106840686,
+    "DFT_TDEP_wave3_raw_6x6": 1280.6700253215465,
+    "DFT_TDEP_wave3_plus_full_EPC": 1280.0916895260063
+  },
+  "MLIP_vs_DFT_TDEP_plus_shared_full_EPC": {
+    "sign_convention": "MLIP+full-EPC minus DFT-TDEP+full-EPC",
+    "K_error_cm-1": 1.43052115806222,
+    "full_range": {
+      "RMSE_cm-1": 2.2226737378087162,
+      "MAE_cm-1": 2.1343822921705273,
+      "max_abs_cm-1": 3.501312230019039,
+      "K_referenced_shape_RMSE_cm-1": 0.9381424581169365,
+      "K_referenced_shape_max_abs_cm-1": 2.070791071956819
+    },
+    "abs_q_le_0.025_2pi_over_a": {
+      "RMSE_cm-1": 1.7309291398496478,
+      "MAE_cm-1": 1.7125549999129244,
+      "max_abs_cm-1": 2.2670449844720224,
+      "K_referenced_shape_RMSE_cm-1": 0.3779075910893467,
+      "K_referenced_shape_max_abs_cm-1": 0.8365238264098025
+    }
+  },
+  "DFT_wave2_to_wave3_plus_full_EPC": {
+    "K_shift_cm-1": -15.733251390111263,
+    "full_range_RMSE_cm-1": 15.413869726913887,
+    "full_range_max_abs_cm-1": 15.733251390111263
+  },
+  "DFT_TDEP_waves": {
+    "1": {
+      "path": "/Users/howardwang/Desktop/playground/phonon/results/td_phonon/graphene_physical_fd_dft_300K_wave1.npz",
+      "sha256": "b8cfdca1c07b680af7eac2bf520f0284f5230c4cd5592b57890e676dd6061700",
+      "n_structures": 15,
+      "fit_RMSE_meV_A": 137.3054769895902,
+      "raw_K_frequency_cm1": 1284.7328308302313,
+      "hybrid_K_frequency_cm1": 1284.1563247710594,
+      "geometry_error_A": 5.219999898997685e-08,
+      "FC2_reassembly_error_eV_A2": 5.551115123125783e-17,
+      "minimum_mode_overlap": 0.9999974440936634,
+      "tracked_vs_highest_max_abs_cm1": 0.0,
+      "correction_diagnostics": {
+        "total_hermitian_max_abs": 0.0,
+        "correction_hermitian_max_abs": 0.0,
+        "projector_idempotency_max_abs": 5.551266725107151e-16,
+        "orthogonal_correction_leakage_max_abs": 1.5525527430571012e-17
+      }
+    },
+    "2": {
+      "path": "/Users/howardwang/Desktop/playground/phonon/results/td_phonon/graphene_physical_fd_dft_300K_wave2.npz",
+      "sha256": "7cec9170decc0304a8011ce9155ecf2f89949568dec942583b86c3484748abac",
+      "n_structures": 30,
+      "fit_RMSE_meV_A": 138.78352150354505,
+      "raw_K_frequency_cm1": 1296.3962579642869,
+      "hybrid_K_frequency_cm1": 1295.8249409161176,
+      "geometry_error_A": 5.219999898997685e-08,
+      "FC2_reassembly_error_eV_A2": 5.551115123125783e-17,
+      "minimum_mode_overlap": 0.9999984776182932,
+      "tracked_vs_highest_max_abs_cm1": 0.0,
+      "correction_diagnostics": {
+        "total_hermitian_max_abs": 0.0,
+        "correction_hermitian_max_abs": 0.0,
+        "projector_idempotency_max_abs": 4.0029660424867215e-16,
+        "orthogonal_correction_leakage_max_abs": 1.677844436244825e-17
+      }
+    },
+    "3": {
+      "path": "/Users/howardwang/Desktop/playground/phonon/results/td_phonon/graphene_physical_fd_dft_300K_wave3.npz",
+      "sha256": "63d66500f29436097c357ea04f11ac996ddb54bbaf494a9351636f75f29b98ee",
+      "n_structures": 45,
+      "fit_RMSE_meV_A": 138.6749200540427,
+      "raw_K_frequency_cm1": 1280.6700253215465,
+      "hybrid_K_frequency_cm1": 1280.0916895260063,
+      "geometry_error_A": 5.219999898997685e-08,
+      "FC2_reassembly_error_eV_A2": 1.1102230246251565e-16,
+      "minimum_mode_overlap": 0.9999982458159297,
+      "tracked_vs_highest_max_abs_cm1": 0.0,
+      "correction_diagnostics": {
+        "total_hermitian_max_abs": 0.0,
+        "correction_hermitian_max_abs": 0.0,
+        "projector_idempotency_max_abs": 3.9178644255214183e-16,
+        "orthogonal_correction_leakage_max_abs": 1.623877575514723e-17
+      }
+    }
+  },
+  "checks": {
+    "operator_geometry_error_A": 3.7682219008410606e-15,
+    "all_frequencies_finite": true,
+    "maximum_DFT_FC2_remove_reassemble_error_eV_A2": 1.1102230246251565e-16,
+    "minimum_DFT_branch_overlap": 0.9999974440936634,
+    "maximum_DFT_tracked_vs_highest_abs_cm-1": 0.0
+  },
+  "limitations": [
+    "the DFT hybrid and MLIP curves share the same full-EPC response, so the cusp is not independently validated here",
+    "the 300 K structures were sampled by the earlier cold-smearing DFT-MD trajectory and relabeled at the target FD setting",
+    "the cumulative 15/30/45-label waves come from one trajectory and are not independent replicas",
+    "450 K target-smearing DFT labels are pending"
+  ],
+  "provenance": {
+    "response": {
+      "path": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/E42_extended_fixed_lattice_smearing_sweep/extended_fixed_lattice_smearing_sweep.csv",
+      "sha256": "ad9d70342c589fc11cabef526f801f60c70bdc5d6186eff70ac925d644be4407"
+    },
+    "operator": {
+      "path": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/E0_epw_matched/k18_q9_ex1_pifroz/operator_q6_450K/cartesian/T300_operator.npz",
+      "sha256": "114fb9a369ed106e5a89a9c05223aed7667fd737714f3d42516ebdb8e2e475c3"
+    },
+    "E48_matrices": {
+      "path": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/E48_fixed_smearing_thermal_full_epc/fixed_smearing_thermal_full_epc_matrices.npz",
+      "sha256": "915fd8f502c5668fe13e454570deabff5554f1bba457c32e0ad62c3905fe8c86"
+    }
+  },
+  "outputs": {
+    "png": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/E49_fixed_smearing_thermal_DFT_comparison/MLIP_full_EPC_vs_DFT_TDEP_300K.png",
+    "pdf": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/E49_fixed_smearing_thermal_DFT_comparison/MLIP_full_EPC_vs_DFT_TDEP_300K.pdf",
+    "csv": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/E49_fixed_smearing_thermal_DFT_comparison/MLIP_full_EPC_vs_DFT_TDEP_300K.csv",
+    "report": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/E49_fixed_smearing_thermal_DFT_comparison/E49_RESULT.md"
+  }
+}
