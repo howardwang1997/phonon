@@ -1,0 +1,50 @@
+{
+  "status": "frozen_before_R2B_DFT",
+  "purpose": "absolute K A' reference via tagged-pair thermal curvature; the plain TDEP fit retains only the shape/cusp gates",
+  "seed_rule": "sort the 36 frozen reserve indices by |A' projected amplitude| with the deployed S0@450 short K pattern; take evenly spaced 12, mirror pairs excluded",
+  "seeds": [
+    69,
+    118,
+    126,
+    197,
+    31,
+    92,
+    14,
+    10,
+    227,
+    120,
+    215,
+    100
+  ],
+  "seed_Aprime_amplitudes_A": {
+    "69": -0.0010700789693517578,
+    "118": 0.005996622145844702,
+    "126": 0.007731834837459338,
+    "197": 0.010612176197231583,
+    "31": 0.0138152417075265,
+    "92": 0.014787295472138804,
+    "14": 0.020706035173995635,
+    "10": 0.02601810252710424,
+    "227": 0.030695949880002595,
+    "120": 0.03878342738496296,
+    "215": 0.04263331673487135,
+    "100": -0.05300962367637757
+  },
+  "delta_A": 0.04,
+  "label_id_encoding": "1000 + 2*i + (0 for minus, 1 for plus)",
+  "pattern": {
+    "source": "Gamma-eigenspace K cluster of the deployed S0@450 short Hessian",
+    "eigenvalue_cluster_size": 2,
+    "pattern_omega_cm1": 1301.4708853094594,
+    "b0_omega_cm1": 1301.4708853094594,
+    "eigen_residual_RMS": 5.020167736242687e-15
+  },
+  "inputs": {
+    "deployed_matrices_sha256": "e8b77d32b852c74a99dc29f0dd04fd6e24dcd588a3a0cfb9f341e747b9f7f809",
+    "operator_sha256": "114fb9a369ed106e5a89a9c05223aed7667fd737714f3d42516ebdb8e2e475c3",
+    "freeze_manifest": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/R1_450k_matched_overlap_screen/freeze_manifest.json"
+  },
+  "outputs": {
+    "r2b_tagged_pairs_snapshots_sha256": "f28402c3981c7d321efff89198811701a1aad0a4113e2174dad7b268c2560975"
+  }
+}

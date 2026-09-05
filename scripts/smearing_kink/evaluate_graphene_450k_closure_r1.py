@@ -132,7 +132,7 @@ def main() -> int:
 
         forces_dft = record["forces"]
         forces_r2ao = record["R2AO_forces"]
-        forces_phi = -np.einsum("iab,jb->ia", fc2, displacement)
+        forces_phi = -np.einsum("ijab,jb->ia", fc2, displacement)
 
         q_coordinate = float(pattern @ displacement.reshape(-1)) / pattern_norm
         row = {
