@@ -12,6 +12,8 @@ phonopy object (full fc2, for distillation) + the DFT dispersion on G-M-K-G.
 from __future__ import annotations
 
 import argparse
+import os
+import re
 import sys
 import time
 import warnings
@@ -69,6 +71,14 @@ def main() -> int:
                     help="override config dft.degauss (Ry) — e.g. 0.002 for electronic-0K check")
     ap.add_argument("--supercell", type=int, default=None,
                     help="override config dft.fc2_supercell")
+    ap.add_argument("--a", type=float, default=None,
+                    help="override the config lattice constant (Angstrom)")
+    ap.add_argument("--thickness", type=float, default=None,
+                    help="override the config chalcogen-to-chalcogen thickness (Angstrom)")
+    ap.add_argument("--tag", default=None,
+                    help="artifact/scratch tag (defaults to --name); useful for provenance-safe reruns")
+    ap.add_argument("--force", action="store_true",
+                    help="recompute even when both output artifacts already exist")
     ap.add_argument("--smearing", default="fd",
                     help="fd (Fermi-Dirac, default; degauss=k_B*T_el) | cold | gauss | mp")
     a = ap.parse_args()
@@ -83,25 +93,37 @@ def main() -> int:
         d["degauss"] = a.degauss
     if a.supercell is not None:
         d["fc2_supercell"] = a.supercell
-    out_yaml = ROOT / a.workdir / f"{a.name}_phonopy.yaml"
-    if out_yaml.exists():
-        print(f"[fc2:{a.name}] {out_yaml.name} exists -> skip", flush=True)
+    lattice_a = float(a.a if a.a is not None else mat["a"])
+    thickness = float(a.thickness if a.thickness is not None else mat["thickness"])
+    tag = a.tag or a.name
+    if not re.fullmatch(r"[A-Za-z0-9_.+-]+", tag):
+        raise ValueError(f"unsafe --tag {tag!r}; use letters, numbers, '.', '_', '+', or '-'")
+    outdir = ROOT / a.workdir
+    out_yaml = outdir / f"{tag}_phonopy.yaml"
+    out_npz = outdir / f"disp_{tag}.npz"
+    if (not a.force and out_yaml.is_file() and out_yaml.stat().st_size > 0
+            and out_npz.is_file() and out_npz.stat().st_size > 0):
+        print(f"[fc2:{tag}] validated artifacts exist -> skip", flush=True)
         return 0
-    work = Path(a.scratch) / "fc2" / a.name
+    if out_yaml.exists() or out_npz.exists():
+        print(f"[fc2:{tag}] partial artifact detected -> recomputing both outputs", flush=True)
+    work = Path(a.scratch) / "fc2" / tag
     work.mkdir(parents=True, exist_ok=True)
     pseudos = tc.pseudo_map(mat, a.pseudo_dir)
 
-    atoms = tc.build_tmd(mat["formula"], mat["polytype"], mat["a"], mat["thickness"])
+    atoms = tc.build_tmd(mat["formula"], mat["polytype"], lattice_a, thickness)
     atoms.wrap()
-    print(f"[fc2:{a.name}] {mat['polytype']}-{mat['formula']} a={mat['a']} "
+    print(f"[fc2:{tag}] material={a.name} {mat['polytype']}-{mat['formula']} a={lattice_a} "
+          f"thickness={thickness} "
           f"sc {d['fc2_supercell']}x{d['fc2_supercell']}x1 ecut={d['ecutwfc']} "
-          f"k={d['fc2_kpts']} degauss={d['degauss']} pseudos={pseudos}", flush=True)
+          f"k={d['fc2_kpts']} degauss={d['degauss']} smearing={a.smearing} "
+          f"pseudos={pseudos}", flush=True)
 
     n = d["fc2_supercell"]
     phon = PhononCalculation(atoms, supercell_matrix=np.diag([n, n, 1]),
                              primitive_matrix=np.eye(3), displacement=d["fc2_disp"])
     nd = phon.n_displacements
-    print(f"[fc2:{a.name}] {nd} displaced supercell(s), {len(phon.displaced_supercells[0])} atoms; running QE ...", flush=True)
+    print(f"[fc2:{tag}] {nd} displaced supercell(s), {len(phon.displaced_supercells[0])} atoms; running QE ...", flush=True)
     t0 = time.perf_counter()
     forces = []
     for i, scell in enumerate(phon.displaced_supercells):
@@ -110,13 +132,15 @@ def main() -> int:
                                    d["ecutwfc"], d["ecutrho"], d["fc2_kpts"],
                                    d["degauss"], dd, a.smearing)
         forces.append(scell.get_forces())
-        print(f"[fc2:{a.name}]   disp {i+1}/{nd}: max|F|={np.abs(forces[-1]).max():.4f} "
+        print(f"[fc2:{tag}]   disp {i+1}/{nd}: max|F|={np.abs(forces[-1]).max():.4f} "
               f"({time.perf_counter()-t0:.0f}s)", flush=True)
     phon.set_forces(np.array(forces))
     phon.produce_force_constants(symmetrize=True)
     ph = phon.phonon
     out_yaml.parent.mkdir(parents=True, exist_ok=True)
-    ph.save(filename=str(out_yaml), settings={"force_constants": True})
+    yaml_tmp = out_yaml.with_name(out_yaml.name + ".tmp")
+    npz_tmp = out_npz.with_name(out_npz.name + ".tmp")
+    ph.save(filename=str(yaml_tmp), settings={"force_constants": True})
 
     qpoints, conn, labels = tdc.make_band_path("GMKG", npoints=201)
     ph.run_band_structure(qpoints, path_connections=conn, labels=labels,
@@ -128,11 +152,22 @@ def main() -> int:
     lp = np.array([seg[0][0]] + [s[-1] for s in seg])
     keep = np.concatenate([[True], np.diff(dist) > 1e-9])
     dist, freq = dist[keep], freq[keep]
-    np.savez(ROOT / a.workdir / f"disp_{a.name}.npz", distances=dist, frequencies=freq,
-             label_positions=lp, labels=np.array(labels), a=mat["a"])
+    with npz_tmp.open("wb") as handle:
+        np.savez(handle, distances=dist, frequencies=freq,
+                 label_positions=lp, labels=np.array(labels), a=lattice_a,
+                 thickness=thickness, material=np.array(a.name), tag=np.array(tag),
+                 formula=np.array(mat["formula"]), polytype=np.array(mat["polytype"]),
+                 degauss=float(d["degauss"]), smearing=np.array(a.smearing),
+                 supercell=int(d["fc2_supercell"]), ecutwfc=float(d["ecutwfc"]),
+                 ecutrho=float(d["ecutrho"]), kpts=int(d["fc2_kpts"]),
+                 displacement=float(d["fc2_disp"]))
+        handle.flush()
+        os.fsync(handle.fileno())
+    os.replace(npz_tmp, out_npz)
+    os.replace(yaml_tmp, out_yaml)
     fmin = float(freq.min())
     n_imag = int((freq < -0.1).sum())
-    print(f"[fc2:{a.name}] min freq = {fmin:.3f} THz, n_imag(<-0.1) = {n_imag} -> "
+    print(f"[fc2:{tag}] min freq = {fmin:.3f} THz, n_imag(<-0.1) = {n_imag} -> "
           f"{'SOFT MODE (CDW captured)' if fmin < -0.1 else 'stable'}; saved {out_yaml.name}", flush=True)
     shutil.rmtree(work, ignore_errors=True)     # free the QE scratch
     return 0

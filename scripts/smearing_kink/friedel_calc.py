@@ -30,7 +30,10 @@ HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE))
 import friedel_module as fm
 from ase.calculators.calculator import Calculator, all_changes
-from phonopy.harmonic.force_constants import compact_fc_to_full_fc
+from phonopy.harmonic.force_constants import (
+    compact_fc_to_full_fc,
+    symmetrize_force_constants,
+)
 
 ROOT = Path(__file__).resolve().parents[2]
 YDIR = ROOT / "results" / "vq_kink6"
@@ -96,12 +99,15 @@ class FriedelCorrection:
     B_law, kappa_law: callables T_el(K) -> scalar (default = the graphene fit).
     """
     def __init__(self, ph_backbone, fc_backbone, fc_template, rmin=1.0, rmax=12.0,
-                 B_law=None, kappa_law=None):
+                 B_law=None, kappa_law=None, enforce_hessian=True,
+                 symmetry_level=5):
         self.ph = ph_backbone
         self.fc_bg = fc_backbone
         self.tabs, self.p2s = fm.pair_table(ph_backbone)
         self.D0 = fm.template_delta(fc_template, fc_backbone, self.tabs)
         self.rmin, self.rmax = rmin, rmax
+        self.enforce_hessian = enforce_hessian
+        self.symmetry_level = symmetry_level
         # graphene defaults (from fit_friedel few-shot law)
         self.B_law = B_law or (lambda T: 1.08)
         self.kappa_law = kappa_law or (lambda T: 8.318e-04 * T ** 0.61)
@@ -110,7 +116,30 @@ class FriedelCorrection:
         B, kap = float(self.B_law(T_el)), float(self.kappa_law(T_el))
         comp = fm.add_template(self.fc_bg, self.tabs, self.D0,
                                B, kap, self.rmin, self.rmax) - self.fc_bg
-        return full_fc(self.ph, comp)
+        delta = np.asarray(full_fc(self.ph, comp), dtype="double", order="C")
+        # A finite real-space cutoff can select only one member of a
+        # translation-equivalent pair at the supercell boundary.  The compact
+        # FC then still satisfies ASR but its expanded Hessian is not pair
+        # symmetric, making E=1/2 u.Phi.u inconsistent with F=-Phi.u.  Enforce
+        # both translational and permutation symmetry before using the term as
+        # an MD force calculator.
+        if self.enforce_hessian:
+            symmetrize_force_constants(delta, level=self.symmetry_level)
+        return delta
+
+
+class FixedHarmonicCorrection:
+    """A pre-calibrated full Hessian with the FriedelCorrection interface."""
+
+    def __init__(self, delta_fc_full):
+        delta = np.asarray(delta_fc_full, dtype="double", order="C").copy()
+        if delta.ndim != 4 or delta.shape[0] != delta.shape[1] or delta.shape[2:] != (3, 3):
+            raise ValueError("fixed harmonic correction must have shape (N,N,3,3)")
+        symmetrize_force_constants(delta, level=5)
+        self.delta = delta
+
+    def delta_fc_full(self, _electronic_condition=None):
+        return self.delta.copy()
 
 
 class FriedelMACECalculator(Calculator):

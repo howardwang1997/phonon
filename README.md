@@ -67,7 +67,10 @@ Apple MPS does not support float64, so the local dev box runs on CPU).
 
 See `docs/`/the plan file for the full research design and milestones.
 
+Current graphene plan: [physical-FD 可迁移预测模型实验计划](docs/GRAPHENE_FD_TRANSFERABILITY_PLAN.md).
+
 ## Weekly reports
 
+- [2026-07-29 — graphene 600 K force gate 与有限温度长程项](docs/WEEKLY_2026-07-29.md)
 - [2026-07-22 — graphene q-space 盲测结果与 `(L)` 通道补充](docs/WEEKLY_2026-07-22.md)
 - [2026-07-15 — 主要关注石墨烯：Kohn 反常的 DFT 盲测与声子谱复现](docs/WEEKLY_2026-07-15.md)

@@ -19,6 +19,9 @@ comparison.
 from __future__ import annotations
 
 import argparse
+import os
+import re
+import shutil
 import sys
 import time
 import warnings
@@ -35,20 +38,26 @@ import td_common as tdc
 
 
 def make_espresso(pw, mpirun, nproc, pseudo_dir, pseudo, ecutwfc, ecutrho,
-                  kpts, degauss=0.02, smearing="cold", conv_thr=1e-9, directory=None):
+                  kpts, degauss=0.02, smearing="cold", conv_thr=1e-9,
+                  mixing_beta=0.4, mixing_mode="plain", electron_maxstep=200,
+                  diagonalization="david", startingwfc="atomic+random",
+                  diago_thr_init=None, disk_io="low", prefix="pwscf", directory=None):
     from ase.calculators.espresso import Espresso, EspressoProfile
 
     cmd = f"{mpirun} --allow-run-as-root -np {nproc} {pw}" if nproc > 1 else pw
     profile = EspressoProfile(command=cmd, pseudo_dir=str(pseudo_dir))
     input_data = {
         "control": {"calculation": "scf", "tprnfor": True, "tstress": False,
-                    "disk_io": "low", "verbosity": "low"},
+                    "disk_io": disk_io, "verbosity": "low", "prefix": prefix},
         "system": {"ecutwfc": ecutwfc, "ecutrho": ecutrho,
                    "occupations": "smearing", "smearing": smearing, "degauss": degauss},
-        "electrons": {"conv_thr": conv_thr, "mixing_beta": 0.4,
-                      "electron_maxstep": 200, "diago_david_ndim": 4,
-                      "startingwfc": "atomic+random"},
+        "electrons": {"conv_thr": conv_thr, "mixing_beta": mixing_beta,
+                      "mixing_mode": mixing_mode, "electron_maxstep": electron_maxstep,
+                      "diagonalization": diagonalization, "diago_david_ndim": 4,
+                      "startingwfc": startingwfc},
     }
+    if diago_thr_init is not None:
+        input_data["electrons"]["diago_thr_init"] = diago_thr_init
     kw = {"directory": Path(directory)} if directory else {}
     return Espresso(profile=profile, pseudopotentials={"C": pseudo},
                     input_data=input_data, kpts=(kpts, kpts, 1), **kw)
@@ -72,6 +81,17 @@ def main() -> int:
     ap.add_argument("--npoints", type=int, default=201)
     ap.add_argument("--workdir", default="results/m1_1b/dft")
     ap.add_argument("--tag", default="graphene_dft")
+    ap.add_argument("--scratch", default=None,
+                    help="QE scratch root; each tag gets an isolated subdirectory")
+    ap.add_argument("--clean-scratch-on-success", action="store_true")
+    ap.add_argument("--conv-thr", type=float, default=1e-9)
+    ap.add_argument("--mixing-beta", type=float, default=0.4)
+    ap.add_argument("--mixing-mode", default="plain")
+    ap.add_argument("--electron-maxstep", type=int, default=200)
+    ap.add_argument("--diagonalization", default="david")
+    ap.add_argument("--startingwfc", default="atomic+random")
+    ap.add_argument("--diago-thr-init", type=float, default=None)
+    ap.add_argument("--disk-io", default="low")
     a = ap.parse_args()
 
     from phonon_accel.phonons import PhononCalculation
@@ -79,12 +99,17 @@ def main() -> int:
 
     workdir = ROOT / a.workdir
     workdir.mkdir(parents=True, exist_ok=True)
+    if not re.fullmatch(r"[A-Za-z0-9_.+-]+", a.tag):
+        raise ValueError(f"unsafe --tag {a.tag!r}; use letters, numbers, '.', '_', '+', or '-'")
     pseudo_dir = (ROOT / a.pseudo_dir) if not Path(a.pseudo_dir).is_absolute() else Path(a.pseudo_dir)
+    scratch = Path(a.scratch) / a.tag if a.scratch else workdir / "qe" / a.tag
 
     atoms = tdc.build_monolayer("graphene", a=a.a)
     atoms.wrap()
     print(f"[{a.tag}] graphene a={a.a} A, supercell {a.supercell}x{a.supercell}x1, "
-          f"ecutwfc={a.ecutwfc} kpts={a.kpts} degauss={a.degauss} nproc={a.nproc}", flush=True)
+          f"ecutwfc={a.ecutwfc} kpts={a.kpts} degauss={a.degauss} nproc={a.nproc} "
+          f"conv_thr={a.conv_thr} mixing={a.mixing_mode}/{a.mixing_beta} "
+          f"diag={a.diagonalization} maxstep={a.electron_maxstep}", flush=True)
 
     sc = np.diag([a.supercell, a.supercell, 1])
     phon = PhononCalculation(atoms, supercell_matrix=sc, primitive_matrix=np.eye(3),
@@ -95,11 +120,18 @@ def main() -> int:
     # run each displaced supercell in its own QE workdir
     forces = []
     for i, scell in enumerate(phon.displaced_supercells):
-        d = workdir / f"disp-{i:03d}"
+        d = scratch / f"disp-{i:03d}"
         d.mkdir(parents=True, exist_ok=True)
         scell.calc = make_espresso(a.pw, a.mpirun or "mpirun", a.nproc, pseudo_dir,
                                    a.pseudo, a.ecutwfc, a.ecutrho, a.kpts,
-                                   degauss=a.degauss, smearing=a.smearing, directory=d)
+                                   degauss=a.degauss, smearing=a.smearing,
+                                   conv_thr=a.conv_thr, mixing_beta=a.mixing_beta,
+                                   mixing_mode=a.mixing_mode,
+                                   electron_maxstep=a.electron_maxstep,
+                                   diagonalization=a.diagonalization,
+                                   startingwfc=a.startingwfc,
+                                   diago_thr_init=a.diago_thr_init,
+                                   disk_io=a.disk_io, prefix=a.tag, directory=d)
         forces.append(scell.get_forces())
         print(f"[{a.tag}]   disp {i}: max|F|={np.abs(forces[-1]).max():.4f} eV/A "
               f"({time.perf_counter()-t0:.0f}s)", flush=True)
@@ -109,8 +141,8 @@ def main() -> int:
 
     # save phonopy (full FC) for distillation
     save = workdir / f"{a.tag}_phonopy.yaml"
-    ph.save(filename=str(save), settings={"force_constants": True})
-    print(f"[{a.tag}] saved phonopy -> {save.relative_to(ROOT)}", flush=True)
+    save_tmp = save.with_name(save.name + ".tmp")
+    ph.save(filename=str(save_tmp), settings={"force_constants": True})
 
     # DFT dispersion on M-Gamma-K-M
     qpoints, conn, labels = tdc.make_band_path("MGKM", npoints=a.npoints)
@@ -124,14 +156,31 @@ def main() -> int:
     keep = np.concatenate([[True], np.diff(dist) > 1e-9])
     dist, freq = dist[keep], freq[keep]
     out = workdir / f"disp_{a.tag}.npz"
-    np.savez(out, distances=dist, frequencies=freq, label_positions=lp,
-             labels=np.array(labels), a=a.a)
+    out_tmp = out.with_name(out.name + ".tmp")
+    with out_tmp.open("wb") as handle:
+        np.savez(handle, distances=dist, frequencies=freq, label_positions=lp,
+                 labels=np.array(labels), a=a.a, tag=np.array(a.tag),
+                 degauss=a.degauss, smearing=np.array(a.smearing),
+                 supercell=a.supercell, displacement=a.disp,
+                 ecutwfc=a.ecutwfc, ecutrho=a.ecutrho, kpts=a.kpts,
+                 conv_thr=a.conv_thr, mixing_beta=a.mixing_beta,
+                 mixing_mode=np.array(a.mixing_mode),
+                 electron_maxstep=a.electron_maxstep,
+                 diagonalization=np.array(a.diagonalization),
+                 startingwfc=np.array(a.startingwfc))
+        handle.flush()
+        os.fsync(handle.fileno())
+    os.replace(out_tmp, out)
+    os.replace(save_tmp, save)
+    print(f"[{a.tag}] saved phonopy -> {save.relative_to(ROOT)}", flush=True)
     cm = 33.35641
     wG = al.branch_freq_at_label(dist, freq, lp, np.array(labels), r"$\Gamma$") * cm
     wK = al.branch_freq_at_label(dist, freq, lp, np.array(labels), "K") * cm
     print(f"[{a.tag}] DFT top optical: Gamma={wG:.0f} cm^-1  K={wK:.0f} cm^-1 "
           f"(lit ~1600 / ~1300)", flush=True)
     print(f"[{a.tag}] min freq = {freq.min():.2f} THz -> {out.relative_to(ROOT)}", flush=True)
+    if a.clean_scratch_on_success:
+        shutil.rmtree(scratch, ignore_errors=True)
     return 0
 
 

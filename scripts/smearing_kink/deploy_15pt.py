@@ -1,10 +1,16 @@
-"""Deploy MLIP+healing Friedel on ALL 15 fd smearing points. Saves bands + K-iTO + all branches."""
+"""Deploy MLIP + long-range correction on every available fd-smearing point."""
+import os
 import sys, warnings, json, time
 warnings.filterwarnings("ignore")
 from pathlib import Path
 import numpy as np
 
-ROOT = Path("/Users/howardwang/Desktop/playground/phonon")
+root_from_environment = os.environ.get("PHONON_ROOT")
+ROOT = (
+    Path(root_from_environment).resolve()
+    if root_from_environment
+    else Path(__file__).resolve().parents[2]
+)
 FD = ROOT / "results" / "graphene_kohn_fd"
 sys.path.insert(0, str(ROOT / "scripts" / "smearing_kink"))
 sys.path.insert(0, str(ROOT / "src"))
@@ -19,15 +25,24 @@ LABELS = ["Γ", "M", "K", "Γ"]
 PTS = [np.array([0.,0,0]), np.array([.5,0,0]), np.array([1/3,1/3,0]), np.array([0.,0,0])]
 CM = 33.35641
 
-all_dgs = sorted([float(f.stem.split("_dg")[1].split("_")[0]) for f in FD.glob("graphene_sc6_dg*_phonopy.yaml")])
+dg_files = {
+    float(path.stem.split("_dg")[1].split("_")[0]): path
+    for path in FD.glob("graphene_sc6_dg*_phonopy.yaml")
+}
+all_dgs = sorted(dg_files)
 log(f"# deploy 15pt: {len(all_dgs)} smearings: {all_dgs}")
 
 hl = json.loads((FD / "healing_law.json").read_text())
-BB_MODEL = ROOT / "results" / "gr_backbone_fd" / "graphene_backbone_fd.model"
+BB_MODEL = Path(
+    os.environ.get(
+        "PHONON_MODEL",
+        ROOT / "results" / "gr_backbone_fd" / "graphene_backbone_fd.model",
+    )
+).resolve()
 from mace.calculators import MACECalculator
 import torch
-dev = "cpu"
-mace = MACECalculator(model_paths=str(BB_MODEL), device="cpu", default_dtype="float64")
+dev = os.environ.get("PHONON_DEVICE", "cuda" if torch.cuda.is_available() else "cpu")
+mace = MACECalculator(model_paths=str(BB_MODEL), device=dev, default_dtype="float64")
 log(f"# backbone {BB_MODEL.name}, dev={dev}")
 
 ph_ref = fm.load_ph(str(FD/"graphene_sc6_dg0.08_phonopy.yaml"))
@@ -50,12 +65,10 @@ qs = np.array(qs)
 
 t0=time.perf_counter()
 for dg in all_dgs:
-    dg_str=f"{dg}"; yml=FD/f"graphene_sc6_dg{dg_str}_phonopy.yaml"
-    if not yml.exists():
-        for alt in [f"{dg:.3f}"]:
-            yml=FD/f"graphene_sc6_dg{alt}_phonopy.yaml"
-            if yml.exists(): break
-    if not yml.exists(): log(f"  skip dg{dg}"); continue
+    dg_str=f"{dg:g}"
+    # Use the discovered path verbatim.  Reconstructing it from a float turns
+    # ``0.10`` into ``0.1`` and previously dropped that point silently.
+    yml=dg_files[dg]
     T=dg*157887
     # DFT
     ph_d=fm.load_ph(str(yml)); fc_d=ph_d.force_constants

@@ -1,9 +1,21 @@
 # Repository Instructions
 
+## 当前研究目标
+
+- 用 MLIP 加上长程微调法，把声子谱计算准确，作为现阶段的目标。
+- 当前 graphene 工作以定量复现有限晶格温度下的 Kohn anomaly 为验收重点；仅确认结构稳定、没有软模或没有 CDW，不视为完成该目标。
+
 ## Python 环境
 
 - 优先使用项目的 Conda 环境 `phonon`。
 - 运行 Python 时使用 `conda run -n phonon python ...`，不要创建 venv 或 virtualenv。
+
+## 远程机器连接
+
+- 连接 V100-A、V100-B 和 RTX 2060 时统一经过 Tailscale 网络；优先使用 `tailscale ssh`。
+- macOS App Store 版客户端不支持 `tailscale ssh`，或 `tailscale nc` 的用户态通道不可用时，可以让 OpenSSH 通过系统 Tailscale TUN 连接节点的 `100.x` 地址或 MagicDNS 名称。此时目标必须是 Tailscale 地址，不能用公网 IP 提交实验或传数据。
+- 远程复制或部署也应通过 Tailscale 网络完成。
+- 如果远端节点确实从 tailnet 离线，可以临时通过该机器的公网 IP 登录，但只用于重新启动或修复 Tailscale；恢复后立即改回 Tailscale 通道，不要继续用公网 IP跑实验或传数据。
 
 ## 周报与科研写作风格
 

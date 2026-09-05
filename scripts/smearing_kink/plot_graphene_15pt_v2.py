@@ -1,5 +1,6 @@
-"""Graphene 15-pt figures with DFT vs MLIP+healing comparison.
-Uses existing deploy_lineA_bands.npz (9-pt MLIP) + 15-pt DFT fc2 yamls.
+"""Graphene smearing figures with DFT vs MLIP + long-range comparison.
+Uses the all-point deployment when available and falls back to the older
+9-point MLIP archive while that deployment is still running.
 All electronic broadening axes are reported directly as smearing in Ry.
 No new compute needed — extracts K-iTO + K-branches from band data."""
 import sys, warnings, json
@@ -16,6 +17,7 @@ import friedel_module as fm, phonopy
 import matplotlib; matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 from matplotlib.colors import Normalize
+from matplotlib.lines import Line2D
 
 LABELS = ["Γ", "M", "K", "Γ"]
 PTS = [np.array([0.,0,0]), np.array([.5,0,0]), np.array([1/3,1/3,0]), np.array([0.,0,0])]
@@ -51,16 +53,31 @@ def dft_lookup(dg_str):
         if abs(k - f) < 1e-6: return dft[k]
     return None
 
-# --- 9-pt MLIP data from existing deploy ---
-d = np.load(FD / "deploy_lineA_bands.npz", allow_pickle=True)
-mlip_dgs = [str(s) for s in d["dgs"]]
-mlip_bands = d["mlip_bands"]  # (9, nq, 6)
-mlip_kink = d["mlip_kink"]
-dft_kink_9 = d["dft_kink"]
-# K point index in the band: 40 per segment, K is at index 80 (start of 3rd segment)
-K_idx = 80
-mlip_K_iTO = [float(np.sort(mlip_bands[i, K_idx])[-1]) for i in range(len(mlip_dgs))]
-mlip_K_br = [np.sort(mlip_bands[i, K_idx]) for i in range(len(mlip_dgs))]
+# --- MLIP data: use the 15-point deployment once it is available ---
+deploy_all = FD / "deploy_15pt.npz"
+if deploy_all.is_file():
+    d = np.load(deploy_all, allow_pickle=False)
+    mlip_dgs = [str(s) for s in d["dgs"]]
+    mlip_bands = np.asarray(d["mlip_bands"])
+    mlip_kink = np.asarray(d["mlip_kink_K"])
+    dft_kink_matched = np.asarray(d["dft_kink_K"])
+    mlip_K_iTO = np.asarray(d["mlip_K_iTO"])
+    mlip_K_br = np.asarray(d["mlip_K_branches"])
+else:
+    d = np.load(FD / "deploy_lineA_bands.npz", allow_pickle=True)
+    mlip_dgs = [str(s) for s in d["dgs"]]
+    mlip_bands = np.asarray(d["mlip_bands"])
+    mlip_kink = np.asarray(d["mlip_kink"])
+    dft_kink_matched = np.asarray(d["dft_kink"])
+    # Each segment contains 40 points and omits its initial endpoint; K is the
+    # final point of the second segment, at zero-based index 79.
+    K_idx = 79
+    mlip_K_iTO = np.asarray(
+        [float(np.sort(mlip_bands[i, K_idx])[-1]) for i in range(len(mlip_dgs))]
+    )
+    mlip_K_br = np.asarray(
+        [np.sort(mlip_bands[i, K_idx]) for i in range(len(mlip_dgs))]
+    )
 
 dgs = sorted(dft.keys())
 smearing_dft = np.array(dgs)
@@ -79,13 +96,13 @@ def set_smearing_axis(ax, upper):
     ax.set_xlim(0.009, upper * 1.08)
     ax.set_xlabel("Fermi–Dirac smearing (Ry)", fontsize=11)
 
-# ============ Figure 1: kink_K vs smearing (DFT 15pt + MLIP 9pt) ============
+# ============ Figure 1: kink_K vs smearing ============
 fig, ax = plt.subplots(figsize=(8.4, 5.7))
 ax.plot(smearing_dft, [dft[dg]["kK"] for dg in dgs], "o-", color="#222", lw=1.8, ms=5, zorder=5,
         label="DFT (15 fd points)")
 ax.plot(smearing_mlip, mlip_kink, "s--", color="#c0392b", lw=1.4, ms=5,
-        label=f"MLIP + long-range healing ({len(mlip_dgs)} pts)")
-mae = np.mean(np.abs(mlip_kink - dft_kink_9))
+        label=f"MLIP + long-range ({len(mlip_dgs)} points)")
+mae = np.mean(np.abs(mlip_kink - dft_kink_matched))
 ax.text(0.02, 0.02, f"kink_K MAE = {mae:.2f} cm$^{{-1}}$", transform=ax.transAxes, fontsize=9, color="#c0392b")
 ax.axvline(smearing_star, color="#2980b9", ls="--", lw=0.8, alpha=0.7)
 ax.text(smearing_star * 1.03, 8, f"smearing*≈{smearing_star:.3f} Ry", color="#2980b9", fontsize=9)
@@ -98,7 +115,7 @@ fig.subplots_adjust(left=0.12, right=0.97, bottom=0.14, top=0.76)
 fig.savefig(OUT/"gr_fig1_kink_melt.png", dpi=150, bbox_inches="tight")
 print("wrote fig1")
 
-# ============ Figure 2: high-freq overlay (DFT 15 | MLIP 9) ============
+# ============ Figure 2: high-frequency overlay ============
 fig, (axD, axM) = plt.subplots(1, 2, figsize=(15, 5.8))
 # recompute x properly
 sl = np.linalg.norm(np.diff(qs, axis=0), axis=1)
@@ -112,7 +129,8 @@ for ax in (axD,axM):
     for xt in tick[1:-1]: ax.axvline(xt, color="#ececec", lw=0.7)
     ax.axhline(0, color="#ccc", lw=0.5); ax.set_xticks(tick); ax.set_xticklabels(LABELS); ax.set_ylim(1240,1620)
     for s in ("top","right"): ax.spines[s].set_visible(False)
-axD.set_title("DFT (15 points)", fontsize=11); axM.set_title("MLIP + long-range (9 points)", fontsize=11)
+axD.set_title(f"DFT ({len(dgs)} points)", fontsize=11)
+axM.set_title(f"MLIP + long-range ({len(mlip_dgs)} points)", fontsize=11)
 axD.set_ylabel("frequency [cm$^{-1}$]", fontsize=10)
 sm=plt.cm.ScalarMappable(cmap=cmap,norm=norm); sm.set_array([])
 # Reserve a dedicated right margin for the colorbar so it cannot cover axM.
@@ -124,12 +142,12 @@ fig.suptitle("Graphene Kohn anomaly (high-frequency): DFT vs MLIP + long-range a
 fig.savefig(OUT/"gr_fig2_hf_overlay.png", dpi=150, bbox_inches="tight")
 print("wrote fig2")
 
-# ============ Figure 3: K-iTO vs smearing (DFT 15 + MLIP 9) ============
+# ============ Figure 3: K-iTO vs smearing ============
 fig, ax = plt.subplots(figsize=(8.4, 5.7))
 ax.plot(smearing_dft, [dft[dg]["K_iTO"] for dg in dgs], "o-", color="#222", lw=1.8, ms=5,
-        label="DFT (15 points)")
+        label=f"DFT ({len(dgs)} points)")
 ax.plot(smearing_mlip, mlip_K_iTO, "s--", color="#c0392b", lw=1.4, ms=5,
-        label="MLIP + long-range (9 points)")
+        label=f"MLIP + long-range ({len(mlip_dgs)} points)")
 mae_iTO_pairs = [(m, dft_lookup(dg)["K_iTO"]) for m, dg in zip(mlip_K_iTO, mlip_dgs) if dft_lookup(dg) is not None]
 mae_iTO = np.mean(np.abs(np.array([p[0] for p in mae_iTO_pairs]) - np.array([p[1] for p in mae_iTO_pairs])))
 ax.text(0.98, 0.04, f"K-iTO MAE = {mae_iTO:.1f} cm$^{{-1}}$", transform=ax.transAxes,
@@ -149,7 +167,7 @@ fig.subplots_adjust(left=0.12, right=0.97, bottom=0.14, top=0.76)
 fig.savefig(OUT/"gr_fig3_kito.png", dpi=150, bbox_inches="tight")
 print("wrote fig3")
 
-# ============ Figure 4: K-branches vs smearing (DFT 15 + MLIP 9) ============
+# ============ Figure 4: K branches vs smearing ============
 fig, ax = plt.subplots(figsize=(9.0, 5.8))
 colors_b = plt.cm.tab10(np.linspace(0, 0.85, 6))
 for b in range(6):
@@ -160,12 +178,23 @@ for b in range(6):
         ax.plot(smearing_mlip, mlip_b_vals, "s--", color=colors_b[b], lw=1.0, ms=3, alpha=0.7)
 set_smearing_axis(ax, max(dgs))
 ax.set_ylabel("K-point frequency [cm$^{-1}$]", fontsize=11)
-fig.suptitle("All 6 branches @ K vs electronic smearing: only Kohn channels respond (□ = MLIP)",
+fig.suptitle("All 6 branches at K vs electronic smearing: only Kohn channels respond",
              fontsize=10.5, y=0.96)
-ax.legend(frameon=False, fontsize=8, ncol=3, loc="lower center", bbox_to_anchor=(0.5, 1.02))
+handles, legend_labels = ax.get_legend_handles_labels()
+handles.append(
+    Line2D(
+        [0], [0], color="#555555", marker="s", ls="--", lw=1.0, ms=4,
+        label="MLIP overlay: branches 5–6",
+    )
+)
+legend_labels.append("MLIP overlay: branches 5–6")
+ax.legend(
+    handles, legend_labels, frameon=False, fontsize=8, ncol=4,
+    loc="lower center", bbox_to_anchor=(0.5, 1.02),
+)
 ax.axhline(0, color="#aaa", lw=0.5)
 for s in ("top","right"): ax.spines[s].set_visible(False)
-fig.subplots_adjust(left=0.11, right=0.97, bottom=0.14, top=0.75)
+fig.subplots_adjust(left=0.11, right=0.97, bottom=0.14, top=0.72)
 fig.savefig(OUT/"gr_fig4_branches.png", dpi=150, bbox_inches="tight")
 print("wrote fig4")
 print(f"\nAll 4 figures: DFT {len(dgs)}-pt + MLIP {len(mlip_dgs)}-pt")
