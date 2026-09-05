@@ -240,3 +240,30 @@ data/benchmark/e1_pool.txt
 # V100 campaign runtime artifacts (regenerated on the box each run)
 results/v100/
 data/v100/
+
+# Local state written by the weekly experiment completion monitor
+results/monitor/*.json
+results/monitor/*.out
+results/monitor/*.err
+results/monitor/*.pid
+
+# macOS
+.DS_Store
+.!*
+
+# Session credentials (never commit)
+cookies.txt
+
+# Downloaded paper pages (kept local)
+vse2_paper.html
+
+# Large regenerable arrays kept local (R2 design matrices, EPW vertices)
+*.epmatwp
+results/**/gradient_matrix.npy
+results/**/primary_gradient_matrix.npy
+results/**/*_force_design_eV_A*.npy
+results/**/rank3_five_q_blind_arrays.npz
+results/**/frozen_readout.npz
+results/**/node_nonlinear_design_and_oof.npz
+results/**/geometry_PCA_basis_and_OOF.npz
+results/**/selected_basis_readout_and_OOF.npz
