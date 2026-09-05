@@ -1,0 +1,1687 @@
+{
+  "aggregate_recomputation_format": "graphene_r2r0_aggregate_recomputation_v1_from_role_arrays",
+  "array_schema": {
+    "harmonic_a": {
+      "dtype": "float64",
+      "shape": [
+        32,
+        128
+      ]
+    },
+    "harmonic_b_A4": {
+      "dtype": "float64",
+      "shape": [
+        32,
+        128
+      ]
+    },
+    "harmonic_c": {
+      "dtype": "float64",
+      "shape": [
+        32,
+        128
+      ]
+    },
+    "harmonic_combined_energy_eV": {
+      "dtype": "float64",
+      "shape": [
+        32,
+        1
+      ]
+    },
+    "harmonic_combined_force_eV_A": {
+      "dtype": "float64",
+      "shape": [
+        32,
+        128,
+        3
+      ]
+    },
+    "harmonic_fixed_carrier_energy_eV": {
+      "dtype": "float64",
+      "shape": [
+        32,
+        1
+      ]
+    },
+    "harmonic_fixed_carrier_force_eV_A": {
+      "dtype": "float64",
+      "shape": [
+        32,
+        128,
+        3
+      ]
+    },
+    "harmonic_global_index": {
+      "dtype": "int64",
+      "shape": [
+        32
+      ]
+    },
+    "thermal_a": {
+      "dtype": "float64",
+      "shape": [
+        92,
+        72
+      ]
+    },
+    "thermal_b_A4": {
+      "dtype": "float64",
+      "shape": [
+        92,
+        72
+      ]
+    },
+    "thermal_c": {
+      "dtype": "float64",
+      "shape": [
+        92,
+        72
+      ]
+    },
+    "thermal_combined_energy_eV": {
+      "dtype": "float64",
+      "shape": [
+        92,
+        1
+      ]
+    },
+    "thermal_combined_force_eV_A": {
+      "dtype": "float64",
+      "shape": [
+        92,
+        72,
+        3
+      ]
+    },
+    "thermal_fixed_energy_eV": {
+      "dtype": "float64",
+      "shape": [
+        92,
+        1
+      ]
+    },
+    "thermal_fixed_force_eV_A": {
+      "dtype": "float64",
+      "shape": [
+        92,
+        72,
+        3
+      ]
+    },
+    "thermal_global_index": {
+      "dtype": "int64",
+      "shape": [
+        92
+      ]
+    },
+    "thermal_parameter_energy_design_eV": {
+      "dtype": "float64",
+      "shape": [
+        92,
+        65
+      ]
+    },
+    "thermal_parameter_force_design_eV_A": {
+      "dtype": "float64",
+      "shape": [
+        92,
+        72,
+        3,
+        65
+      ]
+    }
+  },
+  "arrays_sha256": "caa344eda65448cea0bc0c48c307b8777c0062243777927f3a34c22c3dd6af45",
+  "borderline": false,
+  "can_authorize_fit_or_training": false,
+  "configuration_identity": {
+    "harmonic_structure_identity_sha256": "95731b8d63253d0a326b6ae35bdde0b9111c61d4d076d8e6238b8c99e4deb236",
+    "thermal_structure_identity_sha256": "143397937ae328700f7d4cd873e33423030189e99ebee27144e423a9e1890511"
+  },
+  "energy_labels_used": false,
+  "environment_mismatch": true,
+  "environment_mismatch_merge_allowed": true,
+  "execution_authorization": {
+    "authorization_marker_sha256": "88996078edcc40f5ab06f3055c220c4558e5d27d6d44ea532a3ff4dfe80ed6aa",
+    "formal_source_sha256": {
+      "aggregate_cli": "29b35a7899cd02682d2575dbbeb9bfefb19eaec289f5a09fd82c1b06b4827abf",
+      "contract_doc": "656bbc19906ac50913373445bc1d009db76cc768c509bc0565b07ca9d0e3e887",
+      "formal_core": "e1013323a9a9664e885a806362d0e4312fb0947b96a6ab3a44385d8a9f907769",
+      "launcher": "32c6af5475954880b4bc9192763f948609421fded9cd9fb17f387fac55ccb358",
+      "shard_cli": "f28961e25c235b47d0ac8d6bca3cdb52fd52ed832e5cabeeda72d08dcf7ba316",
+      "tests": "78f54b4844c99d13fee85d353e1b5cc4f6f1f9b11e021a9dc530f0cd18b6e373"
+    },
+    "freeze_manifest_sha256": "a9a1732af38c4513242fbbe7d23c6e5fd6fdd091ee27cf62a8600544bb8cf73f"
+  },
+  "fit_performed": false,
+  "force_labels_used": false,
+  "formal_contract_sha256": "cc407b3e1b18ad00097fc433fbe9458100790b8150dac599908cfcf7d2f4ddea",
+  "formal_total_GPU_hours": 0.24627275251082514,
+  "format": "graphene_r2r0_formal_aggregate_v4_attempt3_recursive_schema",
+  "frozen_R2R_canonical_sha256": "e589497c7b9f6a9d4ff0cdcc434cf07804fa0fd732d791dba811d4c7e1c5aecc",
+  "frozen_source_sha256": {
+    "R2O_evaluator": "14cf2a160a9b0281c0c2149caec6d62f9a31e40a9c7af39ea3ea2e14956c79ce",
+    "R2O_wrapper": "0eedea5a59b8f717559feda97b2c2956dd6f274fe4963de10c214db53b4610e2",
+    "R2R_contract_doc": "003f4c3e949e6432b56a350541ca15e7bde48749ad2150129e8ea227cf5c56c9",
+    "R2R_module": "4db3665f945783086de5c7a2f6262843bbe7d03df2a32f9153e450200b25064c",
+    "R2R_tests": "1255c5720cb0fe575fe7edd9d211035799feccebd922488bc33ebe20f7c36c08"
+  },
+  "geometry_loader_isolation": {
+    "energy_labels_loaded": false,
+    "energy_labels_parsed": false,
+    "energy_labels_used": false,
+    "force_labels_loaded": false,
+    "force_labels_parsed": false,
+    "force_labels_used": false,
+    "header_label_values_retained": false,
+    "numeric_label_columns_converted": false
+  },
+  "harmonic_partition_exact": true,
+  "held_or_support_access": false,
+  "input_sha256": {
+    "endpoint_checkpoint": "31dd053a01c700ee73eedff35e85c02cf7765de2299ff418259c270b3f823eb5",
+    "endpoint_marker": "5fa7771f4c8f7d32990e4bb0d0350e8f1f020c1685030626ac8555b06a4ce0ed",
+    "endpoint_receipt": "810a45ab66a885a940e086a7be9c4304050a0772d477ecd32bd03c20c8ef43a1",
+    "harmonic_zero32": "600c737b11987fb976724dd86042d384fc1abef9f2340ffa5c30d5fe26a8afdf",
+    "reference_6x6": "2793b514768c6d875831a1b62fcb2aa5f858830cb2de7b1b2d5492dabeb8da90",
+    "reference_8x8": "1c438550cb03d94cc80ca16e1ca89d24f87db4d732743b6c07128d47edf5b900",
+    "thermal92": "cc2e9c68d418fba996e8ac89c8156c8adf00768406f6171aaa57f0a9bd2720c1"
+  },
+  "mechanics_receipt_sha256": "6da1c6b7e07b105e91d995823c6692261362a557d5503915ccb77b504b80b276",
+  "mechanics_recomputed_gate": {
+    "checks": {
+      "MACE_r3p2_PolynomialCutoff_C2": true,
+      "O3": true,
+      "background_6A_quintic_C2": true,
+      "carrier_parity": true,
+      "finite_difference": true,
+      "locality_no_wrap": true,
+      "localized_size": true,
+      "native_wrap_order_MIC": true,
+      "node_parity": true,
+      "nonreference_Hessian": true,
+      "pure_permutation": true,
+      "reference": true,
+      "translation": true,
+      "zero_jet": true
+    },
+    "finite_difference_grid_exact": true,
+    "finite_difference_recomputed": {
+      "adjudicating_step_A": 5e-05,
+      "evaluation_order_each_step": [
+        "minus",
+        "plus"
+      ],
+      "force_jacobian_target_eV_A2": -28.598398773253486,
+      "force_target_eV_A": 0.2022332808454653,
+      "multistep_diagnostic_role": "report_only_not_a_formal_numeric_gate",
+      "points": [
+        {
+          "Richardson_force_FD_eV_A2": null,
+          "Richardson_force_abs_error_eV_A2": null,
+          "empirical_order_energy_error": null,
+          "empirical_order_force_error": null,
+          "empirical_order_slope_jump": null,
+          "energy_FD_force_abs_error_eV_A": 0.00011959075006942599,
+          "energy_FD_force_eV_A": 0.20235287159553472,
+          "force_FD_Hessian_abs_error_eV_A2": 0.0008757286558953581,
+          "force_FD_Hessian_target_sign_eV_A2": -28.59927450190938,
+          "h_A": 0.0008,
+          "left_force_slope_eV_A2": -29.047714809710826,
+          "left_right_slope_jump_eV_A2": 0.896880615602889,
+          "right_force_slope_eV_A2": -28.150834194107937
+        },
+        {
+          "Richardson_force_FD_eV_A2": -28.59839899383168,
+          "Richardson_force_abs_error_eV_A2": 2.2057819393239697e-07,
+          "empirical_order_energy_error": 1.9999092704342587,
+          "empirical_order_force_error": 1.9989102552799842,
+          "empirical_order_slope_jump": 0.9998490275472086,
+          "energy_FD_force_abs_error_eV_A": 2.9899567810437455e-05,
+          "energy_FD_force_eV_A": 0.20226318041327573,
+          "force_FD_Hessian_abs_error_eV_A2": 0.00021909759761840064,
+          "force_FD_Hessian_target_sign_eV_A2": -28.598617870851104,
+          "h_A": 0.0004,
+          "left_force_slope_eV_A2": -28.822861489750938,
+          "left_right_slope_jump_eV_A2": 0.44848723779966804,
+          "right_force_slope_eV_A2": -28.37437425195127
+        },
+        {
+          "Richardson_force_FD_eV_A2": -28.598398787105143,
+          "Richardson_force_abs_error_eV_A2": 1.3851657598706879e-08,
+          "empirical_order_energy_error": 1.9999793506169647,
+          "empirical_order_force_error": 1.9997263983299973,
+          "empirical_order_slope_jump": 0.9999622603645595,
+          "energy_FD_force_abs_error_eV_A": 7.474998941964239e-06,
+          "energy_FD_force_eV_A": 0.20224075584440726,
+          "force_FD_Hessian_abs_error_eV_A2": 5.478478814779919e-05,
+          "force_FD_Hessian_target_sign_eV_A2": -28.598453558041633,
+          "h_A": 0.0002,
+          "left_force_slope_eV_A2": -28.710578300537996,
+          "left_right_slope_jump_eV_A2": 0.2242494849927219,
+          "right_force_slope_eV_A2": -28.486328815545274
+        },
+        {
+          "Richardson_force_FD_eV_A2": -28.598398774035413,
+          "Richardson_force_abs_error_eV_A2": 7.819274117082387e-10,
+          "empirical_order_energy_error": 1.999999685062452,
+          "empirical_order_force_error": 1.9999382277236846,
+          "empirical_order_slope_jump": 0.9999905626307743,
+          "energy_FD_force_abs_error_eV_A": 1.8687501434355713e-06,
+          "energy_FD_force_eV_A": 0.20223514959560873,
+          "force_FD_Hessian_abs_error_eV_A2": 1.3696783483396757e-05,
+          "force_FD_Hessian_target_sign_eV_A2": -28.59841247003697,
+          "h_A": 0.0001,
+          "left_force_slope_eV_A2": -28.65447520801756,
+          "left_right_slope_jump_eV_A2": 0.11212547596117872,
+          "right_force_slope_eV_A2": -28.54234973205638
+        },
+        {
+          "Richardson_force_FD_eV_A2": -28.59839877327362,
+          "Richardson_force_abs_error_eV_A2": 2.013322841776244e-11,
+          "empirical_order_energy_error": 2.000084453123325,
+          "empirical_order_force_error": 1.999993638432782,
+          "empirical_order_slope_jump": 0.9999976398258796,
+          "energy_FD_force_abs_error_eV_A": 4.671601882277887e-07,
+          "energy_FD_force_eV_A": 0.20223374800565352,
+          "force_FD_Hessian_abs_error_eV_A2": 3.424210969882324e-06,
+          "force_FD_Hessian_target_sign_eV_A2": -28.598402197464456,
+          "h_A": 5e-05,
+          "left_force_slope_eV_A2": -28.62643361231265,
+          "left_right_slope_jump_eV_A2": 0.05606282969639054,
+          "right_force_slope_eV_A2": -28.57037078261626
+        },
+        {
+          "Richardson_force_FD_eV_A2": -28.598398773266496,
+          "Richardson_force_abs_error_eV_A2": 1.3010037491767434e-11,
+          "empirical_order_energy_error": 1.9999812463596405,
+          "empirical_order_force_error": 1.9999835573497438,
+          "empirical_order_slope_jump": 0.9999994697986309,
+          "energy_FD_force_abs_error_eV_A": 1.1679156522448331e-07,
+          "energy_FD_force_eV_A": 0.20223339763703052,
+          "force_FD_Hessian_abs_error_eV_A2": 8.560624991105215e-07,
+          "force_FD_Hessian_target_sign_eV_A2": -28.598399629315985,
+          "h_A": 2.5e-05,
+          "left_force_slope_eV_A2": -28.612415341890962,
+          "left_right_slope_jump_eV_A2": 0.028031425149954714,
+          "right_force_slope_eV_A2": -28.584383916741007
+        }
+      ],
+      "selected_force_Hessian_abs_difference_eV_A2": 3.424210969882324e-06,
+      "selected_force_abs_difference_eV_A": 4.671601882277887e-07,
+      "steps_A_in_fixed_order": [
+        0.0008,
+        0.0004,
+        0.0002,
+        0.0001,
+        5e-05,
+        2.5e-05
+      ]
+    },
+    "pass": true,
+    "q_portability_recomputed": {
+      "pass": true,
+      "per_reference": {
+        "reference_6x6": {
+          "CPU_and_CUDA_physical_zero_jet_exact": true,
+          "canonical_CPU_discrete_hashes_match": {
+            "image_integer": true,
+            "local_source_order_edge_index": true,
+            "local_source_order_offsets": true,
+            "local_source_order_sender": true,
+            "receiver": true,
+            "sender": true
+          },
+          "discrete_CPU_CUDA_exact": {
+            "image_integer": true,
+            "local_source_order_edge_index": true,
+            "local_source_order_offsets": true,
+            "local_source_order_sender": true,
+            "receiver": true,
+            "sender": true
+          },
+          "float_arrays_CPU_vs_CUDA": {
+            "center_q": {
+              "exact_different_count": 55,
+              "max_abs": 6.938893903907228e-17
+            },
+            "neighbor_q": {
+              "exact_different_count": 2386,
+              "max_abs": 1.8084492237058214e-16
+            },
+            "normalization": {
+              "exact_different_count": 57,
+              "max_abs": 1.0658141036401503e-14
+            },
+            "reference_distance_A": {
+              "exact_different_count": 0,
+              "max_abs": 0.0
+            },
+            "weight": {
+              "exact_different_count": 1010,
+              "max_abs": 2.220446049250313e-15
+            }
+          },
+          "normalized_q_max_abs": 1.8084492237058214e-16,
+          "normalized_q_max_abs_tolerance": 5e-13,
+          "pass": true,
+          "physical_zero_jet_exact": {
+            "CPU": true,
+            "CUDA": true
+          },
+          "q_snapshot_arrays_exactly_bound": {
+            "CPU": true,
+            "CUDA": true
+          },
+          "raw_q_orbit_hash_equal": false,
+          "raw_q_orbit_hash_role": "diagnostic_only_not_a_gate",
+          "round12_elementwise_and_canonical_hash_exact": true,
+          "round12_payload_sha256": {
+            "CPU": "480b1ae1aa52b9b9610840b664775428de2c78dd5e9121116a19da02c29fe4d3",
+            "CUDA": "480b1ae1aa52b9b9610840b664775428de2c78dd5e9121116a19da02c29fe4d3"
+          },
+          "source_order_semantic_sha256": {
+            "CPU": "4f0fcf5acf9669588bf7438fdb9eaf0b00dcff5c62c528b8d7637ffac3b744db",
+            "CUDA": "4f0fcf5acf9669588bf7438fdb9eaf0b00dcff5c62c528b8d7637ffac3b744db"
+          },
+          "topology_and_source_order_exact": true
+        },
+        "reference_8x8": {
+          "CPU_and_CUDA_physical_zero_jet_exact": true,
+          "canonical_CPU_discrete_hashes_match": {
+            "image_integer": true,
+            "local_source_order_edge_index": true,
+            "local_source_order_offsets": true,
+            "local_source_order_sender": true,
+            "receiver": true,
+            "sender": true
+          },
+          "discrete_CPU_CUDA_exact": {
+            "image_integer": true,
+            "local_source_order_edge_index": true,
+            "local_source_order_offsets": true,
+            "local_source_order_sender": true,
+            "receiver": true,
+            "sender": true
+          },
+          "float_arrays_CPU_vs_CUDA": {
+            "center_q": {
+              "exact_different_count": 90,
+              "max_abs": 9.71445146547012e-17
+            },
+            "neighbor_q": {
+              "exact_different_count": 4078,
+              "max_abs": 1.8171228410857054e-16
+            },
+            "normalization": {
+              "exact_different_count": 95,
+              "max_abs": 1.4210854715202004e-14
+            },
+            "reference_distance_A": {
+              "exact_different_count": 0,
+              "max_abs": 0.0
+            },
+            "weight": {
+              "exact_different_count": 1898,
+              "max_abs": 2.220446049250313e-15
+            }
+          },
+          "normalized_q_max_abs": 1.8171228410857054e-16,
+          "normalized_q_max_abs_tolerance": 5e-13,
+          "pass": true,
+          "physical_zero_jet_exact": {
+            "CPU": true,
+            "CUDA": true
+          },
+          "q_snapshot_arrays_exactly_bound": {
+            "CPU": true,
+            "CUDA": true
+          },
+          "raw_q_orbit_hash_equal": false,
+          "raw_q_orbit_hash_role": "diagnostic_only_not_a_gate",
+          "round12_elementwise_and_canonical_hash_exact": true,
+          "round12_payload_sha256": {
+            "CPU": "65a015a8d60edde0cf6eaeb12df358e9f31cf7ce72a5e4803a0a67ea35c733cc",
+            "CUDA": "65a015a8d60edde0cf6eaeb12df358e9f31cf7ce72a5e4803a0a67ea35c733cc"
+          },
+          "source_order_semantic_sha256": {
+            "CPU": "6e44497aa2b55fc433c8155ce08f9f9b2695d9adcf9b298046dfd291958ecc56",
+            "CUDA": "6e44497aa2b55fc433c8155ce08f9f9b2695d9adcf9b298046dfd291958ecc56"
+          },
+          "topology_and_source_order_exact": true
+        }
+      },
+      "snapshot_and_zero_jet_inventory_exact": true
+    }
+  },
+  "mechanics_root_manifest_sha256": "32df02ba3fe16fe0e3c778473972c50351e7a00515828b0246df44d65080732f",
+  "numerically_inconclusive": false,
+  "rank_condition_precheck": {
+    "R2R0_precheck_pass": true,
+    "active_columns": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33,
+      34,
+      35,
+      36,
+      37,
+      38,
+      39,
+      40,
+      41,
+      42,
+      43,
+      44,
+      45,
+      46,
+      47,
+      48,
+      49,
+      50,
+      51,
+      52,
+      53,
+      54,
+      55,
+      56,
+      57,
+      58,
+      59,
+      60,
+      61,
+      62,
+      63,
+      64
+    ],
+    "can_authorize_fit_or_training": false,
+    "column_RMS": [
+      1.0555886894720323,
+      0.913666675006061,
+      0.45628318158722925,
+      0.23246578364084744,
+      0.579041575825073,
+      0.4514878323040271,
+      0.30325070874159665,
+      0.39282875020202446,
+      0.2736091548616318,
+      1.1095472883192603,
+      0.32764164404526375,
+      0.3433477678216564,
+      0.517357217305783,
+      0.623358065178072,
+      0.27804182633370944,
+      0.37735816580564935,
+      1.015524181487057,
+      2.4562188996462644,
+      1.955824920434157,
+      2.338458548327552,
+      0.726521079807477,
+      1.8645600316619275,
+      2.353825056531457,
+      1.1580462325215966,
+      1.879866898127042,
+      2.1231303157486177,
+      1.1977632808326262,
+      2.6310739824151366,
+      1.4365573215977365,
+      1.7572652604373833,
+      1.5819758172679097,
+      1.5530155758246225,
+      2.0535253655822445,
+      0.905450961072734,
+      0.7730627138637158,
+      0.24678614125233372,
+      0.12464887874795855,
+      0.7372656344462117,
+      0.5270119598879546,
+      0.3931163408014094,
+      0.703268527011511,
+      1.1823173599996286,
+      1.4740150628779785,
+      1.0789231676729056,
+      0.878271316145838,
+      0.45098963307210493,
+      1.0013855744455846,
+      0.3887406348426949,
+      0.19546913673266147,
+      0.7761571693555255,
+      1.3278090707313293,
+      1.247606608078371,
+      1.159332076233568,
+      1.0160847067824976,
+      1.599194424799927,
+      1.2929134758872416,
+      1.0851545656324642,
+      2.222045725153818,
+      1.700490214083607,
+      1.1520591940495675,
+      1.1659287894572636,
+      1.2630129910248862,
+      1.1093936356837233,
+      0.8445331353986041,
+      1.1611437993465104
+    ],
+    "columns": 65,
+    "condition_report_limit": 100000000.0,
+    "condition_within_report_limit": true,
+    "format": "graphene_r2r0_rank_condition_precheck_v1",
+    "full_column_rank": true,
+    "pass_definition": "all 65 columns nonzero, scaled rank 65, condition <= 1e8",
+    "rank_tolerance": 3.0911056887569574e-09,
+    "rows": 19872,
+    "scaled_condition_number": 17682.183612312478,
+    "scaled_rank": 65,
+    "scaled_singular_values": [
+      700.5385682391633,
+      469.601205338779,
+      445.94440025070156,
+      351.5761356349229,
+      239.72268717201786,
+      232.20083681937373,
+      190.42229502977133,
+      152.78648351592523,
+      128.0645075312792,
+      114.71552635955119,
+      104.80887547743318,
+      92.61831385276132,
+      82.12686978947137,
+      73.05424810547679,
+      68.53196920079507,
+      57.07758343746951,
+      51.61025848847099,
+      49.623577084216336,
+      45.85253878461274,
+      44.6892469588643,
+      40.67634499129385,
+      36.36902856782085,
+      32.055060076169575,
+      27.645512178138894,
+      24.649120054694333,
+      23.220440621670313,
+      21.68241714858951,
+      21.080405127300203,
+      17.195950264035694,
+      14.866153219977274,
+      14.0066927428352,
+      13.03798821379035,
+      12.04621305242015,
+      11.02465236314788,
+      9.74431801379136,
+      9.36025986588531,
+      8.740318391069229,
+      8.309332478547068,
+      7.113257410658929,
+      6.726900626735377,
+      5.4795810493038575,
+      5.041813677925008,
+      4.560534229846349,
+      4.217937340347514,
+      3.86595978067026,
+      2.9788613409417803,
+      2.8601200005425715,
+      2.7235856941093326,
+      2.041571095892639,
+      1.6861834081514289,
+      1.6129225456775502,
+      1.5017899058867805,
+      1.2759550789953318,
+      1.1030369327548357,
+      0.8819179965819374,
+      0.7790381997203886,
+      0.7706814626004541,
+      0.4894042228681796,
+      0.4141672537277097,
+      0.3454298025312368,
+      0.29239958322142884,
+      0.13047438700581615,
+      0.0803004503754753,
+      0.05894730508707881,
+      0.039618329025345234
+    ],
+    "scaling": "RMS_without_mean_centering",
+    "zero_column_relative_RMS_threshold": 1e-12,
+    "zero_or_near_zero_columns": []
+  },
+  "representation_precheck_pass": true,
+  "seed1_or_seed2_access": false,
+  "sentinel": {
+    "comparisons": [
+      {
+        "arrays": {
+          "a": {
+            "dtype": "float64",
+            "max_abs_difference": 0.0,
+            "max_bound_ratio": 0.0,
+            "pass": true,
+            "shape": [
+              72
+            ]
+          },
+          "b_A4": {
+            "dtype": "float64",
+            "max_abs_difference": 6.369687763352339e-19,
+            "max_bound_ratio": 2.0731350647258587e-08,
+            "pass": true,
+            "shape": [
+              72
+            ]
+          },
+          "c": {
+            "dtype": "float64",
+            "max_abs_difference": 6.661338147750939e-16,
+            "max_bound_ratio": 3.96711661437566e-09,
+            "pass": true,
+            "shape": [
+              72
+            ]
+          },
+          "fixed_energy_eV": {
+            "dtype": "float64",
+            "max_abs_difference": 2.220446049250313e-16,
+            "max_bound_ratio": 1.5497691939676227e-09,
+            "pass": true,
+            "shape": [
+              1
+            ]
+          },
+          "fixed_force_eV_A": {
+            "dtype": "float64",
+            "max_abs_difference": 5.495603971894525e-15,
+            "max_bound_ratio": 4.5036727437566376e-07,
+            "pass": true,
+            "shape": [
+              72,
+              3
+            ]
+          },
+          "parameter_energy_design_eV": {
+            "dtype": "float64",
+            "max_abs_difference": 1.4210854715202004e-14,
+            "max_bound_ratio": 1.9272519652653916e-08,
+            "pass": true,
+            "shape": [
+              65
+            ]
+          },
+          "parameter_force_design_eV_A": {
+            "dtype": "float64",
+            "max_abs_difference": 9.992007221626409e-14,
+            "max_bound_ratio": 2.393984292424258e-06,
+            "pass": true,
+            "shape": [
+              72,
+              3,
+              65
+            ]
+          }
+        },
+        "combined_probe": {
+          "energy_abs_difference_eV": 0.0,
+          "force_max_abs_difference_eV_A": 2.2870594307278225e-14,
+          "pass": true
+        },
+        "global_index": 0,
+        "pass": true,
+        "shards": [
+          0,
+          1
+        ]
+      },
+      {
+        "arrays": {
+          "a": {
+            "dtype": "float64",
+            "max_abs_difference": 0.0,
+            "max_bound_ratio": 0.0,
+            "pass": true,
+            "shape": [
+              72
+            ]
+          },
+          "b_A4": {
+            "dtype": "float64",
+            "max_abs_difference": 6.369687763352339e-19,
+            "max_bound_ratio": 2.041723927381528e-08,
+            "pass": true,
+            "shape": [
+              72
+            ]
+          },
+          "c": {
+            "dtype": "float64",
+            "max_abs_difference": 5.551115123125783e-16,
+            "max_bound_ratio": 3.3059305119797182e-09,
+            "pass": true,
+            "shape": [
+              72
+            ]
+          },
+          "fixed_energy_eV": {
+            "dtype": "float64",
+            "max_abs_difference": 3.3306690738754696e-16,
+            "max_bound_ratio": 2.324653790951434e-09,
+            "pass": true,
+            "shape": [
+              1
+            ]
+          },
+          "fixed_force_eV_A": {
+            "dtype": "float64",
+            "max_abs_difference": 6.050715484207103e-15,
+            "max_bound_ratio": 4.5709036857284646e-07,
+            "pass": true,
+            "shape": [
+              72,
+              3
+            ]
+          },
+          "parameter_energy_design_eV": {
+            "dtype": "float64",
+            "max_abs_difference": 7.105427357601002e-15,
+            "max_bound_ratio": 7.446200774889085e-09,
+            "pass": true,
+            "shape": [
+              65
+            ]
+          },
+          "parameter_force_design_eV_A": {
+            "dtype": "float64",
+            "max_abs_difference": 9.992007221626409e-14,
+            "max_bound_ratio": 2.423909096079525e-06,
+            "pass": true,
+            "shape": [
+              72,
+              3,
+              65
+            ]
+          }
+        },
+        "combined_probe": {
+          "energy_abs_difference_eV": 3.552713678800501e-15,
+          "force_max_abs_difference_eV_A": 2.2037927038809357e-14,
+          "pass": true
+        },
+        "global_index": 0,
+        "pass": true,
+        "shards": [
+          0,
+          2
+        ]
+      },
+      {
+        "arrays": {
+          "a": {
+            "dtype": "float64",
+            "max_abs_difference": 0.0,
+            "max_bound_ratio": 0.0,
+            "pass": true,
+            "shape": [
+              72
+            ]
+          },
+          "b_A4": {
+            "dtype": "float64",
+            "max_abs_difference": 6.098637220230962e-20,
+            "max_bound_ratio": 2.4357888893603732e-09,
+            "pass": true,
+            "shape": [
+              72
+            ]
+          },
+          "c": {
+            "dtype": "float64",
+            "max_abs_difference": 2.220446049250313e-16,
+            "max_bound_ratio": 7.865135521390068e-10,
+            "pass": true,
+            "shape": [
+              72
+            ]
+          },
+          "fixed_energy_eV": {
+            "dtype": "float64",
+            "max_abs_difference": 1.1102230246251565e-16,
+            "max_bound_ratio": 7.748845969838119e-10,
+            "pass": true,
+            "shape": [
+              1
+            ]
+          },
+          "fixed_force_eV_A": {
+            "dtype": "float64",
+            "max_abs_difference": 7.216449660063518e-16,
+            "max_bound_ratio": 2.741296466240194e-08,
+            "pass": true,
+            "shape": [
+              72,
+              3
+            ]
+          },
+          "parameter_energy_design_eV": {
+            "dtype": "float64",
+            "max_abs_difference": 7.105427357601002e-15,
+            "max_bound_ratio": 2.671872042754293e-08,
+            "pass": true,
+            "shape": [
+              65
+            ]
+          },
+          "parameter_force_design_eV_A": {
+            "dtype": "float64",
+            "max_abs_difference": 1.021405182655144e-14,
+            "max_bound_ratio": 4.4524501549559026e-07,
+            "pass": true,
+            "shape": [
+              72,
+              3,
+              65
+            ]
+          }
+        },
+        "combined_probe": {
+          "energy_abs_difference_eV": 3.552713678800501e-15,
+          "force_max_abs_difference_eV_A": 4.440892098500626e-15,
+          "pass": true
+        },
+        "global_index": 0,
+        "pass": true,
+        "shards": [
+          1,
+          2
+        ]
+      },
+      {
+        "arrays": {
+          "a": {
+            "dtype": "float64",
+            "max_abs_difference": 0.0,
+            "max_bound_ratio": 0.0,
+            "pass": true,
+            "shape": [
+              72
+            ]
+          },
+          "b_A4": {
+            "dtype": "float64",
+            "max_abs_difference": 1.1011428314305904e-19,
+            "max_bound_ratio": 2.6671136773081592e-08,
+            "pass": true,
+            "shape": [
+              72
+            ]
+          },
+          "c": {
+            "dtype": "float64",
+            "max_abs_difference": 5.828670879282072e-16,
+            "max_bound_ratio": 5.186345796065561e-09,
+            "pass": true,
+            "shape": [
+              72
+            ]
+          },
+          "fixed_energy_eV": {
+            "dtype": "float64",
+            "max_abs_difference": 1.8041124150158794e-16,
+            "max_bound_ratio": 4.1662037589134744e-09,
+            "pass": true,
+            "shape": [
+              1
+            ]
+          },
+          "fixed_force_eV_A": {
+            "dtype": "float64",
+            "max_abs_difference": 3.226585665316861e-15,
+            "max_bound_ratio": 2.0176178300390875e-07,
+            "pass": true,
+            "shape": [
+              72,
+              3
+            ]
+          },
+          "parameter_energy_design_eV": {
+            "dtype": "float64",
+            "max_abs_difference": 1.4210854715202004e-14,
+            "max_bound_ratio": 3.0506364263562456e-09,
+            "pass": true,
+            "shape": [
+              65
+            ]
+          },
+          "parameter_force_design_eV_A": {
+            "dtype": "float64",
+            "max_abs_difference": 2.3026025530725747e-13,
+            "max_bound_ratio": 5.222674474190042e-06,
+            "pass": true,
+            "shape": [
+              72,
+              3,
+              65
+            ]
+          }
+        },
+        "combined_probe": {
+          "energy_abs_difference_eV": 3.552713678800501e-15,
+          "force_max_abs_difference_eV_A": 5.94246873930615e-14,
+          "pass": true
+        },
+        "global_index": 20,
+        "pass": true,
+        "shards": [
+          0,
+          1
+        ]
+      },
+      {
+        "arrays": {
+          "a": {
+            "dtype": "float64",
+            "max_abs_difference": 0.0,
+            "max_bound_ratio": 0.0,
+            "pass": true,
+            "shape": [
+              72
+            ]
+          },
+          "b_A4": {
+            "dtype": "float64",
+            "max_abs_difference": 1.1011428314305904e-19,
+            "max_bound_ratio": 2.6671136773081592e-08,
+            "pass": true,
+            "shape": [
+              72
+            ]
+          },
+          "c": {
+            "dtype": "float64",
+            "max_abs_difference": 6.661338147750939e-16,
+            "max_bound_ratio": 5.550417136896269e-09,
+            "pass": true,
+            "shape": [
+              72
+            ]
+          },
+          "fixed_energy_eV": {
+            "dtype": "float64",
+            "max_abs_difference": 1.942890293094024e-16,
+            "max_bound_ratio": 4.486680971137587e-09,
+            "pass": true,
+            "shape": [
+              1
+            ]
+          },
+          "fixed_force_eV_A": {
+            "dtype": "float64",
+            "max_abs_difference": 3.247402347028583e-15,
+            "max_bound_ratio": 1.968234543494721e-07,
+            "pass": true,
+            "shape": [
+              72,
+              3
+            ]
+          },
+          "parameter_energy_design_eV": {
+            "dtype": "float64",
+            "max_abs_difference": 1.4210854715202004e-14,
+            "max_bound_ratio": 3.935199979696044e-09,
+            "pass": true,
+            "shape": [
+              65
+            ]
+          },
+          "parameter_force_design_eV_A": {
+            "dtype": "float64",
+            "max_abs_difference": 2.3026025530725747e-13,
+            "max_bound_ratio": 5.234364847943126e-06,
+            "pass": true,
+            "shape": [
+              72,
+              3,
+              65
+            ]
+          }
+        },
+        "combined_probe": {
+          "energy_abs_difference_eV": 0.0,
+          "force_max_abs_difference_eV_A": 5.963285421017872e-14,
+          "pass": true
+        },
+        "global_index": 20,
+        "pass": true,
+        "shards": [
+          0,
+          2
+        ]
+      },
+      {
+        "arrays": {
+          "a": {
+            "dtype": "float64",
+            "max_abs_difference": 0.0,
+            "max_bound_ratio": 0.0,
+            "pass": true,
+            "shape": [
+              72
+            ]
+          },
+          "b_A4": {
+            "dtype": "float64",
+            "max_abs_difference": 1.0164395367051604e-20,
+            "max_bound_ratio": 2.3597082657904e-09,
+            "pass": true,
+            "shape": [
+              72
+            ]
+          },
+          "c": {
+            "dtype": "float64",
+            "max_abs_difference": 2.220446049250313e-16,
+            "max_bound_ratio": 1.5216607096230012e-09,
+            "pass": true,
+            "shape": [
+              72
+            ]
+          },
+          "fixed_energy_eV": {
+            "dtype": "float64",
+            "max_abs_difference": 1.3877787807814457e-17,
+            "max_bound_ratio": 3.2047721222411335e-10,
+            "pass": true,
+            "shape": [
+              1
+            ]
+          },
+          "fixed_force_eV_A": {
+            "dtype": "float64",
+            "max_abs_difference": 5.551115123125783e-16,
+            "max_bound_ratio": 4.047601058771405e-08,
+            "pass": true,
+            "shape": [
+              72,
+              3
+            ]
+          },
+          "parameter_energy_design_eV": {
+            "dtype": "float64",
+            "max_abs_difference": 1.0658141036401503e-14,
+            "max_bound_ratio": 6.440232455640963e-09,
+            "pass": true,
+            "shape": [
+              65
+            ]
+          },
+          "parameter_force_design_eV_A": {
+            "dtype": "float64",
+            "max_abs_difference": 1.0103029524088925e-14,
+            "max_bound_ratio": 3.099124212372225e-07,
+            "pass": true,
+            "shape": [
+              72,
+              3,
+              65
+            ]
+          }
+        },
+        "combined_probe": {
+          "energy_abs_difference_eV": 3.552713678800501e-15,
+          "force_max_abs_difference_eV_A": 2.6645352591003757e-15,
+          "pass": true
+        },
+        "global_index": 20,
+        "pass": true,
+        "shards": [
+          1,
+          2
+        ]
+      },
+      {
+        "arrays": {
+          "a": {
+            "dtype": "float64",
+            "max_abs_difference": 0.0,
+            "max_bound_ratio": 0.0,
+            "pass": true,
+            "shape": [
+              72
+            ]
+          },
+          "b_A4": {
+            "dtype": "float64",
+            "max_abs_difference": 3.9979955110402976e-19,
+            "max_bound_ratio": 2.6619580543935433e-08,
+            "pass": true,
+            "shape": [
+              72
+            ]
+          },
+          "c": {
+            "dtype": "float64",
+            "max_abs_difference": 5.551115123125783e-16,
+            "max_bound_ratio": 1.9070156912429658e-09,
+            "pass": true,
+            "shape": [
+              72
+            ]
+          },
+          "fixed_energy_eV": {
+            "dtype": "float64",
+            "max_abs_difference": 8.326672684688674e-17,
+            "max_bound_ratio": 1.1936109253994388e-09,
+            "pass": true,
+            "shape": [
+              1
+            ]
+          },
+          "fixed_force_eV_A": {
+            "dtype": "float64",
+            "max_abs_difference": 7.299716386910404e-15,
+            "max_bound_ratio": 4.2355191718201777e-07,
+            "pass": true,
+            "shape": [
+              72,
+              3
+            ]
+          },
+          "parameter_energy_design_eV": {
+            "dtype": "float64",
+            "max_abs_difference": 7.105427357601002e-15,
+            "max_bound_ratio": 1.076933455952575e-09,
+            "pass": true,
+            "shape": [
+              65
+            ]
+          },
+          "parameter_force_design_eV_A": {
+            "dtype": "float64",
+            "max_abs_difference": 9.903189379656396e-14,
+            "max_bound_ratio": 3.3445794611675847e-06,
+            "pass": true,
+            "shape": [
+              72,
+              3,
+              65
+            ]
+          }
+        },
+        "combined_probe": {
+          "energy_abs_difference_eV": 1.7763568394002505e-15,
+          "force_max_abs_difference_eV_A": 1.7763568394002505e-14,
+          "pass": true
+        },
+        "global_index": 56,
+        "pass": true,
+        "shards": [
+          0,
+          1
+        ]
+      },
+      {
+        "arrays": {
+          "a": {
+            "dtype": "float64",
+            "max_abs_difference": 0.0,
+            "max_bound_ratio": 0.0,
+            "pass": true,
+            "shape": [
+              72
+            ]
+          },
+          "b_A4": {
+            "dtype": "float64",
+            "max_abs_difference": 3.9979955110402976e-19,
+            "max_bound_ratio": 2.6619580543935433e-08,
+            "pass": true,
+            "shape": [
+              72
+            ]
+          },
+          "c": {
+            "dtype": "float64",
+            "max_abs_difference": 4.440892098500626e-16,
+            "max_bound_ratio": 1.7113654803595222e-09,
+            "pass": true,
+            "shape": [
+              72
+            ]
+          },
+          "fixed_energy_eV": {
+            "dtype": "float64",
+            "max_abs_difference": 1.3877787807814457e-16,
+            "max_bound_ratio": 1.989351542332397e-09,
+            "pass": true,
+            "shape": [
+              1
+            ]
+          },
+          "fixed_force_eV_A": {
+            "dtype": "float64",
+            "max_abs_difference": 7.327471962526033e-15,
+            "max_bound_ratio": 4.223721068277506e-07,
+            "pass": true,
+            "shape": [
+              72,
+              3
+            ]
+          },
+          "parameter_energy_design_eV": {
+            "dtype": "float64",
+            "max_abs_difference": 1.4210854715202004e-14,
+            "max_bound_ratio": 6.682532648753158e-09,
+            "pass": true,
+            "shape": [
+              65
+            ]
+          },
+          "parameter_force_design_eV_A": {
+            "dtype": "float64",
+            "max_abs_difference": 9.903189379656396e-14,
+            "max_bound_ratio": 3.432402116603057e-06,
+            "pass": true,
+            "shape": [
+              72,
+              3,
+              65
+            ]
+          }
+        },
+        "combined_probe": {
+          "energy_abs_difference_eV": 5.329070518200751e-15,
+          "force_max_abs_difference_eV_A": 1.7763568394002505e-14,
+          "pass": true
+        },
+        "global_index": 56,
+        "pass": true,
+        "shards": [
+          0,
+          2
+        ]
+      },
+      {
+        "arrays": {
+          "a": {
+            "dtype": "float64",
+            "max_abs_difference": 0.0,
+            "max_bound_ratio": 0.0,
+            "pass": true,
+            "shape": [
+              72
+            ]
+          },
+          "b_A4": {
+            "dtype": "float64",
+            "max_abs_difference": 2.710505431213761e-20,
+            "max_bound_ratio": 2.890016564354138e-09,
+            "pass": true,
+            "shape": [
+              72
+            ]
+          },
+          "c": {
+            "dtype": "float64",
+            "max_abs_difference": 2.220446049250313e-16,
+            "max_bound_ratio": 7.983855676783705e-10,
+            "pass": true,
+            "shape": [
+              72
+            ]
+          },
+          "fixed_energy_eV": {
+            "dtype": "float64",
+            "max_abs_difference": 5.551115123125783e-17,
+            "max_bound_ratio": 7.957406169329587e-10,
+            "pass": true,
+            "shape": [
+              1
+            ]
+          },
+          "fixed_force_eV_A": {
+            "dtype": "float64",
+            "max_abs_difference": 9.43689570931383e-16,
+            "max_bound_ratio": 3.7594755472100316e-08,
+            "pass": true,
+            "shape": [
+              72,
+              3
+            ]
+          },
+          "parameter_energy_design_eV": {
+            "dtype": "float64",
+            "max_abs_difference": 1.4210854715202004e-14,
+            "max_bound_ratio": 5.97910815941072e-09,
+            "pass": true,
+            "shape": [
+              65
+            ]
+          },
+          "parameter_force_design_eV_A": {
+            "dtype": "float64",
+            "max_abs_difference": 9.769962616701378e-15,
+            "max_bound_ratio": 3.116859991691311e-07,
+            "pass": true,
+            "shape": [
+              72,
+              3,
+              65
+            ]
+          }
+        },
+        "combined_probe": {
+          "energy_abs_difference_eV": 3.552713678800501e-15,
+          "force_max_abs_difference_eV_A": 4.773959005888173e-15,
+          "pass": true
+        },
+        "global_index": 56,
+        "pass": true,
+        "shards": [
+          1,
+          2
+        ]
+      },
+      {
+        "arrays": {
+          "a": {
+            "dtype": "float64",
+            "max_abs_difference": 0.0,
+            "max_bound_ratio": 0.0,
+            "pass": true,
+            "shape": [
+              72
+            ]
+          },
+          "b_A4": {
+            "dtype": "float64",
+            "max_abs_difference": 9.486769009248164e-19,
+            "max_bound_ratio": 2.9697580419999213e-08,
+            "pass": true,
+            "shape": [
+              72
+            ]
+          },
+          "c": {
+            "dtype": "float64",
+            "max_abs_difference": 8.881784197001252e-16,
+            "max_bound_ratio": 3.3661891207877656e-09,
+            "pass": true,
+            "shape": [
+              72
+            ]
+          },
+          "fixed_energy_eV": {
+            "dtype": "float64",
+            "max_abs_difference": 1.3322676295501878e-15,
+            "max_bound_ratio": 1.1165460042023995e-08,
+            "pass": true,
+            "shape": [
+              1
+            ]
+          },
+          "fixed_force_eV_A": {
+            "dtype": "float64",
+            "max_abs_difference": 7.965850201685498e-15,
+            "max_bound_ratio": 1.9400317350894571e-07,
+            "pass": true,
+            "shape": [
+              72,
+              3
+            ]
+          },
+          "parameter_energy_design_eV": {
+            "dtype": "float64",
+            "max_abs_difference": 7.105427357601002e-15,
+            "max_bound_ratio": 4.734846302490841e-09,
+            "pass": true,
+            "shape": [
+              65
+            ]
+          },
+          "parameter_force_design_eV_A": {
+            "dtype": "float64",
+            "max_abs_difference": 6.838973831690964e-14,
+            "max_bound_ratio": 5.992532473045631e-07,
+            "pass": true,
+            "shape": [
+              72,
+              3,
+              65
+            ]
+          }
+        },
+        "combined_probe": {
+          "energy_abs_difference_eV": 7.105427357601002e-15,
+          "force_max_abs_difference_eV_A": 1.3378187446733136e-14,
+          "pass": true
+        },
+        "global_index": 91,
+        "pass": true,
+        "shards": [
+          0,
+          1
+        ]
+      },
+      {
+        "arrays": {
+          "a": {
+            "dtype": "float64",
+            "max_abs_difference": 0.0,
+            "max_bound_ratio": 0.0,
+            "pass": true,
+            "shape": [
+              72
+            ]
+          },
+          "b_A4": {
+            "dtype": "float64",
+            "max_abs_difference": 9.486769009248164e-19,
+            "max_bound_ratio": 2.9697580419999213e-08,
+            "pass": true,
+            "shape": [
+              72
+            ]
+          },
+          "c": {
+            "dtype": "float64",
+            "max_abs_difference": 8.881784197001252e-16,
+            "max_bound_ratio": 3.3661891207877656e-09,
+            "pass": true,
+            "shape": [
+              72
+            ]
+          },
+          "fixed_energy_eV": {
+            "dtype": "float64",
+            "max_abs_difference": 1.4432899320127035e-15,
+            "max_bound_ratio": 1.2095915045525988e-08,
+            "pass": true,
+            "shape": [
+              1
+            ]
+          },
+          "fixed_force_eV_A": {
+            "dtype": "float64",
+            "max_abs_difference": 8.132383655379272e-15,
+            "max_bound_ratio": 2.079511140880188e-07,
+            "pass": true,
+            "shape": [
+              72,
+              3
+            ]
+          },
+          "parameter_energy_design_eV": {
+            "dtype": "float64",
+            "max_abs_difference": 1.4210854715202004e-14,
+            "max_bound_ratio": 5.918557878113551e-09,
+            "pass": true,
+            "shape": [
+              65
+            ]
+          },
+          "parameter_force_design_eV_A": {
+            "dtype": "float64",
+            "max_abs_difference": 6.838973831690964e-14,
+            "max_bound_ratio": 6.080983136854423e-07,
+            "pass": true,
+            "shape": [
+              72,
+              3,
+              65
+            ]
+          }
+        },
+        "combined_probe": {
+          "energy_abs_difference_eV": 1.4210854715202004e-14,
+          "force_max_abs_difference_eV_A": 1.3683498778505054e-14,
+          "pass": true
+        },
+        "global_index": 91,
+        "pass": true,
+        "shards": [
+          0,
+          2
+        ]
+      },
+      {
+        "arrays": {
+          "a": {
+            "dtype": "float64",
+            "max_abs_difference": 0.0,
+            "max_bound_ratio": 0.0,
+            "pass": true,
+            "shape": [
+              72
+            ]
+          },
+          "b_A4": {
+            "dtype": "float64",
+            "max_abs_difference": 1.3552527156068805e-19,
+            "max_bound_ratio": 1.879328409385179e-09,
+            "pass": true,
+            "shape": [
+              72
+            ]
+          },
+          "c": {
+            "dtype": "float64",
+            "max_abs_difference": 2.220446049250313e-16,
+            "max_bound_ratio": 7.682974295251819e-10,
+            "pass": true,
+            "shape": [
+              72
+            ]
+          },
+          "fixed_energy_eV": {
+            "dtype": "float64",
+            "max_abs_difference": 1.1102230246251565e-16,
+            "max_bound_ratio": 9.304550035019992e-10,
+            "pass": true,
+            "shape": [
+              1
+            ]
+          },
+          "fixed_force_eV_A": {
+            "dtype": "float64",
+            "max_abs_difference": 6.800116025829084e-16,
+            "max_bound_ratio": 3.1458248906288324e-08,
+            "pass": true,
+            "shape": [
+              72,
+              3
+            ]
+          },
+          "parameter_energy_design_eV": {
+            "dtype": "float64",
+            "max_abs_difference": 1.4210854715202004e-14,
+            "max_bound_ratio": 5.4234125609623475e-09,
+            "pass": true,
+            "shape": [
+              65
+            ]
+          },
+          "parameter_force_design_eV_A": {
+            "dtype": "float64",
+            "max_abs_difference": 1.0658141036401503e-14,
+            "max_bound_ratio": 4.4107712461279263e-07,
+            "pass": true,
+            "shape": [
+              72,
+              3,
+              65
+            ]
+          }
+        },
+        "combined_probe": {
+          "energy_abs_difference_eV": 7.105427357601002e-15,
+          "force_max_abs_difference_eV_A": 5.551115123125783e-15,
+          "pass": true
+        },
+        "global_index": 91,
+        "pass": true,
+        "shards": [
+          1,
+          2
+        ]
+      }
+    ],
+    "contract_sha256": "ad0cb46c98bdf7bc05029655be52a74422be9dc46f774cb522a54fc83eb194a5",
+    "format": "graphene_r2r0_cross_hardware_sentinel_v1",
+    "pass": true
+  },
+  "shard_environment_semantic_sha256": [
+    "e13a1ae3cea439c8e821ca4322a3fe2b04276a99c428699ed7ed2fc3b694fa64",
+    "c395b5d7c6007437125a741a71fb308584b40afae5235fd75134edcc8e0452ad",
+    "4b984da3116cb61164f7fd000e9701581f1b67653f355fc4beb61bb43235d3e9"
+  ],
+  "shard_receipt_sha256": [
+    "51b90efe6fc1b5b785f271b120fbc8a1caa12aefe61f7a9406998b88417b26fd",
+    "7075bce680bc30d9096de1ed97b72799350730830e7cb2af221b992ee6431b7f",
+    "0a7d881faa444d4f6fab51815b331589fdb2d9562da229cfafc2a9e4cd3f6cc0"
+  ],
+  "shard_root_manifest_sha256": [
+    "1be1e2cde63a55d955f6b847302b289aa125394208c41ba2e37e52359bfae8fd",
+    "1325540c6e8a207046a7ff56115ae0ec4e14c647d8749e0f5ce747835f0f0b28",
+    "5add599362f8cc1769f08afcdaf1eec2917803c66e7ae593dc443fb5de88048e"
+  ],
+  "status": "R2R0_FORMAL_REPRESENTATION_PRECHECK_PASSED",
+  "thermal_partition_exact": true,
+  "train_geometry_and_rank1_gate": {
+    "harmonic_fixed_carrier_max_abs_energy_eV": 3.14845274335237e-31,
+    "harmonic_fixed_carrier_max_abs_force_eV_A": 1.2714079598566105e-16,
+    "harmonic_max_a": 9.158475059693728e-27,
+    "harmonic_max_abs_energy_eV": 7.352010799889568e-27,
+    "harmonic_max_abs_force_eV_A": 6.565689305922893e-13,
+    "harmonic_max_b_A4": 2.289618764923432e-34,
+    "pass": true,
+    "thermal_min_a": 1.0,
+    "thermal_min_b_A4": 1.833896145614841e-06
+  }
+}

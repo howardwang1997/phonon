@@ -1,0 +1,83 @@
+{
+  "status": "complete_zero_finite_full_EPC_K_neighbourhood_generated",
+  "scope": "graphene A-prime on K-to-Gamma and K-to-M; short-range MLIP/L0 background plus direct full-Wannier-EPC q-space response; no new DFT",
+  "integration": {
+    "coarse_nk": 144,
+    "patch_quadrature": "triangle_centroid",
+    "patch_n": 180,
+    "patch_halfwidth_fractional": 0.04,
+    "finite_eta_eV": 0.005,
+    "number_of_qpoints": 121,
+    "number_of_finite_smearings": 3,
+    "wall_time_seconds": 18.246815416030586
+  },
+  "series_metrics": [
+    {
+      "smearing_degauss_Ry": 0.0,
+      "lattice_temperature_K": null,
+      "K_frequency_cm-1": 1282.182972,
+      "KG_d003_rise_cm-1": 1.9316360277480271,
+      "KM_d003_rise_cm-1": 1.9403208253311277
+    },
+    {
+      "smearing_degauss_Ry": 0.0019000869,
+      "lattice_temperature_K": 300,
+      "K_frequency_cm-1": 1289.3359498695224,
+      "KG_d003_rise_cm-1": 0.33279341777097216,
+      "KM_d003_rise_cm-1": 0.3350437493784284
+    },
+    {
+      "smearing_degauss_Ry": 0.00285013035,
+      "lattice_temperature_K": 450,
+      "K_frequency_cm-1": 1279.2544684954642,
+      "KG_d003_rise_cm-1": 0.24198469913903864,
+      "KM_d003_rise_cm-1": 0.24383116143326333
+    },
+    {
+      "smearing_degauss_Ry": 0.0038001738,
+      "lattice_temperature_K": 600,
+      "K_frequency_cm-1": 1271.6576475455904,
+      "KG_d003_rise_cm-1": 0.18629463583965844,
+      "KM_d003_rise_cm-1": 0.18803188852257335
+    }
+  ],
+  "K_to_Gamma_validation_against_existing_nk720_replay": {
+    "300": {
+      "number_of_points": 8,
+      "RMSE_cm-1": 0.0967666579366554,
+      "maximum_absolute_error_cm-1": 0.18082809031079705
+    },
+    "450": {
+      "number_of_points": 8,
+      "RMSE_cm-1": 0.05743380300803307,
+      "maximum_absolute_error_cm-1": 0.12510630472820594
+    },
+    "600": {
+      "number_of_points": 8,
+      "RMSE_cm-1": 0.03676813163721704,
+      "maximum_absolute_error_cm-1": 0.07833007441900008
+    }
+  },
+  "checks": {
+    "K_to_M_evaluated_directly_not_mirrored": true,
+    "all_frequencies_finite": true,
+    "all_d003_rises_positive": true,
+    "finite_K_anchors_exact": true
+  },
+  "sources": {
+    "zero_curve": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/E15_epc_zero_dense_curve/zero_dense_curve.csv",
+    "finite_nk720_replay": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/E9_epc_bandsum_replay_nk720/epc_bandsum_replay_arrays.npz",
+    "Wannier_EPC": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/E9_epc_bandsum_assets/graphene.epmatwp",
+    "finite_short_range": "S0 L0 classical TDEP minus q6 EPC operator"
+  },
+  "limitations": [
+    "finite curves pair electronic smearings with 300/450/600 K lattice backgrounds; absolute vertical shifts are not a fixed-lattice-temperature smearing sweep",
+    "K-to-M finite curves are full-EPC model predictions without independent dense DFPT points on that direction",
+    "zero-smearing numerical regulator and convergence evidence remain those recorded in E14/E15"
+  ],
+  "outputs": {
+    "png": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/E30_zero_finite_full_kpath/zero_finite_full_kpath_Aprime_comparison.png",
+    "pdf": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/E30_zero_finite_full_kpath/zero_finite_full_kpath_Aprime_comparison.pdf",
+    "csv": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/E30_zero_finite_full_kpath/zero_finite_full_kpath_Aprime.csv"
+  }
+}

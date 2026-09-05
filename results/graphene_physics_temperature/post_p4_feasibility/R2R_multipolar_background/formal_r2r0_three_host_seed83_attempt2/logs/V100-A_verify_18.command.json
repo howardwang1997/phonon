@@ -1,0 +1,17 @@
+{
+  "argv": [
+    "ssh",
+    "-o",
+    "BatchMode=yes",
+    "-o",
+    "ConnectTimeout=20",
+    "-o",
+    "ControlPath=none",
+    "root@100.80.236.112",
+    "sha256sum /data/graphene_r2r0/formal_bundle/f2abdb5e997d/tests/test_graphene_r2r0_formal.py"
+  ],
+  "expected_sha256": "be95450fb05ad5337833e153e67c7b9a2e9c6b3b1f959cc74c4ae646dbf7c780",
+  "observed_sha256": "be95450fb05ad5337833e153e67c7b9a2e9c6b3b1f959cc74c4ae646dbf7c780",
+  "returncode": 0,
+  "sha256": "6497e9dff34e896219254e32231c7574c780fb683cfb9c77129aeb5ad25cbf17"
+}

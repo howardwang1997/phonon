@@ -1,0 +1,55 @@
+{
+  "status": "zero_transfer_shape_gate_failed",
+  "scope": "sigma_z constant-vertex band-sum amplitude fixed on opened finite-smearing EPW curves, separate exact K anchor, no zero-shape refit and no new DFT",
+  "nk": 576,
+  "fermi_eV": -1.7187,
+  "finite_fitted_amplitude_cm-2_per_response_unit": 7699533.111258942,
+  "metrics": {
+    "RMSE_cm-1": 7.8101786880625035,
+    "MAE_cm-1": 7.130867215963113,
+    "max_abs_cm-1": 13.00550040125654,
+    "by_direction": {
+      "KG": {
+        "target_d003_cusp_depth_cm-1": 4.827133999999887,
+        "predicted_d003_cusp_depth_cm-1": -1.180875158799381,
+        "d003_cusp_depth_relative_error": 1.244632769423722,
+        "target_inner_to_outer_slope_ratio": 2.552851874710314,
+        "predicted_inner_to_outer_slope_ratio": -0.7025229491886965,
+        "slope_ratio_relative_error": 1.2751914265563942
+      },
+      "KM": {
+        "target_d003_cusp_depth_cm-1": 4.855632000000014,
+        "predicted_d003_cusp_depth_cm-1": -2.1386043888555832,
+        "d003_cusp_depth_relative_error": 1.4404379056846928,
+        "target_inner_to_outer_slope_ratio": 2.4613957452921693,
+        "predicted_inner_to_outer_slope_ratio": -2.4673148491123187,
+        "slope_ratio_relative_error": 2.0024047753521437
+      }
+    },
+    "maximum_d003_cusp_depth_relative_error": 1.4404379056846928,
+    "maximum_slope_ratio_relative_error": 2.0024047753521437
+  },
+  "checks": {
+    "maximum_d003_cusp_depth_relative_error_lt_0p20": false,
+    "maximum_slope_ratio_relative_error_lt_0p20": false
+  },
+  "limitations": [
+    "zero-temperature uniform-grid integration must be checked against nk convergence",
+    "sigma_z is a constant vertex in the present Wannier gauge, not a reconstructed EPW A-prime vertex",
+    "the zero reference mixes a k288 K/d=0.003 anchor with k192 outer shape and remains numerically uncertain"
+  ],
+  "inputs": {
+    "hr": {
+      "path": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/E0_epw_matched/wannier_diagnostics/matched_k18q9_ex1_pifroz_hr.dat",
+      "sha256": "9464eeb175cdab2b543650c24729febf749e951342a4bf0fe03f5bc651b0db19"
+    },
+    "finite_summary": {
+      "path": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/E7_constant_vertex_bandsum_nk288/constant_vertex_bandsum_summary.json",
+      "sha256": "d6f0e97005f18806fdf95d1d1f31f47c5e8fa2e6225f80b3ab3863ce734f23ac"
+    },
+    "zero_data": {
+      "path": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/E4_joint_zero_finite_rank1/joint_zero_finite_rank1_predictions.csv",
+      "sha256": "b0242b48c02d4c048bbd500b75b3834aa5eecc3b232bb7eb2b86e24ceb8b4980"
+    }
+  }
+}

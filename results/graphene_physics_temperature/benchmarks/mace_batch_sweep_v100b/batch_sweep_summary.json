@@ -1,0 +1,322 @@
+{
+  "status": "complete",
+  "scope": "V100-B MACE batch-size throughput sizing on 300/600 K development data",
+  "scientific_use": "resource sizing only; batch choice is not a scientific model-selection result",
+  "target_leakage": {
+    "p4_450K_inputs_read": false,
+    "allowed_input_temperatures_K": [
+      300,
+      600
+    ]
+  },
+  "configuration": {
+    "candidate_batches": [
+      1,
+      4,
+      8,
+      16,
+      32
+    ],
+    "new_candidate_epochs": 3,
+    "n_train_structures": 216,
+    "architecture": "MACE, 2 interactions, 32x0e+32x1o, r_max=5.0",
+    "seed": 83
+  },
+  "candidates": [
+    {
+      "batch_size": 1,
+      "status": "complete",
+      "timing": {
+        "start": "2026-08-05T10:14:22+08:00",
+        "end": "2026-08-05T10:18:46+08:00",
+        "elapsed_seconds": 264,
+        "train_exit_code": 0
+      },
+      "training": {
+        "optimizer_steps": 2160,
+        "epochs_observed": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "median_step_seconds": 0.08503520488739014,
+        "mean_step_seconds": 0.08901717839417635,
+        "configs_per_second_from_step_times": 11.233786759359042
+      },
+      "gpu": {
+        "n_samples": 27,
+        "mean_utilization_percent": 11.962962962962964,
+        "max_utilization_percent": 16.0,
+        "max_memory_used_MiB": 554.0,
+        "max_power_draw_W": 67.78
+      },
+      "artifacts": {
+        "summary": {
+          "path": "/data/graphene_physics_temperature/benchmarks/mace_joint_10epoch_v100b/run_seed83/benchmark_summary.json",
+          "sha256": "02266f92eaf71a3fed2195dc3515bfb63cfa7c39e90946f6d3630618ca8c44eb",
+          "size_bytes": 2813
+        },
+        "train_metrics": {
+          "path": "/data/graphene_physics_temperature/benchmarks/mace_joint_10epoch_v100b/run_seed83/results/gr_physics_joint_proxy_10ep_seed83_run-83_train.txt",
+          "sha256": "6d626fbcbd60360d1759db79db1af7179b74c450319a99261e61a00c36c9863d",
+          "size_bytes": 184125
+        }
+      },
+      "throughput_speedup_vs_batch1": 1.0
+    },
+    {
+      "batch_size": 4,
+      "status": "complete",
+      "timing": {
+        "train_exit_code": 0,
+        "start": "2026-08-05T10:36:17+08:00",
+        "end": "2026-08-05T10:37:18+08:00",
+        "elapsed_seconds": 61
+      },
+      "training": {
+        "optimizer_steps": 162,
+        "epochs_observed": [
+          0,
+          1,
+          2
+        ],
+        "median_step_seconds": 0.09361100196838379,
+        "mean_step_seconds": 0.1280006332161986,
+        "configs_per_second_from_step_times": 31.24984540696629
+      },
+      "gpu": {
+        "n_samples": 31,
+        "mean_utilization_percent": 12.129032258064516,
+        "max_utilization_percent": 31.0,
+        "max_memory_used_MiB": 986.0,
+        "max_power_draw_W": 89.44
+      },
+      "artifacts": {
+        "status": {
+          "path": "/data/graphene_physics_temperature/benchmarks/mace_batch_sweep_v100b/batch4/status.tsv",
+          "sha256": "af5a0d05d33bd61e1433de6be8447b6b40f78c6e949dd516043ff98263a260d7",
+          "size_bytes": 120
+        },
+        "train_metrics": {
+          "path": "/data/graphene_physics_temperature/benchmarks/mace_batch_sweep_v100b/batch4/results/gr_physics_proxy_batch4_3ep_seed83_run-83_train.txt",
+          "sha256": "4c71330cf64749ac2a38bd15c523d3d5c0f06cd60202c7d9e487764e9fbc637d",
+          "size_bytes": 14466
+        },
+        "gpu_samples": {
+          "path": "/data/graphene_physics_temperature/benchmarks/mace_batch_sweep_v100b/batch4/gpu_samples.csv",
+          "sha256": "ab8149587ae38ff6fbe7018f33477d2995a3739a05dcb72e18cfce36a74cc43a",
+          "size_bytes": 1279
+        }
+      },
+      "models": [
+        {
+          "path": "/data/graphene_physics_temperature/benchmarks/mace_batch_sweep_v100b/batch4/gr_physics_proxy_batch4_3ep_seed83.model",
+          "sha256": "50336ccaf1a4d097f03176174b2465ffb643d4a99fadcfaa76c4fd8966268229",
+          "size_bytes": 592074
+        },
+        {
+          "path": "/data/graphene_physics_temperature/benchmarks/mace_batch_sweep_v100b/batch4/gr_physics_proxy_batch4_3ep_seed83_compiled.model",
+          "sha256": "bfaaad87cb408ffd6c582a95a49ebe60bc80ee549e882f3b22b76c5658fa729d",
+          "size_bytes": 688312
+        }
+      ],
+      "throughput_speedup_vs_batch1": 2.7817730633823508
+    },
+    {
+      "batch_size": 8,
+      "status": "complete",
+      "timing": {
+        "train_exit_code": 0,
+        "start": "2026-08-05T10:37:18+08:00",
+        "end": "2026-08-05T10:38:08+08:00",
+        "elapsed_seconds": 50
+      },
+      "training": {
+        "optimizer_steps": 81,
+        "epochs_observed": [
+          0,
+          1,
+          2
+        ],
+        "median_step_seconds": 0.09226489067077637,
+        "mean_step_seconds": 0.1571147353560836,
+        "configs_per_second_from_step_times": 50.918203069042896
+      },
+      "gpu": {
+        "n_samples": 25,
+        "mean_utilization_percent": 11.12,
+        "max_utilization_percent": 44.0,
+        "max_memory_used_MiB": 1404.0,
+        "max_power_draw_W": 129.16
+      },
+      "artifacts": {
+        "status": {
+          "path": "/data/graphene_physics_temperature/benchmarks/mace_batch_sweep_v100b/batch8/status.tsv",
+          "sha256": "2446745c3e166f9369ae629a727e581fe790b4fac00564fbb2dcb082e345e132",
+          "size_bytes": 120
+        },
+        "train_metrics": {
+          "path": "/data/graphene_physics_temperature/benchmarks/mace_batch_sweep_v100b/batch8/results/gr_physics_proxy_batch8_3ep_seed83_run-83_train.txt",
+          "sha256": "1674182d621648d92836aa980e17c27155b1545f689f431a56414f766ad2f2c4",
+          "size_bytes": 7654
+        },
+        "gpu_samples": {
+          "path": "/data/graphene_physics_temperature/benchmarks/mace_batch_sweep_v100b/batch8/gpu_samples.csv",
+          "sha256": "41e87410e46784b92cd60f38a773e8e51d6c2bba5d857dfbbab87d2660a02b32",
+          "size_bytes": 1052
+        }
+      },
+      "models": [
+        {
+          "path": "/data/graphene_physics_temperature/benchmarks/mace_batch_sweep_v100b/batch8/gr_physics_proxy_batch8_3ep_seed83.model",
+          "sha256": "07eb5365dc6fb1443ecf5d07abe67c436f0e10ca6de9b5fdec1f9d8eff3d1bdd",
+          "size_bytes": 592074
+        },
+        {
+          "path": "/data/graphene_physics_temperature/benchmarks/mace_batch_sweep_v100b/batch8/gr_physics_proxy_batch8_3ep_seed83_compiled.model",
+          "sha256": "3478df8978b2ebb5d90171447b7205f84d46a9984c63686724703a524dcb33f0",
+          "size_bytes": 688312
+        }
+      ],
+      "throughput_speedup_vs_batch1": 4.532594766107889
+    },
+    {
+      "batch_size": 16,
+      "status": "complete",
+      "timing": {
+        "train_exit_code": 0,
+        "start": "2026-08-05T10:38:09+08:00",
+        "end": "2026-08-05T10:38:53+08:00",
+        "elapsed_seconds": 44
+      },
+      "training": {
+        "optimizer_steps": 39,
+        "epochs_observed": [
+          0,
+          1,
+          2
+        ],
+        "median_step_seconds": 0.10120677947998047,
+        "mean_step_seconds": 0.23766344021528196,
+        "configs_per_second_from_step_times": 69.91140328665593
+      },
+      "gpu": {
+        "n_samples": 22,
+        "mean_utilization_percent": 8.909090909090908,
+        "max_utilization_percent": 62.0,
+        "max_memory_used_MiB": 2330.0,
+        "max_power_draw_W": 163.88
+      },
+      "artifacts": {
+        "status": {
+          "path": "/data/graphene_physics_temperature/benchmarks/mace_batch_sweep_v100b/batch16/status.tsv",
+          "sha256": "260b45c959708415d1e7bc2c31cec4a3acfabdac08d7b8174ee50d73ed22be76",
+          "size_bytes": 121
+        },
+        "train_metrics": {
+          "path": "/data/graphene_physics_temperature/benchmarks/mace_batch_sweep_v100b/batch16/results/gr_physics_proxy_batch16_3ep_seed83_run-83_train.txt",
+          "sha256": "e4f78d53c510c1dad951631137e8a83e2dcebcb18943d3339b0712dfd6858d3b",
+          "size_bytes": 4116
+        },
+        "gpu_samples": {
+          "path": "/data/graphene_physics_temperature/benchmarks/mace_batch_sweep_v100b/batch16/gpu_samples.csv",
+          "sha256": "2361ff80ae9bcc1be7a5ea9fd1e83c383db9a2f09790348a7e646621299d5e80",
+          "size_bytes": 932
+        }
+      },
+      "models": [
+        {
+          "path": "/data/graphene_physics_temperature/benchmarks/mace_batch_sweep_v100b/batch16/gr_physics_proxy_batch16_3ep_seed83.model",
+          "sha256": "0650512d9727e09dffcd5e5315198d8ac4d624da97ab5897b82c9992d13dffd2",
+          "size_bytes": 592153
+        },
+        {
+          "path": "/data/graphene_physics_temperature/benchmarks/mace_batch_sweep_v100b/batch16/gr_physics_proxy_batch16_3ep_seed83_compiled.model",
+          "sha256": "0e66ba1f835042810c91a325fadb1724a24f82e0ef70981389cc27cdecbb98ac",
+          "size_bytes": 689103
+        }
+      ],
+      "throughput_speedup_vs_batch1": 6.223315858155457
+    },
+    {
+      "batch_size": 32,
+      "status": "complete",
+      "timing": {
+        "train_exit_code": 0,
+        "start": "2026-08-05T10:38:53+08:00",
+        "end": "2026-08-05T10:39:34+08:00",
+        "elapsed_seconds": 41
+      },
+      "training": {
+        "optimizer_steps": 18,
+        "epochs_observed": [
+          0,
+          1,
+          2
+        ],
+        "median_step_seconds": 0.15894651412963867,
+        "mean_step_seconds": 0.43438353803422713,
+        "configs_per_second_from_step_times": 82.87606883749676
+      },
+      "gpu": {
+        "n_samples": 21,
+        "mean_utilization_percent": 14.047619047619047,
+        "max_utilization_percent": 84.0,
+        "max_memory_used_MiB": 4132.0,
+        "max_power_draw_W": 185.55
+      },
+      "artifacts": {
+        "status": {
+          "path": "/data/graphene_physics_temperature/benchmarks/mace_batch_sweep_v100b/batch32/status.tsv",
+          "sha256": "6da351181d5a46b595ab78262b58677816ac6ca5b8b64b2bee8f59a17756831b",
+          "size_bytes": 121
+        },
+        "train_metrics": {
+          "path": "/data/graphene_physics_temperature/benchmarks/mace_batch_sweep_v100b/batch32/results/gr_physics_proxy_batch32_3ep_seed83_run-83_train.txt",
+          "sha256": "c24fb7b2bb4e8657a26f9625de152b781eece6b71814a3c0b7da990ade7795e6",
+          "size_bytes": 2343
+        },
+        "gpu_samples": {
+          "path": "/data/graphene_physics_temperature/benchmarks/mace_batch_sweep_v100b/batch32/gpu_samples.csv",
+          "sha256": "172b54cd47e291ecf12a49d97c3b441a849216b5fdd24a62bfacb9e0300d0ff1",
+          "size_bytes": 894
+        }
+      },
+      "models": [
+        {
+          "path": "/data/graphene_physics_temperature/benchmarks/mace_batch_sweep_v100b/batch32/gr_physics_proxy_batch32_3ep_seed83.model",
+          "sha256": "1759e3d29f06d1ddae9cb12162c50ac4a5f3176df9dd4e4ba993e62fc7e7a9c8",
+          "size_bytes": 592153
+        },
+        {
+          "path": "/data/graphene_physics_temperature/benchmarks/mace_batch_sweep_v100b/batch32/gr_physics_proxy_batch32_3ep_seed83_compiled.model",
+          "sha256": "76e09e5350f866706c31fd725208ac3cd753c7e627ac581bd066f4684a179b8b",
+          "size_bytes": 689103
+        }
+      ],
+      "throughput_speedup_vs_batch1": 7.3773938043154885
+    }
+  ],
+  "throughput_best": {
+    "batch_size": 32,
+    "configs_per_second_from_step_times": 82.87606883749676,
+    "speedup_vs_batch1": 7.3773938043154885,
+    "max_memory_used_MiB": 4132.0,
+    "limitation": "Before formal S0 training, freeze batch size together with learning-rate and gradient-equivalence checks on the complete development dataset."
+  },
+  "provenance": {
+    "git_head": "8a6d1139269b4c6b44b89a4554697b5a734c0226",
+    "data_manifest": {
+      "path": "/data/graphene_physics_temperature/benchmarks/mace_joint_10epoch_v100b/joint_data/manifest.json",
+      "sha256": "918071e0f3858619e664c7d5ebb5324dd7b066f875df313b667f6a40d411a644",
+      "size_bytes": 4512
+    }
+  }
+}

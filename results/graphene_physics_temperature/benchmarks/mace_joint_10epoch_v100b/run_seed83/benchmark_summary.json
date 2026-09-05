@@ -1,0 +1,79 @@
+{
+  "status": "complete",
+  "scope": "V100-B 300/600 K development-only MACE throughput benchmark",
+  "scientific_use": "runtime and resource sizing only; not a model-selection or acceptance result",
+  "target_leakage": {
+    "p4_450K_inputs_read": false,
+    "allowed_input_temperatures_K": [
+      300,
+      600
+    ],
+    "excluded_scope": "all 450 K P4 structures, labels, DFPT values, and acceptance outputs"
+  },
+  "configuration": {
+    "configured_epochs": 10,
+    "seed": 83,
+    "architecture": "MACE, 2 interactions, 32x0e+32x1o, r_max=5.0",
+    "batch_size": 1,
+    "eval_interval": 5,
+    "hard_walltime_seconds": 7200
+  },
+  "timing": {
+    "start": "2026-08-05T10:14:22+08:00",
+    "end": "2026-08-05T10:18:46+08:00",
+    "elapsed_seconds": 264,
+    "train_exit_code": 0
+  },
+  "gpu": {
+    "n_samples": 27,
+    "mean_utilization_percent": 11.962962962962964,
+    "max_utilization_percent": 16.0,
+    "max_memory_used_MiB": 554.0,
+    "max_power_draw_W": 67.78
+  },
+  "resource_usage": {
+    "percent_of_cpu_this_job_got": "99%",
+    "maximum_resident_set_size_(kbytes)": "1643952",
+    "file_system_inputs": "6104",
+    "file_system_outputs": "9432"
+  },
+  "checkpoint_epochs": [
+    0,
+    5
+  ],
+  "provenance": {
+    "git_head": "8a6d1139269b4c6b44b89a4554697b5a734c0226",
+    "joint_manifest": {
+      "path": "/data/graphene_physics_temperature/benchmarks/mace_joint_10epoch_v100b/joint_data/manifest.json",
+      "sha256": "918071e0f3858619e664c7d5ebb5324dd7b066f875df313b667f6a40d411a644",
+      "size_bytes": 4512
+    },
+    "source_manifest": {
+      "path": "/root/phonon/data/graphene_fd_delta_pilot/manifest.json",
+      "sha256": "e4221a58bd69fdf9a8212c6e215972b95bbf3af65953d6388afc47b8851d3f08",
+      "size_bytes": 5373
+    },
+    "run_log": {
+      "path": "/data/graphene_physics_temperature/benchmarks/mace_joint_10epoch_v100b/run_seed83/run.log",
+      "sha256": "32c6188571e5c903a6823b210a16995bb042b31b02c237b7fa6c323222eb3bc5",
+      "size_bytes": 17781
+    },
+    "gpu_samples": {
+      "path": "/data/graphene_physics_temperature/benchmarks/mace_joint_10epoch_v100b/run_seed83/gpu_samples.csv",
+      "sha256": "96f466ffac9b0aff296aa0679a943b024248241a0451b30b3a740acfa4cc69ee",
+      "size_bytes": 1137
+    }
+  },
+  "models": [
+    {
+      "path": "/data/graphene_physics_temperature/benchmarks/mace_joint_10epoch_v100b/run_seed83/gr_physics_joint_proxy_10ep_seed83.model",
+      "sha256": "62b6cdde6703127061a6d62a4d124a1d8c259a479cd0dc81549191c678934c8a",
+      "size_bytes": 592074
+    },
+    {
+      "path": "/data/graphene_physics_temperature/benchmarks/mace_joint_10epoch_v100b/run_seed83/gr_physics_joint_proxy_10ep_seed83_compiled.model",
+      "sha256": "b7915d2a25a07f4955eeb575139d2d9b3af00c8f318f396e261d9a10227170ae",
+      "size_bytes": 688312
+    }
+  ]
+}

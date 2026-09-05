@@ -1,0 +1,42 @@
+{
+  "status": "complete",
+  "scope": "trajectory-stratified moving-block bootstrap of the fixed P4 DFT-TDEP target",
+  "replicates": 1000,
+  "random_seed": 450002,
+  "confidence_rule": "one-sided empirical 95th percentile, evaluated downstream",
+  "block_bootstrap": {
+    "method": "independent circular moving-block resampling within each trajectory seed",
+    "frozen_snapshot_rule": "max(5, ceil(2*tau_int))",
+    "label_block_translation": "ceil(sampling block length in saved snapshots / frozen DFT-label index stride)",
+    "trajectory_diagnostics": [
+      {
+        "seed": 0,
+        "sampling_block_length_saved_snapshots": 16,
+        "label_index_stride_saved_snapshots": 6,
+        "label_block_length": 3
+      },
+      {
+        "seed": 1,
+        "sampling_block_length_saved_snapshots": 11,
+        "label_index_stride_saved_snapshots": 6,
+        "label_block_length": 2
+      },
+      {
+        "seed": 2,
+        "sampling_block_length_saved_snapshots": 17,
+        "label_index_stride_saved_snapshots": 6,
+        "label_block_length": 3
+      }
+    ]
+  },
+  "point_tdep": {
+    "path": "/home/howardwang/phonon/results/graphene_fd_transferability/T450/on_policy/dft_tdep_60.npz",
+    "sha256": "c9b633e97a09afc44d33a0a09ba58c4557eed5d648496d7a37f632dc254a147e"
+  },
+  "raw_distributions": {
+    "path": "/home/howardwang/phonon/results/graphene_fd_transferability/T450/on_policy/dft_tdep_bootstrap.npz",
+    "sha256": "bb57f3312cbf7ccbadc5a765cd9040f4095bd8dfd20a1c486afa4a443c591006"
+  },
+  "merge_manifest_sha256": "fcd586ad7b66aaca21ed9ee0cb4f541bbeb1be84e5d92122f9d0db961b1a1385",
+  "freeze_manifest_sha256": "8e48384fc805c15d68b861f2911647ecc13d896d17753eb35dfe243cd318232d"
+}

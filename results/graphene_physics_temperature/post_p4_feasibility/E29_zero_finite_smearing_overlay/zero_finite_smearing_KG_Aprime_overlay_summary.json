@@ -1,0 +1,53 @@
+{
+  "status": "zero_and_finite_smearing_common_path_overlay_generated",
+  "path": "K toward Gamma",
+  "maximum_distance": 0.03,
+  "curves": {
+    "zero": "short-range MLIP + full EPC long-range correction",
+    "finite": "finite-lattice short-range background + nk720 full-EPC band-sum replay, anchored to each finite-smearing K point"
+  },
+  "comparison_at_distance_1_over_120": [
+    {
+      "smearing_degauss_Ry": 0.0,
+      "lattice_temperature_K": null,
+      "K_frequency_cm-1": 1282.182972,
+      "rise_at_distance_1_over_120_cm-1": 5.234426442204722
+    },
+    {
+      "smearing_degauss_Ry": 0.0019000869,
+      "lattice_temperature_K": 300,
+      "K_frequency_cm-1": 1289.3359498695224,
+      "rise_at_distance_1_over_120_cm-1": 1.995758253811573
+    },
+    {
+      "smearing_degauss_Ry": 0.00285013035,
+      "lattice_temperature_K": 450,
+      "K_frequency_cm-1": 1279.2544684954642,
+      "rise_at_distance_1_over_120_cm-1": 1.4770337252512036
+    },
+    {
+      "smearing_degauss_Ry": 0.0038001738,
+      "lattice_temperature_K": 600,
+      "K_frequency_cm-1": 1271.6576475455904,
+      "rise_at_distance_1_over_120_cm-1": 1.1357500208098372
+    }
+  ],
+  "sources": {
+    "zero_curve": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/E15_epc_zero_dense_curve/zero_dense_curve.csv",
+    "finite_replay": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/E9_epc_bandsum_replay_nk720/epc_bandsum_replay_arrays.npz"
+  },
+  "display": {
+    "finite_computed_q_points_are_marked": true,
+    "line_interpolation": "PCHIP shape-preserving interpolation"
+  },
+  "limitations": [
+    "finite-smearing curves use lattice-temperature-dependent short-range backgrounds at 300, 450, and 600 K, so absolute vertical shifts are not a fixed-lattice-temperature smearing sweep",
+    "the K-referenced panel removes each curve's K frequency and is the appropriate panel for comparing cusp rounding",
+    "only the common K-to-Gamma path is overlaid; the finite data do not contain the K-to-M path used on the positive side of E15"
+  ],
+  "outputs": {
+    "png": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/E29_zero_finite_smearing_overlay/zero_finite_smearing_KG_Aprime_overlay.png",
+    "pdf": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/E29_zero_finite_smearing_overlay/zero_finite_smearing_KG_Aprime_overlay.pdf",
+    "samples_csv": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/E29_zero_finite_smearing_overlay/zero_finite_smearing_KG_Aprime_samples.csv"
+  }
+}

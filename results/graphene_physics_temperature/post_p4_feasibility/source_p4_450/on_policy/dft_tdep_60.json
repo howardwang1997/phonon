@@ -1,0 +1,107 @@
+{
+  "status": "complete",
+  "scope": "fixed 60-label 450 K P4 DFT-TDEP evaluation target; the fitted target is not fed back into the frozen predictor",
+  "temperature_K": 450,
+  "degauss_Ry": 0.00285013035,
+  "n_structures": 60,
+  "n_structures_per_seed": 20,
+  "fit_RMSE_meV_A": 192.60989908101897,
+  "n_fit_parameters": 28,
+  "cutoff2_A": 6.0,
+  "sources": [
+    {
+      "seed": 0,
+      "path": "/home/howardwang/phonon/data/graphene_fd_transferability/T450/on_policy/dft_force_labels/merged/seed0.xyz",
+      "sha256": "cb090a2868e9ac23efedc0a8bd14ca278ba1c80a3840bae89a3f30c2b7ad7f36",
+      "identities": [
+        "seed0:snapshot003",
+        "seed0:snapshot009",
+        "seed0:snapshot015",
+        "seed0:snapshot021",
+        "seed0:snapshot027",
+        "seed0:snapshot033",
+        "seed0:snapshot039",
+        "seed0:snapshot045",
+        "seed0:snapshot051",
+        "seed0:snapshot057",
+        "seed0:snapshot063",
+        "seed0:snapshot069",
+        "seed0:snapshot075",
+        "seed0:snapshot081",
+        "seed0:snapshot087",
+        "seed0:snapshot093",
+        "seed0:snapshot099",
+        "seed0:snapshot105",
+        "seed0:snapshot111",
+        "seed0:snapshot117"
+      ],
+      "fit_rows_per_structure": 216
+    },
+    {
+      "seed": 1,
+      "path": "/home/howardwang/phonon/data/graphene_fd_transferability/T450/on_policy/dft_force_labels/merged/seed1.xyz",
+      "sha256": "66e1107001c58d6e8e316bf86324c55c56c828cc0060d82bd72b9497689ecf69",
+      "identities": [
+        "seed1:snapshot003",
+        "seed1:snapshot009",
+        "seed1:snapshot015",
+        "seed1:snapshot021",
+        "seed1:snapshot027",
+        "seed1:snapshot033",
+        "seed1:snapshot039",
+        "seed1:snapshot045",
+        "seed1:snapshot051",
+        "seed1:snapshot057",
+        "seed1:snapshot063",
+        "seed1:snapshot069",
+        "seed1:snapshot075",
+        "seed1:snapshot081",
+        "seed1:snapshot087",
+        "seed1:snapshot093",
+        "seed1:snapshot099",
+        "seed1:snapshot105",
+        "seed1:snapshot111",
+        "seed1:snapshot117"
+      ],
+      "fit_rows_per_structure": 216
+    },
+    {
+      "seed": 2,
+      "path": "/home/howardwang/phonon/data/graphene_fd_transferability/T450/on_policy/dft_force_labels/merged/seed2.xyz",
+      "sha256": "e9ea6f916b5d64ea9fe752f60be4a44e6e3e5d8c835015f81738bbfbec08b5db",
+      "identities": [
+        "seed2:snapshot003",
+        "seed2:snapshot009",
+        "seed2:snapshot015",
+        "seed2:snapshot021",
+        "seed2:snapshot027",
+        "seed2:snapshot033",
+        "seed2:snapshot039",
+        "seed2:snapshot045",
+        "seed2:snapshot051",
+        "seed2:snapshot057",
+        "seed2:snapshot063",
+        "seed2:snapshot069",
+        "seed2:snapshot075",
+        "seed2:snapshot081",
+        "seed2:snapshot087",
+        "seed2:snapshot093",
+        "seed2:snapshot099",
+        "seed2:snapshot105",
+        "seed2:snapshot111",
+        "seed2:snapshot117"
+      ],
+      "fit_rows_per_structure": 216
+    }
+  ],
+  "freeze_manifest_sha256": "8e48384fc805c15d68b861f2911647ecc13d896d17753eb35dfe243cd318232d",
+  "merge_manifest_sha256": "fcd586ad7b66aaca21ed9ee0cb4f541bbeb1be84e5d92122f9d0db961b1a1385",
+  "background": {
+    "path": "/home/howardwang/phonon/results/vq_kink6_fd/graphene_sc6_dg0.040_phonopy.yaml",
+    "sha256": "69144a1dd3c66df94c116259067be27d1ede3ca8ab01c66516504c5e1ec90c0a"
+  },
+  "output": {
+    "path": "/home/howardwang/phonon/results/graphene_fd_transferability/T450/on_policy/dft_tdep_60.npz",
+    "sha256": "c9b633e97a09afc44d33a0a09ba58c4557eed5d648496d7a37f632dc254a147e"
+  }
+}

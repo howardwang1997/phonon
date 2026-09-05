@@ -1,0 +1,48 @@
+{
+  "status": "frozen_before_independent_holdout_exposure",
+  "frozen_at": "2026-07-31T21:34:14.383885+08:00",
+  "selection": "results/graphene_fd_delta_weighted/T600/checkpoint_selection.json",
+  "selection_sha256": "7bc3781839471d9607050348c13f5b7f4a5314279b9ecf032e43a872d82b2acb",
+  "selected_tag": "replayw12",
+  "selected_epoch": 175,
+  "selected_checkpoint": "/home/howardwang/phonon/results/graphene_fd_delta_weighted/T600/replayw12/checkpoints/gr_fd600_delta32_replayw12_run-83_epoch-175.pt",
+  "selected_checkpoint_sha256": "21525887a3c38d5beb34071e034c0f7c725d747a139851908f1c91ac53ad91cd",
+  "development_metrics": {
+    "thermal_total_force": {
+      "RMSE_meV_A": 43.31393041415509,
+      "max_abs_meV_A": 210.7437834695436
+    },
+    "harmonic_combined_force": {
+      "RMSE_meV_A": 10.286203541972622,
+      "max_abs_meV_A": 100.50428166593584
+    },
+    "normalized_worst_gate_score": 0.8662786082831018
+  },
+  "model": "results/graphene_fd_delta_weighted/T600/selected_checkpoint.model",
+  "model_sha256": "3cf7f697602fed0b71cece204d797821c1d6faff0e0138892f69b06aafe4ddf3",
+  "fixed_thresholds": {
+    "thermal_force_RMSE_meV_A": 50.0,
+    "thermal_force_max_abs_meV_A": 250.0,
+    "harmonic_RMSE_relative_to_frozen_v11": 2.0
+  },
+  "holdout_root": "data/graphene_fd_thermal_holdout600",
+  "holdout_expected_indices": [
+    3,
+    7,
+    11,
+    14,
+    18,
+    22,
+    26,
+    30,
+    32,
+    35,
+    39,
+    43,
+    47,
+    51,
+    56
+  ],
+  "holdout_raw_ready_at_freeze": false,
+  "selection_scope": "model, replay weight, epoch, and thresholds fixed before either remote holdout shard was relayed to this machine"
+}

@@ -1,0 +1,121 @@
+{
+  "status": "passed",
+  "scope": "E1 cross-degauss force residual gate on development temperatures",
+  "evaluated_at_utc": "2026-08-07T06:55:12.199638+00:00",
+  "development_temperatures_K": [
+    300,
+    450,
+    600
+  ],
+  "locked_validation_temperatures_K_not_accessed": [
+    375,
+    525
+  ],
+  "formula": "Delta F_pred(T_target,T_diag) = -[Delta Phi(T_target)-Delta Phi(T_diag)] u",
+  "overall": {
+    "n_tasks": 30,
+    "n_force_components": 6480,
+    "raw_difference_RMSE_meV_A": 1.109037222482365,
+    "predicted_difference_RMSE_meV_A": 0.6998448564456798,
+    "residual_RMSE_meV_A": 0.6316528056850522,
+    "residual_to_raw_RMSE": 0.5695505911616021,
+    "raw_predicted_component_correlation": 0.850837027335777,
+    "residual_max_abs_meV_A": 2.3198675113580842
+  },
+  "by_temperature_pair": {
+    "T300_to_T450": {
+      "n_tasks": 5,
+      "n_force_components": 1080,
+      "raw_difference_RMSE_meV_A": 0.9761258155345527,
+      "predicted_difference_RMSE_meV_A": 0.39696745393390054,
+      "residual_RMSE_meV_A": 0.6231660900350595,
+      "residual_to_raw_RMSE": 0.638407549639282,
+      "raw_predicted_component_correlation": 0.9317252788246919,
+      "residual_max_abs_meV_A": 1.4271151980062013
+    },
+    "T300_to_T600": {
+      "n_tasks": 5,
+      "n_force_components": 1080,
+      "raw_difference_RMSE_meV_A": 1.6846423522851646,
+      "predicted_difference_RMSE_meV_A": 0.8100760538946945,
+      "residual_RMSE_meV_A": 0.9490833987546762,
+      "residual_to_raw_RMSE": 0.5633738208393456,
+      "raw_predicted_component_correlation": 0.9502109475590228,
+      "residual_max_abs_meV_A": 2.2027400502409153
+    },
+    "T450_to_T300": {
+      "n_tasks": 5,
+      "n_force_components": 1080,
+      "raw_difference_RMSE_meV_A": 0.9009622069968035,
+      "predicted_difference_RMSE_meV_A": 0.4195150516026221,
+      "residual_RMSE_meV_A": 0.5537401654245214,
+      "residual_to_raw_RMSE": 0.6146097595706209,
+      "raw_predicted_component_correlation": 0.9010009254496474,
+      "residual_max_abs_meV_A": 1.6361719698546902
+    },
+    "T450_to_T600": {
+      "n_tasks": 5,
+      "n_force_components": 1080,
+      "raw_difference_RMSE_meV_A": 0.6821671322076431,
+      "predicted_difference_RMSE_meV_A": 0.4365861744261359,
+      "residual_RMSE_meV_A": 0.2940972553088219,
+      "residual_to_raw_RMSE": 0.4311219955101888,
+      "raw_predicted_component_correlation": 0.9560426227904404,
+      "residual_max_abs_meV_A": 0.8685270837425576
+    },
+    "T600_to_T300": {
+      "n_tasks": 5,
+      "n_force_components": 1080,
+      "raw_difference_RMSE_meV_A": 1.3814896979736022,
+      "predicted_difference_RMSE_meV_A": 1.1812667051337737,
+      "residual_RMSE_meV_A": 0.7900001298250734,
+      "residual_to_raw_RMSE": 0.5718465588153585,
+      "raw_predicted_component_correlation": 0.8210649633289676,
+      "residual_max_abs_meV_A": 2.3198675113580842
+    },
+    "T600_to_T450": {
+      "n_tasks": 5,
+      "n_force_components": 1080,
+      "raw_difference_RMSE_meV_A": 0.635091506740847,
+      "predicted_difference_RMSE_meV_A": 0.6024111312929734,
+      "residual_RMSE_meV_A": 0.2959641135497457,
+      "residual_to_raw_RMSE": 0.4660180626073397,
+      "raw_predicted_component_correlation": 0.8869186197273424,
+      "residual_max_abs_meV_A": 0.8778073548489069
+    }
+  },
+  "thresholds": {
+    "residual_RMSE_meV_A_max": 10.0,
+    "relative_to_raw_max": 0.2
+  },
+  "checks": {
+    "residual_RMSE_le_10_meV_A": true,
+    "raw_le_10_meV_A_or_residual_le_20pct_raw": true
+  },
+  "decision": "set_local_Mermin_term_to_zero",
+  "sources": {
+    "manifest": {
+      "path": "/data/graphene_e1_cross_degauss/input/e1_manifest.json",
+      "sha256": "1a23e8677fca9e7fedfdf0f4bb54cb24efba48b17ff0b870fbb774d1815d4367"
+    },
+    "configs": {
+      "path": "/data/graphene_e1_cross_degauss/input/e1_configs.xyz",
+      "sha256": "6bae3fda25bed3e38a8c176e9b4468b1bd993739d754300aaf47a1120cb6380b"
+    },
+    "operator_decision": {
+      "path": "/data/graphene_e1_cross_degauss/input/operator_bundle/operator_gate_decision.json",
+      "sha256": "a21b6ad787a56f722de75e63a1cd24d9dd143b21232a6ead57c7caacef5b31cc"
+    },
+    "operator_sha256_by_temperature": {
+      "300": "114fb9a369ed106e5a89a9c05223aed7667fd737714f3d42516ebdb8e2e475c3",
+      "450": "77bd333570c97e3134eb41b77d2eef7261cb6a7dfe77df2ce085b112e718d160",
+      "600": "5464a8998d7de904ce812edf80240ea53008ab2a66d26d710023cc083b8a5b19"
+    },
+    "lane_A_summary_sha256": "3c1703b206ba8350c12f7c18b22fd30abae6b3bb4ee877f9a3fad831a2205e2a",
+    "lane_B_summary_sha256": "e333b948f92c0045f53358ab88d859d7a0104285afe5bf2ce66de30cd03a6c69"
+  },
+  "outputs": {
+    "force_component_records": "/data/graphene_e1_cross_degauss/analysis/force_component_records.csv",
+    "task_summary": "/data/graphene_e1_cross_degauss/analysis/task_summary.csv"
+  }
+}

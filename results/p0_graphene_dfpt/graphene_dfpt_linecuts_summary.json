@@ -1,0 +1,67 @@
+{
+  "status": "complete",
+  "lattice_a_Angstrom": 2.46,
+  "branch_definition": "highest sorted optical branch f6; no eigenvector tracking",
+  "slope_fits": {
+    "Gamma": "linear fit over t=0,0.015,0.030,0.050",
+    "K_left": "linear fit over t=0.920,0.950,0.970,0.985",
+    "K_right": "linear fit over t=1.015,1.030,1.050,1.080"
+  },
+  "sets": [
+    {
+      "degauss_Ry": 0.01,
+      "kgrid": 64,
+      "gamma_frequency_cm-1": 1573.770748,
+      "gamma_softening_at_center_vs_t0.08_cm-1": 15.967735000000175,
+      "gamma_near_slope_THz_per_t": 4.7532377982967216,
+      "K_frequency_cm-1": 1301.890075,
+      "K_left_slope_THz_per_t": -10.103527263729585,
+      "K_right_slope_THz_per_t": 11.860500790860497,
+      "K_slope_jump_THz_per_t": 21.964028054590084,
+      "K_local_cusp_depth_cm-1": 1.2307840000000851
+    },
+    {
+      "degauss_Ry": 0.01,
+      "kgrid": 32,
+      "gamma_frequency_cm-1": 1574.078591,
+      "gamma_softening_at_center_vs_t0.08_cm-1": 15.732840000000124,
+      "gamma_near_slope_THz_per_t": 4.5187082646810515,
+      "K_frequency_cm-1": 1302.031797,
+      "K_left_slope_THz_per_t": -10.111757435023426,
+      "K_right_slope_THz_per_t": 11.873302892819167,
+      "K_slope_jump_THz_per_t": 21.985060327842593,
+      "K_local_cusp_depth_cm-1": 1.12048649999997
+    },
+    {
+      "degauss_Ry": 0.04,
+      "kgrid": 32,
+      "gamma_frequency_cm-1": 1558.320032,
+      "gamma_softening_at_center_vs_t0.08_cm-1": 5.9849999999999,
+      "gamma_near_slope_THz_per_t": 1.4717900320927144,
+      "K_frequency_cm-1": 1354.165501,
+      "K_left_slope_THz_per_t": -1.6009812430450687,
+      "K_right_slope_THz_per_t": 1.8030301242119786,
+      "K_slope_jump_THz_per_t": 3.4040113672570476,
+      "K_local_cusp_depth_cm-1": 0.13817500000004657
+    },
+    {
+      "degauss_Ry": 0.08,
+      "kgrid": 32,
+      "gamma_frequency_cm-1": 1529.804423,
+      "gamma_softening_at_center_vs_t0.08_cm-1": 2.2708789999999226,
+      "gamma_near_slope_THz_per_t": 0.5435050467049196,
+      "K_frequency_cm-1": 1413.230551,
+      "K_left_slope_THz_per_t": 0.3675078097287989,
+      "K_right_slope_THz_per_t": -0.4169540016219867,
+      "K_slope_jump_THz_per_t": 0.7844618113507856,
+      "K_local_cusp_depth_cm-1": -1.567545500000051
+    }
+  ],
+  "kgrid_convergence": {
+    "dg0.01_k32_minus_k64_RMSE_cm-1": 0.12728052368883858,
+    "dg0.01_k32_minus_k64_MAE_cm-1": 0.09319478571431514,
+    "dg0.01_k32_minus_k64_max_abs_cm-1": 0.30784300000004805,
+    "dg0.01_Gamma_difference_cm-1": 0.30784300000004805,
+    "dg0.01_K_difference_cm-1": 0.1417220000000725
+  }
+}

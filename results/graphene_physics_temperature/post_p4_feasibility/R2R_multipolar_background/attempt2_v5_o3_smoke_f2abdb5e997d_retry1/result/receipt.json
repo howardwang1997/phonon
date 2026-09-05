@@ -1,0 +1,581 @@
+{
+  "O3": {
+    "improper": {
+      "determinant": -0.9999999999999999,
+      "energy_abs_difference_eV": 1.7763568394002505e-15,
+      "energy_eV": 13.952537215269148,
+      "force_covariance_max_abs_difference_eV_A": 7.605027718682322e-14,
+      "force_semantic_sha256": "1f2645cebe3e7f7b7f8084be9b592cf87628d2b649723a834b3864dd24e54d91",
+      "gate_pass": true,
+      "graph_geometry": {
+        "covariant_all_invariant_tensors_exact": true,
+        "covariant_unchanged_tensor_exact": {
+          "batch": true,
+          "edge_index": true,
+          "head": true,
+          "node_attrs": true,
+          "pbc": true,
+          "ptr": true,
+          "unit_shifts": true
+        },
+        "covariant_vector_max_abs_difference_A": {
+          "cell": 0.0,
+          "positions": 0.0,
+          "shifts": 0.0
+        },
+        "native_rebuild_minus_covariant_vector_tensor_max_abs": {
+          "cell": 3.696410377784787e-07,
+          "positions": 7.953559713058667e-07,
+          "shifts": 24.910124881196104
+        }
+      },
+      "independent_covariant_graph_sha256": "43efae71bb0b60cdabf3fbcd107e79a1633cb615b96f493fb32ffb3fa0e66634",
+      "independent_native_rebuilt_graph_sha256": "a3d7b7d8ce19878d6176401f057ea7a474f38401dde9c7868c04e1f3d3661bef",
+      "matrix": [
+        [
+          0.9562129817961336,
+          -0.2925529966809992,
+          0.008335321080449322
+        ],
+        [
+          -0.2560436292076392,
+          -0.8499984961756771,
+          -0.46037399626962894
+        ],
+        [
+          -0.14176880258621044,
+          -0.4380813858543348,
+          0.8876859275561473
+        ]
+      ],
+      "matrix_semantic_sha256": "1d7270cf9483bc425860181ab6d3255c6e8b02d74b161e78b8f9f3dc72e5de58",
+      "query_receipt": {
+        "absolute_structure_semantic_sha256": "6414128e662ee01ffb1e1037b2439c157890216c773e25bb523dc404a4aac52c",
+        "affine_combination_order": "corrected_fixed_carrier_plus_parameter_65_dot_p",
+        "affine_component_names_sha256": "1efea24c027f68c39cce2089f4dee0f814e444a8405c37882d46951782d17f69",
+        "assignment_and_MIC_semantic_sha256": "484be69855c5ed73b7dfc91df5c4d4784077f92fa58b1321595ccb8716113004",
+        "assignment_maximum_distance_A": 0.33445043348913195,
+        "assignment_minimum_uniqueness_gap_A": 1.0862499751847596,
+        "baseline_formal_R2O_graph_hash_match": true,
+        "baseline_formal_R2O_graph_sha256": "3a0c26908a936042bda6f7dcaf7b2520e9a9f14373c8c61561bd6040c552256e",
+        "diagnostic_native_rebuild_selected": false,
+        "endpoint_state_sha256": "733e223805ed3cbc20b645615a8edbd8d60f3cd25898d7cf629848b0aee29d47",
+        "fixed_offset_columns": 1,
+        "formal_R2O_graph_mode": "rigid_transform_probe",
+        "formal_R2O_graph_semantic_sha256": "43efae71bb0b60cdabf3fbcd107e79a1633cb615b96f493fb32ffb3fa0e66634",
+        "format": "graphene_r2r_production_linear_design_query_v2",
+        "graph_construction_default_dtype": "torch.float32",
+        "interaction_diameter_A": 12.8,
+        "legacy_66_column_create_graph_used": false,
+        "live_absolute_aligned_reference_order_semantic_sha256": "0ffe2536f788dce265b303fd711166da65eef223b8a57b3bc625e7c80617ff3b",
+        "mechanics_affine_[1,p]_sha256": "998302af39df6becffa603360d14f0e1288f9f1a1e5b7eeef39bab820b0ff09b",
+        "mechanics_coefficients_sha256": "656ca438f398dc4373456439322d2c94883789e2f97ac1bbcad66b5bd5713b04",
+        "mechanics_path": "corrected_weighted_node_carrier_plus_65_zerojet",
+        "native_vs_formal_graph_cell_max_abs_A": 3.357723237229493e-07,
+        "no_wrap_margin_A": 1.959999999999999,
+        "parameter_columns": 65,
+        "production_integration_API_only": true,
+        "reference_semantic_sha256": "2d9d97aa3a994f1bc4db0965a1837d46269b0f588fc19d8c96308848c58ef6ea",
+        "rigid_transform_receipt": {
+          "algorithm": "exact frozen baseline graph; positions/shifts/cell @ Q.T; all other FORMAL_GRAPH_TENSOR_KEYS byte exact",
+          "assignment_arrays_byte_equal": {
+            "image_integer_reference_order": true,
+            "reference_to_source": true,
+            "source_to_reference": true
+          },
+          "background_graph_sha256": "b8184c49c88a9ad4957a845beca13a372652a887ddf5510fcd7a6c394b88378e",
+          "background_live_centered_q_vector_policy": "synchronized live displacement/reference vectors transform by Q",
+          "background_topology_distance_weight_normalization_source": "exact frozen baseline ReferenceNeighborhood",
+          "baseline_assignment_and_MIC_semantic_sha256": "484be69855c5ed73b7dfc91df5c4d4784077f92fa58b1321595ccb8716113004",
+          "baseline_graph_frozen_hash_match": true,
+          "baseline_graph_sha256": "3a0c26908a936042bda6f7dcaf7b2520e9a9f14373c8c61561bd6040c552256e",
+          "baseline_reference_full_semantic_sha256": "39cf74c68a5ce629ab708ce9158f49d72a7e955895d5b01fa10c2883caa861e7",
+          "baseline_structure_full_semantic_sha256": "d3f6eca52753a6407c58d107374e06e80cec470c3668c1c6f1f034ea59488766",
+          "derived_graph_sha256": "43efae71bb0b60cdabf3fbcd107e79a1633cb615b96f493fb32ffb3fa0e66634",
+          "determinant": -0.9999999999999999,
+          "format": "graphene_r2r_covariant_rigid_graph_receipt_v1",
+          "internal_covariance_atol_A": 1e-12,
+          "invariant_tensor_keys": [
+            "edge_index",
+            "unit_shifts",
+            "node_attrs",
+            "batch",
+            "ptr",
+            "head",
+            "pbc"
+          ],
+          "live_cell_covariance_max_abs_A": 0.0,
+          "live_position_covariance_max_abs_A": 0.0,
+          "matrix": [
+            [
+              0.9562129817961336,
+              -0.2925529966809992,
+              0.008335321080449322
+            ],
+            [
+              -0.2560436292076392,
+              -0.8499984961756771,
+              -0.46037399626962894
+            ],
+            [
+              -0.14176880258621044,
+              -0.4380813858543348,
+              0.8876859275561473
+            ]
+          ],
+          "matrix_semantic_sha256": "1d7270cf9483bc425860181ab6d3255c6e8b02d74b161e78b8f9f3dc72e5de58",
+          "native_background_distance_max_abs_A": 8.881784197001252e-15,
+          "native_background_multiset_diagnostic": {
+            "baseline_edge_count": 2808,
+            "edge_identity_multiset_equal": true,
+            "matched_quintic_weight_max_abs": 3.552713678800501e-15,
+            "matched_reference_distance_max_abs_A": 8.881784197001252e-15,
+            "native_rebuilt_edge_count": 2808,
+            "normalization_max_abs": 1.7763568394002505e-14,
+            "numeric_differences_are_diagnostic_only": true,
+            "physical_multiset_equivalent": true,
+            "shortest_in_plane_translation_abs_difference_A": 1.7763568394002505e-15,
+            "stored_order_byte_equal": true
+          },
+          "native_background_physical_edge_multiset_equivalent": true,
+          "native_background_topology_equal": true,
+          "native_rebuild_diagnostic": {
+            "authorization_role": "diagnostic_only_not_physics_gate",
+            "baseline_graph_sha256": "3a0c26908a936042bda6f7dcaf7b2520e9a9f14373c8c61561bd6040c552256e",
+            "covariant_derived_graph_sha256": "43efae71bb0b60cdabf3fbcd107e79a1633cb615b96f493fb32ffb3fa0e66634",
+            "covariant_edge_length_max_abs_difference_A": 2.886579864025407e-15,
+            "covariant_edge_vector_max_abs_difference_A": 3.1086244689504383e-15,
+            "format": "graphene_r2r_rigid_native_rebuild_diagnostic_v1",
+            "native_invariant_tensor_byte_equal": {
+              "batch": true,
+              "edge_index": false,
+              "head": true,
+              "node_attrs": true,
+              "pbc": true,
+              "ptr": true,
+              "unit_shifts": false
+            },
+            "native_matched_physical_edge_length_max_abs_A": 1.216330023368073e-06,
+            "native_matched_physical_edge_vector_max_abs_A": 1.5221708267176837e-06,
+            "native_minus_covariant_vector_tensor_max_abs": {
+              "cell": 3.696410377784787e-07,
+              "positions": 7.953559713058667e-07,
+              "shifts": 24.910124881196104
+            },
+            "native_physical_edge_identity_multiset_equal": true,
+            "native_physical_edge_multiset_equivalent": true,
+            "native_rebuilt_graph_sha256": "a3d7b7d8ce19878d6176401f057ea7a474f38401dde9c7868c04e1f3d3661bef",
+            "numeric_differences_are_diagnostic_only": true,
+            "physics_gate_authorized": false
+          },
+          "native_rebuild_used_for_physics": false,
+          "public_reference_input_covariance_array_exact": true,
+          "public_structure_input_covariance_array_exact": true,
+          "reference_position_covariance_max_abs_A": 7.993605777301127e-15,
+          "reordered_and_reference_covariance_within_named_tolerance": {
+            "adapted_reference_positions": true,
+            "ordered_cell": true,
+            "ordered_positions": true
+          },
+          "selected_graph_sha256": "43efae71bb0b60cdabf3fbcd107e79a1633cb615b96f493fb32ffb3fa0e66634",
+          "vector_tensor_keys": [
+            "positions",
+            "shifts",
+            "cell"
+          ]
+        },
+        "shortest_in_plane_translation_A": 14.76,
+        "source_order_force_rows": 216
+      },
+      "reference_semantic_sha256": "2d9d97aa3a994f1bc4db0965a1837d46269b0f588fc19d8c96308848c58ef6ea"
+    },
+    "proper": {
+      "determinant": 0.9999999999999999,
+      "energy_abs_difference_eV": 1.7763568394002505e-15,
+      "energy_eV": 13.952537215269148,
+      "force_covariance_max_abs_difference_eV_A": 7.704947790898586e-14,
+      "force_semantic_sha256": "8c62b0d44059664b4dfb87f23385204b80edd2b52ef526d29c82a8eb8625bba0",
+      "gate_pass": true,
+      "graph_geometry": {
+        "covariant_all_invariant_tensors_exact": true,
+        "covariant_unchanged_tensor_exact": {
+          "batch": true,
+          "edge_index": true,
+          "head": true,
+          "node_attrs": true,
+          "pbc": true,
+          "ptr": true,
+          "unit_shifts": true
+        },
+        "covariant_vector_max_abs_difference_A": {
+          "cell": 1.7763568394002505e-15,
+          "positions": 0.0,
+          "shifts": 0.0
+        },
+        "native_rebuild_minus_covariant_vector_tensor_max_abs": {
+          "cell": 6.544275290565338e-07,
+          "positions": 7.953559713058667e-07,
+          "shifts": 17.430986840602525
+        }
+      },
+      "independent_covariant_graph_sha256": "3a7ebc7a8702a5f6566a3ec84fb72ff38d87a1e6c2d9894fc16b8e8a7eaf34fa",
+      "independent_native_rebuilt_graph_sha256": "47db981e0d76dec93b9a33fc7f9e6a3e13332cd11fb09f20c92c2468f7c47e7a",
+      "matrix": [
+        [
+          -0.9562129817961336,
+          -0.2925529966809992,
+          0.008335321080449322
+        ],
+        [
+          0.2560436292076392,
+          -0.8499984961756771,
+          -0.46037399626962894
+        ],
+        [
+          0.14176880258621044,
+          -0.4380813858543348,
+          0.8876859275561473
+        ]
+      ],
+      "matrix_semantic_sha256": "b6804818d30af70f94293d9502e7b7397f8c33bc44fbd398acafb7cca3fb582c",
+      "query_receipt": {
+        "absolute_structure_semantic_sha256": "689ad7c6204b02f8e851907ecdbe736987ba4a45e500ff982842064a3b6d8093",
+        "affine_combination_order": "corrected_fixed_carrier_plus_parameter_65_dot_p",
+        "affine_component_names_sha256": "1efea24c027f68c39cce2089f4dee0f814e444a8405c37882d46951782d17f69",
+        "assignment_and_MIC_semantic_sha256": "484be69855c5ed73b7dfc91df5c4d4784077f92fa58b1321595ccb8716113004",
+        "assignment_maximum_distance_A": 0.33445043348912884,
+        "assignment_minimum_uniqueness_gap_A": 1.0862499751847623,
+        "baseline_formal_R2O_graph_hash_match": true,
+        "baseline_formal_R2O_graph_sha256": "3a0c26908a936042bda6f7dcaf7b2520e9a9f14373c8c61561bd6040c552256e",
+        "diagnostic_native_rebuild_selected": false,
+        "endpoint_state_sha256": "733e223805ed3cbc20b645615a8edbd8d60f3cd25898d7cf629848b0aee29d47",
+        "fixed_offset_columns": 1,
+        "formal_R2O_graph_mode": "rigid_transform_probe",
+        "formal_R2O_graph_semantic_sha256": "3a7ebc7a8702a5f6566a3ec84fb72ff38d87a1e6c2d9894fc16b8e8a7eaf34fa",
+        "format": "graphene_r2r_production_linear_design_query_v2",
+        "graph_construction_default_dtype": "torch.float32",
+        "interaction_diameter_A": 12.8,
+        "legacy_66_column_create_graph_used": false,
+        "live_absolute_aligned_reference_order_semantic_sha256": "e72cb339950d0fe1e757204b95e19bf4434f94642de6cd05f39735fe08b26445",
+        "mechanics_affine_[1,p]_sha256": "998302af39df6becffa603360d14f0e1288f9f1a1e5b7eeef39bab820b0ff09b",
+        "mechanics_coefficients_sha256": "656ca438f398dc4373456439322d2c94883789e2f97ac1bbcad66b5bd5713b04",
+        "mechanics_path": "corrected_weighted_node_carrier_plus_65_zerojet",
+        "native_vs_formal_graph_cell_max_abs_A": 2.77168586748644e-07,
+        "no_wrap_margin_A": 1.959999999999999,
+        "parameter_columns": 65,
+        "production_integration_API_only": true,
+        "reference_semantic_sha256": "2d9d97aa3a994f1bc4db0965a1837d46269b0f588fc19d8c96308848c58ef6ea",
+        "rigid_transform_receipt": {
+          "algorithm": "exact frozen baseline graph; positions/shifts/cell @ Q.T; all other FORMAL_GRAPH_TENSOR_KEYS byte exact",
+          "assignment_arrays_byte_equal": {
+            "image_integer_reference_order": true,
+            "reference_to_source": true,
+            "source_to_reference": true
+          },
+          "background_graph_sha256": "66a4697048ffcb26526cde441fd6e2ac1b1dc050bd9f16b3426fe2da5571d1b1",
+          "background_live_centered_q_vector_policy": "synchronized live displacement/reference vectors transform by Q",
+          "background_topology_distance_weight_normalization_source": "exact frozen baseline ReferenceNeighborhood",
+          "baseline_assignment_and_MIC_semantic_sha256": "484be69855c5ed73b7dfc91df5c4d4784077f92fa58b1321595ccb8716113004",
+          "baseline_graph_frozen_hash_match": true,
+          "baseline_graph_sha256": "3a0c26908a936042bda6f7dcaf7b2520e9a9f14373c8c61561bd6040c552256e",
+          "baseline_reference_full_semantic_sha256": "39cf74c68a5ce629ab708ce9158f49d72a7e955895d5b01fa10c2883caa861e7",
+          "baseline_structure_full_semantic_sha256": "d3f6eca52753a6407c58d107374e06e80cec470c3668c1c6f1f034ea59488766",
+          "derived_graph_sha256": "3a7ebc7a8702a5f6566a3ec84fb72ff38d87a1e6c2d9894fc16b8e8a7eaf34fa",
+          "determinant": 0.9999999999999999,
+          "format": "graphene_r2r_covariant_rigid_graph_receipt_v1",
+          "internal_covariance_atol_A": 1e-12,
+          "invariant_tensor_keys": [
+            "edge_index",
+            "unit_shifts",
+            "node_attrs",
+            "batch",
+            "ptr",
+            "head",
+            "pbc"
+          ],
+          "live_cell_covariance_max_abs_A": 0.0,
+          "live_position_covariance_max_abs_A": 0.0,
+          "matrix": [
+            [
+              -0.9562129817961336,
+              -0.2925529966809992,
+              0.008335321080449322
+            ],
+            [
+              0.2560436292076392,
+              -0.8499984961756771,
+              -0.46037399626962894
+            ],
+            [
+              0.14176880258621044,
+              -0.4380813858543348,
+              0.8876859275561473
+            ]
+          ],
+          "matrix_semantic_sha256": "b6804818d30af70f94293d9502e7b7397f8c33bc44fbd398acafb7cca3fb582c",
+          "native_background_distance_max_abs_A": 9.769962616701378e-15,
+          "native_background_multiset_diagnostic": {
+            "baseline_edge_count": 2808,
+            "edge_identity_multiset_equal": true,
+            "matched_quintic_weight_max_abs": 3.552713678800501e-15,
+            "matched_reference_distance_max_abs_A": 9.769962616701378e-15,
+            "native_rebuilt_edge_count": 2808,
+            "normalization_max_abs": 1.7763568394002505e-14,
+            "numeric_differences_are_diagnostic_only": true,
+            "physical_multiset_equivalent": true,
+            "shortest_in_plane_translation_abs_difference_A": 1.7763568394002505e-15,
+            "stored_order_byte_equal": true
+          },
+          "native_background_physical_edge_multiset_equivalent": true,
+          "native_background_topology_equal": true,
+          "native_rebuild_diagnostic": {
+            "authorization_role": "diagnostic_only_not_physics_gate",
+            "baseline_graph_sha256": "3a0c26908a936042bda6f7dcaf7b2520e9a9f14373c8c61561bd6040c552256e",
+            "covariant_derived_graph_sha256": "3a7ebc7a8702a5f6566a3ec84fb72ff38d87a1e6c2d9894fc16b8e8a7eaf34fa",
+            "covariant_edge_length_max_abs_difference_A": 2.6645352591003757e-15,
+            "covariant_edge_vector_max_abs_difference_A": 2.6645352591003757e-15,
+            "format": "graphene_r2r_rigid_native_rebuild_diagnostic_v1",
+            "native_invariant_tensor_byte_equal": {
+              "batch": true,
+              "edge_index": false,
+              "head": true,
+              "node_attrs": true,
+              "pbc": true,
+              "ptr": true,
+              "unit_shifts": false
+            },
+            "native_matched_physical_edge_length_max_abs_A": 1.2295370170889441e-06,
+            "native_matched_physical_edge_vector_max_abs_A": 1.5221708267176837e-06,
+            "native_minus_covariant_vector_tensor_max_abs": {
+              "cell": 6.544275290565338e-07,
+              "positions": 7.953559713058667e-07,
+              "shifts": 17.430986840602525
+            },
+            "native_physical_edge_identity_multiset_equal": true,
+            "native_physical_edge_multiset_equivalent": true,
+            "native_rebuilt_graph_sha256": "47db981e0d76dec93b9a33fc7f9e6a3e13332cd11fb09f20c92c2468f7c47e7a",
+            "numeric_differences_are_diagnostic_only": true,
+            "physics_gate_authorized": false
+          },
+          "native_rebuild_used_for_physics": false,
+          "public_reference_input_covariance_array_exact": true,
+          "public_structure_input_covariance_array_exact": true,
+          "reference_position_covariance_max_abs_A": 7.105427357601002e-15,
+          "reordered_and_reference_covariance_within_named_tolerance": {
+            "adapted_reference_positions": true,
+            "ordered_cell": true,
+            "ordered_positions": true
+          },
+          "selected_graph_sha256": "3a7ebc7a8702a5f6566a3ec84fb72ff38d87a1e6c2d9894fc16b8e8a7eaf34fa",
+          "vector_tensor_keys": [
+            "positions",
+            "shifts",
+            "cell"
+          ]
+        },
+        "shortest_in_plane_translation_A": 14.76,
+        "source_order_force_rows": 216
+      },
+      "reference_semantic_sha256": "2d9d97aa3a994f1bc4db0965a1837d46269b0f588fc19d8c96308848c58ef6ea"
+    }
+  },
+  "arrays": {
+    "basename": "o3_ef_arrays.npz",
+    "schema": {
+      "baseline_energy_eV": {
+        "dtype": "float64",
+        "shape": [
+          1
+        ]
+      },
+      "baseline_force_eV_A": {
+        "dtype": "float64",
+        "shape": [
+          72,
+          3
+        ]
+      },
+      "improper_energy_eV": {
+        "dtype": "float64",
+        "shape": [
+          1
+        ]
+      },
+      "improper_force_eV_A": {
+        "dtype": "float64",
+        "shape": [
+          72,
+          3
+        ]
+      },
+      "improper_matrix": {
+        "dtype": "float64",
+        "shape": [
+          3,
+          3
+        ]
+      },
+      "proper_energy_eV": {
+        "dtype": "float64",
+        "shape": [
+          1
+        ]
+      },
+      "proper_force_eV_A": {
+        "dtype": "float64",
+        "shape": [
+          72,
+          3
+        ]
+      },
+      "proper_matrix": {
+        "dtype": "float64",
+        "shape": [
+          3,
+          3
+        ]
+      }
+    },
+    "sha256": "e4cdac7c9a32513229d286de90078e6e7f42c10af46fe5171b96f8c5e0001e05"
+  },
+  "attempt2_manifest_sha256": "f2abdb5e997db69e0f406458c2dd3b0331e22d0e5d8828b4986b6f964c8753a6",
+  "baseline": {
+    "energy_eV": 13.952537215269146,
+    "force_semantic_sha256": "249a3e6b00badd857c62d677593bd0ca9a2b834f0c4dbf5c48ecff30b960ccce",
+    "independent_graph_sha256": "3a0c26908a936042bda6f7dcaf7b2520e9a9f14373c8c61561bd6040c552256e",
+    "query_receipt": {
+      "absolute_structure_semantic_sha256": "e64c2c5cc7681f710f01a22e9a374cf900c435387de16edfbb2037b025d941b9",
+      "affine_combination_order": "corrected_fixed_carrier_plus_parameter_65_dot_p",
+      "affine_component_names_sha256": "1efea24c027f68c39cce2089f4dee0f814e444a8405c37882d46951782d17f69",
+      "assignment_and_MIC_semantic_sha256": "484be69855c5ed73b7dfc91df5c4d4784077f92fa58b1321595ccb8716113004",
+      "assignment_maximum_distance_A": 0.33445043348913206,
+      "assignment_minimum_uniqueness_gap_A": 1.0862499751847596,
+      "baseline_formal_R2O_graph_hash_match": true,
+      "baseline_formal_R2O_graph_sha256": "3a0c26908a936042bda6f7dcaf7b2520e9a9f14373c8c61561bd6040c552256e",
+      "diagnostic_native_rebuild_selected": false,
+      "endpoint_state_sha256": "733e223805ed3cbc20b645615a8edbd8d60f3cd25898d7cf629848b0aee29d47",
+      "fixed_offset_columns": 1,
+      "formal_R2O_graph_mode": "baseline",
+      "formal_R2O_graph_semantic_sha256": "3a0c26908a936042bda6f7dcaf7b2520e9a9f14373c8c61561bd6040c552256e",
+      "format": "graphene_r2r_production_linear_design_query_v2",
+      "graph_construction_default_dtype": "torch.float32",
+      "interaction_diameter_A": 12.8,
+      "legacy_66_column_create_graph_used": false,
+      "live_absolute_aligned_reference_order_semantic_sha256": "9db3c0e5152d7d172c5d5ec86296e87d97297fa388434815009c1daa98519239",
+      "mechanics_affine_[1,p]_sha256": "998302af39df6becffa603360d14f0e1288f9f1a1e5b7eeef39bab820b0ff09b",
+      "mechanics_coefficients_sha256": "656ca438f398dc4373456439322d2c94883789e2f97ac1bbcad66b5bd5713b04",
+      "mechanics_path": "corrected_weighted_node_carrier_plus_65_zerojet",
+      "native_vs_formal_graph_cell_max_abs_A": 3.6055411456459296e-07,
+      "no_wrap_margin_A": 1.959999999999999,
+      "parameter_columns": 65,
+      "production_integration_API_only": true,
+      "reference_semantic_sha256": "2d9d97aa3a994f1bc4db0965a1837d46269b0f588fc19d8c96308848c58ef6ea",
+      "rigid_transform_receipt": null,
+      "shortest_in_plane_translation_A": 14.76,
+      "source_order_force_rows": 216
+    }
+  },
+  "can_authorize_fit_or_training": false,
+  "combined_public_call_count": 3,
+  "combined_public_path": "graphene_r2r_multipolar_background.production_combined_energy_force",
+  "diagnostic_only": true,
+  "driver_sha256": "e45dd2ea663849fe48739fb1430afe7c422e7d0ee4fb145cce5d1595fe0872c9",
+  "endpoint_state_sha256_after": "733e223805ed3cbc20b645615a8edbd8d60f3cd25898d7cf629848b0aee29d47",
+  "endpoint_state_sha256_after_each_call": [
+    "733e223805ed3cbc20b645615a8edbd8d60f3cd25898d7cf629848b0aee29d47",
+    "733e223805ed3cbc20b645615a8edbd8d60f3cd25898d7cf629848b0aee29d47",
+    "733e223805ed3cbc20b645615a8edbd8d60f3cd25898d7cf629848b0aee29d47"
+  ],
+  "endpoint_state_sha256_before": "733e223805ed3cbc20b645615a8edbd8d60f3cd25898d7cf629848b0aee29d47",
+  "endpoint_state_unchanged": true,
+  "fixed_parameter_decomposition": {
+    "executed": false,
+    "reason": "bounded diagnostic uses only the three decisive combined public E/F calls; no additional fixed/parameter production paths"
+  },
+  "force_labels_used": false,
+  "formal_GO_used": false,
+  "format": "graphene_r2r0_attempt2_v5_o3_smoke_v1",
+  "full_formal_execution": false,
+  "held_data_access": false,
+  "manifest": {
+    "authorization_marker_created": false,
+    "can_authorize_fit_or_training": false,
+    "formal_contract_sha256": "308bbb6e9939644c7f9d37d89a40b3c49e2199e81da498cd06e4b9af9e43c230",
+    "formal_source_sha256": {
+      "aggregate_cli": "29b35a7899cd02682d2575dbbeb9bfefb19eaec289f5a09fd82c1b06b4827abf",
+      "contract_doc": "f5818c84c5135d6c8cf91ce4dc8228c5e6d5b952ee855a43e18634a0999dfc45",
+      "formal_core": "813ccffaf06e2027ce42e4aa7685fd2f1552da518a9bd3574edead5af8bafbfb",
+      "launcher": "7c9807c088e4f66b9d7286d8ec79e0f517dff405065a9eb7bc7aff6b57d09467",
+      "shard_cli": "f28961e25c235b47d0ac8d6bca3cdb52fd52ed832e5cabeeda72d08dcf7ba316",
+      "tests": "be95450fb05ad5337833e153e67c7b9a2e9c6b3b1f959cc74c4ae646dbf7c780"
+    },
+    "format": "graphene_r2r0_formal_freeze_manifest_v1",
+    "frozen_primitive_sha256": {
+      "R2O_evaluator": "14cf2a160a9b0281c0c2149caec6d62f9a31e40a9c7af39ea3ea2e14956c79ce",
+      "R2O_wrapper": "0eedea5a59b8f717559feda97b2c2956dd6f274fe4963de10c214db53b4610e2",
+      "R2R_contract_doc": "003f4c3e949e6432b56a350541ca15e7bde48749ad2150129e8ea227cf5c56c9",
+      "R2R_module": "4db3665f945783086de5c7a2f6262843bbe7d03df2a32f9153e450200b25064c",
+      "R2R_tests": "1255c5720cb0fe575fe7edd9d211035799feccebd922488bc33ebe20f7c36c08"
+    },
+    "input_sha256": {
+      "endpoint_checkpoint": "31dd053a01c700ee73eedff35e85c02cf7765de2299ff418259c270b3f823eb5",
+      "endpoint_marker": "5fa7771f4c8f7d32990e4bb0d0350e8f1f020c1685030626ac8555b06a4ce0ed",
+      "endpoint_receipt": "810a45ab66a885a940e086a7be9c4304050a0772d477ecd32bd03c20c8ef43a1",
+      "harmonic_zero32": "600c737b11987fb976724dd86042d384fc1abef9f2340ffa5c30d5fe26a8afdf",
+      "reference_6x6": "2793b514768c6d875831a1b62fcb2aa5f858830cb2de7b1b2d5492dabeb8da90",
+      "reference_8x8": "1c438550cb03d94cc80ca16e1ca89d24f87db4d732743b6c07128d47edf5b900",
+      "thermal92": "cc2e9c68d418fba996e8ac89c8156c8adf00768406f6171aaa57f0a9bd2720c1"
+    }
+  },
+  "mechanics_execution": false,
+  "monkeypatch_or_override_used": false,
+  "reference_semantic_sha256": "2d9d97aa3a994f1bc4db0965a1837d46269b0f588fc19d8c96308848c58ef6ea",
+  "runtime": {
+    "cuda_device_name": "Tesla V100-SXM2-32GB",
+    "cuda_peak_allocated_bytes": 178458112,
+    "elapsed_seconds": 5.984831145993667,
+    "hostname": "ubuntu22",
+    "numpy": "2.4.6",
+    "python": "3.11.15 | packaged by conda-forge | (main, Jun 11 2026, 03:34:02) [GCC 14.3.0]",
+    "torch": "2.6.0+cu124"
+  },
+  "seed": 83,
+  "shard_execution": false,
+  "staged_input_sha256": {
+    "ENDPOINT_FROZEN": "5fa7771f4c8f7d32990e4bb0d0350e8f1f020c1685030626ac8555b06a4ce0ed",
+    "endpoint.pt": "31dd053a01c700ee73eedff35e85c02cf7765de2299ff418259c270b3f823eb5",
+    "endpoint_receipt.json": "810a45ab66a885a940e086a7be9c4304050a0772d477ecd32bd03c20c8ef43a1",
+    "reference_6x6.xyz": "2793b514768c6d875831a1b62fcb2aa5f858830cb2de7b1b2d5492dabeb8da90",
+    "train_thermal.xyz": "cc2e9c68d418fba996e8ac89c8156c8adf00768406f6171aaa57f0a9bd2720c1"
+  },
+  "staged_source_sha256": {
+    "docs/GRAPHENE_R2R0_FORMAL_CONTRACT_2026-08-25.md": "f5818c84c5135d6c8cf91ce4dc8228c5e6d5b952ee855a43e18634a0999dfc45",
+    "docs/GRAPHENE_R2R_MULTIPOLAR_BACKGROUND_CONTRACT_2026-08-25.md": "003f4c3e949e6432b56a350541ca15e7bde48749ad2150129e8ea227cf5c56c9",
+    "scripts/smearing_kink/aggregate_graphene_r2r0_formal.py": "29b35a7899cd02682d2575dbbeb9bfefb19eaec289f5a09fd82c1b06b4827abf",
+    "scripts/smearing_kink/evaluate_graphene_r2o_taylor_null.py": "14cf2a160a9b0281c0c2149caec6d62f9a31e40a9c7af39ea3ea2e14956c79ce",
+    "scripts/smearing_kink/graphene_r2o_taylor_null.py": "0eedea5a59b8f717559feda97b2c2956dd6f274fe4963de10c214db53b4610e2",
+    "scripts/smearing_kink/graphene_r2r0_formal.py": "813ccffaf06e2027ce42e4aa7685fd2f1552da518a9bd3574edead5af8bafbfb",
+    "scripts/smearing_kink/graphene_r2r_multipolar_background.py": "4db3665f945783086de5c7a2f6262843bbe7d03df2a32f9153e450200b25064c",
+    "scripts/smearing_kink/launch_graphene_r2r0_formal.py": "7c9807c088e4f66b9d7286d8ec79e0f517dff405065a9eb7bc7aff6b57d09467",
+    "scripts/smearing_kink/run_graphene_r2r0_formal.py": "f28961e25c235b47d0ac8d6bca3cdb52fd52ed832e5cabeeda72d08dcf7ba316",
+    "tests/test_graphene_r2r0_formal.py": "be95450fb05ad5337833e153e67c7b9a2e9c6b3b1f959cc74c4ae646dbf7c780",
+    "tests/test_graphene_r2r_multipolar_background.py": "1255c5720cb0fe575fe7edd9d211035799feccebd922488bc33ebe20f7c36c08"
+  },
+  "status": "O3_DIAGNOSTIC_PASS",
+  "support_data_access": false,
+  "thermal_config_type": "r2o_exact_e50_seed0_train",
+  "thermal_frame_count_geometry_only": 92,
+  "thermal_global_index": 0,
+  "thresholds": {
+    "energy_abs_eV": 1e-06,
+    "force_covariance_max_abs_eV_A": 1e-05
+  },
+  "torch_default_dtype_after": "torch.float32",
+  "torch_default_dtype_after_each_call": [
+    "torch.float32",
+    "torch.float32",
+    "torch.float32"
+  ],
+  "torch_default_dtype_before": "torch.float32",
+  "torch_default_dtype_unchanged_float32": true
+}

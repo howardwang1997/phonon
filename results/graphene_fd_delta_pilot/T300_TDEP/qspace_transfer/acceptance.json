@@ -1,0 +1,154 @@
+{
+  "status": "failed",
+  "scope": "300 K development force gate plus second-lattice-temperature q-space constraint; not an independent force holdout",
+  "method": "fit missing squared-frequency LR response against static direct DFPT using a static base+delta background; transfer the complete held-group correction, including the LR contribution at the high-symmetry anchor, to a short-range finite-temperature TDEP dynamical matrix; retain an anchor-preserving transfer as a non-selecting control",
+  "temperature_K": 300,
+  "degauss_Ry": 0.0019000869,
+  "thresholds": {
+    "direct_DFPT_group_CV_MAE_cm-1": 5.0,
+    "DFT_TDEP_thermal_group_CV_MAE_cm-1": 10.0,
+    "Gamma_K_top_abs_error_cm-1": 15.0,
+    "K_kink_relative_error": 0.2,
+    "seed_pair_full_band_MAE_cm-1": 5.0,
+    "MD_mean_temperature_relative_error": 0.2,
+    "matrix_projector_replay_max_abs_cm-1": 1e-05
+  },
+  "inputs": {
+    "dfpt_line": {
+      "path": "/home/howardwang/phonon/results/graphene_physical_fd_dfpt/campaigns/FD300_LINE/graphene_FD300_LINE_dfpt.csv",
+      "sha256": "6cda8e4279a4aea2fec05c8a758b1a642f4b4a1b8af73e04e2113b535c22ab3a"
+    },
+    "background": {
+      "path": "/home/howardwang/phonon/results/vq_kink6_fd/graphene_sc6_dg0.040_phonopy.yaml",
+      "sha256": "69144a1dd3c66df94c116259067be27d1ede3ca8ab01c66516504c5e1ec90c0a"
+    },
+    "static_short_fc2": {
+      "path": "/home/howardwang/phonon/results/graphene_fd_delta_pilot/T300_TDEP/static_test/static_short_fc2.npz",
+      "sha256": "0caf7c8809657b4c8051cbb64a2bf0b5e36df6ae8ec1a6a143ce05cc4f5932df"
+    },
+    "thermal_short_tdep": {
+      "path": "/home/howardwang/phonon/results/td_phonon/td_graphene_v11_fd300_delta_pilot_short_pooled360.npz",
+      "sha256": "d67ff85a0a47877a4f13baf475a215e53400fd5969d4a841677da9b21656023d"
+    },
+    "dft_tdep": {
+      "path": "/home/howardwang/phonon/results/td_phonon/graphene_physical_fd_dft_300K_wave3.npz",
+      "sha256": "63d66500f29436097c357ea04f11ac996ddb54bbaf494a9351636f75f29b98ee"
+    },
+    "force_selection": {
+      "path": "/home/howardwang/phonon/results/graphene_fd_delta_pilot/T300/delta32/gate_selection.json",
+      "sha256": "b937be838a6daa7cbfea7bde3b2b93637fd0ad79dcf9e3ca9f664581442389d1"
+    }
+  },
+  "force_gate_passed": true,
+  "thermal_seed_files": [
+    {
+      "path": "/home/howardwang/phonon/results/td_phonon/td_graphene_v11_fd300_delta_pilot_short_seed0.npz",
+      "sha256": "14fd05ffc8441503e4557fef364f7526867d18aa239485db4cc62d0ab0118c4b"
+    },
+    {
+      "path": "/home/howardwang/phonon/results/td_phonon/td_graphene_v11_fd300_delta_pilot_short_seed1.npz",
+      "sha256": "5034965a5e2f9c274803aebed090b25ba818c6d0c37d517cda19c02dc4efbb94"
+    },
+    {
+      "path": "/home/howardwang/phonon/results/td_phonon/td_graphene_v11_fd300_delta_pilot_short_seed2.npz",
+      "sha256": "e525b22a0263d59e4fb8b73ea3bfdf3b8d565995ecd43d5feb2476ff23c9d70d"
+    }
+  ],
+  "thermal_seed_pair_spread": [
+    {
+      "seeds": [
+        0,
+        1
+      ],
+      "full_band_MAE_cm-1": 2.70799111146749
+    },
+    {
+      "seeds": [
+        0,
+        2
+      ],
+      "full_band_MAE_cm-1": 1.984261804335353
+    },
+    {
+      "seeds": [
+        1,
+        2
+      ],
+      "full_band_MAE_cm-1": 2.4296416725894483
+    }
+  ],
+  "thermal_seed_temperatures": [
+    {
+      "seed": 0,
+      "mean_temperature_K": 294.7018166309066,
+      "max_temperature_K": 367.1975856299984,
+      "mean_temperature_relative_error": 0.01766061123031136
+    },
+    {
+      "seed": 1,
+      "mean_temperature_K": 308.5567345783389,
+      "max_temperature_K": 387.01920988960353,
+      "mean_temperature_relative_error": 0.02852244859446292
+    },
+    {
+      "seed": 2,
+      "mean_temperature_K": 293.10294859778696,
+      "max_temperature_K": 366.0650422752866,
+      "mean_temperature_relative_error": 0.022990171340710124
+    }
+  ],
+  "passes_seed_stability_gate": true,
+  "regions": {
+    "G": {
+      "n_points": 8,
+      "rounded_cusp_coefficients_delta_lambda_cm-2": [
+        116424.9194051669,
+        696712.3139924586
+      ],
+      "thermal_transfer_includes_static_intercept": true,
+      "direct_DFPT_static_short_MAE_cm-1": 42.69728398615439,
+      "direct_DFPT_group_CV_MAE_cm-1": 1.0645790320407684,
+      "direct_DFPT_group_CV_max_abs_cm-1": 2.7163792002222635,
+      "DFT_TDEP_thermal_short_MAE_cm-1": 3.636974734635288,
+      "DFT_TDEP_thermal_group_CV_MAE_cm-1": 39.089164509768636,
+      "DFT_TDEP_thermal_group_CV_max_abs_cm-1": 49.727319730877525,
+      "control_anchor_preserving_transfer_MAE_cm-1": 4.32047929917303,
+      "control_anchor_preserving_transfer_max_abs_cm-1": 13.256489341292081,
+      "high_symmetry_DFT_TDEP_cm-1": 1547.250322322055,
+      "high_symmetry_thermal_group_CV_cm-1": 1581.6304106574792,
+      "high_symmetry_abs_error_cm-1": 34.38008833542426,
+      "control_anchor_preserving_high_symmetry_abs_error_cm-1": 3.18277011635746
+    },
+    "K": {
+      "n_points": 11,
+      "rounded_cusp_coefficients_delta_lambda_cm-2": [
+        -163103.78658035584,
+        1511647.3762406036
+      ],
+      "thermal_transfer_includes_static_intercept": true,
+      "direct_DFPT_static_short_MAE_cm-1": 49.40942679979949,
+      "direct_DFPT_group_CV_MAE_cm-1": 0.8994599684384949,
+      "direct_DFPT_group_CV_max_abs_cm-1": 3.5199991645622504,
+      "DFT_TDEP_thermal_short_MAE_cm-1": 68.41699779451834,
+      "DFT_TDEP_thermal_group_CV_MAE_cm-1": 19.269096931640146,
+      "DFT_TDEP_thermal_group_CV_max_abs_cm-1": 36.90147369388478,
+      "control_anchor_preserving_transfer_MAE_cm-1": 80.56029542591587,
+      "control_anchor_preserving_transfer_max_abs_cm-1": 97.62594735141192,
+      "high_symmetry_DFT_TDEP_cm-1": 1280.6700253215465,
+      "high_symmetry_thermal_group_CV_cm-1": 1288.3316056260155,
+      "high_symmetry_abs_error_cm-1": 7.661580304468998,
+      "control_anchor_preserving_high_symmetry_abs_error_cm-1": 69.32811692168957,
+      "direct_DFPT_kink_cm-1_per_t": 542.0571250000137,
+      "static_group_CV_kink_cm-1_per_t": 523.9633197801368,
+      "static_group_CV_kink_relative_error": 0.03337988633555265,
+      "DFT_TDEP_kink_cm-1_per_t": 16.88819409079656,
+      "thermal_group_CV_kink_cm-1_per_t": 526.7161888962164,
+      "thermal_group_CV_kink_relative_error": 30.188425835492808,
+      "control_anchor_preserving_transfer_kink_cm-1_per_t": 478.6502752261299,
+      "control_anchor_preserving_transfer_kink_relative_error": 27.342300701469114
+    }
+  },
+  "matrix_projector_replay_max_abs_cm-1": 6.821210263296962e-13,
+  "passes_qspace_transfer_gate": false,
+  "passes_all_force_seed_qspace_gates": false
+}

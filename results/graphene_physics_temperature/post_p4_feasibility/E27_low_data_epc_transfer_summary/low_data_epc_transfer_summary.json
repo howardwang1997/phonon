@@ -1,0 +1,84 @@
+{
+  "status": "freeze_five_q_rank4_Chebyshev_adapter",
+  "fixed_representation": {
+    "labels_per_material": 5,
+    "label_type": "complex mode-projected coarse-q EPC vertex",
+    "rank_policy": "material-adaptive, capped at 4",
+    "q_latent": "degree-4 Chebyshev over the tested local 1D window",
+    "smearing_policy": "no separate EPC labels per smearing; use one vertex/Hamiltonian with explicit Fermi-Dirac occupations in the band sum"
+  },
+  "systems": [
+    {
+      "material": "graphene",
+      "evidence_type": "within-system q holdout",
+      "selected_rank": 3,
+      "rank_capture": 0.9999998655790732,
+      "vertex_RMSE_relative": 0.0004647988173075224,
+      "vertex_max_relative": 0.0006955089435346001,
+      "frequency_RMSE_cm-1": 0.0011571327528334687,
+      "frequency_max_abs_cm-1": 0.0021167373286061775,
+      "shape_relative_error": 0.0003654174413697429,
+      "passed_fixed_repaired_model": null
+    },
+    {
+      "material": "1T-VSe2",
+      "evidence_type": "development failure and repair",
+      "selected_rank": 4,
+      "rank_capture": 0.9999919052469611,
+      "vertex_RMSE_relative": 0.004798536406803195,
+      "vertex_max_relative": 0.00854646995218027,
+      "frequency_RMSE_cm-1": 0.02568998593743094,
+      "frequency_max_abs_cm-1": 0.05387602404545078,
+      "shape_relative_error": 0.0032810036688232006,
+      "passed_fixed_repaired_model": null
+    },
+    {
+      "material": "2H-TaS2",
+      "evidence_type": "independent blind transfer",
+      "selected_rank": 4,
+      "rank_capture": 0.9999999132373197,
+      "vertex_RMSE_relative": 0.0004322301494552185,
+      "vertex_max_relative": 0.00066255077174544,
+      "frequency_RMSE_cm-1": 0.006658692635634631,
+      "frequency_max_abs_cm-1": 0.02006324576774432,
+      "shape_relative_error": 0.0011086404594300302,
+      "passed_fixed_repaired_model": true
+    },
+    {
+      "material": "2H-NbS2",
+      "evidence_type": "independent blind transfer",
+      "selected_rank": 4,
+      "rank_capture": 0.9999998702724663,
+      "vertex_RMSE_relative": 0.000535089350241339,
+      "vertex_max_relative": 0.0008198195431886834,
+      "frequency_RMSE_cm-1": 0.001624349621040941,
+      "frequency_max_abs_cm-1": 0.004768941284311268,
+      "shape_relative_error": 3.535270369850563e-05,
+      "passed_fixed_repaired_model": true
+    }
+  ],
+  "independent_blind_transfer": {
+    "systems": [
+      "2H-TaS2",
+      "2H-NbS2"
+    ],
+    "passed": 2,
+    "tested": 2,
+    "maximum_vertex_RMSE_relative": 0.000535089350241339,
+    "maximum_frequency_RMSE_cm-1": 0.006658692635634631,
+    "maximum_frequency_error_cm-1": 0.02006324576774432,
+    "maximum_shape_relative_error": 0.0011086404594300302
+  },
+  "decision": {
+    "freeze_adapter_architecture": true,
+    "claim_pretrained_cross_material_generator": false,
+    "launch_dense_DFPT": false,
+    "next_model_work": "define gauge-invariant inputs for a generator of the material-specific rank basis/latent prior; keep the five-label adapter as the correction layer"
+  },
+  "limitations": [
+    "only TaS2 and NbS2 are independent blind transfers of the repaired representation; VSe2 selected the repair and graphene is a within-system q holdout",
+    "the five labels currently learn a material-specific basis; a pretrained generator of that basis has not yet been demonstrated",
+    "all TMD response tests compare compressed and full stored EPC at the same 24x24 integration mesh, not against an absolutely converged DFT spectrum",
+    "the tested Chebyshev latent is one-dimensional; full two-dimensional point-group equivariance away from the K/K' time-reversal pair remains to be implemented"
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "argv": [
+    "ssh",
+    "-o",
+    "BatchMode=yes",
+    "-o",
+    "ConnectTimeout=20",
+    "-o",
+    "ControlPath=none",
+    "howardwang@100.105.21.7",
+    "sha256sum /home/howardwang/phonon/results/r2r0_formal_bundle_20260825/bf998936b4b3/results/r2r0_formal/control/freeze_manifest.json"
+  ],
+  "expected_sha256": "bf998936b4b313e6951bad542e35393931d43cecb35175c121b6de232c0aad87",
+  "observed_sha256": "bf998936b4b313e6951bad542e35393931d43cecb35175c121b6de232c0aad87",
+  "returncode": 0,
+  "sha256": "df15693f798abab2be224bb5c500420afda44b92536a9c2e5680d3ef7a1158ac"
+}

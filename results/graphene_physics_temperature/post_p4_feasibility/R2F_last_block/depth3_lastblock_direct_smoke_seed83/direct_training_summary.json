@@ -1,0 +1,117 @@
+{
+  "status": "R2F_terminal_block_training_complete",
+  "energy_conservative": true,
+  "initial_model": {
+    "path": "/data/graphene_r2c_short_repair/depth3_forces_only_seed83/gr_r2c_depth3_forces_only_seed83.model",
+    "sha256": "cdab8eae193c27126305fe798c105a9f98cf8b9718805d2de80e9211c1743084"
+  },
+  "datasets": {
+    "train": {
+      "path": "/data/graphene_r2f_joint_support_harmonic/train.xyz",
+      "sha256": "3e3f030477a6d2b2ba8f6cb12fe35dd9999b144dcb5d13925c8d03bac8558637"
+    },
+    "valid": {
+      "path": "/data/graphene_r2f_joint_support_harmonic/val.xyz",
+      "sha256": "634531e708e540dad3c36992c190f1cb5490a5f07c5be0f99f7d14fb53f092ae"
+    },
+    "test": {
+      "path": "/data/graphene_r2f_joint_support_harmonic/test.xyz",
+      "sha256": "bdc259b233c90131e731952c2bb6c933da1f4d3ad0a73354278912a886d057d9"
+    }
+  },
+  "training": {
+    "seed": 83,
+    "max_epochs": 1,
+    "learning_rate": 5e-05,
+    "weight_decay": 1e-08,
+    "ema_decay": 0.99,
+    "trainable_prefixes": [
+      "interactions.2.",
+      "products.2.",
+      "readouts.2."
+    ],
+    "trainable_parameters": 44208,
+    "total_parameters": 118800
+  },
+  "initial_validation": {
+    "all": {
+      "RMSE_meV_A": 22.362932205200195,
+      "MAE_meV_A": 9.246018409729004,
+      "max_abs_meV_A": 859.4312744140625,
+      "n_force_components": 11544
+    },
+    "by_role": {
+      "fixed_smearing_support_repair": {
+        "RMSE_meV_A": 47.41299057006836,
+        "MAE_meV_A": 25.24751091003418,
+        "max_abs_meV_A": 859.4312744140625,
+        "n_force_components": 1944
+      },
+      "harmonic_replay": {
+        "RMSE_meV_A": 12.089371681213379,
+        "MAE_meV_A": 6.0057148933410645,
+        "max_abs_meV_A": 130.0141143798828,
+        "n_force_components": 9600
+      }
+    }
+  },
+  "initial_test": {
+    "all": {
+      "RMSE_meV_A": 15.536410331726074,
+      "MAE_meV_A": 11.587217330932617,
+      "max_abs_meV_A": 101.31558990478516,
+      "n_force_components": 5616
+    },
+    "by_role": {
+      "thermal": {
+        "RMSE_meV_A": 15.536410331726074,
+        "MAE_meV_A": 11.587217330932617,
+        "max_abs_meV_A": 101.31558990478516,
+        "n_force_components": 5616
+      }
+    }
+  },
+  "final_validation": {
+    "all": {
+      "RMSE_meV_A": 22.08074188232422,
+      "MAE_meV_A": 9.304594039916992,
+      "max_abs_meV_A": 851.14453125,
+      "n_force_components": 11544
+    },
+    "by_role": {
+      "fixed_smearing_support_repair": {
+        "RMSE_meV_A": 46.634765625,
+        "MAE_meV_A": 25.626480102539062,
+        "max_abs_meV_A": 851.14453125,
+        "n_force_components": 1944
+      },
+      "harmonic_replay": {
+        "RMSE_meV_A": 12.078600883483887,
+        "MAE_meV_A": 5.9994120597839355,
+        "max_abs_meV_A": 129.6914825439453,
+        "n_force_components": 9600
+      }
+    }
+  },
+  "final_test": {
+    "all": {
+      "RMSE_meV_A": 17.080310821533203,
+      "MAE_meV_A": 13.115734100341797,
+      "max_abs_meV_A": 97.41675567626953,
+      "n_force_components": 5616
+    },
+    "by_role": {
+      "thermal": {
+        "RMSE_meV_A": 17.080310821533203,
+        "MAE_meV_A": 13.115734100341797,
+        "max_abs_meV_A": 97.41675567626953,
+        "n_force_components": 5616
+      }
+    }
+  },
+  "checkpoint_models": {},
+  "final_model": {
+    "path": "/data/graphene_r2f_last_layer/depth3_lastblock_direct_smoke_seed83/gr_r2f_depth3_lastblock_direct_smoke_seed83.model",
+    "sha256": "e336089613cd470bbe95f10b6a1c3635b5d857159aefb9263c5813916067ae57"
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "released_at_nzst": "2026-08-16T17:30:00+12:00",
+  "diagnostic_kgrid": 288,
+  "reason": "k192-to-k240 d=0.003 cusp-depth changes exceeded the frozen 10 percent convergence threshold in both directions",
+  "source_summary": {
+    "path": "results/graphene_k_cusp_nosmear/S4a_d003_kgrid/d003_kgrid_summary.json",
+    "sha256": "1003af7bca17623f6ce115ba8757694f1728f1e7844c3e1f18bbe22f941be218"
+  },
+  "k192_to_k240": {
+    "frequency_abs_change_cm-1": {
+      "KG": 0.229424999999992,
+      "KM": 0.22611600000004728
+    },
+    "cusp_depth_relative_change": {
+      "KG": 0.15129801514851515,
+      "KM": 0.14984240502965523
+    }
+  },
+  "acceptance": {
+    "k240_to_k288_frequency_abs_change_cm-1_max": 1.0,
+    "k240_to_k288_cusp_depth_relative_change_max": 0.10,
+    "minimum_mode_overlap": 0.95
+  },
+  "authorized_points": {
+    "A": ["K", "KG_d003"],
+    "B": ["K", "KM_d003"]
+  },
+  "next_action": {
+    "pass": "freeze k288 as the d=0.003 reference and proceed to the finite-slope long-range model",
+    "fail": "do not refit; report that a denser electronic integration or extrapolation study is required"
+  }
+}

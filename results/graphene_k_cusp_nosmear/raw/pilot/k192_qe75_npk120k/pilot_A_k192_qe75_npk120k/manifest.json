@@ -1,0 +1,71 @@
+{
+  "status": "complete",
+  "scope": "graphene K cusp no-degauss direct DFPT stage lane",
+  "stage": "pilot",
+  "lane": "A",
+  "kgrid": 192,
+  "qe_tag": "qe75_npk120k",
+  "electronic_integration": "occupations='tetrahedra_opt'",
+  "smearing": null,
+  "degauss_Ry": null,
+  "parallel": {
+    "mpi_ranks": 1,
+    "openmp_threads_per_rank": 4,
+    "mpirun_path": "/opt/nvidia/hpc_sdk/Linux_x86_64/24.5/comm_libs/mpi/bin/mpirun"
+  },
+  "n_qpoints": 2,
+  "config": {
+    "path": "/root/phonon/configs/graphene_k_cusp_nosmear/qpoints.tsv",
+    "sha256": "3cb92f0662d758dd61d9058b2266e14b22d471c9688109befc3a19999a6d778e"
+  },
+  "scf": {
+    "input_sha256": "b382e69eacd993a230ee5c1aeae04c8775337f386d5f2bdeb68d35bf8ebd813e",
+    "output_sha256": "cfd7cddc3d84d8f0d0cfb1d6e099dd91b8d7f43bc698eacea20b7225c62abc0a"
+  },
+  "quantum_espresso": {
+    "pw_path": "/data/qe-7.5-npk120k/bin/pw.x",
+    "pw_sha256": "65bdd597cc7e9659526a75b8eec44bdea0a4801210de62bb4e33b57cc661c24e",
+    "ph_path": "/data/qe-7.5-npk120k/bin/ph.x",
+    "ph_sha256": "911efaf212f5a3fba86e7b51139627a38b2ded138ac8f0fc91cef28302b11fbd",
+    "tag": "qe75_npk120k",
+    "environment_script": {
+      "path": "/root/nvhpc_env.sh",
+      "sha256": "c58a908fe8023cbc1876725f0c19badf528cff2e6497c2159cc7342d80206394"
+    }
+  },
+  "pseudopotential": {
+    "path": "/root/phonon/pseudo/C_ONCV_PBE-1.2.upf",
+    "sha256": "1c674ec4fe19ee85db53e6b9ecf7cd40e70eda362cedd83f7c51c9c4081ea064"
+  },
+  "qpoint_audits": [
+    {
+      "label": "K",
+      "gr_dyn_sha256": "d4706a5362942513b01064debf0b6600e26d474f49f7ddff0e526f3d6c782b3d",
+      "ph_in_sha256": "e3f71b1d8c3a1d28c84c7058f595311a4504fa18de5d9e34276b07b877cc9457",
+      "ph_out_sha256": "82f13eb02583bd32fa15707b90b3f533e5b5eb185bf428c4b9e4e703ddfcca39",
+      "q_max_abs_error": 3.3333330540230577e-10,
+      "Hermiticity_max_abs": 0.0,
+      "eigenvector_orthogonality_max_abs": 6.188980001819999e-07,
+      "matrix_frequency_replay_max_abs_cm-1": 5.119508614370716e-06
+    },
+    {
+      "label": "KG_d007",
+      "gr_dyn_sha256": "16021f93b0ecb23b2c4faad17803326ac9a7730c1059469c1bc2f2bbbd1b6d20",
+      "ph_in_sha256": "5b839bc15b21d51539131577ff2e68d026b71513340fd21f37e5216e177298d5",
+      "ph_out_sha256": "d418400201b80af07fb6c1d1130de301a24ec1ed057eca9dc8d39aa9623fa34c",
+      "q_max_abs_error": 3.052984531848324e-10,
+      "Hermiticity_max_abs": 0.0,
+      "eigenvector_orthogonality_max_abs": 1.0773874650143047e-06,
+      "matrix_frequency_replay_max_abs_cm-1": 3.897722990586772e-06
+    }
+  ],
+  "aggregate_audit": {
+    "Hermiticity_max_abs": 0.0,
+    "matrix_frequency_replay_max_abs_cm-1": 5.119508614370716e-06
+  },
+  "outputs": {
+    "csv": "/data/graphene_k_cusp_nosmear/lanes/pilot_A_k192_qe75_npk120k/dfpt_points.csv",
+    "csv_sha256": "326261359a4b18ffdb904040bfeb04b048d3f676692c6815bfd14c933271fc31",
+    "bundle": "/data/graphene_k_cusp_nosmear/lanes/pilot_A_k192_qe75_npk120k/bundle"
+  }
+}

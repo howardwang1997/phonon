@@ -1,0 +1,60 @@
+{
+  "status": "complete",
+  "scope": "frozen 450 K predictions materialized without using REF_forces or REF_energy values; no 450 K fitting or selection",
+  "temperature_K": 450.0,
+  "degauss_Ry": 0.0028501303499999997,
+  "weights": {
+    "base": 1.0,
+    "delta_300": 0.5,
+    "delta_600": 0.5
+  },
+  "inputs": {
+    "freeze_manifest": {
+      "path": "/home/howardwang/phonon/results/graphene_fd_transferability/freeze_manifest.json",
+      "sha256": "8e48384fc805c15d68b861f2911647ecc13d896d17753eb35dfe243cd318232d"
+    },
+    "merged_geometry_container": {
+      "path": "/home/howardwang/phonon/data/graphene_fd_transferability/T450/on_policy/dft_force_labels/merged/all60.xyz",
+      "sha256": "d6d3882ebfac4e9fc8f07ed77cc7dc3d2858a80b2f479b7bf53499ba98470d72",
+      "note": "reference arrays were ignored by this prediction-only program"
+    },
+    "base_model": {
+      "path": "/home/howardwang/phonon/results/gr_backbone_v11/ft_graphene.model",
+      "sha256": "4d32426672d53e3adc86499d14e4c4164c05e879a56811ff54add03cd1bb6ce7"
+    },
+    "delta_model_300": {
+      "path": "/home/howardwang/phonon/results/graphene_fd_delta_pilot/T300/delta32/gr_fd300_delta32.model",
+      "sha256": "6560f7bbf1ba8f8605893c2c0a9a7bd60d2ebaf66831e4b2f3b682ad43433766"
+    },
+    "delta_model_600": {
+      "path": "/home/howardwang/phonon/results/graphene_fd_delta_weighted/T600/selected_checkpoint.model",
+      "sha256": "3cf7f697602fed0b71cece204d797821c1d6faff0e0138892f69b06aafe4ddf3"
+    },
+    "sampling_operator": {
+      "path": "/home/howardwang/phonon/results/graphene_fd_transferability/conditioned_short/T450_long_range_operator.npz",
+      "sha256": "bbea00f427dd963ee3ec7e9c4cb84f34498ab2835752fd914035b191925b5b4e"
+    },
+    "background": {
+      "path": "/home/howardwang/phonon/results/vq_kink6_fd/graphene_sc6_dg0.040_phonopy.yaml",
+      "sha256": "69144a1dd3c66df94c116259067be27d1ede3ca8ab01c66516504c5e1ec90c0a"
+    }
+  },
+  "n_force_predictions": 60,
+  "force_predictions": {
+    "path": "/home/howardwang/phonon/results/graphene_fd_transferability/T450/on_policy/frozen_prediction/frozen_force_predictions.npz",
+    "sha256": "5f2a37cd1937d34bc2074c86107d7ab48d12fbacb0ef94fe60766b52e078cfc1"
+  },
+  "static_prediction": {
+    "path": "/home/howardwang/phonon/results/graphene_fd_transferability/T450/on_policy/frozen_prediction/frozen_static_fc2.npz",
+    "sha256": "baa9f0d6171b8320d4449c8351b88b9e1a345afbbddcc5f5d6a25c8517715078",
+    "finite_displacement_A": 0.01,
+    "short_force_constants_shape": [
+      72,
+      72,
+      3,
+      3
+    ],
+    "short_pair_symmetry_max_abs_eV_A2": 0.0,
+    "full_pair_symmetry_max_abs_eV_A2": 0.0
+  }
+}

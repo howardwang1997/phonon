@@ -1,0 +1,62 @@
+{
+  "status": "resumed",
+  "event": "both V100 instances restarted during the k288 calculation",
+  "audited_at_nzst": "2026-08-17T01:04:39+12:00",
+  "connectivity": {
+    "transport": "Tailscale 100.x addresses",
+    "V100-A": "online after approximately one minute uptime",
+    "V100-B": "online after approximately one minute uptime"
+  },
+  "checkpoint_audit": {
+    "V100-A": {
+      "scf": "complete; JOB DONE and matching input hash retained",
+      "K": "interrupted after four response blocks; QE gr.recover and status_run.xml retained; gr.dyn incomplete",
+      "d003": "not started",
+      "resume_policy": "recover K with recover=.true., then start KG_d003 normally"
+    },
+    "V100-B": {
+      "scf": "complete; JOB DONE and matching input hash retained",
+      "K": "complete; JOB DONE, gr.dyn and ph.in.sha256 retained",
+      "d003": "interrupted immediately after initialization",
+      "resume_policy": "reuse K and restart KM_d003 with recover=.false."
+    }
+  },
+  "storage_recovery": {
+    "deleted_only": "/data/graphene_k_cusp_nosmear/sets/k240_tetra_qe75_npk120k/tmp/_ph0",
+    "reason": "completed k240 response scratch was reproducible and its persistent local bundles passed hash and matrix audits",
+    "removed_per_host_GiB": 29,
+    "persistent_k240_inputs_outputs_dyn_and_manifests_retained": true,
+    "free_data_GiB_after_cleanup": {
+      "V100-A": 51,
+      "V100-B": 100
+    }
+  },
+  "resume": {
+    "V100-A": {
+      "resumed_at_nzst": "2026-08-17T01:09:13+12:00",
+      "launcher_pid": 3153,
+      "active_program": "ph.x K recovery",
+      "recover_label": "K"
+    },
+    "V100-B": {
+      "resumed_at_nzst": "2026-08-17T01:09:06+12:00",
+      "launcher_pid": 3074,
+      "active_program": "ph.x KM_d003",
+      "reused_complete_K": true
+    },
+    "runner": {
+      "remote_path": "/data/graphene_k_cusp_nosmear/run_graphene_k_cusp_nosmear_k288.sh",
+      "sha256": "6a9332ff3a03bed894164d10c5f563360c06bf7a599137821a2157de3cb44739",
+      "generic_remote_runner_overwritten": false
+    }
+  },
+  "monitor": {
+    "persistent_exec_session_id": 49821,
+    "poll_seconds": 180,
+    "expected_behavior": "detect reconnected lanes, then sync, audit, compare k240/k288 and plot after both DONE"
+  },
+  "revised_estimated_completion_nzst": {
+    "central": "2026-08-17T14:00:00+12:00",
+    "conservative_latest_without_another_interruption": "2026-08-17T18:00:00+12:00"
+  }
+}

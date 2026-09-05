@@ -1,0 +1,68 @@
+{
+  "status": "adaptive_zero_shape_gate_not_yet_passed",
+  "scope": "full stored EPC response with coarse full-BZ integral and a refined K-valley replacement; separate K anchor; no new DFT or zero-shape fit",
+  "coarse_nk": 288,
+  "patch_n": 360,
+  "patch_halfwidth_fractional": 0.04,
+  "patch_step_fractional": 0.00022222222222222223,
+  "d003_shift_in_patch_steps": 4.5,
+  "coarse_uniform_metrics": {
+    "frequency_RMSE_cm-1": 6.49798308152901,
+    "frequency_MAE_cm-1": 6.221333111618903,
+    "frequency_max_abs_cm-1": 7.563787537474127,
+    "by_direction": {
+      "KG": {
+        "target_d003_cusp_depth_cm-1": 4.827133999999887,
+        "prediction_d003_cusp_depth_cm-1": -1.0977036376007163,
+        "d003_cusp_depth_relative_error": 1.227402768930952,
+        "target_inner_to_outer_slope_ratio": 2.552851874710314,
+        "prediction_inner_to_outer_slope_ratio": -0.7284939397720426,
+        "slope_ratio_relative_error": 1.2853647510804789
+      },
+      "KM": {
+        "target_d003_cusp_depth_cm-1": 4.855632000000014,
+        "prediction_d003_cusp_depth_cm-1": -1.0838304481599152,
+        "d003_cusp_depth_relative_error": 1.2232109946058334,
+        "target_inner_to_outer_slope_ratio": 2.4613957452921693,
+        "prediction_inner_to_outer_slope_ratio": -0.6899285993356505,
+        "slope_ratio_relative_error": 1.280299744831872
+      }
+    },
+    "maximum_d003_cusp_depth_relative_error": 1.227402768930952,
+    "maximum_slope_ratio_relative_error": 1.2853647510804789
+  },
+  "adaptive_metrics": {
+    "frequency_RMSE_cm-1": 3.7992320679338483,
+    "frequency_MAE_cm-1": 3.606983149059016,
+    "frequency_max_abs_cm-1": 4.826134075279924,
+    "by_direction": {
+      "KG": {
+        "target_d003_cusp_depth_cm-1": 4.827133999999887,
+        "prediction_d003_cusp_depth_cm-1": 1.9051753161420493,
+        "d003_cusp_depth_relative_error": 0.6053195713767022,
+        "target_inner_to_outer_slope_ratio": 2.552851874710314,
+        "prediction_inner_to_outer_slope_ratio": 1.1683444505594174,
+        "slope_ratio_relative_error": 0.542337547221773
+      },
+      "KM": {
+        "target_d003_cusp_depth_cm-1": 4.855632000000014,
+        "prediction_d003_cusp_depth_cm-1": 1.9110439325040716,
+        "d003_cusp_depth_relative_error": 0.6064273543579772,
+        "target_inner_to_outer_slope_ratio": 2.4613957452921693,
+        "prediction_inner_to_outer_slope_ratio": 1.1309013414042552,
+        "slope_ratio_relative_error": 0.5405446915363801
+      }
+    },
+    "maximum_d003_cusp_depth_relative_error": 0.6064273543579772,
+    "maximum_slope_ratio_relative_error": 0.542337547221773
+  },
+  "checks": {
+    "adaptive_max_d003_cusp_depth_relative_error_lt_0p20": false,
+    "adaptive_max_slope_ratio_relative_error_lt_0p20": false
+  },
+  "limitations": [
+    "the refined patch uses midpoint quadrature rather than an analytic 2D triangle rule",
+    "patch size and patch resolution must both be varied before freezing the zero-smearing result",
+    "the zero reference outer shape is k192 while K and d=0.003 use k288"
+  ]
+}

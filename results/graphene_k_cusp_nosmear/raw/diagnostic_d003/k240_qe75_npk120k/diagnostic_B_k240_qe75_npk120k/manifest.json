@@ -1,0 +1,61 @@
+{
+  "status": "complete",
+  "scope": "graphene K cusp no-degauss direct DFPT stage lane",
+  "stage": "diagnostic",
+  "lane": "B",
+  "kgrid": 240,
+  "qe_tag": "qe75_npk120k",
+  "electronic_integration": "occupations='tetrahedra_opt'",
+  "smearing": null,
+  "degauss_Ry": null,
+  "parallel": {
+    "mpi_ranks": 1,
+    "openmp_threads_per_rank": 4,
+    "mpirun_path": "/opt/nvidia/hpc_sdk/Linux_x86_64/24.5/comm_libs/mpi/bin/mpirun"
+  },
+  "n_qpoints": 1,
+  "config": {
+    "path": "/root/phonon/configs/graphene_k_cusp_nosmear/qpoints_d003_kgrid.tsv",
+    "sha256": "cb549e422a5e87a785649241aab804421859b6a1c681f6b80fbdc9ba5ad51d5e"
+  },
+  "scf": {
+    "input_sha256": "f2eb69f6f4d78bf9ed91b53b7c30114428556b7ddb2c01a487216d3e51b3f915",
+    "output_sha256": "3fca6479bd0c2051e64638629ae18681e6a3010461f44207282f34cf02e0075e"
+  },
+  "quantum_espresso": {
+    "pw_path": "/data/qe-7.5-npk120k/bin/pw.x",
+    "pw_sha256": "65bdd597cc7e9659526a75b8eec44bdea0a4801210de62bb4e33b57cc661c24e",
+    "ph_path": "/data/qe-7.5-npk120k/bin/ph.x",
+    "ph_sha256": "911efaf212f5a3fba86e7b51139627a38b2ded138ac8f0fc91cef28302b11fbd",
+    "tag": "qe75_npk120k",
+    "environment_script": {
+      "path": "/root/nvhpc_env.sh",
+      "sha256": "c58a908fe8023cbc1876725f0c19badf528cff2e6497c2159cc7342d80206394"
+    }
+  },
+  "pseudopotential": {
+    "path": "/root/phonon/pseudo/C_ONCV_PBE-1.2.upf",
+    "sha256": "1c674ec4fe19ee85db53e6b9ecf7cd40e70eda362cedd83f7c51c9c4081ea064"
+  },
+  "qpoint_audits": [
+    {
+      "label": "KM_d003",
+      "gr_dyn_sha256": "d9824bdc38de82053ca50930a9c24725b54ddc1a0f50e036ae60dc3a765ea1dc",
+      "ph_in_sha256": "aa1b5ca775ddbff4388aa8cee992a034783f189bc91d5d1f00bd215f62872d32",
+      "ph_out_sha256": "a7ab793f7587056371407f937b507ee85e930466df3538e8738268f43a30a91f",
+      "q_max_abs_error": 3.8205683061676154e-10,
+      "Hermiticity_max_abs": 0.0,
+      "eigenvector_orthogonality_max_abs": 1.0130870000679693e-06,
+      "matrix_frequency_replay_max_abs_cm-1": 6.0312406731100054e-06
+    }
+  ],
+  "aggregate_audit": {
+    "Hermiticity_max_abs": 0.0,
+    "matrix_frequency_replay_max_abs_cm-1": 6.0312406731100054e-06
+  },
+  "outputs": {
+    "csv": "/data/graphene_k_cusp_nosmear/lanes/diagnostic_B_k240_qe75_npk120k/dfpt_points.csv",
+    "csv_sha256": "38bb58427e634795212c3b49062a4d018ba62b5e537294bf244a29136b586dbb",
+    "bundle": "/data/graphene_k_cusp_nosmear/lanes/diagnostic_B_k240_qe75_npk120k/bundle"
+  }
+}

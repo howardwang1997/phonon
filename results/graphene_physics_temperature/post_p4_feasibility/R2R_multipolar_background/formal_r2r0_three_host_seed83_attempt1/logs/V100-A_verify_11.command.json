@@ -1,0 +1,17 @@
+{
+  "argv": [
+    "ssh",
+    "-o",
+    "BatchMode=yes",
+    "-o",
+    "ConnectTimeout=20",
+    "-o",
+    "ControlPath=none",
+    "root@100.80.236.112",
+    "sha256sum /data/graphene_r2r0/formal_bundle/bf998936b4b3/scripts/smearing_kink/aggregate_graphene_r2r0_formal.py"
+  ],
+  "expected_sha256": "29b35a7899cd02682d2575dbbeb9bfefb19eaec289f5a09fd82c1b06b4827abf",
+  "observed_sha256": "29b35a7899cd02682d2575dbbeb9bfefb19eaec289f5a09fd82c1b06b4827abf",
+  "returncode": 0,
+  "sha256": "27683dfa73019690b65e82c5ae207c8245312f8d6f1d3cc30992ccd42fb07d70"
+}

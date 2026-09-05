@@ -1,0 +1,1560 @@
+{
+  "status": "R2M_core_checkpoint_gate_failed",
+  "force_gate_allows_routed_tail_stage": false,
+  "full_composite_deployment_authorized": false,
+  "finite_temperature_validation_closed": false,
+  "selection_scope": "E50 exact fixed-smearing seed1 plus harmonic validation only",
+  "fixed_candidate_labels": [
+    "epoch40",
+    "epoch80",
+    "epoch120",
+    "epoch160",
+    "epoch200",
+    "epoch235",
+    "final"
+  ],
+  "fixed_thresholds": {
+    "e50_force_RMSE_meV_A": 30.0,
+    "e50_force_max_abs_meV_A": 200.0,
+    "e50_Aprime_RMS_meV_A": 15.0,
+    "e50_Aprime_slope_relative_error_abs": 0.05,
+    "harmonic_force_RMSE_meV_A": 9.044673057081592,
+    "harmonic_force_max_abs_meV_A": 200.0
+  },
+  "energy_gate": "not_evaluated_forces_only_first_R2M_lane",
+  "seed2_or_support_read_for_selection": false,
+  "seed2_limitation": "opened development from prior R2K; reserved for post-selection report, not blind/external",
+  "model_semantics": {
+    "role": "replacement short delta core",
+    "combination": "frozen v11 foundation + this core + frozen q6",
+    "depth3_or_current_S0_deployed": false,
+    "new_core_no_wrap_diameter_bound_A": 8.0,
+    "whole_composite_strict_no_wrap_claimed": false
+  },
+  "checkpoint_choice": {
+    "passes_fixed_gate": false,
+    "normalized_gate_ratios": {
+      "e50_force_RMSE_meV_A": 4.187710060525615,
+      "e50_force_max_abs_meV_A": 3.7740622027446746,
+      "e50_Aprime_RMS_meV_A": 11.073346148681802,
+      "e50_Aprime_slope_relative_error_abs": 0.6842787281431181,
+      "harmonic_force_RMSE_meV_A": 3.042780414797922,
+      "harmonic_force_max_abs_meV_A": 1.0578914118169784
+    },
+    "normalized_worst_gate_score": 11.073346148681802,
+    "E50_seed1": {
+      "force_error": {
+        "RMSE_meV_A": 125.63130181576845,
+        "MAE_meV_A": 91.8712131935005,
+        "max_abs_meV_A": 754.8124405489349,
+        "n_force_components": 4320
+      },
+      "Aprime_force_error_RMS_meV_A": 166.10019223022704,
+      "predicted_restoring_slope_eV_A2": 52.28700658410354,
+      "DFT_restoring_slope_eV_A2": 50.55724424459782,
+      "relative_slope_error": 0.03421393640715591
+    },
+    "harmonic_validation": {
+      "force_error": {
+        "RMSE_meV_A": 27.520954036338313,
+        "MAE_meV_A": 14.761721305821673,
+        "max_abs_meV_A": 211.5782823633957,
+        "n_force_components": 9600
+      },
+      "per_configuration_force": [
+        {
+          "RMSE_meV_A": 1.0474228125074663,
+          "MAE_meV_A": 0.1371307966629991,
+          "max_abs_meV_A": 16.901935855734347,
+          "n_force_components": 384
+        },
+        {
+          "RMSE_meV_A": 10.039627842369644,
+          "MAE_meV_A": 2.3470843415969616,
+          "max_abs_meV_A": 109.64220028381348,
+          "n_force_components": 384
+        },
+        {
+          "RMSE_meV_A": 1.0474377661188912,
+          "MAE_meV_A": 0.1364247227273355,
+          "max_abs_meV_A": 16.9019563917017,
+          "n_force_components": 384
+        },
+        {
+          "RMSE_meV_A": 1.0473790736021322,
+          "MAE_meV_A": 0.1363312602667091,
+          "max_abs_meV_A": 16.901905564315317,
+          "n_force_components": 384
+        },
+        {
+          "RMSE_meV_A": 32.97622659927679,
+          "MAE_meV_A": 25.574584763531213,
+          "max_abs_meV_A": 118.68704880641937,
+          "n_force_components": 384
+        },
+        {
+          "RMSE_meV_A": 40.069495407553916,
+          "MAE_meV_A": 29.166211697004254,
+          "max_abs_meV_A": 160.51750243728637,
+          "n_force_components": 384
+        },
+        {
+          "RMSE_meV_A": 37.4364595022408,
+          "MAE_meV_A": 27.12041173891849,
+          "max_abs_meV_A": 149.3423176858139,
+          "n_force_components": 384
+        },
+        {
+          "RMSE_meV_A": 10.0390112375575,
+          "MAE_meV_A": 2.3469883752277747,
+          "max_abs_meV_A": 109.64386650754929,
+          "n_force_components": 384
+        },
+        {
+          "RMSE_meV_A": 36.777921374558915,
+          "MAE_meV_A": 26.139401969046617,
+          "max_abs_meV_A": 173.54569092147827,
+          "n_force_components": 384
+        },
+        {
+          "RMSE_meV_A": 35.66509320730085,
+          "MAE_meV_A": 26.486104583921357,
+          "max_abs_meV_A": 164.20438724464418,
+          "n_force_components": 384
+        },
+        {
+          "RMSE_meV_A": 35.09784997526198,
+          "MAE_meV_A": 25.238549731874485,
+          "max_abs_meV_A": 136.16460230930326,
+          "n_force_components": 384
+        },
+        {
+          "RMSE_meV_A": 12.520989288093265,
+          "MAE_meV_A": 2.473712364019262,
+          "max_abs_meV_A": 175.27014084136962,
+          "n_force_components": 384
+        },
+        {
+          "RMSE_meV_A": 3.208597611265342,
+          "MAE_meV_A": 0.4598732865564352,
+          "max_abs_meV_A": 51.34434464318276,
+          "n_force_components": 384
+        },
+        {
+          "RMSE_meV_A": 37.434401272718674,
+          "MAE_meV_A": 27.354823673586246,
+          "max_abs_meV_A": 166.24955461891176,
+          "n_force_components": 384
+        },
+        {
+          "RMSE_meV_A": 41.12109436147493,
+          "MAE_meV_A": 30.12049703993655,
+          "max_abs_meV_A": 161.5776621352768,
+          "n_force_components": 384
+        },
+        {
+          "RMSE_meV_A": 35.57509250723305,
+          "MAE_meV_A": 26.235757418672307,
+          "max_abs_meV_A": 137.41317857154849,
+          "n_force_components": 384
+        },
+        {
+          "RMSE_meV_A": 2.5138343398812273,
+          "MAE_meV_A": 0.6603794129838598,
+          "max_abs_meV_A": 25.140509505290986,
+          "n_force_components": 384
+        },
+        {
+          "RMSE_meV_A": 48.63557659197778,
+          "MAE_meV_A": 33.75675699774053,
+          "max_abs_meV_A": 211.5782823633957,
+          "n_force_components": 384
+        },
+        {
+          "RMSE_meV_A": 6.466878502898264,
+          "MAE_meV_A": 1.6949869476147599,
+          "max_abs_meV_A": 43.847451273689266,
+          "n_force_components": 384
+        },
+        {
+          "RMSE_meV_A": 33.735701811101976,
+          "MAE_meV_A": 24.556052390746807,
+          "max_abs_meV_A": 129.09587893878938,
+          "n_force_components": 384
+        },
+        {
+          "RMSE_meV_A": 39.09997445286551,
+          "MAE_meV_A": 29.622823516681798,
+          "max_abs_meV_A": 140.7494210283661,
+          "n_force_components": 384
+        },
+        {
+          "RMSE_meV_A": 2.5129211173871915,
+          "MAE_meV_A": 0.6601844980858567,
+          "max_abs_meV_A": 25.144977640657427,
+          "n_force_components": 384
+        },
+        {
+          "RMSE_meV_A": 33.983893447960575,
+          "MAE_meV_A": 25.29742010779976,
+          "max_abs_meV_A": 164.06304789283752,
+          "n_force_components": 384
+        },
+        {
+          "RMSE_meV_A": 2.5130062869563874,
+          "MAE_meV_A": 0.6600040481293511,
+          "max_abs_meV_A": 25.184402303361892,
+          "n_force_components": 384
+        },
+        {
+          "RMSE_meV_A": 2.512312505609662,
+          "MAE_meV_A": 0.6605369622101105,
+          "max_abs_meV_A": 25.143620002593995,
+          "n_force_components": 384
+        }
+      ]
+    },
+    "label": "epoch235",
+    "path": "/home/howardwang/phonon/results/graphene_physics_temperature/post_p4_feasibility/R2N_gate_normalized_core/gate_normalized_r2_h16_l2_n24_seed83_rtx/checkpoints/gr_r2n_gate_normalized_r2_h16_l2_n24_seed83_run-83_epoch-235.pt",
+    "sha256": "67959f6d9e3c8c9e556ebd7832e035ecd56c536d4cec5817ddeb9e6dcddb5f28"
+  },
+  "checkpoint_artifact": {
+    "kind": "best_diagnostic_core_not_authorized_for_routed_tail",
+    "path": "/home/howardwang/phonon/results/graphene_physics_temperature/post_p4_feasibility/R2N_gate_normalized_core/gate_normalized_r2_h16_l2_n24_seed83_rtx/best_diagnostic_core.model",
+    "sha256": "d20b8281e18db3a196a4dcf2f5f2c185f02224d4f055d17d58655da63c1685e5",
+    "reused_exact_state_after_interrupted_evaluation": false
+  },
+  "records": [
+    {
+      "passes_fixed_gate": false,
+      "normalized_gate_ratios": {
+        "e50_force_RMSE_meV_A": 4.862825672293435,
+        "e50_force_max_abs_meV_A": 3.98271213608284,
+        "e50_Aprime_RMS_meV_A": 12.897286115249564,
+        "e50_Aprime_slope_relative_error_abs": 0.9711706530156758,
+        "harmonic_force_RMSE_meV_A": 2.6591633509782975,
+        "harmonic_force_max_abs_meV_A": 0.944586846603775
+      },
+      "normalized_worst_gate_score": 12.897286115249564,
+      "E50_seed1": {
+        "force_error": {
+          "RMSE_meV_A": 145.88477016880304,
+          "MAE_meV_A": 108.38420422428781,
+          "max_abs_meV_A": 796.542427216568,
+          "n_force_components": 4320
+        },
+        "Aprime_force_error_RMS_meV_A": 193.45929172874347,
+        "predicted_restoring_slope_eV_A2": 53.01222983998277,
+        "DFT_restoring_slope_eV_A2": 50.55724424459782,
+        "relative_slope_error": 0.048558532650783796
+      },
+      "harmonic_validation": {
+        "force_error": {
+          "RMSE_meV_A": 24.05126311497221,
+          "MAE_meV_A": 12.698936120055256,
+          "max_abs_meV_A": 188.917369320755,
+          "n_force_components": 9600
+        },
+        "per_configuration_force": [
+          {
+            "RMSE_meV_A": 0.4708378898906386,
+            "MAE_meV_A": 0.062464073108184456,
+            "max_abs_meV_A": 8.059637560385465,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 10.59587042087391,
+            "MAE_meV_A": 2.141116527263316,
+            "max_abs_meV_A": 114.153528297081,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 0.4708396627754848,
+            "MAE_meV_A": 0.06196798088488055,
+            "max_abs_meV_A": 8.05961758382082,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 0.4708185287812074,
+            "MAE_meV_A": 0.06198580097159708,
+            "max_abs_meV_A": 8.059654300756455,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 30.828260841982093,
+            "MAE_meV_A": 22.522007257022775,
+            "max_abs_meV_A": 93.99527096353532,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 35.5559851479365,
+            "MAE_meV_A": 26.40874966166021,
+            "max_abs_meV_A": 161.68013856502535,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 31.262308372519815,
+            "MAE_meV_A": 23.15242800885156,
+            "max_abs_meV_A": 116.98743632419587,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 10.595720708376358,
+            "MAE_meV_A": 2.1412663983661875,
+            "max_abs_meV_A": 114.14950961965562,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 30.268316568555246,
+            "MAE_meV_A": 21.74579885249689,
+            "max_abs_meV_A": 147.34962840221405,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 33.057576963536306,
+            "MAE_meV_A": 23.50315113437405,
+            "max_abs_meV_A": 128.73967533729552,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 28.859749320570558,
+            "MAE_meV_A": 20.436960482472678,
+            "max_abs_meV_A": 96.09850161781311,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 13.144800727327917,
+            "MAE_meV_A": 2.1121801290910414,
+            "max_abs_meV_A": 188.917369320755,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 1.420110403808887,
+            "MAE_meV_A": 0.18561130420143868,
+            "max_abs_meV_A": 24.294965219922066,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 33.258701177910446,
+            "MAE_meV_A": 24.371104041439146,
+            "max_abs_meV_A": 122.43590877922058,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 32.20763963546631,
+            "MAE_meV_A": 23.45996126947832,
+            "max_abs_meV_A": 124.14795261335374,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 30.765458701455874,
+            "MAE_meV_A": 22.654789867811814,
+            "max_abs_meV_A": 114.39974707551956,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 2.8053453842380085,
+            "MAE_meV_A": 0.5875299220770789,
+            "max_abs_meV_A": 39.377540845890046,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 42.784082611446706,
+            "MAE_meV_A": 28.981077056012673,
+            "max_abs_meV_A": 176.84968078849792,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 6.344092310717071,
+            "MAE_meV_A": 1.4765002320303935,
+            "max_abs_meV_A": 59.970291352710724,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 30.39804265084167,
+            "MAE_meV_A": 22.24949863922915,
+            "max_abs_meV_A": 105.83312273708344,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 33.09141885337403,
+            "MAE_meV_A": 24.233021810571724,
+            "max_abs_meV_A": 111.35237073869705,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 2.8048645433852757,
+            "MAE_meV_A": 0.587278440584195,
+            "max_abs_meV_A": 39.381908398418425,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 31.882608405896185,
+            "MAE_meV_A": 23.161890846906356,
+            "max_abs_meV_A": 127.14422820327759,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 2.80616148597482,
+            "MAE_meV_A": 0.5873907978159875,
+            "max_abs_meV_A": 39.42236124124527,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 2.8041953956736796,
+            "MAE_meV_A": 0.5876724666598044,
+            "max_abs_meV_A": 39.380256462421414,
+            "n_force_components": 384
+          }
+        ]
+      },
+      "label": "epoch40",
+      "path": "/home/howardwang/phonon/results/graphene_physics_temperature/post_p4_feasibility/R2N_gate_normalized_core/gate_normalized_r2_h16_l2_n24_seed83_rtx/checkpoints/gr_r2n_gate_normalized_r2_h16_l2_n24_seed83_run-83_epoch-40.pt",
+      "sha256": "1f9c87a83b2604463bf7164a6b54ab64e986a2b1cc06fd72416f7ea4f5ec3254"
+    },
+    {
+      "passes_fixed_gate": false,
+      "normalized_gate_ratios": {
+        "e50_force_RMSE_meV_A": 4.757432007841413,
+        "e50_force_max_abs_meV_A": 3.9570297612478256,
+        "e50_Aprime_RMS_meV_A": 12.531780365932793,
+        "e50_Aprime_slope_relative_error_abs": 0.958514035541782,
+        "harmonic_force_RMSE_meV_A": 2.704348739559819,
+        "harmonic_force_max_abs_meV_A": 0.9922146830696106
+      },
+      "normalized_worst_gate_score": 12.531780365932793,
+      "E50_seed1": {
+        "force_error": {
+          "RMSE_meV_A": 142.7229602352424,
+          "MAE_meV_A": 105.88614924156272,
+          "max_abs_meV_A": 791.4059522495651,
+          "n_force_components": 4320
+        },
+        "Aprime_force_error_RMS_meV_A": 187.97670548899188,
+        "predicted_restoring_slope_eV_A2": 52.98023565493587,
+        "DFT_restoring_slope_eV_A2": 50.55724424459782,
+        "relative_slope_error": 0.0479257017770891
+      },
+      "harmonic_validation": {
+        "force_error": {
+          "RMSE_meV_A": 24.45995018164926,
+          "MAE_meV_A": 12.831060413558468,
+          "max_abs_meV_A": 198.44293661392211,
+          "n_force_components": 9600
+        },
+        "per_configuration_force": [
+          {
+            "RMSE_meV_A": 0.4967988859716549,
+            "MAE_meV_A": 0.06478194352557617,
+            "max_abs_meV_A": 8.490903708028792,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 10.845733495202456,
+            "MAE_meV_A": 2.290597271372484,
+            "max_abs_meV_A": 121.82709585886002,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 0.49680214517405874,
+            "MAE_meV_A": 0.06432999757854763,
+            "max_abs_meV_A": 8.490886059770585,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 0.4967770800997759,
+            "MAE_meV_A": 0.06435543183353172,
+            "max_abs_meV_A": 8.490920448399782,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 30.23896461508745,
+            "MAE_meV_A": 22.413700540825236,
+            "max_abs_meV_A": 98.81356192302704,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 36.141483390932954,
+            "MAE_meV_A": 26.691519340816146,
+            "max_abs_meV_A": 153.78979207103728,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 33.64826698566509,
+            "MAE_meV_A": 23.790698836200132,
+            "max_abs_meV_A": 188.2517813946533,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 10.845542042204348,
+            "MAE_meV_A": 2.2905812901199196,
+            "max_abs_meV_A": 121.82910480930329,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 30.058188717590543,
+            "MAE_meV_A": 21.469425601662078,
+            "max_abs_meV_A": 142.2752912318039,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 35.045425092935915,
+            "MAE_meV_A": 24.510343455954402,
+            "max_abs_meV_A": 144.25399738258363,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 29.902456597277908,
+            "MAE_meV_A": 21.06925974146517,
+            "max_abs_meV_A": 114.3179259217453,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 13.720663324971838,
+            "MAE_meV_A": 2.3315928017746055,
+            "max_abs_meV_A": 198.44293661392211,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 1.4992274166434927,
+            "MAE_meV_A": 0.19396183574753384,
+            "max_abs_meV_A": 25.60059565050125,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 34.05525212994928,
+            "MAE_meV_A": 24.313158972281627,
+            "max_abs_meV_A": 141.08524845512392,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 31.946760499862094,
+            "MAE_meV_A": 23.287864150267836,
+            "max_abs_meV_A": 127.43615886083603,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 32.18427479797621,
+            "MAE_meV_A": 23.732871653548493,
+            "max_abs_meV_A": 122.07493186260224,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 2.786331784989555,
+            "MAE_meV_A": 0.6346813966183001,
+            "max_abs_meV_A": 37.387043733615876,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 42.48067971114221,
+            "MAE_meV_A": 28.650203288069164,
+            "max_abs_meV_A": 187.53899896858215,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 6.404483258951599,
+            "MAE_meV_A": 1.5830153153462136,
+            "max_abs_meV_A": 49.40853456302643,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 29.55035219464526,
+            "MAE_meV_A": 21.365827545525242,
+            "max_abs_meV_A": 117.84330964771272,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 34.464502239261684,
+            "MAE_meV_A": 25.453034706409344,
+            "max_abs_meV_A": 109.62034132219314,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 2.785693025536509,
+            "MAE_meV_A": 0.6340925460774892,
+            "max_abs_meV_A": 37.391340505628584,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 31.59441962698823,
+            "MAE_meV_A": 22.60789695994106,
+            "max_abs_meV_A": 121.20155645111085,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 2.7867310256198508,
+            "MAE_meV_A": 0.6339027683855625,
+            "max_abs_meV_A": 37.43173374381065,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 2.785060798225636,
+            "MAE_meV_A": 0.6348129476160768,
+            "max_abs_meV_A": 37.38981895479202,
+            "n_force_components": 384
+          }
+        ]
+      },
+      "label": "epoch80",
+      "path": "/home/howardwang/phonon/results/graphene_physics_temperature/post_p4_feasibility/R2N_gate_normalized_core/gate_normalized_r2_h16_l2_n24_seed83_rtx/checkpoints/gr_r2n_gate_normalized_r2_h16_l2_n24_seed83_run-83_epoch-80.pt",
+      "sha256": "0abc24f5b2e11fa13cfa6751ff6c01c5038573db76b9624deb7a2d19f4418426"
+    },
+    {
+      "passes_fixed_gate": false,
+      "normalized_gate_ratios": {
+        "e50_force_RMSE_meV_A": 4.674616761880971,
+        "e50_force_max_abs_meV_A": 3.888991208248329,
+        "e50_Aprime_RMS_meV_A": 12.342743031228666,
+        "e50_Aprime_slope_relative_error_abs": 0.95781782205493,
+        "harmonic_force_RMSE_meV_A": 2.7994743710770797,
+        "harmonic_force_max_abs_meV_A": 1.056657820595169
+      },
+      "normalized_worst_gate_score": 12.342743031228666,
+      "E50_seed1": {
+        "force_error": {
+          "RMSE_meV_A": 140.23850285642914,
+          "MAE_meV_A": 103.99111190277988,
+          "max_abs_meV_A": 777.7982416496658,
+          "n_force_components": 4320
+        },
+        "Aprime_force_error_RMS_meV_A": 185.14114546842998,
+        "predicted_restoring_slope_eV_A2": 52.97847572317081,
+        "DFT_restoring_slope_eV_A2": 50.55724424459782,
+        "relative_slope_error": 0.047890891102746504
+      },
+      "harmonic_validation": {
+        "force_error": {
+          "RMSE_meV_A": 25.3203304180713,
+          "MAE_meV_A": 13.238685909650082,
+          "max_abs_meV_A": 211.3315641190338,
+          "n_force_components": 9600
+        },
+        "per_configuration_force": [
+          {
+            "RMSE_meV_A": 0.5355961437503782,
+            "MAE_meV_A": 0.06768332135377929,
+            "max_abs_meV_A": 9.125374196904897,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 9.948389547912289,
+            "MAE_meV_A": 2.261175151938591,
+            "max_abs_meV_A": 105.53965728740692,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 0.5355957131936105,
+            "MAE_meV_A": 0.06721832532367036,
+            "max_abs_meV_A": 9.125356548646689,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 0.5355799957111593,
+            "MAE_meV_A": 0.06727714406057393,
+            "max_abs_meV_A": 9.12539373124361,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 30.8765679390579,
+            "MAE_meV_A": 23.09176936247088,
+            "max_abs_meV_A": 114.05949319766998,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 38.122506157267935,
+            "MAE_meV_A": 27.802144964029644,
+            "max_abs_meV_A": 189.25388516014098,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 36.083003873511565,
+            "MAE_meV_A": 24.96907602648116,
+            "max_abs_meV_A": 211.3315641190338,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 9.948067727676507,
+            "MAE_meV_A": 2.2610849660548293,
+            "max_abs_meV_A": 105.54161408378602,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 31.701643814461832,
+            "MAE_meV_A": 22.492637465517983,
+            "max_abs_meV_A": 160.5100209986496,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 36.90290229090641,
+            "MAE_meV_A": 25.868074733668628,
+            "max_abs_meV_A": 163.94958748210908,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 30.545022221126683,
+            "MAE_meV_A": 21.523250802260378,
+            "max_abs_meV_A": 115.47748213178635,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 12.627902010321886,
+            "MAE_meV_A": 2.369173062678845,
+            "max_abs_meV_A": 179.97795410430908,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 1.6140177807844167,
+            "MAE_meV_A": 0.20231989248263033,
+            "max_abs_meV_A": 27.49470087630272,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 35.527830344526905,
+            "MAE_meV_A": 25.183688871704206,
+            "max_abs_meV_A": 159.61125121982576,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 33.33894217936596,
+            "MAE_meV_A": 23.98986621925396,
+            "max_abs_meV_A": 145.62318256011963,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 33.98544063942457,
+            "MAE_meV_A": 24.619330777691044,
+            "max_abs_meV_A": 132.15704262519836,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 2.340712856638514,
+            "MAE_meV_A": 0.6013513529315316,
+            "max_abs_meV_A": 24.983570475597382,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 44.85613946848327,
+            "MAE_meV_A": 30.193516736828506,
+            "max_abs_meV_A": 205.23080492733,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 5.927169892952973,
+            "MAE_meV_A": 1.499193344626812,
+            "max_abs_meV_A": 51.95663312717438,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 29.840727583730462,
+            "MAE_meV_A": 21.715848392148935,
+            "max_abs_meV_A": 115.25567830291749,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 34.07632025747535,
+            "MAE_meV_A": 25.599387360868686,
+            "max_abs_meV_A": 112.53922810958862,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 2.3396805207893445,
+            "MAE_meV_A": 0.600813636594124,
+            "max_abs_meV_A": 24.98768470838547,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 31.766893410947862,
+            "MAE_meV_A": 22.71937950878894,
+            "max_abs_meV_A": 137.04982054927825,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 2.3400204809508702,
+            "MAE_meV_A": 0.6004674399516874,
+            "max_abs_meV_A": 25.027303086185455,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 2.339003723527033,
+            "MAE_meV_A": 0.6014188815419679,
+            "max_abs_meV_A": 24.986159432258606,
+            "n_force_components": 384
+          }
+        ]
+      },
+      "label": "epoch120",
+      "path": "/home/howardwang/phonon/results/graphene_physics_temperature/post_p4_feasibility/R2N_gate_normalized_core/gate_normalized_r2_h16_l2_n24_seed83_rtx/checkpoints/gr_r2n_gate_normalized_r2_h16_l2_n24_seed83_run-83_epoch-120.pt",
+      "sha256": "6dfc0a58f3168561c45a45c30314d1db2a0405e49c43fe50a8c4e85b26d547ac"
+    },
+    {
+      "passes_fixed_gate": false,
+      "normalized_gate_ratios": {
+        "e50_force_RMSE_meV_A": 4.611730836244823,
+        "e50_force_max_abs_meV_A": 3.898112730555725,
+        "e50_Aprime_RMS_meV_A": 12.152286886327365,
+        "e50_Aprime_slope_relative_error_abs": 0.9362881009768016,
+        "harmonic_force_RMSE_meV_A": 2.859140740515393,
+        "harmonic_force_max_abs_meV_A": 1.1553229537137986
+      },
+      "normalized_worst_gate_score": 12.152286886327365,
+      "E50_seed1": {
+        "force_error": {
+          "RMSE_meV_A": 138.3519250873447,
+          "MAE_meV_A": 102.5998705593422,
+          "max_abs_meV_A": 779.622546111145,
+          "n_force_components": 4320
+        },
+        "Aprime_force_error_RMS_meV_A": 182.28430329491047,
+        "predicted_restoring_slope_eV_A2": 52.92405155481756,
+        "DFT_restoring_slope_eV_A2": 50.55724424459782,
+        "relative_slope_error": 0.04681440504884008
+      },
+      "harmonic_validation": {
+        "force_error": {
+          "RMSE_meV_A": 25.85999322214389,
+          "MAE_meV_A": 13.592404984811559,
+          "max_abs_meV_A": 231.0645907427597,
+          "n_force_components": 9600
+        },
+        "per_configuration_force": [
+          {
+            "RMSE_meV_A": 0.5823050186097067,
+            "MAE_meV_A": 0.07138752314691896,
+            "max_abs_meV_A": 9.849101710009574,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 9.463332221937844,
+            "MAE_meV_A": 2.22792312156295,
+            "max_abs_meV_A": 96.24239068489075,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 0.5823079327441001,
+            "MAE_meV_A": 0.07097199202610927,
+            "max_abs_meV_A": 9.849084061751366,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 0.5822895814765378,
+            "MAE_meV_A": 0.07099595114877574,
+            "max_abs_meV_A": 9.849118916041851,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 31.688636098291028,
+            "MAE_meV_A": 23.821078006012584,
+            "max_abs_meV_A": 120.04320348667144,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 38.384824243962676,
+            "MAE_meV_A": 27.73281962150237,
+            "max_abs_meV_A": 216.80228770797729,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 38.04009656861121,
+            "MAE_meV_A": 25.64802685987676,
+            "max_abs_meV_A": 231.0645907427597,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 9.462882421526796,
+            "MAE_meV_A": 2.227827835835861,
+            "max_abs_meV_A": 96.24404945804596,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 32.455015197003796,
+            "MAE_meV_A": 23.343577317893704,
+            "max_abs_meV_A": 166.73748448246002,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 36.202096836191245,
+            "MAE_meV_A": 25.91577321864198,
+            "max_abs_meV_A": 150.89398461288454,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 30.7386784863438,
+            "MAE_meV_A": 22.19102718355487,
+            "max_abs_meV_A": 121.38559234754561,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 12.003954427427857,
+            "MAE_meV_A": 2.3325021621366897,
+            "max_abs_meV_A": 169.8942787197876,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 1.7546790265729875,
+            "MAE_meV_A": 0.21368320520139633,
+            "max_abs_meV_A": 29.674263921804428,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 36.854150368576725,
+            "MAE_meV_A": 26.082460523812912,
+            "max_abs_meV_A": 178.6642633524704,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 34.95533878399712,
+            "MAE_meV_A": 25.055129385081667,
+            "max_abs_meV_A": 155.5652075063324,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 34.988776410178765,
+            "MAE_meV_A": 25.292512603516347,
+            "max_abs_meV_A": 139.53213393951415,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 2.2396837995463827,
+            "MAE_meV_A": 0.5960864958297506,
+            "max_abs_meV_A": 22.240348656196595,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 47.0758176251095,
+            "MAE_meV_A": 31.795790576690624,
+            "max_abs_meV_A": 211.41119564292907,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 5.746501148917271,
+            "MAE_meV_A": 1.475783782149689,
+            "max_abs_meV_A": 51.733786261520386,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 30.10398324626685,
+            "MAE_meV_A": 22.58427663633982,
+            "max_abs_meV_A": 108.7272933193779,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 34.21281449289526,
+            "MAE_meV_A": 25.98267344744105,
+            "max_abs_meV_A": 110.49198737548828,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 2.2386077541993665,
+            "MAE_meV_A": 0.5955924621749643,
+            "max_abs_meV_A": 22.244556021242143,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 31.74117349102644,
+            "MAE_meV_A": 23.290736576954657,
+            "max_abs_meV_A": 138.63411200740813,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 2.2387373114782703,
+            "MAE_meV_A": 0.5952373569994914,
+            "max_abs_meV_A": 22.283898727560043,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 2.2379319222901577,
+            "MAE_meV_A": 0.5962507747570431,
+            "max_abs_meV_A": 22.24307917388916,
+            "n_force_components": 384
+          }
+        ]
+      },
+      "label": "epoch160",
+      "path": "/home/howardwang/phonon/results/graphene_physics_temperature/post_p4_feasibility/R2N_gate_normalized_core/gate_normalized_r2_h16_l2_n24_seed83_rtx/checkpoints/gr_r2n_gate_normalized_r2_h16_l2_n24_seed83_run-83_epoch-160.pt",
+      "sha256": "b0541a2e988ca3560db43e865e25ed638e3590333e4c09c8e5316d4f767978f1"
+    },
+    {
+      "passes_fixed_gate": false,
+      "normalized_gate_ratios": {
+        "e50_force_RMSE_meV_A": 4.411610379854074,
+        "e50_force_max_abs_meV_A": 3.9585236771633148,
+        "e50_Aprime_RMS_meV_A": 11.933945625078078,
+        "e50_Aprime_slope_relative_error_abs": 0.8396549417543101,
+        "harmonic_force_RMSE_meV_A": 3.1066288075833115,
+        "harmonic_force_max_abs_meV_A": 1.1440662426113128
+      },
+      "normalized_worst_gate_score": 11.933945625078078,
+      "E50_seed1": {
+        "force_error": {
+          "RMSE_meV_A": 132.34831139562223,
+          "MAE_meV_A": 97.75780916256926,
+          "max_abs_meV_A": 791.7047354326629,
+          "n_force_components": 4320
+        },
+        "Aprime_force_error_RMS_meV_A": 179.00918437617116,
+        "predicted_restoring_slope_eV_A2": 52.67977624317063,
+        "DFT_restoring_slope_eV_A2": 50.55724424459782,
+        "relative_slope_error": 0.04198274708771551
+      },
+      "harmonic_validation": {
+        "force_error": {
+          "RMSE_meV_A": 28.098441874302292,
+          "MAE_meV_A": 15.15398804114092,
+          "max_abs_meV_A": 228.81324852226257,
+          "n_force_components": 9600
+        },
+        "per_configuration_force": [
+          {
+            "RMSE_meV_A": 0.8760345423957978,
+            "MAE_meV_A": 0.10886703005704085,
+            "max_abs_meV_A": 14.116431060123443,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 10.720454194153328,
+            "MAE_meV_A": 2.5462131208710304,
+            "max_abs_meV_A": 113.01974218349457,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 0.8760524202099803,
+            "MAE_meV_A": 0.10858648482716159,
+            "max_abs_meV_A": 14.11642458773613,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 0.8760006211421795,
+            "MAE_meV_A": 0.10846800305775024,
+            "max_abs_meV_A": 14.116424983091354,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 34.789931387866595,
+            "MAE_meV_A": 27.04908884869325,
+            "max_abs_meV_A": 131.80674637722015,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 40.259659660609785,
+            "MAE_meV_A": 29.754067693514546,
+            "max_abs_meV_A": 205.112341652565,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 39.19695504904343,
+            "MAE_meV_A": 28.47362778701916,
+            "max_abs_meV_A": 195.5580009076309,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 10.719906182532565,
+            "MAE_meV_A": 2.5461262071995234,
+            "max_abs_meV_A": 113.02130409910203,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 35.49725967616154,
+            "MAE_meV_A": 25.562402075516783,
+            "max_abs_meV_A": 186.93030133598327,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 38.32982333927718,
+            "MAE_meV_A": 28.274174397374964,
+            "max_abs_meV_A": 171.51267665332796,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 33.7140828686796,
+            "MAE_meV_A": 24.73161831161465,
+            "max_abs_meV_A": 132.44200063364028,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 13.468759318591463,
+            "MAE_meV_A": 2.659438176532061,
+            "max_abs_meV_A": 190.60149855888366,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 2.652384443870046,
+            "MAE_meV_A": 0.3394037448423426,
+            "max_abs_meV_A": 42.59703147155762,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 39.533174485868344,
+            "MAE_meV_A": 28.451557243914472,
+            "max_abs_meV_A": 200.2249322977829,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 39.87169956791342,
+            "MAE_meV_A": 28.89403676547378,
+            "max_abs_meV_A": 170.256739164505,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 38.14282022249875,
+            "MAE_meV_A": 28.39204211823714,
+            "max_abs_meV_A": 144.32477307506562,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 2.6154868379843017,
+            "MAE_meV_A": 0.6979776781170713,
+            "max_abs_meV_A": 26.015028853435517,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 51.52256202162373,
+            "MAE_meV_A": 35.8082159639897,
+            "max_abs_meV_A": 228.81324852226257,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 6.619354067289938,
+            "MAE_meV_A": 1.7564831448800364,
+            "max_abs_meV_A": 44.012019432029724,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 33.58490757686295,
+            "MAE_meV_A": 25.678340939478286,
+            "max_abs_meV_A": 119.8099670211029,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 37.76884469448274,
+            "MAE_meV_A": 29.094490856029314,
+            "max_abs_meV_A": 125.0190549175644,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 2.614494224306081,
+            "MAE_meV_A": 0.6974505848196793,
+            "max_abs_meV_A": 26.019089069514276,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 34.58836582025954,
+            "MAE_meV_A": 25.721862925644945,
+            "max_abs_meV_A": 169.79755116203307,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 2.6145967440412883,
+            "MAE_meV_A": 0.6971057961141588,
+            "max_abs_meV_A": 26.058647842669487,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 2.6138127332984435,
+            "MAE_meV_A": 0.6980551307041655,
+            "max_abs_meV_A": 26.017677414741517,
+            "n_force_components": 384
+          }
+        ]
+      },
+      "label": "epoch200",
+      "path": "/home/howardwang/phonon/results/graphene_physics_temperature/post_p4_feasibility/R2N_gate_normalized_core/gate_normalized_r2_h16_l2_n24_seed83_rtx/checkpoints/gr_r2n_gate_normalized_r2_h16_l2_n24_seed83_run-83_epoch-200.pt",
+      "sha256": "840556f8cb08690f1a290ca3ecd28f54a73e99d41cf28e2a7f6812021dc72a83"
+    },
+    {
+      "passes_fixed_gate": false,
+      "normalized_gate_ratios": {
+        "e50_force_RMSE_meV_A": 4.187710060525615,
+        "e50_force_max_abs_meV_A": 3.7740622027446746,
+        "e50_Aprime_RMS_meV_A": 11.073346148681802,
+        "e50_Aprime_slope_relative_error_abs": 0.6842787281431181,
+        "harmonic_force_RMSE_meV_A": 3.042780414797922,
+        "harmonic_force_max_abs_meV_A": 1.0578914118169784
+      },
+      "normalized_worst_gate_score": 11.073346148681802,
+      "E50_seed1": {
+        "force_error": {
+          "RMSE_meV_A": 125.63130181576845,
+          "MAE_meV_A": 91.8712131935005,
+          "max_abs_meV_A": 754.8124405489349,
+          "n_force_components": 4320
+        },
+        "Aprime_force_error_RMS_meV_A": 166.10019223022704,
+        "predicted_restoring_slope_eV_A2": 52.28700658410354,
+        "DFT_restoring_slope_eV_A2": 50.55724424459782,
+        "relative_slope_error": 0.03421393640715591
+      },
+      "harmonic_validation": {
+        "force_error": {
+          "RMSE_meV_A": 27.520954036338313,
+          "MAE_meV_A": 14.761721305821673,
+          "max_abs_meV_A": 211.5782823633957,
+          "n_force_components": 9600
+        },
+        "per_configuration_force": [
+          {
+            "RMSE_meV_A": 1.0474228125074663,
+            "MAE_meV_A": 0.1371307966629991,
+            "max_abs_meV_A": 16.901935855734347,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 10.039627842369644,
+            "MAE_meV_A": 2.3470843415969616,
+            "max_abs_meV_A": 109.64220028381348,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 1.0474377661188912,
+            "MAE_meV_A": 0.1364247227273355,
+            "max_abs_meV_A": 16.9019563917017,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 1.0473790736021322,
+            "MAE_meV_A": 0.1363312602667091,
+            "max_abs_meV_A": 16.901905564315317,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 32.97622659927679,
+            "MAE_meV_A": 25.574584763531213,
+            "max_abs_meV_A": 118.68704880641937,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 40.069495407553916,
+            "MAE_meV_A": 29.166211697004254,
+            "max_abs_meV_A": 160.51750243728637,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 37.4364595022408,
+            "MAE_meV_A": 27.12041173891849,
+            "max_abs_meV_A": 149.3423176858139,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 10.0390112375575,
+            "MAE_meV_A": 2.3469883752277747,
+            "max_abs_meV_A": 109.64386650754929,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 36.777921374558915,
+            "MAE_meV_A": 26.139401969046617,
+            "max_abs_meV_A": 173.54569092147827,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 35.66509320730085,
+            "MAE_meV_A": 26.486104583921357,
+            "max_abs_meV_A": 164.20438724464418,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 35.09784997526198,
+            "MAE_meV_A": 25.238549731874485,
+            "max_abs_meV_A": 136.16460230930326,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 12.520989288093265,
+            "MAE_meV_A": 2.473712364019262,
+            "max_abs_meV_A": 175.27014084136962,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 3.208597611265342,
+            "MAE_meV_A": 0.4598732865564352,
+            "max_abs_meV_A": 51.34434464318276,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 37.434401272718674,
+            "MAE_meV_A": 27.354823673586246,
+            "max_abs_meV_A": 166.24955461891176,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 41.12109436147493,
+            "MAE_meV_A": 30.12049703993655,
+            "max_abs_meV_A": 161.5776621352768,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 35.57509250723305,
+            "MAE_meV_A": 26.235757418672307,
+            "max_abs_meV_A": 137.41317857154849,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 2.5138343398812273,
+            "MAE_meV_A": 0.6603794129838598,
+            "max_abs_meV_A": 25.140509505290986,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 48.63557659197778,
+            "MAE_meV_A": 33.75675699774053,
+            "max_abs_meV_A": 211.5782823633957,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 6.466878502898264,
+            "MAE_meV_A": 1.6949869476147599,
+            "max_abs_meV_A": 43.847451273689266,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 33.735701811101976,
+            "MAE_meV_A": 24.556052390746807,
+            "max_abs_meV_A": 129.09587893878938,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 39.09997445286551,
+            "MAE_meV_A": 29.622823516681798,
+            "max_abs_meV_A": 140.7494210283661,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 2.5129211173871915,
+            "MAE_meV_A": 0.6601844980858567,
+            "max_abs_meV_A": 25.144977640657427,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 33.983893447960575,
+            "MAE_meV_A": 25.29742010779976,
+            "max_abs_meV_A": 164.06304789283752,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 2.5130062869563874,
+            "MAE_meV_A": 0.6600040481293511,
+            "max_abs_meV_A": 25.184402303361892,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 2.512312505609662,
+            "MAE_meV_A": 0.6605369622101105,
+            "max_abs_meV_A": 25.143620002593995,
+            "n_force_components": 384
+          }
+        ]
+      },
+      "label": "epoch235",
+      "path": "/home/howardwang/phonon/results/graphene_physics_temperature/post_p4_feasibility/R2N_gate_normalized_core/gate_normalized_r2_h16_l2_n24_seed83_rtx/checkpoints/gr_r2n_gate_normalized_r2_h16_l2_n24_seed83_run-83_epoch-235.pt",
+      "sha256": "67959f6d9e3c8c9e556ebd7832e035ecd56c536d4cec5817ddeb9e6dcddb5f28"
+    },
+    {
+      "passes_fixed_gate": false,
+      "normalized_gate_ratios": {
+        "e50_force_RMSE_meV_A": 4.187710052998801,
+        "e50_force_max_abs_meV_A": 3.7740625007678985,
+        "e50_Aprime_RMS_meV_A": 11.073346209859668,
+        "e50_Aprime_slope_relative_error_abs": 0.6842787475596696,
+        "harmonic_force_RMSE_meV_A": 3.042780385960114,
+        "harmonic_force_max_abs_meV_A": 1.0578914863227844
+      },
+      "normalized_worst_gate_score": 11.073346209859668,
+      "E50_seed1": {
+        "force_error": {
+          "RMSE_meV_A": 125.63130158996402,
+          "MAE_meV_A": 91.87121257466684,
+          "max_abs_meV_A": 754.8125001535797,
+          "n_force_components": 4320
+        },
+        "Aprime_force_error_RMS_meV_A": 166.10019314789503,
+        "predicted_restoring_slope_eV_A2": 52.287006633185904,
+        "DFT_restoring_slope_eV_A2": 50.55724424459782,
+        "relative_slope_error": 0.03421393737798348
+      },
+      "harmonic_validation": {
+        "force_error": {
+          "RMSE_meV_A": 27.520953775509774,
+          "MAE_meV_A": 14.761721193147837,
+          "max_abs_meV_A": 211.57829726455688,
+          "n_force_components": 9600
+        },
+        "per_configuration_force": [
+          {
+            "RMSE_meV_A": 1.0474228958120728,
+            "MAE_meV_A": 0.13713206176683493,
+            "max_abs_meV_A": 16.901935855734347,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 10.039628403983023,
+            "MAE_meV_A": 2.347084553699282,
+            "max_abs_meV_A": 109.64223008613587,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 1.0474379673784453,
+            "MAE_meV_A": 0.13642497351610489,
+            "max_abs_meV_A": 16.901959185669423,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 1.047378992923023,
+            "MAE_meV_A": 0.1363301598596361,
+            "max_abs_meV_A": 16.901903701670168,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 32.97622720168272,
+            "MAE_meV_A": 25.57458567044901,
+            "max_abs_meV_A": 118.68706370758056,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 40.06949257232434,
+            "MAE_meV_A": 29.166209961688363,
+            "max_abs_meV_A": 160.51756204193114,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 37.43645936696272,
+            "MAE_meV_A": 27.120412279461508,
+            "max_abs_meV_A": 149.34224318000793,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 10.03901167371093,
+            "MAE_meV_A": 2.3469884770515996,
+            "max_abs_meV_A": 109.64387395812989,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 36.77791892542863,
+            "MAE_meV_A": 26.13940097133093,
+            "max_abs_meV_A": 173.54569092147827,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 35.66509025914163,
+            "MAE_meV_A": 26.486102339288433,
+            "max_abs_meV_A": 164.20444684928896,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 35.097849152848944,
+            "MAE_meV_A": 25.238548342318165,
+            "max_abs_meV_A": 136.16458740814207,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 12.52098964795986,
+            "MAE_meV_A": 2.4737126898133366,
+            "max_abs_meV_A": 175.27014084136962,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 3.2085977188430665,
+            "MAE_meV_A": 0.4598746220937423,
+            "max_abs_meV_A": 51.34434836847306,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 37.434400466955275,
+            "MAE_meV_A": 27.354823883224775,
+            "max_abs_meV_A": 166.24952481658937,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 41.121093597587716,
+            "MAE_meV_A": 30.120495742997104,
+            "max_abs_meV_A": 161.57769193759918,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 35.575094670341116,
+            "MAE_meV_A": 26.235757943602334,
+            "max_abs_meV_A": 137.41317857154849,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 2.513833925719679,
+            "MAE_meV_A": 0.6603789337236154,
+            "max_abs_meV_A": 25.140509505290986,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 48.63557862673522,
+            "MAE_meV_A": 33.7567580897405,
+            "max_abs_meV_A": 211.57829726455688,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 6.466879814257858,
+            "MAE_meV_A": 1.6949868396796215,
+            "max_abs_meV_A": 43.84742147136688,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 33.73570078586998,
+            "MAE_meV_A": 24.556049796867917,
+            "max_abs_meV_A": 129.09589383995058,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 39.09997700748607,
+            "MAE_meV_A": 29.622824950651776,
+            "max_abs_meV_A": 140.7494210283661,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 2.512921605377138,
+            "MAE_meV_A": 0.660185554694499,
+            "max_abs_meV_A": 25.14497019007683,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 33.98389173745974,
+            "MAE_meV_A": 25.297419484947472,
+            "max_abs_meV_A": 164.06301809051513,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 2.513003731834094,
+            "MAE_meV_A": 0.6600040779845433,
+            "max_abs_meV_A": 25.184396715426445,
+            "n_force_components": 384
+          },
+          {
+            "RMSE_meV_A": 2.512314336562112,
+            "MAE_meV_A": 0.6605374282447786,
+            "max_abs_meV_A": 25.14363490375519,
+            "n_force_components": 384
+          }
+        ]
+      },
+      "label": "final",
+      "path": "/home/howardwang/phonon/results/graphene_physics_temperature/post_p4_feasibility/R2N_gate_normalized_core/gate_normalized_r2_h16_l2_n24_seed83_rtx/gr_r2n_gate_normalized_r2_h16_l2_n24_seed83.model",
+      "sha256": "ca772ac571db35549b27891f47e0449261581a57cc22b7c756cad2649af0f503"
+    }
+  ],
+  "inputs": {
+    "manifest": {
+      "path": "/home/howardwang/phonon/data/graphene_r2m_support_free_core/manifest.json",
+      "sha256": "bb20a86af073e344c38e39ab14d3a80af9e39fa051591bed2b039ae643ffe31e"
+    },
+    "training_freeze": {
+      "path": "/home/howardwang/phonon/results/graphene_physics_temperature/post_p4_feasibility/R2N_gate_normalized_core/gate_normalized_r2_h16_l2_n24_seed83_rtx/training_freeze.json",
+      "sha256": "73d1bda8b0f8d3e87bf66c9830f4a081ab1b34f5558e20502f35733e99623b48"
+    },
+    "training_runtime": {
+      "path": "/home/howardwang/phonon/results/graphene_physics_temperature/post_p4_feasibility/R2N_gate_normalized_core/gate_normalized_r2_h16_l2_n24_seed83_rtx/training_runtime.json",
+      "sha256": "e75f09063645ac8b8a881a925680361402d106662fd649fab62b223892b01673"
+    },
+    "template_model": {
+      "path": "/home/howardwang/phonon/results/graphene_physics_temperature/post_p4_feasibility/R2N_gate_normalized_core/gate_normalized_r2_h16_l2_n24_seed83_rtx/gr_r2n_gate_normalized_r2_h16_l2_n24_seed83.model",
+      "sha256": "ca772ac571db35549b27891f47e0449261581a57cc22b7c756cad2649af0f503"
+    },
+    "script_snapshot": {
+      "path": "/home/howardwang/phonon/results/graphene_physics_temperature/post_p4_feasibility/R2N_gate_normalized_core/gate_normalized_r2_h16_l2_n24_seed83_rtx/evaluate_script_snapshot.py",
+      "sha256": "8d7d84389b615b815ad0a5900fcedca4a8fdb5f35416b4ce25c351eb0a65d180"
+    }
+  }
+}

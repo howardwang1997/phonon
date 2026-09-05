@@ -1,0 +1,124 @@
+{
+  "status": "VSe2_post_failure_response_repair_passed",
+  "scope": "post-blind-test downstream response diagnostic using the same five fixed VSe2 q labels; full stored EPC is the reference; no new DFT",
+  "nk": 24,
+  "fermi_eV": -2.4296,
+  "reference_smearing_degauss_Ry": 0.02,
+  "target_smearing_degauss_Ry": [
+    0.005,
+    0.01,
+    0.015
+  ],
+  "metrics_vs_full_EPC": {
+    "blind_rank3": {
+      "frequency_RMSE_cm-1": 0.229167818916545,
+      "frequency_max_abs_cm-1": 0.7369331847253306,
+      "maximum_window_depth_relative_error": 0.008666178342829716,
+      "by_smearing": [
+        {
+          "full_window_depth_cm-1": -7.3133326988154295,
+          "candidate_window_depth_cm-1": -7.2757564452966506,
+          "window_depth_relative_error": 0.005138047873148898,
+          "frequency_RMSE_cm-1": 0.295560373068142,
+          "frequency_max_abs_cm-1": 0.7369331847253306,
+          "smearing_degauss_Ry": 0.005
+        },
+        {
+          "full_window_depth_cm-1": -5.200952800656836,
+          "candidate_window_depth_cm-1": -5.1689856284917255,
+          "window_depth_relative_error": 0.00614640689703496,
+          "frequency_RMSE_cm-1": 0.23845268438700723,
+          "frequency_max_abs_cm-1": 0.6105927402026623,
+          "smearing_degauss_Ry": 0.01
+        },
+        {
+          "full_window_depth_cm-1": -2.0901889056832346,
+          "candidate_window_depth_cm-1": -2.0720749558563796,
+          "window_depth_relative_error": 0.008666178342829716,
+          "frequency_RMSE_cm-1": 0.11549047952688643,
+          "frequency_max_abs_cm-1": 0.29887997459641724,
+          "smearing_degauss_Ry": 0.015
+        }
+      ]
+    },
+    "blind_rank4": {
+      "frequency_RMSE_cm-1": 0.1843372756740274,
+      "frequency_max_abs_cm-1": 0.5959443674646536,
+      "maximum_window_depth_relative_error": 0.0032810036688232006,
+      "by_smearing": [
+        {
+          "full_window_depth_cm-1": -7.3133326988154295,
+          "candidate_window_depth_cm-1": -7.337327770231568,
+          "window_depth_relative_error": 0.0032810036688232006,
+          "frequency_RMSE_cm-1": 0.23760622499119677,
+          "frequency_max_abs_cm-1": 0.5959443674646536,
+          "smearing_degauss_Ry": 0.005
+        },
+        {
+          "full_window_depth_cm-1": -5.200952800656836,
+          "candidate_window_depth_cm-1": -5.216222911057898,
+          "window_depth_relative_error": 0.0029360217226222967,
+          "frequency_RMSE_cm-1": 0.1926024846266138,
+          "frequency_max_abs_cm-1": 0.4987968218857475,
+          "smearing_degauss_Ry": 0.01
+        },
+        {
+          "full_window_depth_cm-1": -2.0901889056832346,
+          "candidate_window_depth_cm-1": -2.0951931595252518,
+          "window_depth_relative_error": 0.0023941634310710386,
+          "frequency_RMSE_cm-1": 0.09158743565497887,
+          "frequency_max_abs_cm-1": 0.24150581971224483,
+          "smearing_degauss_Ry": 0.015
+        }
+      ]
+    },
+    "blind_rank4_Chebyshev": {
+      "frequency_RMSE_cm-1": 0.02568998593743094,
+      "frequency_max_abs_cm-1": 0.05387602404545078,
+      "maximum_window_depth_relative_error": 0.0032810036688232006,
+      "by_smearing": [
+        {
+          "full_window_depth_cm-1": -7.3133326988154295,
+          "candidate_window_depth_cm-1": -7.337327770231568,
+          "window_depth_relative_error": 0.0032810036688232006,
+          "frequency_RMSE_cm-1": 0.034311110052922617,
+          "frequency_max_abs_cm-1": 0.05387602404545078,
+          "smearing_degauss_Ry": 0.005
+        },
+        {
+          "full_window_depth_cm-1": -5.200952800656836,
+          "candidate_window_depth_cm-1": -5.216222911057898,
+          "window_depth_relative_error": 0.0029360217226222967,
+          "frequency_RMSE_cm-1": 0.025984067772284233,
+          "frequency_max_abs_cm-1": 0.04723495478354778,
+          "smearing_degauss_Ry": 0.01
+        },
+        {
+          "full_window_depth_cm-1": -2.0901889056832346,
+          "candidate_window_depth_cm-1": -2.0951931595252518,
+          "window_depth_relative_error": 0.0023941634310710386,
+          "frequency_RMSE_cm-1": 0.011291681953445674,
+          "frequency_max_abs_cm-1": 0.02241190427068318,
+          "smearing_degauss_Ry": 0.015
+        }
+      ]
+    }
+  },
+  "original_cubic_checks": {
+    "rank3_frequency_RMSE_lt_0p10_cm-1": false,
+    "rank3_max_window_depth_error_lt_0p03": true,
+    "rank4_frequency_RMSE_lt_0p05_cm-1": false,
+    "rank4_max_window_depth_error_lt_0p02": true
+  },
+  "post_failure_repair_checks": {
+    "rank4_Chebyshev_frequency_RMSE_lt_0p05_cm-1": true,
+    "rank4_Chebyshev_frequency_max_lt_0p15_cm-1": true,
+    "rank4_Chebyshev_max_window_depth_error_lt_0p02": true
+  },
+  "interpretation": "The deployable representation should use an adaptive rank capped at four and an analytic latent q basis; adding EPC labels is unnecessary if the five-point Chebyshev repair passes.",
+  "limitations": [
+    "the production EPW fine mesh is only 24x24, so this compares compressed and full vertices at identical integration resolution rather than a converged material spectrum",
+    "the calculation validates the stored electronic self-energy response, not the separate short-range MLIP background for VSe2",
+    "this is a failure-analysis run on the same material and is not a new blind test"
+  ]
+}

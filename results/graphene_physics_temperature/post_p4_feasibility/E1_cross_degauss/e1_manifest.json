@@ -1,0 +1,437 @@
+{
+  "status": "frozen_not_released",
+  "scope": "E1 cross-degauss force pilot; development temperatures only",
+  "release_condition": "E0 complete Cartesian Hermitian operator passes q-to-real-to-q replay, symmetry, ASR, and analytic-gradient gates",
+  "locked_validation_temperatures_K_not_accessed": [
+    375,
+    525
+  ],
+  "degauss_formula": "smearing/degauss (Ry) = k_B*T/Ry",
+  "degauss_Ry": {
+    "300": 0.0019000869380739254,
+    "450": 0.0028501304071108886,
+    "600": 0.003800173876147851
+  },
+  "selection": {
+    "T300_snapshot_indices": [
+      0,
+      13,
+      29,
+      42,
+      59
+    ],
+    "T450_p4_keys": [
+      "seed0:snapshot003",
+      "seed0:snapshot117",
+      "seed1:snapshot003",
+      "seed1:snapshot117",
+      "seed2:snapshot057"
+    ],
+    "T600_snapshot_indices": [
+      0,
+      13,
+      29,
+      42,
+      59
+    ]
+  },
+  "configurations": [
+    {
+      "config_id": "T300_snapshot000",
+      "source_identity": "T300:snapshot000",
+      "lattice_temperature_K": 300,
+      "diagonal_degauss_Ry": 0.0019000869,
+      "n_atoms": 72
+    },
+    {
+      "config_id": "T300_snapshot013",
+      "source_identity": "T300:snapshot013",
+      "lattice_temperature_K": 300,
+      "diagonal_degauss_Ry": 0.0019000869,
+      "n_atoms": 72
+    },
+    {
+      "config_id": "T300_snapshot029",
+      "source_identity": "T300:snapshot029",
+      "lattice_temperature_K": 300,
+      "diagonal_degauss_Ry": 0.0019000869,
+      "n_atoms": 72
+    },
+    {
+      "config_id": "T300_snapshot042",
+      "source_identity": "T300:snapshot042",
+      "lattice_temperature_K": 300,
+      "diagonal_degauss_Ry": 0.0019000869,
+      "n_atoms": 72
+    },
+    {
+      "config_id": "T300_snapshot059",
+      "source_identity": "T300:snapshot059",
+      "lattice_temperature_K": 300,
+      "diagonal_degauss_Ry": 0.0019000869,
+      "n_atoms": 72
+    },
+    {
+      "config_id": "T450_seed0_snapshot003",
+      "source_identity": "seed0:snapshot003",
+      "lattice_temperature_K": 450,
+      "diagonal_degauss_Ry": 0.00285013035,
+      "n_atoms": 72
+    },
+    {
+      "config_id": "T450_seed0_snapshot117",
+      "source_identity": "seed0:snapshot117",
+      "lattice_temperature_K": 450,
+      "diagonal_degauss_Ry": 0.00285013035,
+      "n_atoms": 72
+    },
+    {
+      "config_id": "T450_seed1_snapshot003",
+      "source_identity": "seed1:snapshot003",
+      "lattice_temperature_K": 450,
+      "diagonal_degauss_Ry": 0.00285013035,
+      "n_atoms": 72
+    },
+    {
+      "config_id": "T450_seed1_snapshot117",
+      "source_identity": "seed1:snapshot117",
+      "lattice_temperature_K": 450,
+      "diagonal_degauss_Ry": 0.00285013035,
+      "n_atoms": 72
+    },
+    {
+      "config_id": "T450_seed2_snapshot057",
+      "source_identity": "seed2:snapshot057",
+      "lattice_temperature_K": 450,
+      "diagonal_degauss_Ry": 0.00285013035,
+      "n_atoms": 72
+    },
+    {
+      "config_id": "T600_snapshot000",
+      "source_identity": "T600:snapshot000",
+      "lattice_temperature_K": 600,
+      "diagonal_degauss_Ry": 0.0038001738,
+      "n_atoms": 72
+    },
+    {
+      "config_id": "T600_snapshot013",
+      "source_identity": "T600:snapshot013",
+      "lattice_temperature_K": 600,
+      "diagonal_degauss_Ry": 0.0038001738,
+      "n_atoms": 72
+    },
+    {
+      "config_id": "T600_snapshot029",
+      "source_identity": "T600:snapshot029",
+      "lattice_temperature_K": 600,
+      "diagonal_degauss_Ry": 0.0038001738,
+      "n_atoms": 72
+    },
+    {
+      "config_id": "T600_snapshot042",
+      "source_identity": "T600:snapshot042",
+      "lattice_temperature_K": 600,
+      "diagonal_degauss_Ry": 0.0038001738,
+      "n_atoms": 72
+    },
+    {
+      "config_id": "T600_snapshot059",
+      "source_identity": "T600:snapshot059",
+      "lattice_temperature_K": 600,
+      "diagonal_degauss_Ry": 0.0038001738,
+      "n_atoms": 72
+    }
+  ],
+  "tasks": [
+    {
+      "task_id": "T450_seed0_snapshot003_dgT300",
+      "config_id": "T450_seed0_snapshot003",
+      "lattice_temperature_K": 450,
+      "target_degauss_label": "d300",
+      "target_degauss_Ry": 0.0019000869380739254,
+      "lane": "A"
+    },
+    {
+      "task_id": "T450_seed0_snapshot117_dgT300",
+      "config_id": "T450_seed0_snapshot117",
+      "lattice_temperature_K": 450,
+      "target_degauss_label": "d300",
+      "target_degauss_Ry": 0.0019000869380739254,
+      "lane": "B"
+    },
+    {
+      "task_id": "T450_seed1_snapshot003_dgT300",
+      "config_id": "T450_seed1_snapshot003",
+      "lattice_temperature_K": 450,
+      "target_degauss_label": "d300",
+      "target_degauss_Ry": 0.0019000869380739254,
+      "lane": "A"
+    },
+    {
+      "task_id": "T450_seed1_snapshot117_dgT300",
+      "config_id": "T450_seed1_snapshot117",
+      "lattice_temperature_K": 450,
+      "target_degauss_label": "d300",
+      "target_degauss_Ry": 0.0019000869380739254,
+      "lane": "B"
+    },
+    {
+      "task_id": "T450_seed2_snapshot057_dgT300",
+      "config_id": "T450_seed2_snapshot057",
+      "lattice_temperature_K": 450,
+      "target_degauss_label": "d300",
+      "target_degauss_Ry": 0.0019000869380739254,
+      "lane": "A"
+    },
+    {
+      "task_id": "T600_snapshot000_dgT300",
+      "config_id": "T600_snapshot000",
+      "lattice_temperature_K": 600,
+      "target_degauss_label": "d300",
+      "target_degauss_Ry": 0.0019000869380739254,
+      "lane": "B"
+    },
+    {
+      "task_id": "T600_snapshot013_dgT300",
+      "config_id": "T600_snapshot013",
+      "lattice_temperature_K": 600,
+      "target_degauss_label": "d300",
+      "target_degauss_Ry": 0.0019000869380739254,
+      "lane": "A"
+    },
+    {
+      "task_id": "T600_snapshot029_dgT300",
+      "config_id": "T600_snapshot029",
+      "lattice_temperature_K": 600,
+      "target_degauss_label": "d300",
+      "target_degauss_Ry": 0.0019000869380739254,
+      "lane": "B"
+    },
+    {
+      "task_id": "T600_snapshot042_dgT300",
+      "config_id": "T600_snapshot042",
+      "lattice_temperature_K": 600,
+      "target_degauss_label": "d300",
+      "target_degauss_Ry": 0.0019000869380739254,
+      "lane": "A"
+    },
+    {
+      "task_id": "T600_snapshot059_dgT300",
+      "config_id": "T600_snapshot059",
+      "lattice_temperature_K": 600,
+      "target_degauss_label": "d300",
+      "target_degauss_Ry": 0.0019000869380739254,
+      "lane": "B"
+    },
+    {
+      "task_id": "T300_snapshot000_dgT450",
+      "config_id": "T300_snapshot000",
+      "lattice_temperature_K": 300,
+      "target_degauss_label": "d450",
+      "target_degauss_Ry": 0.0028501304071108886,
+      "lane": "A"
+    },
+    {
+      "task_id": "T300_snapshot013_dgT450",
+      "config_id": "T300_snapshot013",
+      "lattice_temperature_K": 300,
+      "target_degauss_label": "d450",
+      "target_degauss_Ry": 0.0028501304071108886,
+      "lane": "B"
+    },
+    {
+      "task_id": "T300_snapshot029_dgT450",
+      "config_id": "T300_snapshot029",
+      "lattice_temperature_K": 300,
+      "target_degauss_label": "d450",
+      "target_degauss_Ry": 0.0028501304071108886,
+      "lane": "A"
+    },
+    {
+      "task_id": "T300_snapshot042_dgT450",
+      "config_id": "T300_snapshot042",
+      "lattice_temperature_K": 300,
+      "target_degauss_label": "d450",
+      "target_degauss_Ry": 0.0028501304071108886,
+      "lane": "B"
+    },
+    {
+      "task_id": "T300_snapshot059_dgT450",
+      "config_id": "T300_snapshot059",
+      "lattice_temperature_K": 300,
+      "target_degauss_label": "d450",
+      "target_degauss_Ry": 0.0028501304071108886,
+      "lane": "A"
+    },
+    {
+      "task_id": "T600_snapshot000_dgT450",
+      "config_id": "T600_snapshot000",
+      "lattice_temperature_K": 600,
+      "target_degauss_label": "d450",
+      "target_degauss_Ry": 0.0028501304071108886,
+      "lane": "B"
+    },
+    {
+      "task_id": "T600_snapshot013_dgT450",
+      "config_id": "T600_snapshot013",
+      "lattice_temperature_K": 600,
+      "target_degauss_label": "d450",
+      "target_degauss_Ry": 0.0028501304071108886,
+      "lane": "A"
+    },
+    {
+      "task_id": "T600_snapshot029_dgT450",
+      "config_id": "T600_snapshot029",
+      "lattice_temperature_K": 600,
+      "target_degauss_label": "d450",
+      "target_degauss_Ry": 0.0028501304071108886,
+      "lane": "B"
+    },
+    {
+      "task_id": "T600_snapshot042_dgT450",
+      "config_id": "T600_snapshot042",
+      "lattice_temperature_K": 600,
+      "target_degauss_label": "d450",
+      "target_degauss_Ry": 0.0028501304071108886,
+      "lane": "A"
+    },
+    {
+      "task_id": "T600_snapshot059_dgT450",
+      "config_id": "T600_snapshot059",
+      "lattice_temperature_K": 600,
+      "target_degauss_label": "d450",
+      "target_degauss_Ry": 0.0028501304071108886,
+      "lane": "B"
+    },
+    {
+      "task_id": "T300_snapshot000_dgT600",
+      "config_id": "T300_snapshot000",
+      "lattice_temperature_K": 300,
+      "target_degauss_label": "d600",
+      "target_degauss_Ry": 0.003800173876147851,
+      "lane": "A"
+    },
+    {
+      "task_id": "T300_snapshot013_dgT600",
+      "config_id": "T300_snapshot013",
+      "lattice_temperature_K": 300,
+      "target_degauss_label": "d600",
+      "target_degauss_Ry": 0.003800173876147851,
+      "lane": "B"
+    },
+    {
+      "task_id": "T300_snapshot029_dgT600",
+      "config_id": "T300_snapshot029",
+      "lattice_temperature_K": 300,
+      "target_degauss_label": "d600",
+      "target_degauss_Ry": 0.003800173876147851,
+      "lane": "A"
+    },
+    {
+      "task_id": "T300_snapshot042_dgT600",
+      "config_id": "T300_snapshot042",
+      "lattice_temperature_K": 300,
+      "target_degauss_label": "d600",
+      "target_degauss_Ry": 0.003800173876147851,
+      "lane": "B"
+    },
+    {
+      "task_id": "T300_snapshot059_dgT600",
+      "config_id": "T300_snapshot059",
+      "lattice_temperature_K": 300,
+      "target_degauss_label": "d600",
+      "target_degauss_Ry": 0.003800173876147851,
+      "lane": "A"
+    },
+    {
+      "task_id": "T450_seed0_snapshot003_dgT600",
+      "config_id": "T450_seed0_snapshot003",
+      "lattice_temperature_K": 450,
+      "target_degauss_label": "d600",
+      "target_degauss_Ry": 0.003800173876147851,
+      "lane": "B"
+    },
+    {
+      "task_id": "T450_seed0_snapshot117_dgT600",
+      "config_id": "T450_seed0_snapshot117",
+      "lattice_temperature_K": 450,
+      "target_degauss_label": "d600",
+      "target_degauss_Ry": 0.003800173876147851,
+      "lane": "A"
+    },
+    {
+      "task_id": "T450_seed1_snapshot003_dgT600",
+      "config_id": "T450_seed1_snapshot003",
+      "lattice_temperature_K": 450,
+      "target_degauss_label": "d600",
+      "target_degauss_Ry": 0.003800173876147851,
+      "lane": "B"
+    },
+    {
+      "task_id": "T450_seed1_snapshot117_dgT600",
+      "config_id": "T450_seed1_snapshot117",
+      "lattice_temperature_K": 450,
+      "target_degauss_label": "d600",
+      "target_degauss_Ry": 0.003800173876147851,
+      "lane": "A"
+    },
+    {
+      "task_id": "T450_seed2_snapshot057_dgT600",
+      "config_id": "T450_seed2_snapshot057",
+      "lattice_temperature_K": 450,
+      "target_degauss_label": "d600",
+      "target_degauss_Ry": 0.003800173876147851,
+      "lane": "B"
+    }
+  ],
+  "lane_counts": {
+    "A": 15,
+    "B": 15
+  },
+  "target_degauss_lane_counts": {
+    "0.0019000869": {
+      "A": 5,
+      "B": 5
+    },
+    "0.0028501304": {
+      "A": 5,
+      "B": 5
+    },
+    "0.0038001739": {
+      "A": 5,
+      "B": 5
+    }
+  },
+  "dft": {
+    "kgrid": [
+      8,
+      8,
+      1
+    ],
+    "ecutwfc_Ry": 60.0,
+    "ecutrho_Ry": 240.0,
+    "smearing": "fermi-dirac"
+  },
+  "force_residual_gate": {
+    "residual_RMSE_meV_A_max": 10.0,
+    "relative_to_raw_max": 0.2
+  },
+  "configs": {
+    "path": "results/graphene_physics_temperature/post_p4_feasibility/E1_cross_degauss/e1_configs.xyz",
+    "sha256": "6bae3fda25bed3e38a8c176e9b4468b1bd993739d754300aaf47a1120cb6380b"
+  },
+  "sources": [
+    {
+      "path": "results/graphene_fd_thermal_labels/A/summary.xyz",
+      "sha256": "8db70c67685315b73a9eec82e190d65fa722557fda9e6a74e284ee568926e9fc"
+    },
+    {
+      "path": "results/graphene_physics_temperature/post_p4_feasibility/source_p4_450/labels/merged/all60.xyz",
+      "sha256": "d6d3882ebfac4e9fc8f07ed77cc7dc3d2858a80b2f479b7bf53499ba98470d72"
+    },
+    {
+      "path": "results/graphene_fd_thermal_labels/B/summary.xyz",
+      "sha256": "1a36bf015debebd362a6285666d71d83bf6b3a4530740f4dd573cec4a46effe1"
+    }
+  ]
+}

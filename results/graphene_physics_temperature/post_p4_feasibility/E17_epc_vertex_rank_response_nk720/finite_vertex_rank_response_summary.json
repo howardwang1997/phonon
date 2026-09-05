@@ -1,0 +1,233 @@
+{
+  "status": "rank3_Aprime_vertex_preserves_finite_smearing_response",
+  "scope": "finite-smearing nk720 band-sum propagation of SVD-compressed A' vertices; stored Wannier/EPC only; no new DFT",
+  "nk": 720,
+  "number_of_qpoints": 29,
+  "rank_capture": {
+    "1": 0.996225300371551,
+    "2": 0.9999965815332909,
+    "3": 0.9999998655790732,
+    "4": 0.999999999745203
+  },
+  "five_q_training_indices": [
+    0,
+    7,
+    14,
+    21,
+    28
+  ],
+  "metrics_vs_full_EPC": {
+    "rank_1": {
+      "frequency_RMSE_cm-1": 0.17039318073770704,
+      "frequency_max_abs_cm-1": 0.31144639807462227,
+      "maximum_cusp_depth_relative_error": 0.009052073624495678,
+      "by_temperature_K": {
+        "300": {
+          "smearing_degauss_Ry": 0.0019000869,
+          "reference_full_EPC_depth_cm-1": 2.011620106224882,
+          "candidate_depth_cm-1": 2.0222058390274924,
+          "cusp_depth_relative_error": 0.005262292204106177,
+          "frequency_RMSE_cm-1": 0.17574135133913055,
+          "frequency_max_abs_cm-1": 0.31144639807462227
+        },
+        "450": {
+          "smearing_degauss_Ry": 0.00285013035,
+          "reference_full_EPC_depth_cm-1": 1.4883239326809417,
+          "candidate_depth_cm-1": 1.4988078309229422,
+          "cusp_depth_relative_error": 0.007044097062334921,
+          "frequency_RMSE_cm-1": 0.1703377664022222,
+          "frequency_max_abs_cm-1": 0.3058795192769139
+        },
+        "600": {
+          "smearing_degauss_Ry": 0.0038001738,
+          "reference_full_EPC_depth_cm-1": 1.1439874912111918,
+          "candidate_depth_cm-1": 1.1543429502071376,
+          "cusp_depth_relative_error": 0.009052073624495678,
+          "frequency_RMSE_cm-1": 0.1649288661585259,
+          "frequency_max_abs_cm-1": 0.29917692470735346
+        }
+      },
+      "maximum_q_relative_vertex_error": 0.10303321542151458,
+      "vertex_RMSE_relative_error": 0.06143945589345948
+    },
+    "rank_2": {
+      "frequency_RMSE_cm-1": 0.03327015820533422,
+      "frequency_max_abs_cm-1": 0.05293376085410273,
+      "maximum_cusp_depth_relative_error": 0.002875447914721493,
+      "by_temperature_K": {
+        "300": {
+          "smearing_degauss_Ry": 0.0019000869,
+          "reference_full_EPC_depth_cm-1": 2.011620106224882,
+          "candidate_depth_cm-1": 2.0161795132319185,
+          "cusp_depth_relative_error": 0.0022665348158569234,
+          "frequency_RMSE_cm-1": 0.034509217520489424,
+          "frequency_max_abs_cm-1": 0.05293376085410273
+        },
+        "450": {
+          "smearing_degauss_Ry": 0.00285013035,
+          "reference_full_EPC_depth_cm-1": 1.4883239326809417,
+          "candidate_depth_cm-1": 1.492140961246605,
+          "cusp_depth_relative_error": 0.00256464905377667,
+          "frequency_RMSE_cm-1": 0.03325592350141958,
+          "frequency_max_abs_cm-1": 0.05159265755355591
+        },
+        "600": {
+          "smearing_degauss_Ry": 0.0038001738,
+          "reference_full_EPC_depth_cm-1": 1.1439874912111918,
+          "candidate_depth_cm-1": 1.1472769676572625,
+          "cusp_depth_relative_error": 0.002875447914721493,
+          "frequency_RMSE_cm-1": 0.03199793335850267,
+          "frequency_max_abs_cm-1": 0.05031242682548509
+        }
+      },
+      "maximum_q_relative_vertex_error": 0.0038710560684828664,
+      "vertex_RMSE_relative_error": 0.0018489207614558853
+    },
+    "rank_3": {
+      "frequency_RMSE_cm-1": 0.00041954525425770496,
+      "frequency_max_abs_cm-1": 0.0008834049588131165,
+      "maximum_cusp_depth_relative_error": 7.270334462824314e-05,
+      "by_temperature_K": {
+        "300": {
+          "smearing_degauss_Ry": 0.0019000869,
+          "reference_full_EPC_depth_cm-1": 2.011620106224882,
+          "candidate_depth_cm-1": 2.0115208671866185,
+          "cusp_depth_relative_error": 4.933289240666528e-05,
+          "frequency_RMSE_cm-1": 0.0004125060025896934,
+          "frequency_max_abs_cm-1": 0.000831464893735756
+        },
+        "450": {
+          "smearing_degauss_Ry": 0.00285013035,
+          "reference_full_EPC_depth_cm-1": 1.4883239326809417,
+          "candidate_depth_cm-1": 1.4882328725607294,
+          "cusp_depth_relative_error": 6.118299801050513e-05,
+          "frequency_RMSE_cm-1": 0.0004215150450017138,
+          "frequency_max_abs_cm-1": 0.0008698424198883004
+        },
+        "600": {
+          "smearing_degauss_Ry": 0.0038001738,
+          "reference_full_EPC_depth_cm-1": 1.1439874912111918,
+          "candidate_depth_cm-1": 1.1439043194943679,
+          "cusp_depth_relative_error": 7.270334462824314e-05,
+          "frequency_RMSE_cm-1": 0.0004245215256911737,
+          "frequency_max_abs_cm-1": 0.0008834049588131165
+        }
+      },
+      "maximum_q_relative_vertex_error": 0.0008179491315991077,
+      "vertex_RMSE_relative_error": 0.0003666365330651102
+    },
+    "rank_4": {
+      "frequency_RMSE_cm-1": 0.00018678081488328625,
+      "frequency_max_abs_cm-1": 0.0003151206565235043,
+      "maximum_cusp_depth_relative_error": 3.155291998782956e-05,
+      "by_temperature_K": {
+        "300": {
+          "smearing_degauss_Ry": 0.0019000869,
+          "reference_full_EPC_depth_cm-1": 2.011620106224882,
+          "candidate_depth_cm-1": 2.0115776125949196,
+          "cusp_depth_relative_error": 2.112408293735081e-05,
+          "frequency_RMSE_cm-1": 0.00019101418525204863,
+          "frequency_max_abs_cm-1": 0.0003151206565235043
+        },
+        "450": {
+          "smearing_degauss_Ry": 0.00285013035,
+          "reference_full_EPC_depth_cm-1": 1.4883239326809417,
+          "candidate_depth_cm-1": 1.4882849316102238,
+          "cusp_depth_relative_error": 2.6204692312919885e-05,
+          "frequency_RMSE_cm-1": 0.00018700415635997537,
+          "frequency_max_abs_cm-1": 0.000314195591272437
+        },
+        "600": {
+          "smearing_degauss_Ry": 0.0038001738,
+          "reference_full_EPC_depth_cm-1": 1.1439874912111918,
+          "candidate_depth_cm-1": 1.1439513950654145,
+          "cusp_depth_relative_error": 3.155291998782956e-05,
+          "frequency_RMSE_cm-1": 0.00018222031983832997,
+          "frequency_max_abs_cm-1": 0.0003109344841050188
+        }
+      },
+      "maximum_q_relative_vertex_error": 3.654673525382066e-05,
+      "vertex_RMSE_relative_error": 1.5962546490825297e-05
+    },
+    "rank_3_five_q_labels": {
+      "frequency_RMSE_cm-1": 0.0011192040989601141,
+      "frequency_max_abs_cm-1": 0.002193935998093366,
+      "maximum_cusp_depth_relative_error": 0.00034913048889956933,
+      "by_temperature_K": {
+        "300": {
+          "smearing_degauss_Ry": 0.0019000869,
+          "reference_full_EPC_depth_cm-1": 2.011620106224882,
+          "candidate_depth_cm-1": 2.0111879969133497,
+          "cusp_depth_relative_error": 0.0002148066179071846,
+          "frequency_RMSE_cm-1": 0.0011037686447983033,
+          "frequency_max_abs_cm-1": 0.002094505140576075
+        },
+        "450": {
+          "smearing_degauss_Ry": 0.00285013035,
+          "reference_full_EPC_depth_cm-1": 1.4883239326809417,
+          "candidate_depth_cm-1": 1.4879063354057962,
+          "cusp_depth_relative_error": 0.000280582248242981,
+          "frequency_RMSE_cm-1": 0.001119929112838912,
+          "frequency_max_abs_cm-1": 0.0021396288218511472
+        },
+        "600": {
+          "smearing_degauss_Ry": 0.0038001738,
+          "reference_full_EPC_depth_cm-1": 1.1439874912111918,
+          "candidate_depth_cm-1": 1.1435880902990903,
+          "cusp_depth_relative_error": 0.00034913048889956933,
+          "frequency_RMSE_cm-1": 0.0011337138114900637,
+          "frequency_max_abs_cm-1": 0.002193935998093366
+        }
+      },
+      "maximum_q_relative_vertex_error": 0.0008179491315991077,
+      "vertex_RMSE_relative_error": 0.00038111187260158106
+    },
+    "rank_3_five_q_blind_basis": {
+      "frequency_RMSE_cm-1": 0.0011571327528334687,
+      "frequency_max_abs_cm-1": 0.0021167373286061775,
+      "maximum_cusp_depth_relative_error": 0.0003654174413697429,
+      "by_temperature_K": {
+        "300": {
+          "smearing_degauss_Ry": 0.0019000869,
+          "reference_full_EPC_depth_cm-1": 2.011620106224882,
+          "candidate_depth_cm-1": 2.011165606938903,
+          "cusp_depth_relative_error": 0.00022593693738333153,
+          "frequency_RMSE_cm-1": 0.0011529646955857537,
+          "frequency_max_abs_cm-1": 0.002070780216172352
+        },
+        "450": {
+          "smearing_degauss_Ry": 0.00285013035,
+          "reference_full_EPC_depth_cm-1": 1.4883239326809417,
+          "candidate_depth_cm-1": 1.4878858205483994,
+          "cusp_depth_relative_error": 0.0002943661140710965,
+          "frequency_RMSE_cm-1": 0.0011599380310239348,
+          "frequency_max_abs_cm-1": 0.0021167373286061775
+        },
+        "600": {
+          "smearing_degauss_Ry": 0.0038001738,
+          "reference_full_EPC_depth_cm-1": 1.1439874912111918,
+          "candidate_depth_cm-1": 1.1435694582291944,
+          "cusp_depth_relative_error": 0.0003654174413697429,
+          "frequency_RMSE_cm-1": 0.0011584838358635182,
+          "frequency_max_abs_cm-1": 0.0021093667730838206
+        }
+      },
+      "maximum_q_relative_vertex_error": 0.0006955089435346001,
+      "vertex_RMSE_relative_error": 0.0004647988173075224
+    }
+  },
+  "checks": {
+    "rank3_frequency_RMSE_vs_full_lt_0p01_cm-1": true,
+    "rank3_max_cusp_depth_error_vs_full_lt_0p005": true,
+    "rank3_five_q_labels_frequency_RMSE_vs_full_lt_0p05_cm-1": true,
+    "rank3_five_q_labels_max_cusp_error_vs_full_lt_0p02": true,
+    "blind_rank3_five_q_frequency_RMSE_vs_full_lt_0p10_cm-1": true,
+    "blind_rank3_five_q_max_cusp_error_vs_full_lt_0p03": true
+  },
+  "wall_time_seconds": 37.75149574992247,
+  "limitations": [
+    "the rank basis is obtained from all 29 graphene q points",
+    "the five-q blind-basis variant is a genuine q holdout within graphene, but it is not yet a cross-system blind test",
+    "a transferable generator must predict the rank-3 basis and latent coefficients from coarse electronic/EPC descriptors"
+  ]
+}

@@ -1,0 +1,1693 @@
+{
+  "status": "checkpoint_passed",
+  "selection_scope": "S0 replay-weight-16 300/450/600 K development checkpoint selection; 375/525 K remain locked",
+  "fixed_thresholds": {
+    "thermal_force_RMSE_meV_A": 50.0,
+    "thermal_force_max_abs_meV_A": 250.0,
+    "harmonic_RMSE_relative_to_frozen_v11": 2.0,
+    "harmonic_RMSE_meV_A": 14.471470840998588
+  },
+  "base_model": "/home/howardwang/phonon/results/gr_backbone_v11/ft_graphene.model",
+  "base_model_sha256": "4d32426672d53e3adc86499d14e4c4164c05e879a56811ff54add03cd1bb6ce7",
+  "template_model": "/home/howardwang/phonon/results/graphene_physics_temperature/post_p4_feasibility/S0_unified_short/formal_240ep_2060_seed83_replayw16/gr_physical_s0_delta32_seed83_replayw16.model",
+  "thermal_datasets": {
+    "thermal300": "/home/howardwang/phonon/data/graphene_physical_s0/T300/test.xyz",
+    "thermal450": "/home/howardwang/phonon/data/graphene_physical_s0/T450/test.xyz",
+    "thermal600": "/home/howardwang/phonon/data/graphene_physical_s0/T600/test.xyz"
+  },
+  "harmonic_dataset": "/home/howardwang/phonon/data/graphene_physical_s0/replay/val.xyz",
+  "harmonic_v11_force": {
+    "RMSE_meV_A": 7.235735420499294,
+    "max_abs_meV_A": 57.08127543853758
+  },
+  "n_checkpoints": 48,
+  "selected": {
+    "checkpoint": "/home/howardwang/phonon/results/graphene_physics_temperature/post_p4_feasibility/S0_unified_short/formal_240ep_2060_seed83_replayw16/checkpoints/gr_physical_s0_delta32_seed83_replayw16_run-83_epoch-215.pt",
+    "checkpoint_sha256": "02ec8fc925af2485ef03e8c917da5c94d425a789c28b0fcf9fad19e094072da9",
+    "epoch": 215,
+    "passes_fixed_gate": true,
+    "normalized_gate_ratios": {
+      "thermal300_RMSE": 0.5258991744149063,
+      "thermal450_RMSE": 0.45132645079369355,
+      "thermal600_RMSE": 0.546863573661687,
+      "thermal300_max_abs": 0.8143272551763925,
+      "thermal450_max_abs": 0.6971977882360845,
+      "thermal600_max_abs": 0.49660621279663,
+      "harmonic_RMSE": 0.9627108274389793
+    },
+    "normalized_worst_gate_score": 0.9627108274389793,
+    "thermal_total_force": {
+      "thermal300": {
+        "RMSE_meV_A": 26.294958720745317,
+        "max_abs_meV_A": 203.5818137940981
+      },
+      "thermal450": {
+        "RMSE_meV_A": 22.566322539684677,
+        "max_abs_meV_A": 174.2994470590211
+      },
+      "thermal600": {
+        "RMSE_meV_A": 27.343178683084354,
+        "max_abs_meV_A": 124.15155319915749
+      }
+    },
+    "harmonic_combined_force": {
+      "RMSE_meV_A": 13.931841667596812,
+      "max_abs_meV_A": 140.01433641143802
+    }
+  },
+  "selected_model": "/home/howardwang/phonon/results/graphene_physics_temperature/post_p4_feasibility/S0_unified_short/formal_240ep_2060_seed83_replayw16/selected_checkpoint.model",
+  "records": [
+    {
+      "checkpoint": "/home/howardwang/phonon/results/graphene_physics_temperature/post_p4_feasibility/S0_unified_short/formal_240ep_2060_seed83_replayw16/checkpoints/gr_physical_s0_delta32_seed83_replayw16_run-83_epoch-0.pt",
+      "checkpoint_sha256": "65462fdb40253271db69ef69743104a8226554dfbc07bb76cffbebefe8b288fb",
+      "epoch": 0,
+      "passes_fixed_gate": false,
+      "normalized_gate_ratios": {
+        "thermal300_RMSE": 2.4275152264232265,
+        "thermal450_RMSE": 3.31562405898726,
+        "thermal600_RMSE": 3.927265617596278,
+        "thermal300_max_abs": 2.464764818834153,
+        "thermal450_max_abs": 4.753543561912611,
+        "thermal600_max_abs": 4.647555849617387,
+        "harmonic_RMSE": 1.896218639155749
+      },
+      "normalized_worst_gate_score": 4.753543561912611,
+      "thermal_total_force": {
+        "thermal300": {
+          "RMSE_meV_A": 121.37576132116133,
+          "max_abs_meV_A": 616.1912047085383
+        },
+        "thermal450": {
+          "RMSE_meV_A": 165.781202949363,
+          "max_abs_meV_A": 1188.3858904781528
+        },
+        "thermal600": {
+          "RMSE_meV_A": 196.36328087981389,
+          "max_abs_meV_A": 1161.8889624043468
+        }
+      },
+      "harmonic_combined_force": {
+        "RMSE_meV_A": 27.441072744700445,
+        "max_abs_meV_A": 251.2580320080193
+      }
+    },
+    {
+      "checkpoint": "/home/howardwang/phonon/results/graphene_physics_temperature/post_p4_feasibility/S0_unified_short/formal_240ep_2060_seed83_replayw16/checkpoints/gr_physical_s0_delta32_seed83_replayw16_run-83_epoch-5.pt",
+      "checkpoint_sha256": "7adb5c73bc50b947e9708e1972a0b017b0b7a9e6aed0ae9b1b55f949a755138f",
+      "epoch": 5,
+      "passes_fixed_gate": false,
+      "normalized_gate_ratios": {
+        "thermal300_RMSE": 2.355834420165161,
+        "thermal450_RMSE": 3.2380978559010924,
+        "thermal600_RMSE": 3.85360114204513,
+        "thermal300_max_abs": 2.3765766474474344,
+        "thermal450_max_abs": 4.702645278192595,
+        "thermal600_max_abs": 4.594928971594239,
+        "harmonic_RMSE": 1.9752157811707751
+      },
+      "normalized_worst_gate_score": 4.702645278192595,
+      "thermal_total_force": {
+        "thermal300": {
+          "RMSE_meV_A": 117.79172100825805,
+          "max_abs_meV_A": 594.1441618618586
+        },
+        "thermal450": {
+          "RMSE_meV_A": 161.90489279505462,
+          "max_abs_meV_A": 1175.6613195481486
+        },
+        "thermal600": {
+          "RMSE_meV_A": 192.6800571022565,
+          "max_abs_meV_A": 1148.73224289856
+        }
+      },
+      "harmonic_combined_force": {
+        "RMSE_meV_A": 28.58427758189312,
+        "max_abs_meV_A": 189.96811138053891
+      }
+    },
+    {
+      "checkpoint": "/home/howardwang/phonon/results/graphene_physics_temperature/post_p4_feasibility/S0_unified_short/formal_240ep_2060_seed83_replayw16/checkpoints/gr_physical_s0_delta32_seed83_replayw16_run-83_epoch-10.pt",
+      "checkpoint_sha256": "944f07ec2765989e38d46a1a33cc5744f3842eb8d4d45cf3ad57eba081a33843",
+      "epoch": 10,
+      "passes_fixed_gate": false,
+      "normalized_gate_ratios": {
+        "thermal300_RMSE": 2.2135811334201345,
+        "thermal450_RMSE": 3.0556629147662817,
+        "thermal600_RMSE": 3.6396166805090346,
+        "thermal300_max_abs": 2.3031750473249826,
+        "thermal450_max_abs": 4.580490744329527,
+        "thermal600_max_abs": 4.544190815752412,
+        "harmonic_RMSE": 2.483414823983368
+      },
+      "normalized_worst_gate_score": 4.580490744329527,
+      "thermal_total_force": {
+        "thermal300": {
+          "RMSE_meV_A": 110.67905667100672,
+          "max_abs_meV_A": 575.7937618312457
+        },
+        "thermal450": {
+          "RMSE_meV_A": 152.7831457383141,
+          "max_abs_meV_A": 1145.1226860823817
+        },
+        "thermal600": {
+          "RMSE_meV_A": 181.98083402545174,
+          "max_abs_meV_A": 1136.047703938103
+        }
+      },
+      "harmonic_combined_force": {
+        "RMSE_meV_A": 35.938665211378954,
+        "max_abs_meV_A": 267.67071765182493
+      }
+    },
+    {
+      "checkpoint": "/home/howardwang/phonon/results/graphene_physics_temperature/post_p4_feasibility/S0_unified_short/formal_240ep_2060_seed83_replayw16/checkpoints/gr_physical_s0_delta32_seed83_replayw16_run-83_epoch-15.pt",
+      "checkpoint_sha256": "eca6a4f347c56b07a91f7a3b14f778602ddc99c40e62bbd29123e97a439334c9",
+      "epoch": 15,
+      "passes_fixed_gate": false,
+      "normalized_gate_ratios": {
+        "thermal300_RMSE": 2.0823668902418144,
+        "thermal450_RMSE": 2.931798990455496,
+        "thermal600_RMSE": 3.500041726411284,
+        "thermal300_max_abs": 2.2738667282331857,
+        "thermal450_max_abs": 4.823902076698378,
+        "thermal600_max_abs": 4.536484173601533,
+        "harmonic_RMSE": 2.528918786504388
+      },
+      "normalized_worst_gate_score": 4.823902076698378,
+      "thermal_total_force": {
+        "thermal300": {
+          "RMSE_meV_A": 104.11834451209073,
+          "max_abs_meV_A": 568.4666820582964
+        },
+        "thermal450": {
+          "RMSE_meV_A": 146.5899495227748,
+          "max_abs_meV_A": 1205.9755191745944
+        },
+        "thermal600": {
+          "RMSE_meV_A": 175.0020863205642,
+          "max_abs_meV_A": 1134.1210434003833
+        }
+      },
+      "harmonic_combined_force": {
+        "RMSE_meV_A": 36.597174478151786,
+        "max_abs_meV_A": 187.76826953712478
+      }
+    },
+    {
+      "checkpoint": "/home/howardwang/phonon/results/graphene_physics_temperature/post_p4_feasibility/S0_unified_short/formal_240ep_2060_seed83_replayw16/checkpoints/gr_physical_s0_delta32_seed83_replayw16_run-83_epoch-20.pt",
+      "checkpoint_sha256": "2c70c3414b1154dffd47573d8bb2fe5aabb6c998942a037473b8bac976850879",
+      "epoch": 20,
+      "passes_fixed_gate": false,
+      "normalized_gate_ratios": {
+        "thermal300_RMSE": 1.579823480724019,
+        "thermal450_RMSE": 2.3218733032447103,
+        "thermal600_RMSE": 2.8190346734598983,
+        "thermal300_max_abs": 1.9596411737669381,
+        "thermal450_max_abs": 4.460190890437314,
+        "thermal600_max_abs": 4.189495376413728,
+        "harmonic_RMSE": 4.5531461689607315
+      },
+      "normalized_worst_gate_score": 4.5531461689607315,
+      "thermal_total_force": {
+        "thermal300": {
+          "RMSE_meV_A": 78.99117403620095,
+          "max_abs_meV_A": 489.91029344173455
+        },
+        "thermal450": {
+          "RMSE_meV_A": 116.09366516223552,
+          "max_abs_meV_A": 1115.0477226093285
+        },
+        "thermal600": {
+          "RMSE_meV_A": 140.95173367299492,
+          "max_abs_meV_A": 1047.373844103432
+        }
+      },
+      "harmonic_combined_force": {
+        "RMSE_meV_A": 65.89072201891966,
+        "max_abs_meV_A": 331.81049322906506
+      }
+    },
+    {
+      "checkpoint": "/home/howardwang/phonon/results/graphene_physics_temperature/post_p4_feasibility/S0_unified_short/formal_240ep_2060_seed83_replayw16/checkpoints/gr_physical_s0_delta32_seed83_replayw16_run-83_epoch-25.pt",
+      "checkpoint_sha256": "49b5b483bdb246d88186f8861616a6b76ba2a2f069a66fedab2e2716ba043ce9",
+      "epoch": 25,
+      "passes_fixed_gate": false,
+      "normalized_gate_ratios": {
+        "thermal300_RMSE": 1.4173302937165486,
+        "thermal450_RMSE": 2.087429561904881,
+        "thermal600_RMSE": 2.585136091903315,
+        "thermal300_max_abs": 2.1461734625566873,
+        "thermal450_max_abs": 4.11006811878784,
+        "thermal600_max_abs": 4.05223605750534,
+        "harmonic_RMSE": 3.7511159112905994
+      },
+      "normalized_worst_gate_score": 4.11006811878784,
+      "thermal_total_force": {
+        "thermal300": {
+          "RMSE_meV_A": 70.86651468582743,
+          "max_abs_meV_A": 536.5433656391718
+        },
+        "thermal450": {
+          "RMSE_meV_A": 104.37147809524404,
+          "max_abs_meV_A": 1027.51702969696
+        },
+        "thermal600": {
+          "RMSE_meV_A": 129.25680459516576,
+          "max_abs_meV_A": 1013.059014376335
+        }
+      },
+      "harmonic_combined_force": {
+        "RMSE_meV_A": 54.28416453144776,
+        "max_abs_meV_A": 309.1212888200374
+      }
+    },
+    {
+      "checkpoint": "/home/howardwang/phonon/results/graphene_physics_temperature/post_p4_feasibility/S0_unified_short/formal_240ep_2060_seed83_replayw16/checkpoints/gr_physical_s0_delta32_seed83_replayw16_run-83_epoch-30.pt",
+      "checkpoint_sha256": "51ee0bbd6e7dd7b66596b6fced49e93439dc053dbdefaef3027c0baa204496c3",
+      "epoch": 30,
+      "passes_fixed_gate": false,
+      "normalized_gate_ratios": {
+        "thermal300_RMSE": 1.5742177974880005,
+        "thermal450_RMSE": 2.2570474488817696,
+        "thermal600_RMSE": 2.7638859009084014,
+        "thermal300_max_abs": 2.3093114647138986,
+        "thermal450_max_abs": 4.238464570261076,
+        "thermal600_max_abs": 3.9302851927134697,
+        "harmonic_RMSE": 2.89876982389178
+      },
+      "normalized_worst_gate_score": 4.238464570261076,
+      "thermal_total_force": {
+        "thermal300": {
+          "RMSE_meV_A": 78.71088987440002,
+          "max_abs_meV_A": 577.3278661784747
+        },
+        "thermal450": {
+          "RMSE_meV_A": 112.85237244408849,
+          "max_abs_meV_A": 1059.616142565269
+        },
+        "thermal600": {
+          "RMSE_meV_A": 138.19429504542006,
+          "max_abs_meV_A": 982.5712981783674
+        }
+      },
+      "harmonic_combined_force": {
+        "RMSE_meV_A": 41.949462981216506,
+        "max_abs_meV_A": 267.85243720169063
+      }
+    },
+    {
+      "checkpoint": "/home/howardwang/phonon/results/graphene_physics_temperature/post_p4_feasibility/S0_unified_short/formal_240ep_2060_seed83_replayw16/checkpoints/gr_physical_s0_delta32_seed83_replayw16_run-83_epoch-35.pt",
+      "checkpoint_sha256": "d73c231d2d4568f6583ddda2664adda58a7cd6b1931cac73d82fdbd4bcd6422f",
+      "epoch": 35,
+      "passes_fixed_gate": false,
+      "normalized_gate_ratios": {
+        "thermal300_RMSE": 1.5603069729570138,
+        "thermal450_RMSE": 2.247074579612669,
+        "thermal600_RMSE": 2.7583003667212584,
+        "thermal300_max_abs": 2.324473813461152,
+        "thermal450_max_abs": 4.281694746233061,
+        "thermal600_max_abs": 3.8166507851931755,
+        "harmonic_RMSE": 2.745821492679179
+      },
+      "normalized_worst_gate_score": 4.281694746233061,
+      "thermal_total_force": {
+        "thermal300": {
+          "RMSE_meV_A": 78.01534864785069,
+          "max_abs_meV_A": 581.118453365288
+        },
+        "thermal450": {
+          "RMSE_meV_A": 112.35372898063345,
+          "max_abs_meV_A": 1070.4236865582652
+        },
+        "thermal600": {
+          "RMSE_meV_A": 137.91501833606293,
+          "max_abs_meV_A": 954.1626962982939
+        }
+      },
+      "harmonic_combined_force": {
+        "RMSE_meV_A": 39.73607566589396,
+        "max_abs_meV_A": 249.06344384307855
+      }
+    },
+    {
+      "checkpoint": "/home/howardwang/phonon/results/graphene_physics_temperature/post_p4_feasibility/S0_unified_short/formal_240ep_2060_seed83_replayw16/checkpoints/gr_physical_s0_delta32_seed83_replayw16_run-83_epoch-40.pt",
+      "checkpoint_sha256": "b68228f17766572075405c177d16e7ce2a2d84fb5712ab45ac45447daea0723a",
+      "epoch": 40,
+      "passes_fixed_gate": false,
+      "normalized_gate_ratios": {
+        "thermal300_RMSE": 1.5105968781128687,
+        "thermal450_RMSE": 2.1976119245229326,
+        "thermal600_RMSE": 2.694973756536856,
+        "thermal300_max_abs": 2.342543229745713,
+        "thermal450_max_abs": 4.218827223993376,
+        "thermal600_max_abs": 3.6446723115298454,
+        "harmonic_RMSE": 2.6644582420787466
+      },
+      "normalized_worst_gate_score": 4.218827223993376,
+      "thermal_total_force": {
+        "thermal300": {
+          "RMSE_meV_A": 75.52984390564343,
+          "max_abs_meV_A": 585.6358074364283
+        },
+        "thermal450": {
+          "RMSE_meV_A": 109.88059622614662,
+          "max_abs_meV_A": 1054.706805998344
+        },
+        "thermal600": {
+          "RMSE_meV_A": 134.7486878268428,
+          "max_abs_meV_A": 911.1680778824614
+        }
+      },
+      "harmonic_combined_force": {
+        "RMSE_meV_A": 38.55862975730094,
+        "max_abs_meV_A": 248.66544872875207
+      }
+    },
+    {
+      "checkpoint": "/home/howardwang/phonon/results/graphene_physics_temperature/post_p4_feasibility/S0_unified_short/formal_240ep_2060_seed83_replayw16/checkpoints/gr_physical_s0_delta32_seed83_replayw16_run-83_epoch-45.pt",
+      "checkpoint_sha256": "2796ed60392f335f97b3539374ce0427b8bc3c8f7adcd8a99409c7c3e9bed2f8",
+      "epoch": 45,
+      "passes_fixed_gate": false,
+      "normalized_gate_ratios": {
+        "thermal300_RMSE": 1.3986105831846214,
+        "thermal450_RMSE": 2.073915343625977,
+        "thermal600_RMSE": 2.5328375966952557,
+        "thermal300_max_abs": 2.3416238877046975,
+        "thermal450_max_abs": 4.045376336790159,
+        "thermal600_max_abs": 3.472110069975585,
+        "harmonic_RMSE": 2.817268220937719
+      },
+      "normalized_worst_gate_score": 4.045376336790159,
+      "thermal_total_force": {
+        "thermal300": {
+          "RMSE_meV_A": 69.93052915923107,
+          "max_abs_meV_A": 585.4059719261744
+        },
+        "thermal450": {
+          "RMSE_meV_A": 103.69576718129885,
+          "max_abs_meV_A": 1011.3440841975398
+        },
+        "thermal600": {
+          "RMSE_meV_A": 126.64187983476278,
+          "max_abs_meV_A": 868.0275174938963
+        }
+      },
+      "harmonic_combined_force": {
+        "RMSE_meV_A": 40.77001491057217,
+        "max_abs_meV_A": 257.15845495815273
+      }
+    },
+    {
+      "checkpoint": "/home/howardwang/phonon/results/graphene_physics_temperature/post_p4_feasibility/S0_unified_short/formal_240ep_2060_seed83_replayw16/checkpoints/gr_physical_s0_delta32_seed83_replayw16_run-83_epoch-50.pt",
+      "checkpoint_sha256": "478383e51c62cae1fd3c2e3a344838400e9ddce30537604e4c9e74ab9a7186de",
+      "epoch": 50,
+      "passes_fixed_gate": false,
+      "normalized_gate_ratios": {
+        "thermal300_RMSE": 1.2802803216048455,
+        "thermal450_RMSE": 1.9057665453217913,
+        "thermal600_RMSE": 2.2824574327284743,
+        "thermal300_max_abs": 2.2937923821676645,
+        "thermal450_max_abs": 3.740271008230284,
+        "thermal600_max_abs": 3.0290676724765007,
+        "harmonic_RMSE": 2.8341724470562535
+      },
+      "normalized_worst_gate_score": 3.740271008230284,
+      "thermal_total_force": {
+        "thermal300": {
+          "RMSE_meV_A": 64.01401608024227,
+          "max_abs_meV_A": 573.4480955419161
+        },
+        "thermal450": {
+          "RMSE_meV_A": 95.28832726608957,
+          "max_abs_meV_A": 935.0677520575709
+        },
+        "thermal600": {
+          "RMSE_meV_A": 114.12287163642371,
+          "max_abs_meV_A": 757.2669181191252
+        }
+      },
+      "harmonic_combined_force": {
+        "RMSE_meV_A": 41.014643925936184,
+        "max_abs_meV_A": 290.82731575126644
+      }
+    },
+    {
+      "checkpoint": "/home/howardwang/phonon/results/graphene_physics_temperature/post_p4_feasibility/S0_unified_short/formal_240ep_2060_seed83_replayw16/checkpoints/gr_physical_s0_delta32_seed83_replayw16_run-83_epoch-55.pt",
+      "checkpoint_sha256": "a738eb3daaf2f4ed9684bdb3f3cb868ca32b5ae9e7c27b9d9b73dd7f4d471b05",
+      "epoch": 55,
+      "passes_fixed_gate": false,
+      "normalized_gate_ratios": {
+        "thermal300_RMSE": 1.0351507743014678,
+        "thermal450_RMSE": 1.4536976920269462,
+        "thermal600_RMSE": 1.7023013832717162,
+        "thermal300_max_abs": 2.0434383305776986,
+        "thermal450_max_abs": 3.3587781775900254,
+        "thermal600_max_abs": 2.2057721984240715,
+        "harmonic_RMSE": 3.4533764363900015
+      },
+      "normalized_worst_gate_score": 3.4533764363900015,
+      "thermal_total_force": {
+        "thermal300": {
+          "RMSE_meV_A": 51.757538715073395,
+          "max_abs_meV_A": 510.8595826444247
+        },
+        "thermal450": {
+          "RMSE_meV_A": 72.6848846013473,
+          "max_abs_meV_A": 839.6945443975063
+        },
+        "thermal600": {
+          "RMSE_meV_A": 85.11506916358582,
+          "max_abs_meV_A": 551.4430496060179
+        }
+      },
+      "harmonic_combined_force": {
+        "RMSE_meV_A": 49.975436402209525,
+        "max_abs_meV_A": 370.84461421127315
+      }
+    },
+    {
+      "checkpoint": "/home/howardwang/phonon/results/graphene_physics_temperature/post_p4_feasibility/S0_unified_short/formal_240ep_2060_seed83_replayw16/checkpoints/gr_physical_s0_delta32_seed83_replayw16_run-83_epoch-60.pt",
+      "checkpoint_sha256": "56541a899be638f594e165bd08c3b43ba09d9392502d86e4d36e7df1d3e44d72",
+      "epoch": 60,
+      "passes_fixed_gate": false,
+      "normalized_gate_ratios": {
+        "thermal300_RMSE": 1.0003810646485645,
+        "thermal450_RMSE": 1.3020327744523157,
+        "thermal600_RMSE": 1.511088061828587,
+        "thermal300_max_abs": 2.002851203368989,
+        "thermal450_max_abs": 3.198246060700072,
+        "thermal600_max_abs": 1.9464061177429208,
+        "harmonic_RMSE": 3.108609548111325
+      },
+      "normalized_worst_gate_score": 3.198246060700072,
+      "thermal_total_force": {
+        "thermal300": {
+          "RMSE_meV_A": 50.01905323242823,
+          "max_abs_meV_A": 500.71280084224725
+        },
+        "thermal450": {
+          "RMSE_meV_A": 65.10163872261579,
+          "max_abs_meV_A": 799.5615151750179
+        },
+        "thermal600": {
+          "RMSE_meV_A": 75.55440309142935,
+          "max_abs_meV_A": 486.6015294357302
+        }
+      },
+      "harmonic_combined_force": {
+        "RMSE_meV_A": 44.98615243154284,
+        "max_abs_meV_A": 353.57995003814693
+      }
+    },
+    {
+      "checkpoint": "/home/howardwang/phonon/results/graphene_physics_temperature/post_p4_feasibility/S0_unified_short/formal_240ep_2060_seed83_replayw16/checkpoints/gr_physical_s0_delta32_seed83_replayw16_run-83_epoch-65.pt",
+      "checkpoint_sha256": "cd9ce9eab5b1d3f8bafc773056cf0767a8df3d21b11c8c52f43e48c3a5e10ea3",
+      "epoch": 65,
+      "passes_fixed_gate": false,
+      "normalized_gate_ratios": {
+        "thermal300_RMSE": 1.0099777639216159,
+        "thermal450_RMSE": 1.2096950429154305,
+        "thermal600_RMSE": 1.393126031283292,
+        "thermal300_max_abs": 2.0497464093435678,
+        "thermal450_max_abs": 3.012129365296019,
+        "thermal600_max_abs": 1.8477686855383304,
+        "harmonic_RMSE": 2.5669086877529703
+      },
+      "normalized_worst_gate_score": 3.012129365296019,
+      "thermal_total_force": {
+        "thermal300": {
+          "RMSE_meV_A": 50.4988881960808,
+          "max_abs_meV_A": 512.436602335892
+        },
+        "thermal450": {
+          "RMSE_meV_A": 60.48475214577153,
+          "max_abs_meV_A": 753.0323413240047
+        },
+        "thermal600": {
+          "RMSE_meV_A": 69.65630156416461,
+          "max_abs_meV_A": 461.9421713845826
+        }
+      },
+      "harmonic_combined_force": {
+        "RMSE_meV_A": 37.14694422632306,
+        "max_abs_meV_A": 325.28675765151974
+      }
+    },
+    {
+      "checkpoint": "/home/howardwang/phonon/results/graphene_physics_temperature/post_p4_feasibility/S0_unified_short/formal_240ep_2060_seed83_replayw16/checkpoints/gr_physical_s0_delta32_seed83_replayw16_run-83_epoch-70.pt",
+      "checkpoint_sha256": "5d9e2dacfb3269c0f5206cbc457b6e59a42197c45ad0df182ce617b01d9d9c6e",
+      "epoch": 70,
+      "passes_fixed_gate": false,
+      "normalized_gate_ratios": {
+        "thermal300_RMSE": 0.944523084617185,
+        "thermal450_RMSE": 1.0755157967095106,
+        "thermal600_RMSE": 1.2411943737756757,
+        "thermal300_max_abs": 1.9938991221655282,
+        "thermal450_max_abs": 2.5631585706182847,
+        "thermal600_max_abs": 1.6104952308721927,
+        "harmonic_RMSE": 2.3044207050611774
+      },
+      "normalized_worst_gate_score": 2.5631585706182847,
+      "thermal_total_force": {
+        "thermal300": {
+          "RMSE_meV_A": 47.22615423085925,
+          "max_abs_meV_A": 498.4747805413821
+        },
+        "thermal450": {
+          "RMSE_meV_A": 53.77578983547553,
+          "max_abs_meV_A": 640.7896426545711
+        },
+        "thermal600": {
+          "RMSE_meV_A": 62.05971868878378,
+          "max_abs_meV_A": 402.62380771804817
+        }
+      },
+      "harmonic_combined_force": {
+        "RMSE_meV_A": 33.34835703868624,
+        "max_abs_meV_A": 304.8800942337036
+      }
+    },
+    {
+      "checkpoint": "/home/howardwang/phonon/results/graphene_physics_temperature/post_p4_feasibility/S0_unified_short/formal_240ep_2060_seed83_replayw16/checkpoints/gr_physical_s0_delta32_seed83_replayw16_run-83_epoch-75.pt",
+      "checkpoint_sha256": "e69bdb223c64abe8977f107fb8e696e3d3a803ffcc755aaec859f1b2dacda002",
+      "epoch": 75,
+      "passes_fixed_gate": false,
+      "normalized_gate_ratios": {
+        "thermal300_RMSE": 0.8932128192869054,
+        "thermal450_RMSE": 0.9682944246419958,
+        "thermal600_RMSE": 1.1525078336696262,
+        "thermal300_max_abs": 1.879862681316224,
+        "thermal450_max_abs": 2.1705694558392334,
+        "thermal600_max_abs": 1.5051564635168457,
+        "harmonic_RMSE": 1.9691468359080506
+      },
+      "normalized_worst_gate_score": 2.1705694558392334,
+      "thermal_total_force": {
+        "thermal300": {
+          "RMSE_meV_A": 44.66064096434527,
+          "max_abs_meV_A": 469.965670329056
+        },
+        "thermal450": {
+          "RMSE_meV_A": 48.41472123209979,
+          "max_abs_meV_A": 542.6423639598083
+        },
+        "thermal600": {
+          "RMSE_meV_A": 57.625391683481304,
+          "max_abs_meV_A": 376.2891158792114
+        }
+      },
+      "harmonic_combined_force": {
+        "RMSE_meV_A": 28.496451017487985,
+        "max_abs_meV_A": 252.29352385158532
+      }
+    },
+    {
+      "checkpoint": "/home/howardwang/phonon/results/graphene_physics_temperature/post_p4_feasibility/S0_unified_short/formal_240ep_2060_seed83_replayw16/checkpoints/gr_physical_s0_delta32_seed83_replayw16_run-83_epoch-80.pt",
+      "checkpoint_sha256": "70f8f7d946949c9f4e9f673a35d81cd229eef7f6c9d5e26afeef7aff22758aa3",
+      "epoch": 80,
+      "passes_fixed_gate": false,
+      "normalized_gate_ratios": {
+        "thermal300_RMSE": 0.8205348975435116,
+        "thermal450_RMSE": 0.8721074994347607,
+        "thermal600_RMSE": 1.0604748748772608,
+        "thermal300_max_abs": 1.680132285045472,
+        "thermal450_max_abs": 1.9476033382391362,
+        "thermal600_max_abs": 1.4061247767340088,
+        "harmonic_RMSE": 1.8846512207875281
+      },
+      "normalized_worst_gate_score": 1.9476033382391362,
+      "thermal_total_force": {
+        "thermal300": {
+          "RMSE_meV_A": 41.02674487717558,
+          "max_abs_meV_A": 420.03307126136804
+        },
+        "thermal450": {
+          "RMSE_meV_A": 43.60537497173804,
+          "max_abs_meV_A": 486.9008345597841
+        },
+        "thermal600": {
+          "RMSE_meV_A": 53.02374374386304,
+          "max_abs_meV_A": 351.5311941835022
+        }
+      },
+      "harmonic_combined_force": {
+        "RMSE_meV_A": 27.273675187079107,
+        "max_abs_meV_A": 232.58880943412774
+      }
+    },
+    {
+      "checkpoint": "/home/howardwang/phonon/results/graphene_physics_temperature/post_p4_feasibility/S0_unified_short/formal_240ep_2060_seed83_replayw16/checkpoints/gr_physical_s0_delta32_seed83_replayw16_run-83_epoch-85.pt",
+      "checkpoint_sha256": "96be341a71fe97326acdceb8ad28cbb8e8c6705ffce6f744bf701913c2c49c1b",
+      "epoch": 85,
+      "passes_fixed_gate": false,
+      "normalized_gate_ratios": {
+        "thermal300_RMSE": 0.7705812661336179,
+        "thermal450_RMSE": 0.7970484592006091,
+        "thermal600_RMSE": 0.98750728560208,
+        "thermal300_max_abs": 1.5314371737707528,
+        "thermal450_max_abs": 1.7730766468023686,
+        "thermal600_max_abs": 1.3075735033880616,
+        "harmonic_RMSE": 1.6944702434651313
+      },
+      "normalized_worst_gate_score": 1.7730766468023686,
+      "thermal_total_force": {
+        "thermal300": {
+          "RMSE_meV_A": 38.5290633066809,
+          "max_abs_meV_A": 382.8592934426882
+        },
+        "thermal450": {
+          "RMSE_meV_A": 39.85242296003045,
+          "max_abs_meV_A": 443.2691617005922
+        },
+        "thermal600": {
+          "RMSE_meV_A": 49.375364280104,
+          "max_abs_meV_A": 326.89337584701536
+        }
+      },
+      "harmonic_combined_force": {
+        "RMSE_meV_A": 24.521476719245427,
+        "max_abs_meV_A": 220.5522804629135
+      }
+    },
+    {
+      "checkpoint": "/home/howardwang/phonon/results/graphene_physics_temperature/post_p4_feasibility/S0_unified_short/formal_240ep_2060_seed83_replayw16/checkpoints/gr_physical_s0_delta32_seed83_replayw16_run-83_epoch-90.pt",
+      "checkpoint_sha256": "dd36789bdb1ba3366c9c164f64913c32235548e7fe390e9f20eb7411b254db62",
+      "epoch": 90,
+      "passes_fixed_gate": false,
+      "normalized_gate_ratios": {
+        "thermal300_RMSE": 0.7331915089294873,
+        "thermal450_RMSE": 0.7398861980665079,
+        "thermal600_RMSE": 0.9258492990690638,
+        "thermal300_max_abs": 1.4051482829321298,
+        "thermal450_max_abs": 1.590092890737,
+        "thermal600_max_abs": 1.1865586699377442,
+        "harmonic_RMSE": 1.578540496860476
+      },
+      "normalized_worst_gate_score": 1.590092890737,
+      "thermal_total_force": {
+        "thermal300": {
+          "RMSE_meV_A": 36.65957544647436,
+          "max_abs_meV_A": 351.28707073303246
+        },
+        "thermal450": {
+          "RMSE_meV_A": 36.994309903325394,
+          "max_abs_meV_A": 397.52322268425
+        },
+        "thermal600": {
+          "RMSE_meV_A": 46.29246495345319,
+          "max_abs_meV_A": 296.639667484436
+        }
+      },
+      "harmonic_combined_force": {
+        "RMSE_meV_A": 22.843802771651802,
+        "max_abs_meV_A": 219.49782959335326
+      }
+    },
+    {
+      "checkpoint": "/home/howardwang/phonon/results/graphene_physics_temperature/post_p4_feasibility/S0_unified_short/formal_240ep_2060_seed83_replayw16/checkpoints/gr_physical_s0_delta32_seed83_replayw16_run-83_epoch-95.pt",
+      "checkpoint_sha256": "3b088865602d75c5e5d83b0463b9d5df0b6dad4327aecd2da817fc6c577e7a16",
+      "epoch": 95,
+      "passes_fixed_gate": false,
+      "normalized_gate_ratios": {
+        "thermal300_RMSE": 0.6793582171294585,
+        "thermal450_RMSE": 0.6730504528820644,
+        "thermal600_RMSE": 0.8494083370809673,
+        "thermal300_max_abs": 1.244262472080079,
+        "thermal450_max_abs": 1.390140645978394,
+        "thermal600_max_abs": 1.0531686009298706,
+        "harmonic_RMSE": 1.5297479065443473
+      },
+      "normalized_worst_gate_score": 1.5297479065443473,
+      "thermal_total_force": {
+        "thermal300": {
+          "RMSE_meV_A": 33.967910856472926,
+          "max_abs_meV_A": 311.06561802001977
+        },
+        "thermal450": {
+          "RMSE_meV_A": 33.65252264410322,
+          "max_abs_meV_A": 347.5351614945985
+        },
+        "thermal600": {
+          "RMSE_meV_A": 42.470416854048366,
+          "max_abs_meV_A": 263.29215023246763
+        }
+      },
+      "harmonic_combined_force": {
+        "RMSE_meV_A": 22.137702223635156,
+        "max_abs_meV_A": 220.11411337455831
+      }
+    },
+    {
+      "checkpoint": "/home/howardwang/phonon/results/graphene_physics_temperature/post_p4_feasibility/S0_unified_short/formal_240ep_2060_seed83_replayw16/checkpoints/gr_physical_s0_delta32_seed83_replayw16_run-83_epoch-100.pt",
+      "checkpoint_sha256": "8bdbf7d35d22e5b8247275de5a92345638540fcd98dee87bbc12576b5520aebc",
+      "epoch": 100,
+      "passes_fixed_gate": false,
+      "normalized_gate_ratios": {
+        "thermal300_RMSE": 0.6556372546706435,
+        "thermal450_RMSE": 0.6274959352446168,
+        "thermal600_RMSE": 0.7911491585787392,
+        "thermal300_max_abs": 1.1464352759588632,
+        "thermal450_max_abs": 1.231317871091309,
+        "thermal600_max_abs": 0.926849073303833,
+        "harmonic_RMSE": 1.5539868829094843
+      },
+      "normalized_worst_gate_score": 1.5539868829094843,
+      "thermal_total_force": {
+        "thermal300": {
+          "RMSE_meV_A": 32.78186273353217,
+          "max_abs_meV_A": 286.6088189897158
+        },
+        "thermal450": {
+          "RMSE_meV_A": 31.374796762230837,
+          "max_abs_meV_A": 307.8294677728273
+        },
+        "thermal600": {
+          "RMSE_meV_A": 39.55745792893696,
+          "max_abs_meV_A": 231.71226832595826
+        }
+      },
+      "harmonic_combined_force": {
+        "RMSE_meV_A": 22.48847586331889,
+        "max_abs_meV_A": 314.7660508592995
+      }
+    },
+    {
+      "checkpoint": "/home/howardwang/phonon/results/graphene_physics_temperature/post_p4_feasibility/S0_unified_short/formal_240ep_2060_seed83_replayw16/checkpoints/gr_physical_s0_delta32_seed83_replayw16_run-83_epoch-105.pt",
+      "checkpoint_sha256": "98bedc8596d62f47a3b4fd5e0710b959e93a13abd119d01c0833f703dab9446d",
+      "epoch": 105,
+      "passes_fixed_gate": false,
+      "normalized_gate_ratios": {
+        "thermal300_RMSE": 0.637725635673287,
+        "thermal450_RMSE": 0.6032227944362343,
+        "thermal600_RMSE": 0.7658261587911193,
+        "thermal300_max_abs": 1.1203193816412362,
+        "thermal450_max_abs": 1.1646891765570073,
+        "thermal600_max_abs": 0.8695185841452027,
+        "harmonic_RMSE": 1.500738046151282
+      },
+      "normalized_worst_gate_score": 1.500738046151282,
+      "thermal_total_force": {
+        "thermal300": {
+          "RMSE_meV_A": 31.88628178366435,
+          "max_abs_meV_A": 280.0798454103091
+        },
+        "thermal450": {
+          "RMSE_meV_A": 30.161139721811715,
+          "max_abs_meV_A": 291.17229413925185
+        },
+        "thermal600": {
+          "RMSE_meV_A": 38.29130793955596,
+          "max_abs_meV_A": 217.37964603630067
+        }
+      },
+      "harmonic_combined_force": {
+        "RMSE_meV_A": 21.71788687485547,
+        "max_abs_meV_A": 277.1718814810189
+      }
+    },
+    {
+      "checkpoint": "/home/howardwang/phonon/results/graphene_physics_temperature/post_p4_feasibility/S0_unified_short/formal_240ep_2060_seed83_replayw16/checkpoints/gr_physical_s0_delta32_seed83_replayw16_run-83_epoch-110.pt",
+      "checkpoint_sha256": "afac342aa5433ddb33c7f0736d20145725ae1e112edcd970e5a0bd091c856323",
+      "epoch": 110,
+      "passes_fixed_gate": false,
+      "normalized_gate_ratios": {
+        "thermal300_RMSE": 0.601456043919097,
+        "thermal450_RMSE": 0.5671312782714791,
+        "thermal600_RMSE": 0.7227086392880123,
+        "thermal300_max_abs": 1.0430263432730111,
+        "thermal450_max_abs": 1.058722131726685,
+        "thermal600_max_abs": 0.7791804732214356,
+        "harmonic_RMSE": 1.4173130470051911
+      },
+      "normalized_worst_gate_score": 1.4173130470051911,
+      "thermal_total_force": {
+        "thermal300": {
+          "RMSE_meV_A": 30.07280219595485,
+          "max_abs_meV_A": 260.7565858182528
+        },
+        "thermal450": {
+          "RMSE_meV_A": 28.356563913573957,
+          "max_abs_meV_A": 264.6805329316713
+        },
+        "thermal600": {
+          "RMSE_meV_A": 36.13543196440062,
+          "max_abs_meV_A": 194.7951183053589
+        }
+      },
+      "harmonic_combined_force": {
+        "RMSE_meV_A": 20.510604432302486,
+        "max_abs_meV_A": 241.2754311998757
+      }
+    },
+    {
+      "checkpoint": "/home/howardwang/phonon/results/graphene_physics_temperature/post_p4_feasibility/S0_unified_short/formal_240ep_2060_seed83_replayw16/checkpoints/gr_physical_s0_delta32_seed83_replayw16_run-83_epoch-115.pt",
+      "checkpoint_sha256": "fda8dae2ed0c4d5862f7efeefd7227e3578428d2ff188640e13b0cc3fb688140",
+      "epoch": 115,
+      "passes_fixed_gate": false,
+      "normalized_gate_ratios": {
+        "thermal300_RMSE": 0.6106077411723522,
+        "thermal450_RMSE": 0.5607079295149761,
+        "thermal600_RMSE": 0.7153109358324786,
+        "thermal300_max_abs": 1.0241589698065194,
+        "thermal450_max_abs": 1.0224384002661138,
+        "thermal600_max_abs": 0.7709127129446411,
+        "harmonic_RMSE": 1.3608959079627572
+      },
+      "normalized_worst_gate_score": 1.3608959079627572,
+      "thermal_total_force": {
+        "thermal300": {
+          "RMSE_meV_A": 30.53038705861761,
+          "max_abs_meV_A": 256.0397424516299
+        },
+        "thermal450": {
+          "RMSE_meV_A": 28.0353964757488,
+          "max_abs_meV_A": 255.60960006652843
+        },
+        "thermal600": {
+          "RMSE_meV_A": 35.76554679162393,
+          "max_abs_meV_A": 192.7281782361603
+        }
+      },
+      "harmonic_combined_force": {
+        "RMSE_meV_A": 19.69416544971734,
+        "max_abs_meV_A": 256.1548963030251
+      }
+    },
+    {
+      "checkpoint": "/home/howardwang/phonon/results/graphene_physics_temperature/post_p4_feasibility/S0_unified_short/formal_240ep_2060_seed83_replayw16/checkpoints/gr_physical_s0_delta32_seed83_replayw16_run-83_epoch-120.pt",
+      "checkpoint_sha256": "be3268a3cd5b24652301085768c603cf79489099908933a61961ffa3b27c4519",
+      "epoch": 120,
+      "passes_fixed_gate": false,
+      "normalized_gate_ratios": {
+        "thermal300_RMSE": 0.580082512948393,
+        "thermal450_RMSE": 0.5440873882309342,
+        "thermal600_RMSE": 0.6918212418876054,
+        "thermal300_max_abs": 0.9919483813513192,
+        "thermal450_max_abs": 0.9788663320516973,
+        "thermal600_max_abs": 0.7358312071691895,
+        "harmonic_RMSE": 1.3500630523413026
+      },
+      "normalized_worst_gate_score": 1.3500630523413026,
+      "thermal_total_force": {
+        "thermal300": {
+          "RMSE_meV_A": 29.00412564741965,
+          "max_abs_meV_A": 247.9870953378298
+        },
+        "thermal450": {
+          "RMSE_meV_A": 27.204369411546708,
+          "max_abs_meV_A": 244.7165830129243
+        },
+        "thermal600": {
+          "RMSE_meV_A": 34.59106209438027,
+          "max_abs_meV_A": 183.95780179229737
+        }
+      },
+      "harmonic_combined_force": {
+        "RMSE_meV_A": 19.537398095466713,
+        "max_abs_meV_A": 260.6290891607674
+      }
+    },
+    {
+      "checkpoint": "/home/howardwang/phonon/results/graphene_physics_temperature/post_p4_feasibility/S0_unified_short/formal_240ep_2060_seed83_replayw16/checkpoints/gr_physical_s0_delta32_seed83_replayw16_run-83_epoch-125.pt",
+      "checkpoint_sha256": "0d0089f846a340a8b7b01e038bcbcf204d5b7d70863b5f0520b9ccb770e5a747",
+      "epoch": 125,
+      "passes_fixed_gate": false,
+      "normalized_gate_ratios": {
+        "thermal300_RMSE": 0.595525143374794,
+        "thermal450_RMSE": 0.5421812848762922,
+        "thermal600_RMSE": 0.6878028038299923,
+        "thermal300_max_abs": 0.9884655627478036,
+        "thermal450_max_abs": 0.9549779825186162,
+        "thermal600_max_abs": 0.7067973078619385,
+        "harmonic_RMSE": 1.2425559442337657
+      },
+      "normalized_worst_gate_score": 1.2425559442337657,
+      "thermal_total_force": {
+        "thermal300": {
+          "RMSE_meV_A": 29.7762571687397,
+          "max_abs_meV_A": 247.1163906869509
+        },
+        "thermal450": {
+          "RMSE_meV_A": 27.109064243814615,
+          "max_abs_meV_A": 238.74449562965404
+        },
+        "thermal600": {
+          "RMSE_meV_A": 34.39014019149961,
+          "max_abs_meV_A": 176.69932696548463
+        }
+      },
+      "harmonic_combined_force": {
+        "RMSE_meV_A": 17.981612115288407,
+        "max_abs_meV_A": 217.8657963713082
+      }
+    },
+    {
+      "checkpoint": "/home/howardwang/phonon/results/graphene_physics_temperature/post_p4_feasibility/S0_unified_short/formal_240ep_2060_seed83_replayw16/checkpoints/gr_physical_s0_delta32_seed83_replayw16_run-83_epoch-130.pt",
+      "checkpoint_sha256": "bd4a6ac159a69f1a2c2ac9db53ab73d010cc6f2b5189e109a2fcee7700ecf004",
+      "epoch": 130,
+      "passes_fixed_gate": false,
+      "normalized_gate_ratios": {
+        "thermal300_RMSE": 0.6004521118477107,
+        "thermal450_RMSE": 0.5384514585894319,
+        "thermal600_RMSE": 0.6798307937871142,
+        "thermal300_max_abs": 0.9815731200445565,
+        "thermal450_max_abs": 0.9457288913702397,
+        "thermal600_max_abs": 0.7033738554846192,
+        "harmonic_RMSE": 1.2129880214564457
+      },
+      "normalized_worst_gate_score": 1.2129880214564457,
+      "thermal_total_force": {
+        "thermal300": {
+          "RMSE_meV_A": 30.022605592385535,
+          "max_abs_meV_A": 245.39328001113913
+        },
+        "thermal450": {
+          "RMSE_meV_A": 26.922572929471592,
+          "max_abs_meV_A": 236.43222284255992
+        },
+        "thermal600": {
+          "RMSE_meV_A": 33.99153968935571,
+          "max_abs_meV_A": 175.8434638711548
+        }
+      },
+      "harmonic_combined_force": {
+        "RMSE_meV_A": 17.553720782987522,
+        "max_abs_meV_A": 190.31839064472197
+      }
+    },
+    {
+      "checkpoint": "/home/howardwang/phonon/results/graphene_physics_temperature/post_p4_feasibility/S0_unified_short/formal_240ep_2060_seed83_replayw16/checkpoints/gr_physical_s0_delta32_seed83_replayw16_run-83_epoch-135.pt",
+      "checkpoint_sha256": "eb54ea5cdb5008dcdd1c586eaad2b891a7b9528cb49bef8b7fb96cc9e0269d50",
+      "epoch": 135,
+      "passes_fixed_gate": false,
+      "normalized_gate_ratios": {
+        "thermal300_RMSE": 0.5774514831384169,
+        "thermal450_RMSE": 0.5252009083880305,
+        "thermal600_RMSE": 0.6615664368002915,
+        "thermal300_max_abs": 0.9343309554327401,
+        "thermal450_max_abs": 0.887776487348023,
+        "thermal600_max_abs": 0.6581745804678345,
+        "harmonic_RMSE": 1.1909100034054594
+      },
+      "normalized_worst_gate_score": 1.1909100034054594,
+      "thermal_total_force": {
+        "thermal300": {
+          "RMSE_meV_A": 28.872574156920845,
+          "max_abs_meV_A": 233.58273885818502
+        },
+        "thermal450": {
+          "RMSE_meV_A": 26.26004541940152,
+          "max_abs_meV_A": 221.94412183700572
+        },
+        "thermal600": {
+          "RMSE_meV_A": 33.078321840014574,
+          "max_abs_meV_A": 164.54364511695863
+        }
+      },
+      "harmonic_combined_force": {
+        "RMSE_meV_A": 17.234219388535635,
+        "max_abs_meV_A": 182.85474172943114
+      }
+    },
+    {
+      "checkpoint": "/home/howardwang/phonon/results/graphene_physics_temperature/post_p4_feasibility/S0_unified_short/formal_240ep_2060_seed83_replayw16/checkpoints/gr_physical_s0_delta32_seed83_replayw16_run-83_epoch-140.pt",
+      "checkpoint_sha256": "96d90529e7c566fbcce25f74354b3e91d376a940b5ab6c58641d7de489b99890",
+      "epoch": 140,
+      "passes_fixed_gate": false,
+      "normalized_gate_ratios": {
+        "thermal300_RMSE": 0.5794873010222915,
+        "thermal450_RMSE": 0.5203421278770566,
+        "thermal600_RMSE": 0.6509960974189523,
+        "thermal300_max_abs": 0.9175950440634164,
+        "thermal450_max_abs": 0.8633896045660405,
+        "thermal600_max_abs": 0.6294376315008545,
+        "harmonic_RMSE": 1.2004371505790326
+      },
+      "normalized_worst_gate_score": 1.2004371505790326,
+      "thermal_total_force": {
+        "thermal300": {
+          "RMSE_meV_A": 28.974365051114574,
+          "max_abs_meV_A": 229.3987610158541
+        },
+        "thermal450": {
+          "RMSE_meV_A": 26.017106393852828,
+          "max_abs_meV_A": 215.84740114151012
+        },
+        "thermal600": {
+          "RMSE_meV_A": 32.54980487094761,
+          "max_abs_meV_A": 157.35940787521363
+        }
+      },
+      "harmonic_combined_force": {
+        "RMSE_meV_A": 17.3720912210559,
+        "max_abs_meV_A": 189.68936792724608
+      }
+    },
+    {
+      "checkpoint": "/home/howardwang/phonon/results/graphene_physics_temperature/post_p4_feasibility/S0_unified_short/formal_240ep_2060_seed83_replayw16/checkpoints/gr_physical_s0_delta32_seed83_replayw16_run-83_epoch-145.pt",
+      "checkpoint_sha256": "7d12073197c9fba6dac67549af4fa521e7fd03a0edfd715a1646e0b846f54065",
+      "epoch": 145,
+      "passes_fixed_gate": false,
+      "normalized_gate_ratios": {
+        "thermal300_RMSE": 0.5688565673979369,
+        "thermal450_RMSE": 0.5081838241493618,
+        "thermal600_RMSE": 0.640957665465221,
+        "thermal300_max_abs": 0.908883586810914,
+        "thermal450_max_abs": 0.8616059951757817,
+        "thermal600_max_abs": 0.62542909993042,
+        "harmonic_RMSE": 1.1426764292620546
+      },
+      "normalized_worst_gate_score": 1.1426764292620546,
+      "thermal_total_force": {
+        "thermal300": {
+          "RMSE_meV_A": 28.442828369896844,
+          "max_abs_meV_A": 227.22089670272848
+        },
+        "thermal450": {
+          "RMSE_meV_A": 25.40919120746809,
+          "max_abs_meV_A": 215.40149879394542
+        },
+        "thermal600": {
+          "RMSE_meV_A": 32.04788327326105,
+          "max_abs_meV_A": 156.357274982605
+        }
+      },
+      "harmonic_combined_force": {
+        "RMSE_meV_A": 16.53620862676221,
+        "max_abs_meV_A": 179.9411474835205
+      }
+    },
+    {
+      "checkpoint": "/home/howardwang/phonon/results/graphene_physics_temperature/post_p4_feasibility/S0_unified_short/formal_240ep_2060_seed83_replayw16/checkpoints/gr_physical_s0_delta32_seed83_replayw16_run-83_epoch-150.pt",
+      "checkpoint_sha256": "38870fbac4f44dcf4631b2d10d939dba427341d130ea8e700dcd1cb2bec14742",
+      "epoch": 150,
+      "passes_fixed_gate": false,
+      "normalized_gate_ratios": {
+        "thermal300_RMSE": 0.5640586138914917,
+        "thermal450_RMSE": 0.50796143005183,
+        "thermal600_RMSE": 0.63810416736347,
+        "thermal300_max_abs": 0.9024546298254403,
+        "thermal450_max_abs": 0.8464597396826177,
+        "thermal600_max_abs": 0.6207704008947754,
+        "harmonic_RMSE": 1.1194090222791198
+      },
+      "normalized_worst_gate_score": 1.1194090222791198,
+      "thermal_total_force": {
+        "thermal300": {
+          "RMSE_meV_A": 28.202930694574583,
+          "max_abs_meV_A": 225.61365745636007
+        },
+        "thermal450": {
+          "RMSE_meV_A": 25.398071502591502,
+          "max_abs_meV_A": 211.6149349206544
+        },
+        "thermal600": {
+          "RMSE_meV_A": 31.905208368173497,
+          "max_abs_meV_A": 155.19260022369386
+        }
+      },
+      "harmonic_combined_force": {
+        "RMSE_meV_A": 16.19949502506302,
+        "max_abs_meV_A": 178.94283473859787
+      }
+    },
+    {
+      "checkpoint": "/home/howardwang/phonon/results/graphene_physics_temperature/post_p4_feasibility/S0_unified_short/formal_240ep_2060_seed83_replayw16/checkpoints/gr_physical_s0_delta32_seed83_replayw16_run-83_epoch-155.pt",
+      "checkpoint_sha256": "6c56515612d698c10bb163e51343db46704d8920c58d667ae46842290bd9ea8c",
+      "epoch": 155,
+      "passes_fixed_gate": false,
+      "normalized_gate_ratios": {
+        "thermal300_RMSE": 0.5955682931143301,
+        "thermal450_RMSE": 0.5230678407595579,
+        "thermal600_RMSE": 0.6441344909424791,
+        "thermal300_max_abs": 0.9413620385397348,
+        "thermal450_max_abs": 0.8815101318334966,
+        "thermal600_max_abs": 0.6451013745199585,
+        "harmonic_RMSE": 1.0631960390983313
+      },
+      "normalized_worst_gate_score": 1.0631960390983313,
+      "thermal_total_force": {
+        "thermal300": {
+          "RMSE_meV_A": 29.778414655716507,
+          "max_abs_meV_A": 235.34050963493368
+        },
+        "thermal450": {
+          "RMSE_meV_A": 26.153392037977895,
+          "max_abs_meV_A": 220.37753295837413
+        },
+        "thermal600": {
+          "RMSE_meV_A": 32.206724547123954,
+          "max_abs_meV_A": 161.27534362998964
+        }
+      },
+      "harmonic_combined_force": {
+        "RMSE_meV_A": 15.386010478076697,
+        "max_abs_meV_A": 164.55941439043045
+      }
+    },
+    {
+      "checkpoint": "/home/howardwang/phonon/results/graphene_physics_temperature/post_p4_feasibility/S0_unified_short/formal_240ep_2060_seed83_replayw16/checkpoints/gr_physical_s0_delta32_seed83_replayw16_run-83_epoch-160.pt",
+      "checkpoint_sha256": "55f458501ee36e14c5fa03659b801228822b8b8bae6048730f8929e86459d8ae",
+      "epoch": 160,
+      "passes_fixed_gate": false,
+      "normalized_gate_ratios": {
+        "thermal300_RMSE": 0.5383323479676391,
+        "thermal450_RMSE": 0.4839405675310639,
+        "thermal600_RMSE": 0.6078281715629966,
+        "thermal300_max_abs": 0.8552634867895517,
+        "thermal450_max_abs": 0.7969154052709966,
+        "thermal600_max_abs": 0.5726866542715445,
+        "harmonic_RMSE": 1.1438736944638597
+      },
+      "normalized_worst_gate_score": 1.1438736944638597,
+      "thermal_total_force": {
+        "thermal300": {
+          "RMSE_meV_A": 26.916617398381955,
+          "max_abs_meV_A": 213.8158716973879
+        },
+        "thermal450": {
+          "RMSE_meV_A": 24.197028376553195,
+          "max_abs_meV_A": 199.22885131774913
+        },
+        "thermal600": {
+          "RMSE_meV_A": 30.39140857814983,
+          "max_abs_meV_A": 143.17166356788613
+        }
+      },
+      "harmonic_combined_force": {
+        "RMSE_meV_A": 16.553534815219074,
+        "max_abs_meV_A": 178.6353790796852
+      }
+    },
+    {
+      "checkpoint": "/home/howardwang/phonon/results/graphene_physics_temperature/post_p4_feasibility/S0_unified_short/formal_240ep_2060_seed83_replayw16/checkpoints/gr_physical_s0_delta32_seed83_replayw16_run-83_epoch-165.pt",
+      "checkpoint_sha256": "9ff4b576a3b269e4255d57b5f6c9a5e251b47d49aa93b94714d3ebeb4992eaa4",
+      "epoch": 165,
+      "passes_fixed_gate": false,
+      "normalized_gate_ratios": {
+        "thermal300_RMSE": 0.5439843455893485,
+        "thermal450_RMSE": 0.4807183920367188,
+        "thermal600_RMSE": 0.6039672390429813,
+        "thermal300_max_abs": 0.8692191991079721,
+        "thermal450_max_abs": 0.7890731029486089,
+        "thermal600_max_abs": 0.56496447934021,
+        "harmonic_RMSE": 1.083551730530496
+      },
+      "normalized_worst_gate_score": 1.083551730530496,
+      "thermal_total_force": {
+        "thermal300": {
+          "RMSE_meV_A": 27.199217279467426,
+          "max_abs_meV_A": 217.304799776993
+        },
+        "thermal450": {
+          "RMSE_meV_A": 24.03591960183594,
+          "max_abs_meV_A": 197.2682757371522
+        },
+        "thermal600": {
+          "RMSE_meV_A": 30.198361952149064,
+          "max_abs_meV_A": 141.2411198350525
+        }
+      },
+      "harmonic_combined_force": {
+        "RMSE_meV_A": 15.680587273085633,
+        "max_abs_meV_A": 171.02073669801712
+      }
+    },
+    {
+      "checkpoint": "/home/howardwang/phonon/results/graphene_physics_temperature/post_p4_feasibility/S0_unified_short/formal_240ep_2060_seed83_replayw16/checkpoints/gr_physical_s0_delta32_seed83_replayw16_run-83_epoch-170.pt",
+      "checkpoint_sha256": "3465a739751a83673fb1b225376067e95a47cb50b2eadcb0ec4779a675e73008",
+      "epoch": 170,
+      "passes_fixed_gate": false,
+      "normalized_gate_ratios": {
+        "thermal300_RMSE": 0.5249814582208174,
+        "thermal450_RMSE": 0.4715968364828276,
+        "thermal600_RMSE": 0.5865355274710791,
+        "thermal300_max_abs": 0.8214562091101083,
+        "thermal450_max_abs": 0.7507501773809819,
+        "thermal600_max_abs": 0.5574073612112418,
+        "harmonic_RMSE": 1.1454322098738887
+      },
+      "normalized_worst_gate_score": 1.1454322098738887,
+      "thermal_total_force": {
+        "thermal300": {
+          "RMSE_meV_A": 26.249072911040873,
+          "max_abs_meV_A": 205.36405227752707
+        },
+        "thermal450": {
+          "RMSE_meV_A": 23.57984182414138,
+          "max_abs_meV_A": 187.68754434524547
+        },
+        "thermal600": {
+          "RMSE_meV_A": 29.32677637355395,
+          "max_abs_meV_A": 139.35184030281044
+        }
+      },
+      "harmonic_combined_force": {
+        "RMSE_meV_A": 16.576088825530555,
+        "max_abs_meV_A": 175.72783470521927
+      }
+    },
+    {
+      "checkpoint": "/home/howardwang/phonon/results/graphene_physics_temperature/post_p4_feasibility/S0_unified_short/formal_240ep_2060_seed83_replayw16/checkpoints/gr_physical_s0_delta32_seed83_replayw16_run-83_epoch-175.pt",
+      "checkpoint_sha256": "10a64f0c466a1b49cefb8b08a5c5e475af7d4411d278be482e414c557ad59f4a",
+      "epoch": 175,
+      "passes_fixed_gate": false,
+      "normalized_gate_ratios": {
+        "thermal300_RMSE": 0.5298631757936515,
+        "thermal450_RMSE": 0.46698490185471797,
+        "thermal600_RMSE": 0.5842310969326668,
+        "thermal300_max_abs": 0.8369531783331308,
+        "thermal450_max_abs": 0.756126039502564,
+        "thermal600_max_abs": 0.5448776304144278,
+        "harmonic_RMSE": 1.061098740473006
+      },
+      "normalized_worst_gate_score": 1.061098740473006,
+      "thermal_total_force": {
+        "thermal300": {
+          "RMSE_meV_A": 26.493158789682575,
+          "max_abs_meV_A": 209.23829458328268
+        },
+        "thermal450": {
+          "RMSE_meV_A": 23.3492450927359,
+          "max_abs_meV_A": 189.03150987564098
+        },
+        "thermal600": {
+          "RMSE_meV_A": 29.211554846633344,
+          "max_abs_meV_A": 136.21940760360695
+        }
+      },
+      "harmonic_combined_force": {
+        "RMSE_meV_A": 15.355659482175435,
+        "max_abs_meV_A": 159.60060596834182
+      }
+    },
+    {
+      "checkpoint": "/home/howardwang/phonon/results/graphene_physics_temperature/post_p4_feasibility/S0_unified_short/formal_240ep_2060_seed83_replayw16/checkpoints/gr_physical_s0_delta32_seed83_replayw16_run-83_epoch-180.pt",
+      "checkpoint_sha256": "62f40afa76b4a2dd65df4e4d0e0391f02bada5c010be1ba9f41258b7a1a3e6b3",
+      "epoch": 180,
+      "passes_fixed_gate": false,
+      "normalized_gate_ratios": {
+        "thermal300_RMSE": 0.5495828522708041,
+        "thermal450_RMSE": 0.47489633648438173,
+        "thermal600_RMSE": 0.5875327005490871,
+        "thermal300_max_abs": 0.8745610865820321,
+        "thermal450_max_abs": 0.7884329490637212,
+        "thermal600_max_abs": 0.554685932340087,
+        "harmonic_RMSE": 1.0327652054755783
+      },
+      "normalized_worst_gate_score": 1.0327652054755783,
+      "thermal_total_force": {
+        "thermal300": {
+          "RMSE_meV_A": 27.4791426135402,
+          "max_abs_meV_A": 218.64027164550802
+        },
+        "thermal450": {
+          "RMSE_meV_A": 23.744816824219086,
+          "max_abs_meV_A": 197.10823726593028
+        },
+        "thermal600": {
+          "RMSE_meV_A": 29.376635027454356,
+          "max_abs_meV_A": 138.67148308502175
+        }
+      },
+      "harmonic_combined_force": {
+        "RMSE_meV_A": 14.945631556637746,
+        "max_abs_meV_A": 161.8970239199257
+      }
+    },
+    {
+      "checkpoint": "/home/howardwang/phonon/results/graphene_physics_temperature/post_p4_feasibility/S0_unified_short/formal_240ep_2060_seed83_replayw16/checkpoints/gr_physical_s0_delta32_seed83_replayw16_run-83_epoch-185.pt",
+      "checkpoint_sha256": "8e202819f628abe2dcd4b32b10e2ed0ec6693c2125fbf946ef9b94ed7b5ee346",
+      "epoch": 185,
+      "passes_fixed_gate": false,
+      "normalized_gate_ratios": {
+        "thermal300_RMSE": 0.539635561468155,
+        "thermal450_RMSE": 0.4653128499538625,
+        "thermal600_RMSE": 0.5784938616900798,
+        "thermal300_max_abs": 0.8597226294744882,
+        "thermal450_max_abs": 0.7801238231634526,
+        "thermal600_max_abs": 0.5447280227560416,
+        "harmonic_RMSE": 1.0356119337403968
+      },
+      "normalized_worst_gate_score": 1.0356119337403968,
+      "thermal_total_force": {
+        "thermal300": {
+          "RMSE_meV_A": 26.98177807340775,
+          "max_abs_meV_A": 214.93065736862204
+        },
+        "thermal450": {
+          "RMSE_meV_A": 23.265642497693126,
+          "max_abs_meV_A": 195.03095579086315
+        },
+        "thermal600": {
+          "RMSE_meV_A": 28.92469308450399,
+          "max_abs_meV_A": 136.1820056890104
+        }
+      },
+      "harmonic_combined_force": {
+        "RMSE_meV_A": 14.986827901714316,
+        "max_abs_meV_A": 161.22669518362045
+      }
+    },
+    {
+      "checkpoint": "/home/howardwang/phonon/results/graphene_physics_temperature/post_p4_feasibility/S0_unified_short/formal_240ep_2060_seed83_replayw16/checkpoints/gr_physical_s0_delta32_seed83_replayw16_run-83_epoch-190.pt",
+      "checkpoint_sha256": "2d5b32be03abf578fdd6bbba65acb07dd974346662dd3614fa46aee7ebac5d8c",
+      "epoch": 190,
+      "passes_fixed_gate": false,
+      "normalized_gate_ratios": {
+        "thermal300_RMSE": 0.47841362526486436,
+        "thermal450_RMSE": 0.4412797570607907,
+        "thermal600_RMSE": 0.5516612315257873,
+        "thermal300_max_abs": 0.7557854804266366,
+        "thermal450_max_abs": 0.6713095836614995,
+        "thermal600_max_abs": 0.5058528005499259,
+        "harmonic_RMSE": 1.1379082453964007
+      },
+      "normalized_worst_gate_score": 1.1379082453964007,
+      "thermal_total_force": {
+        "thermal300": {
+          "RMSE_meV_A": 23.920681263243218,
+          "max_abs_meV_A": 188.94637010665915
+        },
+        "thermal450": {
+          "RMSE_meV_A": 22.063987853039535,
+          "max_abs_meV_A": 167.82739591537486
+        },
+        "thermal600": {
+          "RMSE_meV_A": 27.583061576289364,
+          "max_abs_meV_A": 126.46320013748146
+        }
+      },
+      "harmonic_combined_force": {
+        "RMSE_meV_A": 16.46720599298588,
+        "max_abs_meV_A": 159.85366845161442
+      }
+    },
+    {
+      "checkpoint": "/home/howardwang/phonon/results/graphene_physics_temperature/post_p4_feasibility/S0_unified_short/formal_240ep_2060_seed83_replayw16/checkpoints/gr_physical_s0_delta32_seed83_replayw16_run-83_epoch-195.pt",
+      "checkpoint_sha256": "626968b9416ba78d8bec5a5714afafde01430836bfea4b68929ff5158717d470",
+      "epoch": 195,
+      "passes_fixed_gate": false,
+      "normalized_gate_ratios": {
+        "thermal300_RMSE": 0.5008962624232974,
+        "thermal450_RMSE": 0.4444424282340571,
+        "thermal600_RMSE": 0.5497528053187676,
+        "thermal300_max_abs": 0.7884252223242196,
+        "thermal450_max_abs": 0.6909018688177495,
+        "thermal600_max_abs": 0.4992972432989493,
+        "harmonic_RMSE": 1.0691698909688434
+      },
+      "normalized_worst_gate_score": 1.0691698909688434,
+      "thermal_total_force": {
+        "thermal300": {
+          "RMSE_meV_A": 25.04481312116487,
+          "max_abs_meV_A": 197.1063055810549
+        },
+        "thermal450": {
+          "RMSE_meV_A": 22.222121411702854,
+          "max_abs_meV_A": 172.72546720443736
+        },
+        "thermal600": {
+          "RMSE_meV_A": 27.48764026593838,
+          "max_abs_meV_A": 124.82431082473732
+        }
+      },
+      "harmonic_combined_force": {
+        "RMSE_meV_A": 15.472460901229256,
+        "max_abs_meV_A": 154.80879485975265
+      }
+    },
+    {
+      "checkpoint": "/home/howardwang/phonon/results/graphene_physics_temperature/post_p4_feasibility/S0_unified_short/formal_240ep_2060_seed83_replayw16/checkpoints/gr_physical_s0_delta32_seed83_replayw16_run-83_epoch-200.pt",
+      "checkpoint_sha256": "b40669b4f8301e646c909eeea21b15bd3c74f1b531b215bcbf81889ab1f18441",
+      "epoch": 200,
+      "passes_fixed_gate": false,
+      "normalized_gate_ratios": {
+        "thermal300_RMSE": 0.5198341793491783,
+        "thermal450_RMSE": 0.4493076871802363,
+        "thermal600_RMSE": 0.5509840079278063,
+        "thermal300_max_abs": 0.8221159133184823,
+        "thermal450_max_abs": 0.7137650184606938,
+        "thermal600_max_abs": 0.5065023719686881,
+        "harmonic_RMSE": 1.029257026281692
+      },
+      "normalized_worst_gate_score": 1.029257026281692,
+      "thermal_total_force": {
+        "thermal300": {
+          "RMSE_meV_A": 25.991708967458916,
+          "max_abs_meV_A": 205.52897832962057
+        },
+        "thermal450": {
+          "RMSE_meV_A": 22.465384359011814,
+          "max_abs_meV_A": 178.44125461517345
+        },
+        "thermal600": {
+          "RMSE_meV_A": 27.549200396390315,
+          "max_abs_meV_A": 126.62559299217202
+        }
+      },
+      "harmonic_combined_force": {
+        "RMSE_meV_A": 14.894863043728424,
+        "max_abs_meV_A": 146.7251000644687
+      }
+    },
+    {
+      "checkpoint": "/home/howardwang/phonon/results/graphene_physics_temperature/post_p4_feasibility/S0_unified_short/formal_240ep_2060_seed83_replayw16/checkpoints/gr_physical_s0_delta32_seed83_replayw16_run-83_epoch-205.pt",
+      "checkpoint_sha256": "f53d8b6ce5b7d06bb6b7b48e5d6fa68cf51f8be9f429cd3f23249f7dbdc0678c",
+      "epoch": 205,
+      "passes_fixed_gate": false,
+      "normalized_gate_ratios": {
+        "thermal300_RMSE": 0.500271999987048,
+        "thermal450_RMSE": 0.4336165902867037,
+        "thermal600_RMSE": 0.5422049300415597,
+        "thermal300_max_abs": 0.797401801036683,
+        "thermal450_max_abs": 0.6910194091772466,
+        "thermal600_max_abs": 0.5156389295477286,
+        "harmonic_RMSE": 1.0355308062719206
+      },
+      "normalized_worst_gate_score": 1.0355308062719206,
+      "thermal_total_force": {
+        "thermal300": {
+          "RMSE_meV_A": 25.013599999352397,
+          "max_abs_meV_A": 199.35045025917074
+        },
+        "thermal450": {
+          "RMSE_meV_A": 21.680829514335183,
+          "max_abs_meV_A": 172.75485229431163
+        },
+        "thermal600": {
+          "RMSE_meV_A": 27.11024650207798,
+          "max_abs_meV_A": 128.90973238693215
+        }
+      },
+      "harmonic_combined_force": {
+        "RMSE_meV_A": 14.985653867919856,
+        "max_abs_meV_A": 147.20143058319124
+      }
+    },
+    {
+      "checkpoint": "/home/howardwang/phonon/results/graphene_physics_temperature/post_p4_feasibility/S0_unified_short/formal_240ep_2060_seed83_replayw16/checkpoints/gr_physical_s0_delta32_seed83_replayw16_run-83_epoch-210.pt",
+      "checkpoint_sha256": "16bf41f7ee8c7a56a481b1e5ad58739a32a3c9956546148ff9eef635e3abd211",
+      "epoch": 210,
+      "passes_fixed_gate": false,
+      "normalized_gate_ratios": {
+        "thermal300_RMSE": 0.49146758643833816,
+        "thermal450_RMSE": 0.43307911739038724,
+        "thermal600_RMSE": 0.5376079787270145,
+        "thermal300_max_abs": 0.770353690074769,
+        "thermal450_max_abs": 0.6484855346655278,
+        "thermal600_max_abs": 0.49337908612489656,
+        "harmonic_RMSE": 1.0537639182627905
+      },
+      "normalized_worst_gate_score": 1.0537639182627905,
+      "thermal_total_force": {
+        "thermal300": {
+          "RMSE_meV_A": 24.573379321916907,
+          "max_abs_meV_A": 192.58842251869223
+        },
+        "thermal450": {
+          "RMSE_meV_A": 21.65395586951936,
+          "max_abs_meV_A": 162.12138366638194
+        },
+        "thermal600": {
+          "RMSE_meV_A": 26.880398936350723,
+          "max_abs_meV_A": 123.34477153122414
+        }
+      },
+      "harmonic_combined_force": {
+        "RMSE_meV_A": 15.249513816436393,
+        "max_abs_meV_A": 151.68799549766544
+      }
+    },
+    {
+      "checkpoint": "/home/howardwang/phonon/results/graphene_physics_temperature/post_p4_feasibility/S0_unified_short/formal_240ep_2060_seed83_replayw16/checkpoints/gr_physical_s0_delta32_seed83_replayw16_run-83_epoch-215.pt",
+      "checkpoint_sha256": "02ec8fc925af2485ef03e8c917da5c94d425a789c28b0fcf9fad19e094072da9",
+      "epoch": 215,
+      "passes_fixed_gate": true,
+      "normalized_gate_ratios": {
+        "thermal300_RMSE": 0.5258991744149063,
+        "thermal450_RMSE": 0.45132645079369355,
+        "thermal600_RMSE": 0.546863573661687,
+        "thermal300_max_abs": 0.8143272551763925,
+        "thermal450_max_abs": 0.6971977882360845,
+        "thermal600_max_abs": 0.49660621279663,
+        "harmonic_RMSE": 0.9627108274389793
+      },
+      "normalized_worst_gate_score": 0.9627108274389793,
+      "thermal_total_force": {
+        "thermal300": {
+          "RMSE_meV_A": 26.294958720745317,
+          "max_abs_meV_A": 203.5818137940981
+        },
+        "thermal450": {
+          "RMSE_meV_A": 22.566322539684677,
+          "max_abs_meV_A": 174.2994470590211
+        },
+        "thermal600": {
+          "RMSE_meV_A": 27.343178683084354,
+          "max_abs_meV_A": 124.15155319915749
+        }
+      },
+      "harmonic_combined_force": {
+        "RMSE_meV_A": 13.931841667596812,
+        "max_abs_meV_A": 140.01433641143802
+      }
+    },
+    {
+      "checkpoint": "/home/howardwang/phonon/results/graphene_physics_temperature/post_p4_feasibility/S0_unified_short/formal_240ep_2060_seed83_replayw16/checkpoints/gr_physical_s0_delta32_seed83_replayw16_run-83_epoch-220.pt",
+      "checkpoint_sha256": "eb6b4c58fb10ea16144aedb9fa6d1747c67612f8a432b1169e2d7118877848c0",
+      "epoch": 220,
+      "passes_fixed_gate": false,
+      "normalized_gate_ratios": {
+        "thermal300_RMSE": 0.4890910681426739,
+        "thermal450_RMSE": 0.42544612371361135,
+        "thermal600_RMSE": 0.521591406419357,
+        "thermal300_max_abs": 0.7628717574346933,
+        "thermal450_max_abs": 0.6492029361700444,
+        "thermal600_max_abs": 0.48464652137756303,
+        "harmonic_RMSE": 1.0191702525416375
+      },
+      "normalized_worst_gate_score": 1.0191702525416375,
+      "thermal_total_force": {
+        "thermal300": {
+          "RMSE_meV_A": 24.454553407133695,
+          "max_abs_meV_A": 190.7179393586733
+        },
+        "thermal450": {
+          "RMSE_meV_A": 21.272306185680566,
+          "max_abs_meV_A": 162.3007340425111
+        },
+        "thermal600": {
+          "RMSE_meV_A": 26.07957032096785,
+          "max_abs_meV_A": 121.16163034439076
+        }
+      },
+      "harmonic_combined_force": {
+        "RMSE_meV_A": 14.748892591669476,
+        "max_abs_meV_A": 150.4671135587311
+      }
+    },
+    {
+      "checkpoint": "/home/howardwang/phonon/results/graphene_physics_temperature/post_p4_feasibility/S0_unified_short/formal_240ep_2060_seed83_replayw16/checkpoints/gr_physical_s0_delta32_seed83_replayw16_run-83_epoch-225.pt",
+      "checkpoint_sha256": "3f028242622d883c8cac6b02c63a56102962c8adc80bafa794a8910f1bd86435",
+      "epoch": 225,
+      "passes_fixed_gate": false,
+      "normalized_gate_ratios": {
+        "thermal300_RMSE": 0.4785212670933181,
+        "thermal450_RMSE": 0.424456939612979,
+        "thermal600_RMSE": 0.5178173296897812,
+        "thermal300_max_abs": 0.7440166625250253,
+        "thermal450_max_abs": 0.6162379913305669,
+        "thermal600_max_abs": 0.4779041035652156,
+        "harmonic_RMSE": 1.0176248550206364
+      },
+      "normalized_worst_gate_score": 1.0176248550206364,
+      "thermal_total_force": {
+        "thermal300": {
+          "RMSE_meV_A": 23.926063354665907,
+          "max_abs_meV_A": 186.0041656312563
+        },
+        "thermal450": {
+          "RMSE_meV_A": 21.22284698064895,
+          "max_abs_meV_A": 154.0594978326417
+        },
+        "thermal600": {
+          "RMSE_meV_A": 25.890866484489063,
+          "max_abs_meV_A": 119.4760258913039
+        }
+      },
+      "harmonic_combined_force": {
+        "RMSE_meV_A": 14.726528416506554,
+        "max_abs_meV_A": 144.12720591255191
+      }
+    },
+    {
+      "checkpoint": "/home/howardwang/phonon/results/graphene_physics_temperature/post_p4_feasibility/S0_unified_short/formal_240ep_2060_seed83_replayw16/checkpoints/gr_physical_s0_delta32_seed83_replayw16_run-83_epoch-230.pt",
+      "checkpoint_sha256": "572f94fa915e44107ae1768bbfe18ac029ed12d58545802303b3c1edcdb3d69a",
+      "epoch": 230,
+      "passes_fixed_gate": false,
+      "normalized_gate_ratios": {
+        "thermal300_RMSE": 0.4723036200862392,
+        "thermal450_RMSE": 0.4181899556262137,
+        "thermal600_RMSE": 0.5095169862307415,
+        "thermal300_max_abs": 0.7402203234899911,
+        "thermal450_max_abs": 0.6102377109503179,
+        "thermal600_max_abs": 0.4813257081985469,
+        "harmonic_RMSE": 1.0171760384155977
+      },
+      "normalized_worst_gate_score": 1.0171760384155977,
+      "thermal_total_force": {
+        "thermal300": {
+          "RMSE_meV_A": 23.61518100431196,
+          "max_abs_meV_A": 185.05508087249777
+        },
+        "thermal450": {
+          "RMSE_meV_A": 20.909497781310684,
+          "max_abs_meV_A": 152.55942773757945
+        },
+        "thermal600": {
+          "RMSE_meV_A": 25.475849311537072,
+          "max_abs_meV_A": 120.33142704963673
+        }
+      },
+      "harmonic_combined_force": {
+        "RMSE_meV_A": 14.720033380093781,
+        "max_abs_meV_A": 146.6759750289536
+      }
+    },
+    {
+      "checkpoint": "/home/howardwang/phonon/results/graphene_physics_temperature/post_p4_feasibility/S0_unified_short/formal_240ep_2060_seed83_replayw16/checkpoints/gr_physical_s0_delta32_seed83_replayw16_run-83_epoch-235.pt",
+      "checkpoint_sha256": "220ba12c29e1295f9d7cdd4fcc8744e5f2a123010454683e236f1d741cba1f33",
+      "epoch": 235,
+      "passes_fixed_gate": false,
+      "normalized_gate_ratios": {
+        "thermal300_RMSE": 0.46072527929801965,
+        "thermal450_RMSE": 0.40952332740104025,
+        "thermal600_RMSE": 0.5048926184079255,
+        "thermal300_max_abs": 0.7219876202810678,
+        "thermal450_max_abs": 0.6046281986212163,
+        "thermal600_max_abs": 0.47489582734107927,
+        "harmonic_RMSE": 1.0155523540566362
+      },
+      "normalized_worst_gate_score": 1.0155523540566362,
+      "thermal_total_force": {
+        "thermal300": {
+          "RMSE_meV_A": 23.036263964900982,
+          "max_abs_meV_A": 180.49690507026693
+        },
+        "thermal450": {
+          "RMSE_meV_A": 20.476166370052013,
+          "max_abs_meV_A": 151.15704965530406
+        },
+        "thermal600": {
+          "RMSE_meV_A": 25.24463092039628,
+          "max_abs_meV_A": 118.72395683526982
+        }
+      },
+      "harmonic_combined_force": {
+        "RMSE_meV_A": 14.696536279238087,
+        "max_abs_meV_A": 154.9163916749573
+      }
+    }
+  ]
+}

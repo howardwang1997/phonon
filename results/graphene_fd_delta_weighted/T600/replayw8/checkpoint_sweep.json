@@ -1,0 +1,763 @@
+{
+  "status": "no_checkpoint_passed",
+  "selection_scope": "development only: reused three-structure thermal gate",
+  "fixed_thresholds": {
+    "thermal_force_RMSE_meV_A": 50.0,
+    "thermal_force_max_abs_meV_A": 250.0,
+    "harmonic_RMSE_relative_to_frozen_v11": 2.0,
+    "harmonic_RMSE_meV_A": 14.471470946861936
+  },
+  "base_model": "/home/howardwang/phonon/results/gr_backbone_v11/ft_graphene.model",
+  "base_model_sha256": "4d32426672d53e3adc86499d14e4c4164c05e879a56811ff54add03cd1bb6ce7",
+  "template_model": "/home/howardwang/phonon/results/graphene_fd_delta_weighted/T600/replayw8/gr_fd600_delta32_replayw8.model",
+  "thermal_dataset": "/home/howardwang/phonon/data/graphene_fd_delta_pilot/T600/test.xyz",
+  "harmonic_dataset": "/home/howardwang/phonon/data/finetune_graphene8/val.xyz",
+  "harmonic_v11_force": {
+    "RMSE_meV_A": 7.235735473430968,
+    "max_abs_meV_A": 57.08127543853758
+  },
+  "n_checkpoints": 36,
+  "selected": {
+    "checkpoint": "/home/howardwang/phonon/results/graphene_fd_delta_weighted/T600/replayw8/checkpoints/gr_fd600_delta32_replayw8_run-83_epoch-175.pt",
+    "checkpoint_sha256": "3cf1fd674001f3ff447a48bf5d6c596af6fe8fec213982bc3bc1b3d66bbe80e0",
+    "epoch": 175,
+    "passes_fixed_gate": false,
+    "normalized_gate_ratios": {
+      "thermal_RMSE": 0.9680789501514959,
+      "thermal_max_abs": 1.2297856759582526,
+      "harmonic_RMSE": 1.0642518613147665
+    },
+    "normalized_worst_gate_score": 1.2297856759582526,
+    "thermal_total_force": {
+      "RMSE_meV_A": 48.4039475075748,
+      "max_abs_meV_A": 307.44641898956314
+    },
+    "harmonic_combined_force": {
+      "RMSE_meV_A": 15.401289891160381,
+      "max_abs_meV_A": 154.4084544971085
+    }
+  },
+  "selected_model": "/home/howardwang/phonon/results/graphene_fd_delta_weighted/T600/replayw8/gr_fd600_delta32_replayw8_checkpoint_selected.model",
+  "records": [
+    {
+      "checkpoint": "/home/howardwang/phonon/results/graphene_fd_delta_weighted/T600/replayw8/checkpoints/gr_fd600_delta32_replayw8_run-83_epoch-0.pt",
+      "checkpoint_sha256": "e8e49028b700432a2919b779fab915b06947ee035dcea5f8a26556587a51e1f5",
+      "epoch": 0,
+      "passes_fixed_gate": false,
+      "normalized_gate_ratios": {
+        "thermal_RMSE": 3.9608364841377117,
+        "thermal_max_abs": 4.703362996533967,
+        "harmonic_RMSE": 0.956500963708584
+      },
+      "normalized_worst_gate_score": 4.703362996533967,
+      "thermal_total_force": {
+        "RMSE_meV_A": 198.0418242068856,
+        "max_abs_meV_A": 1175.8407491334917
+      },
+      "harmonic_combined_force": {
+        "RMSE_meV_A": 13.841975906954216,
+        "max_abs_meV_A": 108.67460219463432
+      }
+    },
+    {
+      "checkpoint": "/home/howardwang/phonon/results/graphene_fd_delta_weighted/T600/replayw8/checkpoints/gr_fd600_delta32_replayw8_run-83_epoch-5.pt",
+      "checkpoint_sha256": "fd60039cb65939249457ba6973156ec4d40ca650d455c7795d451c05f3b162e8",
+      "epoch": 5,
+      "passes_fixed_gate": false,
+      "normalized_gate_ratios": {
+        "thermal_RMSE": 3.875612566162409,
+        "thermal_max_abs": 4.623285229161835,
+        "harmonic_RMSE": 1.3114815815476144
+      },
+      "normalized_worst_gate_score": 4.623285229161835,
+      "thermal_total_force": {
+        "RMSE_meV_A": 193.78062830812044,
+        "max_abs_meV_A": 1155.821307290459
+      },
+      "harmonic_combined_force": {
+        "RMSE_meV_A": 18.979067604710846,
+        "max_abs_meV_A": 146.48096410831533
+      }
+    },
+    {
+      "checkpoint": "/home/howardwang/phonon/results/graphene_fd_delta_weighted/T600/replayw8/checkpoints/gr_fd600_delta32_replayw8_run-83_epoch-10.pt",
+      "checkpoint_sha256": "0dd54182ef22fbe01d747042e891c6756e1275386aaafb3a8f577f21dc3be9fa",
+      "epoch": 10,
+      "passes_fixed_gate": false,
+      "normalized_gate_ratios": {
+        "thermal_RMSE": 3.822346041033943,
+        "thermal_max_abs": 4.580508227304078,
+        "harmonic_RMSE": 1.4086299981662949
+      },
+      "normalized_worst_gate_score": 4.580508227304078,
+      "thermal_total_force": {
+        "RMSE_meV_A": 191.11730205169715,
+        "max_abs_meV_A": 1145.1270568260195
+      },
+      "harmonic_combined_force": {
+        "RMSE_meV_A": 20.38494809334172,
+        "max_abs_meV_A": 162.14575098415372
+      }
+    },
+    {
+      "checkpoint": "/home/howardwang/phonon/results/graphene_fd_delta_weighted/T600/replayw8/checkpoints/gr_fd600_delta32_replayw8_run-83_epoch-15.pt",
+      "checkpoint_sha256": "af57af5a9b05cd26e476ccd7887470b0427769bb209381533122e13cf631ffed",
+      "epoch": 15,
+      "passes_fixed_gate": false,
+      "normalized_gate_ratios": {
+        "thermal_RMSE": 3.7739295201943412,
+        "thermal_max_abs": 4.568578745082474,
+        "harmonic_RMSE": 1.4510017613076598
+      },
+      "normalized_worst_gate_score": 4.568578745082474,
+      "thermal_total_force": {
+        "RMSE_meV_A": 188.69647600971706,
+        "max_abs_meV_A": 1142.1446862706186
+      },
+      "harmonic_combined_force": {
+        "RMSE_meV_A": 20.998129832609298,
+        "max_abs_meV_A": 155.06774978233295
+      }
+    },
+    {
+      "checkpoint": "/home/howardwang/phonon/results/graphene_fd_delta_weighted/T600/replayw8/checkpoints/gr_fd600_delta32_replayw8_run-83_epoch-20.pt",
+      "checkpoint_sha256": "3ccc0b1074718694c148fa8f780a33092b8670e91f967eb7dd29ec256d5453b4",
+      "epoch": 20,
+      "passes_fixed_gate": false,
+      "normalized_gate_ratios": {
+        "thermal_RMSE": 3.7069012700001793,
+        "thermal_max_abs": 4.527109677747346,
+        "harmonic_RMSE": 1.5322645681064737
+      },
+      "normalized_worst_gate_score": 4.527109677747346,
+      "thermal_total_force": {
+        "RMSE_meV_A": 185.34506350000896,
+        "max_abs_meV_A": 1131.7774194368365
+      },
+      "harmonic_combined_force": {
+        "RMSE_meV_A": 22.174122180258788,
+        "max_abs_meV_A": 161.2929780919643
+      }
+    },
+    {
+      "checkpoint": "/home/howardwang/phonon/results/graphene_fd_delta_weighted/T600/replayw8/checkpoints/gr_fd600_delta32_replayw8_run-83_epoch-25.pt",
+      "checkpoint_sha256": "5c0d4a07bf8ddc910bb1c365b29a643110d0a5561bb7e012988386ee963ddba9",
+      "epoch": 25,
+      "passes_fixed_gate": false,
+      "normalized_gate_ratios": {
+        "thermal_RMSE": 3.583530282516545,
+        "thermal_max_abs": 4.47320121045456,
+        "harmonic_RMSE": 1.6414896118992663
+      },
+      "normalized_worst_gate_score": 4.47320121045456,
+      "thermal_total_force": {
+        "RMSE_meV_A": 179.17651412582725,
+        "max_abs_meV_A": 1118.30030261364
+      },
+      "harmonic_combined_force": {
+        "RMSE_meV_A": 23.75476922817591,
+        "max_abs_meV_A": 171.88578145099598
+      }
+    },
+    {
+      "checkpoint": "/home/howardwang/phonon/results/graphene_fd_delta_weighted/T600/replayw8/checkpoints/gr_fd600_delta32_replayw8_run-83_epoch-30.pt",
+      "checkpoint_sha256": "9dc2476a168db432b660cb36a74db1894a989a91e509b3049c7a875f3f99bcaa",
+      "epoch": 30,
+      "passes_fixed_gate": false,
+      "normalized_gate_ratios": {
+        "thermal_RMSE": 3.476322467353221,
+        "thermal_max_abs": 4.369645471528626,
+        "harmonic_RMSE": 1.7771856365335141
+      },
+      "normalized_worst_gate_score": 4.369645471528626,
+      "thermal_total_force": {
+        "RMSE_meV_A": 173.81612336766105,
+        "max_abs_meV_A": 1092.4113678821566
+      },
+      "harmonic_combined_force": {
+        "RMSE_meV_A": 25.718490306275086,
+        "max_abs_meV_A": 180.94082967830616
+      }
+    },
+    {
+      "checkpoint": "/home/howardwang/phonon/results/graphene_fd_delta_weighted/T600/replayw8/checkpoints/gr_fd600_delta32_replayw8_run-83_epoch-35.pt",
+      "checkpoint_sha256": "98564cdcdbb2fc2926b132e62c1076614e271502134ee97a9001a39149078505",
+      "epoch": 35,
+      "passes_fixed_gate": false,
+      "normalized_gate_ratios": {
+        "thermal_RMSE": 3.294936413876722,
+        "thermal_max_abs": 4.246897148257215,
+        "harmonic_RMSE": 1.9592516861396798
+      },
+      "normalized_worst_gate_score": 4.246897148257215,
+      "thermal_total_force": {
+        "RMSE_meV_A": 164.7468206938361,
+        "max_abs_meV_A": 1061.7242870643038
+      },
+      "harmonic_combined_force": {
+        "RMSE_meV_A": 28.353253853560638,
+        "max_abs_meV_A": 195.97528102535256
+      }
+    },
+    {
+      "checkpoint": "/home/howardwang/phonon/results/graphene_fd_delta_weighted/T600/replayw8/checkpoints/gr_fd600_delta32_replayw8_run-83_epoch-40.pt",
+      "checkpoint_sha256": "ac791a1720b72d14f8ff95261157a9b21ce4f9257519812d2eb93b066aeac521",
+      "epoch": 40,
+      "passes_fixed_gate": false,
+      "normalized_gate_ratios": {
+        "thermal_RMSE": 3.0584941284433165,
+        "thermal_max_abs": 3.9609486929235054,
+        "harmonic_RMSE": 1.957142812923369
+      },
+      "normalized_worst_gate_score": 3.9609486929235054,
+      "thermal_total_force": {
+        "RMSE_meV_A": 152.92470642216583,
+        "max_abs_meV_A": 990.2371732308764
+      },
+      "harmonic_combined_force": {
+        "RMSE_meV_A": 28.32273535608018,
+        "max_abs_meV_A": 240.70043534393304
+      }
+    },
+    {
+      "checkpoint": "/home/howardwang/phonon/results/graphene_fd_delta_weighted/T600/replayw8/checkpoints/gr_fd600_delta32_replayw8_run-83_epoch-45.pt",
+      "checkpoint_sha256": "f9cff28ec69677951258fec010459b43ee9286cd64915378ffb234567e70e11a",
+      "epoch": 45,
+      "passes_fixed_gate": false,
+      "normalized_gate_ratios": {
+        "thermal_RMSE": 2.9761077653087513,
+        "thermal_max_abs": 3.9743407837209297,
+        "harmonic_RMSE": 1.786393405068659
+      },
+      "normalized_worst_gate_score": 3.9743407837209297,
+      "thermal_total_force": {
+        "RMSE_meV_A": 148.80538826543756,
+        "max_abs_meV_A": 993.5851959302324
+      },
+      "harmonic_combined_force": {
+        "RMSE_meV_A": 25.851740261116866,
+        "max_abs_meV_A": 274.96347993965145
+      }
+    },
+    {
+      "checkpoint": "/home/howardwang/phonon/results/graphene_fd_delta_weighted/T600/replayw8/checkpoints/gr_fd600_delta32_replayw8_run-83_epoch-50.pt",
+      "checkpoint_sha256": "dc53f1c34892eaa388478c3d1744e41b0f9831a8a716921978576a8444838f00",
+      "epoch": 50,
+      "passes_fixed_gate": false,
+      "normalized_gate_ratios": {
+        "thermal_RMSE": 2.6964180613071744,
+        "thermal_max_abs": 3.793669062024076,
+        "harmonic_RMSE": 1.6624343861723894
+      },
+      "normalized_worst_gate_score": 3.793669062024076,
+      "thermal_total_force": {
+        "RMSE_meV_A": 134.82090306535872,
+        "max_abs_meV_A": 948.417265506019
+      },
+      "harmonic_combined_force": {
+        "RMSE_meV_A": 24.05787092055799,
+        "max_abs_meV_A": 298.262577954483
+      }
+    },
+    {
+      "checkpoint": "/home/howardwang/phonon/results/graphene_fd_delta_weighted/T600/replayw8/checkpoints/gr_fd600_delta32_replayw8_run-83_epoch-55.pt",
+      "checkpoint_sha256": "25b39d37f500c30e86e17d35b7389d3142370f9c7c87360a8b871a1fc83e0a8a",
+      "epoch": 55,
+      "passes_fixed_gate": false,
+      "normalized_gate_ratios": {
+        "thermal_RMSE": 2.37794116854907,
+        "thermal_max_abs": 3.3637412957009865,
+        "harmonic_RMSE": 1.5906818523296613
+      },
+      "normalized_worst_gate_score": 3.3637412957009865,
+      "thermal_total_force": {
+        "RMSE_meV_A": 118.8970584274535,
+        "max_abs_meV_A": 840.9353239252466
+      },
+      "harmonic_combined_force": {
+        "RMSE_meV_A": 23.019506211689222,
+        "max_abs_meV_A": 308.41605037803646
+      }
+    },
+    {
+      "checkpoint": "/home/howardwang/phonon/results/graphene_fd_delta_weighted/T600/replayw8/checkpoints/gr_fd600_delta32_replayw8_run-83_epoch-60.pt",
+      "checkpoint_sha256": "d1387bdc6d903eaa7a543e8538244e273f2837e15de7fb1435be71c0581145ca",
+      "epoch": 60,
+      "passes_fixed_gate": false,
+      "normalized_gate_ratios": {
+        "thermal_RMSE": 2.1635943979113854,
+        "thermal_max_abs": 2.999999778634031,
+        "harmonic_RMSE": 1.5574205808141164
+      },
+      "normalized_worst_gate_score": 2.999999778634031,
+      "thermal_total_force": {
+        "RMSE_meV_A": 108.17971989556926,
+        "max_abs_meV_A": 749.9999446585077
+      },
+      "harmonic_combined_force": {
+        "RMSE_meV_A": 22.53816668729633,
+        "max_abs_meV_A": 287.00558513755794
+      }
+    },
+    {
+      "checkpoint": "/home/howardwang/phonon/results/graphene_fd_delta_weighted/T600/replayw8/checkpoints/gr_fd600_delta32_replayw8_run-83_epoch-65.pt",
+      "checkpoint_sha256": "3fc42111a62f4fdf78eec06a223089f4925f2b7e183ec6e1a079a2a1be639f2c",
+      "epoch": 65,
+      "passes_fixed_gate": false,
+      "normalized_gate_ratios": {
+        "thermal_RMSE": 1.8909052630464727,
+        "thermal_max_abs": 2.647011513665772,
+        "harmonic_RMSE": 1.616400946917317
+      },
+      "normalized_worst_gate_score": 2.647011513665772,
+      "thermal_total_force": {
+        "RMSE_meV_A": 94.54526315232363,
+        "max_abs_meV_A": 661.7528784164431
+      },
+      "harmonic_combined_force": {
+        "RMSE_meV_A": 23.391699341794077,
+        "max_abs_meV_A": 318.21928590888973
+      }
+    },
+    {
+      "checkpoint": "/home/howardwang/phonon/results/graphene_fd_delta_weighted/T600/replayw8/checkpoints/gr_fd600_delta32_replayw8_run-83_epoch-70.pt",
+      "checkpoint_sha256": "467867dd154af939f7b5e6d6a462a1a552ffb6af153533d31075d8b1a95a4262",
+      "epoch": 70,
+      "passes_fixed_gate": false,
+      "normalized_gate_ratios": {
+        "thermal_RMSE": 1.8003294182110452,
+        "thermal_max_abs": 2.521563048318482,
+        "harmonic_RMSE": 1.5924096818535238
+      },
+      "normalized_worst_gate_score": 2.521563048318482,
+      "thermal_total_force": {
+        "RMSE_meV_A": 90.01647091055226,
+        "max_abs_meV_A": 630.3907620796206
+      },
+      "harmonic_combined_force": {
+        "RMSE_meV_A": 23.044510446444928,
+        "max_abs_meV_A": 309.46339339370724
+      }
+    },
+    {
+      "checkpoint": "/home/howardwang/phonon/results/graphene_fd_delta_weighted/T600/replayw8/checkpoints/gr_fd600_delta32_replayw8_run-83_epoch-75.pt",
+      "checkpoint_sha256": "f19caa7e4e18199b1bc8a31de241cf8aeb55f986d401e35a325cc8a282a3c134",
+      "epoch": 75,
+      "passes_fixed_gate": false,
+      "normalized_gate_ratios": {
+        "thermal_RMSE": 1.73548558491232,
+        "thermal_max_abs": 2.4379904222045905,
+        "harmonic_RMSE": 1.5612070577747164
+      },
+      "normalized_worst_gate_score": 2.4379904222045905,
+      "thermal_total_force": {
+        "RMSE_meV_A": 86.774279245616,
+        "max_abs_meV_A": 609.4976055511477
+      },
+      "harmonic_combined_force": {
+        "RMSE_meV_A": 22.59296257862261,
+        "max_abs_meV_A": 294.5539173519134
+      }
+    },
+    {
+      "checkpoint": "/home/howardwang/phonon/results/graphene_fd_delta_weighted/T600/replayw8/checkpoints/gr_fd600_delta32_replayw8_run-83_epoch-80.pt",
+      "checkpoint_sha256": "ab81bcea0da52ca59e57df3d8f81c54190051f3ec9d2af65d7a9af766fa1d97c",
+      "epoch": 80,
+      "passes_fixed_gate": false,
+      "normalized_gate_ratios": {
+        "thermal_RMSE": 1.6475452772633827,
+        "thermal_max_abs": 2.2900359582458503,
+        "harmonic_RMSE": 1.5510663582305684
+      },
+      "normalized_worst_gate_score": 2.2900359582458503,
+      "thermal_total_force": {
+        "RMSE_meV_A": 82.37726386316913,
+        "max_abs_meV_A": 572.5089895614626
+      },
+      "harmonic_combined_force": {
+        "RMSE_meV_A": 22.44621173978862,
+        "max_abs_meV_A": 285.33456892127987
+      }
+    },
+    {
+      "checkpoint": "/home/howardwang/phonon/results/graphene_fd_delta_weighted/T600/replayw8/checkpoints/gr_fd600_delta32_replayw8_run-83_epoch-85.pt",
+      "checkpoint_sha256": "e193c0d89b5efca66c850540aded5851f00ee1fcb2093b0f65cdb12aaeaac21b",
+      "epoch": 85,
+      "passes_fixed_gate": false,
+      "normalized_gate_ratios": {
+        "thermal_RMSE": 1.5910405054577716,
+        "thermal_max_abs": 2.2003240537200934,
+        "harmonic_RMSE": 1.4871636844885487
+      },
+      "normalized_worst_gate_score": 2.2003240537200934,
+      "thermal_total_force": {
+        "RMSE_meV_A": 79.55202527288859,
+        "max_abs_meV_A": 550.0810134300234
+      },
+      "harmonic_combined_force": {
+        "RMSE_meV_A": 21.521446053304185,
+        "max_abs_meV_A": 272.69886106605526
+      }
+    },
+    {
+      "checkpoint": "/home/howardwang/phonon/results/graphene_fd_delta_weighted/T600/replayw8/checkpoints/gr_fd600_delta32_replayw8_run-83_epoch-90.pt",
+      "checkpoint_sha256": "f942f23e1253a881bbd94ef5ad565a479aa30f6b58f9a7ffa941a6d4e78c1d29",
+      "epoch": 90,
+      "passes_fixed_gate": false,
+      "normalized_gate_ratios": {
+        "thermal_RMSE": 1.4264996838113957,
+        "thermal_max_abs": 1.9218602132354743,
+        "harmonic_RMSE": 1.5113919640184068
+      },
+      "normalized_worst_gate_score": 1.9218602132354743,
+      "thermal_total_force": {
+        "RMSE_meV_A": 71.32498419056978,
+        "max_abs_meV_A": 480.46505330886856
+      },
+      "harmonic_combined_force": {
+        "RMSE_meV_A": 21.872064896612976,
+        "max_abs_meV_A": 268.7692162429809
+      }
+    },
+    {
+      "checkpoint": "/home/howardwang/phonon/results/graphene_fd_delta_weighted/T600/replayw8/checkpoints/gr_fd600_delta32_replayw8_run-83_epoch-95.pt",
+      "checkpoint_sha256": "657f9335d849686c114e8db38f860f8a97f498e3bbe72826fd3e716baa63a04e",
+      "epoch": 95,
+      "passes_fixed_gate": false,
+      "normalized_gate_ratios": {
+        "thermal_RMSE": 1.4232432070615608,
+        "thermal_max_abs": 1.9160525750671393,
+        "harmonic_RMSE": 1.429008256304587
+      },
+      "normalized_worst_gate_score": 1.9160525750671393,
+      "thermal_total_force": {
+        "RMSE_meV_A": 71.16216035307804,
+        "max_abs_meV_A": 479.0131437667848
+      },
+      "harmonic_combined_force": {
+        "RMSE_meV_A": 20.679851463937666,
+        "max_abs_meV_A": 244.97098893280022
+      }
+    },
+    {
+      "checkpoint": "/home/howardwang/phonon/results/graphene_fd_delta_weighted/T600/replayw8/checkpoints/gr_fd600_delta32_replayw8_run-83_epoch-100.pt",
+      "checkpoint_sha256": "fd7c56aefe85d0c107959dfedb6477b4cab57f30739cccecddd5fe25db5d8aa1",
+      "epoch": 100,
+      "passes_fixed_gate": false,
+      "normalized_gate_ratios": {
+        "thermal_RMSE": 1.3372801728661496,
+        "thermal_max_abs": 1.7721245240722663,
+        "harmonic_RMSE": 1.3907928656165036
+      },
+      "normalized_worst_gate_score": 1.7721245240722663,
+      "thermal_total_force": {
+        "RMSE_meV_A": 66.86400864330749,
+        "max_abs_meV_A": 443.03113101806656
+      },
+      "harmonic_combined_force": {
+        "RMSE_meV_A": 20.12681854787209,
+        "max_abs_meV_A": 240.84335238094323
+      }
+    },
+    {
+      "checkpoint": "/home/howardwang/phonon/results/graphene_fd_delta_weighted/T600/replayw8/checkpoints/gr_fd600_delta32_replayw8_run-83_epoch-105.pt",
+      "checkpoint_sha256": "fe985dcd27f05dfa009e456d129541100b66ca2af064ab0ed76bed6469e9edb7",
+      "epoch": 105,
+      "passes_fixed_gate": false,
+      "normalized_gate_ratios": {
+        "thermal_RMSE": 1.2839469253307203,
+        "thermal_max_abs": 1.7042672585998542,
+        "harmonic_RMSE": 1.369164585670884
+      },
+      "normalized_worst_gate_score": 1.7042672585998542,
+      "thermal_total_force": {
+        "RMSE_meV_A": 64.19734626653602,
+        "max_abs_meV_A": 426.06681464996353
+      },
+      "harmonic_combined_force": {
+        "RMSE_meV_A": 19.81382552300846,
+        "max_abs_meV_A": 239.02320534343713
+      }
+    },
+    {
+      "checkpoint": "/home/howardwang/phonon/results/graphene_fd_delta_weighted/T600/replayw8/checkpoints/gr_fd600_delta32_replayw8_run-83_epoch-110.pt",
+      "checkpoint_sha256": "1b9d01b4ae76a7db6ca513e7a8842e54be1fe56d13993999f66f1f9b9a1b15d1",
+      "epoch": 110,
+      "passes_fixed_gate": false,
+      "normalized_gate_ratios": {
+        "thermal_RMSE": 1.2744798010464051,
+        "thermal_max_abs": 1.7157618951354987,
+        "harmonic_RMSE": 1.317679194972389
+      },
+      "normalized_worst_gate_score": 1.7157618951354987,
+      "thermal_total_force": {
+        "RMSE_meV_A": 63.723990052320254,
+        "max_abs_meV_A": 428.94047378387467
+      },
+      "harmonic_combined_force": {
+        "RMSE_meV_A": 19.068756187327352,
+        "max_abs_meV_A": 219.23080229789738
+      }
+    },
+    {
+      "checkpoint": "/home/howardwang/phonon/results/graphene_fd_delta_weighted/T600/replayw8/checkpoints/gr_fd600_delta32_replayw8_run-83_epoch-115.pt",
+      "checkpoint_sha256": "bcedb782a70ab80bfc362252995e425181dc1c7f28319a1e08464834034c1043",
+      "epoch": 115,
+      "passes_fixed_gate": false,
+      "normalized_gate_ratios": {
+        "thermal_RMSE": 1.2459728870772802,
+        "thermal_max_abs": 1.681374068215943,
+        "harmonic_RMSE": 1.2854912349474035
+      },
+      "normalized_worst_gate_score": 1.681374068215943,
+      "thermal_total_force": {
+        "RMSE_meV_A": 62.298644353864006,
+        "max_abs_meV_A": 420.34351705398575
+      },
+      "harmonic_combined_force": {
+        "RMSE_meV_A": 18.602949058987022,
+        "max_abs_meV_A": 228.5376652482224
+      }
+    },
+    {
+      "checkpoint": "/home/howardwang/phonon/results/graphene_fd_delta_weighted/T600/replayw8/checkpoints/gr_fd600_delta32_replayw8_run-83_epoch-120.pt",
+      "checkpoint_sha256": "4dc9bea3a81cba55631c9f80b121b7e2ff789e6a15196b0c2c5e40947e1b476f",
+      "epoch": 120,
+      "passes_fixed_gate": false,
+      "normalized_gate_ratios": {
+        "thermal_RMSE": 1.2402341811612232,
+        "thermal_max_abs": 1.7073118638549811,
+        "harmonic_RMSE": 1.254904487965664
+      },
+      "normalized_worst_gate_score": 1.7073118638549811,
+      "thermal_total_force": {
+        "RMSE_meV_A": 62.01170905806116,
+        "max_abs_meV_A": 426.82796596374527
+      },
+      "harmonic_combined_force": {
+        "RMSE_meV_A": 18.16031383868176,
+        "max_abs_meV_A": 213.964299798317
+      }
+    },
+    {
+      "checkpoint": "/home/howardwang/phonon/results/graphene_fd_delta_weighted/T600/replayw8/checkpoints/gr_fd600_delta32_replayw8_run-83_epoch-125.pt",
+      "checkpoint_sha256": "929d613f20f40bdc579f0aa50658c26e3ab9ce72d0968b3a389643cb2362e3b7",
+      "epoch": 125,
+      "passes_fixed_gate": false,
+      "normalized_gate_ratios": {
+        "thermal_RMSE": 1.2144461933209394,
+        "thermal_max_abs": 1.684460873559571,
+        "harmonic_RMSE": 1.2373657476591122
+      },
+      "normalized_worst_gate_score": 1.684460873559571,
+      "thermal_total_force": {
+        "RMSE_meV_A": 60.722309666046975,
+        "max_abs_meV_A": 421.11521838989273
+      },
+      "harmonic_combined_force": {
+        "RMSE_meV_A": 17.90650246789094,
+        "max_abs_meV_A": 214.2736032012177
+      }
+    },
+    {
+      "checkpoint": "/home/howardwang/phonon/results/graphene_fd_delta_weighted/T600/replayw8/checkpoints/gr_fd600_delta32_replayw8_run-83_epoch-130.pt",
+      "checkpoint_sha256": "b4536ed0e02d8660dd5a1c867444c2fb28ce9b1d33ed5a6e1c2566b8be9ba5fc",
+      "epoch": 130,
+      "passes_fixed_gate": false,
+      "normalized_gate_ratios": {
+        "thermal_RMSE": 1.1665457774706651,
+        "thermal_max_abs": 1.574614281610108,
+        "harmonic_RMSE": 1.2246788591648905
+      },
+      "normalized_worst_gate_score": 1.574614281610108,
+      "thermal_total_force": {
+        "RMSE_meV_A": 58.327288873533256,
+        "max_abs_meV_A": 393.653570402527
+      },
+      "harmonic_combined_force": {
+        "RMSE_meV_A": 17.722904529640733,
+        "max_abs_meV_A": 215.54267549545293
+      }
+    },
+    {
+      "checkpoint": "/home/howardwang/phonon/results/graphene_fd_delta_weighted/T600/replayw8/checkpoints/gr_fd600_delta32_replayw8_run-83_epoch-135.pt",
+      "checkpoint_sha256": "6ace32b8b814a3f0a7ebd97cdffed26553150987a4282c9d06d373fc940dbfde",
+      "epoch": 135,
+      "passes_fixed_gate": false,
+      "normalized_gate_ratios": {
+        "thermal_RMSE": 1.1629044400638096,
+        "thermal_max_abs": 1.6254646729980475,
+        "harmonic_RMSE": 1.1905231756671968
+      },
+      "normalized_worst_gate_score": 1.6254646729980475,
+      "thermal_total_force": {
+        "RMSE_meV_A": 58.14522200319048,
+        "max_abs_meV_A": 406.3661682495119
+      },
+      "harmonic_combined_force": {
+        "RMSE_meV_A": 17.228621548233647,
+        "max_abs_meV_A": 204.82424044639592
+      }
+    },
+    {
+      "checkpoint": "/home/howardwang/phonon/results/graphene_fd_delta_weighted/T600/replayw8/checkpoints/gr_fd600_delta32_replayw8_run-83_epoch-140.pt",
+      "checkpoint_sha256": "f906088b9c262f58a49ce4cb7c2a96b51f81cfff7ed109aa988a4dbd075b320c",
+      "epoch": 140,
+      "passes_fixed_gate": false,
+      "normalized_gate_ratios": {
+        "thermal_RMSE": 1.1111101695107621,
+        "thermal_max_abs": 1.5336592149291999,
+        "harmonic_RMSE": 1.1805249538453833
+      },
+      "normalized_worst_gate_score": 1.5336592149291999,
+      "thermal_total_force": {
+        "RMSE_meV_A": 55.55550847553811,
+        "max_abs_meV_A": 383.41480373229996
+      },
+      "harmonic_combined_force": {
+        "RMSE_meV_A": 17.08393257161899,
+        "max_abs_meV_A": 201.91843950778966
+      }
+    },
+    {
+      "checkpoint": "/home/howardwang/phonon/results/graphene_fd_delta_weighted/T600/replayw8/checkpoints/gr_fd600_delta32_replayw8_run-83_epoch-145.pt",
+      "checkpoint_sha256": "61ee56bea516a6e68ef2be606cc0cdc395d9d8fdb697d618d3a97c2545b56b71",
+      "epoch": 145,
+      "passes_fixed_gate": false,
+      "normalized_gate_ratios": {
+        "thermal_RMSE": 1.0771505984212029,
+        "thermal_max_abs": 1.4594800424133307,
+        "harmonic_RMSE": 1.1768071735512025
+      },
+      "normalized_worst_gate_score": 1.4594800424133307,
+      "thermal_total_force": {
+        "RMSE_meV_A": 53.85752992106014,
+        "max_abs_meV_A": 364.8700106033327
+      },
+      "harmonic_combined_force": {
+        "RMSE_meV_A": 17.03013082210494,
+        "max_abs_meV_A": 191.19563841850285
+      }
+    },
+    {
+      "checkpoint": "/home/howardwang/phonon/results/graphene_fd_delta_weighted/T600/replayw8/checkpoints/gr_fd600_delta32_replayw8_run-83_epoch-150.pt",
+      "checkpoint_sha256": "11048ee158caa2f175998c8561f22c2103c360670eb40999d75f5fb504738331",
+      "epoch": 150,
+      "passes_fixed_gate": false,
+      "normalized_gate_ratios": {
+        "thermal_RMSE": 1.0505308799406614,
+        "thermal_max_abs": 1.418169016793824,
+        "harmonic_RMSE": 1.1652368529835506
+      },
+      "normalized_worst_gate_score": 1.418169016793824,
+      "thermal_total_force": {
+        "RMSE_meV_A": 52.52654399703307,
+        "max_abs_meV_A": 354.54225419845596
+      },
+      "harmonic_combined_force": {
+        "RMSE_meV_A": 16.862691264164287,
+        "max_abs_meV_A": 192.8521707061005
+      }
+    },
+    {
+      "checkpoint": "/home/howardwang/phonon/results/graphene_fd_delta_weighted/T600/replayw8/checkpoints/gr_fd600_delta32_replayw8_run-83_epoch-155.pt",
+      "checkpoint_sha256": "980e596a8f886a51cf277059bd55839d55f976c7d8be12b0f56b450b76d805be",
+      "epoch": 155,
+      "passes_fixed_gate": false,
+      "normalized_gate_ratios": {
+        "thermal_RMSE": 1.0557201513571295,
+        "thermal_max_abs": 1.4004557084594733,
+        "harmonic_RMSE": 1.1365037578753299
+      },
+      "normalized_worst_gate_score": 1.4004557084594733,
+      "thermal_total_force": {
+        "RMSE_meV_A": 52.78600756785647,
+        "max_abs_meV_A": 350.1139271148683
+      },
+      "harmonic_combined_force": {
+        "RMSE_meV_A": 16.44688111309225,
+        "max_abs_meV_A": 187.04447293312077
+      }
+    },
+    {
+      "checkpoint": "/home/howardwang/phonon/results/graphene_fd_delta_weighted/T600/replayw8/checkpoints/gr_fd600_delta32_replayw8_run-83_epoch-160.pt",
+      "checkpoint_sha256": "b321911e799a541d12d301eb0229fc361ab92878dcef8c9dbe24348538461c55",
+      "epoch": 160,
+      "passes_fixed_gate": false,
+      "normalized_gate_ratios": {
+        "thermal_RMSE": 1.0843707630703598,
+        "thermal_max_abs": 1.4768061589752204,
+        "harmonic_RMSE": 1.0898140651169308
+      },
+      "normalized_worst_gate_score": 1.4768061589752204,
+      "thermal_total_force": {
+        "RMSE_meV_A": 54.218538153518,
+        "max_abs_meV_A": 369.2015397438051
+      },
+      "harmonic_combined_force": {
+        "RMSE_meV_A": 15.771212580821166,
+        "max_abs_meV_A": 175.32698159324678
+      }
+    },
+    {
+      "checkpoint": "/home/howardwang/phonon/results/graphene_fd_delta_weighted/T600/replayw8/checkpoints/gr_fd600_delta32_replayw8_run-83_epoch-165.pt",
+      "checkpoint_sha256": "59c39b684ebcf54200fb492878b89cf2c5356369248be48e695bfabd7f42342f",
+      "epoch": 165,
+      "passes_fixed_gate": false,
+      "normalized_gate_ratios": {
+        "thermal_RMSE": 0.9597997457022884,
+        "thermal_max_abs": 1.252567048028565,
+        "harmonic_RMSE": 1.1174640336014137
+      },
+      "normalized_worst_gate_score": 1.252567048028565,
+      "thermal_total_force": {
+        "RMSE_meV_A": 47.989987285114424,
+        "max_abs_meV_A": 313.14176200714127
+      },
+      "harmonic_combined_force": {
+        "RMSE_meV_A": 16.171348296426007,
+        "max_abs_meV_A": 166.93983321296724
+      }
+    },
+    {
+      "checkpoint": "/home/howardwang/phonon/results/graphene_fd_delta_weighted/T600/replayw8/checkpoints/gr_fd600_delta32_replayw8_run-83_epoch-170.pt",
+      "checkpoint_sha256": "9e6d4c82e6e112d42dbfa6f23b4f9cf6a9bd9345c33d99e363cc19fb273017ee",
+      "epoch": 170,
+      "passes_fixed_gate": false,
+      "normalized_gate_ratios": {
+        "thermal_RMSE": 1.0054734325693078,
+        "thermal_max_abs": 1.2944059323822028,
+        "harmonic_RMSE": 1.0805401504597487
+      },
+      "normalized_worst_gate_score": 1.2944059323822028,
+      "thermal_total_force": {
+        "RMSE_meV_A": 50.273671628465394,
+        "max_abs_meV_A": 323.6014830955507
+      },
+      "harmonic_combined_force": {
+        "RMSE_meV_A": 15.63700539429608,
+        "max_abs_meV_A": 166.71219428325657
+      }
+    },
+    {
+      "checkpoint": "/home/howardwang/phonon/results/graphene_fd_delta_weighted/T600/replayw8/checkpoints/gr_fd600_delta32_replayw8_run-83_epoch-175.pt",
+      "checkpoint_sha256": "3cf1fd674001f3ff447a48bf5d6c596af6fe8fec213982bc3bc1b3d66bbe80e0",
+      "epoch": 175,
+      "passes_fixed_gate": false,
+      "normalized_gate_ratios": {
+        "thermal_RMSE": 0.9680789501514959,
+        "thermal_max_abs": 1.2297856759582526,
+        "harmonic_RMSE": 1.0642518613147665
+      },
+      "normalized_worst_gate_score": 1.2297856759582526,
+      "thermal_total_force": {
+        "RMSE_meV_A": 48.4039475075748,
+        "max_abs_meV_A": 307.44641898956314
+      },
+      "harmonic_combined_force": {
+        "RMSE_meV_A": 15.401289891160381,
+        "max_abs_meV_A": 154.4084544971085
+      }
+    }
+  ]
+}

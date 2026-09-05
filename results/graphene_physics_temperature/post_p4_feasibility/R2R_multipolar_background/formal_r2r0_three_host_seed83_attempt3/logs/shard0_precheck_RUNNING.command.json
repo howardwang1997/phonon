@@ -1,0 +1,22 @@
+{
+  "argv": [
+    "ssh",
+    "-o",
+    "BatchMode=yes",
+    "-o",
+    "ConnectTimeout=20",
+    "-o",
+    "ControlPath=none",
+    "root@100.80.236.112",
+    "test '!' -e /data/graphene_r2r0/formal_r2r0_three_host_seed83/a9a1732af38c/attempt_0003/shard0/RUNNING"
+  ],
+  "command_basename": "shard0_precheck_RUNNING.command.json",
+  "expected_sha256": null,
+  "observed_sha256": null,
+  "returncode": 0,
+  "sha256": "9b9c3d6e237a07a2d9b7bf7cbb021b52dc7cbfbe5cf120a2d4bb9524b2490fae",
+  "stderr_basename": "shard0_precheck_RUNNING.stderr",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout_basename": "shard0_precheck_RUNNING.stdout",
+  "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}

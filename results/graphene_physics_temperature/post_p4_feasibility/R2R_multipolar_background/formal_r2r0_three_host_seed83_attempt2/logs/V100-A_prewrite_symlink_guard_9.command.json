@@ -1,0 +1,19 @@
+{
+  "argv": [
+    "ssh",
+    "-o",
+    "BatchMode=yes",
+    "-o",
+    "ConnectTimeout=20",
+    "-o",
+    "ControlPath=none",
+    "root@100.80.236.112",
+    "python3 -c 'import os\nimport pathlib\nimport stat\nimport sys\npath = pathlib.Path(sys.argv[1])\ncurrent = pathlib.Path(path.anchor)\nfor part in path.parts[1:]:\n    current = current / part\n    try:\n        mode = os.lstat(current).st_mode\n    except FileNotFoundError:\n        continue\n    if stat.S_ISLNK(mode):\n        raise SystemExit(2)\n' /data/graphene_r2r0/formal_bundle/f2abdb5e997d/tests/test_graphene_r2r_multipolar_background.py"
+  ],
+  "returncode": 0,
+  "sha256": "273806973449ea5eba11066446afafd9b539652085ad3c43634c427160bf6816",
+  "stderr_basename": "V100-A_prewrite_symlink_guard_9.stderr",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout_basename": "V100-A_prewrite_symlink_guard_9.stdout",
+  "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}

@@ -1,0 +1,72 @@
+{
+  "format": "graphene_r2ap_fixed_smearing_r2ao_sscha_v1",
+  "status": "passed",
+  "spectral_sensitivity_only": true,
+  "force_gate_approved": false,
+  "lattice_temperature_K": 450,
+  "fixed_smearing_degauss_Ry": 0.0019000869380739254,
+  "electronic_operator_temperature_label_K": 300,
+  "converged": true,
+  "all_outputs_finite": true,
+  "final_population": 1,
+  "maximum_populations": 5,
+  "n_configs_per_population": 300,
+  "random_seed": 450005,
+  "supercell_min_frequency_cm-1": -1.9035208832974642e-05,
+  "supercell_imaginary_modes_below_minus_1_cm-1": 0,
+  "R2AO_CellConstructor_cell_mismatch_A": 1.7763568394002505e-15,
+  "R2AO_cell_canonicalization_tolerance_A": 5e-12,
+  "result": "/home/howardwang/phonon/results/graphene_physics_temperature/post_p4_feasibility/R2R_multipolar_background/R2AP_fixed_smearing_SSCHA/formal_T450/result.npz",
+  "result_sha256": "f33259b099510c3378200e57a5099f5ec227cafab0404079c0bbc3e08fbc4dcc",
+  "input_provenance": {
+    "manifest": {
+      "path": "/home/howardwang/phonon/results/graphene_physics_temperature/post_p4_feasibility/R2R_multipolar_background/R2AP_fixed_smearing_SSCHA_manifest_retry2_20260827.json",
+      "sha256": "2ccfe91e12d6ba6db795d2fbe3e28579fe43aa90d9efe9479ca83aa72773362f"
+    },
+    "initial_hessian": {
+      "kind": "matched_TDEP_minus_matched_q6_plus_fixed_q6",
+      "physical_tdep": {
+        "path": "results/graphene_physics_temperature/post_p4_feasibility/S0_unified_short/L0_classical_tdep/T450/final_physical_tdep.npz",
+        "sha256": "22451fc5668adc47dbec76aa2648ba6d50aebc9d0dfacf791ef834a5b3a2d083",
+        "resolved_path": "/home/howardwang/phonon/results/graphene_physics_temperature/post_p4_feasibility/S0_unified_short/L0_classical_tdep/T450/final_physical_tdep.npz"
+      },
+      "matched_operator_temperature_K": 450,
+      "fixed_operator_temperature_K": 300,
+      "formula": "Phi_TDEP(Tlat,Tel=Tlat) - Phi_q6(Tel=Tlat) + Phi_q6(Tel=300K)"
+    },
+    "foundation_model": {
+      "path": "results/gr_backbone_v11/ft_graphene.model",
+      "sha256": "4d32426672d53e3adc86499d14e4c4164c05e879a56811ff54add03cd1bb6ce7"
+    },
+    "R2AO_checkpoint": {
+      "path": "results/graphene_physics_temperature/post_p4_feasibility/R2R_multipolar_background/R2AO_step32_all132_spectral_candidate_retry2_20260827/spectral_candidate_readout.npz",
+      "sha256": "5e8cbd7c4b59dd486de6b029b05795d321ad3b815e3168f64dae9e41ddb1e8b5"
+    },
+    "R2AO_candidate_summary": {
+      "path": "results/graphene_physics_temperature/post_p4_feasibility/R2R_multipolar_background/R2AO_step32_all132_spectral_candidate_retry2_20260827/summary.json",
+      "sha256": "30ddfe378a0b572d41827d40495aa2e693aedb5076a0bd511597dea913ef4333"
+    },
+    "R2AO_mechanics_summary": {
+      "path": "results/graphene_physics_temperature/post_p4_feasibility/R2R_multipolar_background/R2AO_step32_mechanics_retry2_20260827/summary.json",
+      "sha256": "d54ed9ca08d572277d8b5bb6c1f7575fb4fe2a3b9adb7a9195c3fec4432e3824"
+    },
+    "background": {
+      "path": "results/vq_kink6_fd/graphene_sc6_dg0.040_phonopy.yaml",
+      "sha256": "69144a1dd3c66df94c116259067be27d1ede3ca8ab01c66516504c5e1ec90c0a"
+    },
+    "fixed_operator": {
+      "degauss_Ry": 0.0019000869380739254,
+      "path": "results/graphene_physics_temperature/post_p4_feasibility/E0_epw_matched/k18_q9_ex1_pifroz/operator_q6_450K/cartesian/T300_operator.npz",
+      "sha256": "114fb9a369ed106e5a89a9c05223aed7667fd737714f3d42516ebdb8e2e475c3",
+      "resolved_path": "/home/howardwang/phonon/results/graphene_physics_temperature/post_p4_feasibility/E0_epw_matched/k18_q9_ex1_pifroz/operator_q6_450K/cartesian/T300_operator.npz"
+    }
+  },
+  "versions": {
+    "python-sscha": "1.6.1",
+    "cellconstructor": "1.6.2",
+    "phonopy": "4.1.0",
+    "mace-torch": "0.3.16",
+    "torch": "2.6.0+cu124"
+  },
+  "next_stage": "full-EPC dense K-line reconstruction and quantitative cusp/model-sensitivity gates"
+}

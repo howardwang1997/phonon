@@ -1,0 +1,92 @@
+{
+  "format": "graphene_r2o_whole_energy_taylor2_training_v1",
+  "thermal_train_sha256": "cc2e9c68d418fba996e8ac89c8156c8adf00768406f6171aaa57f0a9bd2720c1",
+  "harmonic_zero_train_sha256": "600c737b11987fb976724dd86042d384fc1abef9f2340ffa5c30d5fe26a8afdf",
+  "reference_6x6_sha256": "2793b514768c6d875831a1b62fcb2aa5f858830cb2de7b1b2d5492dabeb8da90",
+  "reference_8x8_sha256": "1c438550cb03d94cc80ca16e1ca89d24f87db4d732743b6c07128d47edf5b900",
+  "initial_model_sha256": "c600962c7eb3a3f08526199d080c43830eaa0c347e68defe1a77d375532dd203",
+  "launcher_freeze_sha256": "988f33d633ea13b6aa986bb0244cbb2dea7c7c2fd802f558050c35d46793afe2",
+  "architecture": {
+    "r_max_A": 3.2,
+    "num_interactions": 2,
+    "cutoff_p": 5,
+    "max_ell": 2,
+    "spherical_harmonics_irreps": "1x0e+1x1o+1x2e",
+    "interaction_classes": [
+      "RealAgnosticInteractionBlock",
+      "RealAgnosticResidualInteractionBlock"
+    ],
+    "product_correlations": [
+      3,
+      3,
+      3,
+      3
+    ],
+    "raw_node_width": 160,
+    "hidden_layout": [
+      [
+        0,
+        16,
+        0,
+        1
+      ],
+      [
+        0,
+        16,
+        1,
+        -1
+      ],
+      [
+        0,
+        16,
+        2,
+        1
+      ],
+      [
+        1,
+        16,
+        0,
+        1
+      ]
+    ],
+    "num_radial_basis": 24,
+    "dtype": "torch.float64",
+    "pair_repulsion": false,
+    "interaction_diameter_bound_A": 12.8
+  },
+  "epochs": 2,
+  "checkpoint_epochs": [
+    1,
+    2
+  ],
+  "seed": 83,
+  "optimizer": {
+    "name": "AdamW",
+    "lr": 0.001,
+    "weight_decay": 1e-06,
+    "gradient_clip": 20.0,
+    "scheduler": "ExponentialLR",
+    "gamma": 1.0,
+    "ema_decay": 0.99
+  },
+  "group_counts": {
+    "E50": 20,
+    "T300": 36,
+    "T600": 36,
+    "harmonic_zero": 32
+  },
+  "group_mass": {
+    "E50": 0.5,
+    "T300": 0.2,
+    "T600": 0.2,
+    "harmonic_zero": 0.1
+  },
+  "group_scale_eV_A": {
+    "E50": 0.03,
+    "T300": 0.03,
+    "T600": 0.03,
+    "harmonic_zero": 0.0005
+  },
+  "selection_data_read": false,
+  "seed1_seed2_support_read": false
+}

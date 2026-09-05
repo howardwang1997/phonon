@@ -1,0 +1,100 @@
+{
+  "status": "R2O_stage1_exact_epoch_artifact",
+  "epochs": 2,
+  "zero_based_final_epoch": 1,
+  "training_configurations_per_epoch": 92,
+  "expected_and_observed_optimizer_steps": 184,
+  "optimizer": "Adam",
+  "CLI_weight_decay": 1e-06,
+  "observed_parameter_group_weight_decay": [
+    0.0,
+    1e-06,
+    0.0,
+    1e-06,
+    0.0
+  ],
+  "observed_parameter_group_amsgrad": [
+    true,
+    true,
+    true,
+    true,
+    true
+  ],
+  "final_checkpoint": {
+    "path": "/data/graphene_r2o_core/fp64_smoke_2plus2_seed83_v100b/pretrain/checkpoints/gr_r2o_fp64_smoke_seed83_run-83_epoch-1.pt",
+    "sha256": "febffbc81686119b6a964a3e4fa77678043825c8a061242ba60f8739e9aea5ec",
+    "zero_based_epoch": 1
+  },
+  "wall_time_seconds": 78,
+  "per_epoch_optimizer_compute_seconds": {
+    "0": 11.119475364685059,
+    "1": 10.350303411483765
+  },
+  "peak_nvidia_smi_memory_used_MiB": 474.0,
+  "gpu_samples": {
+    "path": "/data/graphene_r2o_core/fp64_smoke_2plus2_seed83_v100b/pretrain_gpu_samples.csv",
+    "sha256": "21c35b1ea3995bf4a16f9d540c499cb77433fffeeccd470f72b90d3ef1ba9858"
+  },
+  "model": {
+    "path": "/data/graphene_r2o_core/fp64_smoke_2plus2_seed83_v100b/pretrain/gr_r2o_fp64_smoke_seed83.model",
+    "sha256": "c8d42161b4c81a8f386ba09226fb1534b5949500708f94a9b10c634ce73c48ad",
+    "state_sha256": "42da1a85d90fa2cb92cac481f404f725580579d8cb600f284db3ec7617a14019"
+  },
+  "architecture": {
+    "r_max_A": 3.2,
+    "num_interactions": 2,
+    "cutoff_p": 5,
+    "max_ell": 2,
+    "spherical_harmonics_irreps": "1x0e+1x1o+1x2e",
+    "interaction_classes": [
+      "RealAgnosticInteractionBlock",
+      "RealAgnosticResidualInteractionBlock"
+    ],
+    "product_correlations": [
+      3,
+      3,
+      3,
+      3
+    ],
+    "raw_node_width": 160,
+    "hidden_layout": [
+      [
+        0,
+        16,
+        0,
+        1
+      ],
+      [
+        0,
+        16,
+        1,
+        -1
+      ],
+      [
+        0,
+        16,
+        2,
+        1
+      ],
+      [
+        1,
+        16,
+        0,
+        1
+      ]
+    ],
+    "num_radial_basis": 24,
+    "dtype": "torch.float64",
+    "pair_repulsion": false,
+    "interaction_diameter_bound_A": 12.8
+  },
+  "scale": [
+    0.19869211993334496
+  ],
+  "shift": [
+    0.0
+  ],
+  "seed1_used_for_validation_or_LR": false,
+  "EMA": false,
+  "SWA": false
+}

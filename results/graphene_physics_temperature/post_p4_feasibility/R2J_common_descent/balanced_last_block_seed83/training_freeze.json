@@ -1,0 +1,41 @@
+{
+  "status": "frozen_before_R2J_training",
+  "method": "gate_normalized_balanced_common_descent",
+  "scope": "last_block",
+  "run_tag": "balanced_last_block",
+  "name": "gr_r2j_balanced_last_block_seed83",
+  "seed": 83,
+  "max_epochs": 240,
+  "learning_rate": 5e-05,
+  "checkpoint_epochs": [
+    1,
+    5,
+    10,
+    20,
+    40,
+    80,
+    120,
+    160,
+    200,
+    240
+  ],
+  "initial_model": {
+    "path": "/data/graphene_r2c_short_repair/depth3_forces_only_seed83/gr_r2c_depth3_forces_only_seed83.model",
+    "sha256": "cdab8eae193c27126305fe798c105a9f98cf8b9718805d2de80e9211c1743084"
+  },
+  "data_manifest": {
+    "path": "/data/graphene_r2f_joint_support_harmonic/manifest.json",
+    "sha256": "a7feb67f8cf16a0d5ca2c0efb010909e3f41efc4fc97c5216a454bf169da0b99"
+  },
+  "training_script": {
+    "path": "/root/phonon/scripts/v100/run_graphene_r2j_balanced_common_descent.sh",
+    "sha256": "735d09b7926e9cbfa10fe32f25464a8cd6cf0fa578115f159c2b7e5c600d0cb3"
+  },
+  "trainer": {
+    "path": "/root/phonon/scripts/smearing_kink/train_graphene_r2j_balanced_common_descent.py",
+    "sha256": "56f82bad58a9a1a83b760cd17f4c58433a91c9a7feff4c2d144247d2ffd073a6"
+  },
+  "new_DFT_labels": 0,
+  "long_range_model_modified": false,
+  "thermal_structures_used_for_gradient_updates": 0
+}

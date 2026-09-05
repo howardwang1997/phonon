@@ -1,0 +1,84 @@
+{
+  "status": "zero_K_frequency_1_over_N_extrapolation_generated",
+  "electronic_integration": "tetrahedra_opt (no degauss)",
+  "fit_model": "omega(q,N)=omega(q,infinity)+A(q)/N, N is the linear size of the N x N x 1 electronic k mesh",
+  "fixed_q_fits": {
+    "-0.003": {
+      "raw_frequency_cm-1_by_N": {
+        "192": 1287.389301,
+        "240": 1287.159876,
+        "288": 1287.010106
+      },
+      "linear_1_over_N_intercept_cm-1": 1286.2504607368433,
+      "linear_1_over_N_slope_cm-1_times_N": 218.5609263153914,
+      "linear_fit_max_abs_residual_cm-1": 0.001255263157418085,
+      "pairwise_intercepts_cm-1": [
+        1286.242176,
+        1286.2517159999998,
+        1286.261255999999
+      ],
+      "quadratic_1_over_N_intercept_cm-1": 1286.299416
+    },
+    "+0.000": {
+      "raw_frequency_cm-1_by_N": {
+        "192": 1281.164692,
+        "240": 1281.753275,
+        "288": 1282.182972
+      },
+      "linear_1_over_N_intercept_cm-1": 1284.204805026317,
+      "linear_1_over_N_slope_cm-1_times_N": -584.8327326319277,
+      "linear_fit_max_abs_residual_cm-1": 0.014726973683991673,
+      "pairwise_intercepts_cm-1": [
+        1284.1076069999997,
+        1284.219532,
+        1284.3314569999998
+      ],
+      "quadratic_1_over_N_intercept_cm-1": 1284.779157000002
+    },
+    "+0.003": {
+      "raw_frequency_cm-1_by_N": {
+        "192": 1287.41643,
+        "240": 1287.190314,
+        "288": 1287.038604
+      },
+      "linear_1_over_N_intercept_cm-1": 1286.2833333157905,
+      "linear_1_over_N_slope_cm-1_times_N": 217.5838484207516,
+      "linear_fit_max_abs_residual_cm-1": 0.00038131578958200407,
+      "pairwise_intercepts_cm-1": [
+        1286.285849999999,
+        1286.2829520000003,
+        1286.2800539999994
+      ],
+      "quadratic_1_over_N_intercept_cm-1": 1286.2684620000018
+    }
+  },
+  "K_frequency": {
+    "linear_1_over_N_intercept_cm-1": 1284.204805026317,
+    "pairwise_intercept_range_cm-1": [
+      1284.1076069999997,
+      1284.3314569999998
+    ],
+    "quadratic_1_over_N_sensitivity_cm-1": 1284.779157000002,
+    "accepted_as_frozen_reference": false
+  },
+  "extrapolated_d003_depth_cm-1": {
+    "KG": 2.045655710526262,
+    "KM": 2.0785282894735246
+  },
+  "model_reanchoring_diagnostic": {
+    "original_model_K_cm-1": 1282.182972,
+    "DFPT_extrapolated_K_cm-1": 1284.204805026317,
+    "common_shift_cm-1": 2.0218330263169264,
+    "shape_changed": false
+  },
+  "limitations": [
+    "only three electronic k grids are available",
+    "linear 1/N and quadratic 1/N sensitivity models cannot be distinguished with these data",
+    "the reanchored model in panel (b) is a diagnostic common-frequency shift, not the original absolute calibration"
+  ],
+  "outputs": {
+    "png": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/E35_zero_K_frequency_extrapolation/zero_K_frequency_1_over_N_extrapolation.png",
+    "pdf": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/E35_zero_K_frequency_extrapolation/zero_K_frequency_1_over_N_extrapolation.pdf",
+    "csv": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/E35_zero_K_frequency_extrapolation/zero_fixed_q_1_over_N_extrapolation.csv"
+  }
+}

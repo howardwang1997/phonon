@@ -1,0 +1,207 @@
+{
+  "status": "R2G_short_bond_expert_training_complete",
+  "energy_conservative": true,
+  "activation_is_C2": true,
+  "new_DFT_labels": 0,
+  "long_range_model_modified": false,
+  "thermal_structures_used_for_gradient_updates": 0,
+  "base_model": {
+    "path": "/data/graphene_r2f_last_layer/depth3_lastblock_direct_seed83/gr_r2f_depth3_lastblock_direct_seed83.model",
+    "sha256": "bc58262936b1bf41db3f17716e5e58b501e1f6ee14fd02f3aaf23e817ad6885f"
+  },
+  "datasets": {
+    "train": {
+      "path": "/data/graphene_r2f_joint_support_harmonic/train.xyz",
+      "sha256": "3e3f030477a6d2b2ba8f6cb12fe35dd9999b144dcb5d13925c8d03bac8558637"
+    },
+    "valid": {
+      "path": "/data/graphene_r2f_joint_support_harmonic/val.xyz",
+      "sha256": "634531e708e540dad3c36992c190f1cb5490a5f07c5be0f99f7d14fb53f092ae"
+    },
+    "test": {
+      "path": "/data/graphene_r2f_joint_support_harmonic/test.xyz",
+      "sha256": "bdc259b233c90131e731952c2bb6c933da1f4d3ad0a73354278912a886d057d9"
+    },
+    "manifest": {
+      "path": "/data/graphene_r2f_joint_support_harmonic/manifest.json",
+      "sha256": "a7feb67f8cf16a0d5ca2c0efb010909e3f41efc4fc97c5216a454bf169da0b99"
+    }
+  },
+  "training": {
+    "seed": 83,
+    "max_epochs": 400,
+    "learning_rate": 0.001,
+    "weight_decay": 1e-07,
+    "ema_decay": 0.995,
+    "energy_weight": 0.25,
+    "force_gate_scale_eV_A": 0.03,
+    "energy_gate_scale_eV_config": 0.0194,
+    "exclude_support_index": null,
+    "n_train": 81,
+    "train_role_counts": {
+      "harmonic_replay": 72,
+      "fixed_smearing_support_repair": 9
+    },
+    "trainable_parameters": 1188
+  },
+  "specification": {
+    "neighbour_cutoff_A": 1.75,
+    "lower_off_A": 1.15,
+    "lower_on_A": 1.2,
+    "upper_on_A": 1.32,
+    "upper_off_A": 1.38,
+    "radial_min_A": 1.2,
+    "radial_max_A": 1.36,
+    "n_radial": 12,
+    "radial_width_A": 0.022,
+    "hidden_channels": 24,
+    "environment_mode": "nonlinear"
+  },
+  "environment_statistics": {
+    "mean": [
+      1.4415187213173652,
+      0.09352132181224486,
+      0.002448422824872806,
+      0.0024391312043488297,
+      0.007354560095142406,
+      -0.016431782183942006,
+      0.003037550156894637,
+      0.001321083928151315,
+      0.041278161416638474,
+      0.005636612445486752,
+      0.001165527927044908
+    ],
+    "scale": [
+      0.02100010268686746,
+      0.038906834947111245,
+      0.0021180297619236253,
+      0.003427171792355171,
+      0.007818259339484473,
+      0.013958004397234663,
+      0.0029423308591009258,
+      0.0018365370094378113,
+      0.02913750666831605,
+      0.007815024329892128,
+      0.0018084663339789258
+    ]
+  },
+  "initial_validation": {
+    "all": {
+      "RMSE_meV_A": 17.991565150943167,
+      "MAE_meV_A": 8.86898222760258,
+      "max_abs_meV_A": 513.204548508301,
+      "n_force_components": 11544
+    },
+    "by_role": {
+      "fixed_smearing_support_repair": {
+        "RMSE_meV_A": 31.293654752703965,
+        "MAE_meV_A": 19.879926151034724,
+        "max_abs_meV_A": 513.204548508301,
+        "n_force_components": 1944
+      },
+      "harmonic_replay": {
+        "RMSE_meV_A": 13.818036883453122,
+        "MAE_meV_A": 6.639266083107572,
+        "max_abs_meV_A": 151.4157227597809,
+        "n_force_components": 9600
+      }
+    },
+    "expert_force": {
+      "RMSE_meV_A": 0.0,
+      "MAE_meV_A": 0.0,
+      "max_abs_meV_A": 0.0,
+      "n_force_components": 11544
+    },
+    "support_centered_energy_RMSE_meV_config": 13.310320481250901
+  },
+  "initial_test": {
+    "all": {
+      "RMSE_meV_A": 19.92621489746426,
+      "MAE_meV_A": 14.648526894941718,
+      "max_abs_meV_A": 150.79755967666625,
+      "n_force_components": 5616
+    },
+    "by_role": {
+      "thermal": {
+        "RMSE_meV_A": 19.92621489746426,
+        "MAE_meV_A": 14.648526894941718,
+        "max_abs_meV_A": 150.79755967666625,
+        "n_force_components": 5616
+      }
+    },
+    "expert_force": {
+      "RMSE_meV_A": 0.0,
+      "MAE_meV_A": 0.0,
+      "max_abs_meV_A": 0.0,
+      "n_force_components": 5616
+    }
+  },
+  "final_validation": {
+    "all": {
+      "RMSE_meV_A": 18.189405284559268,
+      "MAE_meV_A": 8.968615817176904,
+      "max_abs_meV_A": 467.808288494826,
+      "n_force_components": 11544
+    },
+    "by_role": {
+      "fixed_smearing_support_repair": {
+        "RMSE_meV_A": 29.87334867080595,
+        "MAE_meV_A": 19.438054944139008,
+        "max_abs_meV_A": 467.808288494826,
+        "n_force_components": 1944
+      },
+      "harmonic_replay": {
+        "RMSE_meV_A": 14.735605149607208,
+        "MAE_meV_A": 6.848554393967077,
+        "max_abs_meV_A": 237.9005870686683,
+        "n_force_components": 9600
+      }
+    },
+    "expert_force": {
+      "RMSE_meV_A": 3.6010925336721296,
+      "MAE_meV_A": 0.9369217021130319,
+      "max_abs_meV_A": 122.14504877493208,
+      "n_force_components": 11544
+    },
+    "support_centered_energy_RMSE_meV_config": 12.443064638159319
+  },
+  "final_test": {
+    "all": {
+      "RMSE_meV_A": 19.87498674976997,
+      "MAE_meV_A": 14.615286661740898,
+      "max_abs_meV_A": 150.62721053080404,
+      "n_force_components": 5616
+    },
+    "by_role": {
+      "thermal": {
+        "RMSE_meV_A": 19.87498674976997,
+        "MAE_meV_A": 14.615286661740898,
+        "max_abs_meV_A": 150.62721053080404,
+        "n_force_components": 5616
+      }
+    },
+    "expert_force": {
+      "RMSE_meV_A": 0.9069457231945453,
+      "MAE_meV_A": 0.23885353177430194,
+      "max_abs_meV_A": 24.870156354950918,
+      "n_force_components": 5616
+    }
+  },
+  "checkpoint_experts": {
+    "1": "/data/graphene_r2g_short_bond/compact_c2_nonlinear_seed83/checkpoint_experts/epoch1.pt",
+    "5": "/data/graphene_r2g_short_bond/compact_c2_nonlinear_seed83/checkpoint_experts/epoch5.pt",
+    "10": "/data/graphene_r2g_short_bond/compact_c2_nonlinear_seed83/checkpoint_experts/epoch10.pt",
+    "20": "/data/graphene_r2g_short_bond/compact_c2_nonlinear_seed83/checkpoint_experts/epoch20.pt",
+    "40": "/data/graphene_r2g_short_bond/compact_c2_nonlinear_seed83/checkpoint_experts/epoch40.pt",
+    "80": "/data/graphene_r2g_short_bond/compact_c2_nonlinear_seed83/checkpoint_experts/epoch80.pt",
+    "120": "/data/graphene_r2g_short_bond/compact_c2_nonlinear_seed83/checkpoint_experts/epoch120.pt",
+    "160": "/data/graphene_r2g_short_bond/compact_c2_nonlinear_seed83/checkpoint_experts/epoch160.pt",
+    "240": "/data/graphene_r2g_short_bond/compact_c2_nonlinear_seed83/checkpoint_experts/epoch240.pt",
+    "320": "/data/graphene_r2g_short_bond/compact_c2_nonlinear_seed83/checkpoint_experts/epoch320.pt",
+    "400": "/data/graphene_r2g_short_bond/compact_c2_nonlinear_seed83/checkpoint_experts/epoch400.pt"
+  },
+  "final_expert": {
+    "path": "/data/graphene_r2g_short_bond/compact_c2_nonlinear_seed83/gr_r2g_compact_c2_nonlinear_seed83.pt",
+    "sha256": "1b01fa9bfd8a9ed76e95f5db80adb9b982ca6ba123e751bdb1e77c89e65be23e"
+  }
+}

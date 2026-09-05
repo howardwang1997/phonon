@@ -1,0 +1,93 @@
+{
+  "status": "wide_zero_smearing_extrapolation_sketch_generated",
+  "scope": {
+    "smearing_degauss_Ry": 0.0,
+    "wide_signed_distance_d": [
+      -0.025,
+      0.025
+    ],
+    "extrapolated_guide_signed_distance_d": [
+      -0.023,
+      0.023
+    ],
+    "near_K_zoom_signed_distance_d": [
+      -0.008,
+      0.008
+    ]
+  },
+  "data_inventory": {
+    "raw_DFPT_point_count_by_kgrid": {
+      "192": 13,
+      "240": 5,
+      "288": 3
+    },
+    "three_grid_fixed_q": [
+      -0.003,
+      0.0,
+      0.003
+    ],
+    "two_grid_fixed_q": [
+      -0.007,
+      0.007
+    ],
+    "k192_only_outer_q": [
+      -0.023,
+      -0.019,
+      -0.015,
+      -0.011,
+      0.011,
+      0.015,
+      0.019,
+      0.023
+    ]
+  },
+  "central_extrapolation": {
+    "local_fixed_q_model": "linear in 1/N using all available grids",
+    "outer_finite_grid_tail": "A(d)=A(d007)*exp(-(d-0.007)/0.006)",
+    "q_interpolation": "separate shape-preserving PCHIP branches; cusp retained at K",
+    "K_frequency_cm-1": 1284.204805026317,
+    "KG_d003_depth_cm-1": 2.045655710526262,
+    "KM_d003_depth_cm-1": 2.0785282894735246,
+    "KG_d007_frequency_cm-1": 1289.4903979999992,
+    "KM_d007_frequency_cm-1": 1289.551950999999
+  },
+  "envelope": {
+    "fit_variants": [
+      "linear_all",
+      "quadratic_all",
+      "pair_192_240",
+      "pair_192_288",
+      "pair_240_288"
+    ],
+    "finite_grid_tail_variants": [
+      "zero",
+      "exp_0.004",
+      "exp_0.006",
+      "exp_0.008",
+      "constant"
+    ],
+    "curves_per_direction": 25,
+    "support_padding_cm-1_at_d": {
+      "0.000": 0.0,
+      "0.003": 0.0,
+      "0.007": 0.12,
+      "0.023": 0.65
+    },
+    "interpretation": "model/support envelope, not a statistical confidence interval"
+  },
+  "limitations": [
+    "the curve outside |d|=0.007 is a model-assisted sketch because only k192 direct DFPT is available",
+    "the absolute K intercept remains sensitive to the chosen 1/N extrapolation form",
+    "the extrapolated guide is not a converged full DFPT dispersion and must not be used as a training target without additional validation"
+  ],
+  "literature_layout_reference": {
+    "citation": "S. Piscanec et al., Phys. Rev. Lett. 93, 185503 (2004), Fig. 2",
+    "doi": "10.1103/PhysRevLett.93.185503"
+  },
+  "outputs": {
+    "png": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/E37_zero_wide_extrapolation_sketch/zero_wide_extrapolation_sketch.png",
+    "pdf": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/E37_zero_wide_extrapolation_sketch/zero_wide_extrapolation_sketch.pdf",
+    "publication_pdf": "/Users/howardwang/Desktop/playground/phonon/output/pdf/graphene_zero_K_wide_extrapolation_sketch.pdf",
+    "csv": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/E37_zero_wide_extrapolation_sketch/zero_wide_extrapolation_sketch.csv"
+  }
+}

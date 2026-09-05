@@ -1,0 +1,30 @@
+{
+  "format": "r2o_stage1_fp64_cli_2epoch_benchmark_supplement_v1",
+  "reason": "Record the complete MACE optimizer parameter-group semantics and the corrected epoch timestamp interval; benchmark_result.json reported only parameter group 0 and its regex did not match the timestamp.",
+  "source_benchmark_result_sha256": "ebf6249e69a3b12869a49718424601043196cfbb9d9852cd77891586a1a96856",
+  "exact_command_snapshot_sha256": "8359f8abc9cab44e280664e7c3cb04f5c5fb9d02289ad5f6736d5a2dc5792d2f",
+  "epoch_0_log_timestamp": "2026-08-25 04:26:35.599",
+  "epoch_1_log_timestamp": "2026-08-25 04:26:49.086",
+  "epoch_0_to_epoch_1_seconds": 13.487,
+  "optimizer_parameter_group_learning_rates": [
+    0.001,
+    0.001,
+    0.001,
+    0.001,
+    0.001
+  ],
+  "optimizer_parameter_group_weight_decays": [
+    0.0,
+    0.000001,
+    0.0,
+    0.000001,
+    0.0
+  ],
+  "weight_decay_interpretation": "MACE 0.3.16 applies the requested 1e-6 decay selectively to weight parameter groups and zero decay to bias/other protected groups.",
+  "optimizer_state_step_unique": [
+    184.0
+  ],
+  "final_state_equals_epoch1_raw_checkpoint_state_exactly": true,
+  "formal_model_gate": false,
+  "seed1_seed2_support_or_prior_model_read": false
+}

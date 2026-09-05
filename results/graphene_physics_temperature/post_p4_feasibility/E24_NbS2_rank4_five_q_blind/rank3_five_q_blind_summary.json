@@ -1,0 +1,68 @@
+{
+  "status": "cross_material_low_rank_five_q_vertex_gate_passed",
+  "material": "2H-NbS2",
+  "scope": "five fixed coarse-q labels train a material-specific complex rank-4 mode-projected EPC basis and degree4_Chebyshev latent curve; remaining 36 q points are held out; existing EPW asset only and no new DFT",
+  "asset_dimensions": {
+    "nbndsub": 11,
+    "nrr_k": 157,
+    "nmodes": 9,
+    "nrr_q": 13,
+    "nrr_g": 13
+  },
+  "q_center": [
+    0.3333333333333333,
+    0.3333333333333333,
+    0.0
+  ],
+  "q_direction": [
+    1.0,
+    1.0,
+    0.0
+  ],
+  "q_halfwidth": 0.05,
+  "number_of_qpoints": 41,
+  "training_indices": [
+    0,
+    10,
+    20,
+    30,
+    40
+  ],
+  "selected_rank": 4,
+  "latent_interpolation": "degree4_Chebyshev",
+  "tracked_reference_mode_index": 0,
+  "tracked_mode_index_range": [
+    0,
+    0
+  ],
+  "tracked_frequency_range_cm-1": [
+    96.81142224435614,
+    103.45993588798909
+  ],
+  "minimum_branch_overlap_with_center": 0.9722783448857449,
+  "minimum_adjacent_branch_overlap": 0.9999285185532255,
+  "full_data_rank_for_capture": {
+    "0.99": 2,
+    "0.999": 2,
+    "0.9999": 3,
+    "0.99999": 4
+  },
+  "full_data_selected_rank_capture": 0.9999998702724663,
+  "full_data_selected_rank_maximum_relative_vertex_error": 0.000856226430169122,
+  "blind_five_q_selected_rank": {
+    "heldout_RMSE_relative_vertex_error": 0.000535089350241339,
+    "heldout_median_relative_vertex_error": 0.0005173975924267322,
+    "heldout_maximum_relative_vertex_error": 0.0008198195431886834
+  },
+  "checks": {
+    "tracked_adjacent_branch_overlap_gt_0p99": true,
+    "selected_rank_direct_capture_gt_0p9999": true,
+    "blind_five_q_heldout_RMSE_lt_0p02": true,
+    "blind_five_q_heldout_max_lt_0p05": true
+  },
+  "limitations": [
+    "this first cross-material gate evaluates vertex reconstruction, not the propagated phonon self-energy",
+    "the material-specific rank-4 basis is learned from five 2H-NbS2 EPC labels rather than generated from a pretrained cross-material model",
+    "only the branch selected as mode index 0 at q0=[0.3333333333333333, 0.3333333333333333, 0.0] is tested"
+  ]
+}

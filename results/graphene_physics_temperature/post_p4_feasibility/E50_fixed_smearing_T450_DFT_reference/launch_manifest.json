@@ -1,0 +1,97 @@
+{
+  "status": "completed_labels_and_fit_failed_as_thermodynamic_DFT_validation",
+  "scope": "450 K DFT force relabeling at the fixed electronic smearing used by E48",
+  "lattice_temperature_K": 450,
+  "electronic_settings": {
+    "smearing": "fermi-dirac",
+    "degauss_Ry": 0.0019000869,
+    "kgrid": [8, 8, 1],
+    "ecutwfc_Ry": 60.0,
+    "ecutrho_Ry": 240.0,
+    "pseudopotential": "C_ONCV_PBE-1.2.upf",
+    "disk_io": "none"
+  },
+  "structures": {
+    "supercell": [6, 6, 1],
+    "n_atoms": 72,
+    "n_total": 60,
+    "n_per_trajectory_seed": 20,
+    "indices_per_seed": [3, 9, 15, 21, 27, 33, 39, 45, 51, 57, 63, 69, 75, 81, 87, 93, 99, 105, 111, 117],
+    "source": "frozen 450 K on-policy configurations previously labeled at degauss=0.00285013035 Ry; old labels are read-only"
+  },
+  "shards": {
+    "A": {
+      "host": "root@100.80.236.112",
+      "transport": "Tailscale address",
+      "assignment": "seed0 all 20 plus seed2 first 10",
+      "remote_workdir": "/data/graphene_fixed_smearing_thermal_reference/T450/shard_A",
+      "systemd_unit": "graphene-fixed-smearing-t450-A.service",
+      "launched_at": "2026-08-21T20:05:27+12:00",
+      "completed_at": "2026-08-22T04:17:18+12:00",
+      "n_labels": 30,
+      "exit_status": "success",
+      "initial_state": "active/running; pw.x confirmed on GPU",
+      "initial_gpu_memory_MiB": 6084
+    },
+    "B": {
+      "host": "root@100.123.220.57",
+      "transport": "Tailscale address",
+      "assignment": "seed1 all 20 plus seed2 last 10",
+      "remote_workdir": "/data/graphene_fixed_smearing_thermal_reference/T450/shard_B",
+      "systemd_unit": "graphene-fixed-smearing-t450-B.service",
+      "launched_at": "2026-08-21T20:05:20+12:00",
+      "completed_at": "2026-08-22T02:44:44+12:00",
+      "n_labels": 30,
+      "exit_status": "success",
+      "initial_state": "active/running; pw.x confirmed on GPU",
+      "initial_gpu_memory_MiB": 7880
+    }
+  },
+  "input_snapshot_sha256": {
+    "seed0": "e85f26f01c20a0d882609a543cff36a2eaab994826a37371b6177f02fae7554a",
+    "seed1": "df502481e400e142a86bb732ff595cbe75381e19fc8a4a6be75d8c63b0fcea7e",
+    "seed2": "534ada6895a99126a035f5bf46d03033640073ec03f9102a7f6fbfb7bbef3b5c"
+  },
+  "code_sha256": {
+    "run_graphene_fixed_smearing_t450_reference_shard.sh": "27d5cc1acf90311e48b339f45bfc47ddde31d2637c21b931737f6444b6e77d1e",
+    "graphene_fd_force_convergence.py": "60b28c7b08f6f2756ad1e826140687e1d674258a5baa08975c4e9b0c75e6a104"
+  },
+  "timing": {
+    "historical_wall_minutes_per_structure": [14, 16],
+    "expected_label_completion_NZST": [
+      "2026-08-22T03:05:00+12:00",
+      "2026-08-22T04:05:00+12:00"
+    ],
+    "expected_postprocessing_hours": 1.0,
+    "actual_last_label_completion_NZST": "2026-08-22T04:17:18+12:00"
+  },
+  "result": {
+    "n_valid_unique_labels": 60,
+    "fit_RMSE_meV_A": 192.63371712641452,
+    "raw_DFT_TDEP_K_cm-1": 1303.9148588698445,
+    "DFT_TDEP_plus_same_full_EPC_K_cm-1": 1303.3468375754865,
+    "MLIP_plus_full_EPC_K_cm-1": 1263.1728534454821,
+    "MLIP_minus_DFT_K_cm-1": -40.17398413000433,
+    "per_seed_raw_DFT_K_spread_cm-1": 23.46491584515229,
+    "leave_one_seed_out_hybrid_K_spread_cm-1": 10.55506641321881,
+    "old_to_new_smearing_raw_DFT_K_shift_cm-1": -1.1345048674722875,
+    "interpretation": "The roughly 40 cm-1 gap is not caused by electronic smearing. These structures come from an archived failed-C1 MLIP on-policy ensemble and do not define an equilibrium DFT lattice-temperature reference."
+  },
+  "outputs": {
+    "DFT_TDEP_npz": {
+      "path": "graphene_fixed_smearing_DFT_TDEP_450K.npz",
+      "sha256": "3cf6a741af8d3c3b40ec65c23158bd79ba9e703a36a2d9bc77a51ad9504066d3"
+    },
+    "DFT_TDEP_summary": {
+      "path": "graphene_fixed_smearing_DFT_TDEP_450K.json",
+      "sha256": "82fb5c105748e9591abc96c69fa9c3039ac43a5abad2861c26498ba5f5cb46f7"
+    },
+    "comparison_directory": "../E51_fixed_smearing_thermal_DFT_pair"
+  },
+  "next_steps": [
+    "treat the 450 K labels as a force/model diagnostic rather than a thermodynamic DFT reference",
+    "repair the short-range finite-temperature model and verify DFT/MLIP ensemble overlap on a small fixed set",
+    "do not add more labels from the same failed on-policy distribution",
+    "generate an equilibrium matched-setting DFT reference only after the overlap gate passes"
+  ]
+}

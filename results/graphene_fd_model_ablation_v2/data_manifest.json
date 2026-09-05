@@ -1,0 +1,161 @@
+{
+  "method": "temperature-specific v11 fine-tune with FC-distillation replay",
+  "replay_source": "data/finetune_graphene8/train.xyz",
+  "replay_sha256": "f337bee07d074888df08d890687013e55546ace9bfb2590f839b93324e4427f1",
+  "replay_indices": [
+    0,
+    2,
+    4,
+    6,
+    8,
+    10,
+    12,
+    14,
+    16,
+    18,
+    20,
+    22,
+    24,
+    26,
+    28,
+    31,
+    33,
+    35,
+    37,
+    39,
+    41,
+    43,
+    45,
+    47,
+    49,
+    51,
+    53,
+    55,
+    57,
+    60,
+    62,
+    64,
+    66,
+    68,
+    70,
+    72,
+    74,
+    76,
+    78,
+    80,
+    82,
+    84,
+    86,
+    89,
+    91,
+    93,
+    95,
+    97,
+    99,
+    101,
+    103,
+    105,
+    107,
+    109,
+    111,
+    113,
+    115,
+    118,
+    120,
+    122,
+    124,
+    126,
+    128,
+    130,
+    132,
+    134,
+    136,
+    138,
+    140,
+    142,
+    144,
+    147
+  ],
+  "replay_validation_source": "data/finetune_graphene8/val.xyz",
+  "replay_validation_sha256": "a3e747088599df85329f086af1e8222fadf8c9742361b77a6796d31cc9333716",
+  "temperatures": {
+    "300": {
+      "lane": "A",
+      "thermal_sources": [
+        {
+          "path": "data/graphene_fd_thermal_labels/A.xyz",
+          "sha256": "8db70c67685315b73a9eec82e190d65fa722557fda9e6a74e284ee568926e9fc",
+          "validation_role": "early_stopping"
+        },
+        {
+          "path": "data/graphene_fd_thermal_labels/A2.xyz",
+          "sha256": "f1ccbe8c1faebac4030085215454b56179839ddd89bc87aebad623f4be9801c0",
+          "validation_role": "early_stopping"
+        },
+        {
+          "path": "data/graphene_fd_thermal_labels/A3.xyz",
+          "sha256": "4d7e90d4ff98d40965003759235e85103d42ff4dd32d49236486b65c8a567ffd",
+          "validation_role": "test"
+        }
+      ],
+      "n_thermal_train": 36,
+      "n_replay_train": 72,
+      "n_validation": 6,
+      "n_replay_validation": 25,
+      "n_joint_validation": 31,
+      "n_test": 3,
+      "validation_snapshot_indices": [
+        0,
+        29,
+        59,
+        2,
+        31,
+        57
+      ],
+      "test_snapshot_indices": [
+        1,
+        33,
+        58
+      ]
+    },
+    "600": {
+      "lane": "B",
+      "thermal_sources": [
+        {
+          "path": "data/graphene_fd_thermal_labels/B.xyz",
+          "sha256": "1a36bf015debebd362a6285666d71d83bf6b3a4530740f4dd573cec4a46effe1",
+          "validation_role": "early_stopping"
+        },
+        {
+          "path": "data/graphene_fd_thermal_labels/B2.xyz",
+          "sha256": "4bc84ca14395a1c7ada583c5ac7be94ed4e125297f3c768a3bbd0e850c10b8d7",
+          "validation_role": "early_stopping"
+        },
+        {
+          "path": "data/graphene_fd_thermal_labels/B3.xyz",
+          "sha256": "7f4f8b2b3723b846d4437171ff51467aa69c17c6901503f71a351b32d2ec78a4",
+          "validation_role": "test"
+        }
+      ],
+      "n_thermal_train": 36,
+      "n_replay_train": 72,
+      "n_validation": 6,
+      "n_replay_validation": 25,
+      "n_joint_validation": 31,
+      "n_test": 3,
+      "validation_snapshot_indices": [
+        0,
+        29,
+        59,
+        2,
+        31,
+        57
+      ],
+      "test_snapshot_indices": [
+        1,
+        33,
+        58
+      ]
+    }
+  }
+}

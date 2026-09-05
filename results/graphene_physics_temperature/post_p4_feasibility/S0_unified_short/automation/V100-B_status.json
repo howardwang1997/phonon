@@ -1,0 +1,38 @@
+{
+  "status": "active",
+  "updated_at_iso": "2026-08-07T17:17:28.868876+08:00",
+  "machine": "V100-B",
+  "resources": {
+    "gpu": {
+      "status": "available",
+      "name": "Tesla PG503-216",
+      "memory_used_MiB": 4298,
+      "memory_total_MiB": 32768,
+      "utilization_percent": 98,
+      "compute_processes": [
+        {
+          "pid": 310704,
+          "process_name": "/data/ecophys_workshop/conda_env/bin/python",
+          "used_memory_MiB": 4290,
+          "process_details": "22:48 Fri Aug  7 16:54:40 2026 /data/ecophys_workshop/conda_env/bin/python -m ecomd.inference.run_large --ckpt /data/ecophys_workshop/artifacts/exp127/shared_checkpoints/e1_spx_base/checkpoint.pt --config /data/ecophys_workshop/repo/experiments/113_gabaix_solve/config_baseline_seed0.yaml --n-steps 8001 --expected-recorded-returns 8000 --seeds-file /data/ecophys_workshop/artifacts/exp127/rollouts/calibration/e1_spx_base/v100_b/seeds.json --save-trajectory --out-dir /data/ecophys_workshop/artifacts/exp127/rollouts/calibration/e1_spx_base/v100_b"
+        }
+      ],
+      "idle_for_new_primary_task": false
+    },
+    "data_free_GiB": 91.17205429077148,
+    "new_QE_start_allowed_by_storage": true
+  },
+  "held_queue": {
+    "task": "V0 static DFPT at T=525 K",
+    "lattice_temperature_K": 525,
+    "degauss_Ry": 0.0033251521416283233,
+    "degauss_formula": "k_B*T/Ry",
+    "estimated_box_hours": [
+      67,
+      77
+    ],
+    "release_marker": "/data/graphene_physics_temperature/automation/RELEASE_V0_525K",
+    "state": "validation_locked_until_L0_Q0_X0_freeze",
+    "automatic_start_before_release": false
+  }
+}

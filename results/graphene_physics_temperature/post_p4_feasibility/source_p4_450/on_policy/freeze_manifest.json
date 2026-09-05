@@ -1,0 +1,287 @@
+{
+  "status": "frozen_before_450_holdout",
+  "frozen_at_utc": "2026-08-02T08:54:08.998595+00:00",
+  "scope": "conditional short-model stack and linear q-space law frozen before any 450 K DFT force, DFT-TDEP, or direct-DFPT target",
+  "direct_450_targets_read": false,
+  "absence_paths_checked": [
+    "/home/howardwang/phonon/results/graphene_fd_transferability/T450",
+    "/home/howardwang/phonon/data/graphene_fd_transferability/T450/RAW_READY",
+    "/home/howardwang/phonon/results/graphene_physical_fd_dfpt/campaigns/FD450_CONV",
+    "/home/howardwang/phonon/results/graphene_physical_fd_dfpt/campaigns/FD450_LINE"
+  ],
+  "p1_selection": {
+    "path": "/home/howardwang/phonon/results/graphene_fd_transferability/P1_cross_temperature/cross_temperature_force_matrix.json",
+    "sha256": "7184cb2e57fb050dc16b71497c0c4400bb2043b0071ae4e9cb2298490883d7af"
+  },
+  "p2_failed_selection": {
+    "path": "/home/howardwang/phonon/results/graphene_fd_transferability/P2_joint_short/checkpoint_selection.json",
+    "sha256": "6816fcadac730a44f3bfd81a7d5126012f3f6f53ee3f6a1191e807fff49d4771"
+  },
+  "endpoint_identity_replay": {
+    "path": "/home/howardwang/phonon/results/graphene_fd_transferability/conditioned_short/endpoint_identity_replay.json",
+    "sha256": "d60f5400c7cb6c41f32ef9953537f8eeab2267783fe2792596e50024e3c5fdad"
+  },
+  "predictor": {
+    "formula": "E_SR(T)=E_v11+(1-w(T))*E_delta300+w(T)*E_delta600; w(T)=(T-300)/300",
+    "interval_K": [
+      300,
+      600
+    ],
+    "base_model_sha256": "4d32426672d53e3adc86499d14e4c4164c05e879a56811ff54add03cd1bb6ce7",
+    "delta_model_300_sha256": "6560f7bbf1ba8f8605893c2c0a9a7bd60d2ebaf66831e4b2f3b682ad43433766",
+    "delta_model_600_sha256": "3cf7f697602fed0b71cece204d797821c1d6faff0e0138892f69b06aafe4ddf3",
+    "stack_sha256": "39289ffaa579145415c349e30ee2cb2305854de90915b3c9afb973d8213207a2",
+    "base_model": {
+      "path": "/home/howardwang/phonon/results/gr_backbone_v11/ft_graphene.model",
+      "sha256": "4d32426672d53e3adc86499d14e4c4164c05e879a56811ff54add03cd1bb6ce7"
+    },
+    "delta_model_300": {
+      "path": "/home/howardwang/phonon/results/graphene_fd_delta_pilot/T300/delta32/gr_fd300_delta32.model",
+      "sha256": "6560f7bbf1ba8f8605893c2c0a9a7bd60d2ebaf66831e4b2f3b682ad43433766"
+    },
+    "delta_model_600": {
+      "path": "/home/howardwang/phonon/results/graphene_fd_delta_weighted/T600/selected_checkpoint.model",
+      "sha256": "3cf7f697602fed0b71cece204d797821c1d6faff0e0138892f69b06aafe4ddf3"
+    }
+  },
+  "temperature_law": {
+    "path": "/home/howardwang/phonon/results/graphene_fd_transferability/temperature_law.json",
+    "sha256": "63ab52edf7641cd151bd82b56bd06ab066da7a1093f1727e3ca8ffe626a1ab52"
+  },
+  "prediction_sampling_operator": {
+    "status": "complete",
+    "role": "provisional 450 K sampling operator; subtracted exactly before short-range TDEP and not used as the final q-space correction",
+    "temperature_K": 450.0,
+    "degauss_Ry": 0.0028501303499999997,
+    "weights": {
+      "operator_300": 0.5,
+      "operator_600": 0.5
+    },
+    "sources": {
+      "300": {
+        "path": "/home/howardwang/phonon/data/graphene_fd_delta_pilot/T300/long_range_operator.npz",
+        "sha256": "bdf82e17547dae0fa80ec3802d5d710db306778e6a4b537705aaba09b50ae660"
+      },
+      "600": {
+        "path": "/home/howardwang/phonon/data/graphene_fd_delta_pilot/T600/long_range_operator.npz",
+        "sha256": "d3a7036fcb668d848808378549b711bc97cba83dcaedd34a7d518a73217a2fb2"
+      }
+    },
+    "force_constants_shape": [
+      72,
+      72,
+      3,
+      3
+    ],
+    "force_constants_pair_symmetry_max_abs_eV_A2": 0.0,
+    "output": {
+      "path": "/home/howardwang/phonon/results/graphene_fd_transferability/conditioned_short/T450_long_range_operator.npz",
+      "sha256": "bbea00f427dd963ee3ec7e9c4cb84f34498ab2835752fd914035b191925b5b4e"
+    }
+  },
+  "endpoint_evidence": {
+    "300": {
+      "model": {
+        "path": "/home/howardwang/phonon/results/graphene_fd_delta_pilot/T300/delta32/gr_fd300_delta32.model",
+        "sha256": "6560f7bbf1ba8f8605893c2c0a9a7bd60d2ebaf66831e4b2f3b682ad43433766"
+      },
+      "force_selection": {
+        "path": "/home/howardwang/phonon/results/graphene_fd_delta_pilot/T300/delta32/gate_selection.json",
+        "sha256": "b937be838a6daa7cbfea7bde3b2b93637fd0ad79dcf9e3ca9f664581442389d1",
+        "scope": "endpoint development",
+        "thermal_total_force": {
+          "RMSE_meV_A": 21.011689372429093,
+          "max_abs_meV_A": 114.66712024917602
+        },
+        "harmonic_combined_force": {
+          "RMSE_meV_A": 12.809655426018079,
+          "max_abs_meV_A": 137.26734161018373
+        }
+      },
+      "force_metrics": {
+        "path": "/home/howardwang/phonon/results/graphene_fd_delta_pilot/T300/delta32/gate_metrics.json",
+        "sha256": "44e38622bbaee7d82d085908376642d8ef61aba1ddf726a28331f852f985f127"
+      },
+      "sampling_operator": {
+        "path": "/home/howardwang/phonon/data/graphene_fd_delta_pilot/T300/long_range_operator.npz",
+        "sha256": "bdf82e17547dae0fa80ec3802d5d710db306778e6a4b537705aaba09b50ae660"
+      },
+      "pooled_short_tdep": {
+        "path": "/home/howardwang/phonon/results/td_phonon/td_graphene_v11_fd300_delta_pilot_short_pooled360.npz",
+        "sha256": "d67ff85a0a47877a4f13baf475a215e53400fd5969d4a841677da9b21656023d"
+      },
+      "calibrated_acceptance": {
+        "path": "/home/howardwang/phonon/results/graphene_fd_delta_pilot/T300_TDEP/qspace_calibrated/acceptance.json",
+        "sha256": "9843c0c7c9c1c0197f9a0992a48bc0af3e46b82ba3574beca1ee05c7af6aca48",
+        "scope": "300 K development finite-temperature calibration; not an independent force or lattice-temperature holdout"
+      }
+    },
+    "600": {
+      "model": {
+        "path": "/home/howardwang/phonon/results/graphene_fd_delta_weighted/T600/selected_checkpoint.model",
+        "sha256": "3cf7f697602fed0b71cece204d797821c1d6faff0e0138892f69b06aafe4ddf3"
+      },
+      "force_selection": {
+        "path": "/home/howardwang/phonon/results/graphene_fd_delta_weighted/holdout600/gate_selection.json",
+        "sha256": "c511a172d93adbbbb8c11864e835766fcb617e74068be3d6e7e79dc68e9cf1e9",
+        "scope": "frozen 15-structure holdout",
+        "thermal_total_force": {
+          "RMSE_meV_A": 42.80525310806629,
+          "max_abs_meV_A": 215.09165712264976
+        },
+        "harmonic_combined_force": {
+          "RMSE_meV_A": 10.2862177954663,
+          "max_abs_meV_A": 100.50376012529405
+        }
+      },
+      "force_metrics": {
+        "path": "/home/howardwang/phonon/results/graphene_fd_delta_weighted/holdout600/gate_metrics.json",
+        "sha256": "96f8807a2ad2d84076865d8935a7a909105f0fb087784cfaea78567df57fcf9c"
+      },
+      "sampling_operator": {
+        "path": "/home/howardwang/phonon/data/graphene_fd_delta_pilot/T600/long_range_operator.npz",
+        "sha256": "d3a7036fcb668d848808378549b711bc97cba83dcaedd34a7d518a73217a2fb2"
+      },
+      "pooled_short_tdep": {
+        "path": "/home/howardwang/phonon/results/td_phonon/td_graphene_v11_fd600_delta_weighted_short_pooled360.npz",
+        "sha256": "06cf59cc2ff105dc65e105313002a41cfb324d991a99e4d5d6c34c3c8e55dd91"
+      },
+      "calibrated_acceptance": {
+        "path": "/home/howardwang/phonon/results/graphene_fd_delta_weighted/T600_TDEP/calibrated_acceptance.json",
+        "sha256": "32645a3f73c8c057d271ef2aa7b08c54d49421c12f4fe13c7454d806b45bbc79",
+        "scope": "600 K finite-temperature-calibrated q-space correction after the unchanged static-transfer control failed"
+      }
+    }
+  },
+  "T450_on_policy": {
+    "temperature_K": 450,
+    "smearing": "fermi-dirac",
+    "degauss_Ry": 0.00285013035,
+    "supercell": [
+      6,
+      6,
+      1
+    ],
+    "seeds": {
+      "0": {
+        "dt_fs": 0.5,
+        "equilibration_steps": 3000,
+        "stride": 80
+      },
+      "1": {
+        "dt_fs": 0.25,
+        "equilibration_steps": 6000,
+        "stride": 160
+      },
+      "2": {
+        "dt_fs": 0.5,
+        "equilibration_steps": 3000,
+        "stride": 80
+      }
+    },
+    "snapshots_per_seed": 120,
+    "dft_label_indices_per_seed": [
+      3,
+      9,
+      15,
+      21,
+      27,
+      33,
+      39,
+      45,
+      51,
+      57,
+      63,
+      69,
+      75,
+      81,
+      87,
+      93,
+      99,
+      105,
+      111,
+      117
+    ],
+    "primary_force_indices_per_seed": [
+      3,
+      27,
+      51,
+      75,
+      99
+    ],
+    "dft_shards": {
+      "V100-A": "seed0 all 20 plus seed2 first 10",
+      "V100-B": "seed1 all 20 plus seed2 last 10"
+    },
+    "dft_force_settings": {
+      "kgrid": [
+        8,
+        8,
+        1
+      ],
+      "ecutwfc_Ry": 60,
+      "ecutrho_Ry": 240
+    },
+    "dfpt": {
+      "convergence_kgrids": [
+        120,
+        144
+      ],
+      "line_kgrid_if_converged": 144,
+      "qpoints": [
+        "G:0.000",
+        "G:0.005",
+        "G:0.010",
+        "G:0.015",
+        "G:0.025",
+        "G:0.040",
+        "G:0.060",
+        "G:0.080",
+        "K:0.940",
+        "K:0.960",
+        "K:0.975",
+        "K:0.985",
+        "K:0.992",
+        "K:1.000",
+        "K:1.008",
+        "K:1.015",
+        "K:1.025",
+        "K:1.040",
+        "K:1.060"
+      ]
+    }
+  },
+  "fixed_acceptance_thresholds": {
+    "force_RMSE_meV_A": 50.0,
+    "force_max_abs_meV_A": 250.0,
+    "seed_pair_full_band_MAE_cm-1": 5.0,
+    "MD_mean_temperature_relative_error": 0.05,
+    "Gamma_K_line_MAE_cm-1": 10.0,
+    "Gamma_K_top_abs_error_cm-1": 15.0,
+    "K_kink_relative_error": 0.2,
+    "matrix_projector_replay_max_abs_cm-1": 1e-05,
+    "bootstrap_replicates": 1000,
+    "bootstrap_block_rule": "max(5, ceil(2*tau_int))"
+  },
+  "release_rules": {
+    "DFT_force_labels": "only after all three 450 K MLIP trajectories pass temperature and short-TDEP seed-spread gates",
+    "independent_DFT_MD": "only after the complete on-policy P4 gate passes"
+  },
+  "authorized_next_stages": [
+    "P4_on_policy_MLIP",
+    "FD450_CONV"
+  ],
+  "git_head": "5b9433f3754daab0d6b98650de33fdabb9c99534",
+  "files": {
+    "/home/howardwang/phonon/docs/GRAPHENE_FD_CONDITIONAL_FALLBACK_PLAN.md": "380ca49b6404bb39793efa6b324623a6ee7781f385690a9182536804505fad72",
+    "/home/howardwang/phonon/results/graphene_fd_transferability/P0_sync/source_inventory.json": "865fd37d6bdf6b48026a431b23dda2e28fd06e1d711c722c21aa505f9c24817b",
+    "/home/howardwang/phonon/scripts/smearing_kink/conditioned_mace.py": "396b4b6c884364d02211adc05e84acca5f0988cb294d4d4fc262218b88f6e870",
+    "/home/howardwang/phonon/scripts/smearing_kink/td_phonon_friedel.py": "920d14532c2515123c9e6dd0152655ca0d6bd01a84e6a357bf99507fe95ee08f",
+    "/home/howardwang/phonon/scripts/smearing_kink/interpolate_graphene_fd_long_range_operator.py": "35f3c0f76d592ca50cd9ed8ac08f82ffa084a92697f5223e148635ad3002af65",
+    "/home/howardwang/phonon/scripts/smearing_kink/evaluate_graphene_fd_conditioned_endpoints.py": "8661f7b8c4b28c0100529243242017f9715f82e09d1ccd4394fdc0628f29dd93",
+    "/home/howardwang/phonon/scripts/smearing_kink/freeze_graphene_fd_conditioned_predictor.py": "250c06c79da3b6fd9c76dc9a9e4d8fc505a46cc94bfcf5e8cdcd8d326bbcbba3",
+    "/home/howardwang/phonon/scripts/smearing_kink/summarize_graphene_fd_conditioned_tdep.py": "dd2f315447b892a664f6159924e0d6fe1de3523cf2ff45c2923355f3de0fbf2e",
+    "/home/howardwang/phonon/scripts/2060/run_graphene_fd_transferability_p4a.sh": "a583c86dd8fc90e13a75dafa5a71d8080883a40360512e69a278ce206c8026ad",
+    "/home/howardwang/phonon/scripts/v100/run_graphene_physical_fd_dfpt.sh": "bde4617a19c3774d1909aa5fa1087d3b3d00910a06a25501e362cdb1e962ee8f"
+  }
+}

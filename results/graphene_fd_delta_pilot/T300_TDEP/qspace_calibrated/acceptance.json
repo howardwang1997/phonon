@@ -1,0 +1,172 @@
+{
+  "status": "passed",
+  "scope": "300 K development finite-temperature calibration; not an independent force or lattice-temperature holdout",
+  "method": "fit a lattice-temperature-specific squared-frequency rounded-cusp plus analytic quadratic correction from short-range MLIP-TDEP to DFT-TDEP with equal-distance q-group leave-out cross-validation and a separate central-three-point block extrapolation; static direct-DFPT transfer is retained as a control and static-basis support check",
+  "temperature_K": 300,
+  "degauss_Ry": 0.0019000869,
+  "thresholds": {
+    "DFT_TDEP_thermal_calibrated_group_CV_MAE_cm-1": 10.0,
+    "Gamma_K_top_abs_error_cm-1": 15.0,
+    "K_kink_relative_error": 0.2,
+    "central_block_CV_MAE_cm-1": 10.0,
+    "central_block_Gamma_K_top_abs_error_cm-1": 15.0,
+    "central_block_K_kink_relative_error": 0.2,
+    "seed_pair_full_band_MAE_cm-1": 5.0,
+    "MD_mean_temperature_relative_error": 0.2,
+    "matrix_projector_replay_max_abs_cm-1": 1e-05
+  },
+  "inputs": {
+    "dfpt_line": {
+      "path": "/home/howardwang/phonon/results/graphene_physical_fd_dfpt/campaigns/FD300_LINE/graphene_FD300_LINE_dfpt.csv",
+      "sha256": "6cda8e4279a4aea2fec05c8a758b1a642f4b4a1b8af73e04e2113b535c22ab3a"
+    },
+    "background": {
+      "path": "/home/howardwang/phonon/results/vq_kink6_fd/graphene_sc6_dg0.040_phonopy.yaml",
+      "sha256": "69144a1dd3c66df94c116259067be27d1ede3ca8ab01c66516504c5e1ec90c0a"
+    },
+    "thermal_short_tdep": {
+      "path": "/home/howardwang/phonon/results/td_phonon/td_graphene_v11_fd300_delta_pilot_short_pooled360.npz",
+      "sha256": "d67ff85a0a47877a4f13baf475a215e53400fd5969d4a841677da9b21656023d"
+    },
+    "dft_tdep_calibration_target": {
+      "path": "/home/howardwang/phonon/results/td_phonon/graphene_physical_fd_dft_300K_wave3.npz",
+      "sha256": "63d66500f29436097c357ea04f11ac996ddb54bbaf494a9351636f75f29b98ee"
+    },
+    "force_selection": {
+      "path": "/home/howardwang/phonon/results/graphene_fd_delta_pilot/T300/delta32/gate_selection.json",
+      "sha256": "b937be838a6daa7cbfea7bde3b2b93637fd0ad79dcf9e3ca9f664581442389d1"
+    },
+    "static_transfer_control": {
+      "path": "/home/howardwang/phonon/results/graphene_fd_delta_pilot/T300_TDEP/qspace_transfer/acceptance.json",
+      "sha256": "a1fc729f2796fa0e5ed68bb4219e64872b08d29351635645087ff8fb94ee0afe"
+    }
+  },
+  "force_gate_passed": true,
+  "static_direct_DFPT_basis_support_passed": true,
+  "static_transfer_control_passed": false,
+  "thermal_seed_files": [
+    {
+      "path": "/home/howardwang/phonon/results/td_phonon/td_graphene_v11_fd300_delta_pilot_short_seed0.npz",
+      "sha256": "14fd05ffc8441503e4557fef364f7526867d18aa239485db4cc62d0ab0118c4b"
+    },
+    {
+      "path": "/home/howardwang/phonon/results/td_phonon/td_graphene_v11_fd300_delta_pilot_short_seed1.npz",
+      "sha256": "5034965a5e2f9c274803aebed090b25ba818c6d0c37d517cda19c02dc4efbb94"
+    },
+    {
+      "path": "/home/howardwang/phonon/results/td_phonon/td_graphene_v11_fd300_delta_pilot_short_seed2.npz",
+      "sha256": "e525b22a0263d59e4fb8b73ea3bfdf3b8d565995ecd43d5feb2476ff23c9d70d"
+    }
+  ],
+  "thermal_seed_pair_spread": [
+    {
+      "seeds": [
+        0,
+        1
+      ],
+      "full_band_MAE_cm-1": 2.70799111146749
+    },
+    {
+      "seeds": [
+        0,
+        2
+      ],
+      "full_band_MAE_cm-1": 1.984261804335353
+    },
+    {
+      "seeds": [
+        1,
+        2
+      ],
+      "full_band_MAE_cm-1": 2.4296416725894483
+    }
+  ],
+  "thermal_seed_temperatures": [
+    {
+      "seed": 0,
+      "mean_temperature_K": 294.7018166309066,
+      "max_temperature_K": 367.1975856299984,
+      "mean_temperature_relative_error": 0.01766061123031136
+    },
+    {
+      "seed": 1,
+      "mean_temperature_K": 308.5567345783389,
+      "max_temperature_K": 387.01920988960353,
+      "mean_temperature_relative_error": 0.02852244859446292
+    },
+    {
+      "seed": 2,
+      "mean_temperature_K": 293.10294859778696,
+      "max_temperature_K": 366.0650422752866,
+      "mean_temperature_relative_error": 0.022990171340710124
+    }
+  ],
+  "passes_seed_stability_gate": true,
+  "regions": {
+    "G": {
+      "n_points": 8,
+      "calibration_basis": "rounded_cusp_plus_quadratic",
+      "calibration_coefficients_delta_lambda_cm-2": [
+        9832.534479406208,
+        2756.287186239402,
+        859842.1425968539
+      ],
+      "static_control_rounded_cusp_coefficients_delta_lambda_cm-2": [
+        116424.9194051669,
+        696712.3139924586
+      ],
+      "finite_T_to_static_intercept_ratio": 0.0844538654580322,
+      "finite_T_to_static_rounded_cusp_ratio": 0.0039561338746041405,
+      "calibration_target": "finite-lattice-temperature DFT-TDEP",
+      "DFT_TDEP_thermal_short_MAE_cm-1": 3.636974734635288,
+      "DFT_TDEP_thermal_calibrated_group_CV_MAE_cm-1": 0.0049095405674677295,
+      "DFT_TDEP_thermal_calibrated_group_CV_max_abs_cm-1": 0.019494574128202657,
+      "DFT_TDEP_thermal_calibrated_final_fit_MAE_cm-1": 0.0019444983679477446,
+      "central_block_CV_max_distance_from_anchor": 0.01,
+      "central_block_CV_n_points": 3,
+      "central_block_CV_MAE_cm-1": 0.006759096977020818,
+      "central_block_CV_max_abs_cm-1": 0.008623915450243658,
+      "high_symmetry_DFT_TDEP_cm-1": 1547.250322322055,
+      "high_symmetry_thermal_calibrated_group_CV_cm-1": 1547.2470942356272,
+      "high_symmetry_abs_error_cm-1": 0.0032280864277254295,
+      "central_block_CV_high_symmetry_abs_error_cm-1": 0.008623915450243658
+    },
+    "K": {
+      "n_points": 11,
+      "calibration_basis": "rounded_cusp_plus_quadratic",
+      "calibration_coefficients_delta_lambda_cm-2": [
+        -182385.4503668432,
+        3021.7906666911294,
+        2018595.1909709245
+      ],
+      "static_control_rounded_cusp_coefficients_delta_lambda_cm-2": [
+        -163103.78658035584,
+        1511647.3762406036
+      ],
+      "finite_T_to_static_intercept_ratio": 1.1182171437631703,
+      "finite_T_to_static_rounded_cusp_ratio": 0.00199900500221565,
+      "calibration_target": "finite-lattice-temperature DFT-TDEP",
+      "DFT_TDEP_thermal_short_MAE_cm-1": 68.41699779451834,
+      "DFT_TDEP_thermal_calibrated_group_CV_MAE_cm-1": 0.02410609158344166,
+      "DFT_TDEP_thermal_calibrated_group_CV_max_abs_cm-1": 0.11271365641891862,
+      "DFT_TDEP_thermal_calibrated_final_fit_MAE_cm-1": 0.023810508105270856,
+      "central_block_CV_max_distance_from_anchor": 0.008,
+      "central_block_CV_n_points": 3,
+      "central_block_CV_MAE_cm-1": 0.005932094703666735,
+      "central_block_CV_max_abs_cm-1": 0.0082432439621698,
+      "high_symmetry_DFT_TDEP_cm-1": 1280.6700253215465,
+      "high_symmetry_thermal_calibrated_group_CV_cm-1": 1280.6661254611622,
+      "high_symmetry_abs_error_cm-1": 0.00389986038430834,
+      "central_block_CV_high_symmetry_abs_error_cm-1": 0.0082432439621698,
+      "DFT_TDEP_kink_cm-1_per_t": 16.88819409079656,
+      "thermal_calibrated_group_CV_kink_cm-1_per_t": 17.71503876673819,
+      "thermal_calibrated_group_CV_kink_relative_error": 0.04895992262383039,
+      "central_block_CV_kink_cm-1_per_t": 17.75487506273521,
+      "central_block_CV_kink_relative_error": 0.051318747716841924
+    }
+  },
+  "matrix_projector_replay_max_abs_cm-1": 9.094947017729282e-13,
+  "passes_finite_temperature_calibration_gate": true,
+  "passes_all_force_seed_calibrated_qspace_gates": true,
+  "limitation": "The DFT-TDEP force constants at this lattice temperature are a calibration target. Group CV tests interpolation across held q groups, not transfer to an independent DFT-MD trajectory or lattice temperature."
+}

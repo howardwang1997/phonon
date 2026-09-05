@@ -1,0 +1,389 @@
+{
+  "status": "failed",
+  "scope": "frozen 450 K P4 total-force prediction on the fixed primary subset",
+  "temperature_K": 450,
+  "degauss_Ry": 0.00285013035,
+  "thresholds": {
+    "force_RMSE_meV_A": 50.0,
+    "force_max_abs_meV_A": 250.0
+  },
+  "primary_subset": {
+    "indices_per_seed": [
+      3,
+      27,
+      51,
+      75,
+      99
+    ],
+    "n_structures": 15,
+    "point_estimate": {
+      "RMSE_meV_A": 51.43328723734987,
+      "max_abs_meV_A": 611.8910619944442
+    },
+    "bootstrap": {
+      "RMSE_meV_A": {
+        "median": 51.050330386880916,
+        "bootstrap_95pct_upper": 59.55516589530019,
+        "threshold": 50.0,
+        "passes_95pct_upper": false
+      },
+      "max_abs_meV_A": {
+        "median": 611.8910619944442,
+        "bootstrap_95pct_upper": 611.8910619944442,
+        "threshold": 250.0,
+        "passes_95pct_upper": false
+      }
+    },
+    "passes_point_gate": false,
+    "passes_bootstrap_gate": false
+  },
+  "all60_diagnostic": {
+    "RMSE_meV_A": 53.10068051638112,
+    "max_abs_meV_A": 744.563935116794
+  },
+  "bootstrap_method": {
+    "replicates": 1000,
+    "random_seed": 450003,
+    "trajectory_blocks": [
+      {
+        "seed": 0,
+        "sampling_block_length_saved_snapshots": 16,
+        "primary_label_stride_saved_snapshots": 24,
+        "primary_label_block_length": 1
+      },
+      {
+        "seed": 1,
+        "sampling_block_length_saved_snapshots": 11,
+        "primary_label_stride_saved_snapshots": 24,
+        "primary_label_block_length": 1
+      },
+      {
+        "seed": 2,
+        "sampling_block_length_saved_snapshots": 17,
+        "primary_label_stride_saved_snapshots": 24,
+        "primary_label_block_length": 1
+      }
+    ]
+  },
+  "records": [
+    {
+      "key": "seed0:snapshot003",
+      "RMSE_meV_A": 55.648180829538035,
+      "max_abs_meV_A": 271.02038262882775
+    },
+    {
+      "key": "seed0:snapshot009",
+      "RMSE_meV_A": 68.44972876378611,
+      "max_abs_meV_A": 447.04381708145524
+    },
+    {
+      "key": "seed0:snapshot015",
+      "RMSE_meV_A": 88.05881667721326,
+      "max_abs_meV_A": 475.45863859593965
+    },
+    {
+      "key": "seed0:snapshot021",
+      "RMSE_meV_A": 107.39079885104654,
+      "max_abs_meV_A": 524.9253311117466
+    },
+    {
+      "key": "seed0:snapshot027",
+      "RMSE_meV_A": 40.144352251766975,
+      "max_abs_meV_A": 195.2030424352982
+    },
+    {
+      "key": "seed0:snapshot033",
+      "RMSE_meV_A": 27.50817876813329,
+      "max_abs_meV_A": 117.8659053676494
+    },
+    {
+      "key": "seed0:snapshot039",
+      "RMSE_meV_A": 30.407752428455147,
+      "max_abs_meV_A": 107.54657374050947
+    },
+    {
+      "key": "seed0:snapshot045",
+      "RMSE_meV_A": 71.79022206315965,
+      "max_abs_meV_A": 400.3097148617041
+    },
+    {
+      "key": "seed0:snapshot051",
+      "RMSE_meV_A": 41.77956250550357,
+      "max_abs_meV_A": 167.10436715980182
+    },
+    {
+      "key": "seed0:snapshot057",
+      "RMSE_meV_A": 67.97141402051037,
+      "max_abs_meV_A": 223.35115502653258
+    },
+    {
+      "key": "seed0:snapshot063",
+      "RMSE_meV_A": 95.00403631652364,
+      "max_abs_meV_A": 744.563935116794
+    },
+    {
+      "key": "seed0:snapshot069",
+      "RMSE_meV_A": 45.51600845497936,
+      "max_abs_meV_A": 154.6938487747136
+    },
+    {
+      "key": "seed0:snapshot075",
+      "RMSE_meV_A": 44.712356945824645,
+      "max_abs_meV_A": 214.41907620131497
+    },
+    {
+      "key": "seed0:snapshot081",
+      "RMSE_meV_A": 57.396284273562884,
+      "max_abs_meV_A": 241.13269043936114
+    },
+    {
+      "key": "seed0:snapshot087",
+      "RMSE_meV_A": 33.32301399610537,
+      "max_abs_meV_A": 148.24948390874715
+    },
+    {
+      "key": "seed0:snapshot093",
+      "RMSE_meV_A": 46.59695622487923,
+      "max_abs_meV_A": 304.4420984492744
+    },
+    {
+      "key": "seed0:snapshot099",
+      "RMSE_meV_A": 94.36828998732274,
+      "max_abs_meV_A": 611.8910619944442
+    },
+    {
+      "key": "seed0:snapshot105",
+      "RMSE_meV_A": 85.46328184080842,
+      "max_abs_meV_A": 439.2613023011562
+    },
+    {
+      "key": "seed0:snapshot111",
+      "RMSE_meV_A": 58.23053400747763,
+      "max_abs_meV_A": 198.23286422760367
+    },
+    {
+      "key": "seed0:snapshot117",
+      "RMSE_meV_A": 63.15478790789708,
+      "max_abs_meV_A": 254.99182091321825
+    },
+    {
+      "key": "seed1:snapshot003",
+      "RMSE_meV_A": 26.39362677034805,
+      "max_abs_meV_A": 106.89376252240434
+    },
+    {
+      "key": "seed1:snapshot009",
+      "RMSE_meV_A": 32.54192919276098,
+      "max_abs_meV_A": 164.84069057019246
+    },
+    {
+      "key": "seed1:snapshot015",
+      "RMSE_meV_A": 42.91655724905801,
+      "max_abs_meV_A": 269.16680957328066
+    },
+    {
+      "key": "seed1:snapshot021",
+      "RMSE_meV_A": 63.40602700761157,
+      "max_abs_meV_A": 292.8243648884192
+    },
+    {
+      "key": "seed1:snapshot027",
+      "RMSE_meV_A": 33.75554364837939,
+      "max_abs_meV_A": 176.1199468604806
+    },
+    {
+      "key": "seed1:snapshot033",
+      "RMSE_meV_A": 39.87638487397036,
+      "max_abs_meV_A": 176.8449439788151
+    },
+    {
+      "key": "seed1:snapshot039",
+      "RMSE_meV_A": 35.90231819088419,
+      "max_abs_meV_A": 193.50722745218363
+    },
+    {
+      "key": "seed1:snapshot045",
+      "RMSE_meV_A": 29.765781200026133,
+      "max_abs_meV_A": 183.0781401664181
+    },
+    {
+      "key": "seed1:snapshot051",
+      "RMSE_meV_A": 70.31790183596007,
+      "max_abs_meV_A": 416.7601790364057
+    },
+    {
+      "key": "seed1:snapshot057",
+      "RMSE_meV_A": 37.22348541787203,
+      "max_abs_meV_A": 151.84477752402526
+    },
+    {
+      "key": "seed1:snapshot063",
+      "RMSE_meV_A": 55.788676996945085,
+      "max_abs_meV_A": 218.60294522998512
+    },
+    {
+      "key": "seed1:snapshot069",
+      "RMSE_meV_A": 44.972286688966406,
+      "max_abs_meV_A": 217.95256201661584
+    },
+    {
+      "key": "seed1:snapshot075",
+      "RMSE_meV_A": 45.33260009516266,
+      "max_abs_meV_A": 153.23016550741065
+    },
+    {
+      "key": "seed1:snapshot081",
+      "RMSE_meV_A": 31.688161180736355,
+      "max_abs_meV_A": 122.94734997367397
+    },
+    {
+      "key": "seed1:snapshot087",
+      "RMSE_meV_A": 49.216600452444624,
+      "max_abs_meV_A": 212.02936264833716
+    },
+    {
+      "key": "seed1:snapshot093",
+      "RMSE_meV_A": 51.673034992417854,
+      "max_abs_meV_A": 260.7415105844746
+    },
+    {
+      "key": "seed1:snapshot099",
+      "RMSE_meV_A": 20.348172897721536,
+      "max_abs_meV_A": 73.76300337715855
+    },
+    {
+      "key": "seed1:snapshot105",
+      "RMSE_meV_A": 43.4962294915009,
+      "max_abs_meV_A": 212.8399350767518
+    },
+    {
+      "key": "seed1:snapshot111",
+      "RMSE_meV_A": 20.952350198092613,
+      "max_abs_meV_A": 59.40761753091061
+    },
+    {
+      "key": "seed1:snapshot117",
+      "RMSE_meV_A": 51.03833083154056,
+      "max_abs_meV_A": 257.3525275052413
+    },
+    {
+      "key": "seed2:snapshot003",
+      "RMSE_meV_A": 54.781063086767155,
+      "max_abs_meV_A": 233.32777757371082
+    },
+    {
+      "key": "seed2:snapshot009",
+      "RMSE_meV_A": 71.44414100887083,
+      "max_abs_meV_A": 226.48159752467654
+    },
+    {
+      "key": "seed2:snapshot015",
+      "RMSE_meV_A": 35.43319874222898,
+      "max_abs_meV_A": 204.73877635330018
+    },
+    {
+      "key": "seed2:snapshot021",
+      "RMSE_meV_A": 39.06636084385809,
+      "max_abs_meV_A": 173.20940281498065
+    },
+    {
+      "key": "seed2:snapshot027",
+      "RMSE_meV_A": 33.401856426548704,
+      "max_abs_meV_A": 214.11867223876425
+    },
+    {
+      "key": "seed2:snapshot033",
+      "RMSE_meV_A": 46.01629423565212,
+      "max_abs_meV_A": 373.45770618710094
+    },
+    {
+      "key": "seed2:snapshot039",
+      "RMSE_meV_A": 50.584920222961664,
+      "max_abs_meV_A": 317.07473937729145
+    },
+    {
+      "key": "seed2:snapshot045",
+      "RMSE_meV_A": 52.60014356689716,
+      "max_abs_meV_A": 272.0472273500683
+    },
+    {
+      "key": "seed2:snapshot051",
+      "RMSE_meV_A": 73.18496215473384,
+      "max_abs_meV_A": 404.53975619346136
+    },
+    {
+      "key": "seed2:snapshot057",
+      "RMSE_meV_A": 39.882084929451224,
+      "max_abs_meV_A": 182.25565658201282
+    },
+    {
+      "key": "seed2:snapshot063",
+      "RMSE_meV_A": 66.45089883236496,
+      "max_abs_meV_A": 430.3567641651429
+    },
+    {
+      "key": "seed2:snapshot069",
+      "RMSE_meV_A": 30.450966558221563,
+      "max_abs_meV_A": 122.53922237249881
+    },
+    {
+      "key": "seed2:snapshot075",
+      "RMSE_meV_A": 55.185843871649666,
+      "max_abs_meV_A": 255.1921214291082
+    },
+    {
+      "key": "seed2:snapshot081",
+      "RMSE_meV_A": 39.286507692104735,
+      "max_abs_meV_A": 199.1287468653482
+    },
+    {
+      "key": "seed2:snapshot087",
+      "RMSE_meV_A": 41.41398397410123,
+      "max_abs_meV_A": 202.48863758319402
+    },
+    {
+      "key": "seed2:snapshot093",
+      "RMSE_meV_A": 62.298607141955195,
+      "max_abs_meV_A": 557.2499891272452
+    },
+    {
+      "key": "seed2:snapshot099",
+      "RMSE_meV_A": 23.546344618097777,
+      "max_abs_meV_A": 62.519360475643104
+    },
+    {
+      "key": "seed2:snapshot105",
+      "RMSE_meV_A": 20.363133009628363,
+      "max_abs_meV_A": 84.72432566714106
+    },
+    {
+      "key": "seed2:snapshot111",
+      "RMSE_meV_A": 47.11089536337153,
+      "max_abs_meV_A": 235.467047912981
+    },
+    {
+      "key": "seed2:snapshot117",
+      "RMSE_meV_A": 37.94942487439745,
+      "max_abs_meV_A": 247.35206742830053
+    }
+  ],
+  "prediction_decomposition_RMSE_meV_A": {
+    "short": 1326.1641498026963,
+    "long_range": 33.07540075366438
+  },
+  "passes_force_gate": false,
+  "inputs": {
+    "labels": {
+      "path": "/home/howardwang/phonon/data/graphene_fd_transferability/T450/on_policy/dft_force_labels/merged/all60.xyz",
+      "sha256": "d6d3882ebfac4e9fc8f07ed77cc7dc3d2858a80b2f479b7bf53499ba98470d72"
+    },
+    "predictions": {
+      "path": "/home/howardwang/phonon/results/graphene_fd_transferability/T450/on_policy/frozen_prediction/frozen_force_predictions.npz",
+      "sha256": "5f2a37cd1937d34bc2074c86107d7ab48d12fbacb0ef94fe60766b52e078cfc1"
+    },
+    "freeze_manifest": {
+      "path": "/home/howardwang/phonon/results/graphene_fd_transferability/freeze_manifest.json",
+      "sha256": "8e48384fc805c15d68b861f2911647ecc13d896d17753eb35dfe243cd318232d"
+    }
+  }
+}

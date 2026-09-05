@@ -1,0 +1,6 @@
+graphene matched-cell EPW DFPT
+&inputph
+ prefix='graphene', outdir='./tmp', fildyn='graphene.dyn', fildvscf='dvscf',
+ ldisp=.true., nq1=6, nq2=6, nq3=1, tr2_ph=1.0d-14,
+ electron_phonon='dvscf', alpha_mix(1)=0.3
+/

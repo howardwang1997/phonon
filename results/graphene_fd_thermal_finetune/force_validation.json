@@ -1,0 +1,154 @@
+{
+  "units": {
+    "force": "meV/angstrom"
+  },
+  "models": {
+    "v11": {
+      "path": "/home/howardwang/phonon/results/gr_backbone_v11/ft_graphene.model",
+      "by_temperature": {
+        "300": {
+          "n_validation_structures": 3,
+          "RMSE_meV_A": 123.3842363905448,
+          "max_abs_meV_A": 472.4162544216921,
+          "records": [
+            {
+              "snapshot_index": 0,
+              "RMSE_meV_A": 122.58506738076072,
+              "max_abs_meV_A": 322.86071969848626
+            },
+            {
+              "snapshot_index": 29,
+              "RMSE_meV_A": 116.35052324525624,
+              "max_abs_meV_A": 366.2609027960206
+            },
+            {
+              "snapshot_index": 59,
+              "RMSE_meV_A": 130.79169073317678,
+              "max_abs_meV_A": 472.4162544216921
+            }
+          ]
+        },
+        "600": {
+          "n_validation_structures": 3,
+          "RMSE_meV_A": 229.01846358844176,
+          "max_abs_meV_A": 884.8382411413573,
+          "records": [
+            {
+              "snapshot_index": 0,
+              "RMSE_meV_A": 244.4665504803525,
+              "max_abs_meV_A": 859.6107923577882
+            },
+            {
+              "snapshot_index": 29,
+              "RMSE_meV_A": 206.3648332346301,
+              "max_abs_meV_A": 710.9118128332517
+            },
+            {
+              "snapshot_index": 59,
+              "RMSE_meV_A": 234.51659065727483,
+              "max_abs_meV_A": 884.8382411413573
+            }
+          ]
+        }
+      }
+    },
+    "fd300": {
+      "path": "/home/howardwang/phonon/results/graphene_fd_thermal_finetune/T300/gr_v11_fd300.model",
+      "by_temperature": {
+        "300": {
+          "n_validation_structures": 3,
+          "RMSE_meV_A": 48.24468854759066,
+          "max_abs_meV_A": 225.4207731652831,
+          "records": [
+            {
+              "snapshot_index": 0,
+              "RMSE_meV_A": 46.47029936159964,
+              "max_abs_meV_A": 144.12313322357173
+            },
+            {
+              "snapshot_index": 29,
+              "RMSE_meV_A": 53.125499039313794,
+              "max_abs_meV_A": 225.4207731652831
+            },
+            {
+              "snapshot_index": 59,
+              "RMSE_meV_A": 44.730778533681445,
+              "max_abs_meV_A": 143.28119411132835
+            }
+          ]
+        },
+        "600": {
+          "n_validation_structures": 3,
+          "RMSE_meV_A": 126.97506641433556,
+          "max_abs_meV_A": 730.0915681909181,
+          "records": [
+            {
+              "snapshot_index": 0,
+              "RMSE_meV_A": 143.28492460235438,
+              "max_abs_meV_A": 730.0915681909181
+            },
+            {
+              "snapshot_index": 29,
+              "RMSE_meV_A": 112.18529969289945,
+              "max_abs_meV_A": 499.5847368749997
+            },
+            {
+              "snapshot_index": 59,
+              "RMSE_meV_A": 123.49854811813273,
+              "max_abs_meV_A": 535.9348285531615
+            }
+          ]
+        }
+      }
+    },
+    "fd600": {
+      "path": "/home/howardwang/phonon/results/graphene_fd_thermal_finetune/T600/gr_v11_fd600.model",
+      "by_temperature": {
+        "300": {
+          "n_validation_structures": 3,
+          "RMSE_meV_A": 25.720290481253855,
+          "max_abs_meV_A": 103.90645279174792,
+          "records": [
+            {
+              "snapshot_index": 0,
+              "RMSE_meV_A": 25.864963415403366,
+              "max_abs_meV_A": 83.12317180786133
+            },
+            {
+              "snapshot_index": 29,
+              "RMSE_meV_A": 25.945691165737067,
+              "max_abs_meV_A": 103.90645279174792
+            },
+            {
+              "snapshot_index": 59,
+              "RMSE_meV_A": 25.346100385902997,
+              "max_abs_meV_A": 78.00655272094725
+            }
+          ]
+        },
+        "600": {
+          "n_validation_structures": 3,
+          "RMSE_meV_A": 51.20253397140503,
+          "max_abs_meV_A": 287.40715618835463,
+          "records": [
+            {
+              "snapshot_index": 0,
+              "RMSE_meV_A": 59.34870699097169,
+              "max_abs_meV_A": 287.40715618835463
+            },
+            {
+              "snapshot_index": 29,
+              "RMSE_meV_A": 45.51994795326693,
+              "max_abs_meV_A": 174.4414197534181
+            },
+            {
+              "snapshot_index": 59,
+              "RMSE_meV_A": 47.652531644292715,
+              "max_abs_meV_A": 237.88406060058608
+            }
+          ]
+        }
+      }
+    }
+  }
+}

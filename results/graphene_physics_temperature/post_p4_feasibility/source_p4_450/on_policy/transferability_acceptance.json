@@ -1,0 +1,122 @@
+{
+  "status": "failed_C1",
+  "scope": "450 K frozen conditioned-model on-policy transferability holdout",
+  "passes_C1": false,
+  "passes_C2": false,
+  "C2_status": "not_run",
+  "component_gates": {
+    "sampling_point": true,
+    "sampling_bootstrap": true,
+    "DFPT_kgrid_convergence": true,
+    "force_point": false,
+    "force_bootstrap": false,
+    "finite_T_qspace_point": false,
+    "finite_T_qspace_bootstrap": false,
+    "static_degauss_point": false,
+    "matrix_projector_replay": true
+  },
+  "failed_or_insufficient_metrics": [
+    {
+      "code": "force_point_RMSE_meV_A",
+      "observed": 51.43328723734987,
+      "threshold": 50.0,
+      "comparison": "<="
+    },
+    {
+      "code": "force_point_max_abs_meV_A",
+      "observed": 611.8910619944442,
+      "threshold": 250.0,
+      "comparison": "<="
+    },
+    {
+      "code": "force_bootstrap_RMSE_meV_A",
+      "observed": 59.55516589530019,
+      "threshold": 50.0,
+      "comparison": "<="
+    },
+    {
+      "code": "force_bootstrap_max_abs_meV_A",
+      "observed": 611.8910619944442,
+      "threshold": 250.0,
+      "comparison": "<="
+    },
+    {
+      "code": "qspace_bootstrap_G_line_MAE_cm_1",
+      "observed": 28.585587162016083,
+      "threshold": 10.0,
+      "comparison": "<"
+    },
+    {
+      "code": "qspace_bootstrap_K_line_MAE_cm_1",
+      "observed": 22.659308422829533,
+      "threshold": 10.0,
+      "comparison": "<"
+    },
+    {
+      "code": "qspace_bootstrap_G_high_symmetry_abs_error_cm_1",
+      "observed": 28.83078586940337,
+      "threshold": 15.0,
+      "comparison": "<"
+    },
+    {
+      "code": "qspace_bootstrap_K_high_symmetry_abs_error_cm_1",
+      "observed": 22.95667986428043,
+      "threshold": 15.0,
+      "comparison": "<"
+    },
+    {
+      "code": "qspace_bootstrap_G_central_block_MAE_cm_1",
+      "observed": 28.824152636597017,
+      "threshold": 10.0,
+      "comparison": "<"
+    },
+    {
+      "code": "qspace_bootstrap_K_central_block_MAE_cm_1",
+      "observed": 22.943519037596086,
+      "threshold": 10.0,
+      "comparison": "<"
+    },
+    {
+      "code": "qspace_bootstrap_K_kink_relative_error",
+      "observed": 0.5376923414340081,
+      "threshold": 0.2,
+      "comparison": "<"
+    },
+    {
+      "code": "finite_T_qspace_point_gate",
+      "observed": 1.0,
+      "threshold": 0.0,
+      "comparison": "must pass"
+    },
+    {
+      "code": "static_degauss_point_gate",
+      "observed": 1.0,
+      "threshold": 0.0,
+      "comparison": "must pass"
+    }
+  ],
+  "artifacts": {
+    "force_acceptance": {
+      "path": "/home/howardwang/phonon/results/graphene_fd_transferability/T450/on_policy/evaluation/force_acceptance.json",
+      "sha256": "c08371cc5fe1128cb59c6753d761c12dc6f6964d4eb2b3a5968bccc51799525b"
+    },
+    "prediction_acceptance": {
+      "path": "/home/howardwang/phonon/results/graphene_fd_transferability/T450/on_policy/evaluation/prediction_acceptance.json",
+      "sha256": "408864a80b57b4bb1097f4a7366b06878aabbff503a8ab5a43258eeb3a1aca4e"
+    },
+    "metric_bootstrap": {
+      "path": "/home/howardwang/phonon/results/graphene_fd_transferability/T450/on_policy/evaluation/p4_metric_bootstrap.npz",
+      "sha256": "744819c8747ccdb0ff99f60d45985deab4a2e0d85d928a532cb41ef9197d3c44"
+    }
+  },
+  "allowed_conclusion": "At least one fixed 450 K P4 point-estimate gate fails; C1 is not registered. The 450 K targets may be used only as development data after this one-shot result is archived.",
+  "limitations": [
+    "P4 structures come from frozen-model on-policy trajectories, not independent DFT-MD.",
+    "The current predictor uses empirical endpoint interpolation; this is not the planned physical formula.",
+    "C2 remains untested."
+  ],
+  "freeze_manifest": {
+    "path": "/home/howardwang/phonon/results/graphene_fd_transferability/freeze_manifest.json",
+    "sha256": "8e48384fc805c15d68b861f2911647ecc13d896d17753eb35dfe243cd318232d"
+  }
+}

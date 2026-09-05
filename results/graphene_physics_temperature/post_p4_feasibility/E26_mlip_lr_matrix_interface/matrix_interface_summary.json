@@ -1,0 +1,58 @@
+{
+  "status": "PASS",
+  "scope": "matrix-level replay of the existing zero-smearing 121-point curve: frozen short-range MLIP force constants plus full-EPC long-range projector; no refit and no new DFT",
+  "number_of_qpoints": 121,
+  "assembly_formula": "D_total(q,s)=D_MLIP_short(q)+Delta_lambda_EPC(q,s) |e_A'(q)><e_A'(q)|",
+  "gates": {
+    "short_range_frequency_replay_max_abs_cm-1": {
+      "observed": 0.0,
+      "threshold": 1e-08,
+      "comparison": "<=",
+      "pass": true
+    },
+    "combined_frequency_replay_max_abs_cm-1": {
+      "observed": 6.821210263296962e-13,
+      "threshold": 1e-08,
+      "comparison": "<=",
+      "pass": true
+    },
+    "total_hermitian_max_abs": {
+      "observed": 0.0,
+      "threshold": 1e-12,
+      "comparison": "<=",
+      "pass": true
+    },
+    "projector_idempotency_max_abs": {
+      "observed": 2.7771969332047215e-16,
+      "threshold": 1e-12,
+      "comparison": "<=",
+      "pass": true
+    },
+    "orthogonal_correction_leakage_max_abs": {
+      "observed": 5.686318494175409e-17,
+      "threshold": 1e-12,
+      "comparison": "<=",
+      "pass": true
+    }
+  },
+  "inputs": {
+    "zero_curve": {
+      "path": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/E15_epc_zero_dense_curve/zero_dense_curve.csv",
+      "sha256": "31939ddc1639e03576cc8b9f76a8ed0b7c36500dddf0e9635f516216b0f0add6"
+    },
+    "short_force_constants": {
+      "path": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/source_p4_450/on_policy/frozen_prediction/frozen_static_fc2.npz",
+      "sha256": "baa9f0d6171b8320d4449c8351b88b9e1a345afbbddcc5f5d6a25c8517715078"
+    },
+    "operator_geometry": {
+      "path": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/E0_epw_matched/k18_q9_ex1_pifroz/operator_q6_450K/cartesian/T450_operator.npz",
+      "sha256": "77bd333570c97e3134eb41b77d2eef7261cb6a7dfe77df2ce085b112e718d160"
+    }
+  },
+  "interpretation": "the solid zero-smearing curve is an actual Hermitian MLIP+LR dynamical-matrix calculation; the long-range response is not a cosmetic smoothing spline",
+  "limitations": [
+    "the full-EPC scalar response is reused from E15 and is not recomputed here",
+    "this replay validates the graphene rank-one interface; mixed-mode materials use the adaptive rank-R<=4 vertex adapter before the electronic band sum",
+    "absolute zero-smearing accuracy remains limited by the existing K anchor and sparse k-converged DFPT checks"
+  ]
+}

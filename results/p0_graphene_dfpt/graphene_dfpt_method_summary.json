@@ -1,0 +1,113 @@
+{
+  "status": "complete",
+  "comparison_reference": "direct DFPT at identical q; k32 is method-matched, k64 is convergence-only",
+  "target_leakage": "none: both laws and the MACE backbone were frozen before these DFPT line cuts",
+  "archived_cache_vs_band_max_abs_cm-1": {
+    "log_interp": 1.2562769088897419e-09,
+    "unified_anchor": 8.841595511288602e-10
+  },
+  "law_metadata": {
+    "log_interp": {
+      "interpolation_axis": "log_T"
+    },
+    "unified_anchor": {
+      "p": 4.44,
+      "q": 3.0,
+      "Tstar_K": 12769.890213313472,
+      "B_mid": 0.8740446625845056,
+      "kappa_mid_invA": 0.05
+    }
+  },
+  "metrics": [
+    {
+      "law": "log_interp",
+      "degauss_Ry": 0.01,
+      "reference_kgrid": 32,
+      "linecut_f6_MAE_cm-1": 20.432912208699317,
+      "Gamma_linecut_f6_MAE_cm-1": 2.8600462811881244,
+      "K_linecut_f6_MAE_cm-1": 30.19561550176109,
+      "Gamma_center_DFT_cm-1": 1574.078591,
+      "Gamma_center_method_cm-1": 1575.725949293215,
+      "K_center_DFT_cm-1": 1302.031797,
+      "K_center_method_cm-1": 1339.724236989532,
+      "K_slope_jump_DFT_THz_per_t": 21.985060327842593,
+      "K_slope_jump_method_THz_per_t": 4.70702013583522,
+      "K_slope_jump_abs_error_THz_per_t": 17.278040192007374
+    },
+    {
+      "law": "log_interp",
+      "degauss_Ry": 0.04,
+      "reference_kgrid": 32,
+      "linecut_f6_MAE_cm-1": 4.419932590231107,
+      "Gamma_linecut_f6_MAE_cm-1": 11.141302910203013,
+      "K_linecut_f6_MAE_cm-1": 0.6858379680244929,
+      "Gamma_center_DFT_cm-1": 1558.320032,
+      "Gamma_center_method_cm-1": 1569.7033689086604,
+      "K_center_DFT_cm-1": 1354.165501,
+      "K_center_method_cm-1": 1353.4146444731412,
+      "K_slope_jump_DFT_THz_per_t": 3.4040113672570476,
+      "K_slope_jump_method_THz_per_t": 3.577962252823784,
+      "K_slope_jump_abs_error_THz_per_t": 0.17395088556673644
+    },
+    {
+      "law": "log_interp",
+      "degauss_Ry": 0.08,
+      "reference_kgrid": 32,
+      "linecut_f6_MAE_cm-1": 4.398110837002946,
+      "Gamma_linecut_f6_MAE_cm-1": 2.8973702609222074,
+      "K_linecut_f6_MAE_cm-1": 5.231855601492246,
+      "Gamma_center_DFT_cm-1": 1529.804423,
+      "Gamma_center_method_cm-1": 1526.6851657887873,
+      "K_center_DFT_cm-1": 1413.230551,
+      "K_center_method_cm-1": 1406.8796251114238,
+      "K_slope_jump_DFT_THz_per_t": 0.7844618113507856,
+      "K_slope_jump_method_THz_per_t": 0.13793874244771062,
+      "K_slope_jump_abs_error_THz_per_t": 0.646523068903075
+    },
+    {
+      "law": "unified_anchor",
+      "degauss_Ry": 0.01,
+      "reference_kgrid": 32,
+      "linecut_f6_MAE_cm-1": 15.615046504958448,
+      "Gamma_linecut_f6_MAE_cm-1": 3.2272248304210733,
+      "K_linecut_f6_MAE_cm-1": 22.497169657479212,
+      "Gamma_center_DFT_cm-1": 1574.078591,
+      "Gamma_center_method_cm-1": 1578.8017926664825,
+      "K_center_DFT_cm-1": 1302.031797,
+      "K_center_method_cm-1": 1331.7592770933345,
+      "K_slope_jump_DFT_THz_per_t": 21.985060327842593,
+      "K_slope_jump_method_THz_per_t": 5.390411801187121,
+      "K_slope_jump_abs_error_THz_per_t": 16.594648526655472
+    },
+    {
+      "law": "unified_anchor",
+      "degauss_Ry": 0.04,
+      "reference_kgrid": 32,
+      "linecut_f6_MAE_cm-1": 4.420455538638976,
+      "Gamma_linecut_f6_MAE_cm-1": 11.138176060246996,
+      "K_linecut_f6_MAE_cm-1": 0.688388582190075,
+      "Gamma_center_DFT_cm-1": 1558.320032,
+      "Gamma_center_method_cm-1": 1569.700107497547,
+      "K_center_DFT_cm-1": 1354.165501,
+      "K_center_method_cm-1": 1353.412063111915,
+      "K_slope_jump_DFT_THz_per_t": 3.4040113672570476,
+      "K_slope_jump_method_THz_per_t": 3.578047907497996,
+      "K_slope_jump_abs_error_THz_per_t": 0.1740365402409485
+    },
+    {
+      "law": "unified_anchor",
+      "degauss_Ry": 0.08,
+      "reference_kgrid": 32,
+      "linecut_f6_MAE_cm-1": 4.39633498120166,
+      "Gamma_linecut_f6_MAE_cm-1": 2.896604500034255,
+      "K_linecut_f6_MAE_cm-1": 5.229518581850218,
+      "Gamma_center_DFT_cm-1": 1529.804423,
+      "Gamma_center_method_cm-1": 1526.685856286746,
+      "K_center_DFT_cm-1": 1413.230551,
+      "K_center_method_cm-1": 1406.8821571474955,
+      "K_slope_jump_DFT_THz_per_t": 0.7844618113507856,
+      "K_slope_jump_method_THz_per_t": 0.1384320429742738,
+      "K_slope_jump_abs_error_THz_per_t": 0.6460297683765118
+    }
+  ]
+}

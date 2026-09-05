@@ -1,0 +1,17 @@
+{
+  "argv": [
+    "ssh",
+    "-o",
+    "BatchMode=yes",
+    "-o",
+    "ConnectTimeout=20",
+    "-o",
+    "ControlPath=none",
+    "howardwang@100.105.21.7",
+    "sha256sum /home/howardwang/phonon/results/r2r0_formal_bundle_20260825/bf998936b4b3/data/graphene_r2o_taylor_null_core/train_thermal.xyz"
+  ],
+  "expected_sha256": "cc2e9c68d418fba996e8ac89c8156c8adf00768406f6171aaa57f0a9bd2720c1",
+  "observed_sha256": "cc2e9c68d418fba996e8ac89c8156c8adf00768406f6171aaa57f0a9bd2720c1",
+  "returncode": 0,
+  "sha256": "f05c4e34faac5abe0131e31ba007eae27aa4b46805edf7333b5a10f3782d0acb"
+}

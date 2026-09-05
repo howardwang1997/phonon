@@ -1,0 +1,69 @@
+{
+  "status": "uniform_grid_zero_shape_not_yet_converged_or_failed",
+  "scope": "full stored A-prime EPC vertex, target zero-temperature occupations, T_high=0.02 Ry reference, separate K anchor, no zero-shape fit and no new DFT",
+  "integration": "uniform nk x nk mesh with exact step occupations",
+  "nk": 720,
+  "target_fermi_eV": -1.7005,
+  "reference_fermi_eV": -1.7187,
+  "reference_degauss_Ry": 0.02,
+  "numerical_broadening_eV": 0.005,
+  "raw_absolute_metrics": {
+    "frequency_RMSE_cm-1": 61.22788382688376,
+    "frequency_MAE_cm-1": 61.206256716453304,
+    "frequency_max_abs_cm-1": 66.20069139177986,
+    "by_direction": {
+      "KG": {
+        "target_d003_cusp_depth_cm-1": 4.827133999999887,
+        "prediction_d003_cusp_depth_cm-1": 0.6810786812027345,
+        "d003_cusp_depth_relative_error": 0.858906199578725,
+        "target_inner_to_outer_slope_ratio": 2.552851874710314,
+        "prediction_inner_to_outer_slope_ratio": 0.4394609726208845,
+        "slope_ratio_relative_error": 0.8278548877142538
+      },
+      "KM": {
+        "target_d003_cusp_depth_cm-1": 4.855632000000014,
+        "prediction_d003_cusp_depth_cm-1": 0.687537785313225,
+        "d003_cusp_depth_relative_error": 0.8584040583567241,
+        "target_inner_to_outer_slope_ratio": 2.4613957452921693,
+        "prediction_inner_to_outer_slope_ratio": 0.4284645106602416,
+        "slope_ratio_relative_error": 0.8259262000108062
+      }
+    },
+    "maximum_d003_cusp_depth_relative_error": 0.858906199578725,
+    "maximum_slope_ratio_relative_error": 0.8278548877142538
+  },
+  "separate_K_anchor_metrics": {
+    "frequency_RMSE_cm-1": 4.923087384478487,
+    "frequency_MAE_cm-1": 4.696674905387908,
+    "frequency_max_abs_cm-1": 6.015537337102614,
+    "by_direction": {
+      "KG": {
+        "target_d003_cusp_depth_cm-1": 4.827133999999887,
+        "prediction_d003_cusp_depth_cm-1": 0.7162244645387545,
+        "d003_cusp_depth_relative_error": 0.8516253195915483,
+        "target_inner_to_outer_slope_ratio": 2.552851874710314,
+        "prediction_inner_to_outer_slope_ratio": 0.43970212489653276,
+        "slope_ratio_relative_error": 0.8277604238411098
+      },
+      "KM": {
+        "target_d003_cusp_depth_cm-1": 4.855632000000014,
+        "prediction_d003_cusp_depth_cm-1": 0.7230166953215758,
+        "d003_cusp_depth_relative_error": 0.8510973040540194,
+        "target_inner_to_outer_slope_ratio": 2.4613957452921693,
+        "prediction_inner_to_outer_slope_ratio": 0.4287045963909399,
+        "slope_ratio_relative_error": 0.8258286595274615
+      }
+    },
+    "maximum_d003_cusp_depth_relative_error": 0.8516253195915483,
+    "maximum_slope_ratio_relative_error": 0.8277604238411098
+  },
+  "checks": {
+    "anchored_max_d003_cusp_depth_relative_error_lt_0p20": false,
+    "anchored_max_slope_ratio_relative_error_lt_0p20": false
+  },
+  "limitations": [
+    "an exact zero-temperature occupation step converges slowly on uniform meshes; compare multiple nk before interpreting failure",
+    "the zero DFPT reference uses optimized tetrahedra, so production transfer should use a 2D triangle/tetrahedron or adaptive valley integral",
+    "the outer zero reference shape is k192 while K and d=0.003 use k288"
+  ]
+}

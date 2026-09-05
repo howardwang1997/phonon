@@ -1,0 +1,17 @@
+&control
+ calculation='scf', prefix='graphene', outdir='./tmp', pseudo_dir='/root/phonon/pseudo', verbosity='high'
+/
+&system
+ ibrav=4, celldm(1)=4.6488, celldm(3)=12.0, nat=2, ntyp=1, ecutwfc=60, ecutrho=240
+ occupations='smearing', smearing='fd', degauss=0.02
+/
+&electrons
+ conv_thr=1.0d-12, mixing_beta=0.7
+/
+ATOMIC_SPECIES
+ C 12.011 C_ONCV_PBE-1.2.upf
+ATOMIC_POSITIONS (crystal)
+ C 0.0 0.0 0.0
+ C 0.333333333 0.666666667 0.0
+K_POINTS automatic
+ 12 12 1 0 0 0

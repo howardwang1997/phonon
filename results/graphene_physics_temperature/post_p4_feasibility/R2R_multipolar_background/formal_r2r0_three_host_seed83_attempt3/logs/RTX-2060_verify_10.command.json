@@ -1,0 +1,22 @@
+{
+  "argv": [
+    "ssh",
+    "-o",
+    "BatchMode=yes",
+    "-o",
+    "ConnectTimeout=20",
+    "-o",
+    "ControlPath=none",
+    "howardwang@100.105.21.7",
+    "sha256sum /home/howardwang/phonon/results/r2r0_formal_bundle_20260825/a9a1732af38c/results/r2r0_formal/control/freeze_manifest.json"
+  ],
+  "command_basename": "RTX-2060_verify_10.command.json",
+  "expected_sha256": "a9a1732af38c4513242fbbe7d23c6e5fd6fdd091ee27cf62a8600544bb8cf73f",
+  "observed_sha256": "a9a1732af38c4513242fbbe7d23c6e5fd6fdd091ee27cf62a8600544bb8cf73f",
+  "returncode": 0,
+  "sha256": "92ca5575f968c282cb45de00890175d287d968eaca6c0e788ae3105311cc0836",
+  "stderr_basename": "RTX-2060_verify_10.stderr",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout_basename": "RTX-2060_verify_10.stdout",
+  "stdout_sha256": "90e20922f89f7e1e385417744336f9dc062b0cd2ac340611f6555bd55b64e517"
+}

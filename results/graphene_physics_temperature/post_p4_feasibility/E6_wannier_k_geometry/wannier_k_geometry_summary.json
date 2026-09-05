@@ -1,0 +1,132 @@
+{
+  "status": "band_geometry_quantified_EPC_vertex_still_required",
+  "scope": "production k18/q9 ex1_pifroz Wannier Hamiltonian; no new DFT and no EPC approximation",
+  "K_bands_eV": [
+    -1.7003568079735416,
+    -1.7003487279248388
+  ],
+  "K_gap_eV": 8.080048702785447e-06,
+  "dirac_mid_eV": -1.70035276794919,
+  "lattice_A": [
+    [
+      2.4600000102769415,
+      -1.2300000051384707,
+      0.0
+    ],
+    [
+      0.0,
+      2.1304225022099623,
+      0.0
+    ],
+    [
+      0.0,
+      0.0,
+      15.000000063624276
+    ]
+  ],
+  "distance_conversion_invA_per_unit_d": 1.702760238734553,
+  "branch_fits": {
+    "KG": {
+      "electron": {
+        "K_offset_eV": 4.040024351281701e-06,
+        "small_q_velocity_eV_A": 5.5371447550803286,
+        "cubic_fit": {
+          "linear_eV_A": 5.450605242606298,
+          "quadratic_eV_A2": 3.306067428030746,
+          "cubic_eV_A3": -1.4837554265713284,
+          "RMSE_meV": 0.0008385947267850481
+        }
+      },
+      "hole": {
+        "K_offset_eV": 4.040024351503746e-06,
+        "small_q_velocity_eV_A": 5.5123171602453525,
+        "cubic_fit": {
+          "linear_eV_A": 5.451155367810178,
+          "quadratic_eV_A2": 2.3739626380576637,
+          "cubic_eV_A3": -2.3438334421852423,
+          "RMSE_meV": 0.0017089766114133666
+        }
+      },
+      "electron_hole_mean": {
+        "K_offset_eV": 4.040024351392724e-06,
+        "small_q_velocity_eV_A": 5.52473095766284,
+        "cubic_fit": {
+          "linear_eV_A": 5.450880305208238,
+          "quadratic_eV_A2": 2.840015033044216,
+          "cubic_eV_A3": -1.9137944343783495,
+          "RMSE_meV": 0.0012062872887740519
+        }
+      }
+    },
+    "KM": {
+      "electron": {
+        "K_offset_eV": 4.040024351281701e-06,
+        "small_q_velocity_eV_A": 5.3863023884099155,
+        "cubic_fit": {
+          "linear_eV_A": 5.450439978001756,
+          "quadratic_eV_A2": -2.328629708905991,
+          "cubic_eV_A3": -3.2862665795323522,
+          "RMSE_meV": 0.0020066675406202215
+        }
+      },
+      "hole": {
+        "K_offset_eV": 4.040024351503746e-06,
+        "small_q_velocity_eV_A": 5.364103292696067,
+        "cubic_fit": {
+          "linear_eV_A": 5.4522914269697695,
+          "quadratic_eV_A2": -3.326321110735974,
+          "cubic_eV_A3": 0.10727247145063165,
+          "RMSE_meV": 0.004118727528086398
+        }
+      },
+      "electron_hole_mean": {
+        "K_offset_eV": 4.040024351392724e-06,
+        "small_q_velocity_eV_A": 5.3752028405529915,
+        "cubic_fit": {
+          "linear_eV_A": 5.451365702485764,
+          "quadratic_eV_A2": -2.827475409820992,
+          "cubic_eV_A3": -1.5894970540407982,
+          "RMSE_meV": 0.0012138660023802669
+        }
+      }
+    }
+  },
+  "trigonal_warping": {
+    "maximum_abs_meV_to_d_0p06": 29.37986706915191,
+    "maximum_fraction_of_mean_excitation_to_d_0p06": 0.0529251999271788,
+    "at_d_0p003_interpolated_meV": -0.07214786641618343,
+    "at_d_0p06_meV": -29.37986706915191
+  },
+  "empirical_two_q_basis_subspace_capture": {
+    "analytic_q_q2": {
+      "frobenius_capture": 0.9763897762166637,
+      "relative_residual": 0.1536561869347809,
+      "feature_rank": 2
+    },
+    "band_mean_and_curvature_residual": {
+      "frobenius_capture": 0.9413725169747723,
+      "relative_residual": 0.2421311277494649,
+      "feature_rank": 2
+    },
+    "band_mean_and_trigonal_warping": {
+      "frobenius_capture": 0.9765030659137083,
+      "relative_residual": 0.15328709693347226,
+      "feature_rank": 2
+    }
+  },
+  "interpretation": "The Hamiltonian fixes v_F, analytic curvature, and KG/KM warping. Any remaining finite-smearing two-basis structure cannot be assigned to the band geometry alone; an A-prime EPC vertex is required for the intervalley band-sum response.",
+  "inputs": {
+    "hr": {
+      "path": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/E0_epw_matched/wannier_diagnostics/matched_k18q9_ex1_pifroz_hr.dat",
+      "sha256": "9464eeb175cdab2b543650c24729febf749e951342a4bf0fe03f5bc651b0db19"
+    },
+    "crystal": {
+      "path": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/E0_epw_matched/k18_q9_ex1_pifroz/restart_small/crystal.fmt",
+      "sha256": "6deef277df68d605c897a54612257e28c9bb6d8384ecf62a8e0ba915dbcb1f56"
+    },
+    "scalar_bases": {
+      "path": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/E5_epw_scalar_low_rank/epw_scalar_two_basis_development.npz",
+      "sha256": "5bd4d502267051f03f5b64f374d9520285590ffd3b90f7d29ccff18f259e25da"
+    }
+  }
+}

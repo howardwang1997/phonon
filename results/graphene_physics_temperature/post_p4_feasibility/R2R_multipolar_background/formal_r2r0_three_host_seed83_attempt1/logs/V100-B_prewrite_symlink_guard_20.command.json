@@ -1,0 +1,19 @@
+{
+  "argv": [
+    "ssh",
+    "-o",
+    "BatchMode=yes",
+    "-o",
+    "ConnectTimeout=20",
+    "-o",
+    "ControlPath=none",
+    "root@100.123.220.57",
+    "python3 -c 'import os\nimport pathlib\nimport stat\nimport sys\npath = pathlib.Path(sys.argv[1])\ncurrent = pathlib.Path(path.anchor)\nfor part in path.parts[1:]:\n    current = current / part\n    try:\n        mode = os.lstat(current).st_mode\n    except FileNotFoundError:\n        continue\n    if stat.S_ISLNK(mode):\n        raise SystemExit(2)\n' /data/graphene_r2r0/formal_bundle/bf998936b4b3/data/graphene_r2o_taylor_null_core/train_harmonic_lambda1_small_zero.xyz"
+  ],
+  "returncode": 0,
+  "sha256": "a3eee6f7f9be81173bed91b30f8f1b05a4ace070b624a5a0e0b2103c7c05a941",
+  "stderr_basename": "V100-B_prewrite_symlink_guard_20.stderr",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout_basename": "V100-B_prewrite_symlink_guard_20.stdout",
+  "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}

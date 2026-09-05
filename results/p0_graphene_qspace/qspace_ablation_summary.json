@@ -1,0 +1,93 @@
+{
+  "status": "complete",
+  "scope": "development data only; smooth control was predeclared before the final holdout; this post-hoc plot does not refit to holdout data",
+  "interpretation": "rounded cusp is the physics-constrained primary model; the smooth control is numerically competitive at Gamma but loses the K cross-validation comparison",
+  "cross_validation": {
+    "G": {
+      "rounded_cusp": {
+        "q_group_CV_MAE_cm-1": 0.06929284501773508,
+        "smearing_LOOCV_MAE_cm-1": 0.9172062047585768,
+        "selection_score": 0.493249524888156
+      },
+      "smooth_poly2_control": {
+        "q_group_CV_MAE_cm-1": 0.310087583848981,
+        "smearing_LOOCV_MAE_cm-1": 0.5648120526945604,
+        "selection_score": 0.43744981827177065
+      }
+    },
+    "K": {
+      "rounded_cusp": {
+        "q_group_CV_MAE_cm-1": 0.3996549954164948,
+        "smearing_LOOCV_MAE_cm-1": 0.3092038230244001,
+        "selection_score": 0.3544294092204474
+      },
+      "smooth_poly2_control": {
+        "q_group_CV_MAE_cm-1": 0.6644000348963548,
+        "smearing_LOOCV_MAE_cm-1": 1.4032334105223123,
+        "selection_score": 1.0338167227093336
+      }
+    }
+  },
+  "in_sample_metrics": [
+    {
+      "region": "G",
+      "degauss_Ry": 0.01,
+      "rounded_in_sample_MAE_cm-1": 0.11579921838947485,
+      "smooth_in_sample_MAE_cm-1": 0.4240048828244653
+    },
+    {
+      "region": "G",
+      "degauss_Ry": 0.02,
+      "rounded_in_sample_MAE_cm-1": 0.031480045319813146,
+      "smooth_in_sample_MAE_cm-1": 0.11936056891336193
+    },
+    {
+      "region": "G",
+      "degauss_Ry": 0.04,
+      "rounded_in_sample_MAE_cm-1": 0.010680051474264474,
+      "smooth_in_sample_MAE_cm-1": 0.031140478743600396
+    },
+    {
+      "region": "G",
+      "degauss_Ry": 0.06,
+      "rounded_in_sample_MAE_cm-1": 0.001875231804615396,
+      "smooth_in_sample_MAE_cm-1": 0.010012889900099253
+    },
+    {
+      "region": "G",
+      "degauss_Ry": 0.08,
+      "rounded_in_sample_MAE_cm-1": 0.004316600268793991,
+      "smooth_in_sample_MAE_cm-1": 0.004770397735728693
+    },
+    {
+      "region": "K",
+      "degauss_Ry": 0.01,
+      "rounded_in_sample_MAE_cm-1": 0.6300881948092815,
+      "smooth_in_sample_MAE_cm-1": 1.0127577326326598
+    },
+    {
+      "region": "K",
+      "degauss_Ry": 0.02,
+      "rounded_in_sample_MAE_cm-1": 0.3216112645321421,
+      "smooth_in_sample_MAE_cm-1": 0.3424585697943409
+    },
+    {
+      "region": "K",
+      "degauss_Ry": 0.04,
+      "rounded_in_sample_MAE_cm-1": 0.06486352206462066,
+      "smooth_in_sample_MAE_cm-1": 0.06395349457862823
+    },
+    {
+      "region": "K",
+      "degauss_Ry": 0.06,
+      "rounded_in_sample_MAE_cm-1": 0.015036423926327794,
+      "smooth_in_sample_MAE_cm-1": 0.013469247432946455
+    },
+    {
+      "region": "K",
+      "degauss_Ry": 0.08,
+      "rounded_in_sample_MAE_cm-1": 0.6957700301055765,
+      "smooth_in_sample_MAE_cm-1": 0.6960143027663181
+    }
+  ]
+}

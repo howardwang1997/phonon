@@ -1,0 +1,183 @@
+{
+  "status": "two_scalar_q_bases_sufficient",
+  "scope": "finite-smearing dense EPW A-prime scalar correction after exact K-anchor removal; no new DFT",
+  "interpretation": "use one Hermitian A-prime projector, a separate K anchor, and two shared q-shape coefficients per smearing",
+  "singular_values_cm-2": [
+    220364.58047306296,
+    6179.812588161399,
+    335.89571332151786
+  ],
+  "cumulative_frobenius_capture": [
+    0.9992118556595394,
+    0.9999976784239265,
+    1.0
+  ],
+  "reconstruction_metrics": {
+    "rank1": {
+      "correction_max_abs_cm-2": 1755.6810112495295,
+      "frequency_RMSE_cm-1": 0.35715647611683843,
+      "frequency_max_abs_cm-1": 0.6838498576596521,
+      "maximum_cusp_depth_relative_error": 0.21667389372135198,
+      "by_temperature": {
+        "300": {
+          "frequency_RMSE_cm-1": 0.42377881382975147,
+          "frequency_max_abs_cm-1": 0.6765562150540063,
+          "target_d1_over_120_cusp_depth_cm-1": 2.0718786164354697,
+          "predicted_d1_over_120_cusp_depth_cm-1": 1.789162714679378,
+          "cusp_depth_relative_error": 0.1364538923822119
+        },
+        "450": {
+          "frequency_RMSE_cm-1": 0.08703671296070875,
+          "frequency_max_abs_cm-1": 0.15944766701090884,
+          "target_d1_over_120_cusp_depth_cm-1": 1.549111474273559,
+          "predicted_d1_over_120_cusp_depth_cm-1": 1.6337795582276158,
+          "cusp_depth_relative_error": 0.054655901373244345
+        },
+        "600": {
+          "frequency_RMSE_cm-1": 0.44217459542881643,
+          "frequency_max_abs_cm-1": 0.6838498576596521,
+          "target_d1_over_120_cusp_depth_cm-1": 1.2051270459887746,
+          "predicted_d1_over_120_cusp_depth_cm-1": 1.4662466154720732,
+          "cusp_depth_relative_error": 0.21667389372135198
+        }
+      }
+    },
+    "rank2": {
+      "correction_max_abs_cm-2": 115.05758391469135,
+      "frequency_RMSE_cm-1": 0.019414069525391427,
+      "frequency_max_abs_cm-1": 0.04486092677302622,
+      "maximum_cusp_depth_relative_error": 0.020835261224070388,
+      "by_temperature": {
+        "300": {
+          "frequency_RMSE_cm-1": 0.011344309154420671,
+          "frequency_max_abs_cm-1": 0.018777253197185928,
+          "target_d1_over_120_cusp_depth_cm-1": 2.0718786164354697,
+          "predicted_d1_over_120_cusp_depth_cm-1": 2.058364892880718,
+          "cusp_depth_relative_error": 0.006522449456040647
+        },
+        "450": {
+          "frequency_RMSE_cm-1": 0.027109019697937987,
+          "frequency_max_abs_cm-1": 0.04486092677302622,
+          "target_d1_over_120_cusp_depth_cm-1": 1.549111474273559,
+          "predicted_d1_over_120_cusp_depth_cm-1": 1.5813876165052534,
+          "cusp_depth_relative_error": 0.020835261224070388
+        },
+        "600": {
+          "frequency_RMSE_cm-1": 0.016343989336631802,
+          "frequency_max_abs_cm-1": 0.027035629780584713,
+          "target_d1_over_120_cusp_depth_cm-1": 1.2051270459887746,
+          "predicted_d1_over_120_cusp_depth_cm-1": 1.185680470267016,
+          "cusp_depth_relative_error": 0.01613653580050821
+        }
+      }
+    }
+  },
+  "affine_smearing_coefficient_law": {
+    "scope": "two scalar q bases are held fixed from the opened three-smearing SVD; only K anchor and two scores are fitted affinely from the other two smearings",
+    "full_affine_law_intercept_and_slope": [
+      [
+        -87905.11722946187,
+        -168115.54468010063,
+        12676.93972644659
+      ],
+      [
+        4167282.4910974964,
+        14521324.07615315,
+        -4558011.512501419
+      ]
+    ],
+    "folds": {
+      "300": {
+        "training_temperatures_K": [
+          450,
+          600
+        ],
+        "predicted_parameters_cm-2": [
+          -80118.30428688474,
+          -140876.63932062866,
+          2739.659556527049
+        ],
+        "target_parameters_cm-2": [
+          -79960.64117405686,
+          -140453.1925746912,
+          4271.6542024867385
+        ],
+        "correction_RMSE_cm-2": 464.69294576092085,
+        "frequency_RMSE_cm-1": 0.17871050004218056,
+        "frequency_max_abs_cm-1": 0.28638184506212383,
+        "K_anchor_abs_error_cm-1": 0.06114265691144283,
+        "cusp_depth_relative_error": 0.050541319691871166
+      },
+      "450": {
+        "training_temperatures_K": [
+          300,
+          600
+        ],
+        "predicted_parameters_cm-2": [
+          -76001.54173909,
+          -126657.30375081458,
+          -58.65477998982897
+        ],
+        "target_parameters_cm-2": [
+          -76080.37329550393,
+          -126869.02712378331,
+          -824.6521029696736
+        ],
+        "correction_RMSE_cm-2": 245.61488730319135,
+        "frequency_RMSE_cm-1": 0.09544649258151382,
+        "frequency_max_abs_cm-1": 0.17342527640994376,
+        "K_anchor_abs_error_cm-1": 0.030811151740408604,
+        "cusp_depth_relative_error": 0.05051817448755946
+      },
+      "600": {
+        "training_temperatures_K": [
+          300,
+          450
+        ],
+        "predicted_parameters_cm-2": [
+          -72200.105416951,
+          -113284.86167287543,
+          -5920.958408426082
+        ],
+        "target_parameters_cm-2": [
+          -72042.44230412312,
+          -112861.41492693797,
+          -4388.963762466396
+        ],
+        "correction_RMSE_cm-2": 466.4414136144459,
+        "frequency_RMSE_cm-1": 0.18225738787449916,
+        "frequency_max_abs_cm-1": 0.29473498807919896,
+        "K_anchor_abs_error_cm-1": 0.061992689709086335,
+        "cusp_depth_relative_error": 0.09295194431308358
+      }
+    },
+    "maximum_frequency_RMSE_cm-1": 0.18225738787449916,
+    "maximum_frequency_abs_error_cm-1": 0.29473498807919896,
+    "maximum_K_anchor_abs_error_cm-1": 0.061992689709086335,
+    "maximum_cusp_depth_relative_error": 0.09295194431308358,
+    "limitation": "the q bases use all three opened smearings, so this tests coefficient-law interpolation/extrapolation rather than a fully independent spectral holdout"
+  },
+  "maximum_left_right_asymmetry_cm-2": {
+    "300": 3711.4932259226734,
+    "450": 3715.5590462207765,
+    "600": 3698.3967983346884
+  },
+  "checks": {
+    "rank1_centered_shape_capture_ge_0p995": true,
+    "rank2_centered_shape_capture_ge_0p9999": true,
+    "rank2_frequency_RMSE_lt_0p1_cm-1": true,
+    "rank2_max_cusp_depth_relative_error_lt_0p03": true,
+    "third_singular_component_below_left_right_asymmetry": true,
+    "affine_score_LOSO_frequency_RMSE_lt_0p3_cm-1": true,
+    "affine_score_LOSO_cusp_depth_relative_error_lt_0p10": true
+  },
+  "inputs": {
+    "path": "/Users/howardwang/Desktop/playground/phonon/results/graphene_kohn_cusp_two_methods/B0_dense_k29/b0_dense_predictions.csv",
+    "sha256": "3f49794c95a16994e177eb9fb0bf1f853c057adc860f0a2ee7c908465f532730"
+  },
+  "limitations": [
+    "The bases are distilled from three opened graphene smearings and are not yet a cross-material basis.",
+    "The exact zero-smearing row is excluded because its present k-grid convergence uncertainty is larger than the second finite-smearing singular component.",
+    "A future transferable parameterization should predict the two coefficients from band velocity, filling, and electron-phonon coupling rather than tabulate them by smearing."
+  ]
+}

@@ -1,0 +1,875 @@
+{
+  "status": "R2C_candidate_development_evaluation_complete",
+  "finite_temperature_validation_closed": false,
+  "reason_not_final": "the nine corrected-X0-supported DFT points are included in R2C training; a new order-safe matched holdout is still required",
+  "fixed_condition": {
+    "lattice_temperature_K": 450.0,
+    "smearing": "fermi-dirac",
+    "degauss_Ry": 0.0019000869380739254
+  },
+  "fixed_limits": {
+    "support9": {
+      "force_component_RMSE_meV_A": 30.0,
+      "force_component_max_abs_meV_A": 200.0,
+      "Aprime_projected_force_RMS_meV_A": 15.0,
+      "Aprime_restoring_slope_relative_error": 0.05,
+      "centered_energy_RMSE_meV_config": 19.4,
+      "importance_weight_ESS_fraction": 0.3
+    },
+    "each_thermal_force_RMSE_meV_A": 30.0,
+    "each_thermal_force_max_abs_meV_A": 200.0,
+    "harmonic_replay_RMSE_relative_to_frozen_base": 1.25,
+    "harmonic_replay_RMSE_meV_A": 9.044666851192677
+  },
+  "frozen_base_harmonic_force": {
+    "RMSE_meV_A": 7.235733480954141,
+    "MAE_meV_A": 4.050089466721614,
+    "max_abs_meV_A": 57.080977415313704
+  },
+  "Aprime_mode": {
+    "qpoint_crystal": [
+      0.3333333333333333,
+      0.3333333333333333,
+      0.0
+    ],
+    "primitive_mode_index": 5,
+    "primitive_frequency_THz": 37.97444978009788,
+    "primitive_frequency_cm_1": 1266.6913163893546,
+    "lattice_temperature_K": 450,
+    "operator_temperature_K": 300,
+    "operator_to_phonopy_mapping": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33,
+      34,
+      35,
+      36,
+      37,
+      38,
+      39,
+      40,
+      41,
+      42,
+      43,
+      44,
+      45,
+      46,
+      47,
+      48,
+      49,
+      50,
+      51,
+      52,
+      53,
+      54,
+      55,
+      56,
+      57,
+      58,
+      59,
+      60,
+      61,
+      62,
+      63,
+      64,
+      65,
+      66,
+      67,
+      68,
+      69,
+      70,
+      71
+    ],
+    "phonopy_basis_indices": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "phonopy_cell_translations": [
+      [
+        0,
+        0,
+        0
+      ],
+      [
+        1,
+        0,
+        0
+      ],
+      [
+        2,
+        0,
+        0
+      ],
+      [
+        3,
+        0,
+        0
+      ],
+      [
+        4,
+        0,
+        0
+      ],
+      [
+        5,
+        0,
+        0
+      ],
+      [
+        0,
+        1,
+        0
+      ],
+      [
+        1,
+        1,
+        0
+      ],
+      [
+        2,
+        1,
+        0
+      ],
+      [
+        3,
+        1,
+        0
+      ],
+      [
+        4,
+        1,
+        0
+      ],
+      [
+        5,
+        1,
+        0
+      ],
+      [
+        0,
+        2,
+        0
+      ],
+      [
+        1,
+        2,
+        0
+      ],
+      [
+        2,
+        2,
+        0
+      ],
+      [
+        3,
+        2,
+        0
+      ],
+      [
+        4,
+        2,
+        0
+      ],
+      [
+        5,
+        2,
+        0
+      ],
+      [
+        0,
+        3,
+        0
+      ],
+      [
+        1,
+        3,
+        0
+      ],
+      [
+        2,
+        3,
+        0
+      ],
+      [
+        3,
+        3,
+        0
+      ],
+      [
+        4,
+        3,
+        0
+      ],
+      [
+        5,
+        3,
+        0
+      ],
+      [
+        0,
+        4,
+        0
+      ],
+      [
+        1,
+        4,
+        0
+      ],
+      [
+        2,
+        4,
+        0
+      ],
+      [
+        3,
+        4,
+        0
+      ],
+      [
+        4,
+        4,
+        0
+      ],
+      [
+        5,
+        4,
+        0
+      ],
+      [
+        0,
+        5,
+        0
+      ],
+      [
+        1,
+        5,
+        0
+      ],
+      [
+        2,
+        5,
+        0
+      ],
+      [
+        3,
+        5,
+        0
+      ],
+      [
+        4,
+        5,
+        0
+      ],
+      [
+        5,
+        5,
+        0
+      ],
+      [
+        0,
+        0,
+        0
+      ],
+      [
+        1,
+        0,
+        0
+      ],
+      [
+        2,
+        0,
+        0
+      ],
+      [
+        3,
+        0,
+        0
+      ],
+      [
+        4,
+        0,
+        0
+      ],
+      [
+        5,
+        0,
+        0
+      ],
+      [
+        0,
+        1,
+        0
+      ],
+      [
+        1,
+        1,
+        0
+      ],
+      [
+        2,
+        1,
+        0
+      ],
+      [
+        3,
+        1,
+        0
+      ],
+      [
+        4,
+        1,
+        0
+      ],
+      [
+        5,
+        1,
+        0
+      ],
+      [
+        0,
+        2,
+        0
+      ],
+      [
+        1,
+        2,
+        0
+      ],
+      [
+        2,
+        2,
+        0
+      ],
+      [
+        3,
+        2,
+        0
+      ],
+      [
+        4,
+        2,
+        0
+      ],
+      [
+        5,
+        2,
+        0
+      ],
+      [
+        0,
+        3,
+        0
+      ],
+      [
+        1,
+        3,
+        0
+      ],
+      [
+        2,
+        3,
+        0
+      ],
+      [
+        3,
+        3,
+        0
+      ],
+      [
+        4,
+        3,
+        0
+      ],
+      [
+        5,
+        3,
+        0
+      ],
+      [
+        0,
+        4,
+        0
+      ],
+      [
+        1,
+        4,
+        0
+      ],
+      [
+        2,
+        4,
+        0
+      ],
+      [
+        3,
+        4,
+        0
+      ],
+      [
+        4,
+        4,
+        0
+      ],
+      [
+        5,
+        4,
+        0
+      ],
+      [
+        0,
+        5,
+        0
+      ],
+      [
+        1,
+        5,
+        0
+      ],
+      [
+        2,
+        5,
+        0
+      ],
+      [
+        3,
+        5,
+        0
+      ],
+      [
+        4,
+        5,
+        0
+      ],
+      [
+        5,
+        5,
+        0
+      ]
+    ],
+    "normalization": 0.9999999999999998
+  },
+  "ranking": [
+    "capacity64_final"
+  ],
+  "best_development_candidate": "capacity64_final",
+  "candidates": {
+    "capacity64_final": {
+      "model": "/data/graphene_r2c_short_repair/capacity64_forces_only_seed83/gr_r2c_capacity64_forces_only_seed83.model",
+      "model_sha256": "b65538a77621daaba322ce8d432bc11301c1e0150b0adcbed97292983c993d99",
+      "support9_development_fit": {
+        "n_structures": 9,
+        "force_error": {
+          "RMSE_meV_A": 59.997486267967076,
+          "MAE_meV_A": 34.90814782986511,
+          "max_abs_meV_A": 937.3166211407469
+        },
+        "Aprime_projection": {
+          "force_error": {
+            "RMS_meV_A": 54.770488591952656,
+            "MAE_meV_A": 48.86074095172817,
+            "max_abs_meV_A": 87.83622714603119
+          },
+          "candidate_restoring_slope_eV_A2": 47.5536817109235,
+          "DFT_restoring_slope_eV_A2": 47.25469729925658,
+          "relative_slope_error": 0.006327083417199786
+        },
+        "delta_energy_error_after_global_offset": {
+          "global_offset_eV": 0.9771090394545657,
+          "RMSE_meV_config": 29.78240665977792,
+          "MAE_meV_config": 27.10130938727094,
+          "max_abs_meV_config": 47.658263390379375
+        },
+        "importance_weight_ESS_fraction": 0.6509171559819216,
+        "fixed_gate": {
+          "force_component_RMSE_meV_A": {
+            "observed": 59.997486267967076,
+            "threshold": 30.0,
+            "pass": false
+          },
+          "force_component_max_abs_meV_A": {
+            "observed": 937.3166211407469,
+            "threshold": 200.0,
+            "pass": false
+          },
+          "Aprime_projected_force_RMS_meV_A": {
+            "observed": 54.770488591952656,
+            "threshold": 15.0,
+            "pass": false
+          },
+          "Aprime_restoring_slope_relative_error": {
+            "observed": 0.006327083417199786,
+            "threshold": 0.05,
+            "pass": true
+          },
+          "centered_energy_RMSE_meV_config": {
+            "observed": 29.78240665977792,
+            "threshold": 19.4,
+            "pass": false
+          },
+          "importance_weight_ESS_fraction": {
+            "observed": 0.6509171559819216,
+            "threshold": 0.3,
+            "pass": true
+          }
+        },
+        "normalized_gate_ratios": {
+          "support/force_component_RMSE_meV_A": 1.999916208932236,
+          "support/force_component_max_abs_meV_A": 4.686583105703734,
+          "support/Aprime_projected_force_RMS_meV_A": 3.651365906130177,
+          "support/Aprime_restoring_slope_relative_error": 0.12654166834399572,
+          "support/centered_energy_RMSE_meV_config": 1.5351756010194806,
+          "support/importance_weight_ESS_fraction": 0.4608881441255669
+        },
+        "records": [
+          {
+            "sscha_index": 94,
+            "support_level": "corrected_X0_core",
+            "force_RMSE_meV_A": 37.53290590078421,
+            "force_max_abs_meV_A": 288.4803192727663,
+            "Aprime_coordinate_abs_A": 0.027155723252418936,
+            "Aprime_force_error_abs_meV_A": 16.463598028195754
+          },
+          {
+            "sscha_index": 65,
+            "support_level": "corrected_X0_core",
+            "force_RMSE_meV_A": 45.724035704297386,
+            "force_max_abs_meV_A": 198.2463016821292,
+            "Aprime_coordinate_abs_A": 0.030831628835379352,
+            "Aprime_force_error_abs_meV_A": 87.8362271460312
+          },
+          {
+            "sscha_index": 87,
+            "support_level": "corrected_X0_core",
+            "force_RMSE_meV_A": 53.977100617779875,
+            "force_max_abs_meV_A": 266.5746315631106,
+            "Aprime_coordinate_abs_A": 0.041722080241783005,
+            "Aprime_force_error_abs_meV_A": 64.7819938872223
+          },
+          {
+            "sscha_index": 272,
+            "support_level": "corrected_X0_core",
+            "force_RMSE_meV_A": 56.577366228901695,
+            "force_max_abs_meV_A": 386.0628491027831,
+            "Aprime_coordinate_abs_A": 0.039609579087400065,
+            "Aprime_force_error_abs_meV_A": 18.18918900662369
+          },
+          {
+            "sscha_index": 216,
+            "support_level": "corrected_X0_core",
+            "force_RMSE_meV_A": 40.12266540839107,
+            "force_max_abs_meV_A": 178.2221392276,
+            "Aprime_coordinate_abs_A": 0.02614111912521918,
+            "Aprime_force_error_abs_meV_A": 44.51988488413782
+          },
+          {
+            "sscha_index": 99,
+            "support_level": "corrected_X0_core",
+            "force_RMSE_meV_A": 125.37893157197969,
+            "force_max_abs_meV_A": 937.3166211407469,
+            "Aprime_coordinate_abs_A": 0.06192636196435798,
+            "Aprime_force_error_abs_meV_A": 51.68485630658218
+          },
+          {
+            "sscha_index": 20,
+            "support_level": "corrected_X0_core",
+            "force_RMSE_meV_A": 53.907116282256915,
+            "force_max_abs_meV_A": 277.25942695251416,
+            "Aprime_coordinate_abs_A": 0.010381021872103819,
+            "Aprime_force_error_abs_meV_A": 67.00465243801715
+          },
+          {
+            "sscha_index": 6,
+            "support_level": "corrected_X0_edge",
+            "force_RMSE_meV_A": 38.97564443197379,
+            "force_max_abs_meV_A": 139.70141990264918,
+            "Aprime_coordinate_abs_A": 0.08570972223145301,
+            "Aprime_force_error_abs_meV_A": 70.68356939229463
+          },
+          {
+            "sscha_index": 203,
+            "support_level": "corrected_X0_core",
+            "force_RMSE_meV_A": 32.07132976611073,
+            "force_max_abs_meV_A": 99.85323135536194,
+            "Aprime_coordinate_abs_A": 0.07364482559034016,
+            "Aprime_force_error_abs_meV_A": 18.58269747644877
+          }
+        ]
+      },
+      "thermal_development": {
+        "T300": {
+          "n_structures": 3,
+          "total_force_error": {
+            "RMSE_meV_A": 26.740718265383446,
+            "MAE_meV_A": 16.72744401038225,
+            "max_abs_meV_A": 209.31882295028714
+          },
+          "delta_energy_error_after_global_offset": {
+            "global_offset_eV": 11167.813697657984,
+            "RMSE_meV_config": 15.660426098813854,
+            "MAE_meV_config": 14.681075435873936,
+            "max_abs_meV_config": 22.0216131547204
+          },
+          "centered_delta_energy_error_eV": [
+            -0.008971239474703907,
+            0.0220216131547204,
+            -0.013050373678197502
+          ]
+        },
+        "T450": {
+          "n_structures": 20,
+          "total_force_error": {
+            "RMSE_meV_A": 24.16203823180147,
+            "MAE_meV_A": 18.24910912706464,
+            "max_abs_meV_A": 158.09527451980588
+          },
+          "delta_energy_error_after_global_offset": {
+            "global_offset_eV": 11166.396547733657,
+            "RMSE_meV_config": 303.9229996116122,
+            "MAE_meV_config": 264.1645012065055,
+            "max_abs_meV_config": 540.1855772724957
+          },
+          "centered_delta_energy_error_eV": [
+            0.0918300263438141,
+            -0.18239566754709813,
+            0.08535745701374253,
+            -0.4528057192746928,
+            0.20616482684999937,
+            -0.39033015916902514,
+            0.011725383847078774,
+            0.01886979468872596,
+            -0.32759662612988905,
+            0.14877785640055663,
+            -0.31069556682814436,
+            0.20837357773052645,
+            -0.36631241412214877,
+            -0.37617763149319217,
+            0.2636239161583944,
+            0.39587016517907614,
+            0.5004875387676293,
+            0.5401855772724957,
+            0.17037889183666266,
+            -0.2353312274772179
+          ]
+        },
+        "T600": {
+          "n_structures": 3,
+          "total_force_error": {
+            "RMSE_meV_A": 29.64222632268842,
+            "MAE_meV_A": 22.921079548739453,
+            "max_abs_meV_A": 128.85043697387698
+          },
+          "delta_energy_error_after_global_offset": {
+            "global_offset_eV": 11165.279529276339,
+            "RMSE_meV_config": 264.31122862666024,
+            "MAE_meV_config": 246.8418482561295,
+            "max_abs_meV_config": 370.26277238510374
+          },
+          "centered_delta_energy_error_eV": [
+            -0.140749544107166,
+            -0.22951322827611875,
+            0.37026277238510374
+          ]
+        }
+      },
+      "harmonic_replay": {
+        "n_structures": 25,
+        "total_force_error": {
+          "RMSE_meV_A": 10.431043425014197,
+          "MAE_meV_A": 5.412441584526506,
+          "max_abs_meV_A": 122.95298070083618
+        },
+        "delta_energy_error_after_global_offset": {
+          "global_offset_eV": -5.347617893986215,
+          "RMSE_meV_config": 6949.706436378944,
+          "MAE_meV_config": 6900.0089860882945,
+          "max_abs_meV_config": 8438.258115756638
+        },
+        "centered_delta_energy_error_eV": [
+          7.197629232828749,
+          7.17092236140926,
+          7.19762899441017,
+          7.197628398363722,
+          -5.659691647611948,
+          -8.43825811575664,
+          -7.419601290588516,
+          7.170921884572102,
+          -7.708120366859714,
+          -7.851325795237465,
+          -7.04328154614513,
+          7.170906148945881,
+          7.192703187511284,
+          -5.65112483926418,
+          -5.788599367388795,
+          -6.01042895449667,
+          7.195208624466048,
+          -5.3137112936753566,
+          7.170936666524006,
+          -6.9788172520945375,
+          -4.898634091722612,
+          7.195208862884627,
+          -7.488517765262116,
+          7.195208743675337,
+          7.195209220512496
+        ]
+      },
+      "normalized_gate_ratios": {
+        "support/force_component_RMSE_meV_A": 1.999916208932236,
+        "support/force_component_max_abs_meV_A": 4.686583105703734,
+        "support/Aprime_projected_force_RMS_meV_A": 3.651365906130177,
+        "support/Aprime_restoring_slope_relative_error": 0.12654166834399572,
+        "support/centered_energy_RMSE_meV_config": 1.5351756010194806,
+        "support/importance_weight_ESS_fraction": 0.4608881441255669,
+        "T300/force_RMSE": 0.8913572755127815,
+        "T300/force_max_abs": 1.0465941147514357,
+        "T450/force_RMSE": 0.8054012743933824,
+        "T450/force_max_abs": 0.7904763725990294,
+        "T600/force_RMSE": 0.9880742107562807,
+        "T600/force_max_abs": 0.644252184869385,
+        "harmonic/force_RMSE": 1.1532811099215563
+      },
+      "normalized_worst_gate_score": 4.686583105703734,
+      "passes_all_development_gates": false
+    }
+  },
+  "inputs": {
+    "base_model": {
+      "path": "/root/phonon/results/gr_backbone_v11/ft_graphene.model",
+      "sha256": "4d32426672d53e3adc86499d14e4c4164c05e879a56811ff54add03cd1bb6ce7"
+    },
+    "support_data": {
+      "path": "/data/graphene_r2c_loss_only/supported9_train.xyz",
+      "sha256": "75fc39905c98b7e25816d9490f08a3d3fa39e21a1b3683bf6f1bf8c2ae92dde6"
+    },
+    "thermal": {
+      "T300": {
+        "path": "/data/graphene_r2c_eval/thermal/T300/test.xyz",
+        "sha256": "79aa02e3b5efec81ffd84366a7fb615fad8b7d9236bead47c4271be02a8a3c76"
+      },
+      "T450": {
+        "path": "/data/graphene_r2c_eval/thermal/T450/test.xyz",
+        "sha256": "a167acdd506d4d15dbeb0033f134e197482d0f13100c3171d5e843cd35bf1f4a"
+      },
+      "T600": {
+        "path": "/data/graphene_r2c_eval/thermal/T600/test.xyz",
+        "sha256": "5615e302c51b1571f3319138c775b390d970a5d384b787895b96b9a54b18ca37"
+      }
+    },
+    "harmonic": {
+      "path": "/data/graphene_r2c_eval/replay/val.xyz",
+      "sha256": "c0f4fcdea0336475bd34a6895b52ad84f5e2cdb6226e713846e46ce942de426f"
+    },
+    "operator": {
+      "path": "/data/graphene_r2c_eval/operators/T300_operator.npz",
+      "sha256": "114fb9a369ed106e5a89a9c05223aed7667fd737714f3d42516ebdb8e2e475c3"
+    },
+    "background": {
+      "path": "/root/phonon/results/vq_kink6_fd/graphene_sc6_dg0.040_phonopy.yaml",
+      "sha256": "69144a1dd3c66df94c116259067be27d1ede3ca8ab01c66516504c5e1ec90c0a"
+    },
+    "corrected_result": {
+      "path": "/data/graphene_r2c_eval/corrected_result.npz",
+      "sha256": "1de93b6d5a2d595920b2a78fe720c76314709ac3572a4728cfcf5a54585b10fa"
+    }
+  }
+}

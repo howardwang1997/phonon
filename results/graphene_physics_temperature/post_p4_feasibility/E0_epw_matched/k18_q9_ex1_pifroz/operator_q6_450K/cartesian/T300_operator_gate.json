@@ -1,0 +1,83 @@
+{
+  "status": "passed",
+  "scope": "E0 Cartesian Hermitian q6 electronic operator at 300 K",
+  "built_at_utc": "2026-08-06T17:47:49.632080+00:00",
+  "temperature_K": 300.0,
+  "degauss_Ry_from_kBT": 0.0019000869380739254,
+  "bare_dynamical_matrix_source": "EPW_dynwan2bloch",
+  "matrix_scale_cm-2_per_QE_unit": 12042278452.99655,
+  "n_qpoints": 36,
+  "n_space_group_operations": 24,
+  "metrics": {
+    "q_coordinate_max_abs": 0.0,
+    "matrix_frequency_replay_max_abs_cm-1": 2.2737367544323206e-13,
+    "EPW_bare_matrix_basis_max_abs_cm-1": 0.03988661730500098,
+    "degenerate_shift_averaging_max_abs_cm-2": 13.345795099441602,
+    "pre_symmetry_realspace_imaginary_max_abs": 0.0,
+    "symmetry_projection_frequency_change_max_abs_cm-1": 0.01703876041710828,
+    "time_reversal_max_abs": 0.0,
+    "point_group_max_abs": 2.117582368135751e-22,
+    "hessian_imaginary_max_abs": 0.0,
+    "hessian_pair_max_abs": 0.0,
+    "hessian_ASR_row_sum_max_abs": 1.9852334701272664e-22,
+    "q_real_q_matrix_replay_max_abs": 6.44770229052106e-22,
+    "q_real_q_all_mode_frequency_replay_max_abs_cm-1": 6.823739784871697e-06,
+    "q_real_q_nonzero_frequency_replay_max_abs_cm-1": 8.952838470577262e-13,
+    "q_real_q_top_branch_replay_max_abs_cm-1": 4.547473508864641e-13,
+    "force_pair_max_abs_eV_A2": 0.0,
+    "force_ASR_row_sum_max_abs_eV_A2": 2.498001805406602e-16,
+    "analytic_gradient_max_abs_eV_A": 7.739468788070525e-14,
+    "reference_geometry_match_max_abs_A": 5.737330537342158e-15
+  },
+  "checks": {
+    "q_coordinate_max_le_1e-8": true,
+    "matrix_frequency_replay_max_le_0p2_cm-1": true,
+    "EPW_bare_matches_matrix_basis_max_le_0p5_cm-1": true,
+    "pre_symmetry_realspace_imaginary_max_le_1e-8": true,
+    "symmetry_projection_frequency_change_max_le_0p5_cm-1": true,
+    "time_reversal_max_le_1e-10": true,
+    "point_group_max_le_1e-8": true,
+    "hessian_imaginary_max_le_1e-10": true,
+    "hessian_pair_max_le_1e-10": true,
+    "hessian_ASR_max_le_1e-10": true,
+    "q_real_q_matrix_replay_max_le_1e-10": true,
+    "q_real_q_nonzero_frequency_replay_max_lt_1e-5_cm-1": true,
+    "q_real_q_top_branch_replay_max_lt_1e-5_cm-1": true,
+    "force_pair_max_le_1e-8_eV_A2": true,
+    "force_ASR_max_le_1e-8_eV_A2": true,
+    "analytic_gradient_max_le_1e-7_eV_A": true,
+    "reference_geometry_match_max_le_1e-5_A": true
+  },
+  "operator": {
+    "path": "/data/graphene_e0_epw_matched/k18_q9_ex1_pifroz/operator_q6_450K/cartesian/T300_operator.npz",
+    "sha256": "114fb9a369ed106e5a89a9c05223aed7667fd737714f3d42516ebdb8e2e475c3"
+  },
+  "sources": [
+    {
+      "path": "/data/graphene_e0_epw_matched/k18_q9_ex1_pifroz/full_q6_300K/qpoints_full.dat",
+      "sha256": "83b4905f3822219b28d2f38f508b75d1feb33cafe88ebef1ea6d7009f330677f"
+    },
+    {
+      "path": "/data/graphene_e0_epw_matched/k18_q9_ex1_pifroz/full_q6_300K/specfun_sup.phon",
+      "sha256": "6c763374ea1dabc923a6a8ebc1545a7bf3c626ec2a4f540abe6ba72d578b4556"
+    },
+    {
+      "path": "/data/graphene_e0_epw_matched/k18_q9_ex1_pifroz/operator_q6_450K/matdyn/epw_q6_dynamical_matrices.npz",
+      "sha256": "33738f7a91d8691edb68b57a15d704e3cd42053562b33d4f56b92e75cc1b0f43"
+    },
+    {
+      "path": "/data/graphene_e0_epw_matched/k18_q9_ex1_pifroz/operator_q6_450K/matdyn/epw_q6_dynamical_matrix_audit.json",
+      "sha256": "b82b1a6ec9cb5ee5d991978574f5a70faca0b8ec65d07520129ddf7ccb44890d"
+    },
+    {
+      "path": "/data/graphene_e0_epw_matched/k18_q9_ex1_pifroz/full_q6_300K/audit/full_q_data_audit.json",
+      "sha256": "e7e16fc527b80a0676c9c4611bab04083f9ad2059280f8e6b467cad3595f8ec8"
+    },
+    {
+      "path": "/data/graphene_e0_epw_matched/operator_reference/T450_long_range_operator.npz",
+      "sha256": "bbea00f427dd963ee3ec7e9c4cb84f34498ab2835752fd914035b191925b5b4e"
+    }
+  ],
+  "releases_E1": false,
+  "next_stage": "aggregate_300_450_600_operator_gates"
+}

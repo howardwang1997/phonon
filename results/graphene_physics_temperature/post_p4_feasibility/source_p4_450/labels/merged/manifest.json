@@ -1,0 +1,856 @@
+{
+  "status": "complete",
+  "scope": "fixed 450 K on-policy P4 DFT force labels; merge only, with no training, fitting, or checkpoint selection",
+  "identity_key": "(trajectory_seed, snapshot_index)",
+  "temperature_K": 450,
+  "degauss_Ry": 0.00285013035,
+  "n_structures": 60,
+  "n_structures_per_seed": 20,
+  "indices_per_seed": [
+    3,
+    9,
+    15,
+    21,
+    27,
+    33,
+    39,
+    45,
+    51,
+    57,
+    63,
+    69,
+    75,
+    81,
+    87,
+    93,
+    99,
+    105,
+    111,
+    117
+  ],
+  "n_atoms": 72,
+  "lattice_temperature_K": 450.0,
+  "smearing": "fermi-dirac",
+  "ecutwfc_Ry": 60.0,
+  "ecutrho_Ry": 240.0,
+  "disk_io": "none",
+  "kgrids": [
+    8
+  ],
+  "reference_kgrid": 8,
+  "freeze_manifest": {
+    "path": "/home/howardwang/phonon/results/graphene_fd_transferability/freeze_manifest.json",
+    "sha256": "8e48384fc805c15d68b861f2911647ecc13d896d17753eb35dfe243cd318232d"
+  },
+  "sampling_acceptance": {
+    "path": "/home/howardwang/phonon/results/graphene_fd_transferability/T450/on_policy/sampling_acceptance_n3000.json",
+    "sha256": "5f9342a4927f87e80cef85135f29d8aeab2af7b7f091d7d98a1f2212d442f6bd"
+  },
+  "sampling_bootstrap": {
+    "path": "/home/howardwang/phonon/results/graphene_fd_transferability/T450/on_policy/sampling_bootstrap_acceptance_n3000.json",
+    "sha256": "b944edba1659c6c77b88725a49eb914bbc6bef7bb6f9dabf81260c8e89a1b079"
+  },
+  "validated_shard_inputs": [
+    {
+      "shard": "A",
+      "path": "/home/howardwang/phonon/data/graphene_fd_transferability/T450/on_policy/dft_force_labels/shard_A/input_manifest.json",
+      "sha256": "d45159d5cf6d27825e3b008bfd0fdf9e03c12d3eaf1b077d6eb67bcd825c0414"
+    },
+    {
+      "shard": "B",
+      "path": "/home/howardwang/phonon/data/graphene_fd_transferability/T450/on_policy/dft_force_labels/shard_B/input_manifest.json",
+      "sha256": "dff6537328376ebf2fc1f5c7dd0ee92a9d4d26cfb0b581be080b79f968969544"
+    }
+  ],
+  "sources": [
+    {
+      "shard": "A",
+      "trajectory_seed": 0,
+      "summary_json": "/home/howardwang/phonon/data/graphene_fd_transferability/T450/on_policy/dft_force_labels/shard_A/seed0/summary.json",
+      "summary_json_sha256": "8486ab49713eb6aac1ce1d0973dcb3cef9b33668d46e9492ab1ca8db50b2f4c6",
+      "summary_xyz": "/home/howardwang/phonon/data/graphene_fd_transferability/T450/on_policy/dft_force_labels/shard_A/seed0/summary.xyz",
+      "summary_xyz_sha256": "ff03a3b944f77815855d0bc86bd3440735d4c32d11831105673a88c485325549",
+      "indices": [
+        3,
+        9,
+        15,
+        21,
+        27,
+        33,
+        39,
+        45,
+        51,
+        57,
+        63,
+        69,
+        75,
+        81,
+        87,
+        93,
+        99,
+        105,
+        111,
+        117
+      ]
+    },
+    {
+      "shard": "A",
+      "trajectory_seed": 2,
+      "summary_json": "/home/howardwang/phonon/data/graphene_fd_transferability/T450/on_policy/dft_force_labels/shard_A/seed2/summary.json",
+      "summary_json_sha256": "6ed95d67fac80e33d639d91150f2a1dd1e92d21b30fe1042424d76b6d3d54bce",
+      "summary_xyz": "/home/howardwang/phonon/data/graphene_fd_transferability/T450/on_policy/dft_force_labels/shard_A/seed2/summary.xyz",
+      "summary_xyz_sha256": "e64b4674b5f719cc5717a9cf1fcec9d2bd270f8f49afc024cec420ac40dd0794",
+      "indices": [
+        3,
+        9,
+        15,
+        21,
+        27,
+        33,
+        39,
+        45,
+        51,
+        57
+      ]
+    },
+    {
+      "shard": "B",
+      "trajectory_seed": 1,
+      "summary_json": "/home/howardwang/phonon/data/graphene_fd_transferability/T450/on_policy/dft_force_labels/shard_B/seed1/summary.json",
+      "summary_json_sha256": "837f9da5c950bc0abe417887c2fe19146ebc933cef82620d19c906b0b56310da",
+      "summary_xyz": "/home/howardwang/phonon/data/graphene_fd_transferability/T450/on_policy/dft_force_labels/shard_B/seed1/summary.xyz",
+      "summary_xyz_sha256": "28d685daf8d72377303de694f471ff3a4ed1193390736784f20741e033fa641f",
+      "indices": [
+        3,
+        9,
+        15,
+        21,
+        27,
+        33,
+        39,
+        45,
+        51,
+        57,
+        63,
+        69,
+        75,
+        81,
+        87,
+        93,
+        99,
+        105,
+        111,
+        117
+      ]
+    },
+    {
+      "shard": "B",
+      "trajectory_seed": 2,
+      "summary_json": "/home/howardwang/phonon/data/graphene_fd_transferability/T450/on_policy/dft_force_labels/shard_B/seed2/summary.json",
+      "summary_json_sha256": "8c44cf15983ceb5bbbc2647171d316a7e128f88198471cc6180a4aea659ecbf8",
+      "summary_xyz": "/home/howardwang/phonon/data/graphene_fd_transferability/T450/on_policy/dft_force_labels/shard_B/seed2/summary.xyz",
+      "summary_xyz_sha256": "11834cd575ca39f04ffe8381a0ff9856b9516cf09def186c23d3d62ceccd1ace",
+      "indices": [
+        63,
+        69,
+        75,
+        81,
+        87,
+        93,
+        99,
+        105,
+        111,
+        117
+      ]
+    }
+  ],
+  "records": [
+    {
+      "snapshot_index": 3,
+      "split": "validation",
+      "kgrid": 8,
+      "reference_kgrid": 8,
+      "force_RMSE_meV_A": 0.0,
+      "force_max_abs_meV_A": 0.0,
+      "energy_difference_meV_atom": 0.0,
+      "trajectory_seed": 0
+    },
+    {
+      "snapshot_index": 9,
+      "split": "validation",
+      "kgrid": 8,
+      "reference_kgrid": 8,
+      "force_RMSE_meV_A": 0.0,
+      "force_max_abs_meV_A": 0.0,
+      "energy_difference_meV_atom": 0.0,
+      "trajectory_seed": 0
+    },
+    {
+      "snapshot_index": 15,
+      "split": "validation",
+      "kgrid": 8,
+      "reference_kgrid": 8,
+      "force_RMSE_meV_A": 0.0,
+      "force_max_abs_meV_A": 0.0,
+      "energy_difference_meV_atom": 0.0,
+      "trajectory_seed": 0
+    },
+    {
+      "snapshot_index": 21,
+      "split": "validation",
+      "kgrid": 8,
+      "reference_kgrid": 8,
+      "force_RMSE_meV_A": 0.0,
+      "force_max_abs_meV_A": 0.0,
+      "energy_difference_meV_atom": 0.0,
+      "trajectory_seed": 0
+    },
+    {
+      "snapshot_index": 27,
+      "split": "validation",
+      "kgrid": 8,
+      "reference_kgrid": 8,
+      "force_RMSE_meV_A": 0.0,
+      "force_max_abs_meV_A": 0.0,
+      "energy_difference_meV_atom": 0.0,
+      "trajectory_seed": 0
+    },
+    {
+      "snapshot_index": 33,
+      "split": "validation",
+      "kgrid": 8,
+      "reference_kgrid": 8,
+      "force_RMSE_meV_A": 0.0,
+      "force_max_abs_meV_A": 0.0,
+      "energy_difference_meV_atom": 0.0,
+      "trajectory_seed": 0
+    },
+    {
+      "snapshot_index": 39,
+      "split": "validation",
+      "kgrid": 8,
+      "reference_kgrid": 8,
+      "force_RMSE_meV_A": 0.0,
+      "force_max_abs_meV_A": 0.0,
+      "energy_difference_meV_atom": 0.0,
+      "trajectory_seed": 0
+    },
+    {
+      "snapshot_index": 45,
+      "split": "validation",
+      "kgrid": 8,
+      "reference_kgrid": 8,
+      "force_RMSE_meV_A": 0.0,
+      "force_max_abs_meV_A": 0.0,
+      "energy_difference_meV_atom": 0.0,
+      "trajectory_seed": 0
+    },
+    {
+      "snapshot_index": 51,
+      "split": "validation",
+      "kgrid": 8,
+      "reference_kgrid": 8,
+      "force_RMSE_meV_A": 0.0,
+      "force_max_abs_meV_A": 0.0,
+      "energy_difference_meV_atom": 0.0,
+      "trajectory_seed": 0
+    },
+    {
+      "snapshot_index": 57,
+      "split": "validation",
+      "kgrid": 8,
+      "reference_kgrid": 8,
+      "force_RMSE_meV_A": 0.0,
+      "force_max_abs_meV_A": 0.0,
+      "energy_difference_meV_atom": 0.0,
+      "trajectory_seed": 0
+    },
+    {
+      "snapshot_index": 63,
+      "split": "validation",
+      "kgrid": 8,
+      "reference_kgrid": 8,
+      "force_RMSE_meV_A": 0.0,
+      "force_max_abs_meV_A": 0.0,
+      "energy_difference_meV_atom": 0.0,
+      "trajectory_seed": 0
+    },
+    {
+      "snapshot_index": 69,
+      "split": "validation",
+      "kgrid": 8,
+      "reference_kgrid": 8,
+      "force_RMSE_meV_A": 0.0,
+      "force_max_abs_meV_A": 0.0,
+      "energy_difference_meV_atom": 0.0,
+      "trajectory_seed": 0
+    },
+    {
+      "snapshot_index": 75,
+      "split": "validation",
+      "kgrid": 8,
+      "reference_kgrid": 8,
+      "force_RMSE_meV_A": 0.0,
+      "force_max_abs_meV_A": 0.0,
+      "energy_difference_meV_atom": 0.0,
+      "trajectory_seed": 0
+    },
+    {
+      "snapshot_index": 81,
+      "split": "validation",
+      "kgrid": 8,
+      "reference_kgrid": 8,
+      "force_RMSE_meV_A": 0.0,
+      "force_max_abs_meV_A": 0.0,
+      "energy_difference_meV_atom": 0.0,
+      "trajectory_seed": 0
+    },
+    {
+      "snapshot_index": 87,
+      "split": "validation",
+      "kgrid": 8,
+      "reference_kgrid": 8,
+      "force_RMSE_meV_A": 0.0,
+      "force_max_abs_meV_A": 0.0,
+      "energy_difference_meV_atom": 0.0,
+      "trajectory_seed": 0
+    },
+    {
+      "snapshot_index": 93,
+      "split": "validation",
+      "kgrid": 8,
+      "reference_kgrid": 8,
+      "force_RMSE_meV_A": 0.0,
+      "force_max_abs_meV_A": 0.0,
+      "energy_difference_meV_atom": 0.0,
+      "trajectory_seed": 0
+    },
+    {
+      "snapshot_index": 99,
+      "split": "validation",
+      "kgrid": 8,
+      "reference_kgrid": 8,
+      "force_RMSE_meV_A": 0.0,
+      "force_max_abs_meV_A": 0.0,
+      "energy_difference_meV_atom": 0.0,
+      "trajectory_seed": 0
+    },
+    {
+      "snapshot_index": 105,
+      "split": "validation",
+      "kgrid": 8,
+      "reference_kgrid": 8,
+      "force_RMSE_meV_A": 0.0,
+      "force_max_abs_meV_A": 0.0,
+      "energy_difference_meV_atom": 0.0,
+      "trajectory_seed": 0
+    },
+    {
+      "snapshot_index": 111,
+      "split": "validation",
+      "kgrid": 8,
+      "reference_kgrid": 8,
+      "force_RMSE_meV_A": 0.0,
+      "force_max_abs_meV_A": 0.0,
+      "energy_difference_meV_atom": 0.0,
+      "trajectory_seed": 0
+    },
+    {
+      "snapshot_index": 117,
+      "split": "validation",
+      "kgrid": 8,
+      "reference_kgrid": 8,
+      "force_RMSE_meV_A": 0.0,
+      "force_max_abs_meV_A": 0.0,
+      "energy_difference_meV_atom": 0.0,
+      "trajectory_seed": 0
+    },
+    {
+      "snapshot_index": 3,
+      "split": "validation",
+      "kgrid": 8,
+      "reference_kgrid": 8,
+      "force_RMSE_meV_A": 0.0,
+      "force_max_abs_meV_A": 0.0,
+      "energy_difference_meV_atom": 0.0,
+      "trajectory_seed": 1
+    },
+    {
+      "snapshot_index": 9,
+      "split": "validation",
+      "kgrid": 8,
+      "reference_kgrid": 8,
+      "force_RMSE_meV_A": 0.0,
+      "force_max_abs_meV_A": 0.0,
+      "energy_difference_meV_atom": 0.0,
+      "trajectory_seed": 1
+    },
+    {
+      "snapshot_index": 15,
+      "split": "validation",
+      "kgrid": 8,
+      "reference_kgrid": 8,
+      "force_RMSE_meV_A": 0.0,
+      "force_max_abs_meV_A": 0.0,
+      "energy_difference_meV_atom": 0.0,
+      "trajectory_seed": 1
+    },
+    {
+      "snapshot_index": 21,
+      "split": "validation",
+      "kgrid": 8,
+      "reference_kgrid": 8,
+      "force_RMSE_meV_A": 0.0,
+      "force_max_abs_meV_A": 0.0,
+      "energy_difference_meV_atom": 0.0,
+      "trajectory_seed": 1
+    },
+    {
+      "snapshot_index": 27,
+      "split": "validation",
+      "kgrid": 8,
+      "reference_kgrid": 8,
+      "force_RMSE_meV_A": 0.0,
+      "force_max_abs_meV_A": 0.0,
+      "energy_difference_meV_atom": 0.0,
+      "trajectory_seed": 1
+    },
+    {
+      "snapshot_index": 33,
+      "split": "validation",
+      "kgrid": 8,
+      "reference_kgrid": 8,
+      "force_RMSE_meV_A": 0.0,
+      "force_max_abs_meV_A": 0.0,
+      "energy_difference_meV_atom": 0.0,
+      "trajectory_seed": 1
+    },
+    {
+      "snapshot_index": 39,
+      "split": "validation",
+      "kgrid": 8,
+      "reference_kgrid": 8,
+      "force_RMSE_meV_A": 0.0,
+      "force_max_abs_meV_A": 0.0,
+      "energy_difference_meV_atom": 0.0,
+      "trajectory_seed": 1
+    },
+    {
+      "snapshot_index": 45,
+      "split": "validation",
+      "kgrid": 8,
+      "reference_kgrid": 8,
+      "force_RMSE_meV_A": 0.0,
+      "force_max_abs_meV_A": 0.0,
+      "energy_difference_meV_atom": 0.0,
+      "trajectory_seed": 1
+    },
+    {
+      "snapshot_index": 51,
+      "split": "validation",
+      "kgrid": 8,
+      "reference_kgrid": 8,
+      "force_RMSE_meV_A": 0.0,
+      "force_max_abs_meV_A": 0.0,
+      "energy_difference_meV_atom": 0.0,
+      "trajectory_seed": 1
+    },
+    {
+      "snapshot_index": 57,
+      "split": "validation",
+      "kgrid": 8,
+      "reference_kgrid": 8,
+      "force_RMSE_meV_A": 0.0,
+      "force_max_abs_meV_A": 0.0,
+      "energy_difference_meV_atom": 0.0,
+      "trajectory_seed": 1
+    },
+    {
+      "snapshot_index": 63,
+      "split": "validation",
+      "kgrid": 8,
+      "reference_kgrid": 8,
+      "force_RMSE_meV_A": 0.0,
+      "force_max_abs_meV_A": 0.0,
+      "energy_difference_meV_atom": 0.0,
+      "trajectory_seed": 1
+    },
+    {
+      "snapshot_index": 69,
+      "split": "validation",
+      "kgrid": 8,
+      "reference_kgrid": 8,
+      "force_RMSE_meV_A": 0.0,
+      "force_max_abs_meV_A": 0.0,
+      "energy_difference_meV_atom": 0.0,
+      "trajectory_seed": 1
+    },
+    {
+      "snapshot_index": 75,
+      "split": "validation",
+      "kgrid": 8,
+      "reference_kgrid": 8,
+      "force_RMSE_meV_A": 0.0,
+      "force_max_abs_meV_A": 0.0,
+      "energy_difference_meV_atom": 0.0,
+      "trajectory_seed": 1
+    },
+    {
+      "snapshot_index": 81,
+      "split": "validation",
+      "kgrid": 8,
+      "reference_kgrid": 8,
+      "force_RMSE_meV_A": 0.0,
+      "force_max_abs_meV_A": 0.0,
+      "energy_difference_meV_atom": 0.0,
+      "trajectory_seed": 1
+    },
+    {
+      "snapshot_index": 87,
+      "split": "validation",
+      "kgrid": 8,
+      "reference_kgrid": 8,
+      "force_RMSE_meV_A": 0.0,
+      "force_max_abs_meV_A": 0.0,
+      "energy_difference_meV_atom": 0.0,
+      "trajectory_seed": 1
+    },
+    {
+      "snapshot_index": 93,
+      "split": "validation",
+      "kgrid": 8,
+      "reference_kgrid": 8,
+      "force_RMSE_meV_A": 0.0,
+      "force_max_abs_meV_A": 0.0,
+      "energy_difference_meV_atom": 0.0,
+      "trajectory_seed": 1
+    },
+    {
+      "snapshot_index": 99,
+      "split": "validation",
+      "kgrid": 8,
+      "reference_kgrid": 8,
+      "force_RMSE_meV_A": 0.0,
+      "force_max_abs_meV_A": 0.0,
+      "energy_difference_meV_atom": 0.0,
+      "trajectory_seed": 1
+    },
+    {
+      "snapshot_index": 105,
+      "split": "validation",
+      "kgrid": 8,
+      "reference_kgrid": 8,
+      "force_RMSE_meV_A": 0.0,
+      "force_max_abs_meV_A": 0.0,
+      "energy_difference_meV_atom": 0.0,
+      "trajectory_seed": 1
+    },
+    {
+      "snapshot_index": 111,
+      "split": "validation",
+      "kgrid": 8,
+      "reference_kgrid": 8,
+      "force_RMSE_meV_A": 0.0,
+      "force_max_abs_meV_A": 0.0,
+      "energy_difference_meV_atom": 0.0,
+      "trajectory_seed": 1
+    },
+    {
+      "snapshot_index": 117,
+      "split": "validation",
+      "kgrid": 8,
+      "reference_kgrid": 8,
+      "force_RMSE_meV_A": 0.0,
+      "force_max_abs_meV_A": 0.0,
+      "energy_difference_meV_atom": 0.0,
+      "trajectory_seed": 1
+    },
+    {
+      "snapshot_index": 3,
+      "split": "validation",
+      "kgrid": 8,
+      "reference_kgrid": 8,
+      "force_RMSE_meV_A": 0.0,
+      "force_max_abs_meV_A": 0.0,
+      "energy_difference_meV_atom": 0.0,
+      "trajectory_seed": 2
+    },
+    {
+      "snapshot_index": 9,
+      "split": "validation",
+      "kgrid": 8,
+      "reference_kgrid": 8,
+      "force_RMSE_meV_A": 0.0,
+      "force_max_abs_meV_A": 0.0,
+      "energy_difference_meV_atom": 0.0,
+      "trajectory_seed": 2
+    },
+    {
+      "snapshot_index": 15,
+      "split": "validation",
+      "kgrid": 8,
+      "reference_kgrid": 8,
+      "force_RMSE_meV_A": 0.0,
+      "force_max_abs_meV_A": 0.0,
+      "energy_difference_meV_atom": 0.0,
+      "trajectory_seed": 2
+    },
+    {
+      "snapshot_index": 21,
+      "split": "validation",
+      "kgrid": 8,
+      "reference_kgrid": 8,
+      "force_RMSE_meV_A": 0.0,
+      "force_max_abs_meV_A": 0.0,
+      "energy_difference_meV_atom": 0.0,
+      "trajectory_seed": 2
+    },
+    {
+      "snapshot_index": 27,
+      "split": "validation",
+      "kgrid": 8,
+      "reference_kgrid": 8,
+      "force_RMSE_meV_A": 0.0,
+      "force_max_abs_meV_A": 0.0,
+      "energy_difference_meV_atom": 0.0,
+      "trajectory_seed": 2
+    },
+    {
+      "snapshot_index": 33,
+      "split": "validation",
+      "kgrid": 8,
+      "reference_kgrid": 8,
+      "force_RMSE_meV_A": 0.0,
+      "force_max_abs_meV_A": 0.0,
+      "energy_difference_meV_atom": 0.0,
+      "trajectory_seed": 2
+    },
+    {
+      "snapshot_index": 39,
+      "split": "validation",
+      "kgrid": 8,
+      "reference_kgrid": 8,
+      "force_RMSE_meV_A": 0.0,
+      "force_max_abs_meV_A": 0.0,
+      "energy_difference_meV_atom": 0.0,
+      "trajectory_seed": 2
+    },
+    {
+      "snapshot_index": 45,
+      "split": "validation",
+      "kgrid": 8,
+      "reference_kgrid": 8,
+      "force_RMSE_meV_A": 0.0,
+      "force_max_abs_meV_A": 0.0,
+      "energy_difference_meV_atom": 0.0,
+      "trajectory_seed": 2
+    },
+    {
+      "snapshot_index": 51,
+      "split": "validation",
+      "kgrid": 8,
+      "reference_kgrid": 8,
+      "force_RMSE_meV_A": 0.0,
+      "force_max_abs_meV_A": 0.0,
+      "energy_difference_meV_atom": 0.0,
+      "trajectory_seed": 2
+    },
+    {
+      "snapshot_index": 57,
+      "split": "validation",
+      "kgrid": 8,
+      "reference_kgrid": 8,
+      "force_RMSE_meV_A": 0.0,
+      "force_max_abs_meV_A": 0.0,
+      "energy_difference_meV_atom": 0.0,
+      "trajectory_seed": 2
+    },
+    {
+      "snapshot_index": 63,
+      "split": "validation",
+      "kgrid": 8,
+      "reference_kgrid": 8,
+      "force_RMSE_meV_A": 0.0,
+      "force_max_abs_meV_A": 0.0,
+      "energy_difference_meV_atom": 0.0,
+      "trajectory_seed": 2
+    },
+    {
+      "snapshot_index": 69,
+      "split": "validation",
+      "kgrid": 8,
+      "reference_kgrid": 8,
+      "force_RMSE_meV_A": 0.0,
+      "force_max_abs_meV_A": 0.0,
+      "energy_difference_meV_atom": 0.0,
+      "trajectory_seed": 2
+    },
+    {
+      "snapshot_index": 75,
+      "split": "validation",
+      "kgrid": 8,
+      "reference_kgrid": 8,
+      "force_RMSE_meV_A": 0.0,
+      "force_max_abs_meV_A": 0.0,
+      "energy_difference_meV_atom": 0.0,
+      "trajectory_seed": 2
+    },
+    {
+      "snapshot_index": 81,
+      "split": "validation",
+      "kgrid": 8,
+      "reference_kgrid": 8,
+      "force_RMSE_meV_A": 0.0,
+      "force_max_abs_meV_A": 0.0,
+      "energy_difference_meV_atom": 0.0,
+      "trajectory_seed": 2
+    },
+    {
+      "snapshot_index": 87,
+      "split": "validation",
+      "kgrid": 8,
+      "reference_kgrid": 8,
+      "force_RMSE_meV_A": 0.0,
+      "force_max_abs_meV_A": 0.0,
+      "energy_difference_meV_atom": 0.0,
+      "trajectory_seed": 2
+    },
+    {
+      "snapshot_index": 93,
+      "split": "validation",
+      "kgrid": 8,
+      "reference_kgrid": 8,
+      "force_RMSE_meV_A": 0.0,
+      "force_max_abs_meV_A": 0.0,
+      "energy_difference_meV_atom": 0.0,
+      "trajectory_seed": 2
+    },
+    {
+      "snapshot_index": 99,
+      "split": "validation",
+      "kgrid": 8,
+      "reference_kgrid": 8,
+      "force_RMSE_meV_A": 0.0,
+      "force_max_abs_meV_A": 0.0,
+      "energy_difference_meV_atom": 0.0,
+      "trajectory_seed": 2
+    },
+    {
+      "snapshot_index": 105,
+      "split": "validation",
+      "kgrid": 8,
+      "reference_kgrid": 8,
+      "force_RMSE_meV_A": 0.0,
+      "force_max_abs_meV_A": 0.0,
+      "energy_difference_meV_atom": 0.0,
+      "trajectory_seed": 2
+    },
+    {
+      "snapshot_index": 111,
+      "split": "validation",
+      "kgrid": 8,
+      "reference_kgrid": 8,
+      "force_RMSE_meV_A": 0.0,
+      "force_max_abs_meV_A": 0.0,
+      "energy_difference_meV_atom": 0.0,
+      "trajectory_seed": 2
+    },
+    {
+      "snapshot_index": 117,
+      "split": "validation",
+      "kgrid": 8,
+      "reference_kgrid": 8,
+      "force_RMSE_meV_A": 0.0,
+      "force_max_abs_meV_A": 0.0,
+      "energy_difference_meV_atom": 0.0,
+      "trajectory_seed": 2
+    }
+  ],
+  "seed_outputs": {
+    "0": {
+      "path": "/home/howardwang/phonon/data/graphene_fd_transferability/T450/on_policy/dft_force_labels/merged/seed0.xyz",
+      "sha256": "cb090a2868e9ac23efedc0a8bd14ca278ba1c80a3840bae89a3f30c2b7ad7f36",
+      "n_structures": 20,
+      "indices": [
+        3,
+        9,
+        15,
+        21,
+        27,
+        33,
+        39,
+        45,
+        51,
+        57,
+        63,
+        69,
+        75,
+        81,
+        87,
+        93,
+        99,
+        105,
+        111,
+        117
+      ]
+    },
+    "1": {
+      "path": "/home/howardwang/phonon/data/graphene_fd_transferability/T450/on_policy/dft_force_labels/merged/seed1.xyz",
+      "sha256": "66e1107001c58d6e8e316bf86324c55c56c828cc0060d82bd72b9497689ecf69",
+      "n_structures": 20,
+      "indices": [
+        3,
+        9,
+        15,
+        21,
+        27,
+        33,
+        39,
+        45,
+        51,
+        57,
+        63,
+        69,
+        75,
+        81,
+        87,
+        93,
+        99,
+        105,
+        111,
+        117
+      ]
+    },
+    "2": {
+      "path": "/home/howardwang/phonon/data/graphene_fd_transferability/T450/on_policy/dft_force_labels/merged/seed2.xyz",
+      "sha256": "e9ea6f916b5d64ea9fe752f60be4a44e6e3e5d8c835015f81738bbfbec08b5db",
+      "n_structures": 20,
+      "indices": [
+        3,
+        9,
+        15,
+        21,
+        27,
+        33,
+        39,
+        45,
+        51,
+        57,
+        63,
+        69,
+        75,
+        81,
+        87,
+        93,
+        99,
+        105,
+        111,
+        117
+      ]
+    }
+  },
+  "all_output": {
+    "path": "/home/howardwang/phonon/data/graphene_fd_transferability/T450/on_policy/dft_force_labels/merged/all60.xyz",
+    "sha256": "d6d3882ebfac4e9fc8f07ed77cc7dc3d2858a80b2f479b7bf53499ba98470d72"
+  }
+}

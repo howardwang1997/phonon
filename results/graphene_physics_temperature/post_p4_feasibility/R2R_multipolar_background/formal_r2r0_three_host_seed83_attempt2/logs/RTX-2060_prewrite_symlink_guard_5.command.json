@@ -1,0 +1,19 @@
+{
+  "argv": [
+    "ssh",
+    "-o",
+    "BatchMode=yes",
+    "-o",
+    "ConnectTimeout=20",
+    "-o",
+    "ControlPath=none",
+    "howardwang@100.105.21.7",
+    "python3 -c 'import os\nimport pathlib\nimport stat\nimport sys\npath = pathlib.Path(sys.argv[1])\ncurrent = pathlib.Path(path.anchor)\nfor part in path.parts[1:]:\n    current = current / part\n    try:\n        mode = os.lstat(current).st_mode\n    except FileNotFoundError:\n        continue\n    if stat.S_ISLNK(mode):\n        raise SystemExit(2)\n' /home/howardwang/phonon/results/r2r0_formal_bundle_20260825/f2abdb5e997d/scripts/smearing_kink/launch_graphene_r2r0_formal.py"
+  ],
+  "returncode": 0,
+  "sha256": "9501d2211c06dd7f1d1098b815427f1a60b5612ccfcc1f72c0afde5627b83e75",
+  "stderr_basename": "RTX-2060_prewrite_symlink_guard_5.stderr",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout_basename": "RTX-2060_prewrite_symlink_guard_5.stdout",
+  "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}

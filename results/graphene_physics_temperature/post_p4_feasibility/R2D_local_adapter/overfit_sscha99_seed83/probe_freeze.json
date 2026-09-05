@@ -1,0 +1,29 @@
+{
+  "status": "frozen_before_overfit_probe",
+  "scope": "expressibility/optimization diagnostic only; not a selectable model",
+  "mode": "sscha99",
+  "seed": 83,
+  "max_epochs": 120,
+  "architecture": {
+    "num_interactions": 2,
+    "hidden_irreps": "16x0e+16x1o",
+    "r_max_A": 3.0,
+    "num_radial_basis": 8,
+    "num_cutoff_basis": 5,
+    "correlation": 3
+  },
+  "loss": {
+    "name": "forces_only",
+    "forces_weight": 100.0
+  },
+  "data": {
+    "path": "/home/howardwang/phonon/data/graphene_r2d_overfit_probe/sscha99.xyz",
+    "sha256": "57a2402fa0388dfd1a55f5ea0e1adce2aa994af73b59441747d781e1d8fe79bb"
+  },
+  "script": {
+    "path": "/home/howardwang/phonon/scripts/2060/run_graphene_r2d_overfit_probe.sh",
+    "sha256": "fdb234508946dac8e9cef321a5be6c90d9391d4565ff6580f2fb7f50e7f8eeae"
+  },
+  "new_DFT_labels": 0,
+  "long_range_model_modified": false
+}

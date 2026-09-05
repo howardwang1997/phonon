@@ -1,0 +1,22 @@
+/root/miniconda3/envs/phonon-mlip/lib/python3.11/site-packages/e3nn/o3/_wigner.py:10: UserWarning: Environment variable TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD detected, since the`weights_only` argument was not explicitly passed to `torch.load`, forcing weights_only=False.
+  _Jd, _W3j_flat, _W3j_indices = torch.load(os.path.join(os.path.dirname(__file__), 'constants.pt'))
+Traceback (most recent call last):
+  File "/data/graphene_r2r0/formal_bundle/bf998936b4b3/scripts/smearing_kink/run_graphene_r2r0_formal.py", line 98, in <module>
+    main()
+  File "/data/graphene_r2r0/formal_bundle/bf998936b4b3/scripts/smearing_kink/run_graphene_r2r0_formal.py", line 77, in main
+    run_mechanics(
+  File "/data/graphene_r2r0/formal_bundle/bf998936b4b3/scripts/smearing_kink/graphene_r2r0_formal.py", line 1576, in run_mechanics
+    energy, force, query_receipt = _combined_ef(
+                                   ^^^^^^^^^^^^^
+  File "/data/graphene_r2r0/formal_bundle/bf998936b4b3/scripts/smearing_kink/graphene_r2r0_formal.py", line 1304, in _combined_ef
+    value = r2r.production_combined_energy_force(
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/graphene_r2r0/formal_bundle/bf998936b4b3/scripts/smearing_kink/graphene_r2r_multipolar_background.py", line 2020, in production_combined_energy_force
+    context = _verified_production_context(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/graphene_r2r0/formal_bundle/bf998936b4b3/scripts/smearing_kink/graphene_r2r_multipolar_background.py", line 1492, in _verified_production_context
+    validate_reference_semantics(reference_template)
+  File "/data/graphene_r2r0/formal_bundle/bf998936b4b3/scripts/smearing_kink/graphene_r2r_multipolar_background.py", line 188, in validate_reference_semantics
+    raise ValueError("R2R reference ordered tiling/background origin changed")
+ValueError: R2R reference ordered tiling/background origin changed
+ERROR conda.cli.main_run:execute(148): `conda run python /data/graphene_r2r0/formal_bundle/bf998936b4b3/scripts/smearing_kink/run_graphene_r2r0_formal.py mechanics --device cuda --output /data/graphene_r2r0/formal_r2r0_three_host_seed83/bf998936b4b3/attempt_0001/mechanics --freeze-manifest /data/graphene_r2r0/formal_bundle/bf998936b4b3/results/r2r0_formal/control/freeze_manifest.json --authorization-marker /data/graphene_r2r0/formal_bundle/bf998936b4b3/results/r2r0_formal/control/R2R0_FORMAL_GO` failed. (See above for error)

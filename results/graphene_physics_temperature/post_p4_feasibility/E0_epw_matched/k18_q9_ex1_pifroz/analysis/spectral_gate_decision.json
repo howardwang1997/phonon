@@ -1,0 +1,30 @@
+{
+  "status": "passed",
+  "scope": "E0-P2 k18/q9 450 K nine-point static spectral gate",
+  "decided_at_utc": "2026-08-06T16:03:24.210421+00:00",
+  "thresholds": {
+    "line_MAE_cm-1": 10.0,
+    "high_symmetry_abs_error_cm-1": 15.0,
+    "K_kink_relative_error": 0.2
+  },
+  "checks": {
+    "gamma_line_MAE_lt_10_cm-1": true,
+    "gamma_point_abs_lt_15_cm-1": true,
+    "K_line_MAE_lt_10_cm-1": true,
+    "K_point_abs_lt_15_cm-1": true,
+    "K_kink_relative_error_lt_0p20": true
+  },
+  "metrics": {
+    "gamma_line_MAE_cm-1": 5.6071813512344875,
+    "gamma_point_abs_cm-1": 3.4627706002677314,
+    "K_line_MAE_cm-1": 5.1199770897024335,
+    "K_point_abs_cm-1": 5.053454216781347,
+    "K_kink_relative_error": 0.032827761187692
+  },
+  "summary": {
+    "path": "/data/graphene_e0_epw_matched/k18_q9_ex1_pifroz/analysis/static_pilot_summary.json",
+    "sha256": "4221a9719ae59e77e6a59e85b424f6b50e551f16b409bcbb88b1bac6b5f23cea"
+  },
+  "next_stage": "release_complete_q9_static_grid",
+  "does_not_release_E1": true
+}

@@ -1,0 +1,110 @@
+{
+  "status": "complete",
+  "scope": "P0 source inventory before cross-temperature model selection or any 450 K DFT labels",
+  "source_host": "RTX 2060 via Tailscale 100.105.21.7; 300 K files checksum-verified after sync",
+  "generated_at_utc": "2026-07-31T22:09:09.869608+00:00",
+  "artifacts": {
+    "t300_model": {
+      "path": "results/graphene_fd_delta_pilot/T300/delta32/gr_fd300_delta32.model",
+      "size_bytes": 589756,
+      "sha256": "6560f7bbf1ba8f8605893c2c0a9a7bd60d2ebaf66831e4b2f3b682ad43433766"
+    },
+    "t300_force_selection": {
+      "path": "results/graphene_fd_delta_pilot/T300/selection.json",
+      "size_bytes": 633,
+      "sha256": "b937be838a6daa7cbfea7bde3b2b93637fd0ad79dcf9e3ca9f664581442389d1",
+      "json_summary": {
+        "passes_force_and_replay_gate": true
+      }
+    },
+    "t300_sampling_operator": {
+      "path": "data/graphene_fd_delta_pilot/T300/long_range_operator.npz",
+      "size_bytes": 377196,
+      "sha256": "bdf82e17547dae0fa80ec3802d5d710db306778e6a4b537705aaba09b50ae660"
+    },
+    "t300_short_pooled360": {
+      "path": "results/td_phonon/td_graphene_v11_fd300_delta_pilot_short_pooled360.npz",
+      "size_bytes": 415034,
+      "sha256": "d67ff85a0a47877a4f13baf475a215e53400fd5969d4a841677da9b21656023d"
+    },
+    "t300_static_transfer": {
+      "path": "results/graphene_fd_delta_pilot/T300_TDEP/qspace_transfer/acceptance.json",
+      "size_bytes": 6582,
+      "sha256": "a1fc729f2796fa0e5ed68bb4219e64872b08d29351635645087ff8fb94ee0afe",
+      "json_summary": {
+        "status": "failed",
+        "scope": "300 K development force gate plus second-lattice-temperature q-space constraint; not an independent force holdout",
+        "temperature_K": 300,
+        "degauss_Ry": 0.0019000869,
+        "passes_all_force_seed_qspace_gates": false
+      }
+    },
+    "t300_calibrated": {
+      "path": "results/graphene_fd_delta_pilot/T300_TDEP/qspace_calibrated/acceptance.json",
+      "size_bytes": 7565,
+      "sha256": "9843c0c7c9c1c0197f9a0992a48bc0af3e46b82ba3574beca1ee05c7af6aca48",
+      "json_summary": {
+        "status": "passed",
+        "scope": "300 K development finite-temperature calibration; not an independent force or lattice-temperature holdout",
+        "temperature_K": 300,
+        "degauss_Ry": 0.0019000869,
+        "passes_all_force_seed_calibrated_qspace_gates": true
+      }
+    },
+    "t600_model": {
+      "path": "results/graphene_fd_delta_weighted/T600/selected_checkpoint.model",
+      "size_bytes": 594494,
+      "sha256": "3cf7f697602fed0b71cece204d797821c1d6faff0e0138892f69b06aafe4ddf3"
+    },
+    "t600_freeze": {
+      "path": "results/graphene_fd_delta_weighted/T600/freeze_manifest.json",
+      "size_bytes": 1638,
+      "sha256": "13b24f18c05f0896257452078293f938b46a8efc60c1b8ad6d1e67f404a0e9d8",
+      "json_summary": {
+        "status": "frozen_before_independent_holdout_exposure"
+      }
+    },
+    "t600_force_holdout": {
+      "path": "results/graphene_fd_delta_weighted/holdout600/gate_selection.json",
+      "size_bytes": 631,
+      "sha256": "c511a172d93adbbbb8c11864e835766fcb617e74068be3d6e7e79dc68e9cf1e9",
+      "json_summary": {
+        "passes_force_and_replay_gate": true
+      }
+    },
+    "t600_sampling_operator": {
+      "path": "data/graphene_fd_delta_pilot/T600/long_range_operator.npz",
+      "size_bytes": 377196,
+      "sha256": "d3a7036fcb668d848808378549b711bc97cba83dcaedd34a7d518a73217a2fb2"
+    },
+    "t600_short_pooled360": {
+      "path": "results/td_phonon/td_graphene_v11_fd600_delta_weighted_short_pooled360.npz",
+      "size_bytes": 415098,
+      "sha256": "06cf59cc2ff105dc65e105313002a41cfb324d991a99e4d5d6c34c3c8e55dd91"
+    },
+    "t600_static_transfer": {
+      "path": "results/graphene_fd_delta_weighted/T600_TDEP/acceptance.json",
+      "size_bytes": 6544,
+      "sha256": "1e4c1b0b544794b230a2ef9422e159d8d71998fe0d4e920a2f9bebf5295911c0",
+      "json_summary": {
+        "status": "failed",
+        "scope": "600 K frozen model: independent 15-structure force holdout; full-force sampling with exact provisional-LR subtraction; three-seed short-TDEP plus q-space transfer",
+        "temperature_K": 600,
+        "degauss_Ry": 0.0038001738,
+        "passes_all_force_seed_qspace_gates": false
+      }
+    },
+    "t600_calibrated": {
+      "path": "results/graphene_fd_delta_weighted/T600_TDEP/calibrated_acceptance.json",
+      "size_bytes": 7478,
+      "sha256": "32645a3f73c8c057d271ef2aa7b08c54d49421c12f4fe13c7454d806b45bbc79",
+      "json_summary": {
+        "status": "passed",
+        "scope": "600 K finite-temperature-calibrated q-space correction after the unchanged static-transfer control failed",
+        "temperature_K": 600,
+        "degauss_Ry": 0.0038001738,
+        "passes_all_force_seed_calibrated_qspace_gates": true
+      }
+    }
+  }
+}

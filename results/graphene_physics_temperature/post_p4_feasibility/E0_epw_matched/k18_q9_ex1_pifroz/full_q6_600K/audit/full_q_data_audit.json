@@ -1,0 +1,20 @@
+{
+  "status": "ready",
+  "scope": "complete q6 static EPW data integrity; not the Cartesian operator gate",
+  "audited_at_utc": "2026-08-06T17:47:39.730643+00:00",
+  "ngrid": 6,
+  "target_temperature_K": 600.0,
+  "n_qpoints": 36,
+  "n_zero_frequency_rows": 216,
+  "max_q_minus_q_bare_difference_eV": 0.0,
+  "max_q_minus_q_delta_pi_difference_meV": 2.2421012996431955e-05,
+  "checks": {
+    "row_count": true,
+    "temperature_matches_target": true,
+    "broadening_is_0p005eV": true,
+    "q_minus_q_bare_max_le_1e-6_eV": true,
+    "q_minus_q_delta_pi_max_le_1e-3_meV": true
+  },
+  "releases_E1": false,
+  "next_stage": "construct_cartesian_Hermitian_operator_and_run_real_space_replay"
+}

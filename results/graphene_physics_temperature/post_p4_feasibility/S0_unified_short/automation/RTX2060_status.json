@@ -1,0 +1,100 @@
+{
+  "status": "active",
+  "updated_at_iso": "2026-08-07T17:19:00.808742+08:00",
+  "host": "RTX 2060",
+  "resources": {
+    "gpu": {
+      "status": "available",
+      "name": "NVIDIA GeForce RTX 2060 SUPER",
+      "memory_used_MiB": 734,
+      "memory_total_MiB": 8192,
+      "utilization_percent": 34
+    },
+    "free_disk_GiB": 71.77110290527344
+  },
+  "S0_formal": {
+    "service": "active",
+    "requested_epochs": 240,
+    "checkpoint_evaluation_included_after_training": true,
+    "latest_epoch": 115,
+    "latest_validation_force_RMSE_meV_A": 30.86,
+    "measured_seconds_per_epoch": 15.513043478260869,
+    "estimated_completion_iso": "2026-08-07T18:00:02.373959+08:00",
+    "state": "running_or_initializing"
+  },
+  "automatic_dispatch": {
+    "action": "none",
+    "reason": "waiting_for_passing_S0_force_gate"
+  },
+  "L0_classical_TDEP": {
+    "state": "not_started_or_between_services",
+    "service": "inactive",
+    "execution_order_K": [
+      450,
+      300,
+      600
+    ],
+    "snapshot_counts": {
+      "T450_seed0": 0,
+      "T450_seed1": 0,
+      "T450_seed2": 0,
+      "T300_seed0": 0,
+      "T300_seed1": 0,
+      "T300_seed2": 0,
+      "T600_seed0": 0,
+      "T600_seed1": 0,
+      "T600_seed2": 0
+    },
+    "target_snapshots_per_seed": 3000,
+    "active_or_next_lane": "T450_seed0",
+    "estimated_remaining_hours": 104.79699248120299,
+    "estimated_completion_iso": "2026-08-12T02:06:49.981674+08:00",
+    "observed_snapshot_rates_per_hour": {},
+    "markers": {
+      "pilot_done": false,
+      "all_temperatures_passed": false,
+      "blocked_pilot": false,
+      "blocked_point_gate": false,
+      "blocked_bootstrap_gate": false,
+      "waiting_storage": false,
+      "waiting_gpu": false,
+      "failed_infrastructure": false
+    }
+  },
+  "held_queue": [
+    {
+      "machine": "RTX 2060",
+      "task": "Q0 450 K quantum benchmark",
+      "state": "held_until_L0_development_gate",
+      "budget_hours": [
+        2,
+        4
+      ]
+    },
+    {
+      "machine": "V100-A",
+      "task": "V0 static DFPT at 375 K formula degauss",
+      "state": "validation_locked_until_L0_Q0_X0_freeze",
+      "budget_hours": [
+        67,
+        77
+      ]
+    },
+    {
+      "machine": "V100-B",
+      "task": "V0 static DFPT at 525 K formula degauss",
+      "state": "validation_locked_until_L0_Q0_X0_freeze",
+      "budget_hours": [
+        67,
+        77
+      ]
+    }
+  ],
+  "automation_boundary": {
+    "starts_L0_only_after_all_S0_force_gates_pass": true,
+    "stops_on_any_fixed_L0_scientific_gate_failure": true,
+    "does_not_unlock_375_525_K": true,
+    "does_not_preempt_other_GPU_jobs": true,
+    "reboot_note": "user linger is disabled; after a full host reboot, start the autopilot user service once"
+  }
+}

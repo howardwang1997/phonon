@@ -1,0 +1,75 @@
+{
+  "status": "passed",
+  "scope": "450 K electronic-smearing static-DFPT k-grid convergence",
+  "degauss_Ry": 0.00285013035,
+  "lower_kgrid": 120,
+  "upper_kgrid": 144,
+  "threshold_top_max_abs_difference_cm-1": 1.0,
+  "maximum_top_abs_difference_cm-1": 0.11544600000001992,
+  "passes_convergence_gate": true,
+  "comparisons": [
+    {
+      "region": "G",
+      "t_GK": 0.0,
+      "k120_top_cm-1": 1573.792434,
+      "k144_top_cm-1": 1573.90788,
+      "top_abs_difference_cm-1": 0.11544600000001992
+    },
+    {
+      "region": "G",
+      "t_GK": 0.015,
+      "k120_top_cm-1": 1576.460238,
+      "k144_top_cm-1": 1576.456639,
+      "top_abs_difference_cm-1": 0.0035989999998946587
+    },
+    {
+      "region": "G",
+      "t_GK": 0.03,
+      "k120_top_cm-1": 1580.925102,
+      "k144_top_cm-1": 1580.931059,
+      "top_abs_difference_cm-1": 0.00595700000008037
+    },
+    {
+      "region": "K",
+      "t_GK": 0.98,
+      "k120_top_cm-1": 1296.783608,
+      "k144_top_cm-1": 1296.798082,
+      "top_abs_difference_cm-1": 0.014474000000063825
+    },
+    {
+      "region": "K",
+      "t_GK": 0.99,
+      "k120_top_cm-1": 1291.904764,
+      "k144_top_cm-1": 1291.914546,
+      "top_abs_difference_cm-1": 0.009782000000086555
+    },
+    {
+      "region": "K",
+      "t_GK": 1.0,
+      "k120_top_cm-1": 1289.751033,
+      "k144_top_cm-1": 1289.791537,
+      "top_abs_difference_cm-1": 0.040504000000055385
+    },
+    {
+      "region": "K",
+      "t_GK": 1.01,
+      "k120_top_cm-1": 1291.965858,
+      "k144_top_cm-1": 1291.971006,
+      "top_abs_difference_cm-1": 0.005147999999962849
+    },
+    {
+      "region": "K",
+      "t_GK": 1.02,
+      "k120_top_cm-1": 1297.122934,
+      "k144_top_cm-1": 1297.134597,
+      "top_abs_difference_cm-1": 0.011662999999998647
+    }
+  ],
+  "sources": [
+    {
+      "path": "/data/graphene_physical_fd_dfpt/campaigns/FD450_CONV/graphene_FD450_CONV_dfpt.csv",
+      "sha256": "554793ef74c9ef2e4ad3cf93c20ea1ebea80f37441a817021727eea7cf92cc45"
+    }
+  ],
+  "next_stage": "run FD450_LINE at k=144"
+}

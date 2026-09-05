@@ -1,0 +1,56 @@
+{
+  "status": "frozen_before_training",
+  "mode": "additive_conservative_local_many_body_residual",
+  "run_tag": "local_mb_r3_h16_c3",
+  "seed": 83,
+  "max_epochs": 240,
+  "architecture": {
+    "model": "MACE",
+    "num_interactions": 2,
+    "hidden_irreps": "16x0e+16x1o",
+    "r_max_A": 3.0,
+    "num_radial_basis": 8,
+    "num_cutoff_basis": 5,
+    "correlation": 3
+  },
+  "loss": {
+    "name": "forces_only",
+    "energy_weight": 0.0,
+    "forces_weight": 100.0
+  },
+  "optimizer": {
+    "lr": 0.001,
+    "weight_decay": 1e-06,
+    "ema": true,
+    "ema_decay": 0.99
+  },
+  "combination": "frozen depth-3 plus this independently trained adapter",
+  "data_manifest": {
+    "path": "/home/howardwang/phonon/data/graphene_r2d_local_adapter/manifest.json",
+    "sha256": "3656e58b567ae4e795b83572ac112880a44b2a1634d12cde43ce5fef4e6838cc"
+  },
+  "data_outputs": {
+    "train.xyz": {
+      "path": "data/graphene_r2d_local_adapter/train.xyz",
+      "sha256": "2cc17a7bd8af24f6d234a0ab0cfd4f7689abf8d091997fc45c74131ba3aedf30"
+    },
+    "val.xyz": {
+      "path": "data/graphene_r2d_local_adapter/val.xyz",
+      "sha256": "62c40fdfb2f951a3625a53b39cf18f92925c1ece1169eb25822a1fecb2029f09"
+    },
+    "test.xyz": {
+      "path": "data/graphene_r2d_local_adapter/test.xyz",
+      "sha256": "d77da1e9fb7aa844a1de3bddc7c0805e4adeb524596d6596890ca8f3b0d4f43e"
+    },
+    "supported9_train.xyz": {
+      "path": "data/graphene_r2d_local_adapter/supported9_train.xyz",
+      "sha256": "505cf1a22ec05f83b1cdc610809e5930652536a9b295bf45c4c1221fa4183a88"
+    }
+  },
+  "training_script": {
+    "path": "/home/howardwang/phonon/scripts/2060/run_graphene_r2d_local_adapter.sh",
+    "sha256": "b34b3dc6bcecc8ba053a072b0838f5e9d426c307241bd885da5ba821117bc1a5"
+  },
+  "new_DFT_labels": 0,
+  "long_range_model_modified": false
+}

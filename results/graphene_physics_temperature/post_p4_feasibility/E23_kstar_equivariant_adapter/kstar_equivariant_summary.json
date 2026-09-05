@@ -1,0 +1,260 @@
+{
+  "status": "PASS",
+  "scope": "existing graphene q6 bare matrices and EPW corrections; no new DFT; one shared A-prime projector across three smearings",
+  "representation": {
+    "formula": "DeltaD(q)=a(q,s) P_K; DeltaD(-q)=DeltaD(q)*",
+    "K_star_reduced_coordinate_quotient": [
+      [
+        0.3333333333333333,
+        0.3333333333333333,
+        0.0
+      ],
+      [
+        0.6666666666666666,
+        0.6666666666666666,
+        0.0
+      ]
+    ],
+    "phase_handling": "store the Hermitian projector, not its eigenvector phase",
+    "smearing_handling": "the projector is shared; smearing changes only the real response amplitude"
+  },
+  "gates": {
+    "raw_time_reversal_relative_error": {
+      "observed": 0.0,
+      "threshold": 1e-08,
+      "comparison": "<=",
+      "pass": true
+    },
+    "shared_projector_min_frobenius_capture": {
+      "observed": 0.999832927666002,
+      "threshold": 0.995,
+      "comparison": ">=",
+      "pass": true
+    },
+    "A_prime_frequency_max_abs_error_cm-1": {
+      "observed": 2.2737367544323206e-13,
+      "threshold": 0.5,
+      "comparison": "<=",
+      "pass": true
+    },
+    "generated_time_reversal_max_abs": {
+      "observed": 0.0,
+      "threshold": 1e-14,
+      "comparison": "<=",
+      "pass": true
+    },
+    "generated_hermitian_max_abs": {
+      "observed": 0.0,
+      "threshold": 1e-14,
+      "comparison": "<=",
+      "pass": true
+    }
+  },
+  "records": [
+    {
+      "temperature_K": 300,
+      "smearing_degauss_Ry": 0.0019000869380739254,
+      "valley": "K",
+      "qpoint_reduced": [
+        0.3333333333333333,
+        0.3333333333333333,
+        0.0
+      ],
+      "projected_amplitude_cm-2": -79960.64114045122,
+      "correction_frobenius_capture": 0.9998955643347841,
+      "full_frequencies_cm-1": [
+        530.4408281634965,
+        530.440828164424,
+        998.5653646057336,
+        1222.4684288434244,
+        1222.468428844265,
+        1283.1419675270745
+      ],
+      "adapter_frequencies_cm-1": [
+        530.4408271906442,
+        530.4408271915718,
+        998.565296661115,
+        1222.2320640974551,
+        1222.2320640982962,
+        1283.1419675270745
+      ],
+      "all_branch_max_abs_error_cm-1": 0.23636474596924018,
+      "A_prime_frequency_error_cm-1": 0.0
+    },
+    {
+      "temperature_K": 300,
+      "smearing_degauss_Ry": 0.0019000869380739254,
+      "valley": "K_prime",
+      "qpoint_reduced": [
+        0.6666666666666666,
+        0.6666666666666666,
+        0.0
+      ],
+      "projected_amplitude_cm-2": -79960.64114045122,
+      "correction_frobenius_capture": 0.9998955643347841,
+      "full_frequencies_cm-1": [
+        530.4408281634965,
+        530.440828164424,
+        998.5653646057336,
+        1222.4684288434244,
+        1222.468428844265,
+        1283.1419675270745
+      ],
+      "adapter_frequencies_cm-1": [
+        530.4408271906442,
+        530.4408271915718,
+        998.565296661115,
+        1222.2320640974551,
+        1222.2320640982962,
+        1283.1419675270745
+      ],
+      "all_branch_max_abs_error_cm-1": 0.23636474596924018,
+      "A_prime_frequency_error_cm-1": 0.0
+    },
+    {
+      "temperature_K": 450,
+      "smearing_degauss_Ry": 0.0028501304071108886,
+      "valley": "K",
+      "qpoint_reduced": [
+        0.3333333333333333,
+        0.3333333333333333,
+        0.0
+      ],
+      "projected_amplitude_cm-2": -76080.37326184529,
+      "correction_frobenius_capture": 0.9998652997839298,
+      "full_frequencies_cm-1": [
+        530.4408281700723,
+        530.4408281709999,
+        998.5653646010378,
+        1222.4874765020456,
+        1222.4874765028865,
+        1284.6530958620144
+      ],
+      "adapter_frequencies_cm-1": [
+        530.4408271906442,
+        530.4408271915718,
+        998.5652966611149,
+        1222.2320640974551,
+        1222.232064098296,
+        1284.6530958620142
+      ],
+      "all_branch_max_abs_error_cm-1": 0.2554124045905155,
+      "A_prime_frequency_error_cm-1": -2.2737367544323206e-13
+    },
+    {
+      "temperature_K": 450,
+      "smearing_degauss_Ry": 0.0028501304071108886,
+      "valley": "K_prime",
+      "qpoint_reduced": [
+        0.6666666666666666,
+        0.6666666666666666,
+        0.0
+      ],
+      "projected_amplitude_cm-2": -76080.37326184529,
+      "correction_frobenius_capture": 0.9998652997839298,
+      "full_frequencies_cm-1": [
+        530.4408281700723,
+        530.4408281709999,
+        998.5653646010378,
+        1222.4874765020456,
+        1222.4874765028865,
+        1284.6530958620144
+      ],
+      "adapter_frequencies_cm-1": [
+        530.4408271906442,
+        530.4408271915718,
+        998.5652966611149,
+        1222.2320640974551,
+        1222.232064098296,
+        1284.6530958620142
+      ],
+      "all_branch_max_abs_error_cm-1": 0.2554124045905155,
+      "A_prime_frequency_error_cm-1": -2.2737367544323206e-13
+    },
+    {
+      "temperature_K": 600,
+      "smearing_degauss_Ry": 0.003800173876147851,
+      "valley": "K",
+      "qpoint_reduced": [
+        0.3333333333333333,
+        0.3333333333333333,
+        0.0
+      ],
+      "projected_amplitude_cm-2": -72042.44227036915,
+      "correction_frobenius_capture": 0.999832927666002,
+      "full_frequencies_cm-1": [
+        530.4408281728988,
+        530.4408281738264,
+        998.5653645843207,
+        1222.5014224552726,
+        1222.5014224561135,
+        1286.2237393623764
+      ],
+      "adapter_frequencies_cm-1": [
+        530.4408271906443,
+        530.4408271915719,
+        998.5652966611146,
+        1222.2320640974551,
+        1222.232064098296,
+        1286.2237393623761
+      ],
+      "all_branch_max_abs_error_cm-1": 0.2693583578175094,
+      "A_prime_frequency_error_cm-1": -2.2737367544323206e-13
+    },
+    {
+      "temperature_K": 600,
+      "smearing_degauss_Ry": 0.003800173876147851,
+      "valley": "K_prime",
+      "qpoint_reduced": [
+        0.6666666666666666,
+        0.6666666666666666,
+        0.0
+      ],
+      "projected_amplitude_cm-2": -72042.44227036915,
+      "correction_frobenius_capture": 0.999832927666002,
+      "full_frequencies_cm-1": [
+        530.4408281728988,
+        530.4408281738264,
+        998.5653645843207,
+        1222.5014224552726,
+        1222.5014224561135,
+        1286.2237393623764
+      ],
+      "adapter_frequencies_cm-1": [
+        530.4408271906443,
+        530.4408271915719,
+        998.5652966611146,
+        1222.2320640974551,
+        1222.232064098296,
+        1286.2237393623761
+      ],
+      "all_branch_max_abs_error_cm-1": 0.2693583578175094,
+      "A_prime_frequency_error_cm-1": -2.2737367544323206e-13
+    }
+  ],
+  "inputs": {
+    "bare_matrices": {
+      "path": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/E0_epw_matched/k18_q9_ex1_pifroz/operator_q6_450K/matdyn/epw_q6_dynamical_matrices.npz",
+      "sha256": "33738f7a91d8691edb68b57a15d704e3cd42053562b33d4f56b92e75cc1b0f43"
+    },
+    "operators": {
+      "300": {
+        "path": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/E0_epw_matched/k18_q9_ex1_pifroz/operator_q6_450K/cartesian/T300_operator.npz",
+        "sha256": "114fb9a369ed106e5a89a9c05223aed7667fd737714f3d42516ebdb8e2e475c3"
+      },
+      "450": {
+        "path": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/E0_epw_matched/k18_q9_ex1_pifroz/operator_q6_450K/cartesian/T450_operator.npz",
+        "sha256": "77bd333570c97e3134eb41b77d2eef7261cb6a7dfe77df2ce085b112e718d160"
+      },
+      "600": {
+        "path": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/E0_epw_matched/k18_q9_ex1_pifroz/operator_q6_450K/cartesian/T600_operator.npz",
+        "sha256": "5464a8998d7de904ce812edf80240ea53008ab2a66d26d710023cc083b8a5b19"
+      }
+    }
+  },
+  "limitations": [
+    "The q6 grid validates the K/K' matrix lifting but does not resolve the cusp width.",
+    "The off-centre scalar amplitudes used for the adapter unit test are synthetic; the physical amplitude must come from the explicit EPC band sum.",
+    "For materials with mixed anomalous modes, replace the rank-one projector by the already tested adaptive rank-R<=4 EPC subspace."
+  ]
+}

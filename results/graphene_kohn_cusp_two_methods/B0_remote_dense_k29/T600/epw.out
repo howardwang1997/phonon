@@ -1,0 +1,1189 @@
+                                                                                      
+                                       ``:oss/                                        
+                           `.+s+.     .+ys--yh+     `./ss+.                           
+                          -sh//yy+`   +yy   +yy    -+h+-oyy                           
+                          -yh- .oyy/.-sh.   .syo-.:sy-  /yh                           
+                 `.-.`    `yh+   -oyyyo.     `/syys:    oys      `.`                  
+               `/+ssys+-` `sh+      `                   oys`   .:osyo`                
+               -yh- ./syyooyo`                          .sys+/oyo--yh/                
+               `yy+    .-:-.                             `-/+/:`  -sh-                
+                /yh.                                              oys                 
+          ``..---hho---------`   .---------..`      `.-----.`    -hd+---.             
+       `./osmNMMMMMMMMMMMMMMMs. +NNMMMMMMMMNNmh+.   yNMMMMMNm-  oNMMMMMNmo++:`        
+       +sy--/sdMMMhyyyyyyyNMMh- .oyNMMmyyyyyhNMMm+` -yMMMdyyo:` .oyyNMMNhs+syy`       
+       -yy/   /MMM+.`-+/``mMMy-   `mMMh:`````.dMMN:` `MMMy-`-dhhy```mMMy:``+hs        
+        -yy+` /MMMo:-mMM+`-oo/.    mMMh:     `dMMN/`  dMMm:`dMMMMy..MMMo-.+yo`        
+         .sys`/MMMMNNMMMs-         mMMmyooooymMMNo:   oMMM/sMMMMMM++MMN//oh:          
+          `sh+/MMMhyyMMMs- `-`     mMMMMMMMMMNmy+-`   -MMMhMMMsmMMmdMMd/yy+           
+    `-/+++oyy-/MMM+.`/hh/.`mNm:`   mMMd+/////:-.`      NMMMMMd/:NMMMMMy:/yyo/:.`      
+   +os+//:-..-oMMMo:--:::-/MMMo. .-mMMd+---`           hMMMMN+. oMMMMMo. `-+osyso:`   
+   syo     `mNMMMMMNNNNNNNNMMMo.oNNMMMMMNNNN:`         +MMMMs:`  dMMMN/`     ``:syo   
+   /yh`     :syyyyyyyyyyyyyyyy+.`+syyyyyyyyo:`         .oyys:`   .oyys:`        +yh   
+   -yh-        ````````````````    `````````              ``        ``          oys   
+   -+h/------------------------::::::::://////++++++++++++++++++++++///////::::/yd:   
+   shdddddddddddddddddddddddddddddhhhhhhhhyyyyyssssssssssssssssyyyyyyyhhhhhhhddddh`   
+                                                                                      
+ Lee, H., Poncé, S., Bushick, K., Hajinazar, S., Lafuente-Bartolome, J.,Leveillee, J.,
+    Lian, C., Lihm, J., Macheda, F., Mori, H., Paudyal, H., Sio, W., Tiwari, S.,      
+ Zacharias, M., Zhang, X., Bonini, N., Kioupakis, E., Margine, E.R., and Giustino F., 
+                                                     npj Comput Mater 9, 156 (2023)   
+                                                                                      
+
+     Program EPW v.6.0 starts on 10Aug2026 at 18:52:29 
+
+     This program is part of the open-source Quantum ESPRESSO suite
+     for quantum simulation of materials; please cite
+         "P. Giannozzi et al., J. Phys.:Condens. Matter 21 395502 (2009);
+         "P. Giannozzi et al., J. Phys.:Condens. Matter 29 465901 (2017);
+         "P. Giannozzi et al., J. Chem. Phys. 152 154105 (2020);
+          URL http://www.quantum-espresso.org", 
+     in publications or presentations arising from this work. More details at
+     http://www.quantum-espresso.org/quote
+
+     Parallel version (MPI & OpenMP), running on       2 processor cores
+     Number of MPI processes:                 1
+     Threads/MPI process:                     2
+
+     MPI processes distributed on     1 nodes
+     15506 MiB available memory on the printing compute node when the environment starts
+
+     Reading input from epw.in
+
+     Reading supplied temperature list.
+                      
+     ------------------------------------------------------------------------ 
+                   RESTART - RESTART - RESTART - RESTART                         
+     Restart is done without reading PWSCF save file.                  
+     Be aware that some consistency checks are therefore not done.                  
+     ------------------------------------------------------------------------ 
+                      
+
+     --                                                                         
+
+     bravais-lattice index     =            0
+     lattice parameter (a_0)   =       0.0000  a.u.
+     unit-cell volume          =       0.0000 (a.u.)^3
+     number of atoms/cell      =            0
+     number of atomic types    =            0
+     kinetic-energy cut-off    =       0.0000  Ry
+     charge density cut-off    =       0.0000  Ry
+     Exchange-correlation= not set
+                           (  -1  -1  -1  -1  -1  -1  -1)
+
+
+     celldm(1)=    0.00000  celldm(2)=    0.00000  celldm(3)=    0.00000
+     celldm(4)=    0.00000  celldm(5)=    0.00000  celldm(6)=    0.00000
+
+     crystal axes: (cart. coord. in units of a_0)
+               a(1) = (  0.0000  0.0000  0.0000 )  
+               a(2) = (  0.0000  0.0000  0.0000 )  
+               a(3) = (  0.0000  0.0000  0.0000 )  
+
+     reciprocal axes: (cart. coord. in units 2 pi/a_0)
+               b(1) = (  0.0000  0.0000  0.0000 )  
+               b(2) = (  0.0000  0.0000  0.0000 )  
+               b(3) = (  0.0000  0.0000  0.0000 )  
+
+
+     Atoms inside the unit cell: 
+
+   Cartesian axes
+
+     site n.  atom      mass           positions (a_0 units)
+
+
+     No symmetry!
+
+     G cutoff =    0.0000  (      0 G-vectors)     FFT grid: (  0,  0,  0)
+     number of k points=    0
+                       cart. coord. in units 2pi/a_0
+     EPW          :      0.00s CPU      0.00s WALL
+
+     EPW          :      0.00s CPU      0.00s WALL
+
+
+     -------------------------------------------------------------------
+     Using graphene.ukk from disk
+     -------------------------------------------------------------------
+
+     HDF5 is used in the current build. Exciton-phonon coupling calculations are enabled.
+     Symmetries of Bravais lattice:  24
+     Symmetries of crystal:          24
+
+     Do not need to read .epb files; read .fmt files
+
+
+     Band disentanglement is used: nbndsub =    2
+     Use zone-centred Wigner-Seitz cells 
+     Number of WS vectors for electrons      343
+     Number of WS vectors for phonons       91
+     Number of WS vectors for electron-phonon       91
+     Maximum number of cores for efficient parallelization      546
+     Results may improve by using use_ws == .TRUE. 
+
+     Reading Hamiltonian, Dynamical matrix and EP vertex in Wann rep from file
+
+
+     Finished reading Wann rep data from file
+
+     ===================================================================
+     Memory usage:  VmHWM =        53Mb
+                   VmPeak =      5185Mb
+     ===================================================================
+     
+     Using q-mesh file: ./qpoints.dat
+     Size of q point mesh for interpolation:         29
+     Using uniform k-mesh:   720  720    1
+     Size of k point mesh for interpolation:     518400
+     Max number of k points per pool:           518400
+
+     Fermi energy coarse grid =  -1.718651 eV
+
+     ===================================================================
+
+     Fermi energy is read from the input file: Ef =  -1.718700 eV
+
+     ===================================================================
+
+     Skipping    1 occupied bands:
+
+     The Fermi level will be determined with   6.00000 electrons
+
+              ibndmin =     1  ebndmin =    -7.719 eV
+              ibndmax =     2  ebndmax =     4.281 eV
+
+
+     Number of ep-matrix elements per pool :     12441600 ~=   94.92 Mb (@ 8 bytes/ DP)
+     We only need to compute       29 q-points
+      
+
+     ===================================================================
+     Phonon (Imaginary) Self-Energy in the Migdal Approximation
+     ===================================================================
+
+
+     Fermi Surface thickness =   6.000000 eV
+
+     Golden Rule strictly enforced with T =   0.051704 eV
+
+     On- and Off-shell dynamical frequency renormalization will be performed using:
+
+      Omega^2 = omega^2 + 2omega(Re[Pi(Omega,T_low)]- Pi[0,T_high]).
+     Smearing type for the static self-energy: Fermi-Dirac
+     smearing value for the static self-energy: T_high =   0.020000 Ry.
+     Gaussian Broadening:   0.005000 eV, ngauss=   1
+     DOS =  0.001210 states/spin/eV/Unit Cell at Ef= -1.718700 eV
+
+     ismear =     1 iq =       1 coord.:   0.31389  0.31389  0.00000 wt:   0.03448 Temp:  600.000K
+     -------------------------------------------------------------------
+     lambda___(   1 )=       0.000000   gamma___=       0.000000 meV  omega=     62.1435 meV   on_shell_Omega=     62.1435 meV  off_shell_Omega=     62.1435 meV
+     lambda_tr(   1 )=       0.000000   gamma_tr=       0.000000 meV  omega=     62.1435 meV   on_shell_Omega=     62.1435 meV  off_shell_Omega=     62.1435 meV
+     lambda___(   2 )=       0.000000   gamma___=       0.000000 meV  omega=     69.4590 meV   on_shell_Omega=     69.4590 meV  off_shell_Omega=     69.4590 meV
+     lambda_tr(   2 )=       0.000000   gamma_tr=       0.000000 meV  omega=     69.4590 meV   on_shell_Omega=     69.4590 meV  off_shell_Omega=     69.4590 meV
+     lambda___(   3 )=       0.000002   gamma___=       0.000000 meV  omega=    122.1002 meV   on_shell_Omega=    122.1011 meV  off_shell_Omega=    122.1011 meV
+     lambda_tr(   3 )=       0.000002   gamma_tr=       0.000000 meV  omega=    122.1002 meV   on_shell_Omega=    122.1011 meV  off_shell_Omega=    122.1011 meV
+     lambda___(   4 )=       0.032566   gamma___=       0.002724 meV  omega=    148.3295 meV   on_shell_Omega=    148.3960 meV  off_shell_Omega=    148.3960 meV
+     lambda_tr(   4 )=       0.056105   gamma_tr=       0.004693 meV  omega=    148.3295 meV   on_shell_Omega=    148.3960 meV  off_shell_Omega=    148.3960 meV
+     lambda___(   5 )=       0.000272   gamma___=       0.000025 meV  omega=    155.9091 meV   on_shell_Omega=    155.9245 meV  off_shell_Omega=    155.9245 meV
+     lambda_tr(   5 )=       0.000302   gamma_tr=       0.000028 meV  omega=    155.9091 meV   on_shell_Omega=    155.9245 meV  off_shell_Omega=    155.9245 meV
+     lambda___(   6 )=       0.244391   gamma___=       0.024888 meV  omega=    163.6650 meV   on_shell_Omega=    162.3446 meV  off_shell_Omega=    162.3464 meV
+     lambda_tr(   6 )=       0.340841   gamma_tr=       0.034710 meV  omega=    163.6650 meV   on_shell_Omega=    162.3446 meV  off_shell_Omega=    162.3464 meV
+     lambda___( tot )=       0.277231
+     lambda_tr( tot )=       0.397251
+     -------------------------------------------------------------------
+
+
+     Number of (k,k+q) pairs on the Fermi surface:   353330 out of   518400
+
+
+     ===================================================================
+     Phonon Spectral Function Self-Energy in the Migdal Approximation (on the fly)
+     ===================================================================
+
+
+     Fermi Surface thickness =   6.000000 eV
+
+     Golden Rule strictly enforced with T =   0.051704 eV
+
+
+     Real and Imaginary part of the phonon self-energy (omega=0) without gamma0.
+     Omega(   1 )=   0.0621 eV   Re[Pi]=      -0.000002 meV Im[Pi]=      -0.000000 meV
+     Omega(   2 )=   0.0695 eV   Re[Pi]=      -0.000003 meV Im[Pi]=       0.000000 meV
+     Omega(   3 )=   0.1221 eV   Re[Pi]=      -0.105639 meV Im[Pi]=      -0.000000 meV
+     Omega(   4 )=   0.1483 eV   Re[Pi]=      -4.154824 meV Im[Pi]=      -0.000000 meV
+     Omega(   5 )=   0.1559 eV   Re[Pi]=      -3.595298 meV Im[Pi]=       0.000000 meV
+     Omega(   6 )=   0.1637 eV   Re[Pi]=     -49.892447 meV Im[Pi]=      -0.000001 meV
+     -------------------------------------------------------------------
+
+
+     ismear =     1 iq =       2 coord.:   0.31528  0.31528  0.00000 wt:   0.03448 Temp:  600.000K
+     -------------------------------------------------------------------
+     lambda___(   1 )=       0.000000   gamma___=       0.000000 meV  omega=     62.4197 meV   on_shell_Omega=     62.4197 meV  off_shell_Omega=     62.4197 meV
+     lambda_tr(   1 )=       0.000000   gamma_tr=       0.000000 meV  omega=     62.4197 meV   on_shell_Omega=     62.4197 meV  off_shell_Omega=     62.4197 meV
+     lambda___(   2 )=       0.000000   gamma___=       0.000000 meV  omega=     69.1750 meV   on_shell_Omega=     69.1750 meV  off_shell_Omega=     69.1750 meV
+     lambda_tr(   2 )=       0.000000   gamma_tr=       0.000000 meV  omega=     69.1750 meV   on_shell_Omega=     69.1750 meV  off_shell_Omega=     69.1750 meV
+     lambda___(   3 )=       0.000003   gamma___=       0.000000 meV  omega=    122.3172 meV   on_shell_Omega=    122.3179 meV  off_shell_Omega=    122.3179 meV
+     lambda_tr(   3 )=       0.000003   gamma_tr=       0.000000 meV  omega=    122.3172 meV   on_shell_Omega=    122.3179 meV  off_shell_Omega=    122.3179 meV
+     lambda___(   4 )=       0.046789   gamma___=       0.003927 meV  omega=    148.5707 meV   on_shell_Omega=    148.6341 meV  off_shell_Omega=    148.6341 meV
+     lambda_tr(   4 )=       0.080299   gamma_tr=       0.006739 meV  omega=    148.5707 meV   on_shell_Omega=    148.6341 meV  off_shell_Omega=    148.6341 meV
+     lambda___(   5 )=       0.000464   gamma___=       0.000043 meV  omega=    155.5271 meV   on_shell_Omega=    155.5415 meV  off_shell_Omega=    155.5415 meV
+     lambda_tr(   5 )=       0.000500   gamma_tr=       0.000046 meV  omega=    155.5271 meV   on_shell_Omega=    155.5415 meV  off_shell_Omega=    155.5415 meV
+     lambda___(   6 )=       0.325595   gamma___=       0.033117 meV  omega=    163.5657 meV   on_shell_Omega=    162.0801 meV  off_shell_Omega=    162.0483 meV
+     lambda_tr(   6 )=       0.444254   gamma_tr=       0.045187 meV  omega=    163.5657 meV   on_shell_Omega=    162.0801 meV  off_shell_Omega=    162.0483 meV
+     lambda___( tot )=       0.372851
+     lambda_tr( tot )=       0.525056
+     -------------------------------------------------------------------
+
+
+     Number of (k,k+q) pairs on the Fermi surface:   353330 out of   518400
+
+
+
+     Real and Imaginary part of the phonon self-energy (omega=0) without gamma0.
+     Omega(   1 )=   0.0624 eV   Re[Pi]=      -0.000002 meV Im[Pi]=      -0.000000 meV
+     Omega(   2 )=   0.0692 eV   Re[Pi]=      -0.000003 meV Im[Pi]=       0.000000 meV
+     Omega(   3 )=   0.1223 eV   Re[Pi]=      -0.097629 meV Im[Pi]=      -0.000000 meV
+     Omega(   4 )=   0.1486 eV   Re[Pi]=      -4.131606 meV Im[Pi]=      -0.000000 meV
+     Omega(   5 )=   0.1555 eV   Re[Pi]=      -3.616844 meV Im[Pi]=       0.000000 meV
+     Omega(   6 )=   0.1636 eV   Re[Pi]=     -50.194823 meV Im[Pi]=      -0.000001 meV
+     -------------------------------------------------------------------
+
+
+     ismear =     1 iq =       3 coord.:   0.31667  0.31667  0.00000 wt:   0.03448 Temp:  600.000K
+     -------------------------------------------------------------------
+     lambda___(   1 )=       0.000000   gamma___=       0.000000 meV  omega=     62.6932 meV   on_shell_Omega=     62.6932 meV  off_shell_Omega=     62.6932 meV
+     lambda_tr(   1 )=       0.000000   gamma_tr=       0.000000 meV  omega=     62.6932 meV   on_shell_Omega=     62.6932 meV  off_shell_Omega=     62.6932 meV
+     lambda___(   2 )=       0.000000   gamma___=       0.000000 meV  omega=     68.8938 meV   on_shell_Omega=     68.8938 meV  off_shell_Omega=     68.8938 meV
+     lambda_tr(   2 )=       0.000000   gamma_tr=       0.000000 meV  omega=     68.8938 meV   on_shell_Omega=     68.8938 meV  off_shell_Omega=     68.8938 meV
+     lambda___(   3 )=       0.000004   gamma___=       0.000000 meV  omega=    122.5220 meV   on_shell_Omega=    122.5227 meV  off_shell_Omega=    122.5227 meV
+     lambda_tr(   3 )=       0.000005   gamma_tr=       0.000000 meV  omega=    122.5220 meV   on_shell_Omega=    122.5227 meV  off_shell_Omega=    122.5227 meV
+     lambda___(   4 )=       0.066072   gamma___=       0.005563 meV  omega=    148.8100 meV   on_shell_Omega=    148.8701 meV  off_shell_Omega=    148.8701 meV
+     lambda_tr(   4 )=       0.112553   gamma_tr=       0.009476 meV  omega=    148.8100 meV   on_shell_Omega=    148.8701 meV  off_shell_Omega=    148.8701 meV
+     lambda___(   5 )=       0.000813   gamma___=       0.000074 meV  omega=    155.1532 meV   on_shell_Omega=    155.1665 meV  off_shell_Omega=    155.1665 meV
+     lambda_tr(   5 )=       0.000841   gamma_tr=       0.000077 meV  omega=    155.1532 meV   on_shell_Omega=    155.1665 meV  off_shell_Omega=    155.1665 meV
+     lambda___(   6 )=       0.432534   gamma___=       0.043945 meV  omega=    163.4725 meV   on_shell_Omega=    161.8100 meV  off_shell_Omega=    161.7563 meV
+     lambda_tr(   6 )=       0.575692   gamma_tr=       0.058489 meV  omega=    163.4725 meV   on_shell_Omega=    161.8100 meV  off_shell_Omega=    161.7563 meV
+     lambda___( tot )=       0.499423
+     lambda_tr( tot )=       0.689090
+     -------------------------------------------------------------------
+
+
+     Number of (k,k+q) pairs on the Fermi surface:   353330 out of   518400
+
+
+
+     Real and Imaginary part of the phonon self-energy (omega=0) without gamma0.
+     Omega(   1 )=   0.0627 eV   Re[Pi]=      -0.000002 meV Im[Pi]=      -0.000000 meV
+     Omega(   2 )=   0.0689 eV   Re[Pi]=      -0.000003 meV Im[Pi]=       0.000000 meV
+     Omega(   3 )=   0.1225 eV   Re[Pi]=      -0.089628 meV Im[Pi]=      -0.000000 meV
+     Omega(   4 )=   0.1488 eV   Re[Pi]=      -4.109072 meV Im[Pi]=      -0.000000 meV
+     Omega(   5 )=   0.1552 eV   Re[Pi]=      -3.638721 meV Im[Pi]=       0.000000 meV
+     Omega(   6 )=   0.1635 eV   Re[Pi]=     -50.500430 meV Im[Pi]=      -0.000001 meV
+     -------------------------------------------------------------------
+
+
+     ismear =     1 iq =       4 coord.:   0.31806  0.31806  0.00000 wt:   0.03448 Temp:  600.000K
+     -------------------------------------------------------------------
+     lambda___(   1 )=       0.000000   gamma___=       0.000000 meV  omega=     62.9641 meV   on_shell_Omega=     62.9641 meV  off_shell_Omega=     62.9641 meV
+     lambda_tr(   1 )=       0.000000   gamma_tr=       0.000000 meV  omega=     62.9641 meV   on_shell_Omega=     62.9641 meV  off_shell_Omega=     62.9641 meV
+     lambda___(   2 )=       0.000000   gamma___=       0.000000 meV  omega=     68.6154 meV   on_shell_Omega=     68.6154 meV  off_shell_Omega=     68.6154 meV
+     lambda_tr(   2 )=       0.000000   gamma_tr=       0.000000 meV  omega=     68.6154 meV   on_shell_Omega=     68.6154 meV  off_shell_Omega=     68.6154 meV
+     lambda___(   3 )=       0.000006   gamma___=       0.000000 meV  omega=    122.7142 meV   on_shell_Omega=    122.7148 meV  off_shell_Omega=    122.7148 meV
+     lambda_tr(   3 )=       0.000006   gamma_tr=       0.000000 meV  omega=    122.7142 meV   on_shell_Omega=    122.7148 meV  off_shell_Omega=    122.7148 meV
+     lambda___(   4 )=       0.091377   gamma___=       0.007718 meV  omega=    149.0472 meV   on_shell_Omega=    149.1040 meV  off_shell_Omega=    149.1040 meV
+     lambda_tr(   4 )=       0.153874   gamma_tr=       0.012996 meV  omega=    149.0472 meV   on_shell_Omega=    149.1040 meV  off_shell_Omega=    149.1040 meV
+     lambda___(   5 )=       0.001456   gamma___=       0.000133 meV  omega=    154.7880 meV   on_shell_Omega=    154.8001 meV  off_shell_Omega=    154.8001 meV
+     lambda_tr(   5 )=       0.001439   gamma_tr=       0.000131 meV  omega=    154.7880 meV   on_shell_Omega=    154.8001 meV  off_shell_Omega=    154.8001 meV
+     lambda___(   6 )=       0.568069   gamma___=       0.057653 meV  omega=    163.3855 meV   on_shell_Omega=    161.5357 meV  off_shell_Omega=    161.4708 meV
+     lambda_tr(   6 )=       0.733996   gamma_tr=       0.074493 meV  omega=    163.3855 meV   on_shell_Omega=    161.5357 meV  off_shell_Omega=    161.4708 meV
+     lambda___( tot )=       0.660908
+     lambda_tr( tot )=       0.889315
+     -------------------------------------------------------------------
+
+
+     Number of (k,k+q) pairs on the Fermi surface:   353330 out of   518400
+
+
+
+     Real and Imaginary part of the phonon self-energy (omega=0) without gamma0.
+     Omega(   1 )=   0.0630 eV   Re[Pi]=      -0.000002 meV Im[Pi]=      -0.000000 meV
+     Omega(   2 )=   0.0686 eV   Re[Pi]=      -0.000003 meV Im[Pi]=       0.000000 meV
+     Omega(   3 )=   0.1227 eV   Re[Pi]=      -0.081700 meV Im[Pi]=      -0.000000 meV
+     Omega(   4 )=   0.1490 eV   Re[Pi]=      -4.087272 meV Im[Pi]=      -0.000000 meV
+     Omega(   5 )=   0.1548 eV   Re[Pi]=      -3.660855 meV Im[Pi]=       0.000000 meV
+     Omega(   6 )=   0.1634 eV   Re[Pi]=     -50.808824 meV Im[Pi]=      -0.000002 meV
+     -------------------------------------------------------------------
+
+
+     ismear =     1 iq =       5 coord.:   0.31944  0.31944  0.00000 wt:   0.03448 Temp:  600.000K
+     -------------------------------------------------------------------
+     lambda___(   1 )=       0.000000   gamma___=       0.000000 meV  omega=     63.2324 meV   on_shell_Omega=     63.2324 meV  off_shell_Omega=     63.2324 meV
+     lambda_tr(   1 )=       0.000000   gamma_tr=       0.000000 meV  omega=     63.2324 meV   on_shell_Omega=     63.2324 meV  off_shell_Omega=     63.2324 meV
+     lambda___(   2 )=       0.000000   gamma___=       0.000000 meV  omega=     68.3400 meV   on_shell_Omega=     68.3400 meV  off_shell_Omega=     68.3400 meV
+     lambda_tr(   2 )=       0.000000   gamma_tr=       0.000000 meV  omega=     68.3400 meV   on_shell_Omega=     68.3400 meV  off_shell_Omega=     68.3400 meV
+     lambda___(   3 )=       0.000008   gamma___=       0.000000 meV  omega=    122.8931 meV   on_shell_Omega=    122.8936 meV  off_shell_Omega=    122.8936 meV
+     lambda_tr(   3 )=       0.000008   gamma_tr=       0.000000 meV  omega=    122.8931 meV   on_shell_Omega=    122.8936 meV  off_shell_Omega=    122.8936 meV
+     lambda___(   4 )=       0.123926   gamma___=       0.010500 meV  omega=    149.2826 meV   on_shell_Omega=    149.3358 meV  off_shell_Omega=    149.3358 meV
+     lambda_tr(   4 )=       0.204692   gamma_tr=       0.017343 meV  omega=    149.2826 meV   on_shell_Omega=    149.3358 meV  off_shell_Omega=    149.3358 meV
+     lambda___(   5 )=       0.002689   gamma___=       0.000244 meV  omega=    154.4321 meV   on_shell_Omega=    154.4426 meV  off_shell_Omega=    154.4426 meV
+     lambda_tr(   5 )=       0.002511   gamma_tr=       0.000228 meV  omega=    154.4321 meV   on_shell_Omega=    154.4426 meV  off_shell_Omega=    154.4426 meV
+     lambda___(   6 )=       0.742016   gamma___=       0.075233 meV  omega=    163.3051 meV   on_shell_Omega=    161.2590 meV  off_shell_Omega=    161.3913 meV
+     lambda_tr(   6 )=       0.921485   gamma_tr=       0.093429 meV  omega=    163.3051 meV   on_shell_Omega=    161.2590 meV  off_shell_Omega=    161.3913 meV
+     lambda___( tot )=       0.868639
+     lambda_tr( tot )=       1.128696
+     -------------------------------------------------------------------
+
+
+     Number of (k,k+q) pairs on the Fermi surface:   353330 out of   518400
+
+
+
+     Real and Imaginary part of the phonon self-energy (omega=0) without gamma0.
+     Omega(   1 )=   0.0632 eV   Re[Pi]=      -0.000003 meV Im[Pi]=      -0.000000 meV
+     Omega(   2 )=   0.0683 eV   Re[Pi]=      -0.000003 meV Im[Pi]=       0.000000 meV
+     Omega(   3 )=   0.1229 eV   Re[Pi]=      -0.073917 meV Im[Pi]=      -0.000000 meV
+     Omega(   4 )=   0.1493 eV   Re[Pi]=      -4.066246 meV Im[Pi]=      -0.000000 meV
+     Omega(   5 )=   0.1544 eV   Re[Pi]=      -3.683168 meV Im[Pi]=       0.000000 meV
+     Omega(   6 )=   0.1633 eV   Re[Pi]=     -51.119215 meV Im[Pi]=      -0.000002 meV
+     -------------------------------------------------------------------
+
+
+     ismear =     1 iq =       6 coord.:   0.32083  0.32083  0.00000 wt:   0.03448 Temp:  600.000K
+     -------------------------------------------------------------------
+     lambda___(   1 )=       0.000000   gamma___=       0.000000 meV  omega=     63.4980 meV   on_shell_Omega=     63.4980 meV  off_shell_Omega=     63.4980 meV
+     lambda_tr(   1 )=       0.000000   gamma_tr=       0.000000 meV  omega=     63.4980 meV   on_shell_Omega=     63.4980 meV  off_shell_Omega=     63.4980 meV
+     lambda___(   2 )=       0.000000   gamma___=       0.000000 meV  omega=     68.0677 meV   on_shell_Omega=     68.0677 meV  off_shell_Omega=     68.0677 meV
+     lambda_tr(   2 )=       0.000000   gamma_tr=       0.000000 meV  omega=     68.0677 meV   on_shell_Omega=     68.0677 meV  off_shell_Omega=     68.0677 meV
+     lambda___(   3 )=       0.000011   gamma___=       0.000001 meV  omega=    123.0581 meV   on_shell_Omega=    123.0584 meV  off_shell_Omega=    123.0584 meV
+     lambda_tr(   3 )=       0.000011   gamma_tr=       0.000001 meV  omega=    123.0581 meV   on_shell_Omega=    123.0584 meV  off_shell_Omega=    123.0584 meV
+     lambda___(   4 )=       0.164428   gamma___=       0.013975 meV  omega=    149.5160 meV   on_shell_Omega=    149.5658 meV  off_shell_Omega=    149.5658 meV
+     lambda_tr(   4 )=       0.263896   gamma_tr=       0.022429 meV  omega=    149.5160 meV   on_shell_Omega=    149.5658 meV  off_shell_Omega=    149.5658 meV
+     lambda___(   5 )=       0.005234   gamma___=       0.000472 meV  omega=    154.0863 meV   on_shell_Omega=    154.0948 meV  off_shell_Omega=    154.0948 meV
+     lambda_tr(   5 )=       0.004500   gamma_tr=       0.000406 meV  omega=    154.0863 meV   on_shell_Omega=    154.0948 meV  off_shell_Omega=    154.0948 meV
+     lambda___(   6 )=       0.985239   gamma___=       0.099803 meV  omega=    163.2315 meV   on_shell_Omega=    160.9843 meV  off_shell_Omega=    160.9201 meV
+     lambda_tr(   6 )=       1.148809   gamma_tr=       0.116373 meV  omega=    163.2315 meV   on_shell_Omega=    160.9843 meV  off_shell_Omega=    160.9201 meV
+     lambda___( tot )=       1.154911
+     lambda_tr( tot )=       1.417216
+     -------------------------------------------------------------------
+
+
+     Number of (k,k+q) pairs on the Fermi surface:   353330 out of   518400
+
+
+
+     Real and Imaginary part of the phonon self-energy (omega=0) without gamma0.
+     Omega(   1 )=   0.0635 eV   Re[Pi]=      -0.000003 meV Im[Pi]=      -0.000000 meV
+     Omega(   2 )=   0.0681 eV   Re[Pi]=      -0.000003 meV Im[Pi]=       0.000000 meV
+     Omega(   3 )=   0.1231 eV   Re[Pi]=      -0.066361 meV Im[Pi]=      -0.000000 meV
+     Omega(   4 )=   0.1495 eV   Re[Pi]=      -4.046027 meV Im[Pi]=      -0.000000 meV
+     Omega(   5 )=   0.1541 eV   Re[Pi]=      -3.705568 meV Im[Pi]=       0.000000 meV
+     Omega(   6 )=   0.1632 eV   Re[Pi]=     -51.430288 meV Im[Pi]=      -0.000002 meV
+     -------------------------------------------------------------------
+
+
+     ismear =     1 iq =       7 coord.:   0.32222  0.32222  0.00000 wt:   0.03448 Temp:  600.000K
+     -------------------------------------------------------------------
+     lambda___(   1 )=       0.000000   gamma___=       0.000000 meV  omega=     63.7609 meV   on_shell_Omega=     63.7609 meV  off_shell_Omega=     63.7609 meV
+     lambda_tr(   1 )=       0.000000   gamma_tr=       0.000000 meV  omega=     63.7609 meV   on_shell_Omega=     63.7609 meV  off_shell_Omega=     63.7609 meV
+     lambda___(   2 )=       0.000000   gamma___=       0.000000 meV  omega=     67.7985 meV   on_shell_Omega=     67.7985 meV  off_shell_Omega=     67.7985 meV
+     lambda_tr(   2 )=       0.000000   gamma_tr=       0.000000 meV  omega=     67.7985 meV   on_shell_Omega=     67.7985 meV  off_shell_Omega=     67.7985 meV
+     lambda___(   3 )=       0.000016   gamma___=       0.000001 meV  omega=    123.2084 meV   on_shell_Omega=    123.2087 meV  off_shell_Omega=    123.2087 meV
+     lambda_tr(   3 )=       0.000015   gamma_tr=       0.000001 meV  omega=    123.2084 meV   on_shell_Omega=    123.2087 meV  off_shell_Omega=    123.2087 meV
+     lambda___(   4 )=       0.216134   gamma___=       0.018426 meV  omega=    149.7475 meV   on_shell_Omega=    149.7945 meV  off_shell_Omega=    149.7945 meV
+     lambda_tr(   4 )=       0.327946   gamma_tr=       0.027959 meV  omega=    149.7475 meV   on_shell_Omega=    149.7945 meV  off_shell_Omega=    149.7945 meV
+     lambda___(   5 )=       0.009653   gamma___=       0.000868 meV  omega=    153.7512 meV   on_shell_Omega=    153.7570 meV  off_shell_Omega=    153.7570 meV
+     lambda_tr(   5 )=       0.007438   gamma_tr=       0.000668 meV  omega=    153.7512 meV   on_shell_Omega=    153.7570 meV  off_shell_Omega=    153.7570 meV
+     lambda___(   6 )=       1.174271   gamma___=       0.118855 meV  omega=    163.1649 meV   on_shell_Omega=    160.7146 meV  off_shell_Omega=    160.8544 meV
+     lambda_tr(   6 )=       1.287153   gamma_tr=       0.130280 meV  omega=    163.1649 meV   on_shell_Omega=    160.7146 meV  off_shell_Omega=    160.8544 meV
+     lambda___( tot )=       1.400074
+     lambda_tr( tot )=       1.622552
+     -------------------------------------------------------------------
+
+
+     Number of (k,k+q) pairs on the Fermi surface:   353330 out of   518400
+
+
+
+     Real and Imaginary part of the phonon self-energy (omega=0) without gamma0.
+     Omega(   1 )=   0.0638 eV   Re[Pi]=      -0.000003 meV Im[Pi]=      -0.000000 meV
+     Omega(   2 )=   0.0678 eV   Re[Pi]=      -0.000003 meV Im[Pi]=       0.000000 meV
+     Omega(   3 )=   0.1232 eV   Re[Pi]=      -0.059124 meV Im[Pi]=      -0.000000 meV
+     Omega(   4 )=   0.1497 eV   Re[Pi]=      -4.026626 meV Im[Pi]=      -0.000000 meV
+     Omega(   5 )=   0.1538 eV   Re[Pi]=      -3.727958 meV Im[Pi]=       0.000000 meV
+     Omega(   6 )=   0.1632 eV   Re[Pi]=     -51.739942 meV Im[Pi]=      -0.000002 meV
+     -------------------------------------------------------------------
+
+
+     ismear =     1 iq =       8 coord.:   0.32361  0.32361  0.00000 wt:   0.03448 Temp:  600.000K
+     -------------------------------------------------------------------
+     lambda___(   1 )=       0.000000   gamma___=       0.000000 meV  omega=     64.0211 meV   on_shell_Omega=     64.0211 meV  off_shell_Omega=     64.0211 meV
+     lambda_tr(   1 )=       0.000000   gamma_tr=       0.000000 meV  omega=     64.0211 meV   on_shell_Omega=     64.0211 meV  off_shell_Omega=     64.0211 meV
+     lambda___(   2 )=       0.000000   gamma___=       0.000000 meV  omega=     67.5324 meV   on_shell_Omega=     67.5324 meV  off_shell_Omega=     67.5324 meV
+     lambda_tr(   2 )=       0.000000   gamma_tr=       0.000000 meV  omega=     67.5324 meV   on_shell_Omega=     67.5324 meV  off_shell_Omega=     67.5324 meV
+     lambda___(   3 )=       0.000025   gamma___=       0.000001 meV  omega=    123.3434 meV   on_shell_Omega=    123.3436 meV  off_shell_Omega=    123.3436 meV
+     lambda_tr(   3 )=       0.000021   gamma_tr=       0.000001 meV  omega=    123.3434 meV   on_shell_Omega=    123.3436 meV  off_shell_Omega=    123.3436 meV
+     lambda___(   4 )=       0.252625   gamma___=       0.021603 meV  omega=    149.9773 meV   on_shell_Omega=    150.0219 meV  off_shell_Omega=    150.0219 meV
+     lambda_tr(   4 )=       0.359918   gamma_tr=       0.030779 meV  omega=    149.9773 meV   on_shell_Omega=    150.0219 meV  off_shell_Omega=    150.0219 meV
+     lambda___(   5 )=       0.021870   gamma___=       0.001957 meV  omega=    153.4275 meV   on_shell_Omega=    153.4292 meV  off_shell_Omega=    153.4292 meV
+     lambda_tr(   5 )=       0.014014   gamma_tr=       0.001254 meV  omega=    153.4275 meV   on_shell_Omega=    153.4292 meV  off_shell_Omega=    153.4292 meV
+     lambda___(   6 )=       1.507420   gamma___=       0.152464 meV  omega=    163.1055 meV   on_shell_Omega=    160.4457 meV  off_shell_Omega=    160.3977 meV
+     lambda_tr(   6 )=       1.415741   gamma_tr=       0.143191 meV  omega=    163.1055 meV   on_shell_Omega=    160.4457 meV  off_shell_Omega=    160.3977 meV
+     lambda___( tot )=       1.781941
+     lambda_tr( tot )=       1.789695
+     -------------------------------------------------------------------
+
+
+     Number of (k,k+q) pairs on the Fermi surface:   353330 out of   518400
+
+
+
+     Real and Imaginary part of the phonon self-energy (omega=0) without gamma0.
+     Omega(   1 )=   0.0640 eV   Re[Pi]=      -0.000003 meV Im[Pi]=      -0.000000 meV
+     Omega(   2 )=   0.0675 eV   Re[Pi]=      -0.000003 meV Im[Pi]=       0.000000 meV
+     Omega(   3 )=   0.1233 eV   Re[Pi]=      -0.052306 meV Im[Pi]=      -0.000000 meV
+     Omega(   4 )=   0.1500 eV   Re[Pi]=      -4.008024 meV Im[Pi]=      -0.000000 meV
+     Omega(   5 )=   0.1534 eV   Re[Pi]=      -3.750228 meV Im[Pi]=       0.000000 meV
+     Omega(   6 )=   0.1631 eV   Re[Pi]=     -52.044963 meV Im[Pi]=      -0.000002 meV
+     -------------------------------------------------------------------
+
+
+     ismear =     1 iq =       9 coord.:   0.32500  0.32500  0.00000 wt:   0.03448 Temp:  600.000K
+     -------------------------------------------------------------------
+     lambda___(   1 )=       0.000000   gamma___=       0.000000 meV  omega=     64.2787 meV   on_shell_Omega=     64.2787 meV  off_shell_Omega=     64.2787 meV
+     lambda_tr(   1 )=       0.000000   gamma_tr=       0.000000 meV  omega=     64.2787 meV   on_shell_Omega=     64.2787 meV  off_shell_Omega=     64.2787 meV
+     lambda___(   2 )=       0.000000   gamma___=       0.000000 meV  omega=     67.2697 meV   on_shell_Omega=     67.2697 meV  off_shell_Omega=     67.2697 meV
+     lambda_tr(   2 )=       0.000000   gamma_tr=       0.000000 meV  omega=     67.2697 meV   on_shell_Omega=     67.2697 meV  off_shell_Omega=     67.2697 meV
+     lambda___(   3 )=       0.000042   gamma___=       0.000002 meV  omega=    123.4625 meV   on_shell_Omega=    123.4627 meV  off_shell_Omega=    123.4627 meV
+     lambda_tr(   3 )=       0.000030   gamma_tr=       0.000002 meV  omega=    123.4625 meV   on_shell_Omega=    123.4627 meV  off_shell_Omega=    123.4627 meV
+     lambda___(   4 )=       0.254445   gamma___=       0.021825 meV  omega=    150.2052 meV   on_shell_Omega=    150.2478 meV  off_shell_Omega=    150.2478 meV
+     lambda_tr(   4 )=       0.338159   gamma_tr=       0.029006 meV  omega=    150.2052 meV   on_shell_Omega=    150.2478 meV  off_shell_Omega=    150.2478 meV
+     lambda___(   5 )=       0.059749   gamma___=       0.005326 meV  omega=    153.1160 meV   on_shell_Omega=    153.1106 meV  off_shell_Omega=    153.1106 meV
+     lambda_tr(   5 )=       0.032187   gamma_tr=       0.002869 meV  omega=    153.1160 meV   on_shell_Omega=    153.1106 meV  off_shell_Omega=    153.1106 meV
+     lambda___(   6 )=       1.004460   gamma___=       0.101529 meV  omega=    163.0536 meV   on_shell_Omega=    160.1763 meV  off_shell_Omega=    160.3466 meV
+     lambda_tr(   6 )=       0.694134   gamma_tr=       0.070162 meV  omega=    163.0536 meV   on_shell_Omega=    160.1763 meV  off_shell_Omega=    160.3466 meV
+     lambda___( tot )=       1.318697
+     lambda_tr( tot )=       1.064510
+     -------------------------------------------------------------------
+
+
+     Number of (k,k+q) pairs on the Fermi surface:   353330 out of   518400
+
+
+
+     Real and Imaginary part of the phonon self-energy (omega=0) without gamma0.
+     Omega(   1 )=   0.0643 eV   Re[Pi]=      -0.000003 meV Im[Pi]=      -0.000000 meV
+     Omega(   2 )=   0.0673 eV   Re[Pi]=      -0.000003 meV Im[Pi]=       0.000000 meV
+     Omega(   3 )=   0.1235 eV   Re[Pi]=      -0.046014 meV Im[Pi]=      -0.000000 meV
+     Omega(   4 )=   0.1502 eV   Re[Pi]=      -3.990164 meV Im[Pi]=      -0.000000 meV
+     Omega(   5 )=   0.1531 eV   Re[Pi]=      -3.772264 meV Im[Pi]=       0.000000 meV
+     Omega(   6 )=   0.1631 eV   Re[Pi]=     -52.340640 meV Im[Pi]=      -0.000002 meV
+     -------------------------------------------------------------------
+
+
+     ismear =     1 iq =      10 coord.:   0.32639  0.32639  0.00000 wt:   0.03448 Temp:  600.000K
+     -------------------------------------------------------------------
+     lambda___(   1 )=       0.000000   gamma___=       0.000000 meV  omega=     64.5335 meV   on_shell_Omega=     64.5335 meV  off_shell_Omega=     64.5335 meV
+     lambda_tr(   1 )=       0.000000   gamma_tr=       0.000000 meV  omega=     64.5335 meV   on_shell_Omega=     64.5335 meV  off_shell_Omega=     64.5335 meV
+     lambda___(   2 )=       0.000000   gamma___=       0.000000 meV  omega=     67.0103 meV   on_shell_Omega=     67.0103 meV  off_shell_Omega=     67.0103 meV
+     lambda_tr(   2 )=       0.000000   gamma_tr=       0.000000 meV  omega=     67.0103 meV   on_shell_Omega=     67.0103 meV  off_shell_Omega=     67.0103 meV
+     lambda___(   3 )=       0.000078   gamma___=       0.000005 meV  omega=    123.5650 meV   on_shell_Omega=    123.5651 meV  off_shell_Omega=    123.5651 meV
+     lambda_tr(   3 )=       0.000039   gamma_tr=       0.000002 meV  omega=    123.5650 meV   on_shell_Omega=    123.5651 meV  off_shell_Omega=    123.5651 meV
+     lambda___(   4 )=       0.367561   gamma___=       0.031623 meV  omega=    150.4314 meV   on_shell_Omega=    150.4763 meV  off_shell_Omega=    150.4763 meV
+     lambda_tr(   4 )=       0.375231   gamma_tr=       0.032283 meV  omega=    150.4314 meV   on_shell_Omega=    150.4763 meV  off_shell_Omega=    150.4763 meV
+     lambda___(   5 )=       0.204785   gamma___=       0.018182 meV  omega=    152.8172 meV   on_shell_Omega=    152.8000 meV  off_shell_Omega=    152.8000 meV
+     lambda_tr(   5 )=       0.062738   gamma_tr=       0.005570 meV  omega=    152.8172 meV   on_shell_Omega=    152.8000 meV  off_shell_Omega=    152.8000 meV
+     lambda___(   6 )=       1.178925   gamma___=       0.119099 meV  omega=    163.0092 meV   on_shell_Omega=    159.8636 meV  off_shell_Omega=    159.9051 meV
+     lambda_tr(   6 )=       0.559537   gamma_tr=       0.056526 meV  omega=    163.0092 meV   on_shell_Omega=    159.8636 meV  off_shell_Omega=    159.9051 meV
+     lambda___( tot )=       1.751350
+     lambda_tr( tot )=       0.997545
+     -------------------------------------------------------------------
+
+
+     Number of (k,k+q) pairs on the Fermi surface:   353330 out of   518400
+
+
+
+     Real and Imaginary part of the phonon self-energy (omega=0) without gamma0.
+     Omega(   1 )=   0.0645 eV   Re[Pi]=      -0.000003 meV Im[Pi]=      -0.000000 meV
+     Omega(   2 )=   0.0670 eV   Re[Pi]=      -0.000003 meV Im[Pi]=       0.000000 meV
+     Omega(   3 )=   0.1236 eV   Re[Pi]=      -0.040364 meV Im[Pi]=      -0.000000 meV
+     Omega(   4 )=   0.1504 eV   Re[Pi]=      -3.972937 meV Im[Pi]=      -0.000000 meV
+     Omega(   5 )=   0.1528 eV   Re[Pi]=      -3.793945 meV Im[Pi]=       0.000000 meV
+     Omega(   6 )=   0.1630 eV   Re[Pi]=     -52.620418 meV Im[Pi]=      -0.000002 meV
+     -------------------------------------------------------------------
+
+
+     ismear =     1 iq =      11 coord.:   0.32778  0.32778  0.00000 wt:   0.03448 Temp:  600.000K
+     -------------------------------------------------------------------
+     lambda___(   1 )=       0.000000   gamma___=       0.000000 meV  omega=     64.7855 meV   on_shell_Omega=     64.7855 meV  off_shell_Omega=     64.7855 meV
+     lambda_tr(   1 )=       0.000000   gamma_tr=       0.000000 meV  omega=     64.7855 meV   on_shell_Omega=     64.7855 meV  off_shell_Omega=     64.7855 meV
+     lambda___(   2 )=       0.000000   gamma___=       0.000000 meV  omega=     66.7544 meV   on_shell_Omega=     66.7544 meV  off_shell_Omega=     66.7544 meV
+     lambda_tr(   2 )=       0.000000   gamma_tr=       0.000000 meV  omega=     66.7544 meV   on_shell_Omega=     66.7544 meV  off_shell_Omega=     66.7544 meV
+     lambda___(   3 )=       0.000225   gamma___=       0.000013 meV  omega=    123.6502 meV   on_shell_Omega=    123.6503 meV  off_shell_Omega=    123.6503 meV
+     lambda_tr(   3 )=       0.000029   gamma_tr=       0.000002 meV  omega=    123.6502 meV   on_shell_Omega=    123.6503 meV  off_shell_Omega=    123.6503 meV
+     lambda___(   4 )=       0.128350   gamma___=       0.011076 meV  omega=    150.6559 meV   on_shell_Omega=    150.6991 meV  off_shell_Omega=    150.6991 meV
+     lambda_tr(   4 )=       0.190650   gamma_tr=       0.016451 meV  omega=    150.6559 meV   on_shell_Omega=    150.6991 meV  off_shell_Omega=    150.6991 meV
+     lambda___(   5 )=       0.952460   gamma___=       0.084249 meV  omega=    152.5318 meV   on_shell_Omega=    152.5539 meV  off_shell_Omega=    152.5539 meV
+     lambda_tr(   5 )=       0.054652   gamma_tr=       0.004834 meV  omega=    152.5318 meV   on_shell_Omega=    152.5539 meV  off_shell_Omega=    152.5539 meV
+     lambda___(   6 )=       1.412825   gamma___=       0.142664 meV  omega=    162.9727 meV   on_shell_Omega=    159.3643 meV  off_shell_Omega=    159.4713 meV
+     lambda_tr(   6 )=       0.417024   gamma_tr=       0.042110 meV  omega=    162.9727 meV   on_shell_Omega=    159.3643 meV  off_shell_Omega=    159.4713 meV
+     lambda___( tot )=       2.493860
+     lambda_tr( tot )=       0.662355
+     -------------------------------------------------------------------
+
+
+     Number of (k,k+q) pairs on the Fermi surface:   353330 out of   518400
+
+
+
+     Real and Imaginary part of the phonon self-energy (omega=0) without gamma0.
+     Omega(   1 )=   0.0648 eV   Re[Pi]=      -0.000003 meV Im[Pi]=      -0.000000 meV
+     Omega(   2 )=   0.0668 eV   Re[Pi]=      -0.000003 meV Im[Pi]=       0.000000 meV
+     Omega(   3 )=   0.1237 eV   Re[Pi]=      -0.035475 meV Im[Pi]=      -0.000000 meV
+     Omega(   4 )=   0.1507 eV   Re[Pi]=      -3.956178 meV Im[Pi]=      -0.000000 meV
+     Omega(   5 )=   0.1525 eV   Re[Pi]=      -3.815143 meV Im[Pi]=       0.000000 meV
+     Omega(   6 )=   0.1630 eV   Re[Pi]=     -52.875732 meV Im[Pi]=      -0.000001 meV
+     -------------------------------------------------------------------
+
+
+     ismear =     1 iq =      12 coord.:   0.32917  0.32917  0.00000 wt:   0.03448 Temp:  600.000K
+     -------------------------------------------------------------------
+     lambda___(   1 )=       0.000000   gamma___=       0.000000 meV  omega=     65.0348 meV   on_shell_Omega=     65.0348 meV  off_shell_Omega=     65.0348 meV
+     lambda_tr(   1 )=       0.000000   gamma_tr=       0.000000 meV  omega=     65.0348 meV   on_shell_Omega=     65.0348 meV  off_shell_Omega=     65.0348 meV
+     lambda___(   2 )=       0.000000   gamma___=       0.000000 meV  omega=     66.5019 meV   on_shell_Omega=     66.5019 meV  off_shell_Omega=     66.5019 meV
+     lambda_tr(   2 )=       0.000000   gamma_tr=       0.000000 meV  omega=     66.5019 meV   on_shell_Omega=     66.5019 meV  off_shell_Omega=     66.5019 meV
+     lambda___(   3 )=       0.000137   gamma___=       0.000008 meV  omega=    123.7175 meV   on_shell_Omega=    123.7176 meV  off_shell_Omega=    123.7176 meV
+     lambda_tr(   3 )=       0.000037   gamma_tr=       0.000002 meV  omega=    123.7175 meV   on_shell_Omega=    123.7176 meV  off_shell_Omega=    123.7176 meV
+     lambda___(   4 )=       0.075308   gamma___=       0.006518 meV  omega=    150.8787 meV   on_shell_Omega=    150.9074 meV  off_shell_Omega=    150.9074 meV
+     lambda_tr(   4 )=       0.137200   gamma_tr=       0.011874 meV  omega=    150.8787 meV   on_shell_Omega=    150.9074 meV  off_shell_Omega=    150.9074 meV
+     lambda___(   5 )=       0.168122   gamma___=       0.014818 meV  omega=    152.2606 meV   on_shell_Omega=    152.2978 meV  off_shell_Omega=    152.2978 meV
+     lambda_tr(   5 )=       0.153797   gamma_tr=       0.013556 meV  omega=    152.2606 meV   on_shell_Omega=    152.2978 meV  off_shell_Omega=    152.2978 meV
+     lambda___(   6 )=       4.319329   gamma___=       0.436003 meV  omega=    162.9441 meV   on_shell_Omega=    159.0430 meV  off_shell_Omega=    159.0455 meV
+     lambda_tr(   6 )=       5.824874   gamma_tr=       0.587976 meV  omega=    162.9441 meV   on_shell_Omega=    159.0430 meV  off_shell_Omega=    159.0455 meV
+     lambda___( tot )=       4.562896
+     lambda_tr( tot )=       6.115909
+     -------------------------------------------------------------------
+
+
+     Number of (k,k+q) pairs on the Fermi surface:   353330 out of   518400
+
+
+
+     Real and Imaginary part of the phonon self-energy (omega=0) without gamma0.
+     Omega(   1 )=   0.0650 eV   Re[Pi]=      -0.000003 meV Im[Pi]=      -0.000000 meV
+     Omega(   2 )=   0.0665 eV   Re[Pi]=      -0.000003 meV Im[Pi]=       0.000000 meV
+     Omega(   3 )=   0.1237 eV   Re[Pi]=      -0.031468 meV Im[Pi]=      -0.000000 meV
+     Omega(   4 )=   0.1509 eV   Re[Pi]=      -3.939663 meV Im[Pi]=      -0.000000 meV
+     Omega(   5 )=   0.1523 eV   Re[Pi]=      -3.835723 meV Im[Pi]=       0.000000 meV
+     Omega(   6 )=   0.1629 eV   Re[Pi]=     -53.096253 meV Im[Pi]=      -0.000001 meV
+     -------------------------------------------------------------------
+
+
+     ismear =     1 iq =      13 coord.:   0.33056  0.33056  0.00000 wt:   0.03448 Temp:  600.000K
+     -------------------------------------------------------------------
+     lambda___(   1 )=       0.000001   gamma___=       0.000000 meV  omega=     65.2814 meV   on_shell_Omega=     65.2814 meV  off_shell_Omega=     65.2814 meV
+     lambda_tr(   1 )=       0.000000   gamma_tr=       0.000000 meV  omega=     65.2814 meV   on_shell_Omega=     65.2814 meV  off_shell_Omega=     65.2814 meV
+     lambda___(   2 )=       0.000001   gamma___=       0.000000 meV  omega=     66.2530 meV   on_shell_Omega=     66.2530 meV  off_shell_Omega=     66.2530 meV
+     lambda_tr(   2 )=       0.000000   gamma_tr=       0.000000 meV  omega=     66.2530 meV   on_shell_Omega=     66.2530 meV  off_shell_Omega=     66.2530 meV
+     lambda___(   3 )=       0.000011   gamma___=       0.000001 meV  omega=    123.7664 meV   on_shell_Omega=    123.7664 meV  off_shell_Omega=    123.7664 meV
+     lambda_tr(   3 )=       0.000014   gamma_tr=       0.000001 meV  omega=    123.7664 meV   on_shell_Omega=    123.7664 meV  off_shell_Omega=    123.7664 meV
+     lambda___(   4 )=       0.108750   gamma___=       0.009440 meV  omega=    151.0999 meV   on_shell_Omega=    151.1243 meV  off_shell_Omega=    151.1243 meV
+     lambda_tr(   4 )=       0.218124   gamma_tr=       0.018933 meV  omega=    151.0999 meV   on_shell_Omega=    151.1243 meV  off_shell_Omega=    151.1243 meV
+     lambda___(   5 )=       0.080362   gamma___=       0.007059 meV  omega=    152.0040 meV   on_shell_Omega=    152.0315 meV  off_shell_Omega=    152.0315 meV
+     lambda_tr(   5 )=       0.121051   gamma_tr=       0.010633 meV  omega=    152.0040 meV   on_shell_Omega=    152.0315 meV  off_shell_Omega=    152.0315 meV
+     lambda___(   6 )=       7.806420   gamma___=       0.787798 meV  omega=    162.9234 meV   on_shell_Omega=    158.8837 meV  off_shell_Omega=    158.8265 meV
+     lambda_tr(   6 )=      14.774662   gamma_tr=       1.491010 meV  omega=    162.9234 meV   on_shell_Omega=    158.8837 meV  off_shell_Omega=    158.8265 meV
+     lambda___( tot )=       7.995545
+     lambda_tr( tot )=      15.113852
+     -------------------------------------------------------------------
+
+
+     Number of (k,k+q) pairs on the Fermi surface:   353330 out of   518400
+
+
+
+     Real and Imaginary part of the phonon self-energy (omega=0) without gamma0.
+     Omega(   1 )=   0.0653 eV   Re[Pi]=      -0.000003 meV Im[Pi]=      -0.000000 meV
+     Omega(   2 )=   0.0663 eV   Re[Pi]=      -0.000003 meV Im[Pi]=       0.000000 meV
+     Omega(   3 )=   0.1238 eV   Re[Pi]=      -0.028464 meV Im[Pi]=       0.000000 meV
+     Omega(   4 )=   0.1511 eV   Re[Pi]=      -3.923089 meV Im[Pi]=      -0.000000 meV
+     Omega(   5 )=   0.1520 eV   Re[Pi]=      -3.855530 meV Im[Pi]=       0.000000 meV
+     Omega(   6 )=   0.1629 eV   Re[Pi]=     -53.270782 meV Im[Pi]=       0.000000 meV
+     -------------------------------------------------------------------
+
+
+     ismear =     1 iq =      14 coord.:   0.33194  0.33194  0.00000 wt:   0.03448 Temp:  600.000K
+     -------------------------------------------------------------------
+     lambda___(   1 )=       0.000000   gamma___=       0.000000 meV  omega=     65.5252 meV   on_shell_Omega=     65.5252 meV  off_shell_Omega=     65.5252 meV
+     lambda_tr(   1 )=       0.000000   gamma_tr=       0.000000 meV  omega=     65.5252 meV   on_shell_Omega=     65.5252 meV  off_shell_Omega=     65.5252 meV
+     lambda___(   2 )=       0.000000   gamma___=       0.000000 meV  omega=     66.0078 meV   on_shell_Omega=     66.0078 meV  off_shell_Omega=     66.0078 meV
+     lambda_tr(   2 )=       0.000000   gamma_tr=       0.000000 meV  omega=     66.0078 meV   on_shell_Omega=     66.0078 meV  off_shell_Omega=     66.0078 meV
+     lambda___(   3 )=       0.000004   gamma___=       0.000000 meV  omega=    123.7961 meV   on_shell_Omega=    123.7961 meV  off_shell_Omega=    123.7961 meV
+     lambda_tr(   3 )=       0.000008   gamma_tr=       0.000000 meV  omega=    123.7961 meV   on_shell_Omega=    123.7961 meV  off_shell_Omega=    123.7961 meV
+     lambda___(   4 )=       0.230486   gamma___=       0.020065 meV  omega=    151.3194 meV   on_shell_Omega=    151.3432 meV  off_shell_Omega=    151.3432 meV
+     lambda_tr(   4 )=       0.456894   gamma_tr=       0.039774 meV  omega=    151.3194 meV   on_shell_Omega=    151.3432 meV  off_shell_Omega=    151.3432 meV
+     lambda___(   5 )=       0.106866   gamma___=       0.009358 meV  omega=    151.7628 meV   on_shell_Omega=    151.7960 meV  off_shell_Omega=    151.7960 meV
+     lambda_tr(   5 )=       0.205617   gamma_tr=       0.018005 meV  omega=    151.7628 meV   on_shell_Omega=    151.7960 meV  off_shell_Omega=    151.7960 meV
+     lambda___(   6 )=       5.709930   gamma___=       0.576139 meV  omega=    162.9109 meV   on_shell_Omega=    158.9293 meV  off_shell_Omega=    159.0132 meV
+     lambda_tr(   6 )=      11.021062   gamma_tr=       1.112038 meV  omega=    162.9109 meV   on_shell_Omega=    158.9293 meV  off_shell_Omega=    159.0132 meV
+     lambda___( tot )=       6.047288
+     lambda_tr( tot )=      11.683582
+     -------------------------------------------------------------------
+
+
+     Number of (k,k+q) pairs on the Fermi surface:   353330 out of   518400
+
+
+
+     Real and Imaginary part of the phonon self-energy (omega=0) without gamma0.
+     Omega(   1 )=   0.0655 eV   Re[Pi]=      -0.000003 meV Im[Pi]=       0.000000 meV
+     Omega(   2 )=   0.0660 eV   Re[Pi]=      -0.000003 meV Im[Pi]=       0.000000 meV
+     Omega(   3 )=   0.1238 eV   Re[Pi]=      -0.026582 meV Im[Pi]=       0.000000 meV
+     Omega(   4 )=   0.1513 eV   Re[Pi]=      -3.905822 meV Im[Pi]=       0.000000 meV
+     Omega(   5 )=   0.1518 eV   Re[Pi]=      -3.874210 meV Im[Pi]=       0.000000 meV
+     Omega(   6 )=   0.1629 eV   Re[Pi]=     -53.389058 meV Im[Pi]=       0.000001 meV
+     -------------------------------------------------------------------
+
+
+     ismear =     1 iq =      15 coord.:   0.33333  0.33333  0.00000 wt:   0.03448 Temp:  600.000K
+     -------------------------------------------------------------------
+     lambda___(   1 )=       0.000000   gamma___=       0.000000 meV  omega=     65.7663 meV   on_shell_Omega=     65.7663 meV  off_shell_Omega=     65.7663 meV
+     lambda_tr(   1 )=       0.000000   gamma_tr=       0.000000 meV  omega=     65.7663 meV   on_shell_Omega=     65.7663 meV  off_shell_Omega=     65.7663 meV
+     lambda___(   2 )=       0.000000   gamma___=       0.000000 meV  omega=     65.7663 meV   on_shell_Omega=     65.7663 meV  off_shell_Omega=     65.7663 meV
+     lambda_tr(   2 )=       0.000000   gamma_tr=       0.000000 meV  omega=     65.7663 meV   on_shell_Omega=     65.7663 meV  off_shell_Omega=     65.7663 meV
+     lambda___(   3 )=       0.000000   gamma___=       0.000000 meV  omega=    123.8063 meV   on_shell_Omega=    123.8063 meV  off_shell_Omega=    123.8063 meV
+     lambda_tr(   3 )=       0.000000   gamma_tr=       0.000000 meV  omega=    123.8063 meV   on_shell_Omega=    123.8063 meV  off_shell_Omega=    123.8063 meV
+     lambda___(   4 )=       0.154424   gamma___=       0.013482 meV  omega=    151.5375 meV   on_shell_Omega=    151.5532 meV  off_shell_Omega=    151.5532 meV
+     lambda_tr(   4 )=       0.309575   gamma_tr=       0.027027 meV  omega=    151.5375 meV   on_shell_Omega=    151.5532 meV  off_shell_Omega=    151.5532 meV
+     lambda___(   5 )=       0.154424   gamma___=       0.013482 meV  omega=    151.5375 meV   on_shell_Omega=    151.5533 meV  off_shell_Omega=    151.5533 meV
+     lambda_tr(   5 )=       0.309575   gamma_tr=       0.027027 meV  omega=    151.5375 meV   on_shell_Omega=    151.5533 meV  off_shell_Omega=    151.5533 meV
+     lambda___(   6 )=      18.411288   gamma___=       1.857623 meV  omega=    162.9066 meV   on_shell_Omega=    159.4122 meV  off_shell_Omega=    158.6113 meV
+     lambda_tr(   6 )=      36.900665   gamma_tr=       3.723124 meV  omega=    162.9066 meV   on_shell_Omega=    159.4122 meV  off_shell_Omega=    158.6113 meV
+     lambda___( tot )=      18.720136
+     lambda_tr( tot )=      37.519816
+     -------------------------------------------------------------------
+
+
+     Number of (k,k+q) pairs on the Fermi surface:   353330 out of   518400
+
+
+
+     Real and Imaginary part of the phonon self-energy (omega=0) without gamma0.
+     Omega(   1 )=   0.0658 eV   Re[Pi]=      -0.000003 meV Im[Pi]=      -0.000000 meV
+     Omega(   2 )=   0.0658 eV   Re[Pi]=      -0.000003 meV Im[Pi]=       0.000000 meV
+     Omega(   3 )=   0.1238 eV   Re[Pi]=      -0.025931 meV Im[Pi]=       0.000000 meV
+     Omega(   4 )=   0.1515 eV   Re[Pi]=      -3.880275 meV Im[Pi]=      -0.000000 meV
+     Omega(   5 )=   0.1515 eV   Re[Pi]=      -3.880031 meV Im[Pi]=       0.000000 meV
+     Omega(   6 )=   0.1629 eV   Re[Pi]=     -53.436527 meV Im[Pi]=       0.000000 meV
+     -------------------------------------------------------------------
+
+
+     ismear =     1 iq =      16 coord.:   0.33472  0.33472  0.00000 wt:   0.03448 Temp:  600.000K
+     -------------------------------------------------------------------
+     lambda___(   1 )=       0.000000   gamma___=       0.000000 meV  omega=     65.5285 meV   on_shell_Omega=     65.5285 meV  off_shell_Omega=     65.5285 meV
+     lambda_tr(   1 )=       0.000000   gamma_tr=       0.000000 meV  omega=     65.5285 meV   on_shell_Omega=     65.5285 meV  off_shell_Omega=     65.5285 meV
+     lambda___(   2 )=       0.000000   gamma___=       0.000000 meV  omega=     66.0046 meV   on_shell_Omega=     66.0046 meV  off_shell_Omega=     66.0046 meV
+     lambda_tr(   2 )=       0.000000   gamma_tr=       0.000000 meV  omega=     66.0046 meV   on_shell_Omega=     66.0046 meV  off_shell_Omega=     66.0046 meV
+     lambda___(   3 )=       0.000004   gamma___=       0.000000 meV  omega=    123.7965 meV   on_shell_Omega=    123.7965 meV  off_shell_Omega=    123.7965 meV
+     lambda_tr(   3 )=       0.000008   gamma_tr=       0.000000 meV  omega=    123.7965 meV   on_shell_Omega=    123.7965 meV  off_shell_Omega=    123.7965 meV
+     lambda___(   4 )=       0.115797   gamma___=       0.010082 meV  omega=    151.3284 meV   on_shell_Omega=    151.3606 meV  off_shell_Omega=    151.3606 meV
+     lambda_tr(   4 )=       0.222760   gamma_tr=       0.019394 meV  omega=    151.3284 meV   on_shell_Omega=    151.3606 meV  off_shell_Omega=    151.3606 meV
+     lambda___(   5 )=       0.201478   gamma___=       0.017640 meV  omega=    151.7540 meV   on_shell_Omega=    151.7781 meV  off_shell_Omega=    151.7781 meV
+     lambda_tr(   5 )=       0.395690   gamma_tr=       0.034644 meV  omega=    151.7540 meV   on_shell_Omega=    151.7781 meV  off_shell_Omega=    151.7781 meV
+     lambda___(   6 )=       4.994578   gamma___=       0.503957 meV  omega=    162.9106 meV   on_shell_Omega=    158.9775 meV  off_shell_Omega=    159.0128 meV
+     lambda_tr(   6 )=       9.740540   gamma_tr=       0.982828 meV  omega=    162.9106 meV   on_shell_Omega=    158.9775 meV  off_shell_Omega=    159.0128 meV
+     lambda___( tot )=       5.311857
+     lambda_tr( tot )=      10.358997
+     -------------------------------------------------------------------
+
+
+     Number of (k,k+q) pairs on the Fermi surface:   353330 out of   518400
+
+
+
+     Real and Imaginary part of the phonon self-energy (omega=0) without gamma0.
+     Omega(   1 )=   0.0655 eV   Re[Pi]=      -0.000003 meV Im[Pi]=      -0.000000 meV
+     Omega(   2 )=   0.0660 eV   Re[Pi]=      -0.000003 meV Im[Pi]=      -0.000000 meV
+     Omega(   3 )=   0.1238 eV   Re[Pi]=      -0.026612 meV Im[Pi]=      -0.000000 meV
+     Omega(   4 )=   0.1513 eV   Re[Pi]=      -3.909068 meV Im[Pi]=       0.000000 meV
+     Omega(   5 )=   0.1518 eV   Re[Pi]=      -3.870298 meV Im[Pi]=      -0.000000 meV
+     Omega(   6 )=   0.1629 eV   Re[Pi]=     -53.388444 meV Im[Pi]=       0.000001 meV
+     -------------------------------------------------------------------
+
+
+     ismear =     1 iq =      17 coord.:   0.33611  0.33611  0.00000 wt:   0.03448 Temp:  600.000K
+     -------------------------------------------------------------------
+     lambda___(   1 )=       0.000001   gamma___=       0.000000 meV  omega=     65.2946 meV   on_shell_Omega=     65.2946 meV  off_shell_Omega=     65.2946 meV
+     lambda_tr(   1 )=       0.000000   gamma_tr=       0.000000 meV  omega=     65.2946 meV   on_shell_Omega=     65.2946 meV  off_shell_Omega=     65.2946 meV
+     lambda___(   2 )=       0.000000   gamma___=       0.000000 meV  omega=     66.2401 meV   on_shell_Omega=     66.2401 meV  off_shell_Omega=     66.2401 meV
+     lambda_tr(   2 )=       0.000000   gamma_tr=       0.000000 meV  omega=     66.2401 meV   on_shell_Omega=     66.2401 meV  off_shell_Omega=     66.2401 meV
+     lambda___(   3 )=       0.000012   gamma___=       0.000001 meV  omega=    123.7662 meV   on_shell_Omega=    123.7662 meV  off_shell_Omega=    123.7662 meV
+     lambda_tr(   3 )=       0.000017   gamma_tr=       0.000001 meV  omega=    123.7662 meV   on_shell_Omega=    123.7662 meV  off_shell_Omega=    123.7662 meV
+     lambda___(   4 )=       0.116881   gamma___=       0.010150 meV  omega=    151.1362 meV   on_shell_Omega=    151.1645 meV  off_shell_Omega=    151.1645 meV
+     lambda_tr(   4 )=       0.175960   gamma_tr=       0.015281 meV  omega=    151.1362 meV   on_shell_Omega=    151.1645 meV  off_shell_Omega=    151.1645 meV
+     lambda___(   5 )=       0.074515   gamma___=       0.006543 meV  omega=    151.9690 meV   on_shell_Omega=    151.9940 meV  off_shell_Omega=    151.9940 meV
+     lambda_tr(   5 )=       0.148256   gamma_tr=       0.013017 meV  omega=    151.9690 meV   on_shell_Omega=    151.9940 meV  off_shell_Omega=    151.9940 meV
+     lambda___(   6 )=       8.449544   gamma___=       0.852693 meV  omega=    162.9228 meV   on_shell_Omega=    158.7315 meV  off_shell_Omega=    158.8259 meV
+     lambda_tr(   6 )=      15.855605   gamma_tr=       1.600083 meV  omega=    162.9228 meV   on_shell_Omega=    158.7315 meV  off_shell_Omega=    158.8259 meV
+     lambda___( tot )=       8.640953
+     lambda_tr( tot )=      16.179838
+     -------------------------------------------------------------------
+
+
+     Number of (k,k+q) pairs on the Fermi surface:   353330 out of   518400
+
+
+
+     Real and Imaginary part of the phonon self-energy (omega=0) without gamma0.
+     Omega(   1 )=   0.0653 eV   Re[Pi]=      -0.000003 meV Im[Pi]=      -0.000000 meV
+     Omega(   2 )=   0.0662 eV   Re[Pi]=      -0.000003 meV Im[Pi]=      -0.000000 meV
+     Omega(   3 )=   0.1238 eV   Re[Pi]=      -0.028710 meV Im[Pi]=      -0.000000 meV
+     Omega(   4 )=   0.1511 eV   Re[Pi]=      -3.925339 meV Im[Pi]=       0.000000 meV
+     Omega(   5 )=   0.1520 eV   Re[Pi]=      -3.854854 meV Im[Pi]=      -0.000000 meV
+     Omega(   6 )=   0.1629 eV   Re[Pi]=     -53.267613 meV Im[Pi]=       0.000001 meV
+     -------------------------------------------------------------------
+
+
+     ismear =     1 iq =      18 coord.:   0.33750  0.33750  0.00000 wt:   0.03448 Temp:  600.000K
+     -------------------------------------------------------------------
+     lambda___(   1 )=       0.000001   gamma___=       0.000000 meV  omega=     65.0645 meV   on_shell_Omega=     65.0645 meV  off_shell_Omega=     65.0645 meV
+     lambda_tr(   1 )=       0.000000   gamma_tr=       0.000000 meV  omega=     65.0645 meV   on_shell_Omega=     65.0645 meV  off_shell_Omega=     65.0645 meV
+     lambda___(   2 )=       0.000000   gamma___=       0.000000 meV  omega=     66.4728 meV   on_shell_Omega=     66.4728 meV  off_shell_Omega=     66.4728 meV
+     lambda_tr(   2 )=       0.000000   gamma_tr=       0.000000 meV  omega=     66.4728 meV   on_shell_Omega=     66.4728 meV  off_shell_Omega=     66.4728 meV
+     lambda___(   3 )=       0.000526   gamma___=       0.000031 meV  omega=    123.7151 meV   on_shell_Omega=    123.7151 meV  off_shell_Omega=    123.7151 meV
+     lambda_tr(   3 )=       0.000067   gamma_tr=       0.000004 meV  omega=    123.7151 meV   on_shell_Omega=    123.7151 meV  off_shell_Omega=    123.7151 meV
+     lambda___(   4 )=       0.213358   gamma___=       0.018486 meV  omega=    150.9610 meV   on_shell_Omega=    151.0025 meV  off_shell_Omega=    151.0025 meV
+     lambda_tr(   4 )=       0.165200   gamma_tr=       0.014313 meV  omega=    150.9610 meV   on_shell_Omega=    151.0025 meV  off_shell_Omega=    151.0025 meV
+     lambda___(   5 )=       0.027349   gamma___=       0.002408 meV  omega=    152.1827 meV   on_shell_Omega=    152.2129 meV  off_shell_Omega=    152.2129 meV
+     lambda_tr(   5 )=       0.046141   gamma_tr=       0.004063 meV  omega=    152.1827 meV   on_shell_Omega=    152.2129 meV  off_shell_Omega=    152.2129 meV
+     lambda___(   6 )=       6.060825   gamma___=       0.611788 meV  omega=    162.9433 meV   on_shell_Omega=    159.0896 meV  off_shell_Omega=    159.0448 meV
+     lambda_tr(   6 )=       9.620974   gamma_tr=       0.971154 meV  omega=    162.9433 meV   on_shell_Omega=    159.0896 meV  off_shell_Omega=    159.0448 meV
+     lambda___( tot )=       6.302059
+     lambda_tr( tot )=       9.832382
+     -------------------------------------------------------------------
+
+
+     Number of (k,k+q) pairs on the Fermi surface:   353330 out of   518400
+
+
+
+     Real and Imaginary part of the phonon self-energy (omega=0) without gamma0.
+     Omega(   1 )=   0.0651 eV   Re[Pi]=      -0.000003 meV Im[Pi]=       0.000000 meV
+     Omega(   2 )=   0.0665 eV   Re[Pi]=      -0.000003 meV Im[Pi]=      -0.000000 meV
+     Omega(   3 )=   0.1237 eV   Re[Pi]=      -0.032295 meV Im[Pi]=      -0.000000 meV
+     Omega(   4 )=   0.1510 eV   Re[Pi]=      -3.939994 meV Im[Pi]=       0.000000 meV
+     Omega(   5 )=   0.1522 eV   Re[Pi]=      -3.837855 meV Im[Pi]=      -0.000000 meV
+     Omega(   6 )=   0.1629 eV   Re[Pi]=     -53.086998 meV Im[Pi]=       0.000001 meV
+     -------------------------------------------------------------------
+
+
+     ismear =     1 iq =      19 coord.:   0.33889  0.33889  0.00000 wt:   0.03448 Temp:  600.000K
+     -------------------------------------------------------------------
+     lambda___(   1 )=       0.000000   gamma___=       0.000000 meV  omega=     64.8383 meV   on_shell_Omega=     64.8383 meV  off_shell_Omega=     64.8383 meV
+     lambda_tr(   1 )=       0.000000   gamma_tr=       0.000000 meV  omega=     64.8383 meV   on_shell_Omega=     64.8383 meV  off_shell_Omega=     64.8383 meV
+     lambda___(   2 )=       0.000000   gamma___=       0.000000 meV  omega=     66.7027 meV   on_shell_Omega=     66.7027 meV  off_shell_Omega=     66.7027 meV
+     lambda_tr(   2 )=       0.000000   gamma_tr=       0.000000 meV  omega=     66.7027 meV   on_shell_Omega=     66.7027 meV  off_shell_Omega=     66.7027 meV
+     lambda___(   3 )=       0.000198   gamma___=       0.000012 meV  omega=    123.6430 meV   on_shell_Omega=    123.6430 meV  off_shell_Omega=    123.6430 meV
+     lambda_tr(   3 )=       0.000057   gamma_tr=       0.000003 meV  omega=    123.6430 meV   on_shell_Omega=    123.6430 meV  off_shell_Omega=    123.6430 meV
+     lambda___(   4 )=       0.712160   gamma___=       0.061574 meV  omega=    150.8032 meV   on_shell_Omega=    150.7703 meV  off_shell_Omega=    150.7703 meV
+     lambda_tr(   4 )=       0.057319   gamma_tr=       0.004956 meV  omega=    150.8032 meV   on_shell_Omega=    150.7703 meV  off_shell_Omega=    150.7703 meV
+     lambda___(   5 )=       0.117194   gamma___=       0.010348 meV  omega=    152.3949 meV   on_shell_Omega=    152.4360 meV  off_shell_Omega=    152.4360 meV
+     lambda_tr(   5 )=       0.097438   gamma_tr=       0.008603 meV  omega=    152.3949 meV   on_shell_Omega=    152.4360 meV  off_shell_Omega=    152.4360 meV
+     lambda___(   6 )=       2.158658   gamma___=       0.217975 meV  omega=    162.9721 meV   on_shell_Omega=    159.4397 meV  off_shell_Omega=    159.4708 meV
+     lambda_tr(   6 )=       1.252865   gamma_tr=       0.126510 meV  omega=    162.9721 meV   on_shell_Omega=    159.4397 meV  off_shell_Omega=    159.4708 meV
+     lambda___( tot )=       2.988211
+     lambda_tr( tot )=       1.407679
+     -------------------------------------------------------------------
+
+
+     Number of (k,k+q) pairs on the Fermi surface:   353330 out of   518400
+
+
+
+     Real and Imaginary part of the phonon self-energy (omega=0) without gamma0.
+     Omega(   1 )=   0.0648 eV   Re[Pi]=      -0.000003 meV Im[Pi]=       0.000000 meV
+     Omega(   2 )=   0.0667 eV   Re[Pi]=      -0.000002 meV Im[Pi]=      -0.000000 meV
+     Omega(   3 )=   0.1236 eV   Re[Pi]=      -0.037414 meV Im[Pi]=      -0.000000 meV
+     Omega(   4 )=   0.1508 eV   Re[Pi]=      -3.953299 meV Im[Pi]=       0.000000 meV
+     Omega(   5 )=   0.1524 eV   Re[Pi]=      -3.820562 meV Im[Pi]=      -0.000000 meV
+     Omega(   6 )=   0.1630 eV   Re[Pi]=     -52.856194 meV Im[Pi]=       0.000001 meV
+     -------------------------------------------------------------------
+
+
+     ismear =     1 iq =      20 coord.:   0.34028  0.34028  0.00000 wt:   0.03448 Temp:  600.000K
+     -------------------------------------------------------------------
+     lambda___(   1 )=       0.000000   gamma___=       0.000000 meV  omega=     64.6161 meV   on_shell_Omega=     64.6161 meV  off_shell_Omega=     64.6161 meV
+     lambda_tr(   1 )=       0.000000   gamma_tr=       0.000000 meV  omega=     64.6161 meV   on_shell_Omega=     64.6161 meV  off_shell_Omega=     64.6161 meV
+     lambda___(   2 )=       0.000000   gamma___=       0.000000 meV  omega=     66.9299 meV   on_shell_Omega=     66.9299 meV  off_shell_Omega=     66.9299 meV
+     lambda_tr(   2 )=       0.000000   gamma_tr=       0.000000 meV  omega=     66.9299 meV   on_shell_Omega=     66.9299 meV  off_shell_Omega=     66.9299 meV
+     lambda___(   3 )=       0.000150   gamma___=       0.000009 meV  omega=    123.5497 meV   on_shell_Omega=    123.5498 meV  off_shell_Omega=    123.5498 meV
+     lambda_tr(   3 )=       0.000082   gamma_tr=       0.000005 meV  omega=    123.5497 meV   on_shell_Omega=    123.5498 meV  off_shell_Omega=    123.5498 meV
+     lambda___(   4 )=       0.123694   gamma___=       0.010675 meV  omega=    150.6630 meV   on_shell_Omega=    150.6501 meV  off_shell_Omega=    150.6501 meV
+     lambda_tr(   4 )=       0.051744   gamma_tr=       0.004466 meV  omega=    150.6630 meV   on_shell_Omega=    150.6501 meV  off_shell_Omega=    150.6501 meV
+     lambda___(   5 )=       0.259656   gamma___=       0.022990 meV  omega=    152.6059 meV   on_shell_Omega=    152.6473 meV  off_shell_Omega=    152.6473 meV
+     lambda_tr(   5 )=       0.305931   gamma_tr=       0.027087 meV  omega=    152.6059 meV   on_shell_Omega=    152.6473 meV  off_shell_Omega=    152.6473 meV
+     lambda___(   6 )=       1.329459   gamma___=       0.134306 meV  omega=    163.0091 meV   on_shell_Omega=    159.9614 meV  off_shell_Omega=    159.9049 meV
+     lambda_tr(   6 )=       0.980208   gamma_tr=       0.099023 meV  omega=    163.0091 meV   on_shell_Omega=    159.9614 meV  off_shell_Omega=    159.9049 meV
+     lambda___( tot )=       1.712960
+     lambda_tr( tot )=       1.337965
+     -------------------------------------------------------------------
+
+
+     Number of (k,k+q) pairs on the Fermi surface:   353330 out of   518400
+
+
+
+     Real and Imaginary part of the phonon self-energy (omega=0) without gamma0.
+     Omega(   1 )=   0.0646 eV   Re[Pi]=      -0.000003 meV Im[Pi]=       0.000000 meV
+     Omega(   2 )=   0.0669 eV   Re[Pi]=      -0.000002 meV Im[Pi]=      -0.000000 meV
+     Omega(   3 )=   0.1235 eV   Re[Pi]=      -0.044094 meV Im[Pi]=      -0.000000 meV
+     Omega(   4 )=   0.1507 eV   Re[Pi]=      -3.965267 meV Im[Pi]=       0.000000 meV
+     Omega(   5 )=   0.1526 eV   Re[Pi]=      -3.803408 meV Im[Pi]=      -0.000000 meV
+     Omega(   6 )=   0.1630 eV   Re[Pi]=     -52.586320 meV Im[Pi]=       0.000001 meV
+     -------------------------------------------------------------------
+
+
+     ismear =     1 iq =      21 coord.:   0.34167  0.34167  0.00000 wt:   0.03448 Temp:  600.000K
+     -------------------------------------------------------------------
+     lambda___(   1 )=       0.000000   gamma___=       0.000000 meV  omega=     64.3979 meV   on_shell_Omega=     64.3979 meV  off_shell_Omega=     64.3979 meV
+     lambda_tr(   1 )=       0.000000   gamma_tr=       0.000000 meV  omega=     64.3979 meV   on_shell_Omega=     64.3979 meV  off_shell_Omega=     64.3979 meV
+     lambda___(   2 )=       0.000000   gamma___=       0.000000 meV  omega=     67.1542 meV   on_shell_Omega=     67.1542 meV  off_shell_Omega=     67.1542 meV
+     lambda_tr(   2 )=       0.000000   gamma_tr=       0.000000 meV  omega=     67.1542 meV   on_shell_Omega=     67.1542 meV  off_shell_Omega=     67.1542 meV
+     lambda___(   3 )=       0.000079   gamma___=       0.000005 meV  omega=    123.4351 meV   on_shell_Omega=    123.4353 meV  off_shell_Omega=    123.4353 meV
+     lambda_tr(   3 )=       0.000046   gamma_tr=       0.000003 meV  omega=    123.4351 meV   on_shell_Omega=    123.4353 meV  off_shell_Omega=    123.4353 meV
+     lambda___(   4 )=       0.056872   gamma___=       0.004900 meV  omega=    150.5405 meV   on_shell_Omega=    150.5362 meV  off_shell_Omega=    150.5362 meV
+     lambda_tr(   4 )=       0.037548   gamma_tr=       0.003235 meV  omega=    150.5405 meV   on_shell_Omega=    150.5362 meV  off_shell_Omega=    150.5362 meV
+     lambda___(   5 )=       0.238733   gamma___=       0.021195 meV  omega=    152.8155 meV   on_shell_Omega=    152.8593 meV  off_shell_Omega=    152.8593 meV
+     lambda_tr(   5 )=       0.332026   gamma_tr=       0.029478 meV  omega=    152.8155 meV   on_shell_Omega=    152.8593 meV  off_shell_Omega=    152.8593 meV
+     lambda___(   6 )=       2.616393   gamma___=       0.264462 meV  omega=    163.0543 meV   on_shell_Omega=    160.2825 meV  off_shell_Omega=    160.3473 meV
+     lambda_tr(   6 )=       3.073009   gamma_tr=       0.310616 meV  omega=    163.0543 meV   on_shell_Omega=    160.2825 meV  off_shell_Omega=    160.3473 meV
+     lambda___( tot )=       2.912077
+     lambda_tr( tot )=       3.442628
+     -------------------------------------------------------------------
+
+
+     Number of (k,k+q) pairs on the Fermi surface:   353330 out of   518400
+
+
+
+     Real and Imaginary part of the phonon self-energy (omega=0) without gamma0.
+     Omega(   1 )=   0.0644 eV   Re[Pi]=      -0.000003 meV Im[Pi]=       0.000000 meV
+     Omega(   2 )=   0.0672 eV   Re[Pi]=      -0.000002 meV Im[Pi]=      -0.000000 meV
+     Omega(   3 )=   0.1234 eV   Re[Pi]=      -0.052334 meV Im[Pi]=      -0.000000 meV
+     Omega(   4 )=   0.1505 eV   Re[Pi]=      -3.975899 meV Im[Pi]=       0.000000 meV
+     Omega(   5 )=   0.1528 eV   Re[Pi]=      -3.786640 meV Im[Pi]=      -0.000000 meV
+     Omega(   6 )=   0.1631 eV   Re[Pi]=     -52.288001 meV Im[Pi]=       0.000000 meV
+     -------------------------------------------------------------------
+
+
+     ismear =     1 iq =      22 coord.:   0.34306  0.34306  0.00000 wt:   0.03448 Temp:  600.000K
+     -------------------------------------------------------------------
+     lambda___(   1 )=       0.000000   gamma___=       0.000000 meV  omega=     64.1837 meV   on_shell_Omega=     64.1837 meV  off_shell_Omega=     64.1837 meV
+     lambda_tr(   1 )=       0.000000   gamma_tr=       0.000000 meV  omega=     64.1837 meV   on_shell_Omega=     64.1837 meV  off_shell_Omega=     64.1837 meV
+     lambda___(   2 )=       0.000000   gamma___=       0.000000 meV  omega=     67.3758 meV   on_shell_Omega=     67.3758 meV  off_shell_Omega=     67.3758 meV
+     lambda_tr(   2 )=       0.000000   gamma_tr=       0.000000 meV  omega=     67.3758 meV   on_shell_Omega=     67.3758 meV  off_shell_Omega=     67.3758 meV
+     lambda___(   3 )=       0.000056   gamma___=       0.000003 meV  omega=    123.2993 meV   on_shell_Omega=    123.2995 meV  off_shell_Omega=    123.2995 meV
+     lambda_tr(   3 )=       0.000042   gamma_tr=       0.000002 meV  omega=    123.2993 meV   on_shell_Omega=    123.2995 meV  off_shell_Omega=    123.2995 meV
+     lambda___(   4 )=       0.023737   gamma___=       0.002042 meV  omega=    150.4356 meV   on_shell_Omega=    150.4355 meV  off_shell_Omega=    150.4355 meV
+     lambda_tr(   4 )=       0.019041   gamma_tr=       0.001638 meV  omega=    150.4356 meV   on_shell_Omega=    150.4355 meV  off_shell_Omega=    150.4355 meV
+     lambda___(   5 )=       0.239965   gamma___=       0.021363 meV  omega=    153.0239 meV   on_shell_Omega=    153.0680 meV  off_shell_Omega=    153.0680 meV
+     lambda_tr(   5 )=       0.342300   gamma_tr=       0.030473 meV  omega=    153.0239 meV   on_shell_Omega=    153.0680 meV  off_shell_Omega=    153.0680 meV
+     lambda___(   6 )=       1.574684   gamma___=       0.159271 meV  omega=    163.1075 meV   on_shell_Omega=    160.5735 meV  off_shell_Omega=    160.5988 meV
+     lambda_tr(   6 )=       2.340073   gamma_tr=       0.236686 meV  omega=    163.1075 meV   on_shell_Omega=    160.5735 meV  off_shell_Omega=    160.5988 meV
+     lambda___( tot )=       1.838444
+     lambda_tr( tot )=       2.701456
+     -------------------------------------------------------------------
+
+
+     Number of (k,k+q) pairs on the Fermi surface:   353330 out of   518400
+
+
+
+     Real and Imaginary part of the phonon self-energy (omega=0) without gamma0.
+     Omega(   1 )=   0.0642 eV   Re[Pi]=      -0.000003 meV Im[Pi]=       0.000000 meV
+     Omega(   2 )=   0.0674 eV   Re[Pi]=      -0.000002 meV Im[Pi]=      -0.000000 meV
+     Omega(   3 )=   0.1233 eV   Re[Pi]=      -0.062113 meV Im[Pi]=      -0.000000 meV
+     Omega(   4 )=   0.1504 eV   Re[Pi]=      -3.985220 meV Im[Pi]=       0.000000 meV
+     Omega(   5 )=   0.1530 eV   Re[Pi]=      -3.770411 meV Im[Pi]=      -0.000000 meV
+     Omega(   6 )=   0.1631 eV   Re[Pi]=     -51.970260 meV Im[Pi]=      -0.000000 meV
+     -------------------------------------------------------------------
+
+
+     ismear =     1 iq =      23 coord.:   0.34444  0.34444  0.00000 wt:   0.03448 Temp:  600.000K
+     -------------------------------------------------------------------
+     lambda___(   1 )=       0.000000   gamma___=       0.000000 meV  omega=     63.9737 meV   on_shell_Omega=     63.9737 meV  off_shell_Omega=     63.9737 meV
+     lambda_tr(   1 )=       0.000000   gamma_tr=       0.000000 meV  omega=     63.9737 meV   on_shell_Omega=     63.9737 meV  off_shell_Omega=     63.9737 meV
+     lambda___(   2 )=       0.000000   gamma___=       0.000000 meV  omega=     67.5946 meV   on_shell_Omega=     67.5946 meV  off_shell_Omega=     67.5946 meV
+     lambda_tr(   2 )=       0.000000   gamma_tr=       0.000000 meV  omega=     67.5946 meV   on_shell_Omega=     67.5946 meV  off_shell_Omega=     67.5946 meV
+     lambda___(   3 )=       0.000044   gamma___=       0.000003 meV  omega=    123.1423 meV   on_shell_Omega=    123.1426 meV  off_shell_Omega=    123.1426 meV
+     lambda_tr(   3 )=       0.000039   gamma_tr=       0.000002 meV  omega=    123.1423 meV   on_shell_Omega=    123.1426 meV  off_shell_Omega=    123.1426 meV
+     lambda___(   4 )=       0.013836   gamma___=       0.001189 meV  omega=    150.3483 meV   on_shell_Omega=    150.3513 meV  off_shell_Omega=    150.3513 meV
+     lambda_tr(   4 )=       0.012163   gamma_tr=       0.001045 meV  omega=    150.3483 meV   on_shell_Omega=    150.3513 meV  off_shell_Omega=    150.3513 meV
+     lambda___(   5 )=       0.181844   gamma___=       0.016233 meV  omega=    153.2311 meV   on_shell_Omega=    153.2783 meV  off_shell_Omega=    153.2783 meV
+     lambda_tr(   5 )=       0.275891   gamma_tr=       0.024628 meV  omega=    153.2311 meV   on_shell_Omega=    153.2783 meV  off_shell_Omega=    153.2783 meV
+     lambda___(   6 )=       1.613798   gamma___=       0.163350 meV  omega=    163.1687 meV   on_shell_Omega=    160.8743 meV  off_shell_Omega=    160.8583 meV
+     lambda_tr(   6 )=       2.440406   gamma_tr=       0.247020 meV  omega=    163.1687 meV   on_shell_Omega=    160.8743 meV  off_shell_Omega=    160.8583 meV
+     lambda___( tot )=       1.809522
+     lambda_tr( tot )=       2.728499
+     -------------------------------------------------------------------
+
+
+     Number of (k,k+q) pairs on the Fermi surface:   353330 out of   518400
+
+
+
+     Real and Imaginary part of the phonon self-energy (omega=0) without gamma0.
+     Omega(   1 )=   0.0640 eV   Re[Pi]=      -0.000003 meV Im[Pi]=       0.000000 meV
+     Omega(   2 )=   0.0676 eV   Re[Pi]=      -0.000002 meV Im[Pi]=      -0.000000 meV
+     Omega(   3 )=   0.1231 eV   Re[Pi]=      -0.073382 meV Im[Pi]=      -0.000000 meV
+     Omega(   4 )=   0.1503 eV   Re[Pi]=      -3.993271 meV Im[Pi]=      -0.000000 meV
+     Omega(   5 )=   0.1532 eV   Re[Pi]=      -3.754798 meV Im[Pi]=      -0.000000 meV
+     Omega(   6 )=   0.1632 eV   Re[Pi]=     -51.640124 meV Im[Pi]=      -0.000001 meV
+     -------------------------------------------------------------------
+
+
+     ismear =     1 iq =      24 coord.:   0.34583  0.34583  0.00000 wt:   0.03448 Temp:  600.000K
+     -------------------------------------------------------------------
+     lambda___(   1 )=       0.000000   gamma___=       0.000000 meV  omega=     63.7677 meV   on_shell_Omega=     63.7677 meV  off_shell_Omega=     63.7677 meV
+     lambda_tr(   1 )=       0.000000   gamma_tr=       0.000000 meV  omega=     63.7677 meV   on_shell_Omega=     63.7677 meV  off_shell_Omega=     63.7677 meV
+     lambda___(   2 )=       0.000000   gamma___=       0.000000 meV  omega=     67.8107 meV   on_shell_Omega=     67.8107 meV  off_shell_Omega=     67.8107 meV
+     lambda_tr(   2 )=       0.000000   gamma_tr=       0.000000 meV  omega=     67.8107 meV   on_shell_Omega=     67.8107 meV  off_shell_Omega=     67.8107 meV
+     lambda___(   3 )=       0.000029   gamma___=       0.000002 meV  omega=    122.9644 meV   on_shell_Omega=    122.9648 meV  off_shell_Omega=    122.9648 meV
+     lambda_tr(   3 )=       0.000029   gamma_tr=       0.000002 meV  omega=    122.9644 meV   on_shell_Omega=    122.9648 meV  off_shell_Omega=    122.9648 meV
+     lambda___(   4 )=       0.007955   gamma___=       0.000683 meV  omega=    150.2785 meV   on_shell_Omega=    150.2834 meV  off_shell_Omega=    150.2834 meV
+     lambda_tr(   4 )=       0.007821   gamma_tr=       0.000671 meV  omega=    150.2785 meV   on_shell_Omega=    150.2834 meV  off_shell_Omega=    150.2834 meV
+     lambda___(   5 )=       0.140584   gamma___=       0.012583 meV  omega=    153.4371 meV   on_shell_Omega=    153.4879 meV  off_shell_Omega=    153.4879 meV
+     lambda_tr(   5 )=       0.225243   gamma_tr=       0.020161 meV  omega=    153.4371 meV   on_shell_Omega=    153.4879 meV  off_shell_Omega=    153.4879 meV
+     lambda___(   6 )=       1.489050   gamma___=       0.150850 meV  omega=    163.2378 meV   on_shell_Omega=    161.1704 meV  off_shell_Omega=    161.1256 meV
+     lambda_tr(   6 )=       2.393004   gamma_tr=       0.242427 meV  omega=    163.2378 meV   on_shell_Omega=    161.1704 meV  off_shell_Omega=    161.1256 meV
+     lambda___( tot )=       1.637618
+     lambda_tr( tot )=       2.626096
+     -------------------------------------------------------------------
+
+
+     Number of (k,k+q) pairs on the Fermi surface:   353330 out of   518400
+
+
+
+     Real and Imaginary part of the phonon self-energy (omega=0) without gamma0.
+     Omega(   1 )=   0.0638 eV   Re[Pi]=      -0.000003 meV Im[Pi]=       0.000000 meV
+     Omega(   2 )=   0.0678 eV   Re[Pi]=      -0.000002 meV Im[Pi]=      -0.000000 meV
+     Omega(   3 )=   0.1230 eV   Re[Pi]=      -0.086071 meV Im[Pi]=      -0.000000 meV
+     Omega(   4 )=   0.1503 eV   Re[Pi]=      -4.000119 meV Im[Pi]=      -0.000000 meV
+     Omega(   5 )=   0.1534 eV   Re[Pi]=      -3.739816 meV Im[Pi]=      -0.000000 meV
+     Omega(   6 )=   0.1632 eV   Re[Pi]=     -51.302711 meV Im[Pi]=      -0.000001 meV
+     -------------------------------------------------------------------
+
+
+     ismear =     1 iq =      25 coord.:   0.34722  0.34722  0.00000 wt:   0.03448 Temp:  600.000K
+     -------------------------------------------------------------------
+     lambda___(   1 )=       0.000000   gamma___=       0.000000 meV  omega=     63.5659 meV   on_shell_Omega=     63.5659 meV  off_shell_Omega=     63.5659 meV
+     lambda_tr(   1 )=       0.000000   gamma_tr=       0.000000 meV  omega=     63.5659 meV   on_shell_Omega=     63.5659 meV  off_shell_Omega=     63.5659 meV
+     lambda___(   2 )=       0.000000   gamma___=       0.000000 meV  omega=     68.0239 meV   on_shell_Omega=     68.0239 meV  off_shell_Omega=     68.0239 meV
+     lambda_tr(   2 )=       0.000000   gamma_tr=       0.000000 meV  omega=     68.0239 meV   on_shell_Omega=     68.0239 meV  off_shell_Omega=     68.0239 meV
+     lambda___(   3 )=       0.000021   gamma___=       0.000001 meV  omega=    122.7658 meV   on_shell_Omega=    122.7662 meV  off_shell_Omega=    122.7662 meV
+     lambda_tr(   3 )=       0.000023   gamma_tr=       0.000001 meV  omega=    122.7658 meV   on_shell_Omega=    122.7662 meV  off_shell_Omega=    122.7662 meV
+     lambda___(   4 )=       0.003961   gamma___=       0.000340 meV  omega=    150.2258 meV   on_shell_Omega=    150.2321 meV  off_shell_Omega=    150.2321 meV
+     lambda_tr(   4 )=       0.004205   gamma_tr=       0.000361 meV  omega=    150.2258 meV   on_shell_Omega=    150.2321 meV  off_shell_Omega=    150.2321 meV
+     lambda___(   5 )=       0.113335   gamma___=       0.010171 meV  omega=    153.6420 meV   on_shell_Omega=    153.6963 meV  off_shell_Omega=    153.6963 meV
+     lambda_tr(   5 )=       0.184621   gamma_tr=       0.016569 meV  omega=    153.6420 meV   on_shell_Omega=    153.6963 meV  off_shell_Omega=    153.6963 meV
+     lambda___(   6 )=       1.287868   gamma___=       0.130592 meV  omega=    163.3146 meV   on_shell_Omega=    161.4563 meV  off_shell_Omega=    161.4007 meV
+     lambda_tr(   6 )=       2.163260   gamma_tr=       0.219358 meV  omega=    163.3146 meV   on_shell_Omega=    161.4563 meV  off_shell_Omega=    161.4007 meV
+     lambda___( tot )=       1.405185
+     lambda_tr( tot )=       2.352109
+     -------------------------------------------------------------------
+
+
+     Number of (k,k+q) pairs on the Fermi surface:   353330 out of   518400
+
+
+
+     Real and Imaginary part of the phonon self-energy (omega=0) without gamma0.
+     Omega(   1 )=   0.0636 eV   Re[Pi]=      -0.000003 meV Im[Pi]=       0.000000 meV
+     Omega(   2 )=   0.0680 eV   Re[Pi]=      -0.000002 meV Im[Pi]=      -0.000000 meV
+     Omega(   3 )=   0.1228 eV   Re[Pi]=      -0.100085 meV Im[Pi]=      -0.000000 meV
+     Omega(   4 )=   0.1502 eV   Re[Pi]=      -4.005852 meV Im[Pi]=      -0.000000 meV
+     Omega(   5 )=   0.1536 eV   Re[Pi]=      -3.725433 meV Im[Pi]=      -0.000000 meV
+     Omega(   6 )=   0.1633 eV   Re[Pi]=     -50.961556 meV Im[Pi]=      -0.000001 meV
+     -------------------------------------------------------------------
+
+
+     ismear =     1 iq =      26 coord.:   0.34861  0.34861  0.00000 wt:   0.03448 Temp:  600.000K
+     -------------------------------------------------------------------
+     lambda___(   1 )=       0.000000   gamma___=       0.000000 meV  omega=     63.3682 meV   on_shell_Omega=     63.3682 meV  off_shell_Omega=     63.3682 meV
+     lambda_tr(   1 )=       0.000000   gamma_tr=       0.000000 meV  omega=     63.3682 meV   on_shell_Omega=     63.3682 meV  off_shell_Omega=     63.3682 meV
+     lambda___(   2 )=       0.000000   gamma___=       0.000000 meV  omega=     68.2344 meV   on_shell_Omega=     68.2344 meV  off_shell_Omega=     68.2344 meV
+     lambda_tr(   2 )=       0.000000   gamma_tr=       0.000000 meV  omega=     68.2344 meV   on_shell_Omega=     68.2344 meV  off_shell_Omega=     68.2344 meV
+     lambda___(   3 )=       0.000016   gamma___=       0.000001 meV  omega=    122.5468 meV   on_shell_Omega=    122.5474 meV  off_shell_Omega=    122.5474 meV
+     lambda_tr(   3 )=       0.000019   gamma_tr=       0.000001 meV  omega=    122.5468 meV   on_shell_Omega=    122.5474 meV  off_shell_Omega=    122.5474 meV
+     lambda___(   4 )=       0.002245   gamma___=       0.000193 meV  omega=    150.1900 meV   on_shell_Omega=    150.1973 meV  off_shell_Omega=    150.1973 meV
+     lambda_tr(   4 )=       0.002521   gamma_tr=       0.000216 meV  omega=    150.1900 meV   on_shell_Omega=    150.1973 meV  off_shell_Omega=    150.1973 meV
+     lambda___(   5 )=       0.083111   gamma___=       0.007479 meV  omega=    153.8458 meV   on_shell_Omega=    153.9040 meV  off_shell_Omega=    153.9040 meV
+     lambda_tr(   5 )=       0.139783   gamma_tr=       0.012578 meV  omega=    153.8458 meV   on_shell_Omega=    153.9040 meV  off_shell_Omega=    153.9040 meV
+     lambda___(   6 )=       1.023386   gamma___=       0.103880 meV  omega=    163.3989 meV   on_shell_Omega=    161.7456 meV  off_shell_Omega=    161.8830 meV
+     lambda_tr(   6 )=       1.798270   gamma_tr=       0.182536 meV  omega=    163.3989 meV   on_shell_Omega=    161.7456 meV  off_shell_Omega=    161.8830 meV
+     lambda___( tot )=       1.108758
+     lambda_tr( tot )=       1.940593
+     -------------------------------------------------------------------
+
+
+     Number of (k,k+q) pairs on the Fermi surface:   353330 out of   518400
+
+
+
+     Real and Imaginary part of the phonon self-energy (omega=0) without gamma0.
+     Omega(   1 )=   0.0634 eV   Re[Pi]=      -0.000003 meV Im[Pi]=       0.000000 meV
+     Omega(   2 )=   0.0682 eV   Re[Pi]=      -0.000002 meV Im[Pi]=      -0.000000 meV
+     Omega(   3 )=   0.1225 eV   Re[Pi]=      -0.115316 meV Im[Pi]=      -0.000000 meV
+     Omega(   4 )=   0.1502 eV   Re[Pi]=      -4.010576 meV Im[Pi]=      -0.000000 meV
+     Omega(   5 )=   0.1538 eV   Re[Pi]=      -3.711577 meV Im[Pi]=      -0.000000 meV
+     Omega(   6 )=   0.1634 eV   Re[Pi]=     -50.619005 meV Im[Pi]=      -0.000001 meV
+     -------------------------------------------------------------------
+
+
+     ismear =     1 iq =      27 coord.:   0.35000  0.35000  0.00000 wt:   0.03448 Temp:  600.000K
+     -------------------------------------------------------------------
+     lambda___(   1 )=       0.000000   gamma___=       0.000000 meV  omega=     63.1747 meV   on_shell_Omega=     63.1747 meV  off_shell_Omega=     63.1747 meV
+     lambda_tr(   1 )=       0.000000   gamma_tr=       0.000000 meV  omega=     63.1747 meV   on_shell_Omega=     63.1747 meV  off_shell_Omega=     63.1747 meV
+     lambda___(   2 )=       0.000000   gamma___=       0.000000 meV  omega=     68.4422 meV   on_shell_Omega=     68.4422 meV  off_shell_Omega=     68.4422 meV
+     lambda_tr(   2 )=       0.000000   gamma_tr=       0.000000 meV  omega=     68.4422 meV   on_shell_Omega=     68.4422 meV  off_shell_Omega=     68.4422 meV
+     lambda___(   3 )=       0.000011   gamma___=       0.000001 meV  omega=    122.3079 meV   on_shell_Omega=    122.3086 meV  off_shell_Omega=    122.3086 meV
+     lambda_tr(   3 )=       0.000015   gamma_tr=       0.000001 meV  omega=    122.3079 meV   on_shell_Omega=    122.3086 meV  off_shell_Omega=    122.3086 meV
+     lambda___(   4 )=       0.001263   gamma___=       0.000108 meV  omega=    150.1707 meV   on_shell_Omega=    150.1787 meV  off_shell_Omega=    150.1787 meV
+     lambda_tr(   4 )=       0.001508   gamma_tr=       0.000129 meV  omega=    150.1707 meV   on_shell_Omega=    150.1787 meV  off_shell_Omega=    150.1787 meV
+     lambda___(   5 )=       0.061737   gamma___=       0.005570 meV  omega=    154.0486 meV   on_shell_Omega=    154.1107 meV  off_shell_Omega=    154.1107 meV
+     lambda_tr(   5 )=       0.105114   gamma_tr=       0.009484 meV  omega=    154.0486 meV   on_shell_Omega=    154.1107 meV  off_shell_Omega=    154.1107 meV
+     lambda___(   6 )=       0.826857   gamma___=       0.084026 meV  omega=    163.4905 meV   on_shell_Omega=    162.0327 meV  off_shell_Omega=    161.9738 meV
+     lambda_tr(   6 )=       1.484758   gamma_tr=       0.150882 meV  omega=    163.4905 meV   on_shell_Omega=    162.0327 meV  off_shell_Omega=    161.9738 meV
+     lambda___( tot )=       0.889868
+     lambda_tr( tot )=       1.591395
+     -------------------------------------------------------------------
+
+
+     Number of (k,k+q) pairs on the Fermi surface:   353330 out of   518400
+
+
+
+     Real and Imaginary part of the phonon self-energy (omega=0) without gamma0.
+     Omega(   1 )=   0.0632 eV   Re[Pi]=      -0.000003 meV Im[Pi]=       0.000000 meV
+     Omega(   2 )=   0.0684 eV   Re[Pi]=      -0.000002 meV Im[Pi]=      -0.000000 meV
+     Omega(   3 )=   0.1223 eV   Re[Pi]=      -0.131636 meV Im[Pi]=      -0.000000 meV
+     Omega(   4 )=   0.1502 eV   Re[Pi]=      -4.014410 meV Im[Pi]=      -0.000000 meV
+     Omega(   5 )=   0.1540 eV   Re[Pi]=      -3.698157 meV Im[Pi]=      -0.000000 meV
+     Omega(   6 )=   0.1635 eV   Re[Pi]=     -50.276558 meV Im[Pi]=      -0.000001 meV
+     -------------------------------------------------------------------
+
+
+     ismear =     1 iq =      28 coord.:   0.35139  0.35139  0.00000 wt:   0.03448 Temp:  600.000K
+     -------------------------------------------------------------------
+     lambda___(   1 )=       0.000000   gamma___=       0.000000 meV  omega=     62.9854 meV   on_shell_Omega=     62.9854 meV  off_shell_Omega=     62.9854 meV
+     lambda_tr(   1 )=       0.000000   gamma_tr=       0.000000 meV  omega=     62.9854 meV   on_shell_Omega=     62.9854 meV  off_shell_Omega=     62.9854 meV
+     lambda___(   2 )=       0.000000   gamma___=       0.000000 meV  omega=     68.6472 meV   on_shell_Omega=     68.6472 meV  off_shell_Omega=     68.6472 meV
+     lambda_tr(   2 )=       0.000000   gamma_tr=       0.000000 meV  omega=     68.6472 meV   on_shell_Omega=     68.6472 meV  off_shell_Omega=     68.6472 meV
+     lambda___(   3 )=       0.000008   gamma___=       0.000000 meV  omega=    122.0497 meV   on_shell_Omega=    122.0504 meV  off_shell_Omega=    122.0504 meV
+     lambda_tr(   3 )=       0.000012   gamma_tr=       0.000001 meV  omega=    122.0497 meV   on_shell_Omega=    122.0504 meV  off_shell_Omega=    122.0504 meV
+     lambda___(   4 )=       0.000735   gamma___=       0.000063 meV  omega=    150.1673 meV   on_shell_Omega=    150.1759 meV  off_shell_Omega=    150.1759 meV
+     lambda_tr(   4 )=       0.000911   gamma_tr=       0.000078 meV  omega=    150.1673 meV   on_shell_Omega=    150.1759 meV  off_shell_Omega=    150.1759 meV
+     lambda___(   5 )=       0.044895   gamma___=       0.004061 meV  omega=    154.2503 meV   on_shell_Omega=    154.3162 meV  off_shell_Omega=    154.3162 meV
+     lambda_tr(   5 )=       0.077592   gamma_tr=       0.007019 meV  omega=    154.2503 meV   on_shell_Omega=    154.3162 meV  off_shell_Omega=    154.3162 meV
+     lambda___(   6 )=       0.651340   gamma___=       0.066269 meV  omega=    163.5893 meV   on_shell_Omega=    162.3160 meV  off_shell_Omega=    162.2713 meV
+     lambda_tr(   6 )=       1.193885   gamma_tr=       0.121470 meV  omega=    163.5893 meV   on_shell_Omega=    162.3160 meV  off_shell_Omega=    162.2713 meV
+     lambda___( tot )=       0.696978
+     lambda_tr( tot )=       1.272400
+     -------------------------------------------------------------------
+
+
+     Number of (k,k+q) pairs on the Fermi surface:   353330 out of   518400
+
+
+
+     Real and Imaginary part of the phonon self-energy (omega=0) without gamma0.
+     Omega(   1 )=   0.0630 eV   Re[Pi]=      -0.000003 meV Im[Pi]=      -0.000000 meV
+     Omega(   2 )=   0.0686 eV   Re[Pi]=      -0.000002 meV Im[Pi]=      -0.000000 meV
+     Omega(   3 )=   0.1220 eV   Re[Pi]=      -0.148908 meV Im[Pi]=      -0.000000 meV
+     Omega(   4 )=   0.1502 eV   Re[Pi]=      -4.017486 meV Im[Pi]=      -0.000000 meV
+     Omega(   5 )=   0.1543 eV   Re[Pi]=      -3.685070 meV Im[Pi]=      -0.000000 meV
+     Omega(   6 )=   0.1636 eV   Re[Pi]=     -49.935151 meV Im[Pi]=      -0.000001 meV
+     -------------------------------------------------------------------
+
+
+     ismear =     1 iq =      29 coord.:   0.35278  0.35278  0.00000 wt:   0.03448 Temp:  600.000K
+     -------------------------------------------------------------------
+     lambda___(   1 )=       0.000000   gamma___=       0.000000 meV  omega=     62.8003 meV   on_shell_Omega=     62.8003 meV  off_shell_Omega=     62.8003 meV
+     lambda_tr(   1 )=       0.000000   gamma_tr=       0.000000 meV  omega=     62.8003 meV   on_shell_Omega=     62.8003 meV  off_shell_Omega=     62.8003 meV
+     lambda___(   2 )=       0.000000   gamma___=       0.000000 meV  omega=     68.8494 meV   on_shell_Omega=     68.8494 meV  off_shell_Omega=     68.8494 meV
+     lambda_tr(   2 )=       0.000000   gamma_tr=       0.000000 meV  omega=     68.8494 meV   on_shell_Omega=     68.8494 meV  off_shell_Omega=     68.8494 meV
+     lambda___(   3 )=       0.000006   gamma___=       0.000000 meV  omega=    121.7725 meV   on_shell_Omega=    121.7734 meV  off_shell_Omega=    121.7734 meV
+     lambda_tr(   3 )=       0.000009   gamma_tr=       0.000001 meV  omega=    121.7725 meV   on_shell_Omega=    121.7734 meV  off_shell_Omega=    121.7734 meV
+     lambda___(   4 )=       0.000422   gamma___=       0.000036 meV  omega=    150.1794 meV   on_shell_Omega=    150.1884 meV  off_shell_Omega=    150.1884 meV
+     lambda_tr(   4 )=       0.000545   gamma_tr=       0.000047 meV  omega=    150.1794 meV   on_shell_Omega=    150.1884 meV  off_shell_Omega=    150.1884 meV
+     lambda___(   5 )=       0.032604   gamma___=       0.002957 meV  omega=    154.4511 meV   on_shell_Omega=    154.5205 meV  off_shell_Omega=    154.5205 meV
+     lambda_tr(   5 )=       0.056802   gamma_tr=       0.005152 meV  omega=    154.4511 meV   on_shell_Omega=    154.5205 meV  off_shell_Omega=    154.5205 meV
+     lambda___(   6 )=       0.508786   gamma___=       0.051832 meV  omega=    163.6950 meV   on_shell_Omega=    162.5941 meV  off_shell_Omega=    162.5760 meV
+     lambda_tr(   6 )=       0.944047   gamma_tr=       0.096175 meV  omega=    163.6950 meV   on_shell_Omega=    162.5941 meV  off_shell_Omega=    162.5760 meV
+     lambda___( tot )=       0.541819
+     lambda_tr( tot )=       1.001403
+     -------------------------------------------------------------------
+
+
+     Number of (k,k+q) pairs on the Fermi surface:   353330 out of   518400
+
+
+
+     Real and Imaginary part of the phonon self-energy (omega=0) without gamma0.
+     Omega(   1 )=   0.0628 eV   Re[Pi]=      -0.000003 meV Im[Pi]=      -0.000000 meV
+     Omega(   2 )=   0.0688 eV   Re[Pi]=      -0.000002 meV Im[Pi]=      -0.000000 meV
+     Omega(   3 )=   0.1218 eV   Re[Pi]=      -0.166986 meV Im[Pi]=      -0.000000 meV
+     Omega(   4 )=   0.1502 eV   Re[Pi]=      -4.019946 meV Im[Pi]=      -0.000000 meV
+     Omega(   5 )=   0.1545 eV   Re[Pi]=      -3.672204 meV Im[Pi]=      -0.000000 meV
+     Omega(   6 )=   0.1637 eV   Re[Pi]=     -49.595353 meV Im[Pi]=      -0.000001 meV
+     -------------------------------------------------------------------
+
+     ===================================================================
+     Memory usage:  VmHWM =       565Mb
+                   VmPeak =      5602Mb
+     ===================================================================
+
+
+     Unfolding on the coarse grid
+     elphon_wrap  :      0.00s CPU      0.00s WALL (       1 calls)
+
+     INITIALIZATION: 
+
+
+
+
+     Electron-Phonon interpolation
+     ep-interp    :   1420.71s CPU   1492.40s WALL (      29 calls)
+     PH SELF-ENER :     37.99s CPU     38.00s WALL (      29 calls)
+
+     wigner_seitz :      0.00s CPU      0.00s WALL (       1 calls)
+     DynW2B       :      0.00s CPU      0.00s WALL (      29 calls)
+     HamW2B       :    115.44s CPU    122.01s WALL (31622400 calls)
+     ephW2Bp      :      0.04s CPU      0.11s WALL (      29 calls)
+     ephW2B       :     94.59s CPU    100.30s WALL (10246570 calls)
+     vmeW2B       :    555.51s CPU    586.86s WALL (20493140 calls)
+
+
+
+     Total program execution
+     EPW          :  24m11.12s CPU  25m24.56s WALL
+
+     % Copyright (C) 2016-2023 EPW-Collaboration                                    
+                                                                                    
+     ===============================================================================
+     Please consider citing the following papers.                                   
+                                                                                                 
+     % Paper describing the method on which EPW relies                                           
+       F. Giustino and M. L. Cohen and S. G. Louie, Phys. Rev. B 76, 165108 (2007)               
+                                                                                                 
+     % Papers describing the EPW software                                                        
+       H. Lee et al., npj Comput. Mater. 9, 156 (2023)                                           
+       S. Ponc\'e, E.R. Margine, C. Verdi and F. Giustino, Comput. Phys. Commun. 209, 116 (2016) 
+       J. Noffsinger et al., Comput. Phys. Commun. 181, 2140 (2010)                              
+                                                                                                 
+                                                                                    
+     For your convenience, this information is also reported in the                 
+     functionality-dependent EPW.bib file.                                          
+     ===============================================================================
+                                                                                    

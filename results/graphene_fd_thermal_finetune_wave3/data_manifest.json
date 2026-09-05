@@ -1,0 +1,107 @@
+{
+  "method": "temperature-specific v11 fine-tune with FC-distillation replay",
+  "replay_source": "data/finetune_graphene8/train.xyz",
+  "replay_sha256": "f337bee07d074888df08d890687013e55546ace9bfb2590f839b93324e4427f1",
+  "replay_indices": [
+    0,
+    4,
+    8,
+    12,
+    16,
+    21,
+    25,
+    29,
+    33,
+    37,
+    42,
+    46,
+    50,
+    54,
+    58,
+    63,
+    67,
+    71,
+    75,
+    79,
+    84,
+    88,
+    92,
+    96,
+    100,
+    105,
+    109,
+    113,
+    117,
+    121,
+    126,
+    130,
+    134,
+    138,
+    142,
+    147
+  ],
+  "temperatures": {
+    "300": {
+      "lane": "A",
+      "thermal_sources": [
+        {
+          "path": "/home/howardwang/phonon/data/graphene_fd_thermal_labels/A.xyz",
+          "sha256": "8db70c67685315b73a9eec82e190d65fa722557fda9e6a74e284ee568926e9fc"
+        },
+        {
+          "path": "/home/howardwang/phonon/data/graphene_fd_thermal_labels/A2.xyz",
+          "sha256": "f1ccbe8c1faebac4030085215454b56179839ddd89bc87aebad623f4be9801c0"
+        },
+        {
+          "path": "/home/howardwang/phonon/data/graphene_fd_thermal_labels/A3.xyz",
+          "sha256": "4d7e90d4ff98d40965003759235e85103d42ff4dd32d49236486b65c8a567ffd"
+        }
+      ],
+      "n_thermal_train": 36,
+      "n_replay_train": 36,
+      "n_validation": 9,
+      "validation_snapshot_indices": [
+        0,
+        29,
+        59,
+        2,
+        31,
+        57,
+        1,
+        33,
+        58
+      ]
+    },
+    "600": {
+      "lane": "B",
+      "thermal_sources": [
+        {
+          "path": "/home/howardwang/phonon/data/graphene_fd_thermal_labels/B.xyz",
+          "sha256": "1a36bf015debebd362a6285666d71d83bf6b3a4530740f4dd573cec4a46effe1"
+        },
+        {
+          "path": "/home/howardwang/phonon/data/graphene_fd_thermal_labels/B2.xyz",
+          "sha256": "4bc84ca14395a1c7ada583c5ac7be94ed4e125297f3c768a3bbd0e850c10b8d7"
+        },
+        {
+          "path": "/home/howardwang/phonon/data/graphene_fd_thermal_labels/B3.xyz",
+          "sha256": "7f4f8b2b3723b846d4437171ff51467aa69c17c6901503f71a351b32d2ec78a4"
+        }
+      ],
+      "n_thermal_train": 36,
+      "n_replay_train": 36,
+      "n_validation": 9,
+      "validation_snapshot_indices": [
+        0,
+        29,
+        59,
+        2,
+        31,
+        57,
+        1,
+        33,
+        58
+      ]
+    }
+  }
+}

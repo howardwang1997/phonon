@@ -1,0 +1,833 @@
+{
+  "format": "graphene_r2as_r2ao_full_epc_acceptance_v1",
+  "status": "R2AS_KOHN_CUSP_PASSED_MODEL_SENSITIVITY_FAILED",
+  "spectral_acceptance_passed": false,
+  "general_MLIP_force_gate_passed": false,
+  "authorized_conclusion": "finite-lattice spectral sensitivity only; R2AO remains outside the general force gate",
+  "electronic_control": {
+    "smearing_degauss_Ry": 0.0019000869,
+    "shared_across_lattice_temperatures": true,
+    "lattice_temperature_and_electronic_smearing_are_distinct": true
+  },
+  "lattice_temperatures_K": [
+    300,
+    450,
+    600
+  ],
+  "formula": "D(q,Tlat)=D[Phi_SSCHA(Tlat,q6_300)-Phi_q6_300](q) + Pi_full_EPC(q,degauss_300)|e_A'><e_A'|",
+  "metrics_by_short_model_and_lattice_temperature_K": {
+    "R2AO": {
+      "300": {
+        "thermal_short": {
+          "K_frequency_cm-1": 1306.038666758923,
+          "KG_path_d0.003_rise_cm-1": 0.0077479178298744955,
+          "KG_path_d0.025_rise_cm-1": 0.5366237108455607,
+          "KG_path_d0.060_rise_cm-1": 3.0472620885741435,
+          "KG_q0.003_2pi_over_a_rise_cm-1": 0.017432466590207696,
+          "KG_q0.025_2pi_over_a_rise_cm-1": 1.2029269939939695,
+          "KG_q0.040_2pi_over_a_rise_cm-1": 3.0472620885741435,
+          "KM_path_d0.003_rise_cm-1": 0.007746685198071646,
+          "KM_path_d0.025_rise_cm-1": 0.5358726182219016,
+          "KM_path_d0.060_rise_cm-1": 3.034500083340845,
+          "KM_q0.003_2pi_over_a_rise_cm-1": 0.017428303200176742,
+          "KM_q0.025_2pi_over_a_rise_cm-1": 1.2002337909405014,
+          "KM_q0.040_2pi_over_a_rise_cm-1": 3.034500083340845
+        },
+        "finite_q6": {
+          "K_frequency_cm-1": 1275.0585783099639,
+          "KG_path_d0.003_rise_cm-1": 0.01641492222438501,
+          "KG_path_d0.025_rise_cm-1": 1.1252810221769778,
+          "KG_path_d0.060_rise_cm-1": 6.247765041717912,
+          "KG_q0.003_2pi_over_a_rise_cm-1": 0.0369116067208779,
+          "KG_q0.025_2pi_over_a_rise_cm-1": 2.5040799303442327,
+          "KG_q0.040_2pi_over_a_rise_cm-1": 6.247765041717912,
+          "KM_path_d0.003_rise_cm-1": 0.016446649316321782,
+          "KM_path_d0.025_rise_cm-1": 1.1427271678744546,
+          "KM_path_d0.060_rise_cm-1": 6.435868421617442,
+          "KM_q0.003_2pi_over_a_rise_cm-1": 0.037018585328496556,
+          "KM_q0.025_2pi_over_a_rise_cm-1": 2.5592577041511504,
+          "KM_q0.040_2pi_over_a_rise_cm-1": 6.435868421617442
+        },
+        "full_epc": {
+          "K_frequency_cm-1": 1274.4776961399834,
+          "KG_path_d0.003_rise_cm-1": 0.3383484463779496,
+          "KG_path_d0.025_rise_cm-1": 10.788541945002407,
+          "KG_path_d0.060_rise_cm-1": 26.119450454916432,
+          "KG_q0.003_2pi_over_a_rise_cm-1": 0.6771114777416187,
+          "KG_q0.025_2pi_over_a_rise_cm-1": 16.953591144192842,
+          "KG_q0.040_2pi_over_a_rise_cm-1": 26.119450454916432,
+          "KM_path_d0.003_rise_cm-1": 0.3406254639839972,
+          "KM_path_d0.025_rise_cm-1": 11.157685348588984,
+          "KM_path_d0.060_rise_cm-1": 27.639707825831465,
+          "KM_q0.003_2pi_over_a_rise_cm-1": 0.6883838881244628,
+          "KM_q0.025_2pi_over_a_rise_cm-1": 17.686091592790717,
+          "KM_q0.040_2pi_over_a_rise_cm-1": 27.639707825831465
+        }
+      },
+      "450": {
+        "thermal_short": {
+          "K_frequency_cm-1": 1298.045054415066,
+          "KG_path_d0.003_rise_cm-1": 0.007841965447141774,
+          "KG_path_d0.025_rise_cm-1": 0.5405119777158234,
+          "KG_path_d0.060_rise_cm-1": 3.0465726262980297,
+          "KG_q0.003_2pi_over_a_rise_cm-1": 0.01763822448697283,
+          "KG_q0.025_2pi_over_a_rise_cm-1": 1.208360344193352,
+          "KG_q0.040_2pi_over_a_rise_cm-1": 3.0465726262980297,
+          "KM_path_d0.003_rise_cm-1": 0.007851106135603914,
+          "KM_path_d0.025_rise_cm-1": 0.5457080671526455,
+          "KM_path_d0.060_rise_cm-1": 3.11246287793756,
+          "KM_q0.003_2pi_over_a_rise_cm-1": 0.017669063583753086,
+          "KM_q0.025_2pi_over_a_rise_cm-1": 1.2255051349359292,
+          "KM_q0.040_2pi_over_a_rise_cm-1": 3.11246287793756
+        },
+        "finite_q6": {
+          "K_frequency_cm-1": 1266.8695048598393,
+          "KG_path_d0.003_rise_cm-1": 0.016568651187526484,
+          "KG_path_d0.025_rise_cm-1": 1.1324941838663563,
+          "KG_path_d0.060_rise_cm-1": 6.261339890128056,
+          "KG_q0.003_2pi_over_a_rise_cm-1": 0.03724968471556167,
+          "KG_q0.025_2pi_over_a_rise_cm-1": 2.5161533799175686,
+          "KG_q0.040_2pi_over_a_rise_cm-1": 6.261339890128056,
+          "KM_path_d0.003_rise_cm-1": 0.016614289435437968,
+          "KM_path_d0.025_rise_cm-1": 1.1578303741166565,
+          "KM_path_d0.060_rise_cm-1": 6.548851947534786,
+          "KM_q0.003_2pi_over_a_rise_cm-1": 0.037403594037641597,
+          "KM_q0.025_2pi_over_a_rise_cm-1": 2.5973014628357305,
+          "KM_q0.040_2pi_over_a_rise_cm-1": 6.548851947534786
+        },
+        "full_epc": {
+          "K_frequency_cm-1": 1266.2848661262078,
+          "KG_path_d0.003_rise_cm-1": 0.3405844497124235,
+          "KG_path_d0.025_rise_cm-1": 10.858346805933934,
+          "KG_path_d0.060_rise_cm-1": 26.265477412264545,
+          "KG_q0.003_2pi_over_a_rise_cm-1": 0.6815908445682908,
+          "KG_q0.025_2pi_over_a_rise_cm-1": 17.059834685852593,
+          "KG_q0.040_2pi_over_a_rise_cm-1": 26.265477412264545,
+          "KM_path_d0.003_rise_cm-1": 0.34288683001818754,
+          "KM_path_d0.025_rise_cm-1": 11.235887361116056,
+          "KM_path_d0.060_rise_cm-1": 27.874344470514643,
+          "KM_q0.003_2pi_over_a_rise_cm-1": 0.69297199494099,
+          "KM_q0.025_2pi_over_a_rise_cm-1": 17.81703720174437,
+          "KM_q0.040_2pi_over_a_rise_cm-1": 27.874344470514643
+        }
+      },
+      "600": {
+        "thermal_short": {
+          "K_frequency_cm-1": 1288.2950368032084,
+          "KG_path_d0.003_rise_cm-1": 0.007618836389156058,
+          "KG_path_d0.025_rise_cm-1": 0.5259383044995047,
+          "KG_path_d0.060_rise_cm-1": 2.973764596721594,
+          "KG_q0.003_2pi_over_a_rise_cm-1": 0.017137956318492797,
+          "KG_q0.025_2pi_over_a_rise_cm-1": 1.1769886441381914,
+          "KG_q0.040_2pi_over_a_rise_cm-1": 2.973764596721594,
+          "KM_path_d0.003_rise_cm-1": 0.0076250049219197535,
+          "KM_path_d0.025_rise_cm-1": 0.5294226281205283,
+          "KM_path_d0.060_rise_cm-1": 3.0164487882518642,
+          "KM_q0.003_2pi_over_a_rise_cm-1": 0.01715876698926877,
+          "KM_q0.025_2pi_over_a_rise_cm-1": 1.188387679654852,
+          "KM_q0.040_2pi_over_a_rise_cm-1": 3.0164487882518642
+        },
+        "finite_q6": {
+          "K_frequency_cm-1": 1256.8776714160297,
+          "KG_path_d0.003_rise_cm-1": 0.0163520983746821,
+          "KG_path_d0.025_rise_cm-1": 1.1183951550697202,
+          "KG_path_d0.060_rise_cm-1": 6.194176154427623,
+          "KG_q0.003_2pi_over_a_rise_cm-1": 0.03676391468025031,
+          "KG_q0.025_2pi_over_a_rise_cm-1": 2.4861478586954036,
+          "KG_q0.040_2pi_over_a_rise_cm-1": 6.194176154427623,
+          "KM_path_d0.003_rise_cm-1": 0.016395535593119348,
+          "KM_path_d0.025_rise_cm-1": 1.1424811712740848,
+          "KM_path_d0.060_rise_cm-1": 6.465223682945407,
+          "KM_q0.003_2pi_over_a_rise_cm-1": 0.036910399903717916,
+          "KM_q0.025_2pi_over_a_rise_cm-1": 2.5631542954397446,
+          "KM_q0.040_2pi_over_a_rise_cm-1": 6.465223682945407
+        },
+        "full_epc": {
+          "K_frequency_cm-1": 1256.2883827929936,
+          "KG_path_d0.003_rise_cm-1": 0.3430041987749064,
+          "KG_path_d0.025_rise_cm-1": 10.925024243308599,
+          "KG_path_d0.060_rise_cm-1": 26.373726296182213,
+          "KG_q0.003_2pi_over_a_rise_cm-1": 0.6863618618278906,
+          "KG_q0.025_2pi_over_a_rise_cm-1": 17.152738637471884,
+          "KG_q0.040_2pi_over_a_rise_cm-1": 26.373726296182213,
+          "KM_path_d0.003_rise_cm-1": 0.34532177203163883,
+          "KM_path_d0.025_rise_cm-1": 11.303741833507502,
+          "KM_path_d0.060_rise_cm-1": 27.971143309368472,
+          "KM_q0.003_2pi_over_a_rise_cm-1": 0.6978229627554811,
+          "KM_q0.025_2pi_over_a_rise_cm-1": 17.90988012889011,
+          "KM_q0.040_2pi_over_a_rise_cm-1": 27.971143309368472
+        }
+      }
+    },
+    "S0": {
+      "300": {
+        "thermal_short": {
+          "K_frequency_cm-1": 1312.9138500250988,
+          "KG_path_d0.003_rise_cm-1": 0.006958710355320363,
+          "KG_path_d0.025_rise_cm-1": 0.479230493613386,
+          "KG_path_d0.060_rise_cm-1": 2.674003492747488,
+          "KG_q0.003_2pi_over_a_rise_cm-1": 0.01565261808991636,
+          "KG_q0.025_2pi_over_a_rise_cm-1": 1.0688960622376271,
+          "KG_q0.040_2pi_over_a_rise_cm-1": 2.674003492747488,
+          "KM_path_d0.003_rise_cm-1": 0.006963824569311328,
+          "KM_path_d0.025_rise_cm-1": 0.48221793162429094,
+          "KM_path_d0.060_rise_cm-1": 2.717174853058623,
+          "KM_q0.003_2pi_over_a_rise_cm-1": 0.015669875078401674,
+          "KM_q0.025_2pi_over_a_rise_cm-1": 1.0791037320345822,
+          "KM_q0.040_2pi_over_a_rise_cm-1": 2.717174853058623
+        },
+        "finite_q6": {
+          "K_frequency_cm-1": 1282.0999011934014,
+          "KG_path_d0.003_rise_cm-1": 0.015157166364588193,
+          "KG_path_d0.025_rise_cm-1": 1.0401143338815473,
+          "KG_path_d0.060_rise_cm-1": 5.75980346710935,
+          "KG_q0.003_2pi_over_a_rise_cm-1": 0.03408718330683769,
+          "KG_q0.025_2pi_over_a_rise_cm-1": 2.3140310524734105,
+          "KG_q0.040_2pi_over_a_rise_cm-1": 5.75980346710935,
+          "KM_path_d0.003_rise_cm-1": 0.015178923999201288,
+          "KM_path_d0.025_rise_cm-1": 1.0523540947335732,
+          "KM_path_d0.060_rise_cm-1": 5.9083719401292,
+          "KM_q0.003_2pi_over_a_rise_cm-1": 0.034160569716050304,
+          "KM_q0.025_2pi_over_a_rise_cm-1": 2.3539162015904367,
+          "KM_q0.040_2pi_over_a_rise_cm-1": 5.9083719401292
+        },
+        "full_epc": {
+          "K_frequency_cm-1": 1281.5222106840686,
+          "KG_path_d0.003_rise_cm-1": 0.33572226145633977,
+          "KG_path_d0.025_rise_cm-1": 10.674251565152417,
+          "KG_path_d0.060_rise_cm-1": 25.619085790025792,
+          "KG_q0.003_2pi_over_a_rise_cm-1": 0.6716623231779977,
+          "KG_q0.025_2pi_over_a_rise_cm-1": 16.73232612834522,
+          "KG_q0.040_2pi_over_a_rise_cm-1": 25.619085790025792,
+          "KM_path_d0.003_rise_cm-1": 0.3379932643097163,
+          "KM_path_d0.025_rise_cm-1": 11.045210579074592,
+          "KM_path_d0.060_rise_cm-1": 27.187906639928542,
+          "KM_q0.003_2pi_over_a_rise_cm-1": 0.6828947614844765,
+          "KM_q0.025_2pi_over_a_rise_cm-1": 17.474014768680036,
+          "KM_q0.040_2pi_over_a_rise_cm-1": 27.187906639928542
+        }
+      },
+      "450": {
+        "thermal_short": {
+          "K_frequency_cm-1": 1301.404447017546,
+          "KG_path_d0.003_rise_cm-1": 0.009123559750605637,
+          "KG_path_d0.025_rise_cm-1": 0.6310635711715804,
+          "KG_path_d0.060_rise_cm-1": 3.562071628263766,
+          "KG_q0.003_2pi_over_a_rise_cm-1": 0.020526903567315458,
+          "KG_q0.025_2pi_over_a_rise_cm-1": 1.4123979194866934,
+          "KG_q0.040_2pi_over_a_rise_cm-1": 3.562071628263766,
+          "KM_path_d0.003_rise_cm-1": 0.00912261603934894,
+          "KM_path_d0.025_rise_cm-1": 0.6305205323631071,
+          "KM_path_d0.060_rise_cm-1": 3.554801834044838,
+          "KM_q0.003_2pi_over_a_rise_cm-1": 0.020523719041875665,
+          "KM_q0.025_2pi_over_a_rise_cm-1": 1.4105794354402406,
+          "KM_q0.040_2pi_over_a_rise_cm-1": 3.554801834044838
+        },
+        "finite_q6": {
+          "K_frequency_cm-1": 1270.3113452100813,
+          "KG_path_d0.003_rise_cm-1": 0.01750015028164853,
+          "KG_path_d0.025_rise_cm-1": 1.2029320649851343,
+          "KG_path_d0.060_rise_cm-1": 6.696240862082732,
+          "KG_q0.003_2pi_over_a_rise_cm-1": 0.03935983769588347,
+          "KG_q0.025_2pi_over_a_rise_cm-1": 2.6801453776797644,
+          "KG_q0.040_2pi_over_a_rise_cm-1": 6.696240862082732,
+          "KM_path_d0.003_rise_cm-1": 0.017519592141297835,
+          "KM_path_d0.025_rise_cm-1": 1.2135125876543498,
+          "KM_path_d0.060_rise_cm-1": 6.804527569064703,
+          "KM_q0.003_2pi_over_a_rise_cm-1": 0.03942537916714173,
+          "KM_q0.025_2pi_over_a_rise_cm-1": 2.7131653019719124,
+          "KM_q0.040_2pi_over_a_rise_cm-1": 6.804527569064703
+        },
+        "full_epc": {
+          "K_frequency_cm-1": 1269.7282912520693,
+          "KG_path_d0.003_rise_cm-1": 0.34099501839273216,
+          "KG_path_d0.025_rise_cm-1": 10.922630712614364,
+          "KG_path_d0.060_rise_cm-1": 26.72247272273171,
+          "KG_q0.003_2pi_over_a_rise_cm-1": 0.6827492430936672,
+          "KG_q0.025_2pi_over_a_rise_cm-1": 17.22388998485758,
+          "KG_q0.040_2pi_over_a_rise_cm-1": 26.72247272273171,
+          "KM_path_d0.003_rise_cm-1": 0.34328084665912684,
+          "KM_path_d0.025_rise_cm-1": 11.293318210222878,
+          "KM_path_d0.060_rise_cm-1": 28.25314880304495,
+          "KM_q0.003_2pi_over_a_rise_cm-1": 0.6940647626770442,
+          "KM_q0.025_2pi_over_a_rise_cm-1": 17.95983262295772,
+          "KM_q0.040_2pi_over_a_rise_cm-1": 28.25314880304495
+        }
+      },
+      "600": {
+        "thermal_short": {
+          "K_frequency_cm-1": 1284.782246099295,
+          "KG_path_d0.003_rise_cm-1": 0.011500338008545441,
+          "KG_path_d0.025_rise_cm-1": 0.7936582555832956,
+          "KG_path_d0.060_rise_cm-1": 4.454089129322483,
+          "KG_q0.003_2pi_over_a_rise_cm-1": 0.025871500504990763,
+          "KG_q0.025_2pi_over_a_rise_cm-1": 1.773084041274842,
+          "KG_q0.040_2pi_over_a_rise_cm-1": 4.454089129322483,
+          "KM_path_d0.003_rise_cm-1": 0.011503407834879908,
+          "KM_path_d0.025_rise_cm-1": 0.7952718949723021,
+          "KM_path_d0.060_rise_cm-1": 4.466856161498299,
+          "KM_q0.003_2pi_over_a_rise_cm-1": 0.025881839309704446,
+          "KM_q0.025_2pi_over_a_rise_cm-1": 1.7778716030013584,
+          "KM_q0.040_2pi_over_a_rise_cm-1": 4.466856161498299
+        },
+        "finite_q6": {
+          "K_frequency_cm-1": 1253.2768245460975,
+          "KG_path_d0.003_rise_cm-1": 0.020773554356310342,
+          "KG_path_d0.025_rise_cm-1": 1.4162271855570907,
+          "KG_path_d0.060_rise_cm-1": 7.783089752492742,
+          "KG_q0.003_2pi_over_a_rise_cm-1": 0.0466973297259301,
+          "KG_q0.025_2pi_over_a_rise_cm-1": 3.1403413734947208,
+          "KG_q0.040_2pi_over_a_rise_cm-1": 7.783089752492742,
+          "KM_path_d0.003_rise_cm-1": 0.020839028489490374,
+          "KM_path_d0.025_rise_cm-1": 1.4516393882474858,
+          "KM_path_d0.060_rise_cm-1": 8.135014545060358,
+          "KM_q0.003_2pi_over_a_rise_cm-1": 0.046918025873083025,
+          "KM_q0.025_2pi_over_a_rise_cm-1": 3.249985457881621,
+          "KM_q0.040_2pi_over_a_rise_cm-1": 8.135014545060358
+        },
+        "full_epc": {
+          "K_frequency_cm-1": 1252.6858420133935,
+          "KG_path_d0.003_rise_cm-1": 0.3479488834100266,
+          "KG_path_d0.025_rise_cm-1": 11.227018492754723,
+          "KG_path_d0.060_rise_cm-1": 27.930141292295275,
+          "KG_q0.003_2pi_over_a_rise_cm-1": 0.6972391380854788,
+          "KG_q0.025_2pi_over_a_rise_cm-1": 17.80178203176365,
+          "KG_q0.040_2pi_over_a_rise_cm-1": 27.930141292295275,
+          "KM_path_d0.003_rise_cm-1": 0.3502699161454075,
+          "KM_path_d0.025_rise_cm-1": 11.604813634654192,
+          "KM_path_d0.060_rise_cm-1": 29.499957800541324,
+          "KM_q0.003_2pi_over_a_rise_cm-1": 0.7087222888587803,
+          "KM_q0.025_2pi_over_a_rise_cm-1": 18.5539652925454,
+          "KM_q0.040_2pi_over_a_rise_cm-1": 29.499957800541324
+        }
+      }
+    }
+  },
+  "static_full_EPC_DFPT_validation": {
+    "metrics": {
+      "K_error_cm-1": -2.3013159954468847,
+      "K_referenced_shape_RMSE_cm-1": 0.9295790319570204,
+      "K_referenced_shape_max_abs_cm-1": 1.6408383758987384,
+      "direct_point_max_abs_error_cm-1": 3.942154371345623,
+      "cusp_depth": {
+        "d0.003": {
+          "DFPT_fit_depth_cm-1": 0.36098835615621283,
+          "full_EPC_model_depth_cm-1": 0.3277179600686395,
+          "relative_error": 0.09216473473503396,
+          "threshold": 0.15,
+          "passed": true
+        },
+        "d0.025": {
+          "DFPT_fit_depth_cm-1": 11.71196987683902,
+          "full_EPC_model_depth_cm-1": 10.170326624101335,
+          "relative_error": 0.13162971463804382,
+          "threshold": 0.15,
+          "passed": true
+        }
+      },
+      "DFPT_rounding_fit": {
+        "omega_K_cm-1": 1288.039763,
+        "slope_cm-1_per_d": 739.0682473773635,
+        "rounding_width_d": 0.00841203364218884,
+        "curvature_cm-1_per_d2": -2504.9488210968416,
+        "fit_RMSE_cm-1": 0.055684082105724564,
+        "fit_max_abs_cm-1": 0.09919512316105283,
+        "success": true
+      },
+      "full_EPC_model_rounding_fit_at_same_qpoints": {
+        "omega_K_cm-1": 1285.738447004553,
+        "slope_cm-1_per_d": 728.0741511815334,
+        "rounding_width_d": 0.009469812054453304,
+        "curvature_cm-1_per_d2": -3990.2727083323684,
+        "fit_RMSE_cm-1": 0.05296855850541045,
+        "fit_max_abs_cm-1": 0.09503863980717142,
+        "success": true
+      },
+      "rounding_width_relative_error": 0.12574586090091133
+    },
+    "thresholds": {
+      "K_abs_error_cm-1": 5.0,
+      "K_referenced_shape_RMSE_cm-1": 1.0,
+      "K_referenced_shape_max_abs_cm-1": 2.0,
+      "cusp_depth_relative_error": 0.15,
+      "rounding_width_relative_error": 0.15
+    },
+    "gates": {
+      "K_frequency": true,
+      "near_K_shape_RMSE": true,
+      "near_K_shape_max": true,
+      "cusp_depth_d0.003_and_d0.025": true,
+      "rounding_width": true
+    },
+    "passed": true,
+    "sources": {
+      "direct_DFPT_points": {
+        "path": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/E32_absolute_and_DFPT_comparison/MLIP_full_EPC_LR_vs_DFPT_points.csv",
+        "sha256": "f9cff9b5d3bfdc489acc83d1fc4e669cd4548bc6c05e7a5cf16f48a3b51e6280"
+      },
+      "DFPT_KG_line": {
+        "path": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physical_fd_dfpt/campaigns/FD300_LINE/graphene_FD300_LINE_dfpt.csv",
+        "sha256": "6cda8e4279a4aea2fec05c8a758b1a642f4b4a1b8af73e04e2113b535c22ab3a"
+      }
+    }
+  },
+  "finite_lattice_short_model_sensitivity": {
+    "by_lattice_temperature_K": {
+      "300": {
+        "metrics": {
+          "R2AO_minus_S0_K_cm-1": -7.044514544085132,
+          "near_K_absolute_RMSE_cm-1": 6.9613930056293825,
+          "near_K_K_referenced_shape_RMSE_cm-1": 0.10667937220212369,
+          "near_K_K_referenced_shape_max_abs_cm-1": 0.22126501584762082,
+          "cusp_depth": {
+            "KG_d0.003": {
+              "R2AO_depth_cm-1": 0.3383484463779496,
+              "S0_depth_cm-1": 0.33572226145633977,
+              "relative_difference": 0.007822492646801594,
+              "passed": true
+            },
+            "KG_d0.025": {
+              "R2AO_depth_cm-1": 10.788541945002407,
+              "S0_depth_cm-1": 10.674251565152417,
+              "relative_difference": 0.010707109454222253,
+              "passed": true
+            },
+            "KM_d0.003": {
+              "R2AO_depth_cm-1": 0.3406254639839972,
+              "S0_depth_cm-1": 0.3379932643097163,
+              "relative_difference": 0.007787728195284,
+              "passed": true
+            },
+            "KM_d0.025": {
+              "R2AO_depth_cm-1": 11.157685348588984,
+              "S0_depth_cm-1": 11.045210579074592,
+              "relative_difference": 0.010183125863392633,
+              "passed": true
+            }
+          }
+        },
+        "gates": {
+          "K_frequency": true,
+          "near_K_shape_RMSE": true,
+          "near_K_shape_max": true,
+          "cusp_depth": true
+        }
+      },
+      "450": {
+        "metrics": {
+          "R2AO_minus_S0_K_cm-1": -3.443425125861495,
+          "near_K_absolute_RMSE_cm-1": 3.4910990925596046,
+          "near_K_K_referenced_shape_RMSE_cm-1": 0.06630556891494829,
+          "near_K_K_referenced_shape_max_abs_cm-1": 0.1640552990049855,
+          "cusp_depth": {
+            "KG_d0.003": {
+              "R2AO_depth_cm-1": 0.3405844497124235,
+              "S0_depth_cm-1": 0.34099501839273216,
+              "relative_difference": 0.0012040313147207945,
+              "passed": true
+            },
+            "KG_d0.025": {
+              "R2AO_depth_cm-1": 10.858346805933934,
+              "S0_depth_cm-1": 10.922630712614364,
+              "relative_difference": 0.00588538680578018,
+              "passed": true
+            },
+            "KM_d0.003": {
+              "R2AO_depth_cm-1": 0.34288683001818754,
+              "S0_depth_cm-1": 0.34328084665912684,
+              "relative_difference": 0.0011477967523499842,
+              "passed": true
+            },
+            "KM_d0.025": {
+              "R2AO_depth_cm-1": 11.235887361116056,
+              "S0_depth_cm-1": 11.293318210222878,
+              "relative_difference": 0.005085383059058322,
+              "passed": true
+            }
+          }
+        },
+        "gates": {
+          "K_frequency": true,
+          "near_K_shape_RMSE": true,
+          "near_K_shape_max": true,
+          "cusp_depth": true
+        }
+      },
+      "600": {
+        "metrics": {
+          "R2AO_minus_S0_K_cm-1": 3.6025407796000763,
+          "near_K_absolute_RMSE_cm-1": 3.3816479599246505,
+          "near_K_K_referenced_shape_RMSE_cm-1": 0.2999471993087683,
+          "near_K_K_referenced_shape_max_abs_cm-1": 0.6490433942917662,
+          "cusp_depth": {
+            "KG_d0.003": {
+              "R2AO_depth_cm-1": 0.3430041987749064,
+              "S0_depth_cm-1": 0.3479488834100266,
+              "relative_difference": 0.014210951294513404,
+              "passed": true
+            },
+            "KG_d0.025": {
+              "R2AO_depth_cm-1": 10.925024243308599,
+              "S0_depth_cm-1": 11.227018492754723,
+              "relative_difference": 0.026898882338264124,
+              "passed": true
+            },
+            "KM_d0.003": {
+              "R2AO_depth_cm-1": 0.34532177203163883,
+              "S0_depth_cm-1": 0.3502699161454075,
+              "relative_difference": 0.014126660285933682,
+              "passed": true
+            },
+            "KM_d0.025": {
+              "R2AO_depth_cm-1": 11.303741833507502,
+              "S0_depth_cm-1": 11.604813634654192,
+              "relative_difference": 0.02594369979778328,
+              "passed": true
+            }
+          }
+        },
+        "gates": {
+          "K_frequency": true,
+          "near_K_shape_RMSE": true,
+          "near_K_shape_max": true,
+          "cusp_depth": true
+        }
+      }
+    },
+    "K_temperature_shifts": {
+      "300_to_450": {
+        "R2AO_K_shift_cm-1": -8.19283001377562,
+        "S0_K_shift_cm-1": -11.793919431999257,
+        "difference_cm-1": 3.601089418223637,
+        "passed": true
+      },
+      "450_to_600": {
+        "R2AO_K_shift_cm-1": -9.9964833332142,
+        "S0_K_shift_cm-1": -17.042449238675772,
+        "difference_cm-1": 7.045965905461571,
+        "passed": false
+      }
+    },
+    "thresholds": {
+      "K_abs_difference_cm-1": 10.0,
+      "K_referenced_shape_RMSE_cm-1": 1.0,
+      "K_referenced_shape_max_abs_cm-1": 2.0,
+      "cusp_depth_relative_difference": 0.15,
+      "K_temperature_shift_abs_difference_cm-1": 5.0
+    },
+    "per_temperature_passed": true,
+    "temperature_shift_passed": false,
+    "passed": false
+  },
+  "matrix_assembly": {
+    "passed": true,
+    "limits": {
+      "FC2_remove_reassemble_max_abs_eV_A2": 1e-12,
+      "dynamical_matrix_linearity_max_abs": 1e-12,
+      "minimum_adjacent_mode_overlap": 0.95,
+      "tracked_vs_highest_max_abs_cm-1": 1e-06,
+      "saved_q6_K_replay_max_abs_cm-1": 1e-06,
+      "time_reversal_matrix_max_abs": 1e-12,
+      "time_reversal_frequency_max_abs_cm-1": 1e-06,
+      "total_hermitian_max_abs": 1e-12,
+      "correction_hermitian_max_abs": 1e-12,
+      "projector_idempotency_max_abs": 1e-12,
+      "orthogonal_correction_leakage_max_abs": 1e-12
+    },
+    "by_case": {
+      "R2AO": {
+        "300": {
+          "diagnostics": {
+            "FC2_remove_reassemble_max_abs_eV_A2": 2.7755575615628914e-17,
+            "dynamical_matrix_linearity_max_abs": 5.745404152435185e-15,
+            "minimum_adjacent_mode_overlap": 0.9999976324838593,
+            "tracked_vs_highest_max_abs_cm-1": 0.0,
+            "saved_q6_K_replay_max_abs_cm-1": 4.547473508864641e-13,
+            "time_reversal_matrix_max_abs": 0.0,
+            "time_reversal_frequency_max_abs_cm-1": 0.0,
+            "all_frequencies_finite": true,
+            "total_hermitian_max_abs": 0.0,
+            "correction_hermitian_max_abs": 0.0,
+            "projector_idempotency_max_abs": 4.996094870816246e-16,
+            "orthogonal_correction_leakage_max_abs": 1.3685921937883791e-17
+          },
+          "gates": {
+            "FC2_reassembly": true,
+            "matrix_linearity": true,
+            "mode_overlap": true,
+            "tracked_branch": true,
+            "saved_K_replay": true,
+            "time_reversal_matrix": true,
+            "time_reversal_frequency": true,
+            "Hermiticity": true,
+            "projector": true,
+            "finite": true
+          },
+          "passed": true
+        },
+        "450": {
+          "diagnostics": {
+            "FC2_remove_reassemble_max_abs_eV_A2": 2.7755575615628914e-17,
+            "dynamical_matrix_linearity_max_abs": 5.2735593669694936e-15,
+            "minimum_adjacent_mode_overlap": 0.9999975535063794,
+            "tracked_vs_highest_max_abs_cm-1": 0.0,
+            "saved_q6_K_replay_max_abs_cm-1": 2.2737367544323206e-13,
+            "time_reversal_matrix_max_abs": 0.0,
+            "time_reversal_frequency_max_abs_cm-1": 0.0,
+            "all_frequencies_finite": true,
+            "total_hermitian_max_abs": 0.0,
+            "correction_hermitian_max_abs": 0.0,
+            "projector_idempotency_max_abs": 4.552252871008668e-16,
+            "orthogonal_correction_leakage_max_abs": 1.6474135621887544e-17
+          },
+          "gates": {
+            "FC2_reassembly": true,
+            "matrix_linearity": true,
+            "mode_overlap": true,
+            "tracked_branch": true,
+            "saved_K_replay": true,
+            "time_reversal_matrix": true,
+            "time_reversal_frequency": true,
+            "Hermiticity": true,
+            "projector": true,
+            "finite": true
+          },
+          "passed": true
+        },
+        "600": {
+          "diagnostics": {
+            "FC2_remove_reassemble_max_abs_eV_A2": 2.7755575615628914e-17,
+            "dynamical_matrix_linearity_max_abs": 4.704570066849101e-15,
+            "minimum_adjacent_mode_overlap": 0.9999975148459771,
+            "tracked_vs_highest_max_abs_cm-1": 0.0,
+            "saved_q6_K_replay_max_abs_cm-1": 2.2737367544323206e-13,
+            "time_reversal_matrix_max_abs": 0.0,
+            "time_reversal_frequency_max_abs_cm-1": 0.0,
+            "all_frequencies_finite": true,
+            "total_hermitian_max_abs": 0.0,
+            "correction_hermitian_max_abs": 0.0,
+            "projector_idempotency_max_abs": 4.441578427584837e-16,
+            "orthogonal_correction_leakage_max_abs": 1.800101550964754e-17
+          },
+          "gates": {
+            "FC2_reassembly": true,
+            "matrix_linearity": true,
+            "mode_overlap": true,
+            "tracked_branch": true,
+            "saved_K_replay": true,
+            "time_reversal_matrix": true,
+            "time_reversal_frequency": true,
+            "Hermiticity": true,
+            "projector": true,
+            "finite": true
+          },
+          "passed": true
+        }
+      },
+      "S0": {
+        "300": {
+          "diagnostics": {
+            "FC2_remove_reassemble_max_abs_eV_A2": 5.551115123125783e-17,
+            "dynamical_matrix_linearity_max_abs": 5.6066262743570405e-15,
+            "minimum_adjacent_mode_overlap": 0.9999983893882841,
+            "tracked_vs_highest_max_abs_cm-1": 0.0,
+            "saved_q6_K_replay_max_abs_cm-1": 0.0,
+            "time_reversal_matrix_max_abs": 0.0,
+            "time_reversal_frequency_max_abs_cm-1": 0.0,
+            "all_frequencies_finite": true,
+            "total_hermitian_max_abs": 0.0,
+            "correction_hermitian_max_abs": 0.0,
+            "projector_idempotency_max_abs": 3.55715613020066e-16,
+            "orthogonal_correction_leakage_max_abs": 1.5996022572739014e-17
+          },
+          "gates": {
+            "FC2_reassembly": true,
+            "matrix_linearity": true,
+            "mode_overlap": true,
+            "tracked_branch": true,
+            "saved_K_replay": true,
+            "time_reversal_matrix": true,
+            "time_reversal_frequency": true,
+            "Hermiticity": true,
+            "projector": true,
+            "finite": true
+          },
+          "passed": true
+        },
+        "450": {
+          "diagnostics": {
+            "FC2_remove_reassemble_max_abs_eV_A2": 5.551115123125783e-17,
+            "dynamical_matrix_linearity_max_abs": 6.050715484207103e-15,
+            "minimum_adjacent_mode_overlap": 0.9999981878140144,
+            "tracked_vs_highest_max_abs_cm-1": 0.0,
+            "saved_q6_K_replay_max_abs_cm-1": 2.2737367544323206e-13,
+            "time_reversal_matrix_max_abs": 0.0,
+            "time_reversal_frequency_max_abs_cm-1": 0.0,
+            "all_frequencies_finite": true,
+            "total_hermitian_max_abs": 0.0,
+            "correction_hermitian_max_abs": 0.0,
+            "projector_idempotency_max_abs": 4.440903746687494e-16,
+            "orthogonal_correction_leakage_max_abs": 2.092841715428675e-17
+          },
+          "gates": {
+            "FC2_reassembly": true,
+            "matrix_linearity": true,
+            "mode_overlap": true,
+            "tracked_branch": true,
+            "saved_K_replay": true,
+            "time_reversal_matrix": true,
+            "time_reversal_frequency": true,
+            "Hermiticity": true,
+            "projector": true,
+            "finite": true
+          },
+          "passed": true
+        },
+        "600": {
+          "diagnostics": {
+            "FC2_remove_reassemble_max_abs_eV_A2": 5.551115123125783e-17,
+            "dynamical_matrix_linearity_max_abs": 5.4539706084710815e-15,
+            "minimum_adjacent_mode_overlap": 0.9999965406280777,
+            "tracked_vs_highest_max_abs_cm-1": 0.0,
+            "saved_q6_K_replay_max_abs_cm-1": 2.2737367544323206e-13,
+            "time_reversal_matrix_max_abs": 0.0,
+            "time_reversal_frequency_max_abs_cm-1": 0.0,
+            "all_frequencies_finite": true,
+            "total_hermitian_max_abs": 0.0,
+            "correction_hermitian_max_abs": 0.0,
+            "projector_idempotency_max_abs": 5.162835502930472e-16,
+            "orthogonal_correction_leakage_max_abs": 1.6464310959154593e-17
+          },
+          "gates": {
+            "FC2_reassembly": true,
+            "matrix_linearity": true,
+            "mode_overlap": true,
+            "tracked_branch": true,
+            "saved_K_replay": true,
+            "time_reversal_matrix": true,
+            "time_reversal_frequency": true,
+            "Hermiticity": true,
+            "projector": true,
+            "finite": true
+          },
+          "passed": true
+        }
+      }
+    },
+    "reconstructed_supercell_position_error_A": 3.7682219008410606e-15
+  },
+  "inherited_dense_response_crosscheck": {
+    "passed": true,
+    "gates": {
+      "operator_response_smearing_match": true,
+      "static_short_matrix_replay": true,
+      "static_full_EPC_matrix_replay": true,
+      "saved_SSCHA_K_replay": true,
+      "saved_SSCHA_near_K_curve_replay": true,
+      "FC2_exact_remove_reassemble": true,
+      "dynamical_matrix_linearity": true,
+      "mode_overlap": true,
+      "tracked_branch_is_highest": true,
+      "Hermiticity": true,
+      "projector_idempotency": true,
+      "orthogonal_leakage": true,
+      "time_reversal_matrix": true,
+      "time_reversal_frequency": true,
+      "K_star": true,
+      "nk720_path_symmetry": true,
+      "extended_response_agrees_with_nk720_within_1_cm-1": true,
+      "finite_output": true
+    }
+  },
+  "limitations": [
+    "R2AO did not pass the fixed per-configuration OOF force/A-prime gate.",
+    "The final dense full-EPC update is a targeted A-prime rank-one spectral correction.",
+    "The available finite-lattice DFT-TDEP series is not a converged independent 300/450/600 K thermodynamic reference; the final finite-T gate therefore relies on an independent short-model sensitivity comparison."
+  ],
+  "inputs": {
+    "response": {
+      "path": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/E42_extended_fixed_lattice_smearing_sweep/extended_fixed_lattice_smearing_sweep.csv",
+      "sha256": "ad9d70342c589fc11cabef526f801f60c70bdc5d6186eff70ac925d644be4407"
+    },
+    "operator": {
+      "path": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/E0_epw_matched/k18_q9_ex1_pifroz/operator_q6_450K/cartesian/T300_operator.npz",
+      "sha256": "114fb9a369ed106e5a89a9c05223aed7667fd737714f3d42516ebdb8e2e475c3"
+    },
+    "E48_crosscheck": {
+      "path": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/E48_fixed_smearing_thermal_full_epc/fixed_smearing_thermal_full_epc_summary.json",
+      "sha256": "0984344ecc4c5028c913d406f99fdde3526646071005b2f938876b40602de45e"
+    },
+    "SSCHA": {
+      "R2AO": {
+        "300": {
+          "result": {
+            "path": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/R2R_multipolar_background/R2AP_fixed_smearing_SSCHA/formal_T300/result.npz",
+            "sha256": "c3ff5b9c7c09031a31903b832ee5a519924d7eaf586175a7040fd18172cdf983"
+          },
+          "acceptance": {
+            "path": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/R2R_multipolar_background/R2AP_fixed_smearing_SSCHA/formal_T300/acceptance.json",
+            "sha256": "a41582e52264ed4ad9263c3e8f1abde7608e21b9cdec8617432bdf9702b7952b"
+          }
+        },
+        "450": {
+          "result": {
+            "path": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/R2R_multipolar_background/R2AP_fixed_smearing_SSCHA/formal_T450/result.npz",
+            "sha256": "f33259b099510c3378200e57a5099f5ec227cafab0404079c0bbc3e08fbc4dcc"
+          },
+          "acceptance": {
+            "path": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/R2R_multipolar_background/R2AP_fixed_smearing_SSCHA/formal_T450/acceptance.json",
+            "sha256": "279467b048d92ba3164afc98e4955be32486ce48c97fadf9bf3f890b2dafeab2"
+          }
+        },
+        "600": {
+          "result": {
+            "path": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/R2R_multipolar_background/R2AP_fixed_smearing_SSCHA/formal_T600/result.npz",
+            "sha256": "df6b421d596699b16e082193a788cf157defcae7ece466c0f567fa619b07ff9e"
+          },
+          "acceptance": {
+            "path": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/R2R_multipolar_background/R2AP_fixed_smearing_SSCHA/formal_T600/acceptance.json",
+            "sha256": "7efd7336d555e160229b3412f1a9afb780a7fde190fb24f69f185ecea0c37087"
+          }
+        }
+      },
+      "S0": {
+        "300": {
+          "result": {
+            "path": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/S0_unified_short/Q0_quantum_sscha/formal_T300/result.npz",
+            "sha256": "1986d71ffd07d9d4b7b85cfc7ccae035d9cf370404d5ea4d706ffb6877cd5964"
+          },
+          "acceptance": {
+            "path": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/S0_unified_short/Q0_quantum_sscha/formal_T300/acceptance.json",
+            "sha256": "9ec9fdb07f332400041a7f9c123da822a17ac627fcc8dbd98ff59fd050135753"
+          }
+        },
+        "450": {
+          "result": {
+            "path": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/R2R_multipolar_background/R2AR_s0_fixed_smearing_sensitivity/formal_T450_Tel300/result.npz",
+            "sha256": "443fa8a03f785a7cd8b5cac717bef2fda6b61708b9202dc5434fe728ceddb508"
+          },
+          "acceptance": {
+            "path": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/R2R_multipolar_background/R2AR_s0_fixed_smearing_sensitivity/formal_T450_Tel300/acceptance.json",
+            "sha256": "5630899495be910737d7c2f9e72a9e3f096964f0cf82fb6ee9cf71c7d83062da"
+          }
+        },
+        "600": {
+          "result": {
+            "path": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/R2R_multipolar_background/R2AR_s0_fixed_smearing_sensitivity/formal_T600_Tel300/result.npz",
+            "sha256": "61235c90b2976df411e90708ef6d9813b81072821d8a04b99b521316690cc3e5"
+          },
+          "acceptance": {
+            "path": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/R2R_multipolar_background/R2AR_s0_fixed_smearing_sensitivity/formal_T600_Tel300/acceptance.json",
+            "sha256": "cd8e76bab0277bcaf3883340901edc61a922e8b47a54f34add7c97a233c0f824"
+          }
+        }
+      }
+    }
+  },
+  "outputs": {
+    "csv": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/R2R_multipolar_background/R2AS_r2ao_full_epc_acceptance_20260827/r2ao_s0_fixed_smearing_full_epc.csv",
+    "png": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/R2R_multipolar_background/R2AS_r2ao_full_epc_acceptance_20260827/r2ao_s0_fixed_smearing_full_epc.png",
+    "pdf": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/R2R_multipolar_background/R2AS_r2ao_full_epc_acceptance_20260827/r2ao_s0_fixed_smearing_full_epc.pdf",
+    "matrices": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/R2R_multipolar_background/R2AS_r2ao_full_epc_acceptance_20260827/r2ao_s0_fixed_smearing_full_epc_matrices.npz"
+  }
+}

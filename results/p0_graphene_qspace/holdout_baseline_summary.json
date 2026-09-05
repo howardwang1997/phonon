@@ -1,0 +1,50 @@
+{
+  "status": "baseline_predictions_complete_before_holdout",
+  "direct_holdout_read": false,
+  "holdout_degauss_Ry": [
+    0.013,
+    0.027,
+    0.055
+  ],
+  "gamma_t": [
+    0.0,
+    0.012,
+    0.025,
+    0.045,
+    0.075
+  ],
+  "K_t": [
+    0.925,
+    0.955,
+    0.975,
+    0.99,
+    1.0,
+    1.01,
+    1.025,
+    1.045,
+    1.075
+  ],
+  "development_control_degauss_Ry": 0.01,
+  "development_control_all_branch_replay_max_abs_cm-1": 1.6391184229382323,
+  "development_control_optical_replay_max_abs_cm-1": 0.0024959641402801935,
+  "development_control_optical_threshold_cm-1": 0.01,
+  "development_control_note": "The all-branch maximum is a near-zero Gamma acoustic-mode ASR sign flip; final correction and acceptance tests target optical K-iTO and Gamma-E2g modes.",
+  "calculator": "archived real-v11 MACE backbone FC + frozen harmonic Friedel correction replayed through the production phonopy FD operator",
+  "anchor_fit": {
+    "0.005": {
+      "B": 1.0,
+      "kappa_invA": 0.0,
+      "relative_residual": 0.0
+    },
+    "0.04": {
+      "B": 0.8740446625845054,
+      "kappa_invA": 0.05,
+      "relative_residual": 0.02818221083865497
+    },
+    "0.08": {
+      "B": 0.0,
+      "kappa_invA": 0.0,
+      "relative_residual": 0.0
+    }
+  }
+}

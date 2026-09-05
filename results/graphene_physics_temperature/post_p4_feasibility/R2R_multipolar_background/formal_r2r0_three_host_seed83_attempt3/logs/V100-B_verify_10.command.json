@@ -1,0 +1,22 @@
+{
+  "argv": [
+    "ssh",
+    "-o",
+    "BatchMode=yes",
+    "-o",
+    "ConnectTimeout=20",
+    "-o",
+    "ControlPath=none",
+    "root@100.123.220.57",
+    "sha256sum /data/graphene_r2r0/formal_bundle/a9a1732af38c/results/r2r0_formal/control/freeze_manifest.json"
+  ],
+  "command_basename": "V100-B_verify_10.command.json",
+  "expected_sha256": "a9a1732af38c4513242fbbe7d23c6e5fd6fdd091ee27cf62a8600544bb8cf73f",
+  "observed_sha256": "a9a1732af38c4513242fbbe7d23c6e5fd6fdd091ee27cf62a8600544bb8cf73f",
+  "returncode": 0,
+  "sha256": "90f37125b64eb475ae0bf7e2b9da94b515b7a0f717b3e5f23cae9736efc9be36",
+  "stderr_basename": "V100-B_verify_10.stderr",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout_basename": "V100-B_verify_10.stdout",
+  "stdout_sha256": "8f49f707747b33a45e4b8ea4c0c9ea21767b5be4167017db414e42bc7a9d5e51"
+}

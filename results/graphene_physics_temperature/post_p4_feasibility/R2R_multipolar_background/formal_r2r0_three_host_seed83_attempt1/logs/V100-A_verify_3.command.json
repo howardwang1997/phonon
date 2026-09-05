@@ -1,0 +1,17 @@
+{
+  "argv": [
+    "ssh",
+    "-o",
+    "BatchMode=yes",
+    "-o",
+    "ConnectTimeout=20",
+    "-o",
+    "ControlPath=none",
+    "root@100.80.236.112",
+    "sha256sum /data/graphene_r2r0/formal_bundle/bf998936b4b3/data/graphene_r2o_taylor_null_core/train_thermal.xyz"
+  ],
+  "expected_sha256": "cc2e9c68d418fba996e8ac89c8156c8adf00768406f6171aaa57f0a9bd2720c1",
+  "observed_sha256": "cc2e9c68d418fba996e8ac89c8156c8adf00768406f6171aaa57f0a9bd2720c1",
+  "returncode": 0,
+  "sha256": "e8ae4d6eb991d4d8d000728aebfc3e61c81afb0941b9f27eb75fa4da29d787bc"
+}

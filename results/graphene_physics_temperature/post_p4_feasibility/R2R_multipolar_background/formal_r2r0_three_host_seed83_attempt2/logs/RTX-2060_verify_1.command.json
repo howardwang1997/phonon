@@ -1,0 +1,17 @@
+{
+  "argv": [
+    "ssh",
+    "-o",
+    "BatchMode=yes",
+    "-o",
+    "ConnectTimeout=20",
+    "-o",
+    "ControlPath=none",
+    "howardwang@100.105.21.7",
+    "sha256sum /home/howardwang/phonon/results/r2r0_formal_bundle_20260825/f2abdb5e997d/data/graphene_r2o_taylor_null_core/reference_8x8.xyz"
+  ],
+  "expected_sha256": "1c438550cb03d94cc80ca16e1ca89d24f87db4d732743b6c07128d47edf5b900",
+  "observed_sha256": "1c438550cb03d94cc80ca16e1ca89d24f87db4d732743b6c07128d47edf5b900",
+  "returncode": 0,
+  "sha256": "86e6bedeb9e5b05bf68a72d92cde6fceed4536c416f011824996ac87cc11ea0a"
+}

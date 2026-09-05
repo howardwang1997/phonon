@@ -1,0 +1,21 @@
+{
+  "status": "complete",
+  "role": "static short-range base + delta FC2 for q-space LR fitting",
+  "base_model": "/root/phonon/results/gr_backbone_v11/ft_graphene.model",
+  "base_model_sha256": "4d32426672d53e3adc86499d14e4c4164c05e879a56811ff54add03cd1bb6ce7",
+  "delta_model": "/root/phonon/results/graphene_fd_delta_weighted/T600/selected_checkpoint.model",
+  "delta_model_sha256": "3cf7f697602fed0b71cece204d797821c1d6faff0e0138892f69b06aafe4ddf3",
+  "background": "/root/phonon/results/vq_kink6_fd/graphene_sc6_dg0.040_phonopy.yaml",
+  "background_sha256": "69144a1dd3c66df94c116259067be27d1ede3ca8ab01c66516504c5e1ec90c0a",
+  "device": "cuda",
+  "finite_displacement_A": 0.01,
+  "force_constants_shape": [
+    72,
+    72,
+    3,
+    3
+  ],
+  "force_constants_pair_symmetry_max_abs_eV_A2": 0.0,
+  "output": "/root/phonon/results/graphene_fd_delta_weighted/T600_TDEP/static_short_fc2.npz",
+  "output_sha256": "c7c898c0b3cb7b26ab185a866b529d474e84a84df4c9d7b6ffc6cef012c52b0b"
+}

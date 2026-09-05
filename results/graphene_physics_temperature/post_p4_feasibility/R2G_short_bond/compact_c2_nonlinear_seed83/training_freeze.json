@@ -1,0 +1,53 @@
+{
+  "status": "frozen_before_training",
+  "run_tag": "compact_c2_nonlinear",
+  "environment_mode": "nonlinear",
+  "architecture": {
+    "energy": "C2 compact envelope times 12 radial RBFs times symmetric nonlinear endpoint environment",
+    "activation_A": {
+      "lower_off": 1.15,
+      "lower_on": 1.2,
+      "upper_on": 1.32,
+      "upper_off": 1.38
+    },
+    "radial_centers_A": [
+      1.2,
+      1.36
+    ],
+    "n_radial": 12,
+    "radial_width_A": 0.022,
+    "hidden_channels": 24
+  },
+  "seed": 83,
+  "max_epochs": 400,
+  "learning_rate": 0.001,
+  "conda_environment": "phonon",
+  "short_base": {
+    "path": "/data/graphene_r2f_last_layer/depth3_lastblock_direct_seed83/gr_r2f_depth3_lastblock_direct_seed83.model",
+    "sha256": "bc58262936b1bf41db3f17716e5e58b501e1f6ee14fd02f3aaf23e817ad6885f"
+  },
+  "data_manifest": {
+    "path": "/data/graphene_r2f_joint_support_harmonic/manifest.json",
+    "sha256": "a7feb67f8cf16a0d5ca2c0efb010909e3f41efc4fc97c5216a454bf169da0b99"
+  },
+  "launcher": {
+    "path": "/root/phonon/scripts/v100/run_graphene_r2g_short_bond_expert.sh",
+    "sha256": "2aa703941a6386314d93ca9626390a627d9b8b7497a1c8d224a92272a106100d"
+  },
+  "trainer": {
+    "path": "/root/phonon/scripts/smearing_kink/train_graphene_r2g_short_bond_expert.py",
+    "sha256": "e65c290bbdd41d910ec3dd9f4a7ab4e4a52c12aacf92dadaafff23d9c7d2a6e3"
+  },
+  "expert_module": {
+    "path": "/root/phonon/scripts/smearing_kink/graphene_short_bond_expert.py",
+    "sha256": "bcda410f7e4e209a6b05c32580da612f825e3da8a40164a71a76529e7752aeed"
+  },
+  "loss": {
+    "force_gate_scale_eV_A": 0.03,
+    "support_energy_gate_scale_eV": 0.0194,
+    "energy_weight": 0.25
+  },
+  "new_DFT_labels": 0,
+  "thermal_gradient_configurations": 0,
+  "long_range_model_modified": false
+}

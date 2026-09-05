@@ -1,0 +1,110 @@
+{
+  "status": "failed",
+  "temperature_K": 300,
+  "scope": "300 K operator-subtracted per-seed short-TDEP diagnostic before q-space correction",
+  "force_gate_passed": true,
+  "force_selection": "results/graphene_fd_delta_pilot/T300/delta32/gate_selection.json",
+  "force_selection_sha256": "b937be838a6daa7cbfea7bde3b2b93637fd0ad79dcf9e3ca9f664581442389d1",
+  "dft_reference": {
+    "path": "results/td_phonon/graphene_physical_fd_dft_300K_wave3.npz",
+    "sha256": "63d66500f29436097c357ea04f11ac996ddb54bbaf494a9351636f75f29b98ee"
+  },
+  "thresholds": {
+    "MLIP_vs_DFT_full_band_MAE_cm-1": 10.0,
+    "Gamma_K_top_abs_error_cm-1": 15.0,
+    "seed_pair_full_band_MAE_cm-1": 5.0,
+    "MD_mean_temperature_relative_error": 0.2
+  },
+  "candidate_files": [
+    {
+      "path": "results/td_phonon/td_graphene_v11_fd300_delta_pilot_short_seed0.npz",
+      "sha256": "14fd05ffc8441503e4557fef364f7526867d18aa239485db4cc62d0ab0118c4b"
+    },
+    {
+      "path": "results/td_phonon/td_graphene_v11_fd300_delta_pilot_short_seed1.npz",
+      "sha256": "5034965a5e2f9c274803aebed090b25ba818c6d0c37d517cda19c02dc4efbb94"
+    },
+    {
+      "path": "results/td_phonon/td_graphene_v11_fd300_delta_pilot_short_seed2.npz",
+      "sha256": "e525b22a0263d59e4fb8b73ea3bfdf3b8d565995ecd43d5feb2476ff23c9d70d"
+    }
+  ],
+  "candidate_vs_DFT": [
+    {
+      "full_band_MAE_cm-1": 9.314329168892808,
+      "full_band_max_abs_cm-1": 61.32848197430917,
+      "Gamma_top_abs_error_cm-1": 0.8962116941963814,
+      "K_top_abs_error_cm-1": 61.32848197430917
+    },
+    {
+      "full_band_MAE_cm-1": 9.515650993946608,
+      "full_band_max_abs_cm-1": 73.89251166738609,
+      "Gamma_top_abs_error_cm-1": 7.673076137519502,
+      "K_top_abs_error_cm-1": 73.89251166738609
+    },
+    {
+      "full_band_MAE_cm-1": 8.713172534512234,
+      "full_band_max_abs_cm-1": 71.74730756803183,
+      "Gamma_top_abs_error_cm-1": 0.909630988778872,
+      "K_top_abs_error_cm-1": 71.74730756803183
+    }
+  ],
+  "seed_pair_spread": [
+    {
+      "seeds": [
+        0,
+        1
+      ],
+      "full_band_MAE_cm-1": 2.70799111146749,
+      "full_band_max_abs_cm-1": 12.564029697218075,
+      "Gamma_top_abs_error_cm-1": 6.776864444356306,
+      "K_top_abs_error_cm-1": 12.564029697218075
+    },
+    {
+      "seeds": [
+        0,
+        2
+      ],
+      "full_band_MAE_cm-1": 1.984261804335353,
+      "full_band_max_abs_cm-1": 10.418825598040257,
+      "Gamma_top_abs_error_cm-1": 0.01341929438740408,
+      "K_top_abs_error_cm-1": 10.418825598040257
+    },
+    {
+      "seeds": [
+        1,
+        2
+      ],
+      "full_band_MAE_cm-1": 2.4296416725894483,
+      "full_band_max_abs_cm-1": 8.44310000218752,
+      "Gamma_top_abs_error_cm-1": 6.763445149968902,
+      "K_top_abs_error_cm-1": 2.1452040991778176
+    }
+  ],
+  "trajectory": [
+    {
+      "seed": 0,
+      "mean_temperature_K": 294.7018166309066,
+      "max_temperature_K": 367.1975856299984,
+      "mean_temperature_relative_error": 0.01766061123031136,
+      "minimum_TDEP_frequency_cm-1": -4.254002994318762
+    },
+    {
+      "seed": 1,
+      "mean_temperature_K": 308.5567345783389,
+      "max_temperature_K": 387.01920988960353,
+      "mean_temperature_relative_error": 0.02852244859446292,
+      "minimum_TDEP_frequency_cm-1": -4.21709227596011
+    },
+    {
+      "seed": 2,
+      "mean_temperature_K": 293.10294859778696,
+      "max_temperature_K": 366.0650422752866,
+      "mean_temperature_relative_error": 0.022990171340710124,
+      "minimum_TDEP_frequency_cm-1": -1.4455719545063284
+    }
+  ],
+  "finite_trajectory_and_spectrum_diagnostics": true,
+  "passes_TDEP_gate": false,
+  "passes_force_and_TDEP_gate": false
+}

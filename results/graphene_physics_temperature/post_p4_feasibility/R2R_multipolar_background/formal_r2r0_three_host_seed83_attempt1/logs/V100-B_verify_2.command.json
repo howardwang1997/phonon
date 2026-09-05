@@ -1,0 +1,17 @@
+{
+  "argv": [
+    "ssh",
+    "-o",
+    "BatchMode=yes",
+    "-o",
+    "ConnectTimeout=20",
+    "-o",
+    "ControlPath=none",
+    "root@100.123.220.57",
+    "sha256sum /data/graphene_r2r0/formal_bundle/bf998936b4b3/data/graphene_r2o_taylor_null_core/train_harmonic_lambda1_small_zero.xyz"
+  ],
+  "expected_sha256": "600c737b11987fb976724dd86042d384fc1abef9f2340ffa5c30d5fe26a8afdf",
+  "observed_sha256": "600c737b11987fb976724dd86042d384fc1abef9f2340ffa5c30d5fe26a8afdf",
+  "returncode": 0,
+  "sha256": "4e5ba92c806a252d4aafffd664abfbfe790adc1a365454734b20571f8693ba44"
+}

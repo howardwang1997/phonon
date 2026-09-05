@@ -1,0 +1,30 @@
+{
+  "status": "R2O_stage2_training_complete_pending_fixed_gate",
+  "wall_time_seconds": 67.28587835095823,
+  "epochs": 2,
+  "raw_model": {
+    "path": "/home/howardwang/phonon/results/graphene_physics_temperature/post_p4_feasibility/R2O_taylor_null_core/fp64_smoke_2plus2_seed83_rtx/stage2/r2o_stage2_raw.model",
+    "sha256": "235dea826d24cdc661cea373b8fd753926a0814dbd760940d697206c2ac2749b"
+  },
+  "ema_model": {
+    "path": "/home/howardwang/phonon/results/graphene_physics_temperature/post_p4_feasibility/R2O_taylor_null_core/fp64_smoke_2plus2_seed83_rtx/stage2/r2o_stage2_ema.model",
+    "sha256": "662e1ddb4ace9e4365324820712b77bc29128931e32eb1538da8a5ee773c717e"
+  },
+  "raw_state_sha256": "24f97d8716c50a4a6c4f8cb7b2a7099d282089d8a87f6ec40bd18e35d24a422b",
+  "ema_state_sha256": "2dcb3867b14ff4f5f0e3b1fc294f93c09cb3a24ef8d50c5943be0718de2b4d99",
+  "stage2_contract_sha256": "0af4008d470a064f92b5fbe721ee3214006b3a168c0d5dc745ce234d719e1e8c",
+  "fixed_checkpoints": {
+    "1": {
+      "path": "/home/howardwang/phonon/results/graphene_physics_temperature/post_p4_feasibility/R2O_taylor_null_core/fp64_smoke_2plus2_seed83_rtx/stage2/checkpoints/r2o_epoch-1.pt",
+      "sha256": "28918139b4a0555e32c2f6306d8c38c732b92428c712112af94c0fde9b40e7bf"
+    },
+    "2": {
+      "path": "/home/howardwang/phonon/results/graphene_physics_temperature/post_p4_feasibility/R2O_taylor_null_core/fp64_smoke_2plus2_seed83_rtx/stage2/checkpoints/r2o_epoch-2.pt",
+      "sha256": "17a53bea0d2fa24a1a6b7a7720383c49ab5851baeb23f5220e47fc30d7a37cc2"
+    }
+  },
+  "peak_cuda_memory_MiB": 485.9150390625,
+  "all_parameters_trained": true,
+  "theta_differentiable_reference_gradient_and_HVP": true,
+  "seed1_seed2_support_read": false
+}

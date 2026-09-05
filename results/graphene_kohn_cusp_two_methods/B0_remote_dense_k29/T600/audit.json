@@ -1,0 +1,27 @@
+{
+  "status": "passed",
+  "scope": "B0 dense K-line EPW integrity audit at 600 K",
+  "temperature_K": 600.0,
+  "n_qpoints": 29,
+  "t_min": 0.941666666667,
+  "t_max": 1.0583333333340001,
+  "t_step": 0.004166666666999941,
+  "n_static_rows": 174,
+  "n_all_noncomment_specfun_rows": 348,
+  "metrics": {
+    "mirror_corrected_top_frequency_max_abs_cm-1": 1.571583366973755,
+    "mirror_top_delta_lambda_max_abs_cm-2": 3698.3967983346884,
+    "top_delta_lambda_min_cm-2": -72042.44230412312,
+    "top_delta_lambda_max_cm-2": -19252.082965123456
+  },
+  "checks": {
+    "EPW_completed": true,
+    "qpoint_count_matches": true,
+    "qpoints_are_symmetric_K_line": true,
+    "weights_sum_to_one": true,
+    "zero_frequency_iq_mode_coverage_complete": true,
+    "target_temperature_matches": true,
+    "numerical_broadening_is_0p005_eV": true,
+    "all_values_finite": true
+  }
+}

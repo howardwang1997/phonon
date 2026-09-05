@@ -1,0 +1,69 @@
+{
+  "status": "adaptive_zero_shape_gate_not_yet_passed",
+  "scope": "full stored EPC response with coarse full-BZ integral and a refined K-valley replacement; separate K anchor; no new DFT or zero-shape fit",
+  "coarse_nk": 288,
+  "patch_n": 360,
+  "patch_halfwidth_fractional": 0.05,
+  "patch_step_fractional": 0.0002777777777777778,
+  "patch_quadrature": "triangle_centroid",
+  "d003_shift_in_patch_steps": 3.6,
+  "coarse_uniform_metrics": {
+    "frequency_RMSE_cm-1": 6.497983081529028,
+    "frequency_MAE_cm-1": 6.22133311161892,
+    "frequency_max_abs_cm-1": 7.563787537474127,
+    "by_direction": {
+      "KG": {
+        "target_d003_cusp_depth_cm-1": 4.827133999999887,
+        "prediction_d003_cusp_depth_cm-1": -1.0977036376007163,
+        "d003_cusp_depth_relative_error": 1.227402768930952,
+        "target_inner_to_outer_slope_ratio": 2.552851874710314,
+        "prediction_inner_to_outer_slope_ratio": -0.7284939397720426,
+        "slope_ratio_relative_error": 1.2853647510804789
+      },
+      "KM": {
+        "target_d003_cusp_depth_cm-1": 4.855632000000014,
+        "prediction_d003_cusp_depth_cm-1": -1.0838304481599152,
+        "d003_cusp_depth_relative_error": 1.2232109946058334,
+        "target_inner_to_outer_slope_ratio": 2.4613957452921693,
+        "prediction_inner_to_outer_slope_ratio": -0.6899285993356505,
+        "slope_ratio_relative_error": 1.280299744831872
+      }
+    },
+    "maximum_d003_cusp_depth_relative_error": 1.227402768930952,
+    "maximum_slope_ratio_relative_error": 1.2853647510804789
+  },
+  "adaptive_metrics": {
+    "frequency_RMSE_cm-1": 3.7848578069265297,
+    "frequency_MAE_cm-1": 3.593338959099933,
+    "frequency_max_abs_cm-1": 4.802033003294127,
+    "by_direction": {
+      "KG": {
+        "target_d003_cusp_depth_cm-1": 4.827133999999887,
+        "prediction_d003_cusp_depth_cm-1": 1.9201165556821707,
+        "d003_cusp_depth_relative_error": 0.6022243103915874,
+        "target_inner_to_outer_slope_ratio": 2.552851874710314,
+        "prediction_inner_to_outer_slope_ratio": 1.1776382064463633,
+        "slope_ratio_relative_error": 0.5386970085837839
+      },
+      "KM": {
+        "target_d003_cusp_depth_cm-1": 4.855632000000014,
+        "prediction_d003_cusp_depth_cm-1": 1.9241855382765607,
+        "d003_cusp_depth_relative_error": 0.603720887769799,
+        "target_inner_to_outer_slope_ratio": 2.4613957452921693,
+        "prediction_inner_to_outer_slope_ratio": 1.1376055305833204,
+        "slope_ratio_relative_error": 0.5378209567643963
+      }
+    },
+    "maximum_d003_cusp_depth_relative_error": 0.603720887769799,
+    "maximum_slope_ratio_relative_error": 0.5386970085837839
+  },
+  "checks": {
+    "adaptive_max_d003_cusp_depth_relative_error_lt_0p20": false,
+    "adaptive_max_slope_ratio_relative_error_lt_0p20": false
+  },
+  "limitations": [
+    "the refined patch uses a triangle-centroid convergence check, not an analytic linear-tetrahedron treatment of the Fermi boundary",
+    "patch size and patch resolution must both be varied before freezing the zero-smearing result",
+    "the zero reference outer shape is k192 while K and d=0.003 use k288"
+  ]
+}

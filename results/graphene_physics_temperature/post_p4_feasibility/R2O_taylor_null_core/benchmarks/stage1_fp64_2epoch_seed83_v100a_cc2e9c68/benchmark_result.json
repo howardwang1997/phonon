@@ -1,0 +1,80 @@
+{
+  "format": "r2o_stage1_fp64_cli_2epoch_benchmark_v1",
+  "scope": "isolated throughput/CLI semantics only; not a formal R2O artifact or model gate",
+  "command_exit_code": 0,
+  "train_sha256": "cc2e9c68d418fba996e8ac89c8156c8adf00768406f6171aaa57f0a9bd2720c1",
+  "train_and_valid_are_the_same_allowed_thermal_file": true,
+  "configuration_counts": {
+    "r2o_auxiliary_T300_train": 36,
+    "r2o_auxiliary_T600_train": 36,
+    "r2o_exact_e50_seed0_train": 20
+  },
+  "training_configurations": 92,
+  "zero_based_epochs": [
+    0,
+    1
+  ],
+  "expected_optimizer_steps": 184,
+  "optimizer_step_min": 184.0,
+  "optimizer_step_max": 184.0,
+  "optimizer_step_count_matches": true,
+  "total_command_wall_seconds": 75,
+  "epoch0_to_epoch1_log_interval_seconds": null,
+  "gpu_sample_count": 300,
+  "gpu_peak_memory_used_MiB_nvidia_smi": 474.0,
+  "gpu_peak_utilization_percent": 17.0,
+  "gpu_peak_power_draw_W": 58.7,
+  "architecture": {
+    "class": "ScaleShiftMACE",
+    "dtype": "torch.float64",
+    "r_max_A": 3.2,
+    "num_interactions": 2,
+    "hidden_layout": [
+      [
+        0,
+        16,
+        0,
+        1
+      ],
+      [
+        0,
+        16,
+        1,
+        -1
+      ],
+      [
+        0,
+        16,
+        2,
+        1
+      ],
+      [
+        1,
+        16,
+        0,
+        1
+      ]
+    ],
+    "raw_node_width": 160,
+    "num_radial_basis": 24,
+    "cutoff_p": 5,
+    "pair_repulsion_present": false,
+    "parameter_count": 42096
+  },
+  "optimizer_scheduler": {
+    "optimizer": "AdamW",
+    "lr": 0.001,
+    "weight_decay": 0.0,
+    "scheduler_gamma": 1.0,
+    "scheduler_last_epoch": 1,
+    "scheduler_step_count": 2,
+    "ema_enabled": false,
+    "swa_enabled": false
+  },
+  "final_model_sha256": "195929cb61800edefeec412a871bf109f7c075f2b2131b7758362d1ade51707c",
+  "epoch1_checkpoint_sha256": "b98d4fb5c5e5a54193d68bea6506c7ca7a5d117a3e52442f2b3849c468a01e57",
+  "final_state_equals_epoch1_raw_checkpoint_state_exactly": true,
+  "checkpoint_and_final_state_keys_identical": true,
+  "no_seed1_seed2_support_or_prior_model_read": true,
+  "run_log_contains_traceback": false
+}\n

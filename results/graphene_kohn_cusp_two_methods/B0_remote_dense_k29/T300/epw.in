@@ -1,0 +1,16 @@
+--
+&inputepw
+ prefix='graphene', outdir='./tmp',
+ elph=.true., ep_coupling=.true., epwread=.true., epwwrite=.false.,
+ wannierize=.false., nbndsub=2,
+ bands_skipped='exclude_bands = 1',
+ phonselfen=.true., specfun_ph=.true.,
+ wmin_specfun=0.0, wmax_specfun=0.001, nw_specfun=2,
+ a2f=.false., elecselfen=.false.,
+ efermi_read=.true., fermi_energy=-1.7187,
+ fsthick=6.0, degaussw=0.005, nsmear=1, delta_smear=0.005,
+ temps(1)=300, etf_mem=1, iverbosity=2,
+ filqf='./qpoints.dat',
+ nk1=18, nk2=18, nk3=1, nq1=9, nq2=9, nq3=1,
+ nkf1=720, nkf2=720, nkf3=1, nqf1=1, nqf2=1, nqf3=1
+/

@@ -1,0 +1,78 @@
+{
+  "status": "development_candidate_found",
+  "selection_scope": "development only: the three thermal structures were used in the prior delta-pilot model comparison; an independent physical-FD force holdout is required before final acceptance",
+  "fixed_thresholds_unchanged": true,
+  "selected_tag": "replayw16",
+  "selected_normalized_worst_gate_score": 0.9024176364679293,
+  "candidates": [
+    {
+      "tag": "replayw16",
+      "selection_path": "/home/howardwang/phonon/results/graphene_fd_delta_weighted/T600/replayw16/gate_selection.json",
+      "passes_fixed_development_gate": true,
+      "normalized_worst_gate_score": 0.9024176364679293,
+      "thermal_total_force": {
+        "RMSE_meV_A": 45.120881823396466,
+        "max_abs_meV_A": 225.00697428085337
+      },
+      "harmonic_combined_force": {
+        "RMSE_meV_A": 10.121958579399623,
+        "max_abs_meV_A": 116.69566474073409
+      },
+      "harmonic_v11_force": {
+        "RMSE_meV_A": 7.235735484304119,
+        "max_abs_meV_A": 57.08133504318236
+      },
+      "thresholds": {
+        "thermal_force_RMSE_meV_A": 50.0,
+        "thermal_force_max_abs_meV_A": 250.0,
+        "harmonic_RMSE_relative_to_frozen_v11": 2.0
+      }
+    },
+    {
+      "tag": "replayw8",
+      "selection_path": "/home/howardwang/phonon/results/graphene_fd_delta_weighted/T600/replayw8/gate_selection.json",
+      "passes_fixed_development_gate": false,
+      "normalized_worst_gate_score": 1.2297894906555182,
+      "thermal_total_force": {
+        "RMSE_meV_A": 48.40396112612842,
+        "max_abs_meV_A": 307.44737266387955
+      },
+      "harmonic_combined_force": {
+        "RMSE_meV_A": 15.40129368987665,
+        "max_abs_meV_A": 154.407262404213
+      },
+      "harmonic_v11_force": {
+        "RMSE_meV_A": 7.235734153989482,
+        "max_abs_meV_A": 57.08133504318236
+      },
+      "thresholds": {
+        "thermal_force_RMSE_meV_A": 50.0,
+        "thermal_force_max_abs_meV_A": 250.0,
+        "harmonic_RMSE_relative_to_frozen_v11": 2.0
+      }
+    },
+    {
+      "tag": "replayw4",
+      "selection_path": "/home/howardwang/phonon/results/graphene_fd_delta_weighted/T600/replayw4/gate_selection.json",
+      "passes_fixed_development_gate": false,
+      "normalized_worst_gate_score": 1.2460129915904206,
+      "thermal_total_force": {
+        "RMSE_meV_A": 42.7823028588465,
+        "max_abs_meV_A": 241.85776590194718
+      },
+      "harmonic_combined_force": {
+        "RMSE_meV_A": 18.031636013091436,
+        "max_abs_meV_A": 225.27341687709813
+      },
+      "harmonic_v11_force": {
+        "RMSE_meV_A": 7.235733549646107,
+        "max_abs_meV_A": 57.08133504318236
+      },
+      "thresholds": {
+        "thermal_force_RMSE_meV_A": 50.0,
+        "thermal_force_max_abs_meV_A": 250.0,
+        "harmonic_RMSE_relative_to_frozen_v11": 2.0
+      }
+    }
+  ]
+}

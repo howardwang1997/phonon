@@ -1,0 +1,114 @@
+{
+  "status": "zero_d003_numerical_integration_frozen",
+  "scope": "stored Wannier Hamiltonian and full EPC only; independent midpoint/triangle-centroid K-valley quadratures; no new DFT and no fitted cusp shape",
+  "directions": {
+    "KG": {
+      "triangle_resolution_n": [
+        180,
+        360,
+        720
+      ],
+      "triangle_resolution_depth_cm-1": [
+        1.8865758047641066,
+        1.927569485891354,
+        1.9461859963214465
+      ],
+      "extrapolated_limits_cm-1": {
+        "linear_in_1_over_n": 1.9666828368850695,
+        "last_pair_Richardson_1_over_n": 1.9648025067515391,
+        "quadratic_in_1_over_n": 1.963548953329185
+      },
+      "recommended_depth_cm-1": 1.965011432321931,
+      "conservative_numerical_uncertainty_cm-1": 0.05775416136067513,
+      "conservative_relative_numerical_uncertainty": 0.029391259720270763,
+      "uncertainty_components_cm-1": {
+        "last_resolution_refinement": 0.018616510430092603,
+        "patch_halfwidth_half_range": 0.00815387898762765,
+        "coarse_grid_change": 0.006061756809913277,
+        "eta_scan_change": 0.0005752240438141598,
+        "midpoint_triangle_difference": 0.022675386526088914,
+        "extrapolation_form_spread": 0.0016714045631385233
+      },
+      "stability_depths_cm-1": {
+        "midpoint_n360": 1.9051753161420493,
+        "triangle_hw0.03": 1.936424313657426,
+        "triangle_hw0.04": 1.9278507026681382,
+        "triangle_hw0.05": 1.9201165556821707,
+        "triangle_coarse144": 1.9339124594780515,
+        "triangle_eta0.0001": 1.928144709935168,
+        "triangle_eta0.00005": 1.927569485891354
+      },
+      "DFPT_three_point_1_over_k_limit_cm-1": 2.045655710526254,
+      "relative_difference_vs_DFPT_limit": 0.03942221449550607
+    },
+    "KM": {
+      "triangle_resolution_n": [
+        180,
+        360,
+        720
+      ],
+      "triangle_resolution_depth_cm-1": [
+        1.8999568309984625,
+        1.9367729526759376,
+        1.956651589579451
+      ],
+      "extrapolated_limits_cm-1": {
+        "linear_in_1_over_n": 1.9750596504181877,
+        "last_pair_Richardson_1_over_n": 1.9765302264829643,
+        "quadratic_in_1_over_n": 1.9775106105261482
+      },
+      "recommended_depth_cm-1": 1.9763668291424334,
+      "conservative_numerical_uncertainty_cm-1": 0.06417330503940288,
+      "conservative_relative_numerical_uncertainty": 0.03247034107896274,
+      "uncertainty_components_cm-1": {
+        "last_resolution_refinement": 0.019878636903513325,
+        "patch_halfwidth_half_range": 0.011645260737168428,
+        "coarse_grid_change": 0.005551207296548455,
+        "eta_scan_change": 0.00037281829872881644,
+        "midpoint_triangle_difference": 0.025418203079198065,
+        "extrapolation_form_spread": 0.0013071787242457944
+      },
+      "stability_depths_cm-1": {
+        "midpoint_n360": 1.9110439325040716,
+        "triangle_hw0.03": 1.9474760597508975,
+        "triangle_hw0.04": 1.9364621355832696,
+        "triangle_hw0.05": 1.9241855382765607,
+        "triangle_coarse144": 1.942013342879818,
+        "triangle_eta0.0001": 1.9371457709746664,
+        "triangle_eta0.00005": 1.9367729526759376
+      },
+      "DFPT_three_point_1_over_k_limit_cm-1": 2.078528289473819,
+      "relative_difference_vs_DFPT_limit": 0.049150863545498275
+    }
+  },
+  "checks": {
+    "triangle_n720_change_from_n360_lt_0p025_cm-1": true,
+    "patch_halfwidth_half_range_lt_0p015_cm-1": true,
+    "eta_scan_change_lt_0p002_cm-1": true,
+    "coarse_grid_change_lt_0p01_cm-1": true,
+    "recommended_EPC_depth_within_10pct_DFPT_limit": true
+  },
+  "conclusion": "The zero-smearing d=0.003 full-EPC depth is numerically stable at about 1.97 cm-1 with a conservative integration uncertainty below 0.07 cm-1, and remains within 10% of the current DFPT 1/Nk limit.",
+  "limitations": [
+    "this freezes the d=0.003 depth, not the complete outer K-neighborhood curve",
+    "triangle centroids independently check the midpoint result but do not analytically integrate the Fermi-surface crossing",
+    "the DFPT comparison still relies on a three-grid 1/Nk extrapolation"
+  ],
+  "inputs": {
+    "resolution_runs": {
+      "180": "E13_epc_zero_triangle_c288_p180_hw0p04_eta0p0002",
+      "360": "E13_epc_zero_triangle_c288_p360_hw0p04_eta0p00005",
+      "720": "E13_epc_zero_triangle_c288_p720_hw0p04_eta0p00005"
+    },
+    "stability_runs": {
+      "midpoint_n360": "E11_epc_zero_adaptive_c288_p360_eta0p0002",
+      "triangle_hw0.03": "E13_epc_zero_triangle_c288_p360_hw0p03_eta0p0002",
+      "triangle_hw0.04": "E13_epc_zero_triangle_c288_p360_eta0p0002",
+      "triangle_hw0.05": "E13_epc_zero_triangle_c288_p360_hw0p05_eta0p0002",
+      "triangle_coarse144": "E13_epc_zero_triangle_c144_p360_hw0p04_eta0p0002",
+      "triangle_eta0.0001": "E13_epc_zero_triangle_c288_p360_hw0p04_eta0p0001",
+      "triangle_eta0.00005": "E13_epc_zero_triangle_c288_p360_hw0p04_eta0p00005"
+    },
+    "DFPT_extrapolation": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/E12_zero_k_extrapolated_epc/zero_k_extrapolated_epc_summary.json"
+  }
+}

@@ -1,0 +1,128 @@
+{
+  "status": "complete",
+  "scope": "frozen current-S0 SSCHA overlap DFT shard",
+  "snapshots": {
+    "path": "/data/graphene_fixed_smearing_overlap_R1/input/shard_B_snapshots.npz",
+    "sha256": "32992b6b59a210d8d076d862d149e2e43729c20d7e44f2acb6df5ecee25a43eb"
+  },
+  "indices": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "sscha_indices": [
+    216,
+    6,
+    277,
+    87,
+    272,
+    152
+  ],
+  "n_atoms": 72,
+  "lattice_temperature_K": 450.0,
+  "smearing": "fermi-dirac",
+  "degauss_Ry": 0.0019000869,
+  "kgrid": 8,
+  "ecutwfc_Ry": 60.0,
+  "ecutrho_Ry": 240.0,
+  "disk_io": "none",
+  "total_wall_seconds": 4878.997403502988,
+  "provisional_saved_MLIP_vs_DFT_force": {
+    "RMSE_meV_A": 1948.1288456182856,
+    "MAE_meV_A": 1415.0199131280642,
+    "max_abs_meV_A": 8789.989728987584
+  },
+  "records": [
+    {
+      "local_index": 0,
+      "sscha_index": 216,
+      "selection_group": "high_committee_disagreement",
+      "force_error": {
+        "RMSE_meV_A": 2179.84808740856,
+        "MAE_meV_A": 1517.1986174564813,
+        "max_abs_meV_A": 8789.989728987584
+      },
+      "DFT_energy_eV": -11160.947470796811,
+      "MLIP_energy_eV": 8.426223542758319,
+      "label_path": "/data/graphene_fixed_smearing_overlap_R1/shard_B/labels/sscha_216_k8.npz",
+      "label_sha256": "77459004886d4b3b3a8a985a5ffa4e7908e08eecfa53a12be281c2b7358a913f"
+    },
+    {
+      "local_index": 1,
+      "sscha_index": 6,
+      "selection_group": "high_Aprime_amplitude",
+      "force_error": {
+        "RMSE_meV_A": 1954.2870874978896,
+        "MAE_meV_A": 1405.5691929053185,
+        "max_abs_meV_A": 6898.4979836862885
+      },
+      "DFT_energy_eV": -11161.871035913706,
+      "MLIP_energy_eV": 9.814413777463235,
+      "label_path": "/data/graphene_fixed_smearing_overlap_R1/shard_B/labels/sscha_006_k8.npz",
+      "label_sha256": "3a998346f3a4034289ad753bfd4d18ecce445f953a74f8946856d1a296b10138"
+    },
+    {
+      "local_index": 2,
+      "sscha_index": 277,
+      "selection_group": "high_committee_disagreement",
+      "force_error": {
+        "RMSE_meV_A": 1961.5178603253198,
+        "MAE_meV_A": 1406.615650963755,
+        "max_abs_meV_A": 6587.98129956743
+      },
+      "DFT_energy_eV": -11160.902952836752,
+      "MLIP_energy_eV": 5.44690880838758,
+      "label_path": "/data/graphene_fixed_smearing_overlap_R1/shard_B/labels/sscha_277_k8.npz",
+      "label_sha256": "b490c516bd7e1e5174250dd4e30a19df752be9609dd99d556c093e6745f58925"
+    },
+    {
+      "local_index": 3,
+      "sscha_index": 87,
+      "selection_group": "typical",
+      "force_error": {
+        "RMSE_meV_A": 1969.6387246372149,
+        "MAE_meV_A": 1479.912569256865,
+        "max_abs_meV_A": 7244.271906378039
+      },
+      "DFT_energy_eV": -11161.321944065472,
+      "MLIP_energy_eV": 4.08033223214369,
+      "label_path": "/data/graphene_fixed_smearing_overlap_R1/shard_B/labels/sscha_087_k8.npz",
+      "label_sha256": "140f702d57675fa79f6a7f6eefc687d457ab529de4a88222db20aeac6aa5fb7a"
+    },
+    {
+      "local_index": 4,
+      "sscha_index": 272,
+      "selection_group": "typical",
+      "force_error": {
+        "RMSE_meV_A": 1920.1303515792163,
+        "MAE_meV_A": 1436.3976129001512,
+        "max_abs_meV_A": 6165.536812287899
+      },
+      "DFT_energy_eV": -11161.551402971463,
+      "MLIP_energy_eV": 9.994524076183122,
+      "label_path": "/data/graphene_fixed_smearing_overlap_R1/shard_B/labels/sscha_272_k8.npz",
+      "label_sha256": "14e5ffd2a6b94fddb45f3833a184838379021cab106a0e3f2bf6f17df370278d"
+    },
+    {
+      "local_index": 5,
+      "sscha_index": 152,
+      "selection_group": "low_Aprime_amplitude",
+      "force_error": {
+        "RMSE_meV_A": 1669.2305716164562,
+        "MAE_meV_A": 1244.425835285814,
+        "max_abs_meV_A": 6698.0510783869995
+      },
+      "DFT_energy_eV": -11164.453607947115,
+      "MLIP_energy_eV": 5.39722745988645,
+      "label_path": "/data/graphene_fixed_smearing_overlap_R1/shard_B/labels/sscha_152_k8.npz",
+      "label_sha256": "e47a590df9577378356fdf45582b72f96960f9ac5fc07240b67a4d9f5746e641"
+    }
+  ],
+  "output_extxyz": {
+    "path": "/data/graphene_fixed_smearing_overlap_R1/shard_B/summary.xyz",
+    "sha256": "e3118b81945b84658a789a57f2f6bd9d9e42d837c1316ad1fc03ca9961599e00"
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "status": "cross_material_rank3_five_q_vertex_gate_failed",
+  "material": "1T-VSe2",
+  "scope": "five fixed coarse-q labels train a material-specific complex rank-3 mode-projected EPC basis and cubic latent curve; remaining 36 q points are held out; existing EPW asset only and no new DFT",
+  "asset_dimensions": {
+    "nbndsub": 11,
+    "nrr_k": 157,
+    "nmodes": 9,
+    "nrr_q": 13,
+    "nrr_g": 13
+  },
+  "q_center": [
+    0.25,
+    0.25,
+    0.0
+  ],
+  "q_direction": [
+    1.0,
+    1.0,
+    0.0
+  ],
+  "q_halfwidth": 0.05,
+  "number_of_qpoints": 41,
+  "training_indices": [
+    0,
+    10,
+    20,
+    30,
+    40
+  ],
+  "tracked_reference_mode_index": 0,
+  "tracked_mode_index_range": [
+    0,
+    0
+  ],
+  "tracked_frequency_range_cm-1": [
+    75.0751914663387,
+    98.43691800988798
+  ],
+  "minimum_branch_overlap_with_center": 0.9008454689676093,
+  "minimum_adjacent_branch_overlap": 0.999026020822568,
+  "full_data_rank_for_capture": {
+    "0.99": 2,
+    "0.999": 3,
+    "0.9999": 4,
+    "0.99999": 4
+  },
+  "full_data_rank3_capture": 0.9997981999726879,
+  "full_data_rank3_maximum_relative_vertex_error": 0.034988725590568114,
+  "blind_five_q_rank3": {
+    "heldout_RMSE_relative_vertex_error": 0.020430116950380245,
+    "heldout_median_relative_vertex_error": 0.019529182589443583,
+    "heldout_maximum_relative_vertex_error": 0.034320543639751545
+  },
+  "checks": {
+    "tracked_branch_overlap_gt_0p95": false,
+    "rank3_direct_capture_gt_0p999": true,
+    "blind_five_q_heldout_RMSE_lt_0p02": false,
+    "blind_five_q_heldout_max_lt_0p05": true
+  },
+  "limitations": [
+    "this first cross-material gate evaluates vertex reconstruction, not the propagated phonon self-energy",
+    "the material-specific rank-3 basis is learned from five VSe2 EPC labels rather than generated from a pretrained cross-material model",
+    "only the branch selected as the lowest mode at q0=(1/4,1/4) is tested"
+  ]
+}

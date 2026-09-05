@@ -1,0 +1,671 @@
+{
+  "status": "R2J_gate_balanced_common_descent_training_complete",
+  "energy_conservative": true,
+  "new_DFT_labels": 0,
+  "long_range_model_modified": false,
+  "thermal_structures_used_for_gradient_updates": 0,
+  "fixed_condition": {
+    "lattice_temperature_K": 450.0,
+    "smearing": "fermi-dirac",
+    "degauss_Ry": 0.0019000869380739254
+  },
+  "initial_model": {
+    "path": "/data/graphene_r2c_short_repair/depth3_forces_only_seed83/gr_r2c_depth3_forces_only_seed83.model",
+    "sha256": "cdab8eae193c27126305fe798c105a9f98cf8b9718805d2de80e9211c1743084"
+  },
+  "datasets": {
+    "train": {
+      "path": "/data/graphene_r2f_joint_support_harmonic/train.xyz",
+      "sha256": "3e3f030477a6d2b2ba8f6cb12fe35dd9999b144dcb5d13925c8d03bac8558637"
+    },
+    "valid": {
+      "path": "/data/graphene_r2f_joint_support_harmonic/val.xyz",
+      "sha256": "634531e708e540dad3c36992c190f1cb5490a5f07c5be0f99f7d14fb53f092ae"
+    },
+    "test": {
+      "path": "/data/graphene_r2f_joint_support_harmonic/test.xyz",
+      "sha256": "bdc259b233c90131e731952c2bb6c933da1f4d3ad0a73354278912a886d057d9"
+    }
+  },
+  "training": {
+    "scope": "last_block",
+    "trainable_prefixes": [
+      "interactions.2.",
+      "products.2.",
+      "readouts.2."
+    ],
+    "trainable_parameters": 44208,
+    "total_parameters": 118800,
+    "max_epochs": 240,
+    "learning_rate": 5e-05,
+    "weight_decay": 1e-08,
+    "ema_decay": 0.99,
+    "seed": 83,
+    "top_k": 16,
+    "steps_per_epoch": 9,
+    "harmonic_configurations_per_step": 8,
+    "support_configurations_per_step": 1,
+    "gradient_combination": "unit(harmonic_gradient) + unit(gate-balanced_support_gradient)",
+    "scales": {
+      "harmonic_force_eV_A": 0.00904466916312638,
+      "support_force_eV_A": 0.03,
+      "support_Aprime_eV_A": 0.015,
+      "support_top_component_eV_A": 0.2
+    }
+  },
+  "initial_validation": {
+    "all": {
+      "RMSE_meV_A": 22.362934112548828,
+      "MAE_meV_A": 9.246018409729004,
+      "max_abs_meV_A": 859.4312744140625,
+      "n_force_components": 11544
+    },
+    "by_role": {
+      "fixed_smearing_support_repair": {
+        "RMSE_meV_A": 47.412994384765625,
+        "MAE_meV_A": 25.247514724731445,
+        "max_abs_meV_A": 859.4312744140625,
+        "n_force_components": 1944
+      },
+      "harmonic_replay": {
+        "RMSE_meV_A": 12.089371681213379,
+        "MAE_meV_A": 6.0057148933410645,
+        "max_abs_meV_A": 130.01412963867188,
+        "n_force_components": 9600
+      }
+    }
+  },
+  "initial_test": {
+    "all": {
+      "RMSE_meV_A": 15.536409378051758,
+      "MAE_meV_A": 11.5872163772583,
+      "max_abs_meV_A": 101.31562042236328,
+      "n_force_components": 5616
+    },
+    "by_role": {
+      "thermal": {
+        "RMSE_meV_A": 15.536409378051758,
+        "MAE_meV_A": 11.5872163772583,
+        "max_abs_meV_A": 101.31562042236328,
+        "n_force_components": 5616
+      }
+    }
+  },
+  "final_validation": {
+    "all": {
+      "RMSE_meV_A": 24.546321868896484,
+      "MAE_meV_A": 8.903301239013672,
+      "max_abs_meV_A": 1027.4788818359375,
+      "n_force_components": 11544
+    },
+    "by_role": {
+      "fixed_smearing_support_repair": {
+        "RMSE_meV_A": 55.47553634643555,
+        "MAE_meV_A": 27.565658569335938,
+        "max_abs_meV_A": 1027.4788818359375,
+        "n_force_components": 1944
+      },
+      "harmonic_replay": {
+        "RMSE_meV_A": 10.066367149353027,
+        "MAE_meV_A": 5.12417459487915,
+        "max_abs_meV_A": 102.40708923339844,
+        "n_force_components": 9600
+      }
+    }
+  },
+  "final_test": {
+    "all": {
+      "RMSE_meV_A": 22.190521240234375,
+      "MAE_meV_A": 15.968009948730469,
+      "max_abs_meV_A": 162.97218322753906,
+      "n_force_components": 5616
+    },
+    "by_role": {
+      "thermal": {
+        "RMSE_meV_A": 22.190521240234375,
+        "MAE_meV_A": 15.968009948730469,
+        "max_abs_meV_A": 162.97218322753906,
+        "n_force_components": 5616
+      }
+    }
+  },
+  "checkpoint_models": {
+    "1": "/data/graphene_r2j_common_descent/balanced_last_block_seed83/checkpoint_models/epoch1.model",
+    "5": "/data/graphene_r2j_common_descent/balanced_last_block_seed83/checkpoint_models/epoch5.model",
+    "10": "/data/graphene_r2j_common_descent/balanced_last_block_seed83/checkpoint_models/epoch10.model",
+    "20": "/data/graphene_r2j_common_descent/balanced_last_block_seed83/checkpoint_models/epoch20.model",
+    "40": "/data/graphene_r2j_common_descent/balanced_last_block_seed83/checkpoint_models/epoch40.model",
+    "80": "/data/graphene_r2j_common_descent/balanced_last_block_seed83/checkpoint_models/epoch80.model",
+    "120": "/data/graphene_r2j_common_descent/balanced_last_block_seed83/checkpoint_models/epoch120.model",
+    "160": "/data/graphene_r2j_common_descent/balanced_last_block_seed83/checkpoint_models/epoch160.model",
+    "200": "/data/graphene_r2j_common_descent/balanced_last_block_seed83/checkpoint_models/epoch200.model",
+    "240": "/data/graphene_r2j_common_descent/balanced_last_block_seed83/checkpoint_models/epoch240.model"
+  },
+  "final_model": {
+    "path": "/data/graphene_r2j_common_descent/balanced_last_block_seed83/gr_r2j_balanced_last_block_seed83.model",
+    "sha256": "845616882dbe3749e28a51a21a717db0ad6b01aa5ab83dcc701bc57428fbe1eb"
+  },
+  "Aprime_mode": {
+    "qpoint_crystal": [
+      0.3333333333333333,
+      0.3333333333333333,
+      0.0
+    ],
+    "primitive_mode_index": 5,
+    "primitive_frequency_THz": 37.97444978009788,
+    "primitive_frequency_cm_1": 1266.6913163893546,
+    "lattice_temperature_K": 450,
+    "operator_temperature_K": 300,
+    "operator_to_phonopy_mapping": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33,
+      34,
+      35,
+      36,
+      37,
+      38,
+      39,
+      40,
+      41,
+      42,
+      43,
+      44,
+      45,
+      46,
+      47,
+      48,
+      49,
+      50,
+      51,
+      52,
+      53,
+      54,
+      55,
+      56,
+      57,
+      58,
+      59,
+      60,
+      61,
+      62,
+      63,
+      64,
+      65,
+      66,
+      67,
+      68,
+      69,
+      70,
+      71
+    ],
+    "phonopy_basis_indices": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "phonopy_cell_translations": [
+      [
+        0,
+        0,
+        0
+      ],
+      [
+        1,
+        0,
+        0
+      ],
+      [
+        2,
+        0,
+        0
+      ],
+      [
+        3,
+        0,
+        0
+      ],
+      [
+        4,
+        0,
+        0
+      ],
+      [
+        5,
+        0,
+        0
+      ],
+      [
+        0,
+        1,
+        0
+      ],
+      [
+        1,
+        1,
+        0
+      ],
+      [
+        2,
+        1,
+        0
+      ],
+      [
+        3,
+        1,
+        0
+      ],
+      [
+        4,
+        1,
+        0
+      ],
+      [
+        5,
+        1,
+        0
+      ],
+      [
+        0,
+        2,
+        0
+      ],
+      [
+        1,
+        2,
+        0
+      ],
+      [
+        2,
+        2,
+        0
+      ],
+      [
+        3,
+        2,
+        0
+      ],
+      [
+        4,
+        2,
+        0
+      ],
+      [
+        5,
+        2,
+        0
+      ],
+      [
+        0,
+        3,
+        0
+      ],
+      [
+        1,
+        3,
+        0
+      ],
+      [
+        2,
+        3,
+        0
+      ],
+      [
+        3,
+        3,
+        0
+      ],
+      [
+        4,
+        3,
+        0
+      ],
+      [
+        5,
+        3,
+        0
+      ],
+      [
+        0,
+        4,
+        0
+      ],
+      [
+        1,
+        4,
+        0
+      ],
+      [
+        2,
+        4,
+        0
+      ],
+      [
+        3,
+        4,
+        0
+      ],
+      [
+        4,
+        4,
+        0
+      ],
+      [
+        5,
+        4,
+        0
+      ],
+      [
+        0,
+        5,
+        0
+      ],
+      [
+        1,
+        5,
+        0
+      ],
+      [
+        2,
+        5,
+        0
+      ],
+      [
+        3,
+        5,
+        0
+      ],
+      [
+        4,
+        5,
+        0
+      ],
+      [
+        5,
+        5,
+        0
+      ],
+      [
+        0,
+        0,
+        0
+      ],
+      [
+        1,
+        0,
+        0
+      ],
+      [
+        2,
+        0,
+        0
+      ],
+      [
+        3,
+        0,
+        0
+      ],
+      [
+        4,
+        0,
+        0
+      ],
+      [
+        5,
+        0,
+        0
+      ],
+      [
+        0,
+        1,
+        0
+      ],
+      [
+        1,
+        1,
+        0
+      ],
+      [
+        2,
+        1,
+        0
+      ],
+      [
+        3,
+        1,
+        0
+      ],
+      [
+        4,
+        1,
+        0
+      ],
+      [
+        5,
+        1,
+        0
+      ],
+      [
+        0,
+        2,
+        0
+      ],
+      [
+        1,
+        2,
+        0
+      ],
+      [
+        2,
+        2,
+        0
+      ],
+      [
+        3,
+        2,
+        0
+      ],
+      [
+        4,
+        2,
+        0
+      ],
+      [
+        5,
+        2,
+        0
+      ],
+      [
+        0,
+        3,
+        0
+      ],
+      [
+        1,
+        3,
+        0
+      ],
+      [
+        2,
+        3,
+        0
+      ],
+      [
+        3,
+        3,
+        0
+      ],
+      [
+        4,
+        3,
+        0
+      ],
+      [
+        5,
+        3,
+        0
+      ],
+      [
+        0,
+        4,
+        0
+      ],
+      [
+        1,
+        4,
+        0
+      ],
+      [
+        2,
+        4,
+        0
+      ],
+      [
+        3,
+        4,
+        0
+      ],
+      [
+        4,
+        4,
+        0
+      ],
+      [
+        5,
+        4,
+        0
+      ],
+      [
+        0,
+        5,
+        0
+      ],
+      [
+        1,
+        5,
+        0
+      ],
+      [
+        2,
+        5,
+        0
+      ],
+      [
+        3,
+        5,
+        0
+      ],
+      [
+        4,
+        5,
+        0
+      ],
+      [
+        5,
+        5,
+        0
+      ]
+    ],
+    "normalization": 1.0
+  }
+}

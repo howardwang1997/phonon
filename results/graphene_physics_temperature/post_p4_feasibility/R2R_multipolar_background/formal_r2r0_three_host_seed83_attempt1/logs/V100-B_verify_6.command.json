@@ -1,0 +1,17 @@
+{
+  "argv": [
+    "ssh",
+    "-o",
+    "BatchMode=yes",
+    "-o",
+    "ConnectTimeout=20",
+    "-o",
+    "ControlPath=none",
+    "root@100.123.220.57",
+    "sha256sum /data/graphene_r2r0/formal_bundle/bf998936b4b3/results/graphene_physics_temperature/post_p4_feasibility/R2Q_four_step_trust_region/formal_4step_seed83_rtx/ENDPOINT_FROZEN"
+  ],
+  "expected_sha256": "5fa7771f4c8f7d32990e4bb0d0350e8f1f020c1685030626ac8555b06a4ce0ed",
+  "observed_sha256": "5fa7771f4c8f7d32990e4bb0d0350e8f1f020c1685030626ac8555b06a4ce0ed",
+  "returncode": 0,
+  "sha256": "612e97b0bb10bcf9eb936536ad80fd9b46936d14adbd2a95aace8a0c6b7939cd"
+}

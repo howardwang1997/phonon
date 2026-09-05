@@ -1,0 +1,781 @@
+{
+  "status": "geometry_only_support_frozen",
+  "frozen_at": "2026-08-22T19:23:08+12:00",
+  "DFT_energy_or_force_read": false,
+  "scope": "historical 12-point X0 selection classified against corrected 300-point X0 geometry support",
+  "protocol": {
+    "features": [
+      "RMS_displacement_A",
+      "max_displacement_A",
+      "inplane_RMS_displacement_A",
+      "outplane_RMS_displacement_A",
+      "Aprime_coordinate_abs_A",
+      "minimum_pair_distance_A"
+    ],
+    "standardization": "corrected-X0 median and interquartile range",
+    "distance": "Euclidean in robust-standardized feature space",
+    "neighbors": 5,
+    "core_threshold": "corrected leave-one-out 95th percentile",
+    "support_threshold": "corrected leave-one-out 99th percentile"
+  },
+  "thresholds": {
+    "core_mean_5NN_distance": 1.414193886299878,
+    "support_mean_5NN_distance": 1.7590590281173237
+  },
+  "counts": {
+    "corrected_X0_core": 8,
+    "corrected_X0_edge": 1,
+    "outside_corrected_X0_support": 3
+  },
+  "corrected_feature_ranges": {
+    "RMS_displacement_A": {
+      "minimum": 0.058808870127423425,
+      "percentile_1": 0.060765363018329084,
+      "median": 0.08578527693053761,
+      "percentile_99": 0.12950977946545905,
+      "maximum": 0.1323597476203755
+    },
+    "max_displacement_A": {
+      "minimum": 0.21534770991645058,
+      "percentile_1": 0.2187302829540762,
+      "median": 0.33476577262898616,
+      "percentile_99": 0.5496817717814987,
+      "maximum": 0.5950589471315971
+    },
+    "inplane_RMS_displacement_A": {
+      "minimum": 0.03132147429382234,
+      "percentile_1": 0.03522277845217266,
+      "median": 0.0422475842275652,
+      "percentile_99": 0.05151804462874721,
+      "maximum": 0.05407252342457085
+    },
+    "outplane_RMS_displacement_A": {
+      "minimum": 0.08940365637370805,
+      "percentile_1": 0.09013963798252728,
+      "median": 0.134220616140668,
+      "percentile_99": 0.21659537107218607,
+      "maximum": 0.22026608146159435
+    },
+    "Aprime_coordinate_abs_A": {
+      "minimum": 0.005561962160537935,
+      "percentile_1": 0.0056785085398389805,
+      "median": 0.026646496657875933,
+      "percentile_99": 0.073525953682939,
+      "maximum": 0.07779462821412894
+    },
+    "minimum_pair_distance_A": {
+      "minimum": 1.2398686280346476,
+      "percentile_1": 1.2490100454439286,
+      "median": 1.3096078691284214,
+      "percentile_99": 1.338741184940515,
+      "maximum": 1.3463676201293628
+    }
+  },
+  "Aprime_mode": {
+    "qpoint_crystal": [
+      0.3333333333333333,
+      0.3333333333333333,
+      0.0
+    ],
+    "primitive_mode_index": 5,
+    "primitive_frequency_THz": 37.97444978009788,
+    "primitive_frequency_cm_1": 1266.6913163893546,
+    "lattice_temperature_K": 450,
+    "operator_temperature_K": 300,
+    "operator_to_phonopy_mapping": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33,
+      34,
+      35,
+      36,
+      37,
+      38,
+      39,
+      40,
+      41,
+      42,
+      43,
+      44,
+      45,
+      46,
+      47,
+      48,
+      49,
+      50,
+      51,
+      52,
+      53,
+      54,
+      55,
+      56,
+      57,
+      58,
+      59,
+      60,
+      61,
+      62,
+      63,
+      64,
+      65,
+      66,
+      67,
+      68,
+      69,
+      70,
+      71
+    ],
+    "phonopy_basis_indices": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "phonopy_cell_translations": [
+      [
+        0,
+        0,
+        0
+      ],
+      [
+        1,
+        0,
+        0
+      ],
+      [
+        2,
+        0,
+        0
+      ],
+      [
+        3,
+        0,
+        0
+      ],
+      [
+        4,
+        0,
+        0
+      ],
+      [
+        5,
+        0,
+        0
+      ],
+      [
+        0,
+        1,
+        0
+      ],
+      [
+        1,
+        1,
+        0
+      ],
+      [
+        2,
+        1,
+        0
+      ],
+      [
+        3,
+        1,
+        0
+      ],
+      [
+        4,
+        1,
+        0
+      ],
+      [
+        5,
+        1,
+        0
+      ],
+      [
+        0,
+        2,
+        0
+      ],
+      [
+        1,
+        2,
+        0
+      ],
+      [
+        2,
+        2,
+        0
+      ],
+      [
+        3,
+        2,
+        0
+      ],
+      [
+        4,
+        2,
+        0
+      ],
+      [
+        5,
+        2,
+        0
+      ],
+      [
+        0,
+        3,
+        0
+      ],
+      [
+        1,
+        3,
+        0
+      ],
+      [
+        2,
+        3,
+        0
+      ],
+      [
+        3,
+        3,
+        0
+      ],
+      [
+        4,
+        3,
+        0
+      ],
+      [
+        5,
+        3,
+        0
+      ],
+      [
+        0,
+        4,
+        0
+      ],
+      [
+        1,
+        4,
+        0
+      ],
+      [
+        2,
+        4,
+        0
+      ],
+      [
+        3,
+        4,
+        0
+      ],
+      [
+        4,
+        4,
+        0
+      ],
+      [
+        5,
+        4,
+        0
+      ],
+      [
+        0,
+        5,
+        0
+      ],
+      [
+        1,
+        5,
+        0
+      ],
+      [
+        2,
+        5,
+        0
+      ],
+      [
+        3,
+        5,
+        0
+      ],
+      [
+        4,
+        5,
+        0
+      ],
+      [
+        5,
+        5,
+        0
+      ],
+      [
+        0,
+        0,
+        0
+      ],
+      [
+        1,
+        0,
+        0
+      ],
+      [
+        2,
+        0,
+        0
+      ],
+      [
+        3,
+        0,
+        0
+      ],
+      [
+        4,
+        0,
+        0
+      ],
+      [
+        5,
+        0,
+        0
+      ],
+      [
+        0,
+        1,
+        0
+      ],
+      [
+        1,
+        1,
+        0
+      ],
+      [
+        2,
+        1,
+        0
+      ],
+      [
+        3,
+        1,
+        0
+      ],
+      [
+        4,
+        1,
+        0
+      ],
+      [
+        5,
+        1,
+        0
+      ],
+      [
+        0,
+        2,
+        0
+      ],
+      [
+        1,
+        2,
+        0
+      ],
+      [
+        2,
+        2,
+        0
+      ],
+      [
+        3,
+        2,
+        0
+      ],
+      [
+        4,
+        2,
+        0
+      ],
+      [
+        5,
+        2,
+        0
+      ],
+      [
+        0,
+        3,
+        0
+      ],
+      [
+        1,
+        3,
+        0
+      ],
+      [
+        2,
+        3,
+        0
+      ],
+      [
+        3,
+        3,
+        0
+      ],
+      [
+        4,
+        3,
+        0
+      ],
+      [
+        5,
+        3,
+        0
+      ],
+      [
+        0,
+        4,
+        0
+      ],
+      [
+        1,
+        4,
+        0
+      ],
+      [
+        2,
+        4,
+        0
+      ],
+      [
+        3,
+        4,
+        0
+      ],
+      [
+        4,
+        4,
+        0
+      ],
+      [
+        5,
+        4,
+        0
+      ],
+      [
+        0,
+        5,
+        0
+      ],
+      [
+        1,
+        5,
+        0
+      ],
+      [
+        2,
+        5,
+        0
+      ],
+      [
+        3,
+        5,
+        0
+      ],
+      [
+        4,
+        5,
+        0
+      ],
+      [
+        5,
+        5,
+        0
+      ]
+    ],
+    "normalization": 1.0
+  },
+  "inputs": {
+    "historical_selected": {
+      "path": "results/graphene_physics_temperature/post_p4_feasibility/R1_current_s0_overlap_screen/selected12.extxyz",
+      "sha256": "ea6d34ee3c04864ec6a4dfa4f549a49dd5d64319af008327288982e81553d801"
+    },
+    "corrected_xats": {
+      "path": "results/graphene_physics_temperature/post_p4_feasibility/R1_order_safe_sscha/X0_cross_development/sscha_Tlat450_Tel300/ensembles/xats_pop1.npy",
+      "sha256": "f99dd5156e65089effd69a59f9cb8a65ba1a815404f56acd43959bb723de6c27"
+    },
+    "corrected_acceptance": {
+      "path": "results/graphene_physics_temperature/post_p4_feasibility/R1_order_safe_sscha/X0_cross_development/sscha_Tlat450_Tel300/acceptance.json",
+      "sha256": "a71a3747b9f7b073a66ed219e21b4899cd959171b2f59173c716d4b34a5048c4"
+    },
+    "operator": {
+      "path": "results/graphene_physics_temperature/post_p4_feasibility/E0_epw_matched/k18_q9_ex1_pifroz/operator_q6_450K/cartesian/T300_operator.npz",
+      "sha256": "114fb9a369ed106e5a89a9c05223aed7667fd737714f3d42516ebdb8e2e475c3"
+    },
+    "background": {
+      "path": "results/vq_kink6_fd/graphene_sc6_dg0.040_phonopy.yaml",
+      "sha256": "69144a1dd3c66df94c116259067be27d1ede3ca8ab01c66516504c5e1ec90c0a"
+    },
+    "corrected_result": {
+      "path": "results/graphene_physics_temperature/post_p4_feasibility/R1_order_safe_sscha/X0_cross_development/sscha_Tlat450_Tel300/result.npz",
+      "sha256": "1de93b6d5a2d595920b2a78fe720c76314709ac3572a4728cfcf5a54585b10fa"
+    }
+  },
+  "records": [
+    {
+      "sscha_index": 94,
+      "historical_selection_group": "typical",
+      "corrected_X0_support_level": "corrected_X0_core",
+      "mean_5NN_distance": 0.7189924035397872,
+      "corrected_leave_one_out_percentile_rank": 60.0,
+      "RMS_displacement_A": 0.08720048620510358,
+      "max_displacement_A": 0.3386291906042652,
+      "inplane_RMS_displacement_A": 0.04480987224099665,
+      "outplane_RMS_displacement_A": 0.13709823150832579,
+      "Aprime_coordinate_abs_A": 0.02715572325241866,
+      "minimum_pair_distance_A": 1.3281742144562902
+    },
+    {
+      "sscha_index": 65,
+      "historical_selection_group": "typical",
+      "corrected_X0_support_level": "corrected_X0_core",
+      "mean_5NN_distance": 0.761273120899906,
+      "corrected_leave_one_out_percentile_rank": 67.0,
+      "RMS_displacement_A": 0.0967891515300551,
+      "max_displacement_A": 0.3528728530360337,
+      "inplane_RMS_displacement_A": 0.045232209833749835,
+      "outplane_RMS_displacement_A": 0.1549597171810634,
+      "Aprime_coordinate_abs_A": 0.03083162884044018,
+      "minimum_pair_distance_A": 1.296308069719481
+    },
+    {
+      "sscha_index": 87,
+      "historical_selection_group": "typical",
+      "corrected_X0_support_level": "corrected_X0_core",
+      "mean_5NN_distance": 0.8389505501702921,
+      "corrected_leave_one_out_percentile_rank": 75.0,
+      "RMS_displacement_A": 0.10612673364389773,
+      "max_displacement_A": 0.5198977585678808,
+      "inplane_RMS_displacement_A": 0.042094559087335566,
+      "outplane_RMS_displacement_A": 0.17391016926061012,
+      "Aprime_coordinate_abs_A": 0.04172208024499811,
+      "minimum_pair_distance_A": 1.304118562534494
+    },
+    {
+      "sscha_index": 272,
+      "historical_selection_group": "typical",
+      "corrected_X0_support_level": "corrected_X0_core",
+      "mean_5NN_distance": 1.3451209140213058,
+      "corrected_leave_one_out_percentile_rank": 92.66666666666666,
+      "RMS_displacement_A": 0.08283148212813288,
+      "max_displacement_A": 0.2903510529644802,
+      "inplane_RMS_displacement_A": 0.053803482429435195,
+      "outplane_RMS_displacement_A": 0.12162867199620535,
+      "Aprime_coordinate_abs_A": 0.03960957908739998,
+      "minimum_pair_distance_A": 1.3243803896935384
+    },
+    {
+      "sscha_index": 168,
+      "historical_selection_group": "high_committee_disagreement",
+      "corrected_X0_support_level": "outside_corrected_X0_support",
+      "mean_5NN_distance": 1.7753006745498605,
+      "corrected_leave_one_out_percentile_rank": 99.0,
+      "RMS_displacement_A": 0.0701594527570206,
+      "max_displacement_A": 0.30867314219118963,
+      "inplane_RMS_displacement_A": 0.04636885762071801,
+      "outplane_RMS_displacement_A": 0.10230789079730349,
+      "Aprime_coordinate_abs_A": 0.048632356760277176,
+      "minimum_pair_distance_A": 1.2271489035316339
+    },
+    {
+      "sscha_index": 277,
+      "historical_selection_group": "high_committee_disagreement",
+      "corrected_X0_support_level": "outside_corrected_X0_support",
+      "mean_5NN_distance": 2.1606025481199485,
+      "corrected_leave_one_out_percentile_rank": 100.0,
+      "RMS_displacement_A": 0.07690563589615285,
+      "max_displacement_A": 0.2971835525576101,
+      "inplane_RMS_displacement_A": 0.051316750768072406,
+      "outplane_RMS_displacement_A": 0.11169875862779309,
+      "Aprime_coordinate_abs_A": 0.09467728765694775,
+      "minimum_pair_distance_A": 1.297881828356152
+    },
+    {
+      "sscha_index": 216,
+      "historical_selection_group": "high_committee_disagreement",
+      "corrected_X0_support_level": "corrected_X0_core",
+      "mean_5NN_distance": 1.3366206291142544,
+      "corrected_leave_one_out_percentile_rank": 92.66666666666666,
+      "RMS_displacement_A": 0.11176821156178315,
+      "max_displacement_A": 0.5897189129824432,
+      "inplane_RMS_displacement_A": 0.047646343557534894,
+      "outplane_RMS_displacement_A": 0.1814829227182361,
+      "Aprime_coordinate_abs_A": 0.02614111912521915,
+      "minimum_pair_distance_A": 1.2890980976895734
+    },
+    {
+      "sscha_index": 99,
+      "historical_selection_group": "high_committee_disagreement",
+      "corrected_X0_support_level": "corrected_X0_core",
+      "mean_5NN_distance": 1.0579433804452918,
+      "corrected_leave_one_out_percentile_rank": 89.0,
+      "RMS_displacement_A": 0.06572666218859505,
+      "max_displacement_A": 0.238077185466091,
+      "inplane_RMS_displacement_A": 0.0414466094214283,
+      "outplane_RMS_displacement_A": 0.09759272258880891,
+      "Aprime_coordinate_abs_A": 0.061926361956732685,
+      "minimum_pair_distance_A": 1.2704604035168754
+    },
+    {
+      "sscha_index": 152,
+      "historical_selection_group": "low_Aprime_amplitude",
+      "corrected_X0_support_level": "outside_corrected_X0_support",
+      "mean_5NN_distance": 1.8295050076081012,
+      "corrected_leave_one_out_percentile_rank": 99.66666666666667,
+      "RMS_displacement_A": 0.05877727465992336,
+      "max_displacement_A": 0.20412204801969647,
+      "inplane_RMS_displacement_A": 0.03148330602967348,
+      "outplane_RMS_displacement_A": 0.09155275491337253,
+      "Aprime_coordinate_abs_A": 0.00738557609327106,
+      "minimum_pair_distance_A": 1.3059393186170023
+    },
+    {
+      "sscha_index": 20,
+      "historical_selection_group": "low_Aprime_amplitude",
+      "corrected_X0_support_level": "corrected_X0_core",
+      "mean_5NN_distance": 0.7777543397707263,
+      "corrected_leave_one_out_percentile_rank": 68.66666666666667,
+      "RMS_displacement_A": 0.06889117717787609,
+      "max_displacement_A": 0.2945340155847738,
+      "inplane_RMS_displacement_A": 0.039451517173937835,
+      "outplane_RMS_displacement_A": 0.10547577192990588,
+      "Aprime_coordinate_abs_A": 0.01038102187210388,
+      "minimum_pair_distance_A": 1.2994879373050297
+    },
+    {
+      "sscha_index": 6,
+      "historical_selection_group": "high_Aprime_amplitude",
+      "corrected_X0_support_level": "corrected_X0_edge",
+      "mean_5NN_distance": 1.6534942252473734,
+      "corrected_leave_one_out_percentile_rank": 98.66666666666667,
+      "RMS_displacement_A": 0.1281598276493998,
+      "max_displacement_A": 0.5163521315722411,
+      "inplane_RMS_displacement_A": 0.04563592881753073,
+      "outplane_RMS_displacement_A": 0.21239008515298946,
+      "Aprime_coordinate_abs_A": 0.0857097222134121,
+      "minimum_pair_distance_A": 1.31106449947521
+    },
+    {
+      "sscha_index": 203,
+      "historical_selection_group": "high_Aprime_amplitude",
+      "corrected_X0_support_level": "corrected_X0_core",
+      "mean_5NN_distance": 1.0820452860791405,
+      "corrected_leave_one_out_percentile_rank": 90.0,
+      "RMS_displacement_A": 0.07541871436983279,
+      "max_displacement_A": 0.2560156439290744,
+      "inplane_RMS_displacement_A": 0.04197742347430624,
+      "outplane_RMS_displacement_A": 0.11636038530579379,
+      "Aprime_coordinate_abs_A": 0.07364482557423918,
+      "minimum_pair_distance_A": 1.3152688232750522
+    }
+  ]
+}

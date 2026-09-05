@@ -1,0 +1,51 @@
+{
+  "timestamp_remote": "2026-08-03T12:09:02+08:00",
+  "remote_host": "root@100.80.236.112",
+  "filesystem": "/dev/vdb mounted at /data",
+  "reason": "Release space for the active FD450_CONV/FD450_LINE queue without deleting scientific results.",
+  "preconditions": {
+    "completed_service": "phonon-graphene-fd-force@A.service inactive",
+    "done_marker": "/data/graphene_fd_force_convergence/A/DONE",
+    "open_handles_on_removed_files": 0,
+    "local_remote_summary_json_sha256": "bd31c6f8517bc3b2ea0ac60cdc5f43e2657d4d61afdedae0193867a2f9f38f63",
+    "local_remote_summary_xyz_sha256": "12519df43d8afbe52f417164ad4e5739ca37dcce6c06a50b6f215c519eaae3d8"
+  },
+  "removed": [
+    {
+      "kind": "monolithic QE wavefunction scratch",
+      "count": 3,
+      "bytes_each": 30705955456,
+      "paths": [
+        "/data/graphene_fd_force_convergence/A/qe/snapshot_000_k12/pwscf.wfc1",
+        "/data/graphene_fd_force_convergence/A/qe/snapshot_029_k12/pwscf.wfc1",
+        "/data/graphene_fd_force_convergence/A/qe/snapshot_059_k12/pwscf.wfc1"
+      ]
+    },
+    {
+      "kind": "distributed QE wavefunction scratch matching wfc*.dat",
+      "count": 222,
+      "approx_total_GiB": 86.13,
+      "directories": [
+        "/data/graphene_fd_force_convergence/A/qe/snapshot_000_k12/pwscf.save",
+        "/data/graphene_fd_force_convergence/A/qe/snapshot_029_k12/pwscf.save",
+        "/data/graphene_fd_force_convergence/A/qe/snapshot_059_k12/pwscf.save"
+      ]
+    }
+  ],
+  "preserved": [
+    "DFT inputs and outputs",
+    "QE XML metadata and charge-density files",
+    "summary.json",
+    "summary.xyz",
+    "run.log",
+    "DONE marker"
+  ],
+  "post_cleanup": {
+    "data_used_GB_df": 296,
+    "data_available_GB_df": 171,
+    "data_use_percent": 64,
+    "completed_campaign_directory_size": "102M",
+    "active_fd450_conv_service": true
+  },
+  "recoverability": "Removed wavefunctions are not retained, but are reproducible from the preserved QE inputs. Final scientific summaries remain locally and remotely available."
+}

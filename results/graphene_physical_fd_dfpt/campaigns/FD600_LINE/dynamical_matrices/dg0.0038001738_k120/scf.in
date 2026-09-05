@@ -1,0 +1,20 @@
+&control
+ calculation='scf', prefix='gr', outdir='./tmp', pseudo_dir='/root/phonon/pseudo',
+ verbosity='low', disk_io='low'
+/
+&system
+ ibrav=4, celldm(1)=4.648726286, celldm(3)=6.097560976, nat=2, ntyp=1,
+ ecutwfc=60, ecutrho=240,
+ occupations='smearing', smearing='fd', degauss=0.0038001738
+/
+&electrons
+ conv_thr=1.0d-12, mixing_beta=0.3, electron_maxstep=300,
+ diagonalization='david'
+/
+ATOMIC_SPECIES
+ C 12.011 C_ONCV_PBE-1.2.upf
+ATOMIC_POSITIONS (crystal)
+ C 0.000000000 0.000000000 0.0
+ C 0.333333333 0.666666667 0.0
+K_POINTS automatic
+ 120 120 1 0 0 0

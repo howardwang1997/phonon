@@ -1,0 +1,81 @@
+{
+  "method": "temperature-specific v11 fine-tune with FC-distillation replay",
+  "replay_source": "data/finetune_graphene8/train.xyz",
+  "replay_sha256": "f337bee07d074888df08d890687013e55546ace9bfb2590f839b93324e4427f1",
+  "replay_indices": [
+    0,
+    6,
+    12,
+    19,
+    25,
+    31,
+    38,
+    44,
+    51,
+    57,
+    63,
+    70,
+    76,
+    83,
+    89,
+    95,
+    102,
+    108,
+    115,
+    121,
+    127,
+    134,
+    140,
+    147
+  ],
+  "temperatures": {
+    "300": {
+      "lane": "A",
+      "thermal_sources": [
+        {
+          "path": "/home/howardwang/phonon/data/graphene_fd_thermal_labels/A.xyz",
+          "sha256": "8db70c67685315b73a9eec82e190d65fa722557fda9e6a74e284ee568926e9fc"
+        },
+        {
+          "path": "/home/howardwang/phonon/data/graphene_fd_thermal_labels/A2.xyz",
+          "sha256": "f1ccbe8c1faebac4030085215454b56179839ddd89bc87aebad623f4be9801c0"
+        }
+      ],
+      "n_thermal_train": 24,
+      "n_replay_train": 24,
+      "n_validation": 6,
+      "validation_snapshot_indices": [
+        0,
+        29,
+        59,
+        2,
+        31,
+        57
+      ]
+    },
+    "600": {
+      "lane": "B",
+      "thermal_sources": [
+        {
+          "path": "/home/howardwang/phonon/data/graphene_fd_thermal_labels/B.xyz",
+          "sha256": "1a36bf015debebd362a6285666d71d83bf6b3a4530740f4dd573cec4a46effe1"
+        },
+        {
+          "path": "/home/howardwang/phonon/data/graphene_fd_thermal_labels/B2.xyz",
+          "sha256": "4bc84ca14395a1c7ada583c5ac7be94ed4e125297f3c768a3bbd0e850c10b8d7"
+        }
+      ],
+      "n_thermal_train": 24,
+      "n_replay_train": 24,
+      "n_validation": 6,
+      "validation_snapshot_indices": [
+        0,
+        29,
+        59,
+        2,
+        31,
+        57
+      ]
+    }
+  }
+}

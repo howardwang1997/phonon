@@ -1,0 +1,161 @@
+{
+  "status": "failed",
+  "scope": "frozen 450 K q-space prediction: finite-lattice DFT-TDEP holdout plus an independent static-degauss DFPT diagnostic",
+  "temperature_K": 450,
+  "degauss_Ry": 0.00285013035,
+  "thresholds": {
+    "Gamma_K_line_MAE_cm-1": 10.0,
+    "Gamma_K_top_abs_error_cm-1": 15.0,
+    "K_kink_relative_error": 0.2,
+    "matrix_projector_replay_max_abs_cm-1": 1e-05
+  },
+  "finite_lattice_temperature_prediction": {
+    "method": "apply the frozen 450 K rounded-cusp-plus-quadratic coefficients to the frozen pooled short-range MLIP-TDEP; no 450 K coefficient fit",
+    "regions": {
+      "G": {
+        "n_points": 8,
+        "line_MAE_cm-1": 16.120251936983436,
+        "line_max_abs_cm-1": 16.131836112030214,
+        "high_symmetry_prediction_cm-1": 1541.320848040377,
+        "high_symmetry_target_cm-1": 1557.4375893347187,
+        "high_symmetry_abs_error_cm-1": 16.116741294341637,
+        "central_block_max_distance": 0.01,
+        "central_block_n_points": 3,
+        "central_block_MAE_cm-1": 16.116251653841953,
+        "central_block_max_abs_cm-1": 16.116741294341637,
+        "central_block_high_symmetry_abs_error_cm-1": 16.116741294341637
+      },
+      "K": {
+        "n_points": 11,
+        "line_MAE_cm-1": 6.156380645855382,
+        "line_max_abs_cm-1": 6.231414536404827,
+        "high_symmetry_prediction_cm-1": 1298.817949200912,
+        "high_symmetry_target_cm-1": 1305.0493637373168,
+        "high_symmetry_abs_error_cm-1": 6.231414536404827,
+        "central_block_max_distance": 0.008,
+        "central_block_n_points": 3,
+        "central_block_MAE_cm-1": 6.227732643326211,
+        "central_block_max_abs_cm-1": 6.231414536404827,
+        "central_block_high_symmetry_abs_error_cm-1": 6.231414536404827,
+        "prediction_kink_cm-1_per_t": 13.061842252170663,
+        "target_kink_cm-1_per_t": 11.681132347689527,
+        "kink_relative_error": 0.11820000522074682
+      }
+    },
+    "bootstrap": {
+      "G_line_MAE_cm_1": {
+        "median": 15.771233047892025,
+        "bootstrap_95pct_upper": 28.585587162016083,
+        "threshold": 10.0,
+        "passes_95pct_upper": false
+      },
+      "K_line_MAE_cm_1": {
+        "median": 8.042873233664832,
+        "bootstrap_95pct_upper": 22.659308422829533,
+        "threshold": 10.0,
+        "passes_95pct_upper": false
+      },
+      "G_high_symmetry_abs_error_cm_1": {
+        "median": 15.71197157867573,
+        "bootstrap_95pct_upper": 28.83078586940337,
+        "threshold": 15.0,
+        "passes_95pct_upper": false
+      },
+      "K_high_symmetry_abs_error_cm_1": {
+        "median": 8.097544432288942,
+        "bootstrap_95pct_upper": 22.95667986428043,
+        "threshold": 15.0,
+        "passes_95pct_upper": false
+      },
+      "G_central_block_MAE_cm_1": {
+        "median": 15.71104627418337,
+        "bootstrap_95pct_upper": 28.824152636597017,
+        "threshold": 10.0,
+        "passes_95pct_upper": false
+      },
+      "K_central_block_MAE_cm_1": {
+        "median": 8.094026934025049,
+        "bootstrap_95pct_upper": 22.943519037596086,
+        "threshold": 10.0,
+        "passes_95pct_upper": false
+      },
+      "K_kink_relative_error": {
+        "median": 0.1379716098143451,
+        "bootstrap_95pct_upper": 0.5376923414340081,
+        "threshold": 0.2,
+        "passes_95pct_upper": false
+      }
+    },
+    "passes_point_gate": false,
+    "passes_bootstrap_gate": false
+  },
+  "static_degauss_prediction": {
+    "method": "conditioned short-model finite-displacement FC2 plus the frozen interpolated sampling operator, compared with k=144 direct DFPT",
+    "regions": {
+      "G": {
+        "n_points": 8,
+        "line_MAE_cm-1": 53.044619608863,
+        "line_max_abs_cm-1": 59.655140140435606,
+        "high_symmetry_prediction_cm-1": 1525.535066579847,
+        "high_symmetry_target_cm-1": 1573.90788,
+        "high_symmetry_abs_error_cm-1": 48.37281342015308,
+        "central_block_max_distance": 0.01,
+        "central_block_n_points": 3,
+        "central_block_MAE_cm-1": 48.850699317140574,
+        "central_block_max_abs_cm-1": 49.50232180254079,
+        "central_block_high_symmetry_abs_error_cm-1": 48.37281342015308
+      },
+      "K": {
+        "n_points": 11,
+        "line_MAE_cm-1": 6.565215867748169,
+        "line_max_abs_cm-1": 13.892647301689749,
+        "high_symmetry_prediction_cm-1": 1298.7188353715078,
+        "high_symmetry_target_cm-1": 1289.791537,
+        "high_symmetry_abs_error_cm-1": 8.927298371507732,
+        "central_block_max_distance": 0.008,
+        "central_block_n_points": 3,
+        "central_block_MAE_cm-1": 8.082450048917963,
+        "central_block_max_abs_cm-1": 8.927298371507732,
+        "central_block_high_symmetry_abs_error_cm-1": 8.927298371507732,
+        "prediction_kink_cm-1_per_t": 35.193004028826635,
+        "target_kink_cm-1_per_t": 352.01112499999,
+        "kink_relative_error": 0.9000230347014526
+      }
+    },
+    "passes_kgrid_convergence_gate": true,
+    "passes_static_degauss_gate": false
+  },
+  "matrix_projector_replay_max_abs_cm-1": 1.5916157281026244e-12,
+  "passes_matrix_replay_gate": true,
+  "passes_prediction_gate": false,
+  "inputs": {
+    "temperature_law": {
+      "path": "/home/howardwang/phonon/results/graphene_fd_transferability/temperature_law.json",
+      "sha256": "63ab52edf7641cd151bd82b56bd06ab066da7a1093f1727e3ca8ffe626a1ab52"
+    },
+    "short_tdep": {
+      "path": "/home/howardwang/phonon/results/graphene_fd_transferability/T450/on_policy/short_pooled_n9000.npz",
+      "sha256": "77aa27778ceaa68e12d6b7e88e1831bf57392fadd5cdc3cf8340f709f4cb5383"
+    },
+    "dft_tdep": {
+      "path": "/home/howardwang/phonon/results/graphene_fd_transferability/T450/on_policy/dft_tdep_60.npz",
+      "sha256": "c9b633e97a09afc44d33a0a09ba58c4557eed5d648496d7a37f632dc254a147e"
+    },
+    "dft_tdep_bootstrap": {
+      "path": "/home/howardwang/phonon/results/graphene_fd_transferability/T450/on_policy/dft_tdep_bootstrap.npz",
+      "sha256": "bb57f3312cbf7ccbadc5a765cd9040f4095bd8dfd20a1c486afa4a443c591006"
+    },
+    "static_prediction": {
+      "path": "/home/howardwang/phonon/results/graphene_fd_transferability/T450/on_policy/frozen_prediction/frozen_static_fc2.npz",
+      "sha256": "baa9f0d6171b8320d4449c8351b88b9e1a345afbbddcc5f5d6a25c8517715078"
+    },
+    "dfpt_line": {
+      "path": "/home/howardwang/phonon/results/graphene_physical_fd_dfpt/campaigns/FD450_LINE/graphene_FD450_LINE_dfpt.csv",
+      "sha256": "325af549f473b381fbe7b04a3782f189589cbc6ef46436138c70b8029577863d"
+    },
+    "dfpt_convergence": {
+      "path": "/home/howardwang/phonon/results/graphene_physical_fd_dfpt/campaigns/FD450_CONV/convergence_acceptance.json",
+      "sha256": "54fdfd9037e1158fc853a03e0c3bbbdc74eb2390633fcfe2f7c9c1fa7421c4aa"
+    }
+  }
+}

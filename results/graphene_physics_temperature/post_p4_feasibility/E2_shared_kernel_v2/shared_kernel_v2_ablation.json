@@ -1,0 +1,1205 @@
+{
+  "status": "development_shape_gate_passed",
+  "scope": "development-only finite-smearing spectral ablation; no new DFPT and no independent holdout",
+  "selected_candidate": "centred_anchor_amplitude",
+  "selection_rule": "first require every leave-one-smearing-out K kink error <20%; then minimize LOSO RMSE plus 0.03 per coefficient beyond the legacy three",
+  "physical_constraints": {
+    "finite_smearing": "quadratic at K and asymptotically linear outside the rounding width",
+    "zero_smearing_limit": "centre-normalised kernel tends to v_F*|q-K|",
+    "anchor_decoupling": "K-point intercept is separate from cusp amplitude"
+  },
+  "candidates": [
+    {
+      "candidate": "legacy_uncentred",
+      "feature_names": [
+        "constant",
+        "distance_squared",
+        "uncentred_kernel_difference"
+      ],
+      "n_coefficients_per_region": 3,
+      "LOSO_RMSE_cm-1": 0.7380552661108322,
+      "LOSO_MAE_cm-1": 0.5580010116875337,
+      "LOSO_max_line_MAE_cm-1": 0.8876867535489907,
+      "LOSO_K_kink_relative_error": {
+        "300": 0.03328104502215861,
+        "450": 0.2567610109501736,
+        "600": 0.2526951394554687
+      },
+      "LOSO_max_K_kink_relative_error": 0.2567610109501736,
+      "passes_20pct_K_kink_gate": false,
+      "complexity_penalty": 0.0,
+      "selection_score": 0.7380552661108322,
+      "folds": {
+        "300": {
+          "heldout_temperature_K": 300,
+          "train_RMSE_cm-1": 0.5694770919920681,
+          "v_F_eV_A": 4.35,
+          "width_scale": 1.0,
+          "coefficients": {
+            "G": [
+              160604.56076101682,
+              -966417.8111924735,
+              1918976.377682969
+            ],
+            "K": [
+              -12733.074542548966,
+              2202961.764086887,
+              2811331.811820464
+            ]
+          },
+          "metrics": {
+            "G": {
+              "n_points": 8,
+              "line_MAE_cm-1": 0.8140131836545663,
+              "line_max_abs_cm-1": 1.1339703514058783,
+              "high_symmetry_prediction_cm-1": 1572.6933876209969,
+              "high_symmetry_target_cm-1": 1573.582322,
+              "high_symmetry_abs_error_cm-1": 0.8889343790031035,
+              "central_block_max_distance": 0.01,
+              "central_block_n_points": 3,
+              "central_block_MAE_cm-1": 1.0070174161794512,
+              "central_block_max_abs_cm-1": 1.1192373924366166,
+              "central_block_high_symmetry_abs_error_cm-1": 0.8889343790031035
+            },
+            "K": {
+              "n_points": 11,
+              "line_MAE_cm-1": 0.519767711755776,
+              "line_max_abs_cm-1": 1.5494435971097573,
+              "high_symmetry_prediction_cm-1": 1288.204029350609,
+              "high_symmetry_target_cm-1": 1288.039763,
+              "high_symmetry_abs_error_cm-1": 0.16426635060906847,
+              "central_block_max_distance": 0.008,
+              "central_block_n_points": 3,
+              "central_block_MAE_cm-1": 0.21237362416028796,
+              "central_block_max_abs_cm-1": 0.2602548991221738,
+              "central_block_high_symmetry_abs_error_cm-1": 0.16426635060906847,
+              "prediction_kink_cm-1_per_t": 560.097352581721,
+              "target_kink_cm-1_per_t": 542.0571250000137,
+              "kink_relative_error": 0.03328104502215861
+            }
+          }
+        },
+        "450": {
+          "heldout_temperature_K": 450,
+          "train_RMSE_cm-1": 0.6611967583149179,
+          "v_F_eV_A": 4.75,
+          "width_scale": 1.0,
+          "coefficients": {
+            "G": [
+              148431.63458550934,
+              -468402.58549066976,
+              1661065.4805057491
+            ],
+            "K": [
+              -23084.458563472777,
+              2251199.5293748803,
+              2621943.588036811
+            ]
+          },
+          "metrics": {
+            "G": {
+              "n_points": 8,
+              "line_MAE_cm-1": 0.08988337020718973,
+              "line_max_abs_cm-1": 0.2733505591481844,
+              "high_symmetry_prediction_cm-1": 1573.849266541305,
+              "high_symmetry_target_cm-1": 1573.90788,
+              "high_symmetry_abs_error_cm-1": 0.058613458694935616,
+              "central_block_max_distance": 0.01,
+              "central_block_n_points": 3,
+              "central_block_MAE_cm-1": 0.03424934590573988,
+              "central_block_max_abs_cm-1": 0.058613458694935616,
+              "central_block_high_symmetry_abs_error_cm-1": 0.058613458694935616
+            },
+            "K": {
+              "n_points": 11,
+              "line_MAE_cm-1": 0.5144168501885609,
+              "line_max_abs_cm-1": 1.4268990860014128,
+              "high_symmetry_prediction_cm-1": 1289.4085818149304,
+              "high_symmetry_target_cm-1": 1289.791537,
+              "high_symmetry_abs_error_cm-1": 0.3829551850697044,
+              "central_block_max_distance": 0.008,
+              "central_block_n_points": 3,
+              "central_block_MAE_cm-1": 0.14193456554782338,
+              "central_block_max_abs_cm-1": 0.3829551850697044,
+              "central_block_high_symmetry_abs_error_cm-1": 0.3829551850697044,
+              "prediction_kink_cm-1_per_t": 442.39385732069536,
+              "target_kink_cm-1_per_t": 352.01112499999,
+              "kink_relative_error": 0.2567610109501736
+            }
+          }
+        },
+        "600": {
+          "heldout_temperature_K": 600,
+          "train_RMSE_cm-1": 0.555729546579499,
+          "v_F_eV_A": 4.35,
+          "width_scale": 1.0,
+          "coefficients": {
+            "G": [
+              162969.4401179521,
+              -1300410.0362676573,
+              1920176.9860006934
+            ],
+            "K": [
+              -3609.544172259705,
+              1303303.843767999,
+              2998276.854144357
+            ]
+          },
+          "metrics": {
+            "G": {
+              "n_points": 8,
+              "line_MAE_cm-1": 0.8876867535489907,
+              "line_max_abs_cm-1": 1.176313972717935,
+              "high_symmetry_prediction_cm-1": 1575.0313827937598,
+              "high_symmetry_target_cm-1": 1573.924405,
+              "high_symmetry_abs_error_cm-1": 1.1069777937598246,
+              "central_block_max_distance": 0.01,
+              "central_block_n_points": 3,
+              "central_block_MAE_cm-1": 1.1322021663419644,
+              "central_block_max_abs_cm-1": 1.1563812513243192,
+              "central_block_high_symmetry_abs_error_cm-1": 1.1069777937598246
+            },
+            "K": {
+              "n_points": 11,
+              "line_MAE_cm-1": 0.554305547774158,
+              "line_max_abs_cm-1": 1.6913075254265095,
+              "high_symmetry_prediction_cm-1": 1290.9751530521144,
+              "high_symmetry_target_cm-1": 1291.406318,
+              "high_symmetry_abs_error_cm-1": 0.4311649478856907,
+              "central_block_max_distance": 0.008,
+              "central_block_n_points": 3,
+              "central_block_MAE_cm-1": 0.25504148958801426,
+              "central_block_max_abs_cm-1": 0.4311649478856907,
+              "central_block_high_symmetry_abs_error_cm-1": 0.4311649478856907,
+              "prediction_kink_cm-1_per_t": 327.4137968616344,
+              "target_kink_cm-1_per_t": 261.36750000000575,
+              "kink_relative_error": 0.2526951394554687
+            }
+          }
+        }
+      },
+      "full_fit": {
+        "train_RMSE_cm-1": 0.6213567780968684,
+        "v_F_eV_A": 4.6,
+        "width_scale": 1.0,
+        "coefficients": {
+          "G": [
+            153146.6730213175,
+            -710975.6106463704,
+            1751841.8156152663
+          ],
+          "K": [
+            -18240.813786935116,
+            2129796.817101164,
+            2713664.2623876487
+          ]
+        },
+        "metrics": {
+          "300": {
+            "G": {
+              "n_points": 8,
+              "line_MAE_cm-1": 0.5106104628562207,
+              "line_max_abs_cm-1": 0.7691899491378535,
+              "high_symmetry_prediction_cm-1": 1573.1288141784494,
+              "high_symmetry_target_cm-1": 1573.582322,
+              "high_symmetry_abs_error_cm-1": 0.4535078215506019,
+              "central_block_max_distance": 0.01,
+              "central_block_n_points": 3,
+              "central_block_MAE_cm-1": 0.5683620604786483,
+              "central_block_max_abs_cm-1": 0.6821636634226707,
+              "central_block_high_symmetry_abs_error_cm-1": 0.4535078215506019
+            },
+            "K": {
+              "n_points": 11,
+              "line_MAE_cm-1": 0.5127732833183348,
+              "line_max_abs_cm-1": 1.4885801234743212,
+              "high_symmetry_prediction_cm-1": 1288.0684984882564,
+              "high_symmetry_target_cm-1": 1288.039763,
+              "high_symmetry_abs_error_cm-1": 0.02873548825641592,
+              "central_block_max_distance": 0.008,
+              "central_block_n_points": 3,
+              "central_block_MAE_cm-1": 0.16142287136851033,
+              "central_block_max_abs_cm-1": 0.2515942013735639,
+              "central_block_high_symmetry_abs_error_cm-1": 0.02873548825641592,
+              "prediction_kink_cm-1_per_t": 591.8148936670491,
+              "target_kink_cm-1_per_t": 542.0571250000137,
+              "kink_relative_error": 0.09179432641353834
+            }
+          },
+          "450": {
+            "G": {
+              "n_points": 8,
+              "line_MAE_cm-1": 0.06895298987373621,
+              "line_max_abs_cm-1": 0.21173190439117207,
+              "high_symmetry_prediction_cm-1": 1573.8619734680758,
+              "high_symmetry_target_cm-1": 1573.90788,
+              "high_symmetry_abs_error_cm-1": 0.04590653192417449,
+              "central_block_max_distance": 0.01,
+              "central_block_n_points": 3,
+              "central_block_MAE_cm-1": 0.02817314092643149,
+              "central_block_max_abs_cm-1": 0.04590653192417449,
+              "central_block_high_symmetry_abs_error_cm-1": 0.04590653192417449
+            },
+            "K": {
+              "n_points": 11,
+              "line_MAE_cm-1": 0.503150861967945,
+              "line_max_abs_cm-1": 1.3926131926978087,
+              "high_symmetry_prediction_cm-1": 1289.4551022992807,
+              "high_symmetry_target_cm-1": 1289.791537,
+              "high_symmetry_abs_error_cm-1": 0.33643470071933734,
+              "central_block_max_distance": 0.008,
+              "central_block_n_points": 3,
+              "central_block_MAE_cm-1": 0.12338314875357052,
+              "central_block_max_abs_cm-1": 0.33643470071933734,
+              "central_block_high_symmetry_abs_error_cm-1": 0.33643470071933734,
+              "prediction_kink_cm-1_per_t": 431.90545698715255,
+              "target_kink_cm-1_per_t": 352.01112499999,
+              "kink_relative_error": 0.2269653607884263
+            }
+          },
+          "600": {
+            "G": {
+              "n_points": 8,
+              "line_MAE_cm-1": 0.557701080356992,
+              "line_max_abs_cm-1": 0.7870276760224897,
+              "high_symmetry_prediction_cm-1": 1574.5947913857576,
+              "high_symmetry_target_cm-1": 1573.924405,
+              "high_symmetry_abs_error_cm-1": 0.670386385757638,
+              "central_block_max_distance": 0.01,
+              "central_block_n_points": 3,
+              "central_block_MAE_cm-1": 0.7085644763473434,
+              "central_block_max_abs_cm-1": 0.7492985525580025,
+              "central_block_high_symmetry_abs_error_cm-1": 0.670386385757638
+            },
+            "K": {
+              "n_points": 11,
+              "line_MAE_cm-1": 0.5506688621099287,
+              "line_max_abs_cm-1": 1.595531873057098,
+              "high_symmetry_prediction_cm-1": 1290.840216639343,
+              "high_symmetry_target_cm-1": 1291.406318,
+              "high_symmetry_abs_error_cm-1": 0.5661013606570577,
+              "central_block_max_distance": 0.008,
+              "central_block_n_points": 3,
+              "central_block_MAE_cm-1": 0.3715688742271747,
+              "central_block_max_abs_cm-1": 0.5661013606570577,
+              "central_block_high_symmetry_abs_error_cm-1": 0.5661013606570577,
+              "prediction_kink_cm-1_per_t": 334.3171824112119,
+              "target_kink_cm-1_per_t": 261.36750000000575,
+              "kink_relative_error": 0.2791077024159643
+            }
+          }
+        }
+      }
+    },
+    {
+      "candidate": "centred_anchor",
+      "feature_names": [
+        "constant",
+        "anchor_linear_in_smearing",
+        "distance_squared",
+        "centred_kernel_difference"
+      ],
+      "n_coefficients_per_region": 4,
+      "LOSO_RMSE_cm-1": 0.5763830822915477,
+      "LOSO_MAE_cm-1": 0.39769865273952,
+      "LOSO_max_line_MAE_cm-1": 0.48282332107421344,
+      "LOSO_K_kink_relative_error": {
+        "300": 0.0038924332208021698,
+        "450": 0.13612659257503834,
+        "600": 0.1627751312330011
+      },
+      "LOSO_max_K_kink_relative_error": 0.1627751312330011,
+      "passes_20pct_K_kink_gate": true,
+      "complexity_penalty": 0.03,
+      "selection_score": 0.6063830822915477,
+      "folds": {
+        "300": {
+          "heldout_temperature_K": 300,
+          "train_RMSE_cm-1": 0.5208953535994008,
+          "v_F_eV_A": 4.5,
+          "width_scale": 1.2000000000000002,
+          "coefficients": {
+            "G": [
+              93674.06888928695,
+              33256.95365061318,
+              -1915987.995608561,
+              2004517.6010114776
+            ],
+            "K": [
+              -2214.7175725029606,
+              167049.8351188861,
+              433537.6503965841,
+              2970809.495241037
+            ]
+          },
+          "metrics": {
+            "G": {
+              "n_points": 8,
+              "line_MAE_cm-1": 0.38020442457889203,
+              "line_max_abs_cm-1": 0.9393130639200535,
+              "high_symmetry_prediction_cm-1": 1573.5668819363168,
+              "high_symmetry_target_cm-1": 1573.582322,
+              "high_symmetry_abs_error_cm-1": 0.015440063683172411,
+              "central_block_max_distance": 0.01,
+              "central_block_n_points": 3,
+              "central_block_MAE_cm-1": 0.16329085185945283,
+              "central_block_max_abs_cm-1": 0.30128401412707717,
+              "central_block_high_symmetry_abs_error_cm-1": 0.015440063683172411
+            },
+            "K": {
+              "n_points": 11,
+              "line_MAE_cm-1": 0.4828152723411305,
+              "line_max_abs_cm-1": 1.6036257113162264,
+              "high_symmetry_prediction_cm-1": 1288.1620389059597,
+              "high_symmetry_target_cm-1": 1288.039763,
+              "high_symmetry_abs_error_cm-1": 0.12227590595966831,
+              "central_block_max_distance": 0.008,
+              "central_block_n_points": 3,
+              "central_block_MAE_cm-1": 0.11664944953054146,
+              "central_block_max_abs_cm-1": 0.13766386322072321,
+              "central_block_high_symmetry_abs_error_cm-1": 0.12227590595966831,
+              "prediction_kink_cm-1_per_t": 539.9472038390911,
+              "target_kink_cm-1_per_t": 542.0571250000137,
+              "kink_relative_error": 0.0038924332208021698
+            }
+          }
+        },
+        "450": {
+          "heldout_temperature_K": 450,
+          "train_RMSE_cm-1": 0.5486295900906526,
+          "v_F_eV_A": 7.95,
+          "width_scale": 2.0,
+          "coefficients": {
+            "G": [
+              97359.73019639832,
+              37020.24525013003,
+              -1520177.5650901988,
+              1074568.7550530075
+            ],
+            "K": [
+              -4975.335644437793,
+              164431.79585020963,
+              565641.4403879045,
+              1676155.8297951387
+            ]
+          },
+          "metrics": {
+            "G": {
+              "n_points": 8,
+              "line_MAE_cm-1": 0.07802539186650392,
+              "line_max_abs_cm-1": 0.18555893044845106,
+              "high_symmetry_prediction_cm-1": 1573.8783743348902,
+              "high_symmetry_target_cm-1": 1573.90788,
+              "high_symmetry_abs_error_cm-1": 0.029505665109809343,
+              "central_block_max_distance": 0.01,
+              "central_block_n_points": 3,
+              "central_block_MAE_cm-1": 0.03468005091288736,
+              "central_block_max_abs_cm-1": 0.04700630166166775,
+              "central_block_high_symmetry_abs_error_cm-1": 0.029505665109809343
+            },
+            "K": {
+              "n_points": 11,
+              "line_MAE_cm-1": 0.4747535915962544,
+              "line_max_abs_cm-1": 1.443339924853035,
+              "high_symmetry_prediction_cm-1": 1289.5735461336158,
+              "high_symmetry_target_cm-1": 1289.791537,
+              "high_symmetry_abs_error_cm-1": 0.217990866384298,
+              "central_block_max_distance": 0.008,
+              "central_block_n_points": 3,
+              "central_block_MAE_cm-1": 0.09020933306495256,
+              "central_block_max_abs_cm-1": 0.217990866384298,
+              "central_block_high_symmetry_abs_error_cm-1": 0.217990866384298,
+              "prediction_kink_cm-1_per_t": 399.9291999947445,
+              "target_kink_cm-1_per_t": 352.01112499999,
+              "kink_relative_error": 0.13612659257503834
+            }
+          }
+        },
+        "600": {
+          "heldout_temperature_K": 600,
+          "train_RMSE_cm-1": 0.5269861163850663,
+          "v_F_eV_A": 7.050000000000001,
+          "width_scale": 1.8,
+          "coefficients": {
+            "G": [
+              109121.80392669204,
+              49097.752821821035,
+              -1840286.2906852637,
+              1224839.531746154
+            ],
+            "K": [
+              -33.3876303899165,
+              169791.80232179668,
+              262772.99915155815,
+              1921559.81312017
+            ]
+          },
+          "metrics": {
+            "G": {
+              "n_points": 8,
+              "line_MAE_cm-1": 0.3948338299327361,
+              "line_max_abs_cm-1": 0.6504057078338974,
+              "high_symmetry_prediction_cm-1": 1574.4219225136737,
+              "high_symmetry_target_cm-1": 1573.924405,
+              "high_symmetry_abs_error_cm-1": 0.4975175136737562,
+              "central_block_max_distance": 0.01,
+              "central_block_n_points": 3,
+              "central_block_MAE_cm-1": 0.4920709893908679,
+              "central_block_max_abs_cm-1": 0.5024779122636573,
+              "central_block_high_symmetry_abs_error_cm-1": 0.4975175136737562
+            },
+            "K": {
+              "n_points": 11,
+              "line_MAE_cm-1": 0.48282332107421344,
+              "line_max_abs_cm-1": 1.3862524252533603,
+              "high_symmetry_prediction_cm-1": 1291.1221979733753,
+              "high_symmetry_target_cm-1": 1291.406318,
+              "high_symmetry_abs_error_cm-1": 0.2841200266248052,
+              "central_block_max_distance": 0.008,
+              "central_block_n_points": 3,
+              "central_block_MAE_cm-1": 0.17066901565802559,
+              "central_block_max_abs_cm-1": 0.2841200266248052,
+              "central_block_high_symmetry_abs_error_cm-1": 0.2841200266248052,
+              "prediction_kink_cm-1_per_t": 303.9116291125481,
+              "target_kink_cm-1_per_t": 261.36750000000575,
+              "kink_relative_error": 0.1627751312330011
+            }
+          }
+        }
+      },
+      "full_fit": {
+        "train_RMSE_cm-1": 0.5387863367740796,
+        "v_F_eV_A": 6.1,
+        "width_scale": 1.55,
+        "coefficients": {
+          "G": [
+            98635.62726645825,
+            38335.46680674304,
+            -1636587.4808880906,
+            1415674.1039360317
+          ],
+          "K": [
+            -4185.779365574224,
+            165224.79326948716,
+            562883.0742009826,
+            2184394.755427507
+          ]
+        },
+        "metrics": {
+          "300": {
+            "G": {
+              "n_points": 8,
+              "line_MAE_cm-1": 0.2525325755655956,
+              "line_max_abs_cm-1": 0.4974850418054757,
+              "high_symmetry_prediction_cm-1": 1573.6063731301451,
+              "high_symmetry_target_cm-1": 1573.582322,
+              "high_symmetry_abs_error_cm-1": 0.024051130145153365,
+              "central_block_max_distance": 0.01,
+              "central_block_n_points": 3,
+              "central_block_MAE_cm-1": 0.14346502676463993,
+              "central_block_max_abs_cm-1": 0.2742861348801853,
+              "central_block_high_symmetry_abs_error_cm-1": 0.024051130145153365
+            },
+            "K": {
+              "n_points": 11,
+              "line_MAE_cm-1": 0.4713683780936952,
+              "line_max_abs_cm-1": 1.4577071452672499,
+              "high_symmetry_prediction_cm-1": 1288.0717080512004,
+              "high_symmetry_target_cm-1": 1288.039763,
+              "high_symmetry_abs_error_cm-1": 0.03194505120040958,
+              "central_block_max_distance": 0.008,
+              "central_block_n_points": 3,
+              "central_block_MAE_cm-1": 0.07467621245609735,
+              "central_block_max_abs_cm-1": 0.11986943552847151,
+              "central_block_high_symmetry_abs_error_cm-1": 0.03194505120040958,
+              "prediction_kink_cm-1_per_t": 558.0813104708966,
+              "target_kink_cm-1_per_t": 542.0571250000137,
+              "kink_relative_error": 0.029561802127188178
+            }
+          },
+          "450": {
+            "G": {
+              "n_points": 8,
+              "line_MAE_cm-1": 0.05256241194715017,
+              "line_max_abs_cm-1": 0.13821040433526832,
+              "high_symmetry_prediction_cm-1": 1573.895653000659,
+              "high_symmetry_target_cm-1": 1573.90788,
+              "high_symmetry_abs_error_cm-1": 0.012226999341010014,
+              "central_block_max_distance": 0.01,
+              "central_block_n_points": 3,
+              "central_block_MAE_cm-1": 0.017586166449063967,
+              "central_block_max_abs_cm-1": 0.02983552725095251,
+              "central_block_high_symmetry_abs_error_cm-1": 0.012226999341010014
+            },
+            "K": {
+              "n_points": 11,
+              "line_MAE_cm-1": 0.4700443517715071,
+              "line_max_abs_cm-1": 1.4128300362579012,
+              "high_symmetry_prediction_cm-1": 1289.594119635135,
+              "high_symmetry_target_cm-1": 1289.791537,
+              "high_symmetry_abs_error_cm-1": 0.19741736486503214,
+              "central_block_max_distance": 0.008,
+              "central_block_n_points": 3,
+              "central_block_MAE_cm-1": 0.07847759618289274,
+              "central_block_max_abs_cm-1": 0.19741736486503214,
+              "central_block_high_symmetry_abs_error_cm-1": 0.19741736486503214,
+              "prediction_kink_cm-1_per_t": 396.61353825579226,
+              "target_kink_cm-1_per_t": 352.01112499999,
+              "kink_relative_error": 0.12670739669322537
+            }
+          },
+          "600": {
+            "G": {
+              "n_points": 8,
+              "line_MAE_cm-1": 0.25271386584512356,
+              "line_max_abs_cm-1": 0.485553809621706,
+              "high_symmetry_prediction_cm-1": 1574.1848797116975,
+              "high_symmetry_target_cm-1": 1573.924405,
+              "high_symmetry_abs_error_cm-1": 0.2604747116974977,
+              "central_block_max_distance": 0.01,
+              "central_block_n_points": 3,
+              "central_block_MAE_cm-1": 0.2594763933342013,
+              "central_block_max_abs_cm-1": 0.2682410519878431,
+              "central_block_high_symmetry_abs_error_cm-1": 0.2604747116974977
+            },
+            "K": {
+              "n_points": 11,
+              "line_MAE_cm-1": 0.4807726169293057,
+              "line_max_abs_cm-1": 1.3885591941041184,
+              "high_symmetry_prediction_cm-1": 1291.1147360761943,
+              "high_symmetry_target_cm-1": 1291.406318,
+              "high_symmetry_abs_error_cm-1": 0.2915819238057793,
+              "central_block_max_distance": 0.008,
+              "central_block_n_points": 3,
+              "central_block_MAE_cm-1": 0.18260439006076012,
+              "central_block_max_abs_cm-1": 0.2915819238057793,
+              "central_block_high_symmetry_abs_error_cm-1": 0.2915819238057793,
+              "prediction_kink_cm-1_per_t": 302.23407515438794,
+              "target_kink_cm-1_per_t": 261.36750000000575,
+              "kink_relative_error": 0.15635675879511143
+            }
+          }
+        }
+      }
+    },
+    {
+      "candidate": "centred_anchor_amplitude",
+      "feature_names": [
+        "constant",
+        "anchor_linear_in_smearing",
+        "distance_squared",
+        "centred_kernel_difference",
+        "kernel_amplitude_linear_in_smearing"
+      ],
+      "n_coefficients_per_region": 5,
+      "LOSO_RMSE_cm-1": 0.524251101760559,
+      "LOSO_MAE_cm-1": 0.32192867589022073,
+      "LOSO_max_line_MAE_cm-1": 0.4755057244342631,
+      "LOSO_K_kink_relative_error": {
+        "300": 0.03270158665097464,
+        "450": 0.06789214108652696,
+        "600": 0.12240741830990864
+      },
+      "LOSO_max_K_kink_relative_error": 0.12240741830990864,
+      "passes_20pct_K_kink_gate": true,
+      "complexity_penalty": 0.06,
+      "selection_score": 0.5842511017605589,
+      "folds": {
+        "300": {
+          "heldout_temperature_K": 300,
+          "train_RMSE_cm-1": 0.5099316030070162,
+          "v_F_eV_A": 4.65,
+          "width_scale": 1.35,
+          "coefficients": {
+            "G": [
+              61805.86738944221,
+              -1568.9101388600736,
+              2243904.1121777394,
+              5304996.03568797,
+              3523021.7209615298
+            ],
+            "K": [
+              1102.8444752357534,
+              170492.70407569656,
+              599297.9233492083,
+              3938300.9920951054,
+              961721.1237599931
+            ]
+          },
+          "metrics": {
+            "G": {
+              "n_points": 8,
+              "line_MAE_cm-1": 0.17251830756879372,
+              "line_max_abs_cm-1": 0.39864676271736244,
+              "high_symmetry_prediction_cm-1": 1573.9809687627173,
+              "high_symmetry_target_cm-1": 1573.582322,
+              "high_symmetry_abs_error_cm-1": 0.39864676271736244,
+              "central_block_max_distance": 0.01,
+              "central_block_n_points": 3,
+              "central_block_MAE_cm-1": 0.20199887369525035,
+              "central_block_max_abs_cm-1": 0.39864676271736244,
+              "central_block_high_symmetry_abs_error_cm-1": 0.39864676271736244
+            },
+            "K": {
+              "n_points": 11,
+              "line_MAE_cm-1": 0.4755057244342631,
+              "line_max_abs_cm-1": 1.5590217497679077,
+              "high_symmetry_prediction_cm-1": 1288.1768804494081,
+              "high_symmetry_target_cm-1": 1288.039763,
+              "high_symmetry_abs_error_cm-1": 0.13711744940815151,
+              "central_block_max_distance": 0.008,
+              "central_block_n_points": 3,
+              "central_block_MAE_cm-1": 0.08984777462690847,
+              "central_block_max_abs_cm-1": 0.13711744940815151,
+              "central_block_high_symmetry_abs_error_cm-1": 0.13711744940815151,
+              "prediction_kink_cm-1_per_t": 524.3309969570475,
+              "target_kink_cm-1_per_t": 542.0571250000137,
+              "kink_relative_error": 0.03270158665097464
+            }
+          }
+        },
+        "450": {
+          "heldout_temperature_K": 450,
+          "train_RMSE_cm-1": 0.5168163118905118,
+          "v_F_eV_A": 7.1,
+          "width_scale": 2.0,
+          "coefficients": {
+            "G": [
+              70506.94923324836,
+              8068.038446133041,
+              2082174.5647166558,
+              3200363.9248340162,
+              2041681.2714958845
+            ],
+            "K": [
+              1915.2191592622353,
+              171559.0677666514,
+              574492.999155184,
+              2495718.2409568406,
+              552353.3646861034
+            ]
+          },
+          "metrics": {
+            "G": {
+              "n_points": 8,
+              "line_MAE_cm-1": 0.07792723307045435,
+              "line_max_abs_cm-1": 0.1580213790568905,
+              "high_symmetry_prediction_cm-1": 1573.8899656447065,
+              "high_symmetry_target_cm-1": 1573.90788,
+              "high_symmetry_abs_error_cm-1": 0.017914355293441986,
+              "central_block_max_distance": 0.01,
+              "central_block_n_points": 3,
+              "central_block_MAE_cm-1": 0.04427461748233933,
+              "central_block_max_abs_cm-1": 0.08188745142297194,
+              "central_block_high_symmetry_abs_error_cm-1": 0.017914355293441986
+            },
+            "K": {
+              "n_points": 11,
+              "line_MAE_cm-1": 0.4558914291489021,
+              "line_max_abs_cm-1": 1.4406582584092575,
+              "high_symmetry_prediction_cm-1": 1289.678663514649,
+              "high_symmetry_target_cm-1": 1289.791537,
+              "high_symmetry_abs_error_cm-1": 0.11287348535097408,
+              "central_block_max_distance": 0.008,
+              "central_block_n_points": 3,
+              "central_block_MAE_cm-1": 0.04914338145090369,
+              "central_block_max_abs_cm-1": 0.11287348535097408,
+              "central_block_high_symmetry_abs_error_cm-1": 0.11287348535097408,
+              "prediction_kink_cm-1_per_t": 375.9099139625164,
+              "target_kink_cm-1_per_t": 352.01112499999,
+              "kink_relative_error": 0.06789214108652696
+            }
+          }
+        },
+        "600": {
+          "heldout_temperature_K": 600,
+          "train_RMSE_cm-1": 0.5182282243711525,
+          "v_F_eV_A": 4.05,
+          "width_scale": 1.1,
+          "coefficients": {
+            "G": [
+              77994.78797686733,
+              15953.917431001439,
+              2071716.1220316954,
+              5309886.610491543,
+              3294494.116716611
+            ],
+            "K": [
+              1736.3884811559526,
+              171513.20600638763,
+              615710.4090542316,
+              4151475.0724476017,
+              762741.1046000016
+            ]
+          },
+          "metrics": {
+            "G": {
+              "n_points": 8,
+              "line_MAE_cm-1": 0.12401500881682637,
+              "line_max_abs_cm-1": 0.14658348338775795,
+              "high_symmetry_prediction_cm-1": 1574.0623879505397,
+              "high_symmetry_target_cm-1": 1573.924405,
+              "high_symmetry_abs_error_cm-1": 0.13798295053970833,
+              "central_block_max_distance": 0.01,
+              "central_block_n_points": 3,
+              "central_block_MAE_cm-1": 0.13995510280604626,
+              "central_block_max_abs_cm-1": 0.14658348338775795,
+              "central_block_high_symmetry_abs_error_cm-1": 0.13798295053970833
+            },
+            "K": {
+              "n_points": 11,
+              "line_MAE_cm-1": 0.46444376733446996,
+              "line_max_abs_cm-1": 1.4111352920078843,
+              "high_symmetry_prediction_cm-1": 1291.2042608960403,
+              "high_symmetry_target_cm-1": 1291.406318,
+              "high_symmetry_abs_error_cm-1": 0.20205710395975984,
+              "central_block_max_distance": 0.008,
+              "central_block_n_points": 3,
+              "central_block_MAE_cm-1": 0.11674158154611784,
+              "central_block_max_abs_cm-1": 0.20205710395975984,
+              "central_block_high_symmetry_abs_error_cm-1": 0.20205710395975984,
+              "prediction_kink_cm-1_per_t": 293.3608209051215,
+              "target_kink_cm-1_per_t": 261.36750000000575,
+              "kink_relative_error": 0.12240741830990864
+            }
+          }
+        }
+      },
+      "full_fit": {
+        "train_RMSE_cm-1": 0.5159350606725837,
+        "v_F_eV_A": 6.550000000000001,
+        "width_scale": 1.85,
+        "coefficients": {
+          "G": [
+            70405.82915358273,
+            7873.407337984938,
+            2098689.7237710995,
+            3496089.641295818,
+            2239866.6127595617
+          ],
+          "K": [
+            1794.652402807524,
+            171401.95623683004,
+            630547.8818147789,
+            2728003.8694818947,
+            623102.7239675005
+          ]
+        },
+        "metrics": {
+          "300": {
+            "G": {
+              "n_points": 8,
+              "line_MAE_cm-1": 0.1539157670132738,
+              "line_max_abs_cm-1": 0.27353699983291335,
+              "high_symmetry_prediction_cm-1": 1573.855858999833,
+              "high_symmetry_target_cm-1": 1573.582322,
+              "high_symmetry_abs_error_cm-1": 0.27353699983291335,
+              "central_block_max_distance": 0.01,
+              "central_block_n_points": 3,
+              "central_block_MAE_cm-1": 0.15770922216749264,
+              "central_block_max_abs_cm-1": 0.27353699983291335,
+              "central_block_high_symmetry_abs_error_cm-1": 0.27353699983291335
+            },
+            "K": {
+              "n_points": 11,
+              "line_MAE_cm-1": 0.463739510545958,
+              "line_max_abs_cm-1": 1.4436597485696439,
+              "high_symmetry_prediction_cm-1": 1288.1092432491164,
+              "high_symmetry_target_cm-1": 1288.039763,
+              "high_symmetry_abs_error_cm-1": 0.0694802491163955,
+              "central_block_max_distance": 0.008,
+              "central_block_n_points": 3,
+              "central_block_MAE_cm-1": 0.0467038816875629,
+              "central_block_max_abs_cm-1": 0.0694802491163955,
+              "central_block_high_symmetry_abs_error_cm-1": 0.0694802491163955,
+              "prediction_kink_cm-1_per_t": 533.5159872142015,
+              "target_kink_cm-1_per_t": 542.0571250000137,
+              "kink_relative_error": 0.01575689607587394
+            }
+          },
+          "450": {
+            "G": {
+              "n_points": 8,
+              "line_MAE_cm-1": 0.06344311737689168,
+              "line_max_abs_cm-1": 0.1358569204660398,
+              "high_symmetry_prediction_cm-1": 1573.9152667424216,
+              "high_symmetry_target_cm-1": 1573.90788,
+              "high_symmetry_abs_error_cm-1": 0.00738674242165871,
+              "central_block_max_distance": 0.01,
+              "central_block_n_points": 3,
+              "central_block_MAE_cm-1": 0.024646488058124305,
+              "central_block_max_abs_cm-1": 0.05828175867509344,
+              "central_block_high_symmetry_abs_error_cm-1": 0.00738674242165871
+            },
+            "K": {
+              "n_points": 11,
+              "line_MAE_cm-1": 0.45469560324832775,
+              "line_max_abs_cm-1": 1.4169012986942562,
+              "high_symmetry_prediction_cm-1": 1289.6884915318935,
+              "high_symmetry_target_cm-1": 1289.791537,
+              "high_symmetry_abs_error_cm-1": 0.10304546810652937,
+              "central_block_max_distance": 0.008,
+              "central_block_n_points": 3,
+              "central_block_MAE_cm-1": 0.044758899781603155,
+              "central_block_max_abs_cm-1": 0.10304546810652937,
+              "central_block_high_symmetry_abs_error_cm-1": 0.10304546810652937,
+              "prediction_kink_cm-1_per_t": 375.1067801847796,
+              "target_kink_cm-1_per_t": 352.01112499999,
+              "kink_relative_error": 0.06561058314503633
+            }
+          },
+          "600": {
+            "G": {
+              "n_points": 8,
+              "line_MAE_cm-1": 0.036799035609504926,
+              "line_max_abs_cm-1": 0.05881106276137871,
+              "high_symmetry_prediction_cm-1": 1573.9746722427378,
+              "high_symmetry_target_cm-1": 1573.924405,
+              "high_symmetry_abs_error_cm-1": 0.05026724273784566,
+              "central_block_max_distance": 0.01,
+              "central_block_n_points": 3,
+              "central_block_MAE_cm-1": 0.04323097113660879,
+              "central_block_max_abs_cm-1": 0.05267194947009557,
+              "central_block_high_symmetry_abs_error_cm-1": 0.05026724273784566
+            },
+            "K": {
+              "n_points": 11,
+              "line_MAE_cm-1": 0.4521516525852886,
+              "line_max_abs_cm-1": 1.4045955534220411,
+              "high_symmetry_prediction_cm-1": 1291.2658083585309,
+              "high_symmetry_target_cm-1": 1291.406318,
+              "high_symmetry_abs_error_cm-1": 0.14050964146917977,
+              "central_block_max_distance": 0.008,
+              "central_block_n_points": 3,
+              "central_block_MAE_cm-1": 0.07827693318252689,
+              "central_block_max_abs_cm-1": 0.14050964146917977,
+              "central_block_high_symmetry_abs_error_cm-1": 0.14050964146917977,
+              "prediction_kink_cm-1_per_t": 284.7047656075006,
+              "target_kink_cm-1_per_t": 261.36750000000575,
+              "kink_relative_error": 0.08928908761607436
+            }
+          }
+        }
+      }
+    },
+    {
+      "candidate": "centred_anchor_amplitude_curvature",
+      "feature_names": [
+        "constant",
+        "anchor_linear_in_smearing",
+        "distance_squared",
+        "centred_kernel_difference",
+        "kernel_amplitude_linear_in_smearing",
+        "curvature_linear_in_smearing"
+      ],
+      "n_coefficients_per_region": 6,
+      "LOSO_RMSE_cm-1": 0.5282526908847571,
+      "LOSO_MAE_cm-1": 0.31222302656517076,
+      "LOSO_max_line_MAE_cm-1": 0.46448450256128704,
+      "LOSO_K_kink_relative_error": {
+        "300": 0.007514750347457125,
+        "450": 0.08767986120079564,
+        "600": 0.10004283099803056
+      },
+      "LOSO_max_K_kink_relative_error": 0.10004283099803056,
+      "passes_20pct_K_kink_gate": true,
+      "complexity_penalty": 0.09,
+      "selection_score": 0.6182526908847571,
+      "folds": {
+        "300": {
+          "heldout_temperature_K": 300,
+          "train_RMSE_cm-1": 0.5093893959381176,
+          "v_F_eV_A": 4.85,
+          "width_scale": 1.4,
+          "coefficients": {
+            "G": [
+              57179.74837676683,
+              -6586.994993951084,
+              -9157586.230252901,
+              7245896.866239099,
+              5713774.217908345,
+              -16111920.831299104
+            ],
+            "K": [
+              6210.154056539615,
+              176062.49404258325,
+              18835146.88819201,
+              902852.3312183173,
+              -2174872.608371084,
+              24654961.60173795
+            ]
+          },
+          "metrics": {
+            "G": {
+              "n_points": 8,
+              "line_MAE_cm-1": 0.14983077425080182,
+              "line_max_abs_cm-1": 0.447438181563939,
+              "high_symmetry_prediction_cm-1": 1574.029760181564,
+              "high_symmetry_target_cm-1": 1573.582322,
+              "high_symmetry_abs_error_cm-1": 0.447438181563939,
+              "central_block_max_distance": 0.01,
+              "central_block_n_points": 3,
+              "central_block_MAE_cm-1": 0.22840429235634474,
+              "central_block_max_abs_cm-1": 0.447438181563939,
+              "central_block_high_symmetry_abs_error_cm-1": 0.447438181563939
+            },
+            "K": {
+              "n_points": 11,
+              "line_MAE_cm-1": 0.46448450256128704,
+              "line_max_abs_cm-1": 1.5903021980545873,
+              "high_symmetry_prediction_cm-1": 1288.1000629076073,
+              "high_symmetry_target_cm-1": 1288.039763,
+              "high_symmetry_abs_error_cm-1": 0.06029990760725923,
+              "central_block_max_distance": 0.008,
+              "central_block_n_points": 3,
+              "central_block_MAE_cm-1": 0.049437443691431326,
+              "central_block_max_abs_cm-1": 0.0678338557565894,
+              "central_block_high_symmetry_abs_error_cm-1": 0.06029990760725923,
+              "prediction_kink_cm-1_per_t": 537.9837010315782,
+              "target_kink_cm-1_per_t": 542.0571250000137,
+              "kink_relative_error": 0.007514750347457125
+            }
+          }
+        },
+        "450": {
+          "heldout_temperature_K": 450,
+          "train_RMSE_cm-1": 0.5144715520002731,
+          "v_F_eV_A": 6.95,
+          "width_scale": 1.85,
+          "coefficients": {
+            "G": [
+              67730.32914834957,
+              5186.268611566428,
+              -1498088.7658648766,
+              3531404.0652109436,
+              2389169.4454515274,
+              -5135097.741591478
+            ],
+            "K": [
+              9320.902735542808,
+              179632.09061364608,
+              26958836.641274095,
+              -711996.0626646632,
+              -2841820.9420689167,
+              35798689.54189666
+            ]
+          },
+          "metrics": {
+            "G": {
+              "n_points": 8,
+              "line_MAE_cm-1": 0.06638388556967811,
+              "line_max_abs_cm-1": 0.11193626970793957,
+              "high_symmetry_prediction_cm-1": 1573.8581378939725,
+              "high_symmetry_target_cm-1": 1573.90788,
+              "high_symmetry_abs_error_cm-1": 0.04974210602745188,
+              "central_block_max_distance": 0.01,
+              "central_block_n_points": 3,
+              "central_block_MAE_cm-1": 0.05660272295896599,
+              "central_block_max_abs_cm-1": 0.06951858905517838,
+              "central_block_high_symmetry_abs_error_cm-1": 0.04974210602745188
+            },
+            "K": {
+              "n_points": 11,
+              "line_MAE_cm-1": 0.46056517487836984,
+              "line_max_abs_cm-1": 1.4998600834130684,
+              "high_symmetry_prediction_cm-1": 1289.6429525415274,
+              "high_symmetry_target_cm-1": 1289.791537,
+              "high_symmetry_abs_error_cm-1": 0.1485844584726692,
+              "central_block_max_distance": 0.008,
+              "central_block_n_points": 3,
+              "central_block_MAE_cm-1": 0.06627969425630909,
+              "central_block_max_abs_cm-1": 0.1485844584726692,
+              "central_block_high_symmetry_abs_error_cm-1": 0.1485844584726692,
+              "prediction_kink_cm-1_per_t": 382.87541158112504,
+              "target_kink_cm-1_per_t": 352.01112499999,
+              "kink_relative_error": 0.08767986120079564
+            }
+          }
+        },
+        "600": {
+          "heldout_temperature_K": 600,
+          "train_RMSE_cm-1": 0.5168879492709144,
+          "v_F_eV_A": 5.85,
+          "width_scale": 1.55,
+          "coefficients": {
+            "G": [
+              71600.73901877922,
+              9227.264609401322,
+              -9495271.431454832,
+              5339775.305280858,
+              4040729.1610876564,
+              -16086345.607655844
+            ],
+            "K": [
+              12181.816372889858,
+              182658.19671371495,
+              30180316.576502554,
+              -853834.5270815503,
+              -3382944.5663523553,
+              39196766.52387749
+            ]
+          },
+          "metrics": {
+            "G": {
+              "n_points": 8,
+              "line_MAE_cm-1": 0.1075224783592148,
+              "line_max_abs_cm-1": 0.17751848459579378,
+              "high_symmetry_prediction_cm-1": 1573.9650389315223,
+              "high_symmetry_target_cm-1": 1573.924405,
+              "high_symmetry_abs_error_cm-1": 0.040633931522279454,
+              "central_block_max_distance": 0.01,
+              "central_block_n_points": 3,
+              "central_block_MAE_cm-1": 0.0626160772150494,
+              "central_block_max_abs_cm-1": 0.08488046002980809,
+              "central_block_high_symmetry_abs_error_cm-1": 0.040633931522279454
+            },
+            "K": {
+              "n_points": 11,
+              "line_MAE_cm-1": 0.4573880869946317,
+              "line_max_abs_cm-1": 1.6909337803385824,
+              "high_symmetry_prediction_cm-1": 1291.3433714867153,
+              "high_symmetry_target_cm-1": 1291.406318,
+              "high_symmetry_abs_error_cm-1": 0.06294651328471446,
+              "central_block_max_distance": 0.008,
+              "central_block_n_points": 3,
+              "central_block_MAE_cm-1": 0.048745681254104056,
+              "central_block_max_abs_cm-1": 0.06294651328471446,
+              "central_block_high_symmetry_abs_error_cm-1": 0.06294651328471446,
+              "prediction_kink_cm-1_per_t": 287.5154446308841,
+              "target_kink_cm-1_per_t": 261.36750000000575,
+              "kink_relative_error": 0.10004283099803056
+            }
+          }
+        }
+      },
+      "full_fit": {
+        "train_RMSE_cm-1": 0.514753888092242,
+        "v_F_eV_A": 6.15,
+        "width_scale": 1.7000000000000002,
+        "coefficients": {
+          "G": [
+            66498.35778031353,
+            3719.937015048832,
+            -5631388.738103805,
+            4778916.852800375,
+            3518896.9365662076,
+            -10841053.83664432
+          ],
+          "K": [
+            6724.357605918891,
+            176743.49810665363,
+            17540568.817306377,
+            706740.5258646737,
+            -1651101.7259832432,
+            22662749.958924383
+          ]
+        },
+        "metrics": {
+          "300": {
+            "G": {
+              "n_points": 8,
+              "line_MAE_cm-1": 0.1360721145071011,
+              "line_max_abs_cm-1": 0.289008507680137,
+              "high_symmetry_prediction_cm-1": 1573.87133050768,
+              "high_symmetry_target_cm-1": 1573.582322,
+              "high_symmetry_abs_error_cm-1": 0.289008507680137,
+              "central_block_max_distance": 0.01,
+              "central_block_n_points": 3,
+              "central_block_MAE_cm-1": 0.1633296389335707,
+              "central_block_max_abs_cm-1": 0.289008507680137,
+              "central_block_high_symmetry_abs_error_cm-1": 0.289008507680137
+            },
+            "K": {
+              "n_points": 11,
+              "line_MAE_cm-1": 0.45607158267177345,
+              "line_max_abs_cm-1": 1.4213381246599965,
+              "high_symmetry_prediction_cm-1": 1288.0478720608235,
+              "high_symmetry_target_cm-1": 1288.039763,
+              "high_symmetry_abs_error_cm-1": 0.008109060823471737,
+              "central_block_max_distance": 0.008,
+              "central_block_n_points": 3,
+              "central_block_MAE_cm-1": 0.018588116833370805,
+              "central_block_max_abs_cm-1": 0.04096613968863494,
+              "central_block_high_symmetry_abs_error_cm-1": 0.008109060823471737,
+              "prediction_kink_cm-1_per_t": 544.3144835067244,
+              "target_kink_cm-1_per_t": 542.0571250000137,
+              "kink_relative_error": 0.0041644291765571
+            }
+          },
+          "450": {
+            "G": {
+              "n_points": 8,
+              "line_MAE_cm-1": 0.052669160639965185,
+              "line_max_abs_cm-1": 0.10446644589660536,
+              "high_symmetry_prediction_cm-1": 1573.8993987986983,
+              "high_symmetry_target_cm-1": 1573.90788,
+              "high_symmetry_abs_error_cm-1": 0.00848120130171992,
+              "central_block_max_distance": 0.01,
+              "central_block_n_points": 3,
+              "central_block_MAE_cm-1": 0.02597078992198476,
+              "central_block_max_abs_cm-1": 0.05215279454409938,
+              "central_block_high_symmetry_abs_error_cm-1": 0.00848120130171992
+            },
+            "K": {
+              "n_points": 11,
+              "line_MAE_cm-1": 0.4557965392307324,
+              "line_max_abs_cm-1": 1.4414587148291957,
+              "high_symmetry_prediction_cm-1": 1289.676382193639,
+              "high_symmetry_target_cm-1": 1289.791537,
+              "high_symmetry_abs_error_cm-1": 0.11515480636103348,
+              "central_block_max_distance": 0.008,
+              "central_block_n_points": 3,
+              "central_block_MAE_cm-1": 0.04879534593472575,
+              "central_block_max_abs_cm-1": 0.11515480636103348,
+              "central_block_high_symmetry_abs_error_cm-1": 0.11515480636103348,
+              "prediction_kink_cm-1_per_t": 377.2889993908848,
+              "target_kink_cm-1_per_t": 352.01112499999,
+              "kink_relative_error": 0.07180987359673792
+            }
+          },
+          "600": {
+            "G": {
+              "n_points": 8,
+              "line_MAE_cm-1": 0.02536112019151915,
+              "line_max_abs_cm-1": 0.07257067915725202,
+              "high_symmetry_prediction_cm-1": 1573.927466589167,
+              "high_symmetry_target_cm-1": 1573.924405,
+              "high_symmetry_abs_error_cm-1": 0.0030615891669185658,
+              "central_block_max_distance": 0.01,
+              "central_block_n_points": 3,
+              "central_block_MAE_cm-1": 0.008311313765640685,
+              "central_block_max_abs_cm-1": 0.013532448283513077,
+              "central_block_high_symmetry_abs_error_cm-1": 0.0030615891669185658
+            },
+            "K": {
+              "n_points": 11,
+              "line_MAE_cm-1": 0.4430996434331188,
+              "line_max_abs_cm-1": 1.4248401373067736,
+              "high_symmetry_prediction_cm-1": 1291.3028385532693,
+              "high_symmetry_target_cm-1": 1291.406318,
+              "high_symmetry_abs_error_cm-1": 0.10347944673071652,
+              "central_block_max_distance": 0.008,
+              "central_block_n_points": 3,
+              "central_block_MAE_cm-1": 0.04508661985278195,
+              "central_block_max_abs_cm-1": 0.10347944673071652,
+              "central_block_high_symmetry_abs_error_cm-1": 0.10347944673071652,
+              "prediction_kink_cm-1_per_t": 283.2648100792312,
+              "target_kink_cm-1_per_t": 261.36750000000575,
+              "kink_relative_error": 0.08377977399341915
+            }
+          }
+        }
+      }
+    }
+  ],
+  "inputs": {
+    "path": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/E0_shared_dirac/shared_dirac_predictions.csv",
+    "sha256": "da0b31dff4189c4e35bfed2af5aa1dfbf9d8b1b33b87db6aa7a1812183e43055"
+  },
+  "limitations": [
+    "The zero-smearing rows are not fitted in this first ablation.",
+    "The selected form must next be checked jointly against the opened zero-smearing data.",
+    "LOSO uses opened development smearings and is not a prospective validation.",
+    "This is a spectral kernel test; dynamical-matrix replay remains a separate gate."
+  ]
+}

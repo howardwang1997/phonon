@@ -1,0 +1,983 @@
+{
+  "status": "frozen_before_R1_DFT",
+  "scope": "current S0 self-consistent 450 K lattice ensemble at fixed electronic smearing",
+  "selection_protocol": {
+    "n_candidates": 300,
+    "n_selected": 12,
+    "groups": {
+      "typical": 4,
+      "high_committee_disagreement": 4,
+      "low_Aprime_amplitude": 2,
+      "high_Aprime_amplitude": 2
+    },
+    "diversity": "robust-standardized physical features with farthest-point selection",
+    "committee_epochs": [
+      195,
+      205,
+      215
+    ],
+    "DFT_labels_read_during_selection": false
+  },
+  "condition": {
+    "lattice_temperature_K": 450.0,
+    "smearing": "fermi-dirac",
+    "degauss_Ry": 0.0019000869380739254,
+    "cell": "fixed operator/SSCHA cell",
+    "n_atoms": 72
+  },
+  "fixed_DFT_settings": {
+    "kgrid": [
+      8,
+      8,
+      1
+    ],
+    "ecutwfc_Ry": 60.0,
+    "ecutrho_Ry": 240.0,
+    "disk_io": "none",
+    "pseudopotential": "C_ONCV_PBE-1.2.upf"
+  },
+  "fixed_acceptance_thresholds": {
+    "force_component_RMSE_meV_A": 30.0,
+    "force_component_max_abs_meV_A": 200.0,
+    "Aprime_projected_force_RMS_meV_A": 15.0,
+    "Aprime_restoring_slope_relative_error": 0.05,
+    "centered_energy_RMSE_meV_config": 19.4,
+    "importance_weight_ESS_fraction": 0.3
+  },
+  "atom_mapping": {
+    "SSCHA_xats_row_to_operator_reference": [
+      0,
+      36,
+      6,
+      42,
+      12,
+      48,
+      18,
+      54,
+      24,
+      60,
+      30,
+      66,
+      1,
+      37,
+      7,
+      43,
+      13,
+      49,
+      19,
+      55,
+      25,
+      61,
+      31,
+      67,
+      2,
+      38,
+      8,
+      44,
+      14,
+      50,
+      20,
+      56,
+      26,
+      62,
+      32,
+      68,
+      3,
+      39,
+      9,
+      45,
+      15,
+      51,
+      21,
+      57,
+      27,
+      63,
+      33,
+      69,
+      4,
+      40,
+      10,
+      46,
+      16,
+      52,
+      22,
+      58,
+      28,
+      64,
+      34,
+      70,
+      5,
+      41,
+      11,
+      47,
+      17,
+      53,
+      23,
+      59,
+      29,
+      65,
+      35,
+      71
+    ],
+    "operator_order_source_rows": [
+      0,
+      12,
+      24,
+      36,
+      48,
+      60,
+      2,
+      14,
+      26,
+      38,
+      50,
+      62,
+      4,
+      16,
+      28,
+      40,
+      52,
+      64,
+      6,
+      18,
+      30,
+      42,
+      54,
+      66,
+      8,
+      20,
+      32,
+      44,
+      56,
+      68,
+      10,
+      22,
+      34,
+      46,
+      58,
+      70,
+      1,
+      13,
+      25,
+      37,
+      49,
+      61,
+      3,
+      15,
+      27,
+      39,
+      51,
+      63,
+      5,
+      17,
+      29,
+      41,
+      53,
+      65,
+      7,
+      19,
+      31,
+      43,
+      55,
+      67,
+      9,
+      21,
+      33,
+      45,
+      57,
+      69,
+      11,
+      23,
+      35,
+      47,
+      59,
+      71
+    ],
+    "unique_mapping_across_all_300": true,
+    "maximum_displacement_vector_A": 0.5897189129026398
+  },
+  "Aprime_mode": {
+    "qpoint_crystal": [
+      0.3333333333333333,
+      0.3333333333333333,
+      0.0
+    ],
+    "primitive_mode_index": 5,
+    "primitive_frequency_THz": 37.8865391046499,
+    "primitive_frequency_cm_1": 1263.7589318557348,
+    "lattice_temperature_K": 450,
+    "operator_temperature_K": 300,
+    "operator_to_phonopy_mapping": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33,
+      34,
+      35,
+      36,
+      37,
+      38,
+      39,
+      40,
+      41,
+      42,
+      43,
+      44,
+      45,
+      46,
+      47,
+      48,
+      49,
+      50,
+      51,
+      52,
+      53,
+      54,
+      55,
+      56,
+      57,
+      58,
+      59,
+      60,
+      61,
+      62,
+      63,
+      64,
+      65,
+      66,
+      67,
+      68,
+      69,
+      70,
+      71
+    ],
+    "phonopy_basis_indices": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "phonopy_cell_translations": [
+      [
+        0,
+        0,
+        0
+      ],
+      [
+        1,
+        0,
+        0
+      ],
+      [
+        2,
+        0,
+        0
+      ],
+      [
+        3,
+        0,
+        0
+      ],
+      [
+        4,
+        0,
+        0
+      ],
+      [
+        5,
+        0,
+        0
+      ],
+      [
+        0,
+        1,
+        0
+      ],
+      [
+        1,
+        1,
+        0
+      ],
+      [
+        2,
+        1,
+        0
+      ],
+      [
+        3,
+        1,
+        0
+      ],
+      [
+        4,
+        1,
+        0
+      ],
+      [
+        5,
+        1,
+        0
+      ],
+      [
+        0,
+        2,
+        0
+      ],
+      [
+        1,
+        2,
+        0
+      ],
+      [
+        2,
+        2,
+        0
+      ],
+      [
+        3,
+        2,
+        0
+      ],
+      [
+        4,
+        2,
+        0
+      ],
+      [
+        5,
+        2,
+        0
+      ],
+      [
+        0,
+        3,
+        0
+      ],
+      [
+        1,
+        3,
+        0
+      ],
+      [
+        2,
+        3,
+        0
+      ],
+      [
+        3,
+        3,
+        0
+      ],
+      [
+        4,
+        3,
+        0
+      ],
+      [
+        5,
+        3,
+        0
+      ],
+      [
+        0,
+        4,
+        0
+      ],
+      [
+        1,
+        4,
+        0
+      ],
+      [
+        2,
+        4,
+        0
+      ],
+      [
+        3,
+        4,
+        0
+      ],
+      [
+        4,
+        4,
+        0
+      ],
+      [
+        5,
+        4,
+        0
+      ],
+      [
+        0,
+        5,
+        0
+      ],
+      [
+        1,
+        5,
+        0
+      ],
+      [
+        2,
+        5,
+        0
+      ],
+      [
+        3,
+        5,
+        0
+      ],
+      [
+        4,
+        5,
+        0
+      ],
+      [
+        5,
+        5,
+        0
+      ],
+      [
+        0,
+        0,
+        0
+      ],
+      [
+        1,
+        0,
+        0
+      ],
+      [
+        2,
+        0,
+        0
+      ],
+      [
+        3,
+        0,
+        0
+      ],
+      [
+        4,
+        0,
+        0
+      ],
+      [
+        5,
+        0,
+        0
+      ],
+      [
+        0,
+        1,
+        0
+      ],
+      [
+        1,
+        1,
+        0
+      ],
+      [
+        2,
+        1,
+        0
+      ],
+      [
+        3,
+        1,
+        0
+      ],
+      [
+        4,
+        1,
+        0
+      ],
+      [
+        5,
+        1,
+        0
+      ],
+      [
+        0,
+        2,
+        0
+      ],
+      [
+        1,
+        2,
+        0
+      ],
+      [
+        2,
+        2,
+        0
+      ],
+      [
+        3,
+        2,
+        0
+      ],
+      [
+        4,
+        2,
+        0
+      ],
+      [
+        5,
+        2,
+        0
+      ],
+      [
+        0,
+        3,
+        0
+      ],
+      [
+        1,
+        3,
+        0
+      ],
+      [
+        2,
+        3,
+        0
+      ],
+      [
+        3,
+        3,
+        0
+      ],
+      [
+        4,
+        3,
+        0
+      ],
+      [
+        5,
+        3,
+        0
+      ],
+      [
+        0,
+        4,
+        0
+      ],
+      [
+        1,
+        4,
+        0
+      ],
+      [
+        2,
+        4,
+        0
+      ],
+      [
+        3,
+        4,
+        0
+      ],
+      [
+        4,
+        4,
+        0
+      ],
+      [
+        5,
+        4,
+        0
+      ],
+      [
+        0,
+        5,
+        0
+      ],
+      [
+        1,
+        5,
+        0
+      ],
+      [
+        2,
+        5,
+        0
+      ],
+      [
+        3,
+        5,
+        0
+      ],
+      [
+        4,
+        5,
+        0
+      ],
+      [
+        5,
+        5,
+        0
+      ]
+    ],
+    "normalization": 1.0
+  },
+  "committee": [
+    {
+      "epoch": 195,
+      "checkpoint": "/home/howardwang/phonon/results/graphene_physics_temperature/post_p4_feasibility/S0_unified_short/formal_240ep_2060_seed83_replayw16/checkpoints/gr_physical_s0_delta32_seed83_replayw16_run-83_epoch-195.pt",
+      "checkpoint_sha256": "626968b9416ba78d8bec5a5714afafde01430836bfea4b68929ff5158717d470"
+    },
+    {
+      "epoch": 205,
+      "checkpoint": "/home/howardwang/phonon/results/graphene_physics_temperature/post_p4_feasibility/S0_unified_short/formal_240ep_2060_seed83_replayw16/checkpoints/gr_physical_s0_delta32_seed83_replayw16_run-83_epoch-205.pt",
+      "checkpoint_sha256": "f53d8b6ce5b7d06bb6b7b48e5d6fa68cf51f8be9f429cd3f23249f7dbdc0678c"
+    },
+    {
+      "epoch": 215,
+      "checkpoint": "/home/howardwang/phonon/results/graphene_physics_temperature/post_p4_feasibility/S0_unified_short/formal_240ep_2060_seed83_replayw16/checkpoints/gr_physical_s0_delta32_seed83_replayw16_run-83_epoch-215.pt",
+      "checkpoint_sha256": "02ec8fc925af2485ef03e8c917da5c94d425a789c28b0fcf9fad19e094072da9"
+    }
+  ],
+  "selected": [
+    {
+      "sscha_index": 94,
+      "selection_group": "typical",
+      "shard": "A",
+      "features": {
+        "RMS_displacement_A": 0.08720048589039261,
+        "max_displacement_A": 0.33862918712378465,
+        "inplane_RMS_displacement_A": 0.04480987164730111,
+        "outplane_RMS_displacement_A": 0.13709823129590873,
+        "Aprime_coordinate_abs_A": 0.027155724151841358,
+        "MLIP_force_RMS_eV_A": 0.17594678913071102,
+        "committee_force_disagreement_RMS_eV_A": 0.0030131492959517307,
+        "MLIP_energy_centered_eV": 0.9387655711477905
+      }
+    },
+    {
+      "sscha_index": 65,
+      "selection_group": "typical",
+      "shard": "A",
+      "features": {
+        "RMS_displacement_A": 0.09678915166488578,
+        "max_displacement_A": 0.35287285643513433,
+        "inplane_RMS_displacement_A": 0.04523220946442022,
+        "outplane_RMS_displacement_A": 0.1549597176493246,
+        "Aprime_coordinate_abs_A": 0.03083162894534168,
+        "MLIP_force_RMS_eV_A": 0.2502986839535596,
+        "committee_force_disagreement_RMS_eV_A": 0.0033593744549170234,
+        "MLIP_energy_centered_eV": -6.510834753727263
+      }
+    },
+    {
+      "sscha_index": 87,
+      "selection_group": "typical",
+      "shard": "B",
+      "features": {
+        "RMS_displacement_A": 0.106126734009499,
+        "max_displacement_A": 0.5198977608085443,
+        "inplane_RMS_displacement_A": 0.04209455938014734,
+        "outplane_RMS_displacement_A": 0.17391016978817364,
+        "Aprime_coordinate_abs_A": 0.04172208202859367,
+        "MLIP_force_RMS_eV_A": 0.1851649522012253,
+        "committee_force_disagreement_RMS_eV_A": 0.0032080160421885796,
+        "MLIP_energy_centered_eV": -3.1783474289992144
+      }
+    },
+    {
+      "sscha_index": 272,
+      "selection_group": "typical",
+      "shard": "B",
+      "features": {
+        "RMS_displacement_A": 0.08283148219076503,
+        "max_displacement_A": 0.2903510496337577,
+        "inplane_RMS_displacement_A": 0.05380348254257982,
+        "outplane_RMS_displacement_A": 0.12162867202406549,
+        "Aprime_coordinate_abs_A": 0.03960957783428798,
+        "MLIP_force_RMS_eV_A": 0.17795554028603328,
+        "committee_force_disagreement_RMS_eV_A": 0.0033442501663973946,
+        "MLIP_energy_centered_eV": 2.7358444150402175
+      }
+    },
+    {
+      "sscha_index": 168,
+      "selection_group": "high_committee_disagreement",
+      "shard": "A",
+      "features": {
+        "RMS_displacement_A": 0.07015945322282661,
+        "max_displacement_A": 0.3086731380051978,
+        "inplane_RMS_displacement_A": 0.04636885769490044,
+        "outplane_RMS_displacement_A": 0.10230789168836457,
+        "Aprime_coordinate_abs_A": 0.04863235943713794,
+        "MLIP_force_RMS_eV_A": 0.20263172479117772,
+        "committee_force_disagreement_RMS_eV_A": 0.009122731735491508,
+        "MLIP_energy_centered_eV": -0.6596408805864593
+      }
+    },
+    {
+      "sscha_index": 277,
+      "selection_group": "high_committee_disagreement",
+      "shard": "B",
+      "features": {
+        "RMS_displacement_A": 0.07690563556929685,
+        "max_displacement_A": 0.29718355361652216,
+        "inplane_RMS_displacement_A": 0.05131675038794165,
+        "outplane_RMS_displacement_A": 0.11169875830194294,
+        "Aprime_coordinate_abs_A": 0.09467728585966656,
+        "MLIP_force_RMS_eV_A": 0.22342820971959848,
+        "committee_force_disagreement_RMS_eV_A": 0.0045232381694603205,
+        "MLIP_energy_centered_eV": -1.8117708527553251
+      }
+    },
+    {
+      "sscha_index": 216,
+      "selection_group": "high_committee_disagreement",
+      "shard": "B",
+      "features": {
+        "RMS_displacement_A": 0.11176821154075245,
+        "max_displacement_A": 0.5897189129026398,
+        "inplane_RMS_displacement_A": 0.04764634393039563,
+        "outplane_RMS_displacement_A": 0.18148292248359918,
+        "Aprime_coordinate_abs_A": 0.02614111871161582,
+        "MLIP_force_RMS_eV_A": 0.19646245973295998,
+        "committee_force_disagreement_RMS_eV_A": 0.006059355291510734,
+        "MLIP_energy_centered_eV": 1.1675438816154138
+      }
+    },
+    {
+      "sscha_index": 99,
+      "selection_group": "high_committee_disagreement",
+      "shard": "A",
+      "features": {
+        "RMS_displacement_A": 0.06572666233520756,
+        "max_displacement_A": 0.2380771895344223,
+        "inplane_RMS_displacement_A": 0.04144660960243143,
+        "outplane_RMS_displacement_A": 0.09759272273129005,
+        "Aprime_coordinate_abs_A": 0.06192635884611243,
+        "MLIP_force_RMS_eV_A": 0.19362626087358156,
+        "committee_force_disagreement_RMS_eV_A": 0.0054519947388494755,
+        "MLIP_energy_centered_eV": 2.567126809776278
+      }
+    },
+    {
+      "sscha_index": 152,
+      "selection_group": "low_Aprime_amplitude",
+      "shard": "B",
+      "features": {
+        "RMS_displacement_A": 0.05877727480721425,
+        "max_displacement_A": 0.2041220462671166,
+        "inplane_RMS_displacement_A": 0.03148330594601813,
+        "outplane_RMS_displacement_A": 0.09155275525459183,
+        "Aprime_coordinate_abs_A": 0.00738557415708374,
+        "MLIP_force_RMS_eV_A": 0.160221580301184,
+        "committee_force_disagreement_RMS_eV_A": 0.003361492425665009,
+        "MLIP_energy_centered_eV": -1.861452201256455
+      }
+    },
+    {
+      "sscha_index": 20,
+      "selection_group": "low_Aprime_amplitude",
+      "shard": "A",
+      "features": {
+        "RMS_displacement_A": 0.06889117703920992,
+        "max_displacement_A": 0.29453401285757824,
+        "inplane_RMS_displacement_A": 0.039451517451259285,
+        "outplane_RMS_displacement_A": 0.10547577145074247,
+        "Aprime_coordinate_abs_A": 0.010381020642262706,
+        "MLIP_force_RMS_eV_A": 0.21988530591188896,
+        "committee_force_disagreement_RMS_eV_A": 0.0048248702981794666,
+        "MLIP_energy_centered_eV": -4.991497137737038
+      }
+    },
+    {
+      "sscha_index": 6,
+      "selection_group": "high_Aprime_amplitude",
+      "shard": "B",
+      "features": {
+        "RMS_displacement_A": 0.12815982767338152,
+        "max_displacement_A": 0.5163521333543071,
+        "inplane_RMS_displacement_A": 0.045635929078238005,
+        "outplane_RMS_displacement_A": 0.21239008508436683,
+        "Aprime_coordinate_abs_A": 0.08570972583414657,
+        "MLIP_force_RMS_eV_A": 0.1957617727278384,
+        "committee_force_disagreement_RMS_eV_A": 0.004053258019087832,
+        "MLIP_energy_centered_eV": 2.5557341163203304
+      }
+    },
+    {
+      "sscha_index": 203,
+      "selection_group": "high_Aprime_amplitude",
+      "shard": "A",
+      "features": {
+        "RMS_displacement_A": 0.07541871401301883,
+        "max_displacement_A": 0.2560156488124407,
+        "inplane_RMS_displacement_A": 0.04197742301255027,
+        "outplane_RMS_displacement_A": 0.11636038494514957,
+        "Aprime_coordinate_abs_A": 0.07364482757671696,
+        "MLIP_force_RMS_eV_A": 0.19946631158934,
+        "committee_force_disagreement_RMS_eV_A": 0.0030033002486303364,
+        "MLIP_energy_centered_eV": -3.665508640556908
+      }
+    }
+  ],
+  "shards": {
+    "A": [
+      168,
+      65,
+      20,
+      99,
+      203,
+      94
+    ],
+    "B": [
+      216,
+      6,
+      277,
+      87,
+      272,
+      152
+    ]
+  },
+  "inputs": {
+    "xats": {
+      "path": "/home/howardwang/phonon/results/graphene_physics_temperature/post_p4_feasibility/S0_unified_short/X0_cross_development/sscha_Tlat450_Tel300/ensembles/xats_pop1.npy",
+      "sha256": "81ec5c4db3c386e9b593c952476c5c51f2a8bac347b00b959319fbf77fa2f23c"
+    },
+    "forces": {
+      "path": "/home/howardwang/phonon/results/graphene_physics_temperature/post_p4_feasibility/S0_unified_short/X0_cross_development/sscha_Tlat450_Tel300/ensembles/forces_pop1.npy",
+      "sha256": "edb73758cf867bd7dd7fe48e416631b960c1969ca8e6409597a014b9b2ac640b"
+    },
+    "energies": {
+      "path": "/home/howardwang/phonon/results/graphene_physics_temperature/post_p4_feasibility/S0_unified_short/X0_cross_development/sscha_Tlat450_Tel300/ensembles/energies_pop1.npy",
+      "sha256": "3090aa2faa2d3de1b2398462453d98dd59e81ae30613bfa2d248d1bbeaa1112c"
+    },
+    "operator": {
+      "path": "/home/howardwang/phonon/data/graphene_physical_s0/operators/T300_operator.npz",
+      "sha256": "114fb9a369ed106e5a89a9c05223aed7667fd737714f3d42516ebdb8e2e475c3"
+    },
+    "background": {
+      "path": "/home/howardwang/phonon/results/vq_kink6_fd/graphene_sc6_dg0.040_phonopy.yaml",
+      "sha256": "69144a1dd3c66df94c116259067be27d1ede3ca8ab01c66516504c5e1ec90c0a"
+    },
+    "thermal_result": {
+      "path": "/home/howardwang/phonon/results/graphene_physics_temperature/post_p4_feasibility/S0_unified_short/X0_cross_development/sscha_Tlat450_Tel300/result.npz",
+      "sha256": "e05c2d55f7eaed76138aac6be88a3e8e0f0c38988683096b0c492a98c9169659"
+    },
+    "template_model": {
+      "path": "/home/howardwang/phonon/results/graphene_physics_temperature/post_p4_feasibility/S0_unified_short/formal_240ep_2060_seed83_replayw16/selected_checkpoint.model",
+      "sha256": "6e863bdd2ed11fbe31a3147cdd5a7b88d4193d84467a973054460b36afe163b4"
+    }
+  },
+  "outputs": {
+    "selected12_extxyz": {
+      "path": "/home/howardwang/phonon/results/graphene_physics_temperature/post_p4_feasibility/R1_current_s0_overlap_screen/selected12.extxyz",
+      "sha256": "ea6d34ee3c04864ec6a4dfa4f549a49dd5d64319af008327288982e81553d801"
+    },
+    "selected12_snapshots": {
+      "path": "/home/howardwang/phonon/results/graphene_physics_temperature/post_p4_feasibility/R1_current_s0_overlap_screen/selected12_snapshots.npz",
+      "sha256": "c6bdb0b9fe5fa3361f5cb94a969e5bff21cb5eba7d690e8887b32c89c6e6745f"
+    },
+    "shard_A_snapshots_sha256": "37d19ec3e672466d20a02dbfa409c9fad4ffcd2a9475fdfb1dc714db4395e04f",
+    "shard_B_snapshots_sha256": "32992b6b59a210d8d076d862d149e2e43729c20d7e44f2acb6df5ecee25a43eb",
+    "candidate_features_sha256": "fdbbcfdfaa6cc33ff2a0755d2262910eb32d06b4bb981fd6e054053f0a6f1ac2"
+  },
+  "decision_after_DFT": "evaluate the frozen force/energy gates before any checkpoint, architecture, long-range parameter, or additional DFT-label decision"
+}

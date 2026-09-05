@@ -1,0 +1,1262 @@
+
+     Program PHONON v.7.5 starts on 24Jul2026 at  1:10:52 
+
+     This program is part of the open-source Quantum ESPRESSO suite
+     for quantum simulation of materials; please cite
+         "P. Giannozzi et al., J. Phys.:Condens. Matter 21 395502 (2009);
+         "P. Giannozzi et al., J. Phys.:Condens. Matter 29 465901 (2017);
+         "P. Giannozzi et al., J. Chem. Phys. 152 154105 (2020);
+          URL http://www.quantum-espresso.org", 
+     in publications or presentations arising from this work. More details at
+     http://www.quantum-espresso.org/quote
+
+     Parallel version (MPI & OpenMP), running on       8 processor cores
+     Number of MPI processes:                 8
+     Threads/MPI process:                     1
+
+     MPI processes distributed on     1 nodes
+     14157 MiB available memory on the printing compute node when the environment starts
+
+     Reading input from ph.in
+
+     Reading xml data from directory:
+
+     ../tmp/gr.save/
+
+     R & G space division:  proc/nbgrp/npool/nimage =       8
+     Subspace diagonalization in iterative solution of the eigenvalue problem:
+     a serial algorithm will be used
+
+
+     IMPORTANT: XC functional enforced from input :
+     Exchange-correlation= PBE
+                           (   1   4   3   4   0   0   0)
+     Any further DFT definition will be discarded
+     Please, verify this is what you really want
+
+
+     Parallelization info
+     --------------------
+     sticks:   dense  smooth     PW     G-vecs:    dense   smooth      PW
+     Min          45      45     13                 4167     4167     705
+     Max          46      46     14                 4184     4184     726
+     Sum         361     361    109                33427    33427    5741
+
+     Using Slab Decomposition
+
+     Reading collected, re-writing distributed wavefunctions in ../tmp/
+
+     Number and degeneracy of irreps per q-point
+       N         xq(1)         xq(2)         xq(3)   N irreps
+       1   0.360000000   0.623538291   0.000000000       6
+     No degeneracy
+
+     Calculation of q =    0.3600000   0.6235383   0.0000000
+
+     Parallelization info
+     --------------------
+     sticks:   dense  smooth     PW     G-vecs:    dense   smooth      PW
+     Min          45      45     17                 4167     4167     983
+     Max          46      46     18                 4184     4184     995
+     Sum         361     361    139                33427    33427    7905
+
+     Using Slab Decomposition
+
+
+     Title: 
+     graphene q-space campaign DEV_B, dg=0.06, k=32, K t=1.080                  
+
+
+     bravais-lattice index     =            4
+     lattice parameter (alat)  =       4.6487  a.u.
+     unit-cell volume          =     530.5041 (a.u.)^3
+     number of atoms/cell      =            2
+     number of atomic types    =            1
+     number of electrons       =         8.00
+     number of Kohn-Sham states=            8
+     kinetic-energy cutoff     =      60.0000  Ry
+     charge density cutoff     =     240.0000  Ry
+     Exchange-correlation= PBE
+                           (   1   4   3   4   0   0   0)
+
+     celldm(1)=   4.648726  celldm(2)=   0.000000  celldm(3)=   6.097561
+     celldm(4)=   0.000000  celldm(5)=   0.000000  celldm(6)=   0.000000
+
+     crystal axes: (cart. coord. in units of alat)
+               a(1) = (   1.000000   0.000000   0.000000 )  
+               a(2) = (  -0.500000   0.866025   0.000000 )  
+               a(3) = (   0.000000   0.000000   6.097561 )  
+
+     reciprocal axes: (cart. coord. in units 2 pi/alat)
+               b(1) = (  1.000000  0.577350 -0.000000 )  
+               b(2) = (  0.000000  1.154701  0.000000 )  
+               b(3) = (  0.000000 -0.000000  0.164000 )  
+
+
+     PseudoPot. # 1 for C  read from file:
+     /root/phonon/pseudo/C_ONCV_PBE-1.2.upf
+     MD5 check sum: 1a5f83a7b1f58d24996abe00ed223ac6
+     Pseudo is Norm-conserving, Zval =  4.0
+     Generated using ONCVPSP code by D. R. Hamann
+     Using radial grid of  602 points,  4 beta functions with: 
+                l(1) =   0
+                l(2) =   0
+                l(3) =   1
+                l(4) =   1
+
+     atomic species   valence    mass     pseudopotential
+     C                 4.00    12.01100     C ( 1.00)
+
+     24 Sym. Ops., with inversion, found
+
+
+
+   Cartesian axes
+
+     site n.     atom                  positions (alat units)
+         1        C      tau(   1) = (   0.0000000   0.0000000   0.0000000  )
+         2        C      tau(   2) = (  -0.0000000   0.5773503   0.0000000  )
+
+     number of k points=  1056  Fermi-Dirac smearing, width (Ry)=  0.0600
+
+     Number of k-points >= 100: set verbosity='high' to print them.
+
+     Dense  grid:    33427 G-vectors     FFT dimensions: (  24,  24, 144)
+
+     Estimated max dynamical RAM per process >       2.42 MB
+
+     Estimated total dynamical RAM >      19.38 MB
+
+     The potential is recalculated from file :
+     ../tmp/_ph0/gr.save/charge-density
+
+     Starting wfcs are    0 atomic +    8 random wfcs
+
+     Band Structure Calculation
+     Davidson diagonalization with overlap
+
+     ethr =  1.25E-10,  avg # of iterations = 36.6
+
+     total cpu time spent up to now is      218.0 secs
+
+     End of band structure calculation
+
+     Number of k-points >= 100: set verbosity='high' to print the bands.
+
+     the Fermi energy is    -1.9369 ev
+
+     Writing config to output data dir ../tmp/_ph0/gr.save/ :
+     XML data file
+
+Possibly too few bands at point    1   0.00000   0.00000   0.00000
+
+Possibly too few bands at point    3   0.00000   0.03608   0.00000
+
+Possibly too few bands at point    5   0.00000   0.07217   0.00000
+
+Possibly too few bands at point    7   0.00000   0.10825   0.00000
+
+Possibly too few bands at point    9   0.00000   0.14434   0.00000
+
+Possibly too few bands at point   11   0.00000   0.18042   0.00000
+
+Possibly too few bands at point   13   0.00000   0.21651   0.00000
+
+Possibly too few bands at point   17   0.00000   0.28868   0.00000
+
+Possibly too few bands at point   19   0.00000   0.32476   0.00000
+
+Possibly too few bands at point   21   0.00000   0.36084   0.00000
+
+Possibly too few bands at point   26   0.36000   1.05655   0.00000
+
+Possibly too few bands at point   28   0.36000   1.09264   0.00000
+
+Possibly too few bands at point   30   0.36000   1.12872   0.00000
+
+Possibly too few bands at point   32   0.36000   1.16480   0.00000
+
+Possibly too few bands at point   34   0.36000   0.04619   0.00000
+
+Possibly too few bands at point   35   0.03125   0.05413   0.00000
+
+Possibly too few bands at point   37   0.03125   0.09021   0.00000
+
+Possibly too few bands at point   39   0.03125   0.12630   0.00000
+
+Possibly too few bands at point   41   0.03125   0.16238   0.00000
+
+Possibly too few bands at point   43   0.03125   0.19846   0.00000
+
+Possibly too few bands at point   45   0.03125   0.23455   0.00000
+
+Possibly too few bands at point   47   0.03125   0.27063   0.00000
+
+Possibly too few bands at point   49   0.03125   0.30672   0.00000
+
+Possibly too few bands at point   51   0.03125   0.34280   0.00000
+
+Possibly too few bands at point   65   0.06250   0.10825   0.00000
+
+Possibly too few bands at point   67   0.06250   0.14434   0.00000
+
+Possibly too few bands at point   69   0.06250   0.18042   0.00000
+
+Possibly too few bands at point   71   0.06250   0.21651   0.00000
+
+Possibly too few bands at point   75   0.06250   0.28868   0.00000
+
+Possibly too few bands at point   77   0.06250   0.32476   0.00000
+
+Possibly too few bands at point   79   0.06250   0.36084   0.00000
+
+Possibly too few bands at point   93   0.09375   0.16238   0.00000
+
+Possibly too few bands at point   95   0.09375   0.19846   0.00000
+
+Possibly too few bands at point   99   0.09375   0.27063   0.00000
+
+Possibly too few bands at point  101   0.09375   0.30672   0.00000
+
+Possibly too few bands at point  103   0.09375   0.34280   0.00000
+
+Possibly too few bands at point  119   0.12500   0.25259   0.00000
+
+Possibly too few bands at point  121   0.12500   0.28868   0.00000
+
+Possibly too few bands at point  123   0.12500   0.32476   0.00000
+
+Possibly too few bands at point  139   0.15625   0.27063   0.00000
+
+Possibly too few bands at point  141   0.15625   0.30672   0.00000
+
+Possibly too few bands at point  205  -0.03125   0.01804   0.00000
+
+Possibly too few bands at point  207  -0.03125  -0.01804   0.00000
+
+Possibly too few bands at point  209  -0.06250   0.03608   0.00000
+
+Possibly too few bands at point  211  -0.06250  -0.03608   0.00000
+
+Possibly too few bands at point  213  -0.09375   0.05413   0.00000
+
+Possibly too few bands at point  215  -0.09375  -0.05413   0.00000
+
+Possibly too few bands at point  217  -0.12500   0.07217   0.00000
+
+Possibly too few bands at point  219  -0.12500  -0.07217   0.00000
+
+Possibly too few bands at point  221  -0.15625   0.09021   0.00000
+
+Possibly too few bands at point  223  -0.15625  -0.09021   0.00000
+
+Possibly too few bands at point  225  -0.18750   0.10825   0.00000
+
+Possibly too few bands at point  227  -0.18750  -0.10825   0.00000
+
+Possibly too few bands at point  233  -0.25000   0.14434   0.00000
+
+Possibly too few bands at point  235  -0.25000  -0.14434   0.00000
+
+Possibly too few bands at point  237  -0.28125   0.16238   0.00000
+
+Possibly too few bands at point  239  -0.28125  -0.16238   0.00000
+
+Possibly too few bands at point  241  -0.31250   0.18042   0.00000
+
+Possibly too few bands at point  242   0.04750   0.80396   0.00000
+
+Possibly too few bands at point  243  -0.31250  -0.18042   0.00000
+
+Possibly too few bands at point  246   0.01625   0.82200   0.00000
+
+Possibly too few bands at point  250  -0.01500   0.84004   0.00000
+
+Possibly too few bands at point  254  -0.04625   0.85809   0.00000
+
+Possibly too few bands at point  258  -0.07750   0.87613   0.00000
+
+Possibly too few bands at point  262  -0.10875   0.89417   0.00000
+
+Possibly too few bands at point  264  -0.10875   0.35291   0.00000
+
+Possibly too few bands at point  266   0.86000   0.33486   0.00000
+
+Possibly too few bands at point  267  -0.03125   0.05413   0.00000
+
+Possibly too few bands at point  269  -0.06250   0.00000   0.00000
+
+Possibly too few bands at point  271  -0.03125  -0.05413   0.00000
+
+Possibly too few bands at point  273  -0.06250   0.07217   0.00000
+
+Possibly too few bands at point  275   0.09375   0.01804   0.00000
+
+Possibly too few bands at point  277  -0.09375  -0.01804   0.00000
+
+Possibly too few bands at point  279   0.06250  -0.07217   0.00000
+
+Possibly too few bands at point  281  -0.06250  -0.07217   0.00000
+
+Possibly too few bands at point  283  -0.09375   0.09021   0.00000
+
+Possibly too few bands at point  285   0.12500   0.03608   0.00000
+
+Possibly too few bands at point  287  -0.12500  -0.03608   0.00000
+
+Possibly too few bands at point  289   0.09375  -0.09021   0.00000
+
+Possibly too few bands at point  291  -0.09375  -0.09021   0.00000
+
+Possibly too few bands at point  293  -0.12500   0.10825   0.00000
+
+Possibly too few bands at point  295   0.15625   0.05413   0.00000
+
+Possibly too few bands at point  297  -0.15625  -0.05413   0.00000
+
+Possibly too few bands at point  299   0.12500  -0.10825   0.00000
+
+Possibly too few bands at point  301  -0.12500  -0.10825   0.00000
+
+Possibly too few bands at point  303  -0.15625   0.12630   0.00000
+
+Possibly too few bands at point  305   0.18750   0.07217   0.00000
+
+Possibly too few bands at point  307  -0.18750  -0.07217   0.00000
+
+Possibly too few bands at point  309   0.15625  -0.12630   0.00000
+
+Possibly too few bands at point  311  -0.15625  -0.12630   0.00000
+
+Possibly too few bands at point  313  -0.18750   0.14434   0.00000
+
+Possibly too few bands at point  315   0.21875   0.09021   0.00000
+
+Possibly too few bands at point  317  -0.21875  -0.09021   0.00000
+
+Possibly too few bands at point  319   0.18750  -0.14434   0.00000
+
+Possibly too few bands at point  321  -0.18750  -0.14434   0.00000
+
+Possibly too few bands at point  323  -0.21875   0.16238   0.00000
+
+Possibly too few bands at point  325   0.25000   0.10825   0.00000
+
+Possibly too few bands at point  327  -0.25000  -0.10825   0.00000
+
+Possibly too few bands at point  329   0.21875  -0.16238   0.00000
+
+Possibly too few bands at point  331  -0.21875  -0.16238   0.00000
+
+Possibly too few bands at point  333  -0.25000   0.18042   0.00000
+
+Possibly too few bands at point  334   0.11000   0.80396   0.00000
+
+Possibly too few bands at point  335   0.28125   0.12630   0.00000
+
+Possibly too few bands at point  337  -0.28125  -0.12630   0.00000
+
+Possibly too few bands at point  339   0.25000  -0.18042   0.00000
+
+Possibly too few bands at point  341  -0.25000  -0.18042   0.00000
+
+Possibly too few bands at point  343  -0.28125   0.19846   0.00000
+
+Possibly too few bands at point  344   0.07875   0.82200   0.00000
+
+Possibly too few bands at point  345   0.31250   0.14434   0.00000
+
+Possibly too few bands at point  347  -0.31250  -0.14434   0.00000
+
+Possibly too few bands at point  349   0.28125  -0.19846   0.00000
+
+Possibly too few bands at point  351  -0.28125  -0.19846   0.00000
+
+Possibly too few bands at point  354   0.04750   0.84004   0.00000
+
+Possibly too few bands at point  356   0.70375   0.78592   0.00000
+
+Possibly too few bands at point  360   0.67250   0.40703   0.00000
+
+Possibly too few bands at point  364   0.01625   0.85809   0.00000
+
+Possibly too few bands at point  366   0.73500   0.80396   0.00000
+
+Possibly too few bands at point  370   0.70375   0.38899   0.00000
+
+Possibly too few bands at point  374  -0.01500   0.87613   0.00000
+
+Possibly too few bands at point  376   0.76625   0.82200   0.00000
+
+Possibly too few bands at point  380   0.73500   0.37095   0.00000
+
+Possibly too few bands at point  382  -0.01500   0.37095   0.00000
+
+Possibly too few bands at point  386   0.79750   0.84004   0.00000
+
+Possibly too few bands at point  390   0.76625   0.35291   0.00000
+
+Possibly too few bands at point  392  -0.04625   0.35291   0.00000
+
+Possibly too few bands at point  396   0.82875   0.85809   0.00000
+
+Possibly too few bands at point  400   0.79750   0.33486   0.00000
+
+Possibly too few bands at point  402  -0.07750   0.33486   0.00000
+
+Possibly too few bands at point  406   0.86000   0.87613   0.00000
+
+Possibly too few bands at point  410   0.82875   0.31682   0.00000
+
+Possibly too few bands at point  412  -0.10875   0.31682   0.00000
+
+Possibly too few bands at point  413  -0.06250   0.10825   0.00000
+
+Possibly too few bands at point  415  -0.12500   0.00000   0.00000
+
+Possibly too few bands at point  417  -0.06250  -0.10825   0.00000
+
+Possibly too few bands at point  419  -0.09375   0.12630   0.00000
+
+Possibly too few bands at point  421   0.15625   0.01804   0.00000
+
+Possibly too few bands at point  423  -0.15625  -0.01804   0.00000
+
+Possibly too few bands at point  425   0.09375  -0.12630   0.00000
+
+Possibly too few bands at point  427  -0.09375  -0.12630   0.00000
+
+Possibly too few bands at point  429  -0.12500   0.14434   0.00000
+
+Possibly too few bands at point  431   0.18750   0.03608   0.00000
+
+Possibly too few bands at point  433  -0.18750  -0.03608   0.00000
+
+Possibly too few bands at point  435   0.12500  -0.14434   0.00000
+
+Possibly too few bands at point  437  -0.12500  -0.14434   0.00000
+
+Possibly too few bands at point  439  -0.15625   0.16238   0.00000
+
+Possibly too few bands at point  441   0.21875   0.05413   0.00000
+
+Possibly too few bands at point  443  -0.21875  -0.05413   0.00000
+
+Possibly too few bands at point  445   0.15625  -0.16238   0.00000
+
+Possibly too few bands at point  447  -0.15625  -0.16238   0.00000
+
+Possibly too few bands at point  459  -0.21875   0.19846   0.00000
+
+Possibly too few bands at point  460   0.14125   0.82200   0.00000
+
+Possibly too few bands at point  461   0.28125   0.09021   0.00000
+
+Possibly too few bands at point  463  -0.28125  -0.09021   0.00000
+
+Possibly too few bands at point  465   0.21875  -0.19846   0.00000
+
+Possibly too few bands at point  467  -0.21875  -0.19846   0.00000
+
+Possibly too few bands at point  469  -0.25000   0.21651   0.00000
+
+Possibly too few bands at point  470   0.11000   0.84004   0.00000
+
+Possibly too few bands at point  471   0.31250   0.10825   0.00000
+
+Possibly too few bands at point  472   0.67250   0.73179   0.00000
+
+Possibly too few bands at point  473  -0.31250  -0.10825   0.00000
+
+Possibly too few bands at point  475   0.25000  -0.21651   0.00000
+
+Possibly too few bands at point  477  -0.25000  -0.21651   0.00000
+
+Possibly too few bands at point  479  -0.28125   0.23455   0.00000
+
+Possibly too few bands at point  480   0.07875   0.85809   0.00000
+
+Possibly too few bands at point  481   0.34375   0.12630   0.00000
+
+Possibly too few bands at point  482   0.70375   0.74983   0.00000
+
+Possibly too few bands at point  483  -0.34375  -0.12630   0.00000
+
+Possibly too few bands at point  485   0.28125  -0.23455   0.00000
+
+Possibly too few bands at point  487  -0.28125  -0.23455   0.00000
+
+Possibly too few bands at point  490   0.04750   0.87613   0.00000
+
+Possibly too few bands at point  492   0.73500   0.76788   0.00000
+
+Possibly too few bands at point  498   0.04750   0.37095   0.00000
+
+Possibly too few bands at point  502   0.76625   0.78592   0.00000
+
+Possibly too few bands at point  506   0.70375   0.35291   0.00000
+
+Possibly too few bands at point  508   0.01625   0.35291   0.00000
+
+Possibly too few bands at point  510  -0.01500   0.91221   0.00000
+
+Possibly too few bands at point  512   0.79750   0.80396   0.00000
+
+Possibly too few bands at point  516   0.73500   0.33486   0.00000
+
+Possibly too few bands at point  518  -0.01500   0.33486   0.00000
+
+Possibly too few bands at point  520  -0.04625   0.93026   0.00000
+
+Possibly too few bands at point  522   0.82875   0.82200   0.00000
+
+Possibly too few bands at point  526   0.76625   0.31682   0.00000
+
+Possibly too few bands at point  528  -0.04625   0.31682   0.00000
+
+Possibly too few bands at point  530  -0.07750   0.94830   0.00000
+
+Possibly too few bands at point  532   0.86000   0.84004   0.00000
+
+Possibly too few bands at point  536   0.79750   0.29878   0.00000
+
+Possibly too few bands at point  538  -0.07750   0.29878   0.00000
+
+Possibly too few bands at point  540  -0.10875   0.96634   0.00000
+
+Possibly too few bands at point  542   0.89125   0.85809   0.00000
+
+Possibly too few bands at point  544   0.82875   0.28074   0.00000
+
+Possibly too few bands at point  545  -0.09375   0.16238   0.00000
+
+Possibly too few bands at point  547  -0.18750   0.00000   0.00000
+
+Possibly too few bands at point  549  -0.09375  -0.16238   0.00000
+
+Possibly too few bands at point  551  -0.12500   0.18042   0.00000
+
+Possibly too few bands at point  553   0.21875   0.01804   0.00000
+
+Possibly too few bands at point  555  -0.21875  -0.01804   0.00000
+
+Possibly too few bands at point  557   0.12500  -0.18042   0.00000
+
+Possibly too few bands at point  559  -0.12500  -0.18042   0.00000
+
+Possibly too few bands at point  571  -0.18750   0.21651   0.00000
+
+Possibly too few bands at point  572   0.17250   0.84004   0.00000
+
+Possibly too few bands at point  573   0.28125   0.05413   0.00000
+
+Possibly too few bands at point  574   0.64125   0.67766   0.00000
+
+Possibly too few bands at point  575  -0.28125  -0.05413   0.00000
+
+Possibly too few bands at point  577   0.18750  -0.21651   0.00000
+
+Possibly too few bands at point  579  -0.18750  -0.21651   0.00000
+
+Possibly too few bands at point  581  -0.21875   0.23455   0.00000
+
+Possibly too few bands at point  582   0.14125   0.85809   0.00000
+
+Possibly too few bands at point  583   0.31250   0.07217   0.00000
+
+Possibly too few bands at point  584   0.67250   0.69571   0.00000
+
+Possibly too few bands at point  585  -0.31250  -0.07217   0.00000
+
+Possibly too few bands at point  587   0.21875  -0.23455   0.00000
+
+Possibly too few bands at point  589  -0.21875  -0.23455   0.00000
+
+Possibly too few bands at point  591  -0.25000   0.25259   0.00000
+
+Possibly too few bands at point  592   0.11000   0.87613   0.00000
+
+Possibly too few bands at point  593   0.34375   0.09021   0.00000
+
+Possibly too few bands at point  594   0.70375   0.71375   0.00000
+
+Possibly too few bands at point  595  -0.34375  -0.09021   0.00000
+
+Possibly too few bands at point  597   0.25000  -0.25259   0.00000
+
+Possibly too few bands at point  599  -0.25000  -0.25259   0.00000
+
+Possibly too few bands at point  602   0.07875   0.89417   0.00000
+
+Possibly too few bands at point  604   0.73500   0.73179   0.00000
+
+Possibly too few bands at point  610   0.07875   0.35291   0.00000
+
+Possibly too few bands at point  612   0.04750   0.91221   0.00000
+
+Possibly too few bands at point  614   0.76625   0.74983   0.00000
+
+Possibly too few bands at point  620   0.04750   0.33486   0.00000
+
+Possibly too few bands at point  622   0.01625   0.93026   0.00000
+
+Possibly too few bands at point  624   0.79750   0.76788   0.00000
+
+Possibly too few bands at point  630   0.01625   0.31682   0.00000
+
+Possibly too few bands at point  632  -0.01500   0.94830   0.00000
+
+Possibly too few bands at point  640  -0.01500   0.29878   0.00000
+
+Possibly too few bands at point  642  -0.04625   0.96634   0.00000
+
+Possibly too few bands at point  650  -0.04625   0.28074   0.00000
+
+Possibly too few bands at point  652  -0.07750   0.98438   0.00000
+
+Possibly too few bands at point  660  -0.07750   0.26269   0.00000
+
+Possibly too few bands at point  667  -0.15625   0.23455   0.00000
+
+Possibly too few bands at point  668   0.20375   0.85809   0.00000
+
+Possibly too few bands at point  669   0.28125   0.01804   0.00000
+
+Possibly too few bands at point  670   0.64125   0.64158   0.00000
+
+Possibly too few bands at point  671  -0.28125  -0.01804   0.00000
+
+Possibly too few bands at point  673   0.15625  -0.23455   0.00000
+
+Possibly too few bands at point  675  -0.15625  -0.23455   0.00000
+
+Possibly too few bands at point  677  -0.18750   0.25259   0.00000
+
+Possibly too few bands at point  678   0.17250   0.87613   0.00000
+
+Possibly too few bands at point  679   0.31250   0.03608   0.00000
+
+Possibly too few bands at point  680   0.67250   0.65962   0.00000
+
+Possibly too few bands at point  681  -0.31250  -0.03608   0.00000
+
+Possibly too few bands at point  683   0.18750  -0.25259   0.00000
+
+Possibly too few bands at point  685  -0.18750  -0.25259   0.00000
+
+Possibly too few bands at point  687  -0.21875   0.27063   0.00000
+
+Possibly too few bands at point  688   0.14125   0.89417   0.00000
+
+Possibly too few bands at point  689   0.34375   0.05413   0.00000
+
+Possibly too few bands at point  690   0.70375   0.67766   0.00000
+
+Possibly too few bands at point  691  -0.34375  -0.05413   0.00000
+
+Possibly too few bands at point  693   0.21875  -0.27063   0.00000
+
+Possibly too few bands at point  695  -0.21875  -0.27063   0.00000
+
+Possibly too few bands at point  700   0.73500   0.69571   0.00000
+
+Possibly too few bands at point  706   0.11000   0.33486   0.00000
+
+Possibly too few bands at point  708   0.07875   0.93026   0.00000
+
+Possibly too few bands at point  710   0.76625   0.71375   0.00000
+
+Possibly too few bands at point  716   0.07875   0.31682   0.00000
+
+Possibly too few bands at point  718   0.04750   0.94830   0.00000
+
+Possibly too few bands at point  726   0.04750   0.29878   0.00000
+
+Possibly too few bands at point  728   0.01625   0.96634   0.00000
+
+Possibly too few bands at point  730   0.82875   0.74983   0.00000
+
+Possibly too few bands at point  736   0.01625   0.28074   0.00000
+
+Possibly too few bands at point  738  -0.01500   0.98438   0.00000
+
+Possibly too few bands at point  740   0.86000   0.76788   0.00000
+
+Possibly too few bands at point  748  -0.04625   1.00242   0.00000
+
+Possibly too few bands at point  750   0.89125   0.78592   0.00000
+
+Possibly too few bands at point  758  -0.07750   1.02047   0.00000
+
+Possibly too few bands at point  760   0.92250   0.80396   0.00000
+
+Possibly too few bands at point  763  -0.15625   0.27063   0.00000
+
+Possibly too few bands at point  764   0.20375   0.89417   0.00000
+
+Possibly too few bands at point  765  -0.31250   0.00000   0.00000
+
+Possibly too few bands at point  767  -0.15625  -0.27063   0.00000
+
+Possibly too few bands at point  769  -0.18750   0.28868   0.00000
+
+Possibly too few bands at point  770   0.17250   0.91221   0.00000
+
+Possibly too few bands at point  771   0.34375   0.01804   0.00000
+
+Possibly too few bands at point  772   0.70375   0.64158   0.00000
+
+Possibly too few bands at point  773  -0.34375  -0.01804   0.00000
+
+Possibly too few bands at point  775   0.18750  -0.28868   0.00000
+
+Possibly too few bands at point  777  -0.18750  -0.28868   0.00000
+
+Possibly too few bands at point  782   0.73500   0.65962   0.00000
+
+Possibly too few bands at point  788   0.14125   0.31682   0.00000
+
+Possibly too few bands at point  790   0.11000   0.94830   0.00000
+
+Possibly too few bands at point  798   0.11000   0.29878   0.00000
+
+Possibly too few bands at point  800   0.07875   0.96634   0.00000
+
+Possibly too few bands at point  802   0.79750   0.69571   0.00000
+
+Possibly too few bands at point  808   0.07875   0.28074   0.00000
+
+Possibly too few bands at point  810   0.04750   0.98438   0.00000
+
+Possibly too few bands at point  812   0.82875   0.71375   0.00000
+
+Possibly too few bands at point  820   0.01625   1.00242   0.00000
+
+Possibly too few bands at point  822   0.86000   0.73179   0.00000
+
+Possibly too few bands at point  828   0.01625   0.24465   0.00000
+
+Possibly too few bands at point  830  -0.01500   1.02047   0.00000
+
+Possibly too few bands at point  832   0.89125   0.74983   0.00000
+
+Possibly too few bands at point  838  -0.01500   0.22661   0.00000
+
+Possibly too few bands at point  840  -0.04625   1.03851   0.00000
+
+Possibly too few bands at point  842   0.92250   0.76788   0.00000
+
+Possibly too few bands at point  848  -0.04625   0.20857   0.00000
+
+Possibly too few bands at point  854   0.17250   0.29878   0.00000
+
+Possibly too few bands at point  856   0.14125   0.96634   0.00000
+
+Possibly too few bands at point  858   0.76625   0.64158   0.00000
+
+Possibly too few bands at point  864   0.14125   0.28074   0.00000
+
+Possibly too few bands at point  866   0.11000   0.98438   0.00000
+
+Possibly too few bands at point  868   0.79750   0.65962   0.00000
+
+Possibly too few bands at point  874   0.11000   0.26269   0.00000
+
+Possibly too few bands at point  876   0.07875   1.00242   0.00000
+
+Possibly too few bands at point  878   0.82875   0.67766   0.00000
+
+Possibly too few bands at point  886   0.04750   1.02047   0.00000
+
+Possibly too few bands at point  888   0.86000   0.69571   0.00000
+
+Possibly too few bands at point  894   0.04750   0.22661   0.00000
+
+Possibly too few bands at point  896   0.01625   1.03851   0.00000
+
+Possibly too few bands at point  898   0.89125   0.71375   0.00000
+
+Possibly too few bands at point  904   0.01625   0.20857   0.00000
+
+Possibly too few bands at point  906  -0.01500   1.05655   0.00000
+
+Possibly too few bands at point  908   0.92250   0.73179   0.00000
+
+Possibly too few bands at point  914  -0.01500   0.19053   0.00000
+
+Possibly too few bands at point  916  -0.04625   1.07459   0.00000
+
+Possibly too few bands at point  918   0.95375   0.74983   0.00000
+
+Possibly too few bands at point  922   0.14125   1.00242   0.00000
+
+Possibly too few bands at point  926   0.14125   0.24465   0.00000
+
+Possibly too few bands at point  928   0.11000   1.02047   0.00000
+
+Possibly too few bands at point  930   0.82875   0.64158   0.00000
+
+Possibly too few bands at point  938   0.07875   1.03851   0.00000
+
+Possibly too few bands at point  940   0.86000   0.65962   0.00000
+
+Possibly too few bands at point  946   0.07875   0.20857   0.00000
+
+Possibly too few bands at point  948   0.04750   1.05655   0.00000
+
+Possibly too few bands at point  950   0.89125   0.67766   0.00000
+
+Possibly too few bands at point  956   0.04750   0.19053   0.00000
+
+Possibly too few bands at point  958   0.01625   1.07459   0.00000
+
+Possibly too few bands at point  960   0.92250   0.69571   0.00000
+
+Possibly too few bands at point  966   0.01625   0.17248   0.00000
+
+Possibly too few bands at point  968  -0.01500   1.09264   0.00000
+
+Possibly too few bands at point  970   0.95375   0.71375   0.00000
+
+Possibly too few bands at point  976  -0.01500   0.15444   0.00000
+
+Possibly too few bands at point  978   0.11000   1.05655   0.00000
+
+Possibly too few bands at point  982   0.11000   0.19053   0.00000
+
+Possibly too few bands at point  984   0.07875   1.07459   0.00000
+
+Possibly too few bands at point  986   0.89125   0.64158   0.00000
+
+Possibly too few bands at point  992   0.07875   0.17248   0.00000
+
+Possibly too few bands at point  994   0.04750   1.09264   0.00000
+
+Possibly too few bands at point  996   0.92250   0.65962   0.00000
+
+Possibly too few bands at point 1002   0.04750   0.15444   0.00000
+
+Possibly too few bands at point 1004   0.01625   1.11068   0.00000
+
+Possibly too few bands at point 1006   0.95375   0.67766   0.00000
+
+Possibly too few bands at point 1012   0.01625   0.13640   0.00000
+
+Possibly too few bands at point 1014  -0.01500   1.12872   0.00000
+
+Possibly too few bands at point 1016   0.98500   0.69571   0.00000
+
+Possibly too few bands at point 1020   0.07875   1.11068   0.00000
+
+Possibly too few bands at point 1024   0.07875   0.13640   0.00000
+
+Possibly too few bands at point 1026   0.04750   1.12872   0.00000
+
+Possibly too few bands at point 1028   0.95375   0.64158   0.00000
+
+Possibly too few bands at point 1034   0.04750   0.11836   0.00000
+
+Possibly too few bands at point 1036   0.01625   1.14676   0.00000
+
+Possibly too few bands at point 1038   0.98500   0.65962   0.00000
+
+Possibly too few bands at point 1044   0.01625   0.10031   0.00000
+
+Possibly too few bands at point 1046   0.04750   1.16480   0.00000
+
+Possibly too few bands at point 1050   0.04750   0.08227   0.00000
+
+Possibly too few bands at point 1052   0.01625   1.18285   0.00000
+
+Possibly too few bands at point 1054   1.01625   0.64158   0.00000
+
+     graphene q-space campaign DEV_B, dg=0.06, k=32, K t=1.080                  
+
+     bravais-lattice index     =            4
+     lattice parameter (alat)  =       4.6487  a.u.
+     unit-cell volume          =     530.5041 (a.u.)^3
+     number of atoms/cell      =            2
+     number of atomic types    =            1
+     kinetic-energy cut-off    =      60.0000  Ry
+     charge density cut-off    =     240.0000  Ry
+     convergence threshold     =      1.0E-14
+     beta                      =       0.7000
+     number of iterations used =            4
+     Exchange-correlation= PBE
+                           (   1   4   3   4   0   0   0)
+
+
+     celldm(1)=    4.64873  celldm(2)=    0.00000  celldm(3)=    6.09756
+     celldm(4)=    0.00000  celldm(5)=    0.00000  celldm(6)=    0.00000
+
+     crystal axes: (cart. coord. in units of alat)
+               a(1) = (  1.0000  0.0000  0.0000 )  
+               a(2) = ( -0.5000  0.8660  0.0000 )  
+               a(3) = (  0.0000  0.0000  6.0976 )  
+
+     reciprocal axes: (cart. coord. in units 2 pi/alat)
+               b(1) = (  1.0000  0.5774 -0.0000 )  
+               b(2) = (  0.0000  1.1547  0.0000 )  
+               b(3) = (  0.0000 -0.0000  0.1640 )  
+
+
+     Atoms inside the unit cell: 
+
+     Cartesian axes
+
+     site n.  atom      mass           positions (alat units)
+        1  C      12.0110   tau(    1) = (    0.00000    0.00000    0.00000  )
+        2  C      12.0110   tau(    2) = (   -0.00000    0.57735    0.00000  )
+
+     Computing dynamical matrix for 
+                    q = (   0.3600000   0.6235383   0.0000000 )
+
+      4 Sym.Ops. (no q -> -q+G )
+
+
+     G cutoff =  131.3770  (   4183 G-vectors)     FFT grid: ( 24, 24,144)
+
+     number of k points=  1056  Fermi-Dirac smearing, width (Ry)=  0.0600
+
+     PseudoPot. # 1 for C  read from file:
+     /root/phonon/pseudo/C_ONCV_PBE-1.2.upf
+     MD5 check sum: 1a5f83a7b1f58d24996abe00ed223ac6
+     Pseudo is Norm-conserving, Zval =  4.0
+     Generated using ONCVPSP code by D. R. Hamann
+     Using radial grid of  602 points,  4 beta functions with: 
+                l(1) =   0
+                l(2) =   0
+                l(3) =   1
+                l(4) =   1
+
+     Mode symmetry, C_2v (mm2)  point group:
+
+
+     Atomic displacements:
+     There are    6 irreducible representations
+
+     Representation     1      1 modes -  To be done
+
+     Representation     2      1 modes -  To be done
+
+     Representation     3      1 modes -  To be done
+
+     Representation     4      1 modes -  To be done
+
+     Representation     5      1 modes -  To be done
+
+     Representation     6      1 modes -  To be done
+
+
+     Message from routine init_vloc:
+     Interpolation table for Vloc re-allocated
+
+     Alpha used in Ewald sum =   2.5000
+     PHONON       :   2m 4.63s CPU   3m43.09s WALL
+
+
+
+     Representation #   1 mode #   1
+
+     Self-consistent Calculation
+
+      iter #   1 total cpu time :   247.7 secs   av.it.:   4.9
+      thresh= 1.000E-02 alpha_mix =  0.700 |ddv_scf|^2 =  2.334E-06
+
+      iter #   2 total cpu time :   282.3 secs   av.it.:   8.5
+      thresh= 1.528E-04 alpha_mix =  0.700 |ddv_scf|^2 =  1.303E-06
+
+      iter #   3 total cpu time :   315.0 secs   av.it.:   8.2
+      thresh= 1.141E-04 alpha_mix =  0.700 |ddv_scf|^2 =  7.047E-08
+
+      iter #   4 total cpu time :   347.7 secs   av.it.:   8.4
+      thresh= 2.655E-05 alpha_mix =  0.700 |ddv_scf|^2 =  2.993E-10
+
+      iter #   5 total cpu time :   382.7 secs   av.it.:   9.2
+      thresh= 1.730E-06 alpha_mix =  0.700 |ddv_scf|^2 =  1.631E-11
+
+      iter #   6 total cpu time :   420.4 secs   av.it.:   8.6
+      thresh= 4.039E-07 alpha_mix =  0.700 |ddv_scf|^2 =  1.294E-13
+
+      iter #   7 total cpu time :   453.6 secs   av.it.:   8.7
+      thresh= 3.597E-08 alpha_mix =  0.700 |ddv_scf|^2 =  1.248E-14
+
+      iter #   8 total cpu time :   486.2 secs   av.it.:   8.3
+      thresh= 1.117E-08 alpha_mix =  0.700 |ddv_scf|^2 =  5.939E-16
+
+     End of self-consistent calculation
+
+     Convergence has been achieved 
+
+
+     Representation #   2 mode #   2
+
+     Self-consistent Calculation
+
+      iter #   1 total cpu time :   510.2 secs   av.it.:   4.9
+      thresh= 1.000E-02 alpha_mix =  0.700 |ddv_scf|^2 =  3.840E-06
+
+      iter #   2 total cpu time :   544.2 secs   av.it.:   8.5
+      thresh= 1.960E-04 alpha_mix =  0.700 |ddv_scf|^2 =  2.693E-06
+
+      iter #   3 total cpu time :   576.5 secs   av.it.:   8.2
+      thresh= 1.641E-04 alpha_mix =  0.700 |ddv_scf|^2 =  6.422E-08
+
+      iter #   4 total cpu time :   608.5 secs   av.it.:   8.5
+      thresh= 2.534E-05 alpha_mix =  0.700 |ddv_scf|^2 =  2.307E-10
+
+      iter #   5 total cpu time :   642.7 secs   av.it.:   9.3
+      thresh= 1.519E-06 alpha_mix =  0.700 |ddv_scf|^2 =  8.308E-12
+
+      iter #   6 total cpu time :   675.0 secs   av.it.:   8.7
+      thresh= 2.882E-07 alpha_mix =  0.700 |ddv_scf|^2 =  6.361E-14
+
+      iter #   7 total cpu time :   708.6 secs   av.it.:   9.0
+      thresh= 2.522E-08 alpha_mix =  0.700 |ddv_scf|^2 =  6.463E-15
+
+     End of self-consistent calculation
+
+     Convergence has been achieved 
+
+
+     Representation #   3 mode #   3
+
+     Self-consistent Calculation
+
+      iter #   1 total cpu time :   734.5 secs   av.it.:   4.6
+      thresh= 1.000E-02 alpha_mix =  0.700 |ddv_scf|^2 =  3.599E-07
+
+      iter #   2 total cpu time :   769.5 secs   av.it.:   8.5
+      thresh= 5.999E-05 alpha_mix =  0.700 |ddv_scf|^2 =  4.330E-09
+
+      iter #   3 total cpu time :   802.7 secs   av.it.:   8.7
+      thresh= 6.580E-06 alpha_mix =  0.700 |ddv_scf|^2 =  1.872E-10
+
+      iter #   4 total cpu time :   832.6 secs   av.it.:   7.5
+      thresh= 1.368E-06 alpha_mix =  0.700 |ddv_scf|^2 =  1.863E-13
+
+      iter #   5 total cpu time :   864.8 secs   av.it.:   8.3
+      thresh= 4.316E-08 alpha_mix =  0.700 |ddv_scf|^2 =  2.476E-15
+
+     End of self-consistent calculation
+
+     Convergence has been achieved 
+
+
+     Representation #   4 mode #   4
+
+     Self-consistent Calculation
+
+      iter #   1 total cpu time :   887.5 secs   av.it.:   4.6
+      thresh= 1.000E-02 alpha_mix =  0.700 |ddv_scf|^2 =  1.466E-06
+
+      iter #   2 total cpu time :   920.7 secs   av.it.:   8.5
+      thresh= 1.211E-04 alpha_mix =  0.700 |ddv_scf|^2 =  1.860E-06
+
+      iter #   3 total cpu time :   951.6 secs   av.it.:   7.9
+      thresh= 1.364E-04 alpha_mix =  0.700 |ddv_scf|^2 =  2.176E-09
+
+      iter #   4 total cpu time :   985.0 secs   av.it.:   9.0
+      thresh= 4.664E-06 alpha_mix =  0.700 |ddv_scf|^2 =  3.456E-11
+
+      iter #   5 total cpu time :  1018.5 secs   av.it.:   8.9
+      thresh= 5.878E-07 alpha_mix =  0.700 |ddv_scf|^2 =  8.642E-14
+
+      iter #   6 total cpu time :  1053.7 secs   av.it.:   9.2
+      thresh= 2.940E-08 alpha_mix =  0.700 |ddv_scf|^2 =  5.240E-15
+
+     End of self-consistent calculation
+
+     Convergence has been achieved 
+
+
+     Representation #   5 mode #   5
+
+     Self-consistent Calculation
+
+      iter #   1 total cpu time :  1083.9 secs   av.it.:   4.8
+      thresh= 1.000E-02 alpha_mix =  0.700 |ddv_scf|^2 =  2.215E-06
+
+      iter #   2 total cpu time :  1117.1 secs   av.it.:   8.5
+      thresh= 1.488E-04 alpha_mix =  0.700 |ddv_scf|^2 =  2.808E-06
+
+      iter #   3 total cpu time :  1148.1 secs   av.it.:   7.9
+      thresh= 1.676E-04 alpha_mix =  0.700 |ddv_scf|^2 =  3.108E-09
+
+      iter #   4 total cpu time :  1182.2 secs   av.it.:   8.9
+      thresh= 5.575E-06 alpha_mix =  0.700 |ddv_scf|^2 =  3.755E-11
+
+      iter #   5 total cpu time :  1215.9 secs   av.it.:   8.9
+      thresh= 6.128E-07 alpha_mix =  0.700 |ddv_scf|^2 =  1.043E-13
+
+      iter #   6 total cpu time :  1250.6 secs   av.it.:   9.0
+      thresh= 3.230E-08 alpha_mix =  0.700 |ddv_scf|^2 =  7.270E-15
+
+     End of self-consistent calculation
+
+     Convergence has been achieved 
+
+
+     Representation #   6 mode #   6
+
+     Self-consistent Calculation
+
+      iter #   1 total cpu time :  1274.1 secs   av.it.:   4.6
+      thresh= 1.000E-02 alpha_mix =  0.700 |ddv_scf|^2 =  2.484E-07
+
+      iter #   2 total cpu time :  1307.7 secs   av.it.:   8.6
+      thresh= 4.984E-05 alpha_mix =  0.700 |ddv_scf|^2 =  2.317E-09
+
+      iter #   3 total cpu time :  1340.8 secs   av.it.:   8.5
+      thresh= 4.814E-06 alpha_mix =  0.700 |ddv_scf|^2 =  1.875E-10
+
+      iter #   4 total cpu time :  1370.4 secs   av.it.:   7.2
+      thresh= 1.369E-06 alpha_mix =  0.700 |ddv_scf|^2 =  2.827E-13
+
+      iter #   5 total cpu time :  1407.9 secs   av.it.:   8.2
+      thresh= 5.317E-08 alpha_mix =  0.700 |ddv_scf|^2 =  3.672E-15
+
+     End of self-consistent calculation
+
+     Convergence has been achieved 
+
+     Number of q in the star =    6
+     List of q in the star:
+          1   0.360000000   0.623538291   0.000000000
+          2  -0.360000000   0.623538291   0.000000000
+          3   0.720000000  -0.000000000   0.000000000
+          4  -0.720000000   0.000000000   0.000000000
+          5   0.360000000  -0.623538291   0.000000000
+          6  -0.360000000  -0.623538291   0.000000000
+
+     Diagonalizing the dynamical matrix
+
+     q = (    0.360000000   0.623538291   0.000000000 ) 
+
+ **************************************************************************
+     freq (    1) =      14.418540 [THz] =     480.950732 [cm-1]
+     freq (    2) =      16.216311 [THz] =     540.917902 [cm-1]
+     freq (    3) =      29.069489 [THz] =     969.653774 [cm-1]
+     freq (    4) =      36.206747 [THz] =    1207.727095 [cm-1]
+     freq (    5) =      37.349717 [THz] =    1245.852446 [cm-1]
+     freq (    6) =      41.593411 [THz] =    1387.406855 [cm-1]
+ **************************************************************************
+
+     Mode symmetry, C_2v (mm2)  point group:
+
+     freq (   1-   1) =        481.0  [cm-1]   --> A_2  D_2  S_2      
+     freq (   2-   2) =        540.9  [cm-1]   --> B_2  D_4  S_4      
+     freq (   3-   3) =        969.7  [cm-1]   --> B_1  D_3  S_3      
+     freq (   4-   4) =       1207.7  [cm-1]   --> B_1  D_3  S_3      
+     freq (   5-   5) =       1245.9  [cm-1]   --> A_1  D_1  S_1      
+     freq (   6-   6) =       1387.4  [cm-1]   --> A_1  D_1  S_1      
+
+     init_run     :      0.11s CPU      0.15s WALL (       1 calls)
+     electrons    :    122.95s CPU    217.86s WALL (       1 calls)
+
+     Called by init_run:
+     wfcinit      :      0.00s CPU      0.00s WALL (       1 calls)
+     potinit      :      0.01s CPU      0.02s WALL (       1 calls)
+     hinit0       :      0.00s CPU      0.02s WALL (       1 calls)
+
+     Called by electrons:
+     c_bands      :    122.95s CPU    217.85s WALL (       1 calls)
+     v_of_rho     :      0.01s CPU      0.03s WALL (       2 calls)
+
+     Called by c_bands:
+     init_us_2    :      2.80s CPU      4.88s WALL (   27984 calls)
+     cegterg      :    118.17s CPU    209.14s WALL (    2364 calls)
+
+     Called by *egterg:
+     cdiaghg      :      8.46s CPU     14.43s WALL (   39741 calls)
+     h_psi        :    521.54s CPU    961.56s WALL (  255943 calls)
+     g_psi        :      1.04s CPU      1.77s WALL (   38685 calls)
+
+     Called by h_psi:
+     h_psi:calbec :     35.50s CPU     65.47s WALL (  255943 calls)
+     vloc_psi     :    463.08s CPU    854.22s WALL (  255943 calls)
+                                        0.00s GPU  (  255943 calls)
+     add_vuspsi   :      7.14s CPU     13.02s WALL (  255943 calls)
+
+     General routines
+     calbec       :     32.29s CPU     60.57s WALL (  273895 calls)
+     fft          :      0.53s CPU      2.69s WALL (     431 calls)
+     ffts         :      1.00s CPU      1.77s WALL (    3204 calls)
+     fftw         :    501.31s CPU    936.14s WALL ( 2921588 calls)
+     davcio       :     10.56s CPU     21.25s WALL (  106998 calls)
+
+     Parallel routines
+
+     PHONON       :  12m34.09s CPU  23m28.68s WALL
+
+     INITIALIZATION: 
+     phq_setup    :      0.01s CPU      0.03s WALL (       1 calls)
+     phq_init     :      0.85s CPU      1.82s WALL (       1 calls)
+
+     phq_init     :      0.85s CPU      1.82s WALL (       1 calls)
+     init_vloc    :      0.01s CPU      0.10s WALL (       2 calls)
+     init_us_1    :      0.00s CPU      0.00s WALL (       2 calls)
+     init_us_2    :      2.80s CPU      4.88s WALL (   27984 calls)
+
+     DYNAMICAL MATRIX:
+     dynmat0      :      0.51s CPU      1.00s WALL (       1 calls)
+     dynmat_us    :      0.51s CPU      0.99s WALL (       1 calls)
+     d2ionq       :      0.00s CPU      0.00s WALL (       1 calls)
+     phqscf       :    629.46s CPU   1185.56s WALL (       1 calls)
+     dynmatrix    :      0.00s CPU      0.00s WALL (       1 calls)
+
+     phqscf       :    629.46s CPU   1185.56s WALL (       1 calls)
+     solve_linter :    627.68s CPU   1181.29s WALL (       6 calls)
+     dfpt_kernel  :    614.08s CPU   1158.29s WALL (       6 calls)
+     sth_kernel   :    613.35s CPU   1156.88s WALL (      37 calls)
+     h_prec       :      2.64s CPU      5.19s WALL (   19536 calls)
+     apply_dpot_b :     41.51s CPU     81.05s WALL (   16368 calls)
+     ortho        :      3.13s CPU      5.94s WALL (   19536 calls)
+     cgsolve      :    506.25s CPU    947.64s WALL (   19536 calls)
+     incdrhoscf   :     46.21s CPU     90.67s WALL (   19536 calls)
+                                        0.00s GPU  (   19536 calls)
+     dv_of_drho   :      0.16s CPU      0.43s WALL (      37 calls)
+     mix_pot      :      0.03s CPU      0.14s WALL (      37 calls)
+     drhodv       :      1.77s CPU      4.27s WALL (       6 calls)
+     psymdvscf    :      0.49s CPU      0.72s WALL (      37 calls)
+     com_dvloc    :      1.37s CPU      2.36s WALL (    3204 calls)
+                                        0.00s GPU  (    3204 calls)
+     addcore      :      0.00s CPU      0.00s WALL (       6 calls)
+                                        0.00s GPU  (       6 calls)
+
+     dvqpsi_us    :     12.42s CPU     21.07s WALL (    3168 calls)
+                                        0.00s GPU  (    3168 calls)
+     dvqpsi_us_on :      0.67s CPU      1.04s WALL (    3168 calls)
+
+     add_vuspsi   :      7.14s CPU     13.02s WALL (  255943 calls)
+
+
+      General routines
+     calbec       :     32.29s CPU     60.57s WALL (  273895 calls)
+     fft          :      0.53s CPU      2.69s WALL (     431 calls)
+     ffts         :      1.00s CPU      1.77s WALL (    3204 calls)
+     fftw         :    501.31s CPU    936.14s WALL ( 2921588 calls)
+     davcio       :     10.56s CPU     21.25s WALL (  106998 calls)
+     write_rec    :      0.02s CPU      0.06s WALL (      43 calls)
+
+      Additional routines
+     ch_psi       :    477.28s CPU    890.47s WALL (  213838 calls)
+     last         :     34.72s CPU     66.99s WALL (  213838 calls)
+     Hesh         :      2.66s CPU      4.91s WALL (  213838 calls)
+     ch_psi_all_k :     25.97s CPU     50.75s WALL (  213838 calls)
+                                        0.00s GPU  (  213838 calls)
+     h_psi_bgrp   :    526.43s CPU    970.54s WALL (  255943 calls)
+     h_psi        :    521.54s CPU    961.56s WALL (  255943 calls)
+     h_psi:pot    :    515.33s CPU    950.19s WALL (  255943 calls)
+     h_psi:calbec :     35.50s CPU     65.47s WALL (  255943 calls)
+     s_psi_bgrp   :      5.98s CPU     10.96s WALL (  447212 calls)
+
+
+     PHONON       :  12m34.09s CPU  23m28.68s WALL
+
+
+   This run was terminated on:   1:34:20  24Jul2026            
+
+=------------------------------------------------------------------------------=
+   JOB DONE.
+=------------------------------------------------------------------------------=

@@ -1,0 +1,46 @@
+{
+  "status": "smooth_zero_full_EPC_curve_generated",
+  "scope": "frozen short-range MLIP plus explicit full-EPC long-range response; zero smearing/degauss; no empirical q-shape fit and no new DFT",
+  "integration": {
+    "coarse_nk": 144,
+    "patch_quadrature": "triangle_centroid",
+    "patch_n": 360,
+    "patch_halfwidth_fractional": 0.04,
+    "eta_eV": 5e-05,
+    "number_of_qpoints": 241,
+    "wall_time_seconds": 55.7740960419178
+  },
+  "K_anchor_frequency_cm-1": 1282.182972,
+  "d003_depths": {
+    "KG": {
+      "dense_n360_depth_cm-1": 1.9316360277480271,
+      "frozen_resolution_extrapolated_depth_cm-1": 1.965011432321931,
+      "frozen_numerical_uncertainty_cm-1": 0.05775416136067513,
+      "DFPT_1_over_k_limit_depth_cm-1": 2.045655710526254
+    },
+    "KM": {
+      "dense_n360_depth_cm-1": 1.9403208253311277,
+      "frozen_resolution_extrapolated_depth_cm-1": 1.9763668291424334,
+      "frozen_numerical_uncertainty_cm-1": 0.06417330503940288,
+      "DFPT_1_over_k_limit_depth_cm-1": 2.078528289473819
+    }
+  },
+  "checks": {
+    "dense_curve_contains_d003_exactly": true,
+    "dense_n360_depth_inside_frozen_uncertainty": true,
+    "rank_one_scalar_update_is_Hermitian_by_construction": true,
+    "frequency_increases_monotonically_away_from_K": {
+      "KG": true,
+      "KM": true
+    },
+    "maximum_discrete_second_difference_cm-1": {
+      "KG": 0.021860652666191527,
+      "KM": 0.04061718456318886
+    }
+  },
+  "limitations": [
+    "the smooth outer curve has not yet been compared with k-converged zero-smearing DFPT away from d=0.003",
+    "the K anchor is calibrated separately, as specified by the long-range model",
+    "the displayed dense curve uses n=360; the d=0.003 reported reference uses the n=180/360/720 resolution extrapolation"
+  ]
+}

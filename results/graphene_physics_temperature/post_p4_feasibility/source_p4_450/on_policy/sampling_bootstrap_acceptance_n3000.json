@@ -1,0 +1,142 @@
+{
+  "status": "passed",
+  "scope": "450 K sampling block-bootstrap before any completed DFT force label",
+  "temperature_K": 450,
+  "snapshots_per_seed": 3000,
+  "replicates": 1000,
+  "random_seed": 450001,
+  "confidence_rule": "one-sided empirical 95th percentile using numpy method=higher",
+  "block_bootstrap": {
+    "method": "independent circular moving-block resampling within each trajectory",
+    "block_rule": "max(5, ceil(2*tau_int))",
+    "tau_estimator": "initial positive autocorrelation sequence; maximum over four observables",
+    "trajectory_diagnostics": [
+      {
+        "seed": 0,
+        "tau_int_snapshots": {
+          "instantaneous_temperature_K": 6.728516552577564,
+          "potential_energy_eV_atom": 6.811720245641837,
+          "force_rms_eV_A": 7.607811222842747,
+          "displacement_rms_A": 1.1718251122634276
+        },
+        "block_length_snapshots": 16
+      },
+      {
+        "seed": 1,
+        "tau_int_snapshots": {
+          "instantaneous_temperature_K": 5.3595742485753215,
+          "potential_energy_eV_atom": 5.385686922847452,
+          "force_rms_eV_A": 4.841966569444533,
+          "displacement_rms_A": 1.2128243391318738
+        },
+        "block_length_snapshots": 11
+      },
+      {
+        "seed": 2,
+        "tau_int_snapshots": {
+          "instantaneous_temperature_K": 5.70764845162089,
+          "potential_energy_eV_atom": 8.020612661441591,
+          "force_rms_eV_A": 7.006744996724746,
+          "displacement_rms_A": 1.2574999993827436
+        },
+        "block_length_snapshots": 17
+      }
+    ]
+  },
+  "sufficient_statistics_replay": [
+    {
+      "seed": 0,
+      "reference_tdep": "/home/howardwang/phonon/results/graphene_fd_transferability/T450/on_policy/short_seed0_n3000.npz",
+      "reference_tdep_sha256": "690fcd77e2a00103a1d022e779999acaf8133972775b59a5fe48fdc2bb35a756",
+      "max_abs_spectrum_difference_cm-1": 2.426154773033638e-05,
+      "fit_rows_per_snapshot": 216,
+      "n_fit_parameters": 28
+    },
+    {
+      "seed": 1,
+      "reference_tdep": "/home/howardwang/phonon/results/graphene_fd_transferability/T450/on_policy/short_seed1_n3000.npz",
+      "reference_tdep_sha256": "a9202aabbf31cf775e18d8ed5112aaf42de0f213036dc6a9a3fe5f3adaa327df",
+      "max_abs_spectrum_difference_cm-1": 2.545126634666071e-05,
+      "fit_rows_per_snapshot": 216,
+      "n_fit_parameters": 28
+    },
+    {
+      "seed": 2,
+      "reference_tdep": "/home/howardwang/phonon/results/graphene_fd_transferability/T450/on_policy/short_seed2_n3000.npz",
+      "reference_tdep_sha256": "605e2589cec7f4322ec4861779c577bf2e69c2c2f8813fb24566aba43fca0055",
+      "max_abs_spectrum_difference_cm-1": 1.2461446726961993e-05,
+      "fit_rows_per_snapshot": 216,
+      "n_fit_parameters": 28
+    }
+  ],
+  "seed_pair_spread": [
+    {
+      "seeds": [
+        0,
+        1
+      ],
+      "point_full_band_MAE_cm-1": 0.3944692318164344,
+      "bootstrap_median_cm-1": 0.6252164965718555,
+      "bootstrap_95pct_upper_cm-1": 0.9021748574465644,
+      "threshold_cm-1": 5.0,
+      "passes_95pct_upper": true
+    },
+    {
+      "seeds": [
+        0,
+        2
+      ],
+      "point_full_band_MAE_cm-1": 0.4185967696630157,
+      "bootstrap_median_cm-1": 0.6472588982248746,
+      "bootstrap_95pct_upper_cm-1": 0.9028601203564943,
+      "threshold_cm-1": 5.0,
+      "passes_95pct_upper": true
+    },
+    {
+      "seeds": [
+        1,
+        2
+      ],
+      "point_full_band_MAE_cm-1": 0.3895015584538238,
+      "bootstrap_median_cm-1": 0.6259554888778732,
+      "bootstrap_95pct_upper_cm-1": 0.8451386000560259,
+      "threshold_cm-1": 5.0,
+      "passes_95pct_upper": true
+    }
+  ],
+  "seed_temperature_diagnostics": [
+    {
+      "seed": 0,
+      "point_mean_temperature_relative_error": 0.003442838424370949,
+      "bootstrap_median_relative_error": 0.0037124152600744587,
+      "bootstrap_95pct_upper_relative_error": 0.010212217412976466,
+      "threshold_relative_error": 0.05,
+      "passes_95pct_upper": true
+    },
+    {
+      "seed": 1,
+      "point_mean_temperature_relative_error": 0.0024803325131073153,
+      "bootstrap_median_relative_error": 0.003191221446523653,
+      "bootstrap_95pct_upper_relative_error": 0.008267614617615208,
+      "threshold_relative_error": 0.05,
+      "passes_95pct_upper": true
+    },
+    {
+      "seed": 2,
+      "point_mean_temperature_relative_error": 0.001146180157221958,
+      "bootstrap_median_relative_error": 0.0027949899881408806,
+      "bootstrap_95pct_upper_relative_error": 0.008305131032465548,
+      "threshold_relative_error": 0.05,
+      "passes_95pct_upper": true
+    }
+  ],
+  "passes_sampling_bootstrap_gate": true,
+  "freeze_manifest_sha256": "8e48384fc805c15d68b861f2911647ecc13d896d17753eb35dfe243cd318232d",
+  "sampling_acceptance_sha256": "5f9342a4927f87e80cef85135f29d8aeab2af7b7f091d7d98a1f2212d442f6bd",
+  "operator_sha256": "bbea00f427dd963ee3ec7e9c4cb84f34498ab2835752fd914035b191925b5b4e",
+  "raw_distributions": {
+    "path": "/home/howardwang/phonon/results/graphene_fd_transferability/T450/on_policy/sampling_bootstrap_acceptance_n3000.npz",
+    "sha256": "34bf582595721ea895ae6225597c7da326fc37b08ae0f56933f37fc190873f48"
+  },
+  "next_stage": "release the fixed 60-structure DFT force-label shards"
+}

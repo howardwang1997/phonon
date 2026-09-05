@@ -1,0 +1,78 @@
+{
+  "status": "frozen_before_R2M_core_training",
+  "model_role": "replacement_short_delta_core",
+  "combination": "frozen_v11_foundation + new_R2M_core + frozen_q6",
+  "depth3_or_current_S0_initialized_or_deployed": false,
+  "random_initialization": true,
+  "architecture": {
+    "model": "MACE",
+    "num_interactions": 2,
+    "r_max_A": 2.0,
+    "hidden_irreps": "16x0e+16x1o+16x2e",
+    "max_ell": 2,
+    "num_radial_basis": 24,
+    "num_cutoff_basis": 5,
+    "correlation": 3,
+    "interaction_diameter_bound_A": 8.0
+  },
+  "loss": {
+    "name": "forces_only",
+    "energy_weight": 0.0,
+    "forces_weight": 100.0,
+    "config_type_weights": {
+      "r2m_exact_e50_train": 0.004687324749326601,
+      "r2m_exact_e50_validation": 0.004687324749326601,
+      "r2m_harmonic_train": 1.0,
+      "r2m_harmonic_validation": 1.0,
+      "r2m_auxiliary_T300": 0.0006987885239726618,
+      "r2m_auxiliary_T600": 0.0006987885239726618
+    },
+    "batch1_semantics": "each complete configuration is one optimizer step; MACE repeats the configuration and force weights over its atoms, squares component errors, then reduces",
+    "mace_version": "0.3.16",
+    "mean_squared_error_forces_source_sha256": "1a3b1d798f99e661e7a2384e863da32dd72b6f2bc4dbc5de643bc5136d9e1602"
+  },
+  "optimizer": {
+    "lr": 0.001,
+    "weight_decay": 1e-06,
+    "ema": true,
+    "ema_decay": 0.99,
+    "scheduler": "ExponentialLR",
+    "lr_scheduler_gamma": 1.0,
+    "validation_data_controls_lr": false
+  },
+  "training": {
+    "seed": 83,
+    "batch_size": 1,
+    "max_epochs": 240,
+    "patience": 300,
+    "fixed_evaluation_epochs": [
+      40,
+      80,
+      120,
+      160,
+      200,
+      235
+    ],
+    "final_is_also_evaluated": true,
+    "validation_loss_cannot_stop_training": true
+  },
+  "leakage": {
+    "support_in_gradients": false,
+    "E50_seed1_in_gradients": false,
+    "E50_seed2_read_by_training": false,
+    "atom_or_bond_random_split": false
+  },
+  "data_manifest": {
+    "path": "/root/phonon/data/graphene_r2m_support_free_core/manifest.json",
+    "sha256": "bb20a86af073e344c38e39ab14d3a80af9e39fa051591bed2b039ae643ffe31e"
+  },
+  "launcher": {
+    "path": "/data/graphene_r2m_core/support_free_r2_h16_l2_n24_seed83_v100b/code_snapshots/run_graphene_r2m_support_free_core.sh",
+    "sha256": "8382faf1ba35bfd4406e6ab768f5b6b5aa111d383cdbf239b19100abaf23aef9"
+  },
+  "evaluator": {
+    "path": "/data/graphene_r2m_core/support_free_r2_h16_l2_n24_seed83_v100b/code_snapshots/evaluate_graphene_r2m_core_checkpoints.py",
+    "sha256": "8d7d84389b615b815ad0a5900fcedca4a8fdb5f35416b4ce25c351eb0a65d180"
+  },
+  "conda_environment": "phonon"
+}

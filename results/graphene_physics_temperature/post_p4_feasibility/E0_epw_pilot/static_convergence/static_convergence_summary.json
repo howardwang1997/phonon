@@ -1,0 +1,206 @@
+{
+  "status": "complete",
+  "scope": "450 K EPW zero-frequency static self-energy convergence",
+  "run_metrics": {
+    "k360_eta010": {
+      "fine_k": [
+        360,
+        360,
+        1
+      ],
+      "numerical_broadening_eV": 0.01,
+      "G_line_MAE_cm-1": 5.247021975412679,
+      "G_high_symmetry_abs_error_cm-1": 2.039766725458094,
+      "K_line_MAE_cm-1": 13.589316576428882,
+      "K_high_symmetry_abs_error_cm-1": 13.755191029338903,
+      "K_kink_relative_error": 0.10681321115660065,
+      "passes_static_spectral_gate": false
+    },
+    "k720_eta010": {
+      "fine_k": [
+        720,
+        720,
+        1
+      ],
+      "numerical_broadening_eV": 0.01,
+      "G_line_MAE_cm-1": 5.3561106557044695,
+      "G_high_symmetry_abs_error_cm-1": 2.124554620958861,
+      "K_line_MAE_cm-1": 13.783117944341985,
+      "K_high_symmetry_abs_error_cm-1": 13.967349005271217,
+      "K_kink_relative_error": 0.12516015069175984,
+      "passes_static_spectral_gate": false
+    },
+    "k720_eta005": {
+      "fine_k": [
+        720,
+        720,
+        1
+      ],
+      "numerical_broadening_eV": 0.005,
+      "G_line_MAE_cm-1": 5.477413853390431,
+      "G_high_symmetry_abs_error_cm-1": 2.157377841115249,
+      "K_line_MAE_cm-1": 13.894064927099862,
+      "K_high_symmetry_abs_error_cm-1": 14.050659965611885,
+      "K_kink_relative_error": 0.1000662510123789,
+      "passes_static_spectral_gate": false
+    }
+  },
+  "kgrid_360_to_720_at_0.010eV": {
+    "records": [
+      {
+        "region": "G",
+        "t_GK": 0.0,
+        "difference_cm-1": -0.08478789550076726
+      },
+      {
+        "region": "G",
+        "t_GK": 0.00834,
+        "difference_cm-1": -0.24675237776978065
+      },
+      {
+        "region": "G",
+        "t_GK": 0.024990000000000002,
+        "difference_cm-1": -0.10515538756067144
+      },
+      {
+        "region": "G",
+        "t_GK": 0.05832,
+        "difference_cm-1": 0.00034093966405635
+      },
+      {
+        "region": "K",
+        "t_GK": 0.9833400000000001,
+        "difference_cm-1": -0.19033415913827412
+      },
+      {
+        "region": "K",
+        "t_GK": 0.9916800000000001,
+        "difference_cm-1": -0.1817665340597614
+      },
+      {
+        "region": "K",
+        "t_GK": 0.99999,
+        "difference_cm-1": -0.212157975932314
+      },
+      {
+        "region": "K",
+        "t_GK": 1.00833,
+        "difference_cm-1": -0.185732355816981
+      },
+      {
+        "region": "K",
+        "t_GK": 1.01667,
+        "difference_cm-1": -0.1990158146181784
+      }
+    ],
+    "all": {
+      "MAE_cm-1": 0.15622704889564273,
+      "max_abs_cm-1": 0.24675237776978065
+    },
+    "G": {
+      "MAE_cm-1": 0.10925915012381893,
+      "max_abs_cm-1": 0.24675237776978065
+    },
+    "K": {
+      "MAE_cm-1": 0.1938013679131018,
+      "max_abs_cm-1": 0.212157975932314
+    },
+    "passes_inherited_1_cm-1_pointwise_gate": true
+  },
+  "numerical_broadening_0.010_to_0.005eV_at_k720": {
+    "records": [
+      {
+        "region": "G",
+        "t_GK": 0.0,
+        "difference_cm-1": -0.03282322015638783
+      },
+      {
+        "region": "G",
+        "t_GK": 0.00834,
+        "difference_cm-1": -0.34016921201555306
+      },
+      {
+        "region": "G",
+        "t_GK": 0.024990000000000002,
+        "difference_cm-1": -0.10373743537979863
+      },
+      {
+        "region": "G",
+        "t_GK": 0.05832,
+        "difference_cm-1": -0.008482923192104863
+      },
+      {
+        "region": "K",
+        "t_GK": 0.9833400000000001,
+        "difference_cm-1": -0.10923381469910964
+      },
+      {
+        "region": "K",
+        "t_GK": 0.9916800000000001,
+        "difference_cm-1": -0.11995367647773492
+      },
+      {
+        "region": "K",
+        "t_GK": 0.99999,
+        "difference_cm-1": -0.08331096034066832
+      },
+      {
+        "region": "K",
+        "t_GK": 1.00833,
+        "difference_cm-1": -0.12437938784523794
+      },
+      {
+        "region": "K",
+        "t_GK": 1.01667,
+        "difference_cm-1": -0.11785707442663806
+      }
+    ],
+    "all": {
+      "MAE_cm-1": 0.11554974494813702,
+      "max_abs_cm-1": 0.34016921201555306
+    },
+    "G": {
+      "MAE_cm-1": 0.1213031976859611,
+      "max_abs_cm-1": 0.34016921201555306
+    },
+    "K": {
+      "MAE_cm-1": 0.11094698275787777,
+      "max_abs_cm-1": 0.12437938784523794
+    },
+    "passes_inherited_1_cm-1_pointwise_gate": true
+  },
+  "numerically_converged_under_inherited_pointwise_gate": true,
+  "passes_final_static_spectral_gate": false,
+  "conclusion": "current_epw3_representation_fails_static_spectral_gate",
+  "limitations": [
+    "The 1 cm-1 pointwise convergence threshold is inherited from the direct-DFPT k-grid check; it was not introduced as a new spectral acceptance gate.",
+    "The reused EPW3 representation has coarse k=12, q=6 and a 29.5 A vacuum, whereas the target direct-DFPT cell has a 15 A vacuum.",
+    "A replayable force operator still requires a complete Hermitian q-mesh matrix and a real-space transform even if the sparse spectral gate passes."
+  ],
+  "sources": [
+    {
+      "path": "results/graphene_physics_temperature/post_p4_feasibility/E0_epw_pilot/static_analysis_k360/static_pilot_summary.json",
+      "sha256": "070786eb8f859ad209ffd7fc17a776bcfc1dfbb42afd8214c484efd6e00f51ea"
+    },
+    {
+      "path": "results/graphene_physics_temperature/post_p4_feasibility/E0_epw_pilot/static_analysis_k360/static_top_branch_predictions.csv",
+      "sha256": "c8a9629354783f25455017d9ef124752c5a5dea5639ccf07820c3416911748a4"
+    },
+    {
+      "path": "results/graphene_physics_temperature/post_p4_feasibility/E0_epw_pilot/static_analysis_k720/static_pilot_summary.json",
+      "sha256": "05716f03c91bd91dbadbb831144cedb74741c9719b6c2cd01582c6414a934207"
+    },
+    {
+      "path": "results/graphene_physics_temperature/post_p4_feasibility/E0_epw_pilot/static_analysis_k720/static_top_branch_predictions.csv",
+      "sha256": "588d0d61ae01d22123fb1ccb40e363583a972c800eee1e131fe3d944ee35b01b"
+    },
+    {
+      "path": "results/graphene_physics_temperature/post_p4_feasibility/E0_epw_pilot/static_analysis_k720_eta005/static_pilot_summary.json",
+      "sha256": "acbefc20fcf5ca35db23f4ba41a2768709dc472979b201b163a746ebf2e16985"
+    },
+    {
+      "path": "results/graphene_physics_temperature/post_p4_feasibility/E0_epw_pilot/static_analysis_k720_eta005/static_top_branch_predictions.csv",
+      "sha256": "8991a377627450310fdf3b24a75b7df65e4e484d8708ad7269c8b20d2b9150a1"
+    }
+  ]
+}

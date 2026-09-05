@@ -1,0 +1,1056 @@
+
+     Program PHONON v.7.5 starts on 24Jul2026 at 21:51:28 
+
+     This program is part of the open-source Quantum ESPRESSO suite
+     for quantum simulation of materials; please cite
+         "P. Giannozzi et al., J. Phys.:Condens. Matter 21 395502 (2009);
+         "P. Giannozzi et al., J. Phys.:Condens. Matter 29 465901 (2017);
+         "P. Giannozzi et al., J. Chem. Phys. 152 154105 (2020);
+          URL http://www.quantum-espresso.org", 
+     in publications or presentations arising from this work. More details at
+     http://www.quantum-espresso.org/quote
+
+     Parallel version (MPI & OpenMP), running on       8 processor cores
+     Number of MPI processes:                 8
+     Threads/MPI process:                     1
+
+     MPI processes distributed on     1 nodes
+     1984 MiB available memory on the printing compute node when the environment starts
+
+     Reading input from ph.in
+
+     Reading xml data from directory:
+
+     ../tmp/gr.save/
+
+     R & G space division:  proc/nbgrp/npool/nimage =       8
+     Subspace diagonalization in iterative solution of the eigenvalue problem:
+     a serial algorithm will be used
+
+
+     IMPORTANT: XC functional enforced from input :
+     Exchange-correlation= PBE
+                           (   1   4   3   4   0   0   0)
+     Any further DFT definition will be discarded
+     Please, verify this is what you really want
+
+
+     Parallelization info
+     --------------------
+     sticks:   dense  smooth     PW     G-vecs:    dense   smooth      PW
+     Min          45      45     13                 4167     4167     705
+     Max          46      46     14                 4184     4184     726
+     Sum         361     361    109                33427    33427    5741
+
+     Using Slab Decomposition
+
+     Reading collected, re-writing distributed wavefunctions in ../tmp/
+
+     Number and degeneracy of irreps per q-point
+       N         xq(1)         xq(2)         xq(3)   N irreps
+       1   0.004000000   0.006928203   0.000000000       6
+     No degeneracy
+
+     Calculation of q =    0.0040000   0.0069282   0.0000000
+
+     Parallelization info
+     --------------------
+     sticks:   dense  smooth     PW     G-vecs:    dense   smooth      PW
+     Min          45      45     13                 4167     4167     709
+     Max          46      46     14                 4184     4184     730
+     Sum         361     361    109                33427    33427    5777
+
+     Using Slab Decomposition
+
+
+     Title: 
+     graphene q-space campaign HOLD_A, dg=0.055, k=32, G t=0.012                
+
+
+     bravais-lattice index     =            4
+     lattice parameter (alat)  =       4.6487  a.u.
+     unit-cell volume          =     530.5041 (a.u.)^3
+     number of atoms/cell      =            2
+     number of atomic types    =            1
+     number of electrons       =         8.00
+     number of Kohn-Sham states=            8
+     kinetic-energy cutoff     =      60.0000  Ry
+     charge density cutoff     =     240.0000  Ry
+     Exchange-correlation= PBE
+                           (   1   4   3   4   0   0   0)
+
+     celldm(1)=   4.648726  celldm(2)=   0.000000  celldm(3)=   6.097561
+     celldm(4)=   0.000000  celldm(5)=   0.000000  celldm(6)=   0.000000
+
+     crystal axes: (cart. coord. in units of alat)
+               a(1) = (   1.000000   0.000000   0.000000 )  
+               a(2) = (  -0.500000   0.866025   0.000000 )  
+               a(3) = (   0.000000   0.000000   6.097561 )  
+
+     reciprocal axes: (cart. coord. in units 2 pi/alat)
+               b(1) = (  1.000000  0.577350 -0.000000 )  
+               b(2) = (  0.000000  1.154701  0.000000 )  
+               b(3) = (  0.000000 -0.000000  0.164000 )  
+
+
+     PseudoPot. # 1 for C  read from file:
+     /root/phonon/pseudo/C_ONCV_PBE-1.2.upf
+     MD5 check sum: 1a5f83a7b1f58d24996abe00ed223ac6
+     Pseudo is Norm-conserving, Zval =  4.0
+     Generated using ONCVPSP code by D. R. Hamann
+     Using radial grid of  602 points,  4 beta functions with: 
+                l(1) =   0
+                l(2) =   0
+                l(3) =   1
+                l(4) =   1
+
+     atomic species   valence    mass     pseudopotential
+     C                 4.00    12.01100     C ( 1.00)
+
+     24 Sym. Ops., with inversion, found
+
+
+
+   Cartesian axes
+
+     site n.     atom                  positions (alat units)
+         1        C      tau(   1) = (   0.0000000   0.0000000   0.0000000  )
+         2        C      tau(   2) = (  -0.0000000   0.5773503   0.0000000  )
+
+     number of k points=  1056  Fermi-Dirac smearing, width (Ry)=  0.0550
+
+     Number of k-points >= 100: set verbosity='high' to print them.
+
+     Dense  grid:    33427 G-vectors     FFT dimensions: (  24,  24, 144)
+
+     Estimated max dynamical RAM per process >       2.40 MB
+
+     Estimated total dynamical RAM >      19.20 MB
+
+     The potential is recalculated from file :
+     ../tmp/_ph0/gr.save/charge-density
+
+     Starting wfcs are    0 atomic +    8 random wfcs
+
+     Band Structure Calculation
+     Davidson diagonalization with overlap
+
+     ethr =  1.25E-10,  avg # of iterations = 36.8
+
+     total cpu time spent up to now is      141.0 secs
+
+     End of band structure calculation
+
+     Number of k-points >= 100: set verbosity='high' to print the bands.
+
+     the Fermi energy is    -1.8777 ev
+
+     Writing config to output data dir ../tmp/_ph0/gr.save/ :
+     XML data file
+
+Possibly too few bands at point    1   0.00000   0.00000   0.00000
+
+Possibly too few bands at point    2   0.00400   0.00693   0.00000
+
+Possibly too few bands at point    3   0.00000   0.03608   0.00000
+
+Possibly too few bands at point    4   0.00400   0.04301   0.00000
+
+Possibly too few bands at point    5   0.00000   0.07217   0.00000
+
+Possibly too few bands at point    6   0.00400   0.07910   0.00000
+
+Possibly too few bands at point    7   0.00000   0.10825   0.00000
+
+Possibly too few bands at point    8   0.00400   0.11518   0.00000
+
+Possibly too few bands at point    9   0.00000   0.14434   0.00000
+
+Possibly too few bands at point   10   0.00400   0.15127   0.00000
+
+Possibly too few bands at point   11   0.00000   0.18042   0.00000
+
+Possibly too few bands at point   19   0.00000   0.32476   0.00000
+
+Possibly too few bands at point   20   0.00400   0.33169   0.00000
+
+Possibly too few bands at point   35   0.03125   0.05413   0.00000
+
+Possibly too few bands at point   36   0.03525   0.06105   0.00000
+
+Possibly too few bands at point   37   0.03125   0.09021   0.00000
+
+Possibly too few bands at point   38   0.03525   0.09714   0.00000
+
+Possibly too few bands at point   39   0.03125   0.12630   0.00000
+
+Possibly too few bands at point   40   0.03525   0.13322   0.00000
+
+Possibly too few bands at point   41   0.03125   0.16238   0.00000
+
+Possibly too few bands at point   42   0.03525   0.16931   0.00000
+
+Possibly too few bands at point   49   0.03125   0.30672   0.00000
+
+Possibly too few bands at point   50   0.03525   0.31365   0.00000
+
+Possibly too few bands at point   65   0.06250   0.10825   0.00000
+
+Possibly too few bands at point   66   0.06650   0.11518   0.00000
+
+Possibly too few bands at point   67   0.06250   0.14434   0.00000
+
+Possibly too few bands at point   68   0.06650   0.15127   0.00000
+
+Possibly too few bands at point   76   0.06650   0.29560   0.00000
+
+Possibly too few bands at point   77   0.06250   0.32476   0.00000
+
+Possibly too few bands at point  101   0.09375   0.30672   0.00000
+
+Possibly too few bands at point  102   0.09775   0.31365   0.00000
+
+Possibly too few bands at point  121   0.12500   0.28868   0.00000
+
+Possibly too few bands at point  122   0.12900   0.29560   0.00000
+
+Possibly too few bands at point  139   0.15625   0.27063   0.00000
+
+Possibly too few bands at point  140   0.16025   0.27756   0.00000
+
+Possibly too few bands at point  205  -0.03125   0.01804   0.00000
+
+Possibly too few bands at point  206  -0.02725   0.02497   0.00000
+
+Possibly too few bands at point  207  -0.03125  -0.01804   0.00000
+
+Possibly too few bands at point  208  -0.02725  -0.01111   0.00000
+
+Possibly too few bands at point  209  -0.06250   0.03608   0.00000
+
+Possibly too few bands at point  210  -0.05850   0.04301   0.00000
+
+Possibly too few bands at point  211  -0.06250  -0.03608   0.00000
+
+Possibly too few bands at point  212  -0.05850  -0.02916   0.00000
+
+Possibly too few bands at point  213  -0.09375   0.05413   0.00000
+
+Possibly too few bands at point  214  -0.08975   0.06105   0.00000
+
+Possibly too few bands at point  215  -0.09375  -0.05413   0.00000
+
+Possibly too few bands at point  216  -0.08975  -0.04720   0.00000
+
+Possibly too few bands at point  217  -0.12500   0.07217   0.00000
+
+Possibly too few bands at point  218  -0.12100   0.07910   0.00000
+
+Possibly too few bands at point  219  -0.12500  -0.07217   0.00000
+
+Possibly too few bands at point  220  -0.12100  -0.06524   0.00000
+
+Possibly too few bands at point  221  -0.15625   0.09021   0.00000
+
+Possibly too few bands at point  222  -0.15225   0.09714   0.00000
+
+Possibly too few bands at point  223  -0.15625  -0.09021   0.00000
+
+Possibly too few bands at point  224  -0.15225  -0.08328   0.00000
+
+Possibly too few bands at point  237  -0.28125   0.16238   0.00000
+
+Possibly too few bands at point  238  -0.27725   0.16931   0.00000
+
+Possibly too few bands at point  239  -0.28125  -0.16238   0.00000
+
+Possibly too few bands at point  240  -0.27725  -0.15545   0.00000
+
+Possibly too few bands at point  267  -0.03125   0.05413   0.00000
+
+Possibly too few bands at point  268  -0.02725   0.06105   0.00000
+
+Possibly too few bands at point  269  -0.06250   0.00000   0.00000
+
+Possibly too few bands at point  270  -0.05850   0.00693   0.00000
+
+Possibly too few bands at point  271  -0.03125  -0.05413   0.00000
+
+Possibly too few bands at point  272  -0.02725  -0.04720   0.00000
+
+Possibly too few bands at point  273  -0.06250   0.07217   0.00000
+
+Possibly too few bands at point  274  -0.05850   0.07910   0.00000
+
+Possibly too few bands at point  275   0.09375   0.01804   0.00000
+
+Possibly too few bands at point  276   0.09775   0.02497   0.00000
+
+Possibly too few bands at point  277  -0.09375  -0.01804   0.00000
+
+Possibly too few bands at point  278  -0.08975  -0.01111   0.00000
+
+Possibly too few bands at point  279   0.06250  -0.07217   0.00000
+
+Possibly too few bands at point  280   0.06650  -0.06524   0.00000
+
+Possibly too few bands at point  281  -0.06250  -0.07217   0.00000
+
+Possibly too few bands at point  282  -0.05850  -0.06524   0.00000
+
+Possibly too few bands at point  283  -0.09375   0.09021   0.00000
+
+Possibly too few bands at point  284  -0.08975   0.09714   0.00000
+
+Possibly too few bands at point  285   0.12500   0.03608   0.00000
+
+Possibly too few bands at point  286   0.12900   0.04301   0.00000
+
+Possibly too few bands at point  287  -0.12500  -0.03608   0.00000
+
+Possibly too few bands at point  288  -0.12100  -0.02916   0.00000
+
+Possibly too few bands at point  289   0.09375  -0.09021   0.00000
+
+Possibly too few bands at point  290   0.09775  -0.08328   0.00000
+
+Possibly too few bands at point  291  -0.09375  -0.09021   0.00000
+
+Possibly too few bands at point  292  -0.08975  -0.08328   0.00000
+
+Possibly too few bands at point  293  -0.12500   0.10825   0.00000
+
+Possibly too few bands at point  294  -0.12100   0.11518   0.00000
+
+Possibly too few bands at point  295   0.15625   0.05413   0.00000
+
+Possibly too few bands at point  296   0.16025   0.06105   0.00000
+
+Possibly too few bands at point  297  -0.15625  -0.05413   0.00000
+
+Possibly too few bands at point  298  -0.15225  -0.04720   0.00000
+
+Possibly too few bands at point  299   0.12500  -0.10825   0.00000
+
+Possibly too few bands at point  300   0.12900  -0.10132   0.00000
+
+Possibly too few bands at point  301  -0.12500  -0.10825   0.00000
+
+Possibly too few bands at point  302  -0.12100  -0.10132   0.00000
+
+Possibly too few bands at point  333  -0.25000   0.18042   0.00000
+
+Possibly too few bands at point  334  -0.24600   0.18735   0.00000
+
+Possibly too few bands at point  335   0.28125   0.12630   0.00000
+
+Possibly too few bands at point  336   0.28525   0.13322   0.00000
+
+Possibly too few bands at point  337  -0.28125  -0.12630   0.00000
+
+Possibly too few bands at point  338  -0.27725  -0.11937   0.00000
+
+Possibly too few bands at point  339   0.25000  -0.18042   0.00000
+
+Possibly too few bands at point  340   0.25400  -0.17349   0.00000
+
+Possibly too few bands at point  341  -0.25000  -0.18042   0.00000
+
+Possibly too few bands at point  342  -0.24600  -0.17349   0.00000
+
+Possibly too few bands at point  413  -0.06250   0.10825   0.00000
+
+Possibly too few bands at point  414  -0.05850   0.11518   0.00000
+
+Possibly too few bands at point  415  -0.12500   0.00000   0.00000
+
+Possibly too few bands at point  416  -0.12100   0.00693   0.00000
+
+Possibly too few bands at point  417  -0.06250  -0.10825   0.00000
+
+Possibly too few bands at point  418  -0.05850  -0.10132   0.00000
+
+Possibly too few bands at point  419  -0.09375   0.12630   0.00000
+
+Possibly too few bands at point  420  -0.08975   0.13322   0.00000
+
+Possibly too few bands at point  421   0.15625   0.01804   0.00000
+
+Possibly too few bands at point  422   0.16025   0.02497   0.00000
+
+Possibly too few bands at point  423  -0.15625  -0.01804   0.00000
+
+Possibly too few bands at point  424  -0.15225  -0.01111   0.00000
+
+Possibly too few bands at point  425   0.09375  -0.12630   0.00000
+
+Possibly too few bands at point  426   0.09775  -0.11937   0.00000
+
+Possibly too few bands at point  427  -0.09375  -0.12630   0.00000
+
+Possibly too few bands at point  428  -0.08975  -0.11937   0.00000
+
+Possibly too few bands at point  438  -0.12100  -0.13741   0.00000
+
+Possibly too few bands at point  462   0.28525   0.09714   0.00000
+
+Possibly too few bands at point  469  -0.25000   0.21651   0.00000
+
+Possibly too few bands at point  470  -0.24600   0.22343   0.00000
+
+Possibly too few bands at point  471   0.31250   0.10825   0.00000
+
+Possibly too few bands at point  473  -0.31250  -0.10825   0.00000
+
+Possibly too few bands at point  474  -0.30850  -0.10132   0.00000
+
+Possibly too few bands at point  475   0.25000  -0.21651   0.00000
+
+Possibly too few bands at point  476   0.25400  -0.20958   0.00000
+
+Possibly too few bands at point  477  -0.25000  -0.21651   0.00000
+
+Possibly too few bands at point  478  -0.24600  -0.20958   0.00000
+
+Possibly too few bands at point  550  -0.08975  -0.15545   0.00000
+
+Possibly too few bands at point  581  -0.21875   0.23455   0.00000
+
+Possibly too few bands at point  582  -0.21475   0.24148   0.00000
+
+Possibly too few bands at point  583   0.31250   0.07217   0.00000
+
+Possibly too few bands at point  584   0.31650   0.07910   0.00000
+
+Possibly too few bands at point  585  -0.31250  -0.07217   0.00000
+
+Possibly too few bands at point  586  -0.30850  -0.06524   0.00000
+
+Possibly too few bands at point  587   0.21875  -0.23455   0.00000
+
+Possibly too few bands at point  588   0.22275  -0.22762   0.00000
+
+Possibly too few bands at point  589  -0.21875  -0.23455   0.00000
+
+Possibly too few bands at point  590  -0.21475  -0.22762   0.00000
+
+Possibly too few bands at point  677  -0.18750   0.25259   0.00000
+
+Possibly too few bands at point  678  -0.18350   0.25952   0.00000
+
+Possibly too few bands at point  679   0.31250   0.03608   0.00000
+
+Possibly too few bands at point  680   0.31650   0.04301   0.00000
+
+Possibly too few bands at point  681  -0.31250  -0.03608   0.00000
+
+Possibly too few bands at point  682  -0.30850  -0.02916   0.00000
+
+Possibly too few bands at point  683   0.18750  -0.25259   0.00000
+
+Possibly too few bands at point  684   0.19150  -0.24566   0.00000
+
+Possibly too few bands at point  685  -0.18750  -0.25259   0.00000
+
+Possibly too few bands at point  686  -0.18350  -0.24566   0.00000
+
+Possibly too few bands at point  763  -0.15625   0.27063   0.00000
+
+Possibly too few bands at point  764  -0.15225   0.27756   0.00000
+
+Possibly too few bands at point  765  -0.31250   0.00000   0.00000
+
+Possibly too few bands at point  766  -0.30850   0.00693   0.00000
+
+Possibly too few bands at point  767  -0.15625  -0.27063   0.00000
+
+Possibly too few bands at point  768  -0.15225  -0.26370   0.00000
+
+     graphene q-space campaign HOLD_A, dg=0.055, k=32, G t=0.012                
+
+     bravais-lattice index     =            4
+     lattice parameter (alat)  =       4.6487  a.u.
+     unit-cell volume          =     530.5041 (a.u.)^3
+     number of atoms/cell      =            2
+     number of atomic types    =            1
+     kinetic-energy cut-off    =      60.0000  Ry
+     charge density cut-off    =     240.0000  Ry
+     convergence threshold     =      1.0E-14
+     beta                      =       0.7000
+     number of iterations used =            4
+     Exchange-correlation= PBE
+                           (   1   4   3   4   0   0   0)
+
+
+     celldm(1)=    4.64873  celldm(2)=    0.00000  celldm(3)=    6.09756
+     celldm(4)=    0.00000  celldm(5)=    0.00000  celldm(6)=    0.00000
+
+     crystal axes: (cart. coord. in units of alat)
+               a(1) = (  1.0000  0.0000  0.0000 )  
+               a(2) = ( -0.5000  0.8660  0.0000 )  
+               a(3) = (  0.0000  0.0000  6.0976 )  
+
+     reciprocal axes: (cart. coord. in units 2 pi/alat)
+               b(1) = (  1.0000  0.5774 -0.0000 )  
+               b(2) = (  0.0000  1.1547  0.0000 )  
+               b(3) = (  0.0000 -0.0000  0.1640 )  
+
+
+     Atoms inside the unit cell: 
+
+     Cartesian axes
+
+     site n.  atom      mass           positions (alat units)
+        1  C      12.0110   tau(    1) = (    0.00000    0.00000    0.00000  )
+        2  C      12.0110   tau(    2) = (   -0.00000    0.57735    0.00000  )
+
+     Computing dynamical matrix for 
+                    q = (   0.0040000   0.0069282   0.0000000 )
+
+      4 Sym.Ops. (no q -> -q+G )
+
+
+     G cutoff =  131.3770  (   4183 G-vectors)     FFT grid: ( 24, 24,144)
+
+     number of k points=  1056  Fermi-Dirac smearing, width (Ry)=  0.0550
+
+     PseudoPot. # 1 for C  read from file:
+     /root/phonon/pseudo/C_ONCV_PBE-1.2.upf
+     MD5 check sum: 1a5f83a7b1f58d24996abe00ed223ac6
+     Pseudo is Norm-conserving, Zval =  4.0
+     Generated using ONCVPSP code by D. R. Hamann
+     Using radial grid of  602 points,  4 beta functions with: 
+                l(1) =   0
+                l(2) =   0
+                l(3) =   1
+                l(4) =   1
+
+     Mode symmetry, C_2v (mm2)  point group:
+
+
+     Atomic displacements:
+     There are    6 irreducible representations
+
+     Representation     1      1 modes -  To be done
+
+     Representation     2      1 modes -  To be done
+
+     Representation     3      1 modes -  To be done
+
+     Representation     4      1 modes -  To be done
+
+     Representation     5      1 modes -  To be done
+
+     Representation     6      1 modes -  To be done
+
+
+     Message from routine init_vloc:
+     Interpolation table for Vloc re-allocated
+
+     Alpha used in Ewald sum =   2.5000
+     PHONON       :   1m13.36s CPU   2m25.46s WALL
+
+
+
+     Representation #   1 mode #   1
+
+     Self-consistent Calculation
+
+      iter #   1 total cpu time :   162.7 secs   av.it.:   6.0
+      thresh= 1.000E-02 alpha_mix =  0.700 |ddv_scf|^2 =  6.202E+02
+
+      iter #   2 total cpu time :   190.6 secs   av.it.:  11.8
+      thresh= 1.000E-02 alpha_mix =  0.700 |ddv_scf|^2 =  2.346E+08
+
+      iter #   3 total cpu time :   218.7 secs   av.it.:  11.9
+      thresh= 1.000E-02 alpha_mix =  0.700 |ddv_scf|^2 =  8.876E+05
+
+      iter #   4 total cpu time :   240.2 secs   av.it.:   8.5
+      thresh= 1.000E-02 alpha_mix =  0.700 |ddv_scf|^2 =  8.386E+02
+
+      iter #   5 total cpu time :   261.4 secs   av.it.:   8.4
+      thresh= 1.000E-02 alpha_mix =  0.700 |ddv_scf|^2 =  6.259E+05
+
+      iter #   6 total cpu time :   282.8 secs   av.it.:   8.5
+      thresh= 1.000E-02 alpha_mix =  0.700 |ddv_scf|^2 =  2.376E+03
+
+      iter #   7 total cpu time :   298.1 secs   av.it.:   5.2
+      thresh= 1.000E-02 alpha_mix =  0.700 |ddv_scf|^2 =  2.391E+00
+
+      iter #   8 total cpu time :   306.9 secs   av.it.:   2.0
+      thresh= 1.000E-02 alpha_mix =  0.700 |ddv_scf|^2 =  1.700E-03
+
+      iter #   9 total cpu time :   316.5 secs   av.it.:   2.5
+      thresh= 4.123E-03 alpha_mix =  0.700 |ddv_scf|^2 =  2.527E-02
+
+      iter #  10 total cpu time :   323.0 secs   av.it.:   1.2
+      thresh= 1.000E-02 alpha_mix =  0.700 |ddv_scf|^2 =  4.752E-04
+
+      iter #  11 total cpu time :   332.0 secs   av.it.:   2.3
+      thresh= 2.180E-03 alpha_mix =  0.700 |ddv_scf|^2 =  2.319E-04
+
+      iter #  12 total cpu time :   339.8 secs   av.it.:   1.5
+      thresh= 1.523E-03 alpha_mix =  0.700 |ddv_scf|^2 =  1.598E-04
+
+      iter #  13 total cpu time :   346.8 secs   av.it.:   1.3
+      thresh= 1.264E-03 alpha_mix =  0.700 |ddv_scf|^2 =  2.695E-05
+
+      iter #  14 total cpu time :   356.7 secs   av.it.:   2.6
+      thresh= 5.191E-04 alpha_mix =  0.700 |ddv_scf|^2 =  1.651E-05
+
+      iter #  15 total cpu time :   364.3 secs   av.it.:   1.7
+      thresh= 4.064E-04 alpha_mix =  0.700 |ddv_scf|^2 =  8.869E-06
+
+      iter #  16 total cpu time :   371.6 secs   av.it.:   1.5
+      thresh= 2.978E-04 alpha_mix =  0.700 |ddv_scf|^2 =  2.110E-06
+
+      iter #  17 total cpu time :   382.2 secs   av.it.:   2.3
+      thresh= 1.453E-04 alpha_mix =  0.700 |ddv_scf|^2 =  2.426E-07
+
+      iter #  18 total cpu time :   393.2 secs   av.it.:   2.7
+      thresh= 4.926E-05 alpha_mix =  0.700 |ddv_scf|^2 =  7.785E-08
+
+      iter #  19 total cpu time :   402.1 secs   av.it.:   2.1
+      thresh= 2.790E-05 alpha_mix =  0.700 |ddv_scf|^2 =  1.708E-07
+
+      iter #  20 total cpu time :   408.1 secs   av.it.:   1.1
+      thresh= 4.133E-05 alpha_mix =  0.700 |ddv_scf|^2 =  9.877E-09
+
+      iter #  21 total cpu time :   418.6 secs   av.it.:   2.8
+      thresh= 9.938E-06 alpha_mix =  0.700 |ddv_scf|^2 =  1.673E-08
+
+      iter #  22 total cpu time :   425.0 secs   av.it.:   1.1
+      thresh= 1.294E-05 alpha_mix =  0.700 |ddv_scf|^2 =  8.363E-10
+
+      iter #  23 total cpu time :   436.0 secs   av.it.:   3.2
+      thresh= 2.892E-06 alpha_mix =  0.700 |ddv_scf|^2 =  2.720E-09
+
+      iter #  24 total cpu time :   442.4 secs   av.it.:   1.2
+      thresh= 5.215E-06 alpha_mix =  0.700 |ddv_scf|^2 =  6.574E-10
+
+      iter #  25 total cpu time :   449.3 secs   av.it.:   1.2
+      thresh= 2.564E-06 alpha_mix =  0.700 |ddv_scf|^2 =  1.228E-10
+
+      iter #  26 total cpu time :   458.8 secs   av.it.:   2.4
+      thresh= 1.108E-06 alpha_mix =  0.700 |ddv_scf|^2 =  7.069E-11
+
+      iter #  27 total cpu time :   465.8 secs   av.it.:   1.3
+      thresh= 8.408E-07 alpha_mix =  0.700 |ddv_scf|^2 =  8.973E-11
+
+      iter #  28 total cpu time :   472.4 secs   av.it.:   1.2
+      thresh= 9.473E-07 alpha_mix =  0.700 |ddv_scf|^2 =  2.511E-11
+
+      iter #  29 total cpu time :   481.0 secs   av.it.:   2.1
+      thresh= 5.011E-07 alpha_mix =  0.700 |ddv_scf|^2 =  2.496E-12
+
+      iter #  30 total cpu time :   491.7 secs   av.it.:   3.0
+      thresh= 1.580E-07 alpha_mix =  0.700 |ddv_scf|^2 =  2.115E-12
+
+      iter #  31 total cpu time :   497.9 secs   av.it.:   1.0
+      thresh= 1.454E-07 alpha_mix =  0.700 |ddv_scf|^2 =  2.239E-12
+
+      iter #  32 total cpu time :   504.4 secs   av.it.:   1.1
+      thresh= 1.496E-07 alpha_mix =  0.700 |ddv_scf|^2 =  7.882E-14
+
+      iter #  33 total cpu time :   516.1 secs   av.it.:   3.4
+      thresh= 2.808E-08 alpha_mix =  0.700 |ddv_scf|^2 =  1.535E-13
+
+      iter #  34 total cpu time :   522.8 secs   av.it.:   1.1
+      thresh= 3.918E-08 alpha_mix =  0.700 |ddv_scf|^2 =  2.247E-14
+
+      iter #  35 total cpu time :   531.5 secs   av.it.:   2.1
+      thresh= 1.499E-08 alpha_mix =  0.700 |ddv_scf|^2 =  1.106E-14
+
+      iter #  36 total cpu time :   539.1 secs   av.it.:   1.5
+      thresh= 1.052E-08 alpha_mix =  0.700 |ddv_scf|^2 =  1.454E-15
+
+     End of self-consistent calculation
+
+     Convergence has been achieved 
+
+
+     Representation #   2 mode #   2
+
+     Self-consistent Calculation
+
+      iter #   1 total cpu time :   556.5 secs   av.it.:   6.1
+      thresh= 1.000E-02 alpha_mix =  0.700 |ddv_scf|^2 =  8.142E+02
+
+      iter #   2 total cpu time :   585.1 secs   av.it.:  11.9
+      thresh= 1.000E-02 alpha_mix =  0.700 |ddv_scf|^2 =  3.081E+08
+
+      iter #   3 total cpu time :   613.6 secs   av.it.:  12.0
+      thresh= 1.000E-02 alpha_mix =  0.700 |ddv_scf|^2 =  1.165E+06
+
+      iter #   4 total cpu time :   638.2 secs   av.it.:   8.7
+      thresh= 1.000E-02 alpha_mix =  0.700 |ddv_scf|^2 =  1.101E+03
+
+      iter #   5 total cpu time :   659.2 secs   av.it.:   8.5
+      thresh= 1.000E-02 alpha_mix =  0.700 |ddv_scf|^2 =  8.446E+05
+
+      iter #   6 total cpu time :   681.0 secs   av.it.:   8.6
+      thresh= 1.000E-02 alpha_mix =  0.700 |ddv_scf|^2 =  3.206E+03
+
+      iter #   7 total cpu time :   696.1 secs   av.it.:   5.4
+      thresh= 1.000E-02 alpha_mix =  0.700 |ddv_scf|^2 =  3.205E+00
+
+      iter #   8 total cpu time :   705.0 secs   av.it.:   2.1
+      thresh= 1.000E-02 alpha_mix =  0.700 |ddv_scf|^2 =  2.293E-03
+
+      iter #   9 total cpu time :   714.2 secs   av.it.:   2.3
+      thresh= 4.788E-03 alpha_mix =  0.700 |ddv_scf|^2 =  2.366E-02
+
+      iter #  10 total cpu time :   720.5 secs   av.it.:   1.2
+      thresh= 1.000E-02 alpha_mix =  0.700 |ddv_scf|^2 =  5.702E-04
+
+      iter #  11 total cpu time :   729.7 secs   av.it.:   2.3
+      thresh= 2.388E-03 alpha_mix =  0.700 |ddv_scf|^2 =  2.265E-04
+
+      iter #  12 total cpu time :   737.5 secs   av.it.:   1.7
+      thresh= 1.505E-03 alpha_mix =  0.700 |ddv_scf|^2 =  2.397E-04
+
+      iter #  13 total cpu time :   743.7 secs   av.it.:   1.1
+      thresh= 1.548E-03 alpha_mix =  0.700 |ddv_scf|^2 =  5.913E-06
+
+      iter #  14 total cpu time :   755.8 secs   av.it.:   3.8
+      thresh= 2.432E-04 alpha_mix =  0.700 |ddv_scf|^2 =  7.955E-06
+
+      iter #  15 total cpu time :   762.5 secs   av.it.:   1.3
+      thresh= 2.820E-04 alpha_mix =  0.700 |ddv_scf|^2 =  2.258E-06
+
+      iter #  16 total cpu time :   770.7 secs   av.it.:   2.0
+      thresh= 1.503E-04 alpha_mix =  0.700 |ddv_scf|^2 =  1.258E-06
+
+      iter #  17 total cpu time :   777.9 secs   av.it.:   1.3
+      thresh= 1.122E-04 alpha_mix =  0.700 |ddv_scf|^2 =  2.779E-07
+
+      iter #  18 total cpu time :   787.0 secs   av.it.:   2.2
+      thresh= 5.271E-05 alpha_mix =  0.700 |ddv_scf|^2 =  5.483E-09
+
+      iter #  19 total cpu time :   799.1 secs   av.it.:   4.0
+      thresh= 7.404E-06 alpha_mix =  0.700 |ddv_scf|^2 =  8.704E-09
+
+      iter #  20 total cpu time :   805.3 secs   av.it.:   1.1
+      thresh= 9.330E-06 alpha_mix =  0.700 |ddv_scf|^2 =  1.263E-09
+
+      iter #  21 total cpu time :   814.8 secs   av.it.:   2.6
+      thresh= 3.554E-06 alpha_mix =  0.700 |ddv_scf|^2 =  1.840E-09
+
+      iter #  22 total cpu time :   820.5 secs   av.it.:   1.0
+      thresh= 4.290E-06 alpha_mix =  0.700 |ddv_scf|^2 =  1.344E-09
+
+      iter #  23 total cpu time :   827.5 secs   av.it.:   1.4
+      thresh= 3.665E-06 alpha_mix =  0.700 |ddv_scf|^2 =  9.100E-10
+
+      iter #  24 total cpu time :   834.8 secs   av.it.:   1.4
+      thresh= 3.017E-06 alpha_mix =  0.700 |ddv_scf|^2 =  1.850E-09
+
+      iter #  25 total cpu time :   840.9 secs   av.it.:   1.2
+      thresh= 4.302E-06 alpha_mix =  0.700 |ddv_scf|^2 =  3.395E-10
+
+      iter #  26 total cpu time :   848.8 secs   av.it.:   1.5
+      thresh= 1.843E-06 alpha_mix =  0.700 |ddv_scf|^2 =  1.628E-10
+
+      iter #  27 total cpu time :   856.8 secs   av.it.:   1.5
+      thresh= 1.276E-06 alpha_mix =  0.700 |ddv_scf|^2 =  5.577E-12
+
+      iter #  28 total cpu time :   870.7 secs   av.it.:   3.6
+      thresh= 2.361E-07 alpha_mix =  0.700 |ddv_scf|^2 =  6.456E-12
+
+      iter #  29 total cpu time :   877.3 secs   av.it.:   1.1
+      thresh= 2.541E-07 alpha_mix =  0.700 |ddv_scf|^2 =  7.140E-12
+
+      iter #  30 total cpu time :   883.6 secs   av.it.:   1.0
+      thresh= 2.672E-07 alpha_mix =  0.700 |ddv_scf|^2 =  5.926E-12
+
+      iter #  31 total cpu time :   890.7 secs   av.it.:   1.4
+      thresh= 2.434E-07 alpha_mix =  0.700 |ddv_scf|^2 =  5.678E-13
+
+      iter #  32 total cpu time :   900.4 secs   av.it.:   2.5
+      thresh= 7.535E-08 alpha_mix =  0.700 |ddv_scf|^2 =  1.287E-13
+
+      iter #  33 total cpu time :   909.3 secs   av.it.:   2.3
+      thresh= 3.588E-08 alpha_mix =  0.700 |ddv_scf|^2 =  7.228E-14
+
+      iter #  34 total cpu time :   916.3 secs   av.it.:   1.4
+      thresh= 2.688E-08 alpha_mix =  0.700 |ddv_scf|^2 =  1.362E-13
+
+      iter #  35 total cpu time :   921.9 secs   av.it.:   1.0
+      thresh= 3.691E-08 alpha_mix =  0.700 |ddv_scf|^2 =  1.379E-13
+
+      iter #  36 total cpu time :   927.2 secs   av.it.:   1.0
+      thresh= 3.713E-08 alpha_mix =  0.700 |ddv_scf|^2 =  1.492E-13
+
+      iter #  37 total cpu time :   933.4 secs   av.it.:   1.1
+      thresh= 3.863E-08 alpha_mix =  0.700 |ddv_scf|^2 =  1.943E-13
+
+      iter #  38 total cpu time :   938.7 secs   av.it.:   1.0
+      thresh= 4.408E-08 alpha_mix =  0.700 |ddv_scf|^2 =  1.957E-13
+
+      iter #  39 total cpu time :   946.0 secs   av.it.:   1.4
+      thresh= 4.424E-08 alpha_mix =  0.700 |ddv_scf|^2 =  1.472E-12
+
+      iter #  40 total cpu time :   952.3 secs   av.it.:   1.2
+      thresh= 1.213E-07 alpha_mix =  0.700 |ddv_scf|^2 =  4.937E-13
+
+      iter #  41 total cpu time :   958.7 secs   av.it.:   1.2
+      thresh= 7.027E-08 alpha_mix =  0.700 |ddv_scf|^2 =  1.410E-14
+
+      iter #  42 total cpu time :   968.4 secs   av.it.:   2.5
+      thresh= 1.187E-08 alpha_mix =  0.700 |ddv_scf|^2 =  2.240E-15
+
+     End of self-consistent calculation
+
+     Convergence has been achieved 
+
+
+     Representation #   3 mode #   3
+
+     Self-consistent Calculation
+
+      iter #   1 total cpu time :   982.4 secs   av.it.:   4.2
+      thresh= 1.000E-02 alpha_mix =  0.700 |ddv_scf|^2 =  2.434E-08
+
+      iter #   2 total cpu time :  1004.4 secs   av.it.:   9.0
+      thresh= 1.560E-05 alpha_mix =  0.700 |ddv_scf|^2 =  1.000E-09
+
+      iter #   3 total cpu time :  1024.2 secs   av.it.:   8.0
+      thresh= 3.163E-06 alpha_mix =  0.700 |ddv_scf|^2 =  4.518E-11
+
+      iter #   4 total cpu time :  1043.6 secs   av.it.:   8.0
+      thresh= 6.722E-07 alpha_mix =  0.700 |ddv_scf|^2 =  3.577E-14
+
+      iter #   5 total cpu time :  1064.8 secs   av.it.:   8.8
+      thresh= 1.891E-08 alpha_mix =  0.700 |ddv_scf|^2 =  1.128E-16
+
+     End of self-consistent calculation
+
+     Convergence has been achieved 
+
+
+     Representation #   4 mode #   4
+
+     Self-consistent Calculation
+
+      iter #   1 total cpu time :  1079.7 secs   av.it.:   4.9
+      thresh= 1.000E-02 alpha_mix =  0.700 |ddv_scf|^2 =  1.617E-07
+
+      iter #   2 total cpu time :  1102.7 secs   av.it.:   8.7
+      thresh= 4.021E-05 alpha_mix =  0.700 |ddv_scf|^2 =  1.145E-09
+
+      iter #   3 total cpu time :  1125.1 secs   av.it.:   9.1
+      thresh= 3.384E-06 alpha_mix =  0.700 |ddv_scf|^2 =  1.875E-10
+
+      iter #   4 total cpu time :  1146.5 secs   av.it.:   9.0
+      thresh= 1.369E-06 alpha_mix =  0.700 |ddv_scf|^2 =  7.126E-11
+
+      iter #   5 total cpu time :  1167.5 secs   av.it.:   8.4
+      thresh= 8.442E-07 alpha_mix =  0.700 |ddv_scf|^2 =  1.056E-14
+
+      iter #   6 total cpu time :  1191.4 secs   av.it.:  10.2
+      thresh= 1.028E-08 alpha_mix =  0.700 |ddv_scf|^2 =  5.821E-16
+
+     End of self-consistent calculation
+
+     Convergence has been achieved 
+
+
+     Representation #   5 mode #   5
+
+     Self-consistent Calculation
+
+      iter #   1 total cpu time :  1206.5 secs   av.it.:   4.8
+      thresh= 1.000E-02 alpha_mix =  0.700 |ddv_scf|^2 =  9.719E-08
+
+      iter #   2 total cpu time :  1227.5 secs   av.it.:   8.8
+      thresh= 3.117E-05 alpha_mix =  0.700 |ddv_scf|^2 =  1.122E-09
+
+      iter #   3 total cpu time :  1248.8 secs   av.it.:   8.8
+      thresh= 3.349E-06 alpha_mix =  0.700 |ddv_scf|^2 =  1.286E-10
+
+      iter #   4 total cpu time :  1270.8 secs   av.it.:   9.1
+      thresh= 1.134E-06 alpha_mix =  0.700 |ddv_scf|^2 =  5.645E-11
+
+      iter #   5 total cpu time :  1291.2 secs   av.it.:   8.4
+      thresh= 7.513E-07 alpha_mix =  0.700 |ddv_scf|^2 =  1.763E-14
+
+      iter #   6 total cpu time :  1314.9 secs   av.it.:  10.3
+      thresh= 1.328E-08 alpha_mix =  0.700 |ddv_scf|^2 =  5.609E-16
+
+     End of self-consistent calculation
+
+     Convergence has been achieved 
+
+
+     Representation #   6 mode #   6
+
+     Self-consistent Calculation
+
+      iter #   1 total cpu time :  1331.6 secs   av.it.:   5.2
+      thresh= 1.000E-02 alpha_mix =  0.700 |ddv_scf|^2 =  9.297E-05
+
+      iter #   2 total cpu time :  1351.9 secs   av.it.:   7.5
+      thresh= 9.642E-04 alpha_mix =  0.700 |ddv_scf|^2 =  1.039E-04
+
+      iter #   3 total cpu time :  1369.5 secs   av.it.:   7.0
+      thresh= 1.019E-03 alpha_mix =  0.700 |ddv_scf|^2 =  5.943E-08
+
+      iter #   4 total cpu time :  1388.1 secs   av.it.:   7.3
+      thresh= 2.438E-05 alpha_mix =  0.700 |ddv_scf|^2 =  2.640E-10
+
+      iter #   5 total cpu time :  1406.5 secs   av.it.:   7.4
+      thresh= 1.625E-06 alpha_mix =  0.700 |ddv_scf|^2 =  3.037E-11
+
+      iter #   6 total cpu time :  1425.2 secs   av.it.:   7.2
+      thresh= 5.511E-07 alpha_mix =  0.700 |ddv_scf|^2 =  8.271E-14
+
+      iter #   7 total cpu time :  1443.4 secs   av.it.:   7.2
+      thresh= 2.876E-08 alpha_mix =  0.700 |ddv_scf|^2 =  1.355E-14
+
+      iter #   8 total cpu time :  1461.8 secs   av.it.:   7.3
+      thresh= 1.164E-08 alpha_mix =  0.700 |ddv_scf|^2 =  9.407E-17
+
+     End of self-consistent calculation
+
+     Convergence has been achieved 
+
+     Number of q in the star =    6
+     List of q in the star:
+          1   0.004000000   0.006928203   0.000000000
+          2  -0.004000000   0.006928203   0.000000000
+          3   0.008000000  -0.000000000   0.000000000
+          4  -0.008000000   0.000000000   0.000000000
+          5   0.004000000  -0.006928203   0.000000000
+          6  -0.004000000  -0.006928203   0.000000000
+
+     Diagonalizing the dynamical matrix
+
+     q = (    0.004000000   0.006928203   0.000000000 ) 
+
+ **************************************************************************
+     freq (    1) =       3.409537 [THz] =     113.729915 [cm-1]
+     freq (    2) =       3.434572 [THz] =     114.564996 [cm-1]
+     freq (    3) =       3.455782 [THz] =     115.272474 [cm-1]
+     freq (    4) =      25.873869 [THz] =     863.059363 [cm-1]
+     freq (    5) =      46.360010 [THz] =    1546.403466 [cm-1]
+     freq (    6) =      46.366222 [THz] =    1546.610675 [cm-1]
+ **************************************************************************
+
+     Mode symmetry, C_2v (mm2)  point group:
+
+     freq (   1-   1) =        113.7  [cm-1]   --> B_1  D_3  S_3      
+     freq (   2-   2) =        114.6  [cm-1]   --> B_2  D_4  S_4      
+     freq (   3-   3) =        115.3  [cm-1]   --> A_1  D_1  S_1      
+     freq (   4-   4) =        863.1  [cm-1]   --> A_2  D_2  S_2      
+     freq (   5-   5) =       1546.4  [cm-1]   --> A_1  D_1  S_1      
+     freq (   6-   6) =       1546.6  [cm-1]   --> B_1  D_3  S_3      
+
+     init_run     :      0.06s CPU      0.07s WALL (       1 calls)
+     electrons    :     72.08s CPU    140.96s WALL (       1 calls)
+
+     Called by init_run:
+     wfcinit      :      0.00s CPU      0.00s WALL (       1 calls)
+     potinit      :      0.00s CPU      0.01s WALL (       1 calls)
+     hinit0       :      0.00s CPU      0.00s WALL (       1 calls)
+
+     Called by electrons:
+     c_bands      :     72.07s CPU    140.95s WALL (       1 calls)
+     v_of_rho     :      0.01s CPU      0.01s WALL (       2 calls)
+
+     Called by c_bands:
+     init_us_2    :      3.17s CPU      6.52s WALL (   62832 calls)
+     cegterg      :     69.30s CPU    135.38s WALL (    2381 calls)
+
+     Called by *egterg:
+     cdiaghg      :      4.43s CPU      8.60s WALL (   39897 calls)
+     h_psi        :    416.71s CPU    871.41s WALL (  392728 calls)
+     g_psi        :      0.63s CPU      1.25s WALL (   38841 calls)
+
+     Called by h_psi:
+     h_psi:calbec :     33.85s CPU     71.86s WALL (  392728 calls)
+     vloc_psi     :    359.75s CPU    749.63s WALL (  392728 calls)
+                                        0.00s GPU  (  392728 calls)
+     add_vuspsi   :      6.30s CPU     14.30s WALL (  392728 calls)
+
+     General routines
+     calbec       :     29.87s CPU     63.89s WALL (  410680 calls)
+     fft          :      0.49s CPU      2.77s WALL (    1157 calls)
+     ffts         :      0.57s CPU      1.01s WALL (    3204 calls)
+     fftw         :    440.32s CPU    925.68s WALL ( 4669066 calls)
+     davcio       :      5.56s CPU     12.51s WALL (  282030 calls)
+
+     Parallel routines
+
+     PHONON       :  11m28.69s CPU  24m22.33s WALL
+
+     INITIALIZATION: 
+     phq_setup    :      0.01s CPU      0.02s WALL (       1 calls)
+     phq_init     :      0.61s CPU      1.35s WALL (       1 calls)
+
+     phq_init     :      0.61s CPU      1.35s WALL (       1 calls)
+     init_vloc    :      0.01s CPU      0.03s WALL (       2 calls)
+     init_us_1    :      0.00s CPU      0.00s WALL (       2 calls)
+     init_us_2    :      3.17s CPU      6.52s WALL (   62832 calls)
+
+     DYNAMICAL MATRIX:
+     dynmat0      :      0.40s CPU      0.76s WALL (       1 calls)
+     dynmat_us    :      0.40s CPU      0.76s WALL (       1 calls)
+     d2ionq       :      0.00s CPU      0.00s WALL (       1 calls)
+     phqscf       :    615.32s CPU   1316.85s WALL (       1 calls)
+     dynmatrix    :      0.00s CPU      0.00s WALL (       1 calls)
+
+     phqscf       :    615.32s CPU   1316.85s WALL (       1 calls)
+     solve_linter :    614.22s CPU   1314.06s WALL (       6 calls)
+     dfpt_kernel  :    606.45s CPU   1300.14s WALL (       6 calls)
+     sth_kernel   :    605.20s CPU   1298.10s WALL (     103 calls)
+     h_prec       :      3.78s CPU      8.16s WALL (   54384 calls)
+     apply_dpot_b :     75.38s CPU    152.51s WALL (   51216 calls)
+     ortho        :      5.37s CPU     11.32s WALL (   54384 calls)
+     cgsolve      :    444.82s CPU    952.35s WALL (   54384 calls)
+     incdrhoscf   :     63.90s CPU    147.94s WALL (   54384 calls)
+                                        0.00s GPU  (   54384 calls)
+     dv_of_drho   :      0.25s CPU      0.58s WALL (     103 calls)
+     mix_pot      :      0.09s CPU      0.21s WALL (     103 calls)
+     drhodv       :      1.10s CPU      2.78s WALL (       6 calls)
+     psymdvscf    :      0.87s CPU      1.12s WALL (     103 calls)
+     com_dvloc    :      0.84s CPU      1.49s WALL (    3204 calls)
+                                        0.00s GPU  (    3204 calls)
+     addcore      :      0.00s CPU      0.00s WALL (       6 calls)
+                                        0.00s GPU  (       6 calls)
+
+     dvqpsi_us    :      7.28s CPU     13.04s WALL (    3168 calls)
+                                        0.00s GPU  (    3168 calls)
+     dvqpsi_us_on :      0.37s CPU      0.64s WALL (    3168 calls)
+
+     add_vuspsi   :      6.30s CPU     14.30s WALL (  392728 calls)
+
+
+      General routines
+     calbec       :     29.87s CPU     63.89s WALL (  410680 calls)
+     fft          :      0.49s CPU      2.77s WALL (    1157 calls)
+     ffts         :      0.57s CPU      1.01s WALL (    3204 calls)
+     fftw         :    440.32s CPU    925.68s WALL ( 4669066 calls)
+     davcio       :      5.56s CPU     12.51s WALL (  282030 calls)
+     write_rec    :      0.03s CPU      0.09s WALL (     109 calls)
+
+      Additional routines
+     ch_psi       :    414.32s CPU    881.71s WALL (  350450 calls)
+     last         :     35.66s CPU     79.73s WALL (  350450 calls)
+     Hesh         :      2.68s CPU      5.90s WALL (  350450 calls)
+     ch_psi_all_k :     26.40s CPU     59.16s WALL (  350450 calls)
+                                        0.00s GPU  (  350450 calls)
+     h_psi_bgrp   :    421.80s CPU    882.39s WALL (  392728 calls)
+     h_psi        :    416.71s CPU    871.41s WALL (  392728 calls)
+     h_psi:pot    :    410.39s CPU    858.04s WALL (  392728 calls)
+     h_psi:calbec :     33.85s CPU     71.86s WALL (  392728 calls)
+     s_psi_bgrp   :      6.28s CPU     13.80s WALL (  755284 calls)
+
+
+     PHONON       :  11m28.69s CPU  24m22.33s WALL
+
+
+   This run was terminated on:  22:15:50  24Jul2026            
+
+=------------------------------------------------------------------------------=
+   JOB DONE.
+=------------------------------------------------------------------------------=

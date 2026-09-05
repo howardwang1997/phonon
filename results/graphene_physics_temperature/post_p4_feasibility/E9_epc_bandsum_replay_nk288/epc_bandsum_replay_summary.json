@@ -1,0 +1,156 @@
+{
+  "status": "epc_asset_and_interpolation_validated",
+  "scope": "direct EPW 7.3.1 epmatwp replay of the A-prime Pi(T)-Pi(T_high) response on opened finite-smearing curves; no new DFT",
+  "nk": 288,
+  "fermi_eV": -1.7187,
+  "degauss_Ry": [
+    0.0019000869,
+    0.00285013035,
+    0.0038001738
+  ],
+  "reference_degauss_Ry": 0.02,
+  "numerical_broadening_eV": 0.005,
+  "epmatwp_shape": [
+    2,
+    2,
+    343,
+    6,
+    91
+  ],
+  "decay_replay": {
+    "electronic_length_max_abs_A": 1.7325447743132827e-08,
+    "phonon_length_max_abs_A": 8.712724763881852e-09,
+    "electronic_max_g_max_abs_Ry": 4.9701719763472e-11,
+    "phonon_max_g_max_abs_Ry": 4.845530286691144e-11
+  },
+  "metrics": {
+    "bare_top_frequency_max_abs_cm-1": 0.04028654346689109,
+    "raw_correction_RMSE_cm-2": 560.91484709599,
+    "raw_correction_max_abs_cm-2": 1406.4468529073201,
+    "best_global_multiplicative_scale": 0.9921299666857663,
+    "raw_absolute": {
+      "frequency_RMSE_cm-1": 0.21735540598301356,
+      "frequency_max_abs_cm-1": 0.5375331514865138,
+      "maximum_cusp_depth_relative_error": 0.34873338677505483,
+      "by_temperature": {
+        "300": {
+          "frequency_RMSE_cm-1": 0.22277381538699512,
+          "frequency_max_abs_cm-1": 0.5375331514865138,
+          "target_d1_over_120_cusp_depth_cm-1": 2.071878461855931,
+          "replay_d1_over_120_cusp_depth_cm-1": 1.3749968868257838,
+          "cusp_depth_relative_error": 0.33635253604880866
+        },
+        "450": {
+          "frequency_RMSE_cm-1": 0.2150353011591701,
+          "frequency_max_abs_cm-1": 0.5162464502739113,
+          "target_d1_over_120_cusp_depth_cm-1": 1.5491113818532085,
+          "replay_d1_over_120_cusp_depth_cm-1": 1.018401363966177,
+          "cusp_depth_relative_error": 0.34258996745097875
+        },
+        "600": {
+          "frequency_RMSE_cm-1": 0.2141535989971403,
+          "frequency_max_abs_cm-1": 0.4668120768637891,
+          "target_d1_over_120_cusp_depth_cm-1": 1.2051269863529797,
+          "replay_d1_over_120_cusp_depth_cm-1": 0.7848589709080898,
+          "cusp_depth_relative_error": 0.34873338677505483
+        }
+      }
+    },
+    "single_scaled": {
+      "frequency_RMSE_cm-1": 0.14895880540306367,
+      "frequency_max_abs_cm-1": 0.6799474882921004,
+      "maximum_cusp_depth_relative_error": 0.3536609777910052,
+      "by_temperature": {
+        "300": {
+          "frequency_RMSE_cm-1": 0.1709894681620708,
+          "frequency_max_abs_cm-1": 0.6799474882921004,
+          "target_d1_over_120_cusp_depth_cm-1": 2.071878461855931,
+          "replay_d1_over_120_cusp_depth_cm-1": 1.3643025291444246,
+          "cusp_depth_relative_error": 0.34151420835644947
+        },
+        "450": {
+          "frequency_RMSE_cm-1": 0.14368070959262724,
+          "frequency_max_abs_cm-1": 0.5149328230545507,
+          "target_d1_over_120_cusp_depth_cm-1": 1.5491113818532085,
+          "replay_d1_over_120_cusp_depth_cm-1": 1.0105866223543671,
+          "cusp_depth_relative_error": 0.347634628347125
+        },
+        "600": {
+          "frequency_RMSE_cm-1": 0.12916900785379842,
+          "frequency_max_abs_cm-1": 0.4140524147273936,
+          "target_d1_over_120_cusp_depth_cm-1": 1.2051269863529797,
+          "replay_d1_over_120_cusp_depth_cm-1": 0.7789205979970575,
+          "cusp_depth_relative_error": 0.3536609777910052
+        }
+      }
+    },
+    "separate_exact_K_anchor": {
+      "frequency_RMSE_cm-1": 0.49695734059900004,
+      "frequency_max_abs_cm-1": 0.9708902716358807,
+      "maximum_cusp_depth_relative_error": 0.34863476149724243,
+      "by_temperature": {
+        "300": {
+          "frequency_RMSE_cm-1": 0.6095457226455753,
+          "frequency_max_abs_cm-1": 0.9708902716358807,
+          "target_d1_over_120_cusp_depth_cm-1": 2.071878461855931,
+          "replay_d1_over_120_cusp_depth_cm-1": 1.3754650587031847,
+          "cusp_depth_relative_error": 0.33612657111600974
+        },
+        "450": {
+          "frequency_RMSE_cm-1": 0.4674718869162298,
+          "frequency_max_abs_cm-1": 0.7957835406691629,
+          "target_d1_over_120_cusp_depth_cm-1": 1.5491113818532085,
+          "replay_d1_over_120_cusp_depth_cm-1": 1.0186266445375622,
+          "cusp_depth_relative_error": 0.34244454177402345
+        },
+        "600": {
+          "frequency_RMSE_cm-1": 0.38836045379666906,
+          "frequency_max_abs_cm-1": 0.6572363756893083,
+          "target_d1_over_120_cusp_depth_cm-1": 1.2051269863529797,
+          "replay_d1_over_120_cusp_depth_cm-1": 0.7849778268919181,
+          "cusp_depth_relative_error": 0.34863476149724243
+        }
+      }
+    }
+  },
+  "checks": {
+    "decay_lengths_max_abs_lt_1e-7_A": true,
+    "decay_g_max_abs_lt_1e-9_Ry": true,
+    "bare_top_frequency_max_abs_lt_0p1_cm-1": true
+  },
+  "limitations": [
+    "opened EPW curves are used to verify the parser and response implementation, not as an independent holdout",
+    "production EPW used nk=720; lower nk runs are convergence diagnostics",
+    "zero-smearing tetrahedron transfer is a separate integration problem and is not claimed here"
+  ],
+  "inputs": {
+    "hr": {
+      "path": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/E0_epw_matched/wannier_diagnostics/matched_k18q9_ex1_pifroz_hr.dat",
+      "sha256": "9464eeb175cdab2b543650c24729febf749e951342a4bf0fe03f5bc651b0db19"
+    },
+    "epwdata": {
+      "path": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/E0_epw_matched/k18_q9_ex1_pifroz/restart_small/epwdata.fmt",
+      "sha256": "3bceeb54a594323ae89b07f65caa6dbdb2ff9dc410c44e31928cee50a2f7daba"
+    },
+    "crystal": {
+      "path": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/E0_epw_matched/k18_q9_ex1_pifroz/restart_small/crystal.fmt",
+      "sha256": "6deef277df68d605c897a54612257e28c9bb6d8384ecf62a8e0ba915dbcb1f56"
+    },
+    "epmatwp": {
+      "path": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/E9_epc_bandsum_assets/graphene.epmatwp",
+      "sha256": "3e1b7b8325ed8ab60468995290fe03f066b5e394b14af01a214acb1a16de7a4b"
+    },
+    "decay_epmate": {
+      "path": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/E9_epc_bandsum_assets/decay.epmate",
+      "sha256": "7991db73e7f4b722931c145706afb6c66f7f9ef6717bee40132dbb9a9ffacca8"
+    },
+    "decay_epmatp": {
+      "path": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/E9_epc_bandsum_assets/decay.epmatp",
+      "sha256": "46e1aec4f92c3c45d685c33149b22188bdf3facabdfb46f609c185727339c242"
+    },
+    "dense_data": {
+      "path": "/Users/howardwang/Desktop/playground/phonon/results/graphene_kohn_cusp_two_methods/B0_dense_k29/b0_dense_predictions.csv",
+      "sha256": "3f49794c95a16994e177eb9fb0bf1f853c057adc860f0a2ee7c908465f532730"
+    }
+  }
+}

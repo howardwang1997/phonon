@@ -1,0 +1,21 @@
+{
+  "status": "complete",
+  "role": "static short-range base + delta FC2 for q-space LR fitting",
+  "base_model": "results/gr_backbone_v11/ft_graphene.model",
+  "base_model_sha256": "4d32426672d53e3adc86499d14e4c4164c05e879a56811ff54add03cd1bb6ce7",
+  "delta_model": "results/graphene_fd_delta_pilot/T300/delta32/gr_fd300_delta32.model",
+  "delta_model_sha256": "6560f7bbf1ba8f8605893c2c0a9a7bd60d2ebaf66831e4b2f3b682ad43433766",
+  "background": "results/vq_kink6_fd/graphene_sc6_dg0.040_phonopy.yaml",
+  "background_sha256": "69144a1dd3c66df94c116259067be27d1ede3ca8ab01c66516504c5e1ec90c0a",
+  "device": "cpu",
+  "finite_displacement_A": 0.01,
+  "force_constants_shape": [
+    72,
+    72,
+    3,
+    3
+  ],
+  "force_constants_pair_symmetry_max_abs_eV_A2": 0.0,
+  "output": "results/graphene_fd_delta_pilot/T300_TDEP/static_test/static_short_fc2.npz",
+  "output_sha256": "0caf7c8809657b4c8051cbb64a2bf0b5e36df6ae8ec1a6a143ce05cc4f5932df"
+}

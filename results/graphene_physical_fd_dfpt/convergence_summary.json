@@ -1,0 +1,311 @@
+{
+  "thresholds_cm-1": {
+    "all_branch_max_abs": 3.0,
+    "top_branch_max_abs": 2.0,
+    "Gamma_curvature_abs_change": 0.3,
+    "Gamma_0_to_0.030_abs_change": 0.5,
+    "K_kink_abs_change": 0.3
+  },
+  "by_degauss": {
+    "0.0019000869": {
+      "kgrids": [
+        72,
+        96,
+        120,
+        144
+      ],
+      "n_q_by_k": {
+        "72": 8,
+        "96": 8,
+        "120": 8,
+        "144": 8
+      },
+      "anomaly_metrics_by_k": {
+        "72": {
+          "Gamma_top_discrete_curvature_cm-1": -2.1825639999999566,
+          "Gamma_top_0_to_0.030_change_cm-1": 12.230890000000045,
+          "K_top_kink_cm-1": 6.23631649999993,
+          "K_top_left_right_asymmetry_cm-1": 12.472633000000087
+        },
+        "96": {
+          "Gamma_top_discrete_curvature_cm-1": -0.6628190000001268,
+          "Gamma_top_0_to_0.030_change_cm-1": 9.25384299999996,
+          "K_top_kink_cm-1": 4.1077490000000125,
+          "K_top_left_right_asymmetry_cm-1": 8.215497999999798
+        },
+        "120": {
+          "Gamma_top_discrete_curvature_cm-1": 0.41615399999977853,
+          "Gamma_top_0_to_0.030_change_cm-1": 8.400894000000108,
+          "K_top_kink_cm-1": 3.3826150000002144,
+          "K_top_left_right_asymmetry_cm-1": 6.7652300000002015
+        },
+        "144": {
+          "Gamma_top_discrete_curvature_cm-1": 0.8905339999998887,
+          "Gamma_top_0_to_0.030_change_cm-1": 7.91493400000013,
+          "K_top_kink_cm-1": 3.153773000000001,
+          "K_top_left_right_asymmetry_cm-1": 6.307546000000002
+        }
+      },
+      "adjacent_k_comparisons": [
+        {
+          "lower_kgrid": 72,
+          "upper_kgrid": 96,
+          "regions": {
+            "G": {
+              "n_q": 3,
+              "frequency_RMSE_cm-1": 1.0235698188981568,
+              "frequency_max_abs_cm-1": 3.020858999999973,
+              "top_branch_RMSE_cm-1": 1.8003895574378574,
+              "top_branch_max_abs_cm-1": 3.020858999999973,
+              "top_branch_delta_by_t_cm-1": {
+                "0.000000": 3.020858999999973,
+                "0.015000": 0.7724630000000161,
+                "0.030000": 0.04381199999988894
+              }
+            },
+            "K": {
+              "n_q": 5,
+              "frequency_RMSE_cm-1": 0.44934719847964616,
+              "frequency_max_abs_cm-1": 2.375919000000067,
+              "top_branch_RMSE_cm-1": 1.0968792526709727,
+              "top_branch_max_abs_cm-1": 2.375919000000067,
+              "top_branch_delta_by_t_cm-1": {
+                "0.980000": 0.34667500000000473,
+                "0.990000": 0.2770959999998013,
+                "1.000000": 2.375919000000067,
+                "1.010000": 0.21760700000004363,
+                "1.020000": 0.3555429999998978
+              }
+            }
+          },
+          "passes_frequency_thresholds": false,
+          "anomaly_comparison": {
+            "delta_upper_minus_lower_cm-1": {
+              "Gamma_top_0_to_0.030_change_cm-1": -2.977047000000084,
+              "Gamma_top_discrete_curvature_cm-1": 1.5197449999998298,
+              "K_top_kink_cm-1": -2.1285674999999173,
+              "K_top_left_right_asymmetry_cm-1": -4.257135000000289
+            },
+            "passes_anomaly_thresholds": false
+          }
+        },
+        {
+          "lower_kgrid": 96,
+          "upper_kgrid": 120,
+          "regions": {
+            "G": {
+              "n_q": 3,
+              "frequency_RMSE_cm-1": 0.39920513378084205,
+              "frequency_max_abs_cm-1": 1.1621359999999186,
+              "top_branch_RMSE_cm-1": 0.7034773898498484,
+              "top_branch_max_abs_cm-1": 1.1621359999999186,
+              "top_branch_delta_by_t_cm-1": {
+                "0.000000": 1.1621359999999186,
+                "0.015000": 0.1961750000000393,
+                "0.030000": 0.3091870000000654
+              }
+            },
+            "K": {
+              "n_q": 5,
+              "frequency_RMSE_cm-1": 0.14152080792082744,
+              "frequency_max_abs_cm-1": 0.7639079999999012,
+              "top_branch_RMSE_cm-1": 0.34434331669219215,
+              "top_branch_max_abs_cm-1": 0.7639079999999012,
+              "top_branch_delta_by_t_cm-1": {
+                "0.980000": 0.04096500000014203,
+                "0.990000": 0.05350600000019767,
+                "1.000000": 0.7639079999999012,
+                "1.010000": 0.024042000000008557,
+                "1.020000": 0.06470800000010968
+              }
+            }
+          },
+          "passes_frequency_thresholds": true,
+          "anomaly_comparison": {
+            "delta_upper_minus_lower_cm-1": {
+              "Gamma_top_0_to_0.030_change_cm-1": -0.8529489999998532,
+              "Gamma_top_discrete_curvature_cm-1": 1.0789729999999054,
+              "K_top_kink_cm-1": -0.7251339999997981,
+              "K_top_left_right_asymmetry_cm-1": -1.4502679999995962
+            },
+            "passes_anomaly_thresholds": false
+          }
+        },
+        {
+          "lower_kgrid": 120,
+          "upper_kgrid": 144,
+          "regions": {
+            "G": {
+              "n_q": 3,
+              "frequency_RMSE_cm-1": 0.1621152324176758,
+              "frequency_max_abs_cm-1": 0.4837290000000394,
+              "top_branch_RMSE_cm-1": 0.2792915974885017,
+              "top_branch_max_abs_cm-1": 0.4837290000000394,
+              "top_branch_delta_by_t_cm-1": {
+                "0.000000": 0.4837290000000394,
+                "0.015000": 0.003558999999995649,
+                "0.030000": -0.0022309999999379215
+              }
+            },
+            "K": {
+              "n_q": 5,
+              "frequency_RMSE_cm-1": 0.05219994124230682,
+              "frequency_max_abs_cm-1": 0.26316700000006676,
+              "top_branch_RMSE_cm-1": 0.12711531718799077,
+              "top_branch_max_abs_cm-1": 0.26316700000006676,
+              "top_branch_delta_by_t_cm-1": {
+                "0.980000": 0.07176299999991897,
+                "0.990000": 0.04028399999992871,
+                "1.000000": 0.26316700000006676,
+                "1.010000": 0.028366000000005442,
+                "1.020000": 0.0629069999999956
+              }
+            }
+          },
+          "passes_frequency_thresholds": true,
+          "anomaly_comparison": {
+            "delta_upper_minus_lower_cm-1": {
+              "Gamma_top_0_to_0.030_change_cm-1": -0.4859599999999773,
+              "Gamma_top_discrete_curvature_cm-1": 0.47438000000011016,
+              "K_top_kink_cm-1": -0.22884200000021337,
+              "K_top_left_right_asymmetry_cm-1": -0.4576840000001994
+            },
+            "passes_anomaly_thresholds": false
+          }
+        }
+      ],
+      "largest_kgrid": 144,
+      "current_candidate_converged": false,
+      "k144_confirmation_required": false,
+      "recommended_next_campaign": "increase k mesh beyond 144"
+    },
+    "0.0038001738": {
+      "kgrids": [
+        72,
+        96,
+        120
+      ],
+      "n_q_by_k": {
+        "72": 8,
+        "96": 8,
+        "120": 8
+      },
+      "anomaly_metrics_by_k": {
+        "72": {
+          "Gamma_top_discrete_curvature_cm-1": 1.7844139999999697,
+          "Gamma_top_0_to_0.030_change_cm-1": 6.975505999999996,
+          "K_top_kink_cm-1": 1.872128499999917,
+          "K_top_left_right_asymmetry_cm-1": 3.744256999999834
+        },
+        "96": {
+          "Gamma_top_discrete_curvature_cm-1": 2.0608790000001136,
+          "Gamma_top_0_to_0.030_change_cm-1": 6.377888999999868,
+          "K_top_kink_cm-1": 1.6571185000000241,
+          "K_top_left_right_asymmetry_cm-1": 3.314236999999821
+        },
+        "120": {
+          "Gamma_top_discrete_curvature_cm-1": 2.195935999999847,
+          "Gamma_top_0_to_0.030_change_cm-1": 6.29022000000009,
+          "K_top_kink_cm-1": 1.6201939999998558,
+          "K_top_left_right_asymmetry_cm-1": 3.240387999999939
+        }
+      },
+      "adjacent_k_comparisons": [
+        {
+          "lower_kgrid": 72,
+          "upper_kgrid": 96,
+          "regions": {
+            "G": {
+              "n_q": 3,
+              "frequency_RMSE_cm-1": 0.2078655682911907,
+              "frequency_max_abs_cm-1": 0.6085520000001452,
+              "top_branch_RMSE_cm-1": 0.36508954794231896,
+              "top_branch_max_abs_cm-1": 0.6085520000001452,
+              "top_branch_delta_by_t_cm-1": {
+                "0.000000": 0.6085520000001452,
+                "0.015000": 0.17151100000000952,
+                "0.030000": 0.01093500000001768
+              }
+            },
+            "K": {
+              "n_q": 5,
+              "frequency_RMSE_cm-1": 0.05532652613287804,
+              "frequency_max_abs_cm-1": 0.26915299999996023,
+              "top_branch_RMSE_cm-1": 0.1332151448604621,
+              "top_branch_max_abs_cm-1": 0.26915299999996023,
+              "top_branch_delta_by_t_cm-1": {
+                "0.980000": 0.07291600000007747,
+                "0.990000": 0.06627200000002631,
+                "1.000000": 0.26915299999996023,
+                "1.010000": 0.04201399999988098,
+                "1.020000": 0.06938399999989997
+              }
+            }
+          },
+          "passes_frequency_thresholds": true,
+          "anomaly_comparison": {
+            "delta_upper_minus_lower_cm-1": {
+              "Gamma_top_0_to_0.030_change_cm-1": -0.5976170000001275,
+              "Gamma_top_discrete_curvature_cm-1": 0.27646500000014385,
+              "K_top_kink_cm-1": -0.2150099999998929,
+              "K_top_left_right_asymmetry_cm-1": -0.43002000000001317
+            },
+            "passes_anomaly_thresholds": false
+          }
+        },
+        {
+          "lower_kgrid": 96,
+          "upper_kgrid": 120,
+          "regions": {
+            "G": {
+              "n_q": 3,
+              "frequency_RMSE_cm-1": 0.050670301399212046,
+              "frequency_max_abs_cm-1": 0.12139099999990322,
+              "top_branch_RMSE_cm-1": 0.07296919201276639,
+              "top_branch_max_abs_cm-1": 0.12139099999990322,
+              "top_branch_delta_by_t_cm-1": {
+                "0.000000": 0.12139099999990322,
+                "0.015000": 0.010028000000147586,
+                "0.030000": 0.03372200000012526
+              }
+            },
+            "K": {
+              "n_q": 5,
+              "frequency_RMSE_cm-1": 0.012605086137484045,
+              "frequency_max_abs_cm-1": 0.04457000000002154,
+              "top_branch_RMSE_cm-1": 0.02123504867430545,
+              "top_branch_max_abs_cm-1": 0.04457000000002154,
+              "top_branch_delta_by_t_cm-1": {
+                "0.980000": 0.006825999999819032,
+                "0.990000": 0.00987899999995534,
+                "1.000000": 0.04457000000002154,
+                "1.010000": 0.005412000000205808,
+                "1.020000": 0.009729999999990468
+              }
+            }
+          },
+          "passes_frequency_thresholds": true,
+          "anomaly_comparison": {
+            "delta_upper_minus_lower_cm-1": {
+              "Gamma_top_0_to_0.030_change_cm-1": -0.08766899999977795,
+              "Gamma_top_discrete_curvature_cm-1": 0.1350569999997333,
+              "K_top_kink_cm-1": -0.03692450000016834,
+              "K_top_left_right_asymmetry_cm-1": -0.07384899999988193
+            },
+            "passes_anomaly_thresholds": true
+          }
+        }
+      ],
+      "largest_kgrid": 120,
+      "current_candidate_converged": true,
+      "k144_confirmation_required": false,
+      "recommended_next_campaign": "dense line cut"
+    }
+  },
+  "inputs": [
+    "/Users/howardwang/Desktop/playground/phonon/results/graphene_physical_fd_dfpt/campaigns/FD300_CONV/graphene_FD300_CONV_dfpt.csv",
+    "/Users/howardwang/Desktop/playground/phonon/results/graphene_physical_fd_dfpt/campaigns/FD600_CONV/graphene_FD600_CONV_dfpt.csv",
+    "/Users/howardwang/Desktop/playground/phonon/results/graphene_physical_fd_dfpt/campaigns/FD300_K144/graphene_FD300_K144_dfpt.csv"
+  ],
+  "n_rows": 56
+}

@@ -1,0 +1,562 @@
+{
+  "status": "passed",
+  "scope": "S0 three-temperature physical-operator short-range delta dataset",
+  "created_at_utc": "2026-08-07T08:41:00.188393+00:00",
+  "target_formula": "F_delta = F_DFT_total - F_electronic(T) - F_v11",
+  "electronic_smearing_formula": "smearing/degauss (Ry) = k_B*T/Ry",
+  "lattice_temperature_role": "selects the released physical electronic operator; not a local-model input",
+  "local_Mermin_term": "zero_by_E1_gate",
+  "development_temperatures_K": [
+    300,
+    450,
+    600
+  ],
+  "locked_validation_temperatures_K_not_accessed": [
+    375,
+    525
+  ],
+  "temperature_or_degauss_is_model_input": false,
+  "base_model": "/home/howardwang/phonon/results/gr_backbone_v11/ft_graphene.model",
+  "base_model_sha256": "4d32426672d53e3adc86499d14e4c4164c05e879a56811ff54add03cd1bb6ce7",
+  "device_used_for_450K_base_predictions": "cpu",
+  "source_data": {
+    "endpoints": {
+      "manifest": "/home/howardwang/phonon/data/graphene_fd_delta_pilot/manifest.json",
+      "manifest_sha256": "e4221a58bd69fdf9a8212c6e215972b95bbf3af65953d6388afc47b8851d3f08",
+      "files": {
+        "T300/train.xyz": {
+          "path": "/home/howardwang/phonon/data/graphene_fd_delta_pilot/T300/train.xyz",
+          "sha256": "f28fe9a55537b9785b03ff7c6a6a5492acf5ac8b0263f5a74d19ac172de81b3f",
+          "n_input": 144,
+          "n_unique_thermal": 36,
+          "n_replay": 72
+        },
+        "T300/val.xyz": {
+          "path": "/home/howardwang/phonon/data/graphene_fd_delta_pilot/T300/val.xyz",
+          "sha256": "ba4e6948da47f5698c1e33a59e0b52f2cbd9caa7cb2b05ec7490ebc1fb55123d",
+          "n_input": 49,
+          "n_unique_thermal": 6,
+          "n_replay": 25
+        },
+        "T300/test.xyz": {
+          "path": "/home/howardwang/phonon/data/graphene_fd_delta_pilot/T300/test.xyz",
+          "sha256": "537828fc4350d19c118e381dd3c02be25e8c4710d29d56382b710322a7ebe8f8",
+          "n_input": 3,
+          "n_unique_thermal": 3,
+          "n_replay": 0
+        },
+        "T600/train.xyz": {
+          "path": "/home/howardwang/phonon/data/graphene_fd_delta_pilot/T600/train.xyz",
+          "sha256": "9a42307657032a121e28974896e8d0247948c01db46dec514728ea2c74703ae5",
+          "n_input": 144,
+          "n_unique_thermal": 36,
+          "n_replay": 72
+        },
+        "T600/val.xyz": {
+          "path": "/home/howardwang/phonon/data/graphene_fd_delta_pilot/T600/val.xyz",
+          "sha256": "f845348f9f7b0bfb504acb6eafc63e499d3757048c1757a879584d12b23be753",
+          "n_input": 49,
+          "n_unique_thermal": 6,
+          "n_replay": 25
+        },
+        "T600/test.xyz": {
+          "path": "/home/howardwang/phonon/data/graphene_fd_delta_pilot/T600/test.xyz",
+          "sha256": "83eedbc2dee555b3229a096f61f97034cfd19be1c4454fbf85b863b8911aad34",
+          "n_input": 3,
+          "n_unique_thermal": 3,
+          "n_replay": 0
+        }
+      }
+    },
+    "T450": {
+      "manifest": "/home/howardwang/phonon/data/graphene_physical_s0_inputs/T450/manifest.json",
+      "manifest_sha256": "fcd586ad7b66aaca21ed9ee0cb4f541bbeb1be84e5d92122f9d0db961b1a1385",
+      "files": {
+        "seed0.xyz": {
+          "path": "/home/howardwang/phonon/data/graphene_physical_s0_inputs/T450/seed0.xyz",
+          "sha256": "cb090a2868e9ac23efedc0a8bd14ca278ba1c80a3840bae89a3f30c2b7ad7f36"
+        },
+        "seed1.xyz": {
+          "path": "/home/howardwang/phonon/data/graphene_physical_s0_inputs/T450/seed1.xyz",
+          "sha256": "66e1107001c58d6e8e316bf86324c55c56c828cc0060d82bd72b9497689ecf69"
+        },
+        "seed2.xyz": {
+          "path": "/home/howardwang/phonon/data/graphene_physical_s0_inputs/T450/seed2.xyz",
+          "sha256": "e9ea6f916b5d64ea9fe752f60be4a44e6e3e5d8c835015f81738bbfbec08b5db"
+        },
+        "all60.xyz": {
+          "path": "/home/howardwang/phonon/data/graphene_physical_s0_inputs/T450/all60.xyz",
+          "sha256": "d6d3882ebfac4e9fc8f07ed77cc7dc3d2858a80b2f479b7bf53499ba98470d72"
+        }
+      },
+      "whole_trajectory_split": {
+        "seed0": "train",
+        "seed1": "val",
+        "seed2": "test"
+      },
+      "seed_concat_vs_all60_max_abs": 0.0
+    }
+  },
+  "prerequisites": {
+    "operator_decision": "/home/howardwang/phonon/data/graphene_physical_s0_inputs/operators/operator_gate_decision.json",
+    "operator_decision_sha256": "a21b6ad787a56f722de75e63a1cd24d9dd143b21232a6ead57c7caacef5b31cc",
+    "e1_residual_gate": "/home/howardwang/phonon/data/graphene_physical_s0_inputs/E1/e1_residual_gate.json",
+    "e1_residual_gate_sha256": "2adbbad92aae50f4db790be1f8d8f45cc4e237c8936b25a639cc01aec6c8b18c",
+    "e1_overall": {
+      "n_tasks": 30,
+      "n_force_components": 6480,
+      "raw_difference_RMSE_meV_A": 1.109037222482365,
+      "predicted_difference_RMSE_meV_A": 0.6998448564456798,
+      "residual_RMSE_meV_A": 0.6316528056850522,
+      "residual_to_raw_RMSE": 0.5695505911616021,
+      "raw_predicted_component_correlation": 0.850837027335777,
+      "residual_max_abs_meV_A": 2.3198675113580842
+    },
+    "local_Mermin_term": "zero_by_E1_gate"
+  },
+  "operators": {
+    "300": {
+      "output": "/home/howardwang/phonon/data/graphene_physical_s0/operators/T300_operator.npz",
+      "sha256": "114fb9a369ed106e5a89a9c05223aed7667fd737714f3d42516ebdb8e2e475c3",
+      "degauss_Ry": 0.0019000869380739254,
+      "degauss_formula": "k_B*T/Ry",
+      "atom_mapping_is_identity": true,
+      "force_pair_max_abs_eV_A2": 0.0,
+      "force_ASR_max_abs_eV_A2": 1.7694179454963432e-16
+    },
+    "450": {
+      "output": "/home/howardwang/phonon/data/graphene_physical_s0/operators/T450_operator.npz",
+      "sha256": "77bd333570c97e3134eb41b77d2eef7261cb6a7dfe77df2ce085b112e718d160",
+      "degauss_Ry": 0.0028501304071108886,
+      "degauss_formula": "k_B*T/Ry",
+      "atom_mapping_is_identity": true,
+      "force_pair_max_abs_eV_A2": 0.0,
+      "force_ASR_max_abs_eV_A2": 2.255140518769849e-16
+    },
+    "600": {
+      "output": "/home/howardwang/phonon/data/graphene_physical_s0/operators/T600_operator.npz",
+      "sha256": "5464a8998d7de904ce812edf80240ea53008ab2a66d26d710023cc083b8a5b19",
+      "degauss_Ry": 0.003800173876147851,
+      "degauss_formula": "k_B*T/Ry",
+      "atom_mapping_is_identity": true,
+      "force_pair_max_abs_eV_A2": 0.0,
+      "force_ASR_max_abs_eV_A2": 3.0184188481996443e-16
+    }
+  },
+  "thermal_repeat_policy": {
+    "300": {
+      "train": 2,
+      "val": 4,
+      "test": 1
+    },
+    "450": {
+      "train": 4,
+      "val": 1,
+      "test": 1
+    },
+    "600": {
+      "train": 2,
+      "val": 4,
+      "test": 1
+    }
+  },
+  "metrics_by_temperature": {
+    "300": {
+      "train": {
+        "n_unique_structures": 36,
+        "n_output_structures": 72,
+        "repeat": 2,
+        "total_force": {
+          "RMSE_meV_A": 1032.5850936552506,
+          "max_abs_meV_A": 4677.59358
+        },
+        "physical_long_range_force": {
+          "RMSE_meV_A": 8.395459256734684,
+          "max_abs_meV_A": 32.448746102817736
+        },
+        "short_range_target_force": {
+          "RMSE_meV_A": 1032.3047474619766,
+          "max_abs_meV_A": 4666.5258263268815
+        },
+        "frozen_v11_force": {
+          "RMSE_meV_A": 1001.873981880268,
+          "max_abs_meV_A": 4733.943939999999
+        },
+        "delta_target_force": {
+          "RMSE_meV_A": 130.18870961372176,
+          "max_abs_meV_A": 855.678730446924
+        },
+        "reconstruction_max_abs_meV_A": 4.440892098500626e-13,
+        "long_range_net_force_max_eV_A": 6.73477206912669e-17,
+        "max_displacement_A": 0.4375243701904604,
+        "output": "/home/howardwang/phonon/data/graphene_physical_s0/T300/train.xyz",
+        "output_sha256": "7bebb98d23ce08b317097e29503f41d5ce34a48ee2378417f60145ba63320a3b"
+      },
+      "val": {
+        "n_unique_structures": 6,
+        "n_output_structures": 24,
+        "repeat": 4,
+        "total_force": {
+          "RMSE_meV_A": 1059.265248948323,
+          "max_abs_meV_A": 3868.2997800000003
+        },
+        "physical_long_range_force": {
+          "RMSE_meV_A": 8.685556613044584,
+          "max_abs_meV_A": 27.874822292746423
+        },
+        "short_range_target_force": {
+          "RMSE_meV_A": 1058.8981274648672,
+          "max_abs_meV_A": 3873.252316287845
+        },
+        "frozen_v11_force": {
+          "RMSE_meV_A": 1031.1034836291958,
+          "max_abs_meV_A": 3864.87913
+        },
+        "delta_target_force": {
+          "RMSE_meV_A": 126.80851175275367,
+          "max_abs_meV_A": 625.083831511483
+        },
+        "reconstruction_max_abs_meV_A": 2.220446049250313e-13,
+        "long_range_net_force_max_eV_A": 7.934819356545115e-17,
+        "max_displacement_A": 0.4559351132185887,
+        "output": "/home/howardwang/phonon/data/graphene_physical_s0/T300/val.xyz",
+        "output_sha256": "ba1907807cc97905e015612dfe919ef4c17109c0a59e9e9e493f72ee2dd25e0a"
+      },
+      "test": {
+        "n_unique_structures": 3,
+        "n_output_structures": 3,
+        "repeat": 1,
+        "total_force": {
+          "RMSE_meV_A": 1062.9889728182475,
+          "max_abs_meV_A": 4503.78855
+        },
+        "physical_long_range_force": {
+          "RMSE_meV_A": 7.454171779132279,
+          "max_abs_meV_A": 19.94485951885936
+        },
+        "short_range_target_force": {
+          "RMSE_meV_A": 1062.4133200348635,
+          "max_abs_meV_A": 4488.920934729689
+        },
+        "frozen_v11_force": {
+          "RMSE_meV_A": 1028.451632608804,
+          "max_abs_meV_A": 4779.2100900000005
+        },
+        "delta_target_force": {
+          "RMSE_meV_A": 133.21191617368171,
+          "max_abs_meV_A": 649.9355506414568
+        },
+        "reconstruction_max_abs_meV_A": 1.1102230246251565e-13,
+        "long_range_net_force_max_eV_A": 7.996680103938912e-17,
+        "max_displacement_A": 0.41935955970245514,
+        "output": "/home/howardwang/phonon/data/graphene_physical_s0/T300/test.xyz",
+        "output_sha256": "79aa02e3b5efec81ffd84366a7fb615fad8b7d9236bead47c4271be02a8a3c76"
+      }
+    },
+    "450": {
+      "train": {
+        "n_unique_structures": 20,
+        "n_output_structures": 80,
+        "repeat": 4,
+        "total_force": {
+          "RMSE_meV_A": 1416.1887144320995,
+          "max_abs_meV_A": 5605.9711099999995
+        },
+        "physical_long_range_force": {
+          "RMSE_meV_A": 8.372028104785874,
+          "max_abs_meV_A": 32.61356803130354
+        },
+        "short_range_target_force": {
+          "RMSE_meV_A": 1414.821765969942,
+          "max_abs_meV_A": 5600.17892258739
+        },
+        "frozen_v11_force": {
+          "RMSE_meV_A": 1370.67630119548,
+          "max_abs_meV_A": 5704.416751861572
+        },
+        "delta_target_force": {
+          "RMSE_meV_A": 204.20239931637371,
+          "max_abs_meV_A": 1302.8011351400287
+        },
+        "reconstruction_max_abs_meV_A": 4.440892098500626e-13,
+        "long_range_net_force_max_eV_A": 7.616996755590042e-17,
+        "max_displacement_A": 0.47183275419713616,
+        "output": "/home/howardwang/phonon/data/graphene_physical_s0/T450/train.xyz",
+        "output_sha256": "521a3561077f2d7e756bd0c002eba229b5f55f7b01f5400d5ef39172160dd4a7"
+      },
+      "val": {
+        "n_unique_structures": 20,
+        "n_output_structures": 20,
+        "repeat": 1,
+        "total_force": {
+          "RMSE_meV_A": 1301.5745134101883,
+          "max_abs_meV_A": 5791.41578
+        },
+        "physical_long_range_force": {
+          "RMSE_meV_A": 10.359195613749277,
+          "max_abs_meV_A": 37.19977865883765
+        },
+        "short_range_target_force": {
+          "RMSE_meV_A": 1301.179962347404,
+          "max_abs_meV_A": 5788.862671845883
+        },
+        "frozen_v11_force": {
+          "RMSE_meV_A": 1265.8121259666652,
+          "max_abs_meV_A": 5464.405059814453
+        },
+        "delta_target_force": {
+          "RMSE_meV_A": 182.00615747660513,
+          "max_abs_meV_A": 965.5444534216555
+        },
+        "reconstruction_max_abs_meV_A": 8.881784197001252e-13,
+        "long_range_net_force_max_eV_A": 1.3548623466035524e-16,
+        "max_displacement_A": 0.4718175633224611,
+        "output": "/home/howardwang/phonon/data/graphene_physical_s0/T450/val.xyz",
+        "output_sha256": "fe525ca291f2c21c17678b487b6ab6c52bcae79df282a937fe4016eb50e6b6dd"
+      },
+      "test": {
+        "n_unique_structures": 20,
+        "n_output_structures": 20,
+        "repeat": 1,
+        "total_force": {
+          "RMSE_meV_A": 1352.5450230441622,
+          "max_abs_meV_A": 6401.9661399999995
+        },
+        "physical_long_range_force": {
+          "RMSE_meV_A": 7.526731199336982,
+          "max_abs_meV_A": 32.65446991916364
+        },
+        "short_range_target_force": {
+          "RMSE_meV_A": 1351.0619368139207,
+          "max_abs_meV_A": 6386.264162130452
+        },
+        "frozen_v11_force": {
+          "RMSE_meV_A": 1312.9510747595598,
+          "max_abs_meV_A": 6210.544109344482
+        },
+        "delta_target_force": {
+          "RMSE_meV_A": 180.65131982804363,
+          "max_abs_meV_A": 1290.9029213123285
+        },
+        "reconstruction_max_abs_meV_A": 2.220446049250313e-13,
+        "long_range_net_force_max_eV_A": 1.1798989234531465e-16,
+        "max_displacement_A": 0.4668668954913466,
+        "output": "/home/howardwang/phonon/data/graphene_physical_s0/T450/test.xyz",
+        "output_sha256": "a167acdd506d4d15dbeb0033f134e197482d0f13100c3171d5e843cd35bf1f4a"
+      }
+    },
+    "600": {
+      "train": {
+        "n_unique_structures": 36,
+        "n_output_structures": 72,
+        "repeat": 2,
+        "total_force": {
+          "RMSE_meV_A": 1572.1381091088815,
+          "max_abs_meV_A": 8324.464300000001
+        },
+        "physical_long_range_force": {
+          "RMSE_meV_A": 10.221368373473105,
+          "max_abs_meV_A": 34.958121059317776
+        },
+        "short_range_target_force": {
+          "RMSE_meV_A": 1570.8977941863786,
+          "max_abs_meV_A": 8304.41856415075
+        },
+        "frozen_v11_force": {
+          "RMSE_meV_A": 1536.7283191674112,
+          "max_abs_meV_A": 6857.837680000001
+        },
+        "delta_target_force": {
+          "RMSE_meV_A": 246.5122058770929,
+          "max_abs_meV_A": 2015.2444841507497
+        },
+        "reconstruction_max_abs_meV_A": 4.440892098500626e-13,
+        "long_range_net_force_max_eV_A": 9.819209125020518e-17,
+        "max_displacement_A": 0.46764819703826105,
+        "output": "/home/howardwang/phonon/data/graphene_physical_s0/T600/train.xyz",
+        "output_sha256": "cdc33de3058e55f81dfb9eda4fa24d4286e8911ffb8fdee790a2893414eedcb9"
+      },
+      "val": {
+        "n_unique_structures": 6,
+        "n_output_structures": 24,
+        "repeat": 4,
+        "total_force": {
+          "RMSE_meV_A": 1561.3627784408548,
+          "max_abs_meV_A": 6468.08129
+        },
+        "physical_long_range_force": {
+          "RMSE_meV_A": 11.883377784767188,
+          "max_abs_meV_A": 35.16585298778396
+        },
+        "short_range_target_force": {
+          "RMSE_meV_A": 1560.8650941434553,
+          "max_abs_meV_A": 6489.5071068867965
+        },
+        "frozen_v11_force": {
+          "RMSE_meV_A": 1535.2293518864728,
+          "max_abs_meV_A": 6372.14851
+        },
+        "delta_target_force": {
+          "RMSE_meV_A": 244.2312652868645,
+          "max_abs_meV_A": 1022.9496068867965
+        },
+        "reconstruction_max_abs_meV_A": 5.551115123125783e-14,
+        "long_range_net_force_max_eV_A": 1.5063154436343075e-16,
+        "max_displacement_A": 0.43943386148035374,
+        "output": "/home/howardwang/phonon/data/graphene_physical_s0/T600/val.xyz",
+        "output_sha256": "c50bb4d21dfdc00ce65d857001d3fdfc9ae4f010d64742a158f636015884e5ee"
+      },
+      "test": {
+        "n_unique_structures": 3,
+        "n_output_structures": 3,
+        "repeat": 1,
+        "total_force": {
+          "RMSE_meV_A": 1513.337498717517,
+          "max_abs_meV_A": 5333.96768
+        },
+        "physical_long_range_force": {
+          "RMSE_meV_A": 10.122952021620483,
+          "max_abs_meV_A": 30.657391562977413
+        },
+        "short_range_target_force": {
+          "RMSE_meV_A": 1512.5510602840463,
+          "max_abs_meV_A": 5342.471427428495
+        },
+        "frozen_v11_force": {
+          "RMSE_meV_A": 1465.6014626629903,
+          "max_abs_meV_A": 4778.39804
+        },
+        "delta_target_force": {
+          "RMSE_meV_A": 213.32979650536737,
+          "max_abs_meV_A": 1217.5210123188428
+        },
+        "reconstruction_max_abs_meV_A": 2.220446049250313e-13,
+        "long_range_net_force_max_eV_A": 4.336808689942025e-17,
+        "max_displacement_A": 0.3742711274069665,
+        "output": "/home/howardwang/phonon/data/graphene_physical_s0/T600/test.xyz",
+        "output_sha256": "5615e302c51b1571f3319138c775b390d970a5d384b787895b96b9a54b18ca37"
+      }
+    }
+  },
+  "replay": {
+    "train": {
+      "n_unique_structures": 72,
+      "n_output_structures": 72,
+      "repeat": 1,
+      "total_force": {
+        "RMSE_meV_A": 1703.9527467001822,
+        "max_abs_meV_A": 11723.567369999999
+      },
+      "physical_long_range_force": {
+        "RMSE_meV_A": 0.0,
+        "max_abs_meV_A": 0.0
+      },
+      "short_range_target_force": {
+        "RMSE_meV_A": 1703.9527467001822,
+        "max_abs_meV_A": 11723.567369999999
+      },
+      "frozen_v11_force": {
+        "RMSE_meV_A": 1704.043580403675,
+        "max_abs_meV_A": 11717.765809999999
+      },
+      "delta_target_force": {
+        "RMSE_meV_A": 7.3693964990309455,
+        "max_abs_meV_A": 51.44137999999998
+      },
+      "reconstruction_max_abs_meV_A": 1.734723475976807e-15,
+      "long_range_net_force_max_eV_A": 0.0,
+      "max_displacement_A": 0.0,
+      "output": "/home/howardwang/phonon/data/graphene_physical_s0/replay/train.xyz",
+      "output_sha256": "e77ebb662a16c11cc47d41502ef2f792f5ed5b65652aa10debd4c8984d2a3e1c"
+    },
+    "val": {
+      "n_unique_structures": 25,
+      "n_output_structures": 25,
+      "repeat": 1,
+      "total_force": {
+        "RMSE_meV_A": 1671.2871639932928,
+        "max_abs_meV_A": 10284.85808
+      },
+      "physical_long_range_force": {
+        "RMSE_meV_A": 0.0,
+        "max_abs_meV_A": 0.0
+      },
+      "short_range_target_force": {
+        "RMSE_meV_A": 1671.2871639932928,
+        "max_abs_meV_A": 10284.85808
+      },
+      "frozen_v11_force": {
+        "RMSE_meV_A": 1671.0160785043383,
+        "max_abs_meV_A": 10258.831020000001
+      },
+      "delta_target_force": {
+        "RMSE_meV_A": 7.2357082357695655,
+        "max_abs_meV_A": 57.081509999999945
+      },
+      "reconstruction_max_abs_meV_A": 3.469446951953614e-15,
+      "long_range_net_force_max_eV_A": 0.0,
+      "max_displacement_A": 0.0,
+      "output": "/home/howardwang/phonon/data/graphene_physical_s0/replay/val.xyz",
+      "output_sha256": "c0f4fcdea0336475bd34a6895b52ad84f5e2cdb6226e713846e46ce942de426f"
+    }
+  },
+  "joint": {
+    "train": {
+      "output": "/home/howardwang/phonon/data/graphene_physical_s0/train.xyz",
+      "output_sha256": "eb6102c09eb30e66c7ada92d1e78bcce152d7f090b763f6dfea25d03dbc9f2b4",
+      "n_structures": 296
+    },
+    "val": {
+      "output": "/home/howardwang/phonon/data/graphene_physical_s0/val.xyz",
+      "output_sha256": "6d3b050ba0c8fe59d69e76bab1bb22605f17c1cf10b9cb7734206c678df51cad",
+      "n_structures": 93
+    },
+    "test": {
+      "output": "/home/howardwang/phonon/data/graphene_physical_s0/test.xyz",
+      "output_sha256": "8f8b6cfbdd0003d708ac5044568585e8ca4a550009cb84f336d5d6d3d3688bd0",
+      "n_structures": 26
+    }
+  },
+  "recommended_config_weights": {
+    "method": "inverse train delta-target MSE, normalized to T600=1 and clipped to [0.25,4]; replay fixed at 12",
+    "train_delta_target_RMSE_meV_A": {
+      "300": 130.18870961372176,
+      "450": 204.20239931637371,
+      "600": 246.5122058770929
+    },
+    "temperature_weights": {
+      "300": 3.585338882231296,
+      "450": 1.457320837277187,
+      "600": 1.0
+    },
+    "config_type_weights": {
+      "Default": 12.0,
+      "physical_s0_thermal_300K": 3.585338882231296,
+      "physical_s0_thermal_300K_validation": 3.585338882231296,
+      "physical_s0_thermal_300K_test": 3.585338882231296,
+      "physical_s0_thermal_450K": 1.457320837277187,
+      "physical_s0_thermal_450K_validation": 1.457320837277187,
+      "physical_s0_thermal_450K_test": 1.457320837277187,
+      "physical_s0_thermal_600K": 1.0,
+      "physical_s0_thermal_600K_validation": 1.0,
+      "physical_s0_thermal_600K_test": 1.0,
+      "physical_s0_harmonic_replay": 12.0,
+      "physical_s0_harmonic_replay_validation": 12.0
+    }
+  },
+  "aggregate_gates": {
+    "checks": {
+      "E0_operator_gate_passed": true,
+      "E1_cross_degauss_gate_passed": true,
+      "locked_375_525_not_accessed": true,
+      "base_model_hash_matches_endpoint_data": true,
+      "endpoint_file_hashes_match_manifest": true,
+      "T450_whole_trajectory_split": true,
+      "T300_T600_replay_identical": true,
+      "force_reconstruction_max_abs_le_1e-8_meV_A": true,
+      "long_range_net_force_max_le_2e-5_eV_A": true
+    },
+    "force_reconstruction_max_abs_meV_A": 8.881784197001252e-13,
+    "long_range_net_force_max_eV_A": 1.5063154436343075e-16
+  }
+}

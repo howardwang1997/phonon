@@ -1,0 +1,54 @@
+{
+  "status": "fixed_background_electronic_smearing_sweep_generated",
+  "scope": "same static MLIP short-range background and one common EPC reference constant for all electronic smearings",
+  "construction": {
+    "formula": "omega(q,s)^2 = omega_SR_static(q)^2 + C_common + Pi_full_EPC(q,s)-Pi_reference(q)",
+    "common_reference_constant_cm-2": -170027.77431425342,
+    "common_constant_spread_cm-2": 5.820766091346741e-11,
+    "per_smearing_K_reanchoring": false,
+    "lattice_temperature_background_used": false
+  },
+  "series_metrics": [
+    {
+      "smearing_degauss_Ry": 0.0,
+      "K_frequency_cm-1": 1282.182972,
+      "KG_d003_rise_cm-1": 1.9316360277480271,
+      "KM_d003_rise_cm-1": 1.9403208253311277
+    },
+    {
+      "smearing_degauss_Ry": 0.0019000869,
+      "K_frequency_cm-1": 1285.738447004553,
+      "KG_d003_rise_cm-1": 0.3277179600686395,
+      "KM_d003_rise_cm-1": 0.3299685345270973
+    },
+    {
+      "smearing_degauss_Ry": 0.00285013035,
+      "K_frequency_cm-1": 1287.2730029682953,
+      "KG_d003_rise_cm-1": 0.23445418720507405,
+      "KM_d003_rise_cm-1": 0.23628410866581362
+    },
+    {
+      "smearing_degauss_Ry": 0.0038001738,
+      "K_frequency_cm-1": 1288.8559705048208,
+      "KG_d003_rise_cm-1": 0.1779577330187294,
+      "KM_d003_rise_cm-1": 0.17966521378343714
+    }
+  ],
+  "checks": {
+    "zero_curve_replay_max_abs_cm-1": 0.0,
+    "K_frequency_increases_monotonically_with_smearing": true,
+    "mean_d003_cusp_depth_decreases_monotonically_with_smearing": true,
+    "all_frequencies_finite": true
+  },
+  "source": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/E30_zero_finite_full_kpath/zero_finite_full_kpath_Aprime.csv",
+  "limitations": [
+    "the one common absolute EPC reference constant is calibrated once from the accepted zero-smearing K anchor",
+    "the stored zero and finite electronic response integrations retain their previously validated numerical-regulator settings",
+    "this is a controlled electronic-smearing comparison, not a finite-lattice-temperature phonon spectrum"
+  ],
+  "outputs": {
+    "png": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/E31_fixed_background_smearing_sweep/fixed_background_smearing_sweep_Aprime.png",
+    "pdf": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/E31_fixed_background_smearing_sweep/fixed_background_smearing_sweep_Aprime.pdf",
+    "csv": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/E31_fixed_background_smearing_sweep/fixed_background_smearing_sweep_Aprime.csv"
+  }
+}

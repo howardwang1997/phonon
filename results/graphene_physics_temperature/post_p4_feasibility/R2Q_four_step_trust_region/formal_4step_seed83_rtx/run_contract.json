@@ -1,0 +1,421 @@
+{
+  "format": "graphene_r2q_four_step_trust_region_v1",
+  "status": "frozen_before_any_R2Q_parameter_gradient",
+  "protocol": {
+    "format": "graphene_r2q_four_step_trust_region_v1",
+    "steps_exact": 4,
+    "gradient_blocks_each_step": {
+      "Aprime_seed0": 20,
+      "thermal_total_force": 92,
+      "small_zero_RMS": 32,
+      "small_zero_exact_top": 32
+    },
+    "candidate_halving_indices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "eta0_formula": "1e-3 * ||theta_j||_2 / ||d_j||_2",
+    "global_relative_L2_cap": 0.001,
+    "per_tensor_relative_L2_guard": 0.02,
+    "Armijo_c1": 0.1,
+    "Armijo_epsilon": "1e-12 * max(1, abs(L_i_base))",
+    "candidate_exact_top": "max(abs(force))^2 / (32 * 0.00358418^2)",
+    "candidate_top_tie_policy": "record_only_because_candidate_has_no_gradient",
+    "gradient_base_top_tie_policy": "R2P_exact_and_near_tie_fail_closed",
+    "held_policy": "open_once_only_after_step4_endpoint_artifact_is_frozen",
+    "optimizer_instantiated": false,
+    "optimizer_step_called": false,
+    "DFT_calculations": 0
+  },
+  "protocol_sha256": "2bbee6349bf8d9a723d43130bd3f4b50c7a46ea975133e92482d1395e2cfaacb",
+  "authorization": {
+    "exact_train_steps": 4,
+    "optimizer_instantiated": false,
+    "optimizer_step_called": false,
+    "held_before_endpoint_authorized": false,
+    "seed2_or_support_authorized": false,
+    "tail_or_deployment_authorized": false
+  },
+  "R2Q_source_snapshot_sha256": "385064bfa4718a63d0c88df6afcd7edc356149d37334254baec376b2a93ea99f",
+  "contract_doc_sha256": "8b287433b1046d4c229d1d3bb12aeba6bb9d5b0180af2ebf7605802935f614f0",
+  "reviewed_helper_source_sha256": {
+    "R2P_gradient_and_cone": "402e44ab26b70cf8f4e265fd729ad6d96b73733b0a7aeb9baf58d7043ef43371",
+    "R2O_Taylor_wrapper": "0eedea5a59b8f717559feda97b2c2956dd6f274fe4963de10c214db53b4610e2",
+    "R2O_endpoint_evaluator": "14cf2a160a9b0281c0c2149caec6d62f9a31e40a9c7af39ea3ea2e14956c79ce"
+  },
+  "R2P_input_sha256": {
+    "result.json": "333eb1b84209816f8b3044d6c30960fc568fa3714f1087f1b82ec56646ffbced",
+    "primary_certificate.json": "54bf9056d8ac90641875f2dbe997336ffe909c3babf9a17440d6c2237791842c",
+    "report_only_comparisons.json": "9da429464ce47edc743e17479fd55f5350702eae7d3b1f476cd757603a1d1ed1",
+    "primary_gradient_matrix.npy": "566844a4dd4003b52560e1d2cb8ae1eb1d4b2e1011843b3e7aeefd9703885a38",
+    "primary_common_direction.npy": "a6df2bc9395915d05739516e5bb7aba68bfdbcf6ff4673f3cdc837283e81d246",
+    "graphene_r2p_gradient_feasibility_snapshot.py": "402e44ab26b70cf8f4e265fd729ad6d96b73733b0a7aeb9baf58d7043ef43371"
+  },
+  "R2P_primary_sha256": "54bf9056d8ac90641875f2dbe997336ffe909c3babf9a17440d6c2237791842c",
+  "R2O_input_sha256": {
+    "manifest": "4d2b60f39537eccd3389bcc568c95d0bb61b7a1564a1c2f8e45786031eb92a0f",
+    "thermal_train": "cc2e9c68d418fba996e8ac89c8156c8adf00768406f6171aaa57f0a9bd2720c1",
+    "harmonic_zero_train": "600c737b11987fb976724dd86042d384fc1abef9f2340ffa5c30d5fe26a8afdf",
+    "reference_6x6": "2793b514768c6d875831a1b62fcb2aa5f858830cb2de7b1b2d5492dabeb8da90",
+    "reference_8x8": "1c438550cb03d94cc80ca16e1ca89d24f87db4d732743b6c07128d47edf5b900",
+    "gate": "924b13de54d2a918c16845524289036e117006e48ee454f364f442fd88ee8898",
+    "training_freeze": "02d1019d8863e2c91180a33cf1a0e37a40455965a8004f5596c1bd934068fa64",
+    "stage2_contract": "9303ed2ecf75394317ce66f18ed52fdb8e03c67678cb3da5fa7ba559df85156f",
+    "stage2_runtime": "e93294a65d0a36ebd2406ff54791c7ac4ff895a388545dc524323247a936e4f5",
+    "bundle": "067e7d26cb9ac12a686193f55be5336b8dcca5497691377b9d4c277cadbf500c",
+    "wrapper_snapshot": "0eedea5a59b8f717559feda97b2c2956dd6f274fe4963de10c214db53b4610e2"
+  },
+  "base_model_state_sha256": "09c29479be6c8f207211614c2b3da20f09aba0702092a2b1bf8edab5a5e6d236",
+  "parameter_schema": [
+    {
+      "name": "node_embedding.linear.weight",
+      "shape": [
+        16
+      ],
+      "numel": 16,
+      "dtype": "torch.float64",
+      "requires_grad": true
+    },
+    {
+      "name": "interactions.0.linear_up.weight",
+      "shape": [
+        256
+      ],
+      "numel": 256,
+      "dtype": "torch.float64",
+      "requires_grad": true
+    },
+    {
+      "name": "interactions.0.conv_tp_weights.layer0.weight",
+      "shape": [
+        24,
+        64
+      ],
+      "numel": 1536,
+      "dtype": "torch.float64",
+      "requires_grad": true
+    },
+    {
+      "name": "interactions.0.conv_tp_weights.layer1.weight",
+      "shape": [
+        64,
+        64
+      ],
+      "numel": 4096,
+      "dtype": "torch.float64",
+      "requires_grad": true
+    },
+    {
+      "name": "interactions.0.conv_tp_weights.layer2.weight",
+      "shape": [
+        64,
+        64
+      ],
+      "numel": 4096,
+      "dtype": "torch.float64",
+      "requires_grad": true
+    },
+    {
+      "name": "interactions.0.conv_tp_weights.layer3.weight",
+      "shape": [
+        64,
+        48
+      ],
+      "numel": 3072,
+      "dtype": "torch.float64",
+      "requires_grad": true
+    },
+    {
+      "name": "interactions.0.linear.weight",
+      "shape": [
+        768
+      ],
+      "numel": 768,
+      "dtype": "torch.float64",
+      "requires_grad": true
+    },
+    {
+      "name": "interactions.0.skip_tp.weight",
+      "shape": [
+        768
+      ],
+      "numel": 768,
+      "dtype": "torch.float64",
+      "requires_grad": true
+    },
+    {
+      "name": "interactions.1.linear_up.weight",
+      "shape": [
+        768
+      ],
+      "numel": 768,
+      "dtype": "torch.float64",
+      "requires_grad": true
+    },
+    {
+      "name": "interactions.1.conv_tp_weights.layer0.weight",
+      "shape": [
+        24,
+        64
+      ],
+      "numel": 1536,
+      "dtype": "torch.float64",
+      "requires_grad": true
+    },
+    {
+      "name": "interactions.1.conv_tp_weights.layer1.weight",
+      "shape": [
+        64,
+        64
+      ],
+      "numel": 4096,
+      "dtype": "torch.float64",
+      "requires_grad": true
+    },
+    {
+      "name": "interactions.1.conv_tp_weights.layer2.weight",
+      "shape": [
+        64,
+        64
+      ],
+      "numel": 4096,
+      "dtype": "torch.float64",
+      "requires_grad": true
+    },
+    {
+      "name": "interactions.1.conv_tp_weights.layer3.weight",
+      "shape": [
+        64,
+        176
+      ],
+      "numel": 11264,
+      "dtype": "torch.float64",
+      "requires_grad": true
+    },
+    {
+      "name": "interactions.1.linear.weight",
+      "shape": [
+        2816
+      ],
+      "numel": 2816,
+      "dtype": "torch.float64",
+      "requires_grad": true
+    },
+    {
+      "name": "interactions.1.skip_tp.weight",
+      "shape": [
+        256
+      ],
+      "numel": 256,
+      "dtype": "torch.float64",
+      "requires_grad": true
+    },
+    {
+      "name": "products.0.symmetric_contractions.contractions.0.weights_max",
+      "shape": [
+        1,
+        11,
+        16
+      ],
+      "numel": 176,
+      "dtype": "torch.float64",
+      "requires_grad": true
+    },
+    {
+      "name": "products.0.symmetric_contractions.contractions.0.weights.0",
+      "shape": [
+        1,
+        3,
+        16
+      ],
+      "numel": 48,
+      "dtype": "torch.float64",
+      "requires_grad": true
+    },
+    {
+      "name": "products.0.symmetric_contractions.contractions.0.weights.1",
+      "shape": [
+        1,
+        1,
+        16
+      ],
+      "numel": 16,
+      "dtype": "torch.float64",
+      "requires_grad": true
+    },
+    {
+      "name": "products.0.symmetric_contractions.contractions.1.weights_max",
+      "shape": [
+        1,
+        21,
+        16
+      ],
+      "numel": 336,
+      "dtype": "torch.float64",
+      "requires_grad": true
+    },
+    {
+      "name": "products.0.symmetric_contractions.contractions.1.weights.0",
+      "shape": [
+        1,
+        4,
+        16
+      ],
+      "numel": 64,
+      "dtype": "torch.float64",
+      "requires_grad": true
+    },
+    {
+      "name": "products.0.symmetric_contractions.contractions.1.weights.1",
+      "shape": [
+        1,
+        1,
+        16
+      ],
+      "numel": 16,
+      "dtype": "torch.float64",
+      "requires_grad": true
+    },
+    {
+      "name": "products.0.symmetric_contractions.contractions.2.weights_max",
+      "shape": [
+        1,
+        23,
+        16
+      ],
+      "numel": 368,
+      "dtype": "torch.float64",
+      "requires_grad": true
+    },
+    {
+      "name": "products.0.symmetric_contractions.contractions.2.weights.0",
+      "shape": [
+        1,
+        4,
+        16
+      ],
+      "numel": 64,
+      "dtype": "torch.float64",
+      "requires_grad": true
+    },
+    {
+      "name": "products.0.symmetric_contractions.contractions.2.weights.1",
+      "shape": [
+        1,
+        1,
+        16
+      ],
+      "numel": 16,
+      "dtype": "torch.float64",
+      "requires_grad": true
+    },
+    {
+      "name": "products.0.linear.weight",
+      "shape": [
+        768
+      ],
+      "numel": 768,
+      "dtype": "torch.float64",
+      "requires_grad": true
+    },
+    {
+      "name": "products.1.symmetric_contractions.contractions.0.weights_max",
+      "shape": [
+        1,
+        11,
+        16
+      ],
+      "numel": 176,
+      "dtype": "torch.float64",
+      "requires_grad": true
+    },
+    {
+      "name": "products.1.symmetric_contractions.contractions.0.weights.0",
+      "shape": [
+        1,
+        3,
+        16
+      ],
+      "numel": 48,
+      "dtype": "torch.float64",
+      "requires_grad": true
+    },
+    {
+      "name": "products.1.symmetric_contractions.contractions.0.weights.1",
+      "shape": [
+        1,
+        1,
+        16
+      ],
+      "numel": 16,
+      "dtype": "torch.float64",
+      "requires_grad": true
+    },
+    {
+      "name": "products.1.linear.weight",
+      "shape": [
+        256
+      ],
+      "numel": 256,
+      "dtype": "torch.float64",
+      "requires_grad": true
+    },
+    {
+      "name": "readouts.0.linear.weight",
+      "shape": [
+        16
+      ],
+      "numel": 16,
+      "dtype": "torch.float64",
+      "requires_grad": true
+    },
+    {
+      "name": "readouts.1.linear_1.weight",
+      "shape": [
+        256
+      ],
+      "numel": 256,
+      "dtype": "torch.float64",
+      "requires_grad": true
+    },
+    {
+      "name": "readouts.1.linear_2.weight",
+      "shape": [
+        16
+      ],
+      "numel": 16,
+      "dtype": "torch.float64",
+      "requires_grad": true
+    }
+  ],
+  "parameter_schema_sha256": "e521e25be638e3f021f02efd8cd063aa26faf0c41bfe5e0c68ea2e85fcf49ba7",
+  "runtime": {
+    "hostname": "howard-pc",
+    "platform": "Linux-5.11.0-40-generic-x86_64-with-glibc2.31",
+    "python": "3.11.15",
+    "numpy": "2.4.6",
+    "scipy": "1.17.1",
+    "torch": "2.6.0+cu124",
+    "default_dtype": "torch.float32",
+    "deterministic_algorithms_enabled": false,
+    "deterministic_algorithms_warn_only": false,
+    "float32_matmul_precision": "highest",
+    "cudnn_allow_tf32": true,
+    "cuda_matmul_allow_tf32": false,
+    "device": "cuda",
+    "cuda": {
+      "device_name": "NVIDIA GeForce RTX 2060 SUPER",
+      "capability": [
+        7,
+        5
+      ],
+      "cuda_runtime": "12.4",
+      "cudnn_version": 90100
+    }
+  },
+  "contract_sha256": "871e2ba5414086f2d21c051f72e456666721807a96a7feb1cde84cc45a079668"
+}

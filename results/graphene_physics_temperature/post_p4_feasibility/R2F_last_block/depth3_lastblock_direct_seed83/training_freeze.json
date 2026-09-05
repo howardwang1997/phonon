@@ -1,0 +1,61 @@
+{
+  "status": "frozen_before_training",
+  "mode": "depth3_terminal_interaction_product_readout_direct_finetune",
+  "run_tag": "depth3_lastblock_direct",
+  "seed": 83,
+  "max_epochs": 160,
+  "learning_rate": 5e-05,
+  "conda_environment": "phonon",
+  "initial_model": {
+    "path": "/data/graphene_r2c_short_repair/depth3_forces_only_seed83/gr_r2c_depth3_forces_only_seed83.model",
+    "sha256": "cdab8eae193c27126305fe798c105a9f98cf8b9718805d2de80e9211c1743084"
+  },
+  "data_manifest": {
+    "path": "/data/graphene_r2f_joint_support_harmonic/manifest.json",
+    "sha256": "a7feb67f8cf16a0d5ca2c0efb010909e3f41efc4fc97c5216a454bf169da0b99"
+  },
+  "data_outputs": {
+    "train.xyz": {
+      "path": "data/graphene_r2f_joint_support_harmonic/train.xyz",
+      "sha256": "3e3f030477a6d2b2ba8f6cb12fe35dd9999b144dcb5d13925c8d03bac8558637"
+    },
+    "val.xyz": {
+      "path": "data/graphene_r2f_joint_support_harmonic/val.xyz",
+      "sha256": "634531e708e540dad3c36992c190f1cb5490a5f07c5be0f99f7d14fb53f092ae"
+    },
+    "test.xyz": {
+      "path": "data/graphene_r2f_joint_support_harmonic/test.xyz",
+      "sha256": "bdc259b233c90131e731952c2bb6c933da1f4d3ad0a73354278912a886d057d9"
+    },
+    "supported9_train.xyz": {
+      "path": "data/graphene_r2f_joint_support_harmonic/supported9_train.xyz",
+      "sha256": "75fc39905c98b7e25816d9490f08a3d3fa39e21a1b3683bf6f1bf8c2ae92dde6"
+    }
+  },
+  "training_script": {
+    "path": "/root/phonon/scripts/v100/run_graphene_r2f_last_layer_finetune.sh",
+    "sha256": "b7f980de4c4bed3d77e8cb9e825873f56252052f1acc1952a73d3fca63670227"
+  },
+  "direct_trainer": {
+    "path": "/root/phonon/scripts/smearing_kink/train_graphene_r2f_last_block.py",
+    "sha256": "0ec95873a36d3b5681957e787bb60db8d8971e26871e604066ac6ce88c30b9a0"
+  },
+  "loss": {
+    "name": "forces_only",
+    "energy_weight": 0.0,
+    "forces_weight": 100.0
+  },
+  "optimizer": {
+    "lr": 5e-05,
+    "weight_decay": 1e-08,
+    "ema": true,
+    "ema_decay": 0.99
+  },
+  "trainable_scope": [
+    "interactions.2.*",
+    "products.2.*",
+    "readouts.2.*"
+  ],
+  "new_DFT_labels": 0,
+  "long_range_model_modified": false
+}

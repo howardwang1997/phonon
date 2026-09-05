@@ -1,0 +1,56 @@
+{
+  "status": "post_failure_rank_repair_identified",
+  "scope": "post-failure diagnostic on the same fixed five-q VSe2 split; not counted as a blind validation",
+  "rank_results": {
+    "1": {
+      "full_data_capture": 0.9444389612492686,
+      "full_data_maximum_relative_error": 0.4802846844648205,
+      "blind_heldout_RMSE_relative_error": 0.2351250670337159,
+      "blind_heldout_median_relative_error": 0.20162234435732143,
+      "blind_heldout_maximum_relative_error": 0.42872111890449205
+    },
+    "2": {
+      "full_data_capture": 0.9945382815297062,
+      "full_data_maximum_relative_error": 0.2028075608789124,
+      "blind_heldout_RMSE_relative_error": 0.08047525542710321,
+      "blind_heldout_median_relative_error": 0.07794173792585624,
+      "blind_heldout_maximum_relative_error": 0.11523838835515504
+    },
+    "3": {
+      "full_data_capture": 0.9997981999726879,
+      "full_data_maximum_relative_error": 0.034988725590568114,
+      "blind_heldout_RMSE_relative_error": 0.020430116950380245,
+      "blind_heldout_median_relative_error": 0.019529182589443583,
+      "blind_heldout_maximum_relative_error": 0.034320543639751545
+    },
+    "4": {
+      "full_data_capture": 0.9999919052469611,
+      "full_data_maximum_relative_error": 0.00789572643283475,
+      "blind_heldout_RMSE_relative_error": 0.010965102260419753,
+      "blind_heldout_median_relative_error": 0.006564704428572921,
+      "blind_heldout_maximum_relative_error": 0.02622595421994363
+    },
+    "5": {
+      "full_data_capture": 0.9999996706926048,
+      "full_data_maximum_relative_error": 0.0016098204114398833,
+      "blind_heldout_RMSE_relative_error": 0.010432955407508163,
+      "blind_heldout_median_relative_error": 0.005522031351672067,
+      "blind_heldout_maximum_relative_error": 0.02587207457328731
+    }
+  },
+  "smallest_rank_meeting_original_vertex_error_thresholds": 4,
+  "minimum_adjacent_mode_overlap": 0.999026020822568,
+  "rank4_five_q_interpolation_models": {
+    "natural_cubic": {
+      "heldout_RMSE_relative_vertex_error": 0.010965102260419753,
+      "heldout_median_relative_vertex_error": 0.006564704428572921,
+      "heldout_maximum_relative_vertex_error": 0.02622595421994363
+    },
+    "degree4_Chebyshev": {
+      "heldout_RMSE_relative_vertex_error": 0.004798536406803195,
+      "heldout_median_relative_vertex_error": 0.00407616245091668,
+      "heldout_maximum_relative_vertex_error": 0.00854646995218027
+    }
+  },
+  "interpretation": "A high adjacent-mode overlap indicates smooth mode rotation.  If rank 4 passes while rank 3 narrowly fails, the reusable model should predict an adaptive rank capped at 4 rather than add q labels or dense DFT."
+}

@@ -1,0 +1,71 @@
+{
+  "status": "simple_absolute_and_matched_direction_DFPT_comparison_generated",
+  "interpretation_of_user_term": "DPT treated as DFPT",
+  "absolute_plot": {
+    "fixed_static_MLIP_background": true,
+    "common_EPC_reference_constant": true,
+    "lattice_temperature_background_used": false,
+    "per_smearing_K_reanchoring": false
+  },
+  "zero_smearing_DFPT_comparison": {
+    "KG": {
+      "dense_curve_d003_depth_cm-1": 1.9316360277480271,
+      "quadrature_extrapolated_d003_depth_cm-1": 1.965011432321931,
+      "DFPT_1_over_k_extrapolated_d003_depth_cm-1": 2.045655710526254,
+      "dense_curve_relative_error": 0.05573747439098374,
+      "quadrature_extrapolated_relative_error": 0.03942221449550607
+    },
+    "KM": {
+      "dense_curve_d003_depth_cm-1": 1.9403208253311277,
+      "quadrature_extrapolated_d003_depth_cm-1": 1.9763668291424334,
+      "DFPT_1_over_k_extrapolated_d003_depth_cm-1": 2.078528289473819,
+      "dense_curve_relative_error": 0.06649294351325796,
+      "quadrature_extrapolated_relative_error": 0.049150863545498275
+    }
+  },
+  "finite_smearing_DFPT_comparison": {
+    "0.0019000869": {
+      "smearing_degauss_Ry": 0.0019000869,
+      "DFPT_kgrid": 144,
+      "number_of_points": 4,
+      "RMSE_cm-1": 3.0586172810880385,
+      "maximum_absolute_error_cm-1": 3.942154371345623,
+      "K_error_cm-1": -2.3013159954468847,
+      "K_aligned_shape_RMSE_cm-1": 0.9295790319570204
+    },
+    "0.0028501304": {
+      "smearing_degauss_Ry": 0.00285013035,
+      "DFPT_kgrid": 144,
+      "number_of_points": 4,
+      "RMSE_cm-1": 3.0602259156871865,
+      "maximum_absolute_error_cm-1": 3.8812174252268505,
+      "K_error_cm-1": -2.518534031704803,
+      "K_aligned_shape_RMSE_cm-1": 0.7312165604510579
+    },
+    "0.0038001738": {
+      "smearing_degauss_Ry": 0.0038001738,
+      "DFPT_kgrid": 120,
+      "number_of_points": 4,
+      "RMSE_cm-1": 3.0354504867594017,
+      "maximum_absolute_error_cm-1": 3.8263929988886503,
+      "K_error_cm-1": -2.550347495179267,
+      "K_aligned_shape_RMSE_cm-1": 0.6750070171969393
+    }
+  },
+  "comparison_scope": {
+    "zero": "K and d=0.003 on K-to-Gamma/K-to-M, using 1/Nk extrapolated DFPT depths",
+    "finite": "common K-to-Gamma direction only; direct static-lattice DFPT"
+  },
+  "limitations": [
+    "the common absolute EPC reference constant is calibrated once from the zero-smearing K anchor",
+    "finite-smearing direct DFPT uses the available k144, k144, and k120 calculations and is not a new k-grid extrapolation",
+    "no finite-smearing K-to-M DFPT points are available, so that direction is not shown as validated"
+  ],
+  "outputs": {
+    "absolute_png": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/E32_absolute_and_DFPT_comparison/fixed_background_absolute_Aprime.png",
+    "absolute_pdf": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/E32_absolute_and_DFPT_comparison/fixed_background_absolute_Aprime.pdf",
+    "DFPT_png": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/E32_absolute_and_DFPT_comparison/MLIP_full_EPC_LR_vs_DFPT_Aprime.png",
+    "DFPT_pdf": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/E32_absolute_and_DFPT_comparison/MLIP_full_EPC_LR_vs_DFPT_Aprime.pdf",
+    "comparison_csv": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/E32_absolute_and_DFPT_comparison/MLIP_full_EPC_LR_vs_DFPT_points.csv"
+  }
+}

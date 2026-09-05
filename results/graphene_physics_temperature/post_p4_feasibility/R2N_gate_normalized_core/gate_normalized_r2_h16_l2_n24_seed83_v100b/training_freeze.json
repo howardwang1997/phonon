@@ -1,0 +1,125 @@
+{
+  "status": "frozen_before_R2M_core_training",
+  "r2n_status": "frozen_before_R2N_gate_normalized_training",
+  "experiment_stage": "R2N_loss_only_correction_after_failed_R2M_core_gate",
+  "model_role": "replacement_short_delta_core",
+  "combination": "frozen_v11_foundation + new_R2N_core + frozen_q6",
+  "depth3_or_current_S0_initialized_or_deployed": false,
+  "random_initialization": true,
+  "architecture": {
+    "model": "MACE",
+    "num_interactions": 2,
+    "r_max_A": 2.0,
+    "hidden_irreps": "16x0e+16x1o+16x2e",
+    "max_ell": 2,
+    "num_radial_basis": 24,
+    "num_cutoff_basis": 5,
+    "correlation": 3,
+    "interaction_diameter_bound_A": 8.0
+  },
+  "loss": {
+    "name": "forces_only",
+    "contract_version": "R2N_GATE_NORMALIZED_V1",
+    "only_change_from_R2M": "config_type_weights",
+    "formula": "raw_w_g=lambda_g/(N_g*L_g^2), normalized to harmonic=1",
+    "group_mass": {
+      "exact_E50": 0.4,
+      "harmonic": 0.4,
+      "auxiliary_T300": 0.1,
+      "auxiliary_T600": 0.1
+    },
+    "gate_scale_eV_A": {
+      "exact_E50": 0.03,
+      "harmonic": 0.009044673057081593,
+      "auxiliary_T300": 0.03,
+      "auxiliary_T600": 0.03
+    },
+    "config_type_weights": {
+      "r2m_exact_e50_train": 0.3272244428,
+      "r2m_exact_e50_validation": 0.3272244428,
+      "r2m_harmonic_train": 1.0,
+      "r2m_harmonic_validation": 1.0,
+      "r2m_auxiliary_T300": 0.04544783928,
+      "r2m_auxiliary_T600": 0.04544783928
+    },
+    "energy_weight": 0.0,
+    "forces_weight": 100.0,
+    "batch1_semantics": "one complete configuration per optimizer step; fixed weights normalize group MSE by the corresponding force-RMSE gate",
+    "dynamic_gradient_balancing": false,
+    "mace_version": "0.3.16",
+    "semantic_source_sha256": {
+      "mean_squared_error_forces": "1a3b1d798f99e661e7a2384e863da32dd72b6f2bc4dbc5de643bc5136d9e1602",
+      "reduce_loss": "3ed039b785f7ec4064a8687386bf6245ece2093c6be4d36085daf9cf7ca56aa9",
+      "WeightedForcesLoss": "2712d2cfa03ce4918edb5f51a9991e84806e61aa2173b8c8616f9ae2ec5eeaad",
+      "config_from_atoms": "d6a5e818c214af5779809094c1fee0f74451395ae9f87596fd92b2e5ce17adcb"
+    },
+    "mean_squared_error_forces_source_sha256": "1a3b1d798f99e661e7a2384e863da32dd72b6f2bc4dbc5de643bc5136d9e1602"
+  },
+  "optimizer": {
+    "lr": 0.001,
+    "weight_decay": 1e-06,
+    "ema": true,
+    "ema_decay": 0.99,
+    "scheduler": "ExponentialLR",
+    "lr_scheduler_gamma": 1.0,
+    "validation_data_controls_lr": false
+  },
+  "training": {
+    "seed": 83,
+    "batch_size": 1,
+    "max_epochs": 240,
+    "patience": 300,
+    "fixed_evaluation_epochs": [
+      40,
+      80,
+      120,
+      160,
+      200,
+      235
+    ],
+    "final_is_also_evaluated": true,
+    "validation_loss_cannot_stop_training": true
+  },
+  "leakage": {
+    "support_in_gradients": false,
+    "E50_seed1_in_gradients": false,
+    "E50_seed2_read_by_training": false,
+    "E50_seed2_file_opened_by_launcher_or_training": false,
+    "support_file_opened_by_launcher_or_training": false,
+    "atom_or_bond_random_split": false
+  },
+  "predecessor": {
+    "required_status": "R2M_core_checkpoint_gate_failed",
+    "gate_path": "/data/graphene_r2m_core/support_free_r2_h16_l2_n24_seed83_v100b/core_checkpoint_gate.json",
+    "gate_sha256": "2b9be841d4de28e1a836e8630ec34e3bec626c954bdf1a94831df9409b6ace81",
+    "diagnostic_model_sha256": "26c3b085a10c27ac7af431c8b39093e83c3a968e953089ee00bba6c4c156acf5",
+    "diagnostic_model_initialized_or_deployed": false
+  },
+  "data_manifest": {
+    "path": "/root/phonon/data/graphene_r2m_support_free_core/manifest.json",
+    "sha256": "bb20a86af073e344c38e39ab14d3a80af9e39fa051591bed2b039ae643ffe31e"
+  },
+  "launcher": {
+    "path": "/data/graphene_r2n_core/gate_normalized_r2_h16_l2_n24_seed83_v100b/code_snapshots/run_graphene_r2n_gate_normalized_core.sh",
+    "sha256": "978c013bd8938b7d246bb2135add1273c3f582c9b14c3d61b33d9230619cec2c"
+  },
+  "evaluator": {
+    "path": "/data/graphene_r2n_core/gate_normalized_r2_h16_l2_n24_seed83_v100b/code_snapshots/evaluate_graphene_r2m_core_checkpoints.py",
+    "sha256": "8d7d84389b615b815ad0a5900fcedca4a8fdb5f35416b4ce25c351eb0a65d180",
+    "compatibility_note": "unchanged R2M checkpoint evaluator; R2N launcher guards this exact freeze before and after evaluation"
+  },
+  "conda_environment": "phonon-mlip",
+  "environment_probe": {
+    "conda_environment": "phonon-mlip",
+    "mace_version": "0.3.16",
+    "torch_version": "2.6.0+cu124",
+    "torch_cuda_version": "12.4",
+    "cuda_available": true,
+    "cuda_device_count": 1,
+    "cuda_device0_name": "Tesla V100-SXM2-32GB",
+    "cuda_device0_capability": [
+      7,
+      0
+    ]
+  }
+}

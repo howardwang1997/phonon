@@ -1,0 +1,19 @@
+{
+  "argv": [
+    "ssh",
+    "-o",
+    "BatchMode=yes",
+    "-o",
+    "ConnectTimeout=20",
+    "-o",
+    "ControlPath=none",
+    "howardwang@100.105.21.7",
+    "env TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD=1 /home/howardwang/miniconda3/bin/conda run -n phonon python /home/howardwang/phonon/results/r2r0_formal_bundle_20260825/bf998936b4b3/scripts/smearing_kink/run_graphene_r2r0_formal.py shard --shard-id 2 --device cuda --output /home/howardwang/phonon/results/r2r0_formal_three_host_seed83/bf998936b4b3/attempt_0001/shard2 --freeze-manifest /home/howardwang/phonon/results/r2r0_formal_bundle_20260825/bf998936b4b3/results/r2r0_formal/control/freeze_manifest.json --authorization-marker /home/howardwang/phonon/results/r2r0_formal_bundle_20260825/bf998936b4b3/results/r2r0_formal/control/R2R0_FORMAL_GO"
+  ],
+  "returncode": 0,
+  "sha256": "4f25a5a568d7713bf0da13f17d64aa83ded80d6659e9bc5e0721e17bba2232e9",
+  "stderr_basename": "shard2.stderr",
+  "stderr_sha256": "3012641559b9e1b1a441629c7e5a4fc7f0c240161a7c5f22f738ea090312f932",
+  "stdout_basename": "shard2.stdout",
+  "stdout_sha256": "5ae8c66078731d50f5db69ef99c08be5b07433d6549433b8a1aa3d296b5e0e60"
+}

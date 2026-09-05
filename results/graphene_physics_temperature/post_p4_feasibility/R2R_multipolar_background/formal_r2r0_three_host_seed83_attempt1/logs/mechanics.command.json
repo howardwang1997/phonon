@@ -1,0 +1,19 @@
+{
+  "argv": [
+    "ssh",
+    "-o",
+    "BatchMode=yes",
+    "-o",
+    "ConnectTimeout=20",
+    "-o",
+    "ControlPath=none",
+    "root@100.123.220.57",
+    "env TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD=1 /root/miniconda3/bin/conda run -n phonon-mlip python /data/graphene_r2r0/formal_bundle/bf998936b4b3/scripts/smearing_kink/run_graphene_r2r0_formal.py mechanics --device cuda --output /data/graphene_r2r0/formal_r2r0_three_host_seed83/bf998936b4b3/attempt_0001/mechanics --freeze-manifest /data/graphene_r2r0/formal_bundle/bf998936b4b3/results/r2r0_formal/control/freeze_manifest.json --authorization-marker /data/graphene_r2r0/formal_bundle/bf998936b4b3/results/r2r0_formal/control/R2R0_FORMAL_GO"
+  ],
+  "returncode": 1,
+  "sha256": "1c006587a645d38da9c87d0d562734af9b8e3ad8584b8014eb01725c0392a970",
+  "stderr_basename": "mechanics.stderr",
+  "stderr_sha256": "0a9d2b6a692e3422696233e5f15253afe64aa95f71516cc41629f322ce1de642",
+  "stdout_basename": "mechanics.stdout",
+  "stdout_sha256": "5ae8c66078731d50f5db69ef99c08be5b07433d6549433b8a1aa3d296b5e0e60"
+}

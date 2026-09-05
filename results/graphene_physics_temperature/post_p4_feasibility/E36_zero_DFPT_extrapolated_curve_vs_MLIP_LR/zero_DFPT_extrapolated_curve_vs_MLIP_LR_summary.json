@@ -1,0 +1,59 @@
+{
+  "status": "zero_DFPT_extrapolated_curve_vs_MLIP_LR_generated",
+  "smearing_degauss_Ry": 0.0,
+  "scope": "local |signed distance from K| <= 0.003",
+  "DFPT_curve": {
+    "construction": "piecewise-linear zero-smearing cusp through independently fitted fixed-q N-infinity intercepts",
+    "anchors": [
+      {
+        "signed_distance": -0.003,
+        "frequency_cm-1": 1286.2504607368433
+      },
+      {
+        "signed_distance": 0.0,
+        "frequency_cm-1": 1284.204805026317
+      },
+      {
+        "signed_distance": 0.003,
+        "frequency_cm-1": 1286.2833333157905
+      }
+    ],
+    "K_frequency_cm-1": 1284.204805026317,
+    "d003_depth_cm-1": {
+      "KG": 2.045655710526262,
+      "KM": 2.0785282894735246
+    }
+  },
+  "MLIP_plus_full_EPC_LR": {
+    "original_K_frequency_cm-1": 1282.182972,
+    "DFPT_K_reanchoring_shift_cm-1": 2.0218330263169264,
+    "shape_changed_by_reanchoring": false,
+    "d003_depth_cm-1": {
+      "KG": 1.9316360277480271,
+      "KM": 1.9403208253311277
+    }
+  },
+  "K_aligned_shape_comparison": {
+    "d003_signed_depth_error_cm-1": {
+      "KG": -0.11401968277823471,
+      "KM": -0.13820746414239693
+    },
+    "d003_signed_relative_depth_error": {
+      "KG": -0.055737474390987425,
+      "KM": -0.06649294351312574
+    },
+    "curve_RMSE_cm-1": 0.07861040794064493,
+    "curve_max_abs_error_cm-1": 0.13820746414239693
+  },
+  "limitations": [
+    "the DFPT curve is local and is not extended beyond |d|=0.003",
+    "only three fixed q anchors support the piecewise-linear DFPT cusp",
+    "the absolute K intercept uses a three-grid linear 1/N extrapolation and is not a frozen converged reference",
+    "the reanchored MLIP curve is a diagnostic common shift of the original curve"
+  ],
+  "outputs": {
+    "png": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/E36_zero_DFPT_extrapolated_curve_vs_MLIP_LR/zero_DFPT_extrapolated_curve_vs_MLIP_LR.png",
+    "pdf": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/E36_zero_DFPT_extrapolated_curve_vs_MLIP_LR/zero_DFPT_extrapolated_curve_vs_MLIP_LR.pdf",
+    "csv": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/E36_zero_DFPT_extrapolated_curve_vs_MLIP_LR/zero_DFPT_extrapolated_curve_vs_MLIP_LR.csv"
+  }
+}

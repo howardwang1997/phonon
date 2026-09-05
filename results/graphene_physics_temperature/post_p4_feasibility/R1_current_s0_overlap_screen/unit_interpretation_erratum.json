@@ -1,0 +1,26 @@
+{
+  "status": "deterministic_unit_interpretation_correction",
+  "recorded_at": "2026-08-22T18:31:00+12:00",
+  "discovered_after_completed_DFT_labels": 1,
+  "freeze_manifest_sha256": "014f50261c5fe3818b00ac287715d88018a540acd09cc877f25925b163a2d2cd",
+  "frozen_indices_and_snapshot_hashes_changed": false,
+  "DFT_input_positions_or_settings_changed": false,
+  "source_package": {
+    "name": "python-sscha",
+    "version": "1.6.1",
+    "implementation": "sscha/Ensemble.py get_energy_forces and save_bin"
+  },
+  "stored_units": {
+    "xats_pop1.npy": "angstrom",
+    "forces_pop1.npy": "Ry/angstrom",
+    "energies_pop1.npy": "Ry"
+  },
+  "conversion": {
+    "implementation": "ase.units.create_units('2006')['Ry']",
+    "Ry_to_eV": 13.605691932782346,
+    "MLIP_forces_eV_A": "forces_pop1 * Ry_to_eV",
+    "MLIP_energies_eV": "energies_pop1 * Ry_to_eV"
+  },
+  "selection_invariance": "The mislabeled force and energy columns were each robust-standardized independently before farthest-point selection and shard balancing. A positive constant rescaling leaves those standardized columns, the selected indices, and the A/B split unchanged apart from roundoff; no DFT value is used to change the frozen set.",
+  "required_evaluation_behavior": "Keep the original freeze manifest and shard NPZ hashes unchanged. Convert only the saved MLIP force and energy values during official R1 evaluation, and retain the raw Ry-valued arrays in the merged artifact."
+}

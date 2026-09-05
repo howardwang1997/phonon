@@ -1,0 +1,121 @@
+{
+  "method": "joint 300/600 K frozen-v11 additive delta dataset",
+  "target": "(DFT total - harmonic long range) - v11",
+  "base_model": "/home/howardwang/phonon/results/gr_backbone_v11/ft_graphene.model",
+  "base_model_sha256": "4d32426672d53e3adc86499d14e4c4164c05e879a56811ff54add03cd1bb6ce7",
+  "source_manifest": "/root/phonon/data/graphene_fd_delta_pilot/manifest.json",
+  "source_manifest_sha256": "e4221a58bd69fdf9a8212c6e215972b95bbf3af65953d6388afc47b8851d3f08",
+  "splits": {
+    "train": {
+      "sources": {
+        "300": {
+          "path": "/root/phonon/data/graphene_fd_delta_pilot/T300/train.xyz",
+          "sha256": "f28fe9a55537b9785b03ff7c6a6a5492acf5ac8b0263f5a74d19ac172de81b3f",
+          "n_thermal": 72,
+          "n_harmonic_replay": 72
+        },
+        "600": {
+          "path": "/root/phonon/data/graphene_fd_delta_pilot/T600/train.xyz",
+          "sha256": "9a42307657032a121e28974896e8d0247948c01db46dec514728ea2c74703ae5",
+          "n_thermal": 72,
+          "n_harmonic_replay": 72
+        }
+      },
+      "n_output_structures": 216,
+      "n_thermal_300": 72,
+      "n_thermal_600": 72,
+      "n_harmonic_replay": 72,
+      "output": "/data/graphene_physics_temperature/benchmarks/mace_joint_10epoch_v100b/joint_data/train.xyz",
+      "output_sha256": "c2f8d180fd27b8dcac97fabb03d67d2129893d0f751ab11fb77da41c6349ea94",
+      "thermal_300_delta_target": {
+        "n_structures": 72,
+        "RMSE_meV_A": 121.12321762022533,
+        "max_abs_meV_A": 858.57623
+      },
+      "thermal_600_delta_target": {
+        "n_structures": 72,
+        "RMSE_meV_A": 238.69898989999592,
+        "max_abs_meV_A": 1953.619
+      },
+      "harmonic_replay_delta_target": {
+        "n_structures": 72,
+        "RMSE_meV_A": 7.3693964990309455,
+        "max_abs_meV_A": 51.44138
+      }
+    },
+    "val": {
+      "sources": {
+        "300": {
+          "path": "/root/phonon/data/graphene_fd_delta_pilot/T300/val.xyz",
+          "sha256": "ba4e6948da47f5698c1e33a59e0b52f2cbd9caa7cb2b05ec7490ebc1fb55123d",
+          "n_thermal": 24,
+          "n_harmonic_replay": 25
+        },
+        "600": {
+          "path": "/root/phonon/data/graphene_fd_delta_pilot/T600/val.xyz",
+          "sha256": "f845348f9f7b0bfb504acb6eafc63e499d3757048c1757a879584d12b23be753",
+          "n_thermal": 24,
+          "n_harmonic_replay": 25
+        }
+      },
+      "n_output_structures": 73,
+      "n_thermal_300": 24,
+      "n_thermal_600": 24,
+      "n_harmonic_replay": 25,
+      "output": "/data/graphene_physics_temperature/benchmarks/mace_joint_10epoch_v100b/joint_data/val.xyz",
+      "output_sha256": "c5a2af9e0fb75a75557dd0f8dab95d90936675df20e9801a3aa3da7050af782d",
+      "thermal_300_delta_target": {
+        "n_structures": 24,
+        "RMSE_meV_A": 117.80055082072516,
+        "max_abs_meV_A": 595.64091
+      },
+      "thermal_600_delta_target": {
+        "n_structures": 24,
+        "RMSE_meV_A": 235.02228440761712,
+        "max_abs_meV_A": 1050.60742
+      },
+      "harmonic_replay_delta_target": {
+        "n_structures": 25,
+        "RMSE_meV_A": 7.235708235769565,
+        "max_abs_meV_A": 57.08151
+      }
+    },
+    "test": {
+      "sources": {
+        "300": {
+          "path": "/root/phonon/data/graphene_fd_delta_pilot/T300/test.xyz",
+          "sha256": "537828fc4350d19c118e381dd3c02be25e8c4710d29d56382b710322a7ebe8f8",
+          "n_thermal": 3,
+          "n_harmonic_replay": 0
+        },
+        "600": {
+          "path": "/root/phonon/data/graphene_fd_delta_pilot/T600/test.xyz",
+          "sha256": "83eedbc2dee555b3229a096f61f97034cfd19be1c4454fbf85b863b8911aad34",
+          "n_thermal": 3,
+          "n_harmonic_replay": 0
+        }
+      },
+      "n_output_structures": 6,
+      "n_thermal_300": 3,
+      "n_thermal_600": 3,
+      "n_harmonic_replay": 0,
+      "output": "/data/graphene_physics_temperature/benchmarks/mace_joint_10epoch_v100b/joint_data/test.xyz",
+      "output_sha256": "eaacdf67c63be62bb5e076c0a059cc1c016bd45d09c94e31230d3efed02bb725",
+      "thermal_300_delta_target": {
+        "n_structures": 3,
+        "RMSE_meV_A": 124.56953511516707,
+        "max_abs_meV_A": 655.8679
+      },
+      "thermal_600_delta_target": {
+        "n_structures": 3,
+        "RMSE_meV_A": 205.0884384637738,
+        "max_abs_meV_A": 1200.00106
+      }
+    }
+  },
+  "recommended_config_weights": {
+    "thermal_300_relative_to_600": 3.8837061597685527,
+    "thermal_600": 1.0,
+    "method": "inverse endpoint target-MSE normalization with 600 K as unit weight"
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "status": "complete",
+  "scope": "graphene K cusp no-degauss direct DFPT stage lane",
+  "stage": "pilot",
+  "lane": "A",
+  "kgrid": 192,
+  "qe_tag": "qe75_conda",
+  "electronic_integration": "occupations='tetrahedra_opt'",
+  "smearing": null,
+  "degauss_Ry": null,
+  "n_qpoints": 2,
+  "config": {
+    "path": "/root/phonon/configs/graphene_k_cusp_nosmear/qpoints.tsv",
+    "sha256": "3cb92f0662d758dd61d9058b2266e14b22d471c9688109befc3a19999a6d778e"
+  },
+  "scf": {
+    "input_sha256": "b382e69eacd993a230ee5c1aeae04c8775337f386d5f2bdeb68d35bf8ebd813e",
+    "output_sha256": "0e031a6a955944ef2c37d2870c35b4711221f45e1a3bc7815dec42d8a58b8a71"
+  },
+  "quantum_espresso": {
+    "pw_path": "/root/miniconda3/envs/qe/bin/pw.x",
+    "pw_sha256": "1d66c7856f5d6b3cd9c66b8578e01512b16bbe907b4360e54234890712ccd6a1",
+    "ph_path": "/root/miniconda3/envs/qe/bin/ph.x",
+    "ph_sha256": "971d78d8bb53fcfe9a0871cffcbe33694583948cb8e02814751f01b660bdbe00",
+    "tag": "qe75_conda"
+  },
+  "pseudopotential": {
+    "path": "/root/phonon/pseudo/C_ONCV_PBE-1.2.upf",
+    "sha256": "1c674ec4fe19ee85db53e6b9ecf7cd40e70eda362cedd83f7c51c9c4081ea064"
+  },
+  "qpoint_audits": [
+    {
+      "label": "K",
+      "gr_dyn_sha256": "f51f4c076cc9ef110ee7c5b6b8a2f07c4cf46b64a2063635995b158384ee4e47",
+      "ph_in_sha256": "e3f71b1d8c3a1d28c84c7058f595311a4504fa18de5d9e34276b07b877cc9457",
+      "ph_out_sha256": "2df4b70ffb0326ad860ffed59b02bc8d47eee5bc1472dd19fcf6a878fc7fafed",
+      "q_max_abs_error": 3.3333330540230577e-10,
+      "Hermiticity_max_abs": 0.0,
+      "eigenvector_orthogonality_max_abs": 6.188980001819999e-07,
+      "matrix_frequency_replay_max_abs_cm-1": 7.678958127144142e-07
+    },
+    {
+      "label": "KG_d007",
+      "gr_dyn_sha256": "949836d6c4710459a811dd96b3edc32e290658dabf4104b6eddd1697b250b2e0",
+      "ph_in_sha256": "5b839bc15b21d51539131577ff2e68d026b71513340fd21f37e5216e177298d5",
+      "ph_out_sha256": "5afbbf9c32f91a9a8452d6ac5a0fb5951c5c79faa19a6c87b10c6d4b72bff45d",
+      "q_max_abs_error": 3.052984531848324e-10,
+      "Hermiticity_max_abs": 0.0,
+      "eigenvector_orthogonality_max_abs": 9.400330001074764e-07,
+      "matrix_frequency_replay_max_abs_cm-1": 4.441480314198998e-06
+    }
+  ],
+  "aggregate_audit": {
+    "Hermiticity_max_abs": 0.0,
+    "matrix_frequency_replay_max_abs_cm-1": 4.441480314198998e-06
+  },
+  "outputs": {
+    "csv": "/data/graphene_k_cusp_nosmear/lanes/pilot_A_k192_qe75_conda/dfpt_points.csv",
+    "csv_sha256": "ac5fe0133a667c5535b105eb3818a36ecbb4a3af50dbcac2b781eac2d9e2c658",
+    "bundle": "/data/graphene_k_cusp_nosmear/lanes/pilot_A_k192_qe75_conda/bundle"
+  }
+}

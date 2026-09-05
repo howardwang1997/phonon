@@ -1,0 +1,134 @@
+{
+  "status": "passed_q_density",
+  "scope": "two-machine lowest-finite-degauss k192 direct-DFPT K-line densification",
+  "degauss_Ry": 0.0006333623,
+  "kgrid": 192,
+  "n_unique_qpoints": 13,
+  "cross_machine_duplicate_K": {
+    "V100_A_cm-1": [
+      544.262423,
+      544.262424,
+      1005.021297,
+      1227.996951,
+      1227.996952,
+      1284.28108
+    ],
+    "V100_B_cm-1": [
+      544.262423,
+      544.262424,
+      1005.021297,
+      1227.996951,
+      1227.996952,
+      1284.28108
+    ],
+    "all_mode_max_abs_cm-1": 0.0,
+    "top_mode_abs_cm-1": 0.0
+  },
+  "cusp_windows": [
+    {
+      "delta_t": 0.0030000000000000027,
+      "left_t": 0.997,
+      "right_t": 1.003,
+      "left_cm-1": 1286.583976,
+      "center_cm-1": 1284.28108,
+      "right_cm-1": 1286.600643,
+      "mirror_abs_cm-1": 0.016667000000097687,
+      "cusp_depth_cm-1": 2.311229499999854,
+      "slope_jump_cm-1_per_t": 1540.8196666666436
+    },
+    {
+      "delta_t": 0.007000000000000006,
+      "left_t": 0.993,
+      "right_t": 1.007,
+      "left_cm-1": 1289.119421,
+      "center_cm-1": 1284.28108,
+      "right_cm-1": 1289.167587,
+      "mirror_abs_cm-1": 0.04816599999981008,
+      "cusp_depth_cm-1": 4.862424000000146,
+      "slope_jump_cm-1_per_t": 1389.2640000000083
+    },
+    {
+      "delta_t": 0.01100000000000001,
+      "left_t": 0.989,
+      "right_t": 1.011,
+      "left_cm-1": 1291.709826,
+      "center_cm-1": 1284.28108,
+      "right_cm-1": 1291.838399,
+      "mirror_abs_cm-1": 0.1285729999999603,
+      "cusp_depth_cm-1": 7.493032500000027,
+      "slope_jump_cm-1_per_t": 1362.369545454549
+    },
+    {
+      "delta_t": 0.015000000000000013,
+      "left_t": 0.985,
+      "right_t": 1.015,
+      "left_cm-1": 1294.07579,
+      "center_cm-1": 1284.28108,
+      "right_cm-1": 1294.309358,
+      "mirror_abs_cm-1": 0.23356799999987743,
+      "cusp_depth_cm-1": 9.911494000000175,
+      "slope_jump_cm-1_per_t": 1321.5325333333403
+    },
+    {
+      "delta_t": 0.019000000000000017,
+      "left_t": 0.981,
+      "right_t": 1.019,
+      "left_cm-1": 1296.764164,
+      "center_cm-1": 1284.28108,
+      "right_cm-1": 1297.107917,
+      "mirror_abs_cm-1": 0.3437530000001061,
+      "cusp_depth_cm-1": 12.654960500000016,
+      "slope_jump_cm-1_per_t": 1332.1011052631584
+    },
+    {
+      "delta_t": 0.02300000000000002,
+      "left_t": 0.977,
+      "right_t": 1.023,
+      "left_cm-1": 1298.918691,
+      "center_cm-1": 1284.28108,
+      "right_cm-1": 1299.415894,
+      "mirror_abs_cm-1": 0.4972029999998995,
+      "cusp_depth_cm-1": 14.886212500000056,
+      "slope_jump_cm-1_per_t": 1294.453260869569
+    }
+  ],
+  "absolute_value_cusp_fit": {
+    "formula": "omega(t)=c0+c1*abs(t-1)+c2*abs(t-1)^2",
+    "coefficients": [
+      1284.4176297471247,
+      692.5765089288724,
+      -2155.477629639134
+    ],
+    "fit_RMSE_cm-1": 0.161696182032211,
+    "slope_jump_2c1_cm-1_per_t": 1385.1530178577448
+  },
+  "checks": {
+    "cross_machine_all_mode_max_le_0p1_cm-1": true,
+    "mirror_top_max_le_1_cm-1": true,
+    "all_symmetric_cusp_depths_positive": true,
+    "K_is_local_minimum": true,
+    "absolute_value_fit_RMSE_le_1_cm-1": true,
+    "fitted_slope_jump_positive": true
+  },
+  "sources": [
+    {
+      "path": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physical_fd_dfpt/campaigns/FD0_SCAN/graphene_FD0_SCAN_dfpt.csv",
+      "sha256": "fbd68f8fd723979562fa71766ecae097ed2e2389ec1f121dcecf0bad08e5390b"
+    },
+    {
+      "path": "/Users/howardwang/Desktop/playground/phonon/results/graphene_kohn_cusp_two_methods/C0_remote_dfpt/A/graphene_FD0_K_DENSE_A_dfpt.csv",
+      "sha256": "fc50c12340bed000c25a938fc94768aa7006ae5c770a5217e346c52c929fba50"
+    },
+    {
+      "path": "/Users/howardwang/Desktop/playground/phonon/results/graphene_kohn_cusp_two_methods/C0_remote_dfpt/B/graphene_FD0_K_DENSE_B_dfpt.csv",
+      "sha256": "48b05b46c1872bfba2285b0a3f7fd3edf89d102f67b70200b55be95fc3cc0246"
+    }
+  ],
+  "outputs": [
+    "results/graphene_kohn_cusp_two_methods/C0_fd0_k192_dense/graphene_fd0_k192_dense_cusp.png",
+    "results/graphene_kohn_cusp_two_methods/C0_fd0_k192_dense/graphene_fd0_k192_dense_cusp.pdf",
+    "results/graphene_kohn_cusp_two_methods/C0_fd0_k192_dense/c0_merged_dfpt.csv",
+    "results/graphene_kohn_cusp_two_methods/C0_fd0_k192_dense/c0_cusp_window_metrics.csv"
+  ],
+  "limitation": "This gate establishes q-density and cross-machine reproducibility at k192. A separate fixed-degauss k-grid subset is required before the near-zero reference is final."
+}

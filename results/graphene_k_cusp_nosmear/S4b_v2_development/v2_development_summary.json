@@ -1,0 +1,162 @@
+{
+  "status": "finite_slope_selected_at_resolution_floor_wait_for_kgrid",
+  "scope": "v2 development only after the v1 blind holdout was revealed",
+  "independent_v2_validation": false,
+  "electronic_integration": "tetrahedra_opt (no degauss)",
+  "selected_candidate": "finite_slope_rational",
+  "selected_fit": {
+    "model": "finite_slope_rational",
+    "lambda_K_cm-2": 1641382.968027455,
+    "linear_coefficients_cm-2": [
+      1245534.888953487,
+      1294622.4966510497,
+      6164605.953873935
+    ],
+    "scale": 0.003,
+    "scale_at_resolution_floor": true,
+    "scale_resolved_by_development": false,
+    "minimum_nonzero_development_distance": 0.003,
+    "fixed_resolution_floor": 0.003
+  },
+  "selected_one_sided_slopes_at_K": {
+    "KG_cm-1_per_d": 2891.9548318411753,
+    "KM_cm-1_per_d": 2911.1122469666784
+  },
+  "candidate_scores": [
+    {
+      "model": "finite_slope_rational",
+      "n_parameters_including_K_anchor": 5,
+      "leave_one_distance_out_MAE_cm-1": 0.809765288605926,
+      "MAE_by_held_distance_cm-1": {
+        "0.003": 1.7117993994651215,
+        "0.007": 0.5963485901271497,
+        "0.011": 0.5464994851515712,
+        "0.015": 0.7786371763386342,
+        "0.019": 0.3634591849991011,
+        "0.023": 0.8618478955539786
+      },
+      "fitted_scale_by_held_distance": {
+        "0.003": 0.003,
+        "0.007": 0.003,
+        "0.011": 0.003,
+        "0.015": 0.003,
+        "0.019": 0.003,
+        "0.023": 0.003
+      },
+      "complexity_penalty_cm-1": 0.2,
+      "selection_score": 1.009765288605926
+    },
+    {
+      "model": "finite_slope_exponential",
+      "n_parameters_including_K_anchor": 5,
+      "leave_one_distance_out_MAE_cm-1": 0.8416271587285374,
+      "MAE_by_held_distance_cm-1": {
+        "0.003": 1.8234164259107501,
+        "0.007": 0.7182036025589014,
+        "0.011": 0.5747302255011846,
+        "0.015": 0.7414948183352408,
+        "0.019": 0.3992958414662553,
+        "0.023": 0.7926220385988927
+      },
+      "fitted_scale_by_held_distance": {
+        "0.003": 0.003,
+        "0.007": 0.003,
+        "0.011": 0.003,
+        "0.015": 0.003,
+        "0.019": 0.003,
+        "0.023": 0.003
+      },
+      "complexity_penalty_cm-1": 0.2,
+      "selection_score": 1.0416271587285375
+    },
+    {
+      "model": "linear_directional",
+      "n_parameters_including_K_anchor": 3,
+      "leave_one_distance_out_MAE_cm-1": 1.7205367843826025,
+      "MAE_by_held_distance_cm-1": {
+        "0.003": 3.703595906573014,
+        "0.007": 2.2302857070116033,
+        "0.011": 1.4319501290306107,
+        "0.015": 0.019459244288896116,
+        "0.019": 0.4406152528764551,
+        "0.023": 2.4973144665150357
+      },
+      "fitted_scale_by_held_distance": {
+        "0.003": null,
+        "0.007": null,
+        "0.011": null,
+        "0.015": null,
+        "0.019": null,
+        "0.023": null
+      },
+      "complexity_penalty_cm-1": 0.0,
+      "selection_score": 1.7205367843826025
+    }
+  ],
+  "revealed_data_fit_metrics": {
+    "MAE_cm-1": 0.4911418999540554,
+    "max_abs_error_cm-1": 1.167515449340499
+  },
+  "sharpness": {
+    "definition": "inner=[omega(0.003)-omega(K)]/0.003; outer=[omega(0.019)-omega(0.011)]/0.008",
+    "direct": {
+      "KG": {
+        "inner_secant_slope_cm-1_per_d": 2074.869666666624,
+        "outer_secant_slope_cm-1_per_d": 630.2929999999947,
+        "inner_to_outer_slope_ratio": 3.2919129145756685
+      },
+      "KM": {
+        "inner_secant_slope_cm-1_per_d": 2083.912666666644,
+        "outer_secant_slope_cm-1_per_d": 657.5716250000028,
+        "inner_to_outer_slope_ratio": 3.169103695231124
+      }
+    },
+    "selected_candidate": {
+      "KG": {
+        "inner_secant_slope_cm-1_per_d": 1685.6978502197915,
+        "outer_secant_slope_cm-1_per_d": 550.73279375884,
+        "inner_to_outer_slope_ratio": 3.0608270822491472
+      },
+      "KM": {
+        "inner_secant_slope_cm-1_per_d": 1704.7795186842905,
+        "outer_secant_slope_cm-1_per_d": 569.5701277772116,
+        "inner_to_outer_slope_ratio": 2.99309854141634
+      }
+    },
+    "ratio_relative_errors": {
+      "KG": 0.07019803935375626,
+      "KM": 0.05553783364035612
+    }
+  },
+  "matrix_checks": {
+    "Hermiticity_max_abs": 0.0,
+    "rank_one_replay_max_abs_cm-1": 6.821210263296962e-13
+  },
+  "sources": {
+    "original_development": {
+      "path": "results/graphene_k_cusp_nosmear/S3_development_freeze/development_points.csv",
+      "sha256": "9006cdd851c0f693575fd9bd2f1e4ca95b6488ccd617d6fee5a265d22cb111a7"
+    },
+    "revealed_v1_holdout": {
+      "path": "results/graphene_k_cusp_nosmear/S4_holdout/holdout_predictions.csv",
+      "sha256": "9ad05db301e9bc9c5267df61b0233a791ad6d061aeb5cb417a2972918eb6b86a"
+    }
+  },
+  "literature_constraint": {
+    "form": "omega(K+q') = omega_K + alpha_K |q'| + O(|q'|^2)",
+    "implementation": "lambda_dir(d) = lambda_K + a_dir*d + delta_a*ell*d/(d+ell); ell >= 0.003",
+    "reference": "Piscanec et al., Phys. Rev. Lett. 93, 185503 (2004)",
+    "doi": "10.1103/PhysRevLett.93.185503"
+  },
+  "rejected_previous_exploration": {
+    "model": "unconstrained two_scale_exponential with scale >= 1e-5",
+    "reason": "the fitted scale hit 1e-5, below the d=0.003 sampling resolution, and produced an almost discontinuous step at K"
+  },
+  "limitations": [
+    "the former v1 holdout is now development data and cannot validate v2",
+    "the selected crossover scale must not be frozen until d=0.003 k-grid convergence is resolved",
+    "the crossover scale is not allowed below the smallest sampled distance d=0.003",
+    "a selected scale at the fixed resolution floor is reported as boundary-limited, not measured",
+    "PCHIP curves through direct DFPT points are guides to the eye and are not model predictions"
+  ]
+}

@@ -1,0 +1,84 @@
+{
+  "status": "failed_blind_holdout",
+  "freeze_manifest": {
+    "path": "/Users/howardwang/Desktop/playground/phonon/results/graphene_k_cusp_nosmear/S3_development_freeze/freeze_manifest.json",
+    "sha256": "ab1e2925e4672d7c31f44d03ce277630541dcb71257c0074c399c722c9636906"
+  },
+  "model_artifact_sha256": "5fd2decc5d7b80706b37befec2b62bcf61220caf376159c83298eb84e34789f6",
+  "kgrid": 192,
+  "qe_tag": "qe75_npk120k",
+  "metrics": {
+    "line_MAE_cm-1": 1.8151960714347222,
+    "max_abs_error_cm-1": 3.7666383809530544,
+    "minimum_mode_overlap": 0.9997363437013064,
+    "by_direction": {
+      "KG": {
+        "MAE_cm-1": 1.837353206271094,
+        "max_abs_error_cm-1": 3.7666383809530544,
+        "direct_cusp_depths_cm-1": [
+          6.224608999999873,
+          10.590599999999995,
+          15.632943999999952
+        ],
+        "predicted_cusp_depths_cm-1": [
+          2.4579706190468187,
+          8.98966512962761,
+          15.488457632512109
+        ],
+        "cusp_depth_relative_errors": [
+          0.6051204792065061,
+          0.15116564409687697,
+          0.009242428520683233
+        ],
+        "direct_one_sided_slope_cm-1_per_d": 880.2369918533577,
+        "predicted_one_sided_slope_cm-1_per_d": 815.7656279038172,
+        "one_sided_slope_relative_error": 0.07324318853470894
+      },
+      "KM": {
+        "MAE_cm-1": 1.7930389365983501,
+        "max_abs_error_cm-1": 3.733252113205708,
+        "direct_cusp_depths_cm-1": [
+          6.251737999999932,
+          10.73176599999988,
+          15.992338999999902
+        ],
+        "predicted_cusp_depths_cm-1": [
+          2.518485886794224,
+          9.21041739846305,
+          15.867822904947388
+        ],
+        "cusp_depth_relative_errors": [
+          0.5971542814503341,
+          0.14176125360326028,
+          0.007785983967230436
+        ],
+        "direct_one_sided_slope_cm-1_per_d": 897.4726700610929,
+        "predicted_one_sided_slope_cm-1_per_d": 835.7610676934349,
+        "one_sided_slope_relative_error": 0.06876153940538059
+      }
+    },
+    "direct_slope_jump_cm-1_per_d": 1777.7096619144506,
+    "predicted_slope_jump_cm-1_per_d": 1651.526695597252,
+    "slope_jump_relative_error": 0.07098063818886471,
+    "matrix_projector": {
+      "Hermiticity_max_abs": 0.0,
+      "rank_one_replay_max_abs_cm-1": 2.2737367544323206e-13,
+      "static_short_fc2": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/source_p4_450/on_policy/frozen_prediction/frozen_static_fc2.npz",
+      "static_short_fc2_sha256": "baa9f0d6171b8320d4449c8351b88b9e1a345afbbddcc5f5d6a25c8517715078",
+      "operator_geometry": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/E0_epw_matched/k18_q9_ex1_pifroz/operator_q6_450K/cartesian/T450_operator.npz",
+      "operator_geometry_sha256": "77bd333570c97e3134eb41b77d2eef7261cb6a7dfe77df2ce085b112e718d160"
+    }
+  },
+  "checks": {
+    "holdout_point_set_exact": true,
+    "minimum_mode_overlap_ge_0p95": true,
+    "line_MAE_lt_10_cm-1": true,
+    "max_abs_error_lt_15_cm-1": true,
+    "all_cusp_depth_relative_errors_lt_20pct": false,
+    "both_one_sided_slope_errors_lt_20pct": true,
+    "slope_jump_error_lt_20pct": true,
+    "Hermiticity_le_1e-10": true,
+    "rank_one_replay_le_1e-6_cm-1": true
+  },
+  "interpretation": "frozen q-space method did not satisfy the predeclared blind gates"
+}

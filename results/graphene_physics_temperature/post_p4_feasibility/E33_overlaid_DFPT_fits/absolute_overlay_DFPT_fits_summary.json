@@ -1,0 +1,65 @@
+{
+  "status": "absolute_overlay_with_smooth_DFPT_fits_generated",
+  "plot_semantics": {
+    "solid": "fixed-background MLIP + full EPC long-range response",
+    "dashed": "smooth DFPT fit",
+    "open_markers": "DFPT samples or zero-smearing convergence anchors"
+  },
+  "finite_DFPT_fit": {
+    "formula": "omega(d)=omega_K+a*(sqrt(d^2+w^2)-w)+b*d^2",
+    "scope": "K-to-Gamma, fit using all available d<=0.06 points; displayed to d=0.03",
+    "by_smearing": {
+      "0.0019000869": {
+        "omega_K_cm-1": 1288.039763,
+        "slope_cm-1_per_d": 739.0682473773635,
+        "rounding_width_d": 0.00841203364218884,
+        "curvature_cm-1_per_d2": -2504.9488210968416,
+        "fit_RMSE_cm-1": 0.055684082105724564,
+        "fit_max_abs_cm-1": 0.09919512316105283,
+        "success": true,
+        "DFPT_kgrid": 144
+      },
+      "0.0028501304": {
+        "omega_K_cm-1": 1289.791537,
+        "slope_cm-1_per_d": 831.0040835018663,
+        "rounding_width_d": 0.015299341034396624,
+        "curvature_cm-1_per_d2": -3065.951721166636,
+        "fit_RMSE_cm-1": 0.030218482927972818,
+        "fit_max_abs_cm-1": 0.049188810900432145,
+        "success": true,
+        "DFPT_kgrid": 144
+      },
+      "0.0038001738": {
+        "omega_K_cm-1": 1291.406318,
+        "slope_cm-1_per_d": 907.006319248589,
+        "rounding_width_d": 0.022065848297425066,
+        "curvature_cm-1_per_d2": -3360.81312516015,
+        "fit_RMSE_cm-1": 0.015483036384338242,
+        "fit_max_abs_cm-1": 0.02638746167303907,
+        "success": true,
+        "DFPT_kgrid": 120
+      }
+    }
+  },
+  "zero_DFPT_fit": {
+    "formula": "piecewise linear local cusp through K and d=0.003 1/Nk limits",
+    "scope": "only -0.003<=signed_distance<=0.003",
+    "KG_depth_cm-1": 2.045655710526254,
+    "KM_depth_cm-1": 2.078528289473819
+  },
+  "checks": {
+    "all_finite_fit_RMSE_below_0p1_cm-1": true,
+    "no_finite_KM_DFPT_fit_drawn": true,
+    "zero_fit_not_extrapolated_beyond_d003": true
+  },
+  "limitations": [
+    "finite-smearing DFPT is available only on K-to-Gamma, so dashed finite fits stop at K",
+    "the zero-smearing converged reference supports only K and d=0.003; no full-window zero DFPT fit is claimed",
+    "finite direct DFPT uses the existing k144, k144, and k120 calculations rather than new k-grid extrapolations"
+  ],
+  "outputs": {
+    "png": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/E33_overlaid_DFPT_fits/absolute_MLIP_full_EPC_LR_with_DFPT_fits.png",
+    "pdf": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/E33_overlaid_DFPT_fits/absolute_MLIP_full_EPC_LR_with_DFPT_fits.pdf",
+    "fit_csv": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/E33_overlaid_DFPT_fits/DFPT_fitted_curves.csv"
+  }
+}

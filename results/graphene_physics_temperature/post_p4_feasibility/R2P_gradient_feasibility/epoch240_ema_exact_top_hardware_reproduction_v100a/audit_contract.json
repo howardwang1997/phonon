@@ -1,0 +1,456 @@
+{
+  "format": "graphene_r2p_gradient_feasibility_contract_v1",
+  "status": "frozen_before_any_R2P_parameter_gradient",
+  "protocol": {
+    "format": "graphene_r2p_per_configuration_gradient_feasibility_v1",
+    "formal_failed_gate_sha256": "924b13de54d2a918c16845524289036e117006e48ee454f364f442fd88ee8898",
+    "model_parameter_target_and_autograd_dtype": "torch.float64",
+    "formal_graph_source_semantics": {
+      "builder": "graphene_r2o_taylor_null.fixed_reference_graph",
+      "AtomicData_source_default_dtype": "torch.float32",
+      "stored_continuous_and_model_dtype": "torch.float64",
+      "meaning": "reproduce the frozen R2O trainer/evaluator: AtomicData is constructed under the process float32 default and floating graph tensors are then cast to float64; native-FP64 graph construction is a different semantic"
+    },
+    "optimizer_instantiated": false,
+    "optimizer_step_called": false,
+    "primary_family_counts": {
+      "Aprime_seed0": 20,
+      "thermal_total_force": 92,
+      "small_zero_RMS": 32,
+      "small_zero_exact_top": 32
+    },
+    "primary_block_count": 176,
+    "Aprime_scale_eV_A": 0.015,
+    "thermal_force_scale_eV_A": 0.03,
+    "small_RMS_scale_eV_A": 0.0005,
+    "small_exact_top_correction_margin_eV_A": 0.00358418,
+    "small_exact_top_margin_derivation": "0.010 - 0.00641582 eV/A",
+    "exact_top_tie_tolerance_eV_A": 0.0,
+    "exact_top_tie_policy": "fail_closed_unless_the_FP64_absolute_top_is_unique",
+    "exact_top_near_tie_tolerance_eV_A": 1e-08,
+    "smooth_Linf_tau_eV_A": 0.001,
+    "smooth_Linf_role": "report_only_not_a_sufficient_max_certificate",
+    "smooth_Linf_ncomp_small": 384,
+    "smooth_Linf_max_underestimate_bound_eV_A": 0.005950642552587727,
+    "seed1_policy": "opened_after_primary_certificate_and_never_differentiated",
+    "actual_combined_small_policy": "report_only_cone_not_used_for_primary_direction",
+    "cone_problem": "max_{||d||<=1} min_i <g_i/||g_i||,d>; dual is the minimum norm convex combination of normalized gradients",
+    "direction_semantics": "stored d has positive dot product with each loss gradient; any future descent update would use theta <- theta - eta*d, but R2P authorizes no update",
+    "cone_solver": "deterministic Frank-Wolfe on the simplex with lowest-index tie break and exact quadratic line search; deterministic SLSQP is an independent cross-check and the lower-objective feasible simplex point is certified",
+    "cone_solver_gap_tolerance": 1e-12,
+    "cone_solver_max_iterations": 200000,
+    "common_descent_GO_min_cosine_strictly_greater_than": 0.001
+  },
+  "protocol_sha256": "be48076c10733de4deb792e073ec2a58ca515f78c1300d5151ce3c8251996293",
+  "authorization": {
+    "optimizer_instantiated": false,
+    "optimizer_step_called": false,
+    "model_parameter_update_authorized": false,
+    "support_or_seed2_read_authorized": false,
+    "postcore_or_tail_authorized": false
+  },
+  "input_sha256": {
+    "manifest": "4d2b60f39537eccd3389bcc568c95d0bb61b7a1564a1c2f8e45786031eb92a0f",
+    "thermal_train": "cc2e9c68d418fba996e8ac89c8156c8adf00768406f6171aaa57f0a9bd2720c1",
+    "harmonic_zero_train": "600c737b11987fb976724dd86042d384fc1abef9f2340ffa5c30d5fe26a8afdf",
+    "reference_6x6": "2793b514768c6d875831a1b62fcb2aa5f858830cb2de7b1b2d5492dabeb8da90",
+    "reference_8x8": "1c438550cb03d94cc80ca16e1ca89d24f87db4d732743b6c07128d47edf5b900",
+    "gate": "924b13de54d2a918c16845524289036e117006e48ee454f364f442fd88ee8898",
+    "training_freeze": "02d1019d8863e2c91180a33cf1a0e37a40455965a8004f5596c1bd934068fa64",
+    "stage2_contract": "9303ed2ecf75394317ce66f18ed52fdb8e03c67678cb3da5fa7ba559df85156f",
+    "stage2_runtime": "e93294a65d0a36ebd2406ff54791c7ac4ff895a388545dc524323247a936e4f5",
+    "bundle": "067e7d26cb9ac12a686193f55be5336b8dcca5497691377b9d4c277cadbf500c",
+    "wrapper_snapshot": "0eedea5a59b8f717559feda97b2c2956dd6f274fe4963de10c214db53b4610e2"
+  },
+  "formal_failed_terminal_receipt": {
+    "status": "immutable_R2O_formal_failed_terminal_receipt",
+    "gate_sha256": "924b13de54d2a918c16845524289036e117006e48ee454f364f442fd88ee8898",
+    "expected_gate_sha256": "924b13de54d2a918c16845524289036e117006e48ee454f364f442fd88ee8898",
+    "EXIT_CODE_bytes_sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "DONE_bytes_sha256": "e7fc91dfd83d148632acc9d44c4c384f3cba34b0679672ebd99a2159cdbfde66",
+    "COMPLETED_AT_bytes_sha256": "56e7de2335e3339bdb6e2ea8884e24131599fbb7696efdf6b87b9dda008ecd0d",
+    "required_empty_markers": [
+      "PRETRAIN_DONE",
+      "TRAINING_DONE",
+      "CORE_GATE_FAILED"
+    ],
+    "forbidden_markers_absent": [
+      "RUNNING",
+      "FAILED",
+      "PASSED",
+      "CORE_GATE_PASSED",
+      "SMOKE_PASS",
+      "SMOKE_FAILED"
+    ],
+    "gate_marker_arm": "CORE_GATE_FAILED"
+  },
+  "model_state_sha256": "09c29479be6c8f207211614c2b3da20f09aba0702092a2b1bf8edab5a5e6d236",
+  "expected_model_state_sha256": "09c29479be6c8f207211614c2b3da20f09aba0702092a2b1bf8edab5a5e6d236",
+  "R2O_wrapper_sha256": "0eedea5a59b8f717559feda97b2c2956dd6f274fe4963de10c214db53b4610e2",
+  "formal_graph_source_semantics": {
+    "builder": "graphene_r2o_taylor_null.fixed_reference_graph",
+    "AtomicData_source_default_dtype": "torch.float32",
+    "stored_continuous_and_model_dtype": "torch.float64",
+    "meaning": "reproduce the frozen R2O trainer/evaluator: AtomicData is constructed under the process float32 default and floating graph tensors are then cast to float64; native-FP64 graph construction is a different semantic"
+  },
+  "formal_graph_source_semantics_sha256": "a421350ddc7f6a00982a9787895ce481b3503b5aa3bac7bcc5eae635db6cb8e7",
+  "R2P_source_snapshot": {
+    "relative_path": "graphene_r2p_gradient_feasibility_snapshot.py",
+    "sha256": "402e44ab26b70cf8f4e265fd729ad6d96b73733b0a7aeb9baf58d7043ef43371"
+  },
+  "parameter_schema": {
+    "parameters": [
+      {
+        "name": "node_embedding.linear.weight",
+        "shape": [
+          16
+        ],
+        "numel": 16,
+        "dtype": "torch.float64",
+        "requires_grad": true
+      },
+      {
+        "name": "interactions.0.linear_up.weight",
+        "shape": [
+          256
+        ],
+        "numel": 256,
+        "dtype": "torch.float64",
+        "requires_grad": true
+      },
+      {
+        "name": "interactions.0.conv_tp_weights.layer0.weight",
+        "shape": [
+          24,
+          64
+        ],
+        "numel": 1536,
+        "dtype": "torch.float64",
+        "requires_grad": true
+      },
+      {
+        "name": "interactions.0.conv_tp_weights.layer1.weight",
+        "shape": [
+          64,
+          64
+        ],
+        "numel": 4096,
+        "dtype": "torch.float64",
+        "requires_grad": true
+      },
+      {
+        "name": "interactions.0.conv_tp_weights.layer2.weight",
+        "shape": [
+          64,
+          64
+        ],
+        "numel": 4096,
+        "dtype": "torch.float64",
+        "requires_grad": true
+      },
+      {
+        "name": "interactions.0.conv_tp_weights.layer3.weight",
+        "shape": [
+          64,
+          48
+        ],
+        "numel": 3072,
+        "dtype": "torch.float64",
+        "requires_grad": true
+      },
+      {
+        "name": "interactions.0.linear.weight",
+        "shape": [
+          768
+        ],
+        "numel": 768,
+        "dtype": "torch.float64",
+        "requires_grad": true
+      },
+      {
+        "name": "interactions.0.skip_tp.weight",
+        "shape": [
+          768
+        ],
+        "numel": 768,
+        "dtype": "torch.float64",
+        "requires_grad": true
+      },
+      {
+        "name": "interactions.1.linear_up.weight",
+        "shape": [
+          768
+        ],
+        "numel": 768,
+        "dtype": "torch.float64",
+        "requires_grad": true
+      },
+      {
+        "name": "interactions.1.conv_tp_weights.layer0.weight",
+        "shape": [
+          24,
+          64
+        ],
+        "numel": 1536,
+        "dtype": "torch.float64",
+        "requires_grad": true
+      },
+      {
+        "name": "interactions.1.conv_tp_weights.layer1.weight",
+        "shape": [
+          64,
+          64
+        ],
+        "numel": 4096,
+        "dtype": "torch.float64",
+        "requires_grad": true
+      },
+      {
+        "name": "interactions.1.conv_tp_weights.layer2.weight",
+        "shape": [
+          64,
+          64
+        ],
+        "numel": 4096,
+        "dtype": "torch.float64",
+        "requires_grad": true
+      },
+      {
+        "name": "interactions.1.conv_tp_weights.layer3.weight",
+        "shape": [
+          64,
+          176
+        ],
+        "numel": 11264,
+        "dtype": "torch.float64",
+        "requires_grad": true
+      },
+      {
+        "name": "interactions.1.linear.weight",
+        "shape": [
+          2816
+        ],
+        "numel": 2816,
+        "dtype": "torch.float64",
+        "requires_grad": true
+      },
+      {
+        "name": "interactions.1.skip_tp.weight",
+        "shape": [
+          256
+        ],
+        "numel": 256,
+        "dtype": "torch.float64",
+        "requires_grad": true
+      },
+      {
+        "name": "products.0.symmetric_contractions.contractions.0.weights_max",
+        "shape": [
+          1,
+          11,
+          16
+        ],
+        "numel": 176,
+        "dtype": "torch.float64",
+        "requires_grad": true
+      },
+      {
+        "name": "products.0.symmetric_contractions.contractions.0.weights.0",
+        "shape": [
+          1,
+          3,
+          16
+        ],
+        "numel": 48,
+        "dtype": "torch.float64",
+        "requires_grad": true
+      },
+      {
+        "name": "products.0.symmetric_contractions.contractions.0.weights.1",
+        "shape": [
+          1,
+          1,
+          16
+        ],
+        "numel": 16,
+        "dtype": "torch.float64",
+        "requires_grad": true
+      },
+      {
+        "name": "products.0.symmetric_contractions.contractions.1.weights_max",
+        "shape": [
+          1,
+          21,
+          16
+        ],
+        "numel": 336,
+        "dtype": "torch.float64",
+        "requires_grad": true
+      },
+      {
+        "name": "products.0.symmetric_contractions.contractions.1.weights.0",
+        "shape": [
+          1,
+          4,
+          16
+        ],
+        "numel": 64,
+        "dtype": "torch.float64",
+        "requires_grad": true
+      },
+      {
+        "name": "products.0.symmetric_contractions.contractions.1.weights.1",
+        "shape": [
+          1,
+          1,
+          16
+        ],
+        "numel": 16,
+        "dtype": "torch.float64",
+        "requires_grad": true
+      },
+      {
+        "name": "products.0.symmetric_contractions.contractions.2.weights_max",
+        "shape": [
+          1,
+          23,
+          16
+        ],
+        "numel": 368,
+        "dtype": "torch.float64",
+        "requires_grad": true
+      },
+      {
+        "name": "products.0.symmetric_contractions.contractions.2.weights.0",
+        "shape": [
+          1,
+          4,
+          16
+        ],
+        "numel": 64,
+        "dtype": "torch.float64",
+        "requires_grad": true
+      },
+      {
+        "name": "products.0.symmetric_contractions.contractions.2.weights.1",
+        "shape": [
+          1,
+          1,
+          16
+        ],
+        "numel": 16,
+        "dtype": "torch.float64",
+        "requires_grad": true
+      },
+      {
+        "name": "products.0.linear.weight",
+        "shape": [
+          768
+        ],
+        "numel": 768,
+        "dtype": "torch.float64",
+        "requires_grad": true
+      },
+      {
+        "name": "products.1.symmetric_contractions.contractions.0.weights_max",
+        "shape": [
+          1,
+          11,
+          16
+        ],
+        "numel": 176,
+        "dtype": "torch.float64",
+        "requires_grad": true
+      },
+      {
+        "name": "products.1.symmetric_contractions.contractions.0.weights.0",
+        "shape": [
+          1,
+          3,
+          16
+        ],
+        "numel": 48,
+        "dtype": "torch.float64",
+        "requires_grad": true
+      },
+      {
+        "name": "products.1.symmetric_contractions.contractions.0.weights.1",
+        "shape": [
+          1,
+          1,
+          16
+        ],
+        "numel": 16,
+        "dtype": "torch.float64",
+        "requires_grad": true
+      },
+      {
+        "name": "products.1.linear.weight",
+        "shape": [
+          256
+        ],
+        "numel": 256,
+        "dtype": "torch.float64",
+        "requires_grad": true
+      },
+      {
+        "name": "readouts.0.linear.weight",
+        "shape": [
+          16
+        ],
+        "numel": 16,
+        "dtype": "torch.float64",
+        "requires_grad": true
+      },
+      {
+        "name": "readouts.1.linear_1.weight",
+        "shape": [
+          256
+        ],
+        "numel": 256,
+        "dtype": "torch.float64",
+        "requires_grad": true
+      },
+      {
+        "name": "readouts.1.linear_2.weight",
+        "shape": [
+          16
+        ],
+        "numel": 16,
+        "dtype": "torch.float64",
+        "requires_grad": true
+      }
+    ],
+    "parameter_count": 42096,
+    "schema_sha256": "e521e25be638e3f021f02efd8cd063aa26faf0c41bfe5e0c68ea2e85fcf49ba7"
+  },
+  "runtime": {
+    "hostname": "ubuntu22",
+    "platform": "Linux-6.2.0-37-generic-x86_64-with-glibc2.35",
+    "python": "3.11.15",
+    "numpy": "2.4.6",
+    "scipy": "1.17.1",
+    "torch": "2.6.0+cu124",
+    "default_dtype": "torch.float32",
+    "deterministic_algorithms_enabled": false,
+    "deterministic_algorithms_warn_only": false,
+    "float32_matmul_precision": "highest",
+    "cudnn_allow_tf32": true,
+    "cuda_matmul_allow_tf32": false,
+    "device": "cuda",
+    "cuda": {
+      "device_name": "Tesla V100-SXM2-32GB",
+      "capability": [
+        7,
+        0
+      ],
+      "cuda_runtime": "12.4",
+      "cudnn_version": 90100
+    }
+  },
+  "report_only_expected_from_manifest_not_opened_yet": {
+    "valid_e50_seed1.xyz": "bf67ac601c97ca8de21f7b4966c1cd88ea6e8439e560a05713ef07a681f3078d",
+    "harmonic_lambda1_small_gate.xyz": "a8258de88357b10b6cd0d33e504a2d1379c2d3a545a2ee1390e67811f9ff9f04"
+  },
+  "contract_sha256": "ea914b2a1c0bfc8efc370f8296c6b790a4e8c4674088d3fe3f5356dabcb915ca"
+}

@@ -1,0 +1,356 @@
+{
+  "units": {
+    "force": "meV/angstrom"
+  },
+  "base_model": "/home/howardwang/phonon/results/gr_backbone_v11/ft_graphene.model",
+  "base_model_sha256": "4d32426672d53e3adc86499d14e4c4164c05e879a56811ff54add03cd1bb6ce7",
+  "delta_model": "/home/howardwang/phonon/results/graphene_fd_delta_pilot/T300/delta32/gr_fd300_delta32.model",
+  "delta_model_sha256": "6560f7bbf1ba8f8605893c2c0a9a7bd60d2ebaf66831e4b2f3b682ad43433766",
+  "datasets": {
+    "thermal300": {
+      "path": "/home/howardwang/phonon/data/graphene_fd_delta_pilot/T300/test.xyz",
+      "n_structures": 3,
+      "base_only_short_range_error": {
+        "RMSE_meV_A": 124.56954622158626,
+        "max_abs_meV_A": 655.8692086358642
+      },
+      "combined_short_range_error": {
+        "RMSE_meV_A": 21.011691745091298,
+        "max_abs_meV_A": 114.66729906311035
+      },
+      "reconstructed_total_error": {
+        "RMSE_meV_A": 21.01169174509131,
+        "max_abs_meV_A": 114.66729906311035
+      },
+      "delta_prediction_magnitude": {
+        "RMSE_meV_A": 119.19676706626869,
+        "max_abs_meV_A": 555.3901195526123
+      },
+      "records": [
+        {
+          "structure_index": 0,
+          "snapshot_index": 1,
+          "combined_total_RMSE_meV_A": 24.538526326972253,
+          "combined_total_max_abs_meV_A": 114.66729906311035,
+          "max_error_atom_index": 12,
+          "max_error_cartesian_component": "y",
+          "max_error_signed_meV_A": -114.66729906311035
+        },
+        {
+          "structure_index": 1,
+          "snapshot_index": 33,
+          "combined_total_RMSE_meV_A": 17.73465496130916,
+          "combined_total_max_abs_meV_A": 72.95852527984614,
+          "max_error_atom_index": 45,
+          "max_error_cartesian_component": "y",
+          "max_error_signed_meV_A": -72.95852527984614
+        },
+        {
+          "structure_index": 2,
+          "snapshot_index": 58,
+          "combined_total_RMSE_meV_A": 20.19446233688871,
+          "combined_total_max_abs_meV_A": 74.89080546646143,
+          "max_error_atom_index": 11,
+          "max_error_cartesian_component": "y",
+          "max_error_signed_meV_A": 74.89080546646143
+        }
+      ]
+    },
+    "thermal600": {
+      "path": "/home/howardwang/phonon/data/graphene_fd_delta_pilot/T600/test.xyz",
+      "n_structures": 3,
+      "base_only_short_range_error": {
+        "RMSE_meV_A": 205.08843414432593,
+        "max_abs_meV_A": 1200.0022518524167
+      },
+      "combined_short_range_error": {
+        "RMSE_meV_A": 129.05354395175223,
+        "max_abs_meV_A": 1135.929046858215
+      },
+      "reconstructed_total_error": {
+        "RMSE_meV_A": 129.05354395175223,
+        "max_abs_meV_A": 1135.9290468582155
+      },
+      "delta_prediction_magnitude": {
+        "RMSE_meV_A": 117.51788833099633,
+        "max_abs_meV_A": 457.8438699245453
+      },
+      "records": [
+        {
+          "structure_index": 0,
+          "snapshot_index": 1,
+          "combined_total_RMSE_meV_A": 128.22062561179806,
+          "combined_total_max_abs_meV_A": 647.9987630415529,
+          "max_error_atom_index": 24,
+          "max_error_cartesian_component": "x",
+          "max_error_signed_meV_A": -647.9987630415529
+        },
+        {
+          "structure_index": 1,
+          "snapshot_index": 33,
+          "combined_total_RMSE_meV_A": 156.44594506864044,
+          "combined_total_max_abs_meV_A": 1135.9290468582155,
+          "max_error_atom_index": 42,
+          "max_error_cartesian_component": "y",
+          "max_error_signed_meV_A": 1135.9290468582155
+        },
+        {
+          "structure_index": 2,
+          "snapshot_index": 58,
+          "combined_total_RMSE_meV_A": 95.12407192093696,
+          "combined_total_max_abs_meV_A": 468.81434973312344,
+          "max_error_atom_index": 12,
+          "max_error_cartesian_component": "y",
+          "max_error_signed_meV_A": -468.81434973312344
+        }
+      ]
+    },
+    "harmonic": {
+      "path": "/home/howardwang/phonon/data/finetune_graphene8/val.xyz",
+      "n_structures": 25,
+      "base_only_short_range_error": {
+        "RMSE_meV_A": 7.235733665822591,
+        "max_abs_meV_A": 57.08133504318236
+      },
+      "combined_short_range_error": {
+        "RMSE_meV_A": 12.809646369219193,
+        "max_abs_meV_A": 137.26728200553896
+      },
+      "reconstructed_total_error": {
+        "RMSE_meV_A": 12.809646369219193,
+        "max_abs_meV_A": 137.26728200553896
+      },
+      "delta_prediction_magnitude": {
+        "RMSE_meV_A": 10.523857276065373,
+        "max_abs_meV_A": 129.00444865226746
+      },
+      "records": [
+        {
+          "structure_index": 0,
+          "snapshot_index": null,
+          "combined_total_RMSE_meV_A": 1.2329932987978636,
+          "combined_total_max_abs_meV_A": 19.307891106243133,
+          "max_error_atom_index": 25,
+          "max_error_cartesian_component": "z",
+          "max_error_signed_meV_A": -19.307891106243133
+        },
+        {
+          "structure_index": 1,
+          "snapshot_index": null,
+          "combined_total_RMSE_meV_A": 7.0530703670464145,
+          "combined_total_max_abs_meV_A": 76.90096739679575,
+          "max_error_atom_index": 120,
+          "max_error_cartesian_component": "y",
+          "max_error_signed_meV_A": 76.90096739679575
+        },
+        {
+          "structure_index": 2,
+          "snapshot_index": null,
+          "combined_total_RMSE_meV_A": 1.233003390081296,
+          "combined_total_max_abs_meV_A": 19.307883655662536,
+          "max_error_atom_index": 78,
+          "max_error_cartesian_component": "z",
+          "max_error_signed_meV_A": 19.307883655662536
+        },
+        {
+          "structure_index": 3,
+          "snapshot_index": null,
+          "combined_total_RMSE_meV_A": 1.2329511985749226,
+          "combined_total_max_abs_meV_A": 19.307907870049476,
+          "max_error_atom_index": 86,
+          "max_error_cartesian_component": "z",
+          "max_error_signed_meV_A": 19.307907870049476
+        },
+        {
+          "structure_index": 4,
+          "snapshot_index": null,
+          "combined_total_RMSE_meV_A": 17.174674212376523,
+          "combined_total_max_abs_meV_A": 96.43689341424944,
+          "max_error_atom_index": 14,
+          "max_error_cartesian_component": "x",
+          "max_error_signed_meV_A": -96.43689341424944
+        },
+        {
+          "structure_index": 5,
+          "snapshot_index": null,
+          "combined_total_RMSE_meV_A": 19.32960812549113,
+          "combined_total_max_abs_meV_A": 88.1145686466791,
+          "max_error_atom_index": 54,
+          "max_error_cartesian_component": "y",
+          "max_error_signed_meV_A": 88.1145686466791
+        },
+        {
+          "structure_index": 6,
+          "snapshot_index": null,
+          "combined_total_RMSE_meV_A": 15.064591995662553,
+          "combined_total_max_abs_meV_A": 51.31246202049255,
+          "max_error_atom_index": 30,
+          "max_error_cartesian_component": "z",
+          "max_error_signed_meV_A": 51.31246202049255
+        },
+        {
+          "structure_index": 7,
+          "snapshot_index": null,
+          "combined_total_RMSE_meV_A": 7.052538040324842,
+          "combined_total_max_abs_meV_A": 76.89654640853405,
+          "max_error_atom_index": 78,
+          "max_error_cartesian_component": "y",
+          "max_error_signed_meV_A": 76.89654640853405
+        },
+        {
+          "structure_index": 8,
+          "snapshot_index": null,
+          "combined_total_RMSE_meV_A": 13.602507266946748,
+          "combined_total_max_abs_meV_A": 54.79916231227833,
+          "max_error_atom_index": 65,
+          "max_error_cartesian_component": "x",
+          "max_error_signed_meV_A": -54.79916231227833
+        },
+        {
+          "structure_index": 9,
+          "snapshot_index": null,
+          "combined_total_RMSE_meV_A": 15.202130319361865,
+          "combined_total_max_abs_meV_A": 54.12765513187434,
+          "max_error_atom_index": 18,
+          "max_error_cartesian_component": "x",
+          "max_error_signed_meV_A": 54.12765513187434
+        },
+        {
+          "structure_index": 10,
+          "snapshot_index": null,
+          "combined_total_RMSE_meV_A": 16.314809067241445,
+          "combined_total_max_abs_meV_A": 59.488934777203184,
+          "max_error_atom_index": 48,
+          "max_error_cartesian_component": "x",
+          "max_error_signed_meV_A": -59.488934777203184
+        },
+        {
+          "structure_index": 11,
+          "snapshot_index": null,
+          "combined_total_RMSE_meV_A": 7.137862056928025,
+          "combined_total_max_abs_meV_A": 82.78105755138387,
+          "max_error_atom_index": 86,
+          "max_error_cartesian_component": "y",
+          "max_error_signed_meV_A": -82.78105755138387
+        },
+        {
+          "structure_index": 12,
+          "snapshot_index": null,
+          "combined_total_RMSE_meV_A": 3.749288786102919,
+          "combined_total_max_abs_meV_A": 58.40913707339285,
+          "max_error_atom_index": 38,
+          "max_error_cartesian_component": "z",
+          "max_error_signed_meV_A": -58.40913707339285
+        },
+        {
+          "structure_index": 13,
+          "snapshot_index": null,
+          "combined_total_RMSE_meV_A": 18.579847145217677,
+          "combined_total_max_abs_meV_A": 64.33817250392914,
+          "max_error_atom_index": 105,
+          "max_error_cartesian_component": "y",
+          "max_error_signed_meV_A": 64.33817250392914
+        },
+        {
+          "structure_index": 14,
+          "snapshot_index": null,
+          "combined_total_RMSE_meV_A": 15.966592011479829,
+          "combined_total_max_abs_meV_A": 61.329262431411905,
+          "max_error_atom_index": 40,
+          "max_error_cartesian_component": "y",
+          "max_error_signed_meV_A": 61.329262431411905
+        },
+        {
+          "structure_index": 15,
+          "snapshot_index": null,
+          "combined_total_RMSE_meV_A": 13.475658526937094,
+          "combined_total_max_abs_meV_A": 48.80398897583005,
+          "max_error_atom_index": 4,
+          "max_error_cartesian_component": "x",
+          "max_error_signed_meV_A": 48.80398897583005
+        },
+        {
+          "structure_index": 16,
+          "snapshot_index": null,
+          "combined_total_RMSE_meV_A": 1.3492973599665212,
+          "combined_total_max_abs_meV_A": 10.014744233992095,
+          "max_error_atom_index": 102,
+          "max_error_cartesian_component": "y",
+          "max_error_signed_meV_A": 10.014744233992095
+        },
+        {
+          "structure_index": 17,
+          "snapshot_index": null,
+          "combined_total_RMSE_meV_A": 27.58580641633722,
+          "combined_total_max_abs_meV_A": 137.26728200553896,
+          "max_error_atom_index": 92,
+          "max_error_cartesian_component": "x",
+          "max_error_signed_meV_A": -137.26728200553896
+        },
+        {
+          "structure_index": 18,
+          "snapshot_index": null,
+          "combined_total_RMSE_meV_A": 7.105563948142649,
+          "combined_total_max_abs_meV_A": 100.14585251163489,
+          "max_error_atom_index": 93,
+          "max_error_cartesian_component": "y",
+          "max_error_signed_meV_A": -100.14585251163489
+        },
+        {
+          "structure_index": 19,
+          "snapshot_index": null,
+          "combined_total_RMSE_meV_A": 15.484557838659349,
+          "combined_total_max_abs_meV_A": 52.81058238369951,
+          "max_error_atom_index": 10,
+          "max_error_cartesian_component": "x",
+          "max_error_signed_meV_A": -52.81058238369951
+        },
+        {
+          "structure_index": 20,
+          "snapshot_index": null,
+          "combined_total_RMSE_meV_A": 17.755632241301168,
+          "combined_total_max_abs_meV_A": 98.78379969324102,
+          "max_error_atom_index": 63,
+          "max_error_cartesian_component": "z",
+          "max_error_signed_meV_A": -98.78379969324102
+        },
+        {
+          "structure_index": 21,
+          "snapshot_index": null,
+          "combined_total_RMSE_meV_A": 1.3481016171164426,
+          "combined_total_max_abs_meV_A": 10.008682255353923,
+          "max_error_atom_index": 10,
+          "max_error_cartesian_component": "y",
+          "max_error_signed_meV_A": -10.008682255353923
+        },
+        {
+          "structure_index": 22,
+          "snapshot_index": null,
+          "combined_total_RMSE_meV_A": 14.13402288373602,
+          "combined_total_max_abs_meV_A": 47.95981407728167,
+          "max_error_atom_index": 127,
+          "max_error_cartesian_component": "x",
+          "max_error_signed_meV_A": -47.95981407728167
+        },
+        {
+          "structure_index": 23,
+          "snapshot_index": null,
+          "combined_total_RMSE_meV_A": 1.3467516161275142,
+          "combined_total_max_abs_meV_A": 10.006136950757499,
+          "max_error_atom_index": 14,
+          "max_error_cartesian_component": "y",
+          "max_error_signed_meV_A": -10.006136950757499
+        },
+        {
+          "structure_index": 24,
+          "snapshot_index": null,
+          "combined_total_RMSE_meV_A": 1.3474446968362623,
+          "combined_total_max_abs_meV_A": 9.9998998834753,
+          "max_error_atom_index": 89,
+          "max_error_cartesian_component": "y",
+          "max_error_signed_meV_A": 9.9998998834753
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,222 @@
+{
+  "status": "complete",
+  "created_at_utc": "2026-08-06T03:16:59.894955+00:00",
+  "scope": "immutable local inventory of the opened 450 K failed holdout for post-P4 development diagnostics",
+  "source": {
+    "host": "RTX 2060 via Tailscale 100.105.21.7",
+    "remote_project_root": "/home/howardwang/phonon",
+    "local_source_root": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/source_p4_450"
+  },
+  "registered_outcome": {
+    "status": "failed_C1",
+    "passes_C1": false,
+    "passes_C2": false,
+    "C2_status": "not_run",
+    "component_gates": {
+      "sampling_point": true,
+      "sampling_bootstrap": true,
+      "DFPT_kgrid_convergence": true,
+      "force_point": false,
+      "force_bootstrap": false,
+      "finite_T_qspace_point": false,
+      "finite_T_qspace_bootstrap": false,
+      "static_degauss_point": false,
+      "matrix_projector_replay": true
+    },
+    "transferability_acceptance_sha256": "259b09d645173b5b2bea588a9460c1bee044e1f03a1698594e56d81f9eb61ff8"
+  },
+  "data_domains": {
+    "development": {
+      "temperatures_K": [
+        300,
+        450,
+        600
+      ],
+      "degauss_Ry": [
+        0.0019000869,
+        0.00285013035,
+        0.0038001738
+      ],
+      "note": "450 K was opened after the failed one-shot P4 evaluation"
+    },
+    "validation_locked": {
+      "temperatures_K": [
+        375,
+        525
+      ],
+      "degauss_Ry": [
+        0.002375108625,
+        0.003325152075
+      ],
+      "targets_present_in_archive": false
+    }
+  },
+  "required_inputs": [
+    "on_policy/transferability_acceptance.json",
+    "on_policy/freeze_manifest.json",
+    "on_policy/temperature_law.json",
+    "on_policy/dft_tdep_60.json",
+    "on_policy/dft_tdep_60.npz",
+    "on_policy/dft_tdep_bootstrap.json",
+    "on_policy/dft_tdep_bootstrap.npz",
+    "on_policy/evaluation/force_acceptance.json",
+    "on_policy/evaluation/prediction_acceptance.json",
+    "on_policy/evaluation/frozen_predictions_vs_targets.csv",
+    "on_policy/frozen_prediction/frozen_force_predictions.npz",
+    "on_policy/frozen_prediction/frozen_static_fc2.npz",
+    "on_policy/frozen_prediction/manifest.json",
+    "labels/merged/all60.xyz",
+    "labels/merged/manifest.json",
+    "dfpt/FD450_LINE/graphene_FD450_LINE_dfpt.csv",
+    "dfpt/FD450_CONV/convergence_acceptance.json"
+  ],
+  "n_files": 29,
+  "total_size_bytes": 3145017,
+  "files": [
+    {
+      "path": "dfpt/FD450_CONV/REMOTE_DONE",
+      "size_bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "dfpt/FD450_CONV/convergence_acceptance.json",
+      "size_bytes": 2029,
+      "sha256": "54fdfd9037e1158fc853a03e0c3bbbdc74eb2390633fcfe2f7c9c1fa7421c4aa"
+    },
+    {
+      "path": "dfpt/FD450_CONV/graphene_FD450_CONV_dfpt.csv",
+      "size_bytes": 2147,
+      "sha256": "554793ef74c9ef2e4ad3cf93c20ea1ebea80f37441a817021727eea7cf92cc45"
+    },
+    {
+      "path": "dfpt/FD450_CONV/run.log",
+      "size_bytes": 3072,
+      "sha256": "829d999f6b4ba3b27ab218385a11c984ab556754e0a1ec4bff5d8670d6b1aa3d"
+    },
+    {
+      "path": "dfpt/FD450_LINE/REMOTE_DONE",
+      "size_bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "dfpt/FD450_LINE/graphene_FD450_LINE_dfpt.csv",
+      "size_bytes": 2608,
+      "sha256": "325af549f473b381fbe7b04a3782f189589cbc6ef46436138c70b8029577863d"
+    },
+    {
+      "path": "dfpt/FD450_LINE/run.log",
+      "size_bytes": 1973,
+      "sha256": "cdf0a12f5feb285f8f8f7ce17923ee7afaab530a10830f22d8339c1f7577ce81"
+    },
+    {
+      "path": "labels/merged/all60.xyz",
+      "size_bytes": 473754,
+      "sha256": "d6d3882ebfac4e9fc8f07ed77cc7dc3d2858a80b2f479b7bf53499ba98470d72"
+    },
+    {
+      "path": "labels/merged/manifest.json",
+      "size_bytes": 21657,
+      "sha256": "fcd586ad7b66aaca21ed9ee0cb4f541bbeb1be84e5d92122f9d0db961b1a1385"
+    },
+    {
+      "path": "labels/merged/seed0.xyz",
+      "size_bytes": 157918,
+      "sha256": "cb090a2868e9ac23efedc0a8bd14ca278ba1c80a3840bae89a3f30c2b7ad7f36"
+    },
+    {
+      "path": "labels/merged/seed1.xyz",
+      "size_bytes": 157918,
+      "sha256": "66e1107001c58d6e8e316bf86324c55c56c828cc0060d82bd72b9497689ecf69"
+    },
+    {
+      "path": "labels/merged/seed2.xyz",
+      "size_bytes": 157918,
+      "sha256": "e9ea6f916b5d64ea9fe752f60be4a44e6e3e5d8c835015f81738bbfbec08b5db"
+    },
+    {
+      "path": "on_policy/dft_tdep_60.json",
+      "size_bytes": 3609,
+      "sha256": "9bb70ff77b871d86e2ae9cc00661bccd6365b6f1635b0f97ff4daede763630f6"
+    },
+    {
+      "path": "on_policy/dft_tdep_60.npz",
+      "size_bytes": 410572,
+      "sha256": "c9b633e97a09afc44d33a0a09ba58c4557eed5d648496d7a37f632dc254a147e"
+    },
+    {
+      "path": "on_policy/dft_tdep_bootstrap.json",
+      "size_bytes": 1705,
+      "sha256": "8e58cb82fea48d0347feea94b4efc34b6766886212d16ac95174ced8ae94c6a1"
+    },
+    {
+      "path": "on_policy/dft_tdep_bootstrap.npz",
+      "size_bytes": 154882,
+      "sha256": "bb57f3312cbf7ccbadc5a765cd9040f4095bd8dfd20a1c486afa4a443c591006"
+    },
+    {
+      "path": "on_policy/evaluation/force_acceptance.json",
+      "size_bytes": 10263,
+      "sha256": "c08371cc5fe1128cb59c6753d761c12dc6f6964d4eb2b3a5968bccc51799525b"
+    },
+    {
+      "path": "on_policy/evaluation/frozen_predictions_vs_targets.csv",
+      "size_bytes": 1947,
+      "sha256": "0e62c1eefc59b8ac0b89696016849dacaeb7d85a91e6af6fdea6b2ba1fcb9b15"
+    },
+    {
+      "path": "on_policy/evaluation/p4_metric_bootstrap.npz",
+      "size_bytes": 75570,
+      "sha256": "744819c8747ccdb0ff99f60d45985deab4a2e0d85d928a532cb41ef9197d3c44"
+    },
+    {
+      "path": "on_policy/evaluation/prediction_acceptance.json",
+      "size_bytes": 6763,
+      "sha256": "408864a80b57b4bb1097f4a7366b06878aabbff503a8ab5a43258eeb3a1aca4e"
+    },
+    {
+      "path": "on_policy/evaluation/transferability_acceptance.json",
+      "size_bytes": 3907,
+      "sha256": "259b09d645173b5b2bea588a9460c1bee044e1f03a1698594e56d81f9eb61ff8"
+    },
+    {
+      "path": "on_policy/freeze_manifest.json",
+      "size_bytes": 11597,
+      "sha256": "8e48384fc805c15d68b861f2911647ecc13d896d17753eb35dfe243cd318232d"
+    },
+    {
+      "path": "on_policy/frozen_prediction/frozen_force_predictions.npz",
+      "size_bytes": 335484,
+      "sha256": "5f2a37cd1937d34bc2074c86107d7ab48d12fbacb0ef94fe60766b52e078cfc1"
+    },
+    {
+      "path": "on_policy/frozen_prediction/frozen_static_fc2.npz",
+      "size_bytes": 1122620,
+      "sha256": "baa9f0d6171b8320d4449c8351b88b9e1a345afbbddcc5f5d6a25c8517715078"
+    },
+    {
+      "path": "on_policy/frozen_prediction/manifest.json",
+      "size_bytes": 2669,
+      "sha256": "b306fa5bc7dfb2190e6849aa84d3630d94e01dab8becebd5008d7589297aac3e"
+    },
+    {
+      "path": "on_policy/sampling_acceptance_n3000.json",
+      "size_bytes": 6168,
+      "sha256": "5f9342a4927f87e80cef85135f29d8aeab2af7b7f091d7d98a1f2212d442f6bd"
+    },
+    {
+      "path": "on_policy/sampling_bootstrap_acceptance_n3000.json",
+      "size_bytes": 5236,
+      "sha256": "b944edba1659c6c77b88725a49eb914bbc6bef7bb6f9dabf81260c8e89a1b079"
+    },
+    {
+      "path": "on_policy/temperature_law.json",
+      "size_bytes": 7124,
+      "sha256": "63ab52edf7641cd151bd82b56bd06ab066da7a1093f1727e3ca8ffe626a1ab52"
+    },
+    {
+      "path": "on_policy/transferability_acceptance.json",
+      "size_bytes": 3907,
+      "sha256": "259b09d645173b5b2bea588a9460c1bee044e1f03a1698594e56d81f9eb61ff8"
+    }
+  ]
+}

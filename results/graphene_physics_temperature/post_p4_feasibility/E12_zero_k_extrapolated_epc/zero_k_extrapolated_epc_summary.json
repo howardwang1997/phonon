@@ -1,0 +1,86 @@
+{
+  "status": "full_EPC_consistent_with_1_over_k_extrapolated_zero_depth",
+  "scope": "existing k192/k240/k288 optimized-tetrahedron d=0.003 depths versus the stored full-EPC adaptive integral; no new DFT",
+  "directions": {
+    "KG": {
+      "k_values": [
+        192,
+        240,
+        288
+      ],
+      "DFPT_depth_cm-1": [
+        6.224608999999873,
+        5.40660099999991,
+        4.827133999999887
+      ],
+      "linear_1_over_k": {
+        "intercept_k_infinity_cm-1": 2.045655710526254,
+        "slope_cm-1_times_k": 803.3936589473572,
+        "fitted_depth_cm-1": [
+          6.229997684210406,
+          5.393129289473576,
+          4.835217026315688
+        ],
+        "maximum_abs_residual_cm-1": 0.01347171052633378
+      },
+      "pairwise_1_over_k_intercepts_cm-1": [
+        2.134569000000055,
+        1.9297989999997767,
+        2.032183999999914
+      ],
+      "pairwise_intercept_range_cm-1": [
+        1.9297989999997767,
+        2.134569000000055
+      ],
+      "adaptive_full_EPC_depth_cm-1": 1.9051753161420493,
+      "EPC_relative_error_vs_three_point_1_over_k_intercept": 0.0686725501565781
+    },
+    "KM": {
+      "k_values": [
+        192,
+        240,
+        288
+      ],
+      "DFPT_depth_cm-1": [
+        6.251737999999932,
+        5.437038999999913,
+        4.855632000000014
+      ],
+      "linear_1_over_k": {
+        "intercept_k_infinity_cm-1": 2.078528289473819,
+        "slope_cm-1_times_k": 802.4165810525894,
+        "fitted_depth_cm-1": [
+          6.257781315789389,
+          5.421930710526275,
+          4.8646969736841985
+        ],
+        "maximum_abs_residual_cm-1": 0.015108289473638514
+      },
+      "pairwise_1_over_k_intercepts_cm-1": [
+        2.178242999999838,
+        1.9485970000005228,
+        2.063420000000178
+      ],
+      "pairwise_intercept_range_cm-1": [
+        1.9485970000005228,
+        2.178242999999838
+      ],
+      "adaptive_full_EPC_depth_cm-1": 1.9110439325040716,
+      "EPC_relative_error_vs_three_point_1_over_k_intercept": 0.0805783389227511
+    }
+  },
+  "checks": {
+    "three_point_1_over_k_max_residual_lt_0p02_cm-1": true,
+    "full_EPC_depth_within_10pct_of_1_over_k_limit": true
+  },
+  "conclusion": "The k288 depth is not a converged zero-smearing target. Under the physically motivated leading 1/Nk error model for the unresolved nonanalytic integral, the full-EPC result agrees with the extrapolated limit to better than 10%.",
+  "limitations": [
+    "only three k grids are available, so the asymptotic 1/Nk law cannot be independently distinguished from a free power law",
+    "the comparison validates the d=0.003 depth, not the outer zero-smearing slope ratio whose DFPT values remain k192",
+    "an independent zero-temperature triangle/tetrahedron implementation is still required before freezing the zero-smearing curve"
+  ],
+  "inputs": {
+    "joint_summary": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/E4_joint_zero_finite_rank1/joint_zero_finite_rank1_summary.json",
+    "epc_summary": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/E11_epc_zero_adaptive_c288_p360_eta0p0002/epc_zero_adaptive_summary.json"
+  }
+}

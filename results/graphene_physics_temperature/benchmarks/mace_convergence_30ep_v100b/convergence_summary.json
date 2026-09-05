@@ -1,0 +1,352 @@
+{
+  "status": "complete",
+  "scope": "30-epoch batch/LR convergence equivalence on 300/600 K development data",
+  "scientific_use": "training-configuration sizing only; no P4 or validation claim",
+  "target_leakage": {
+    "p4_450K_inputs_read": false
+  },
+  "fixed_protocol": {
+    "epochs": 30,
+    "seed": 83,
+    "learning_rate_rule": "lr(batch)=0.001*sqrt(batch)",
+    "thermal_equivalence": "RMSE no worse than batch1 by both >5% and >5 meV/A",
+    "replay_equivalence": "RMSE no worse than batch1 by both >5% and >2 meV/A"
+  },
+  "candidates": [
+    {
+      "tag": "batch1_lr0p001",
+      "batch_size": 1,
+      "lr": 0.001,
+      "status": "complete",
+      "timing": {
+        "train_exit_code": 0,
+        "start": "2026-08-05T10:53:08+08:00",
+        "end": "2026-08-05T11:04:24+08:00",
+        "elapsed_seconds": 676
+      },
+      "gpu": {
+        "n_samples": 347,
+        "mean_utilization_percent": 13.53314121037464,
+        "max_utilization_percent": 18.0,
+        "max_memory_used_MiB": 554.0,
+        "max_power_draw_W": 74.54
+      },
+      "grouped_metrics": {
+        "test:physical_fd_thermal_300K_test": {
+          "n_structures": 3,
+          "force_RMSE_meV_A": 79.70631307416457,
+          "force_MAE_meV_A": 53.264939443494875,
+          "force_max_abs_meV_A": 593.1897491673469
+        },
+        "test:physical_fd_thermal_600K_test": {
+          "n_structures": 3,
+          "force_RMSE_meV_A": 143.8067936495381,
+          "force_MAE_meV_A": 93.65891536913884,
+          "force_max_abs_meV_A": 1036.943821255703
+        },
+        "val:physical_fd_thermal_300K_validation": {
+          "n_structures": 24,
+          "force_RMSE_meV_A": 67.50297014510154,
+          "force_MAE_meV_A": 49.202435618977,
+          "force_max_abs_meV_A": 390.0875124637222
+        },
+        "val:physical_fd_thermal_600K_validation": {
+          "n_structures": 24,
+          "force_RMSE_meV_A": 151.8789447758291,
+          "force_MAE_meV_A": 105.65049000947084,
+          "force_max_abs_meV_A": 1036.2605111063863
+        },
+        "val:v11_fc_distillation_replay_validation": {
+          "n_structures": 25,
+          "force_RMSE_meV_A": 36.50866427093464,
+          "force_MAE_meV_A": 20.611266229775108,
+          "force_max_abs_meV_A": 221.24185514636994
+        }
+      },
+      "artifacts": {
+        "status": {
+          "path": "/data/graphene_physics_temperature/benchmarks/mace_convergence_30ep_v100b/batch1_lr0p001/status.tsv",
+          "sha256": "9895423f7486b81bcc56b0469539bfdd444bc82a7ce14fa87105303765f69800",
+          "size_bytes": 121
+        },
+        "evaluation": {
+          "path": "/data/graphene_physics_temperature/benchmarks/mace_convergence_30ep_v100b/batch1_lr0p001/development_evaluation.json",
+          "sha256": "25f05dee7f9526b1dcd77cb5048a9b01e6ecb55af6421c42344525c1de23997e",
+          "size_bytes": 2098
+        },
+        "gpu_samples": {
+          "path": "/data/graphene_physics_temperature/benchmarks/mace_convergence_30ep_v100b/batch1_lr0p001/gpu_samples.csv",
+          "sha256": "6c4799c1f949cb893dae576f2ed2ed3cb7b31365c5339f759002a60680027c9e",
+          "size_bytes": 13902
+        }
+      },
+      "comparison_metrics": {
+        "thermal300_test": 79.70631307416457,
+        "thermal600_test": 143.8067936495381,
+        "harmonic_replay_val": 36.50866427093464
+      },
+      "equivalence_limits_meV_A": {
+        "thermal300_test": 84.70631307416457,
+        "thermal600_test": 150.997133332015,
+        "harmonic_replay_val": 38.50866427093464
+      },
+      "quality_equivalent_to_batch1": true,
+      "walltime_speedup_vs_batch1": 1.0
+    },
+    {
+      "tag": "batch8_lrsqrt",
+      "batch_size": 8,
+      "lr": 0.00282842712474619,
+      "status": "complete",
+      "timing": {
+        "train_exit_code": 0,
+        "start": "2026-08-05T11:04:42+08:00",
+        "end": "2026-08-05T11:06:59+08:00",
+        "elapsed_seconds": 136
+      },
+      "gpu": {
+        "n_samples": 78,
+        "mean_utilization_percent": 23.576923076923077,
+        "max_utilization_percent": 53.0,
+        "max_memory_used_MiB": 1592.0,
+        "max_power_draw_W": 172.45
+      },
+      "grouped_metrics": {
+        "test:physical_fd_thermal_300K_test": {
+          "n_structures": 3,
+          "force_RMSE_meV_A": 108.86251027330813,
+          "force_MAE_meV_A": 77.84209638212435,
+          "force_max_abs_meV_A": 622.045587048912
+        },
+        "test:physical_fd_thermal_600K_test": {
+          "n_structures": 3,
+          "force_RMSE_meV_A": 183.26364896095913,
+          "force_MAE_meV_A": 126.25924633944128,
+          "force_max_abs_meV_A": 1147.1902643948174
+        },
+        "val:physical_fd_thermal_300K_validation": {
+          "n_structures": 24,
+          "force_RMSE_meV_A": 101.79422390769953,
+          "force_MAE_meV_A": 75.5763045522109,
+          "force_max_abs_meV_A": 529.1899714175796
+        },
+        "val:physical_fd_thermal_600K_validation": {
+          "n_structures": 24,
+          "force_RMSE_meV_A": 207.75116572906788,
+          "force_MAE_meV_A": 150.86619691471293,
+          "force_max_abs_meV_A": 1046.1825034196806
+        },
+        "val:v11_fc_distillation_replay_validation": {
+          "n_structures": 25,
+          "force_RMSE_meV_A": 20.600533869350375,
+          "force_MAE_meV_A": 11.656508570431678,
+          "force_max_abs_meV_A": 158.09066154930116
+        }
+      },
+      "artifacts": {
+        "status": {
+          "path": "/data/graphene_physics_temperature/benchmarks/mace_convergence_30ep_v100b/batch8_lrsqrt/status.tsv",
+          "sha256": "7d7d5632ea9abe1a7703a9b88dcfc0c12fc2ef917b68976193f119d2d5fc1b04",
+          "size_bytes": 121
+        },
+        "evaluation": {
+          "path": "/data/graphene_physics_temperature/benchmarks/mace_convergence_30ep_v100b/batch8_lrsqrt/development_evaluation.json",
+          "sha256": "f09310ece290811fa54d50d2dad2c643ea7b2c54952f8dec794e12a0fc661a77",
+          "size_bytes": 2102
+        },
+        "gpu_samples": {
+          "path": "/data/graphene_physics_temperature/benchmarks/mace_convergence_30ep_v100b/batch8_lrsqrt/gpu_samples.csv",
+          "sha256": "ca212b207e3459164f01adaa01a00b897a92865d057e4b3342c720907177e349",
+          "size_bytes": 3214
+        }
+      },
+      "comparison_metrics": {
+        "thermal300_test": 108.86251027330813,
+        "thermal600_test": 183.26364896095913,
+        "harmonic_replay_val": 20.600533869350375
+      },
+      "equivalence_limits_meV_A": {
+        "thermal300_test": 84.70631307416457,
+        "thermal600_test": 150.997133332015,
+        "harmonic_replay_val": 38.50866427093464
+      },
+      "quality_equivalent_to_batch1": false,
+      "walltime_speedup_vs_batch1": 4.970588235294118
+    },
+    {
+      "tag": "batch16_lrsqrt",
+      "batch_size": 16,
+      "lr": 0.004,
+      "status": "complete",
+      "timing": {
+        "train_exit_code": 0,
+        "start": "2026-08-05T11:07:19+08:00",
+        "end": "2026-08-05T11:08:56+08:00",
+        "elapsed_seconds": 97
+      },
+      "gpu": {
+        "n_samples": 58,
+        "mean_utilization_percent": 26.96551724137931,
+        "max_utilization_percent": 75.0,
+        "max_memory_used_MiB": 2530.0,
+        "max_power_draw_W": 201.93
+      },
+      "grouped_metrics": {
+        "test:physical_fd_thermal_300K_test": {
+          "n_structures": 3,
+          "force_RMSE_meV_A": 113.27419574759735,
+          "force_MAE_meV_A": 81.20134222635699,
+          "force_max_abs_meV_A": 624.2530674199104
+        },
+        "test:physical_fd_thermal_600K_test": {
+          "n_structures": 3,
+          "force_RMSE_meV_A": 189.0824799901334,
+          "force_MAE_meV_A": 131.391342372951,
+          "force_max_abs_meV_A": 1150.561696818409
+        },
+        "val:physical_fd_thermal_300K_validation": {
+          "n_structures": 24,
+          "force_RMSE_meV_A": 106.63131472178236,
+          "force_MAE_meV_A": 78.970870252717,
+          "force_max_abs_meV_A": 541.2352803651428
+        },
+        "val:physical_fd_thermal_600K_validation": {
+          "n_structures": 24,
+          "force_RMSE_meV_A": 217.62577024260304,
+          "force_MAE_meV_A": 158.38034109528977,
+          "force_max_abs_meV_A": 1039.9568578775359
+        },
+        "val:v11_fc_distillation_replay_validation": {
+          "n_structures": 25,
+          "force_RMSE_meV_A": 18.585665727378466,
+          "force_MAE_meV_A": 10.60574282697043,
+          "force_max_abs_meV_A": 131.62099876377107
+        }
+      },
+      "artifacts": {
+        "status": {
+          "path": "/data/graphene_physics_temperature/benchmarks/mace_convergence_30ep_v100b/batch16_lrsqrt/status.tsv",
+          "sha256": "cde7a2f262a8398072865c2209ed948b06431ca5edc2e8e862471585d63b4802",
+          "size_bytes": 121
+        },
+        "evaluation": {
+          "path": "/data/graphene_physics_temperature/benchmarks/mace_convergence_30ep_v100b/batch16_lrsqrt/development_evaluation.json",
+          "sha256": "c99ebc5f1c280eba39faa2a01fc3da942becf6807655c81f855db923e0f2b40f",
+          "size_bytes": 2099
+        },
+        "gpu_samples": {
+          "path": "/data/graphene_physics_temperature/benchmarks/mace_convergence_30ep_v100b/batch16_lrsqrt/gpu_samples.csv",
+          "sha256": "2483817d112531545eaf23372c1f0c947c73e754f200d6583bf485f49067f51b",
+          "size_bytes": 2403
+        }
+      },
+      "comparison_metrics": {
+        "thermal300_test": 113.27419574759735,
+        "thermal600_test": 189.0824799901334,
+        "harmonic_replay_val": 18.585665727378466
+      },
+      "equivalence_limits_meV_A": {
+        "thermal300_test": 84.70631307416457,
+        "thermal600_test": 150.997133332015,
+        "harmonic_replay_val": 38.50866427093464
+      },
+      "quality_equivalent_to_batch1": false,
+      "walltime_speedup_vs_batch1": 6.969072164948454
+    },
+    {
+      "tag": "batch32_lrsqrt",
+      "batch_size": 32,
+      "lr": 0.00565685424949238,
+      "status": "complete",
+      "timing": {
+        "train_exit_code": 0,
+        "start": "2026-08-05T11:09:15+08:00",
+        "end": "2026-08-05T11:10:40+08:00",
+        "elapsed_seconds": 85
+      },
+      "gpu": {
+        "n_samples": 52,
+        "mean_utilization_percent": 27.25,
+        "max_utilization_percent": 87.0,
+        "max_memory_used_MiB": 4156.0,
+        "max_power_draw_W": 207.62
+      },
+      "grouped_metrics": {
+        "test:physical_fd_thermal_300K_test": {
+          "n_structures": 3,
+          "force_RMSE_meV_A": 116.24724237771728,
+          "force_MAE_meV_A": 83.40757775184234,
+          "force_max_abs_meV_A": 631.310311378026
+        },
+        "test:physical_fd_thermal_600K_test": {
+          "n_structures": 3,
+          "force_RMSE_meV_A": 193.0760264953474,
+          "force_MAE_meV_A": 134.64079874307149,
+          "force_max_abs_meV_A": 1165.1147221832848
+        },
+        "val:physical_fd_thermal_300K_validation": {
+          "n_structures": 24,
+          "force_RMSE_meV_A": 109.51563253029882,
+          "force_MAE_meV_A": 81.10170693312187,
+          "force_max_abs_meV_A": 552.0305346254444
+        },
+        "val:physical_fd_thermal_600K_validation": {
+          "n_structures": 24,
+          "force_RMSE_meV_A": 222.4797971948438,
+          "force_MAE_meV_A": 161.95234121498282,
+          "force_max_abs_meV_A": 1040.9485674078894
+        },
+        "val:v11_fc_distillation_replay_validation": {
+          "n_structures": 25,
+          "force_RMSE_meV_A": 17.22236980372218,
+          "force_MAE_meV_A": 9.712583962177161,
+          "force_max_abs_meV_A": 127.6512102124405
+        }
+      },
+      "artifacts": {
+        "status": {
+          "path": "/data/graphene_physics_temperature/benchmarks/mace_convergence_30ep_v100b/batch32_lrsqrt/status.tsv",
+          "sha256": "8085891a89e34ce22b5766c7e1b147b978a52eed2f54cfa0ab750deeabb5071c",
+          "size_bytes": 121
+        },
+        "evaluation": {
+          "path": "/data/graphene_physics_temperature/benchmarks/mace_convergence_30ep_v100b/batch32_lrsqrt/development_evaluation.json",
+          "sha256": "4aeec6c3140cfce78f52e41e1e18ef47a5d4b9f3a2d9c9afb1da01aa0ab5c3ae",
+          "size_bytes": 2100
+        },
+        "gpu_samples": {
+          "path": "/data/graphene_physics_temperature/benchmarks/mace_convergence_30ep_v100b/batch32_lrsqrt/gpu_samples.csv",
+          "sha256": "2879ee6ac348c74cb27940753b1435daae1d727e41f8e323d735f628f50cf4a7",
+          "size_bytes": 2150
+        }
+      },
+      "comparison_metrics": {
+        "thermal300_test": 116.24724237771728,
+        "thermal600_test": 193.0760264953474,
+        "harmonic_replay_val": 17.22236980372218
+      },
+      "equivalence_limits_meV_A": {
+        "thermal300_test": 84.70631307416457,
+        "thermal600_test": 150.997133332015,
+        "harmonic_replay_val": 38.50866427093464
+      },
+      "quality_equivalent_to_batch1": false,
+      "walltime_speedup_vs_batch1": 7.952941176470588
+    }
+  ],
+  "selected_for_next_development_benchmark": {
+    "tag": "batch1_lr0p001",
+    "batch_size": 1,
+    "lr": 0.001,
+    "walltime_speedup_vs_batch1": 1.0,
+    "scope_limit": "This does not freeze the formal S0 training configuration; repeat on the complete physics-subtracted S0 development set before validation generation."
+  },
+  "provenance": {
+    "git_head": "8a6d1139269b4c6b44b89a4554697b5a734c0226",
+    "data_manifest": {
+      "path": "/data/graphene_physics_temperature/benchmarks/mace_joint_10epoch_v100b/joint_data/manifest.json",
+      "sha256": "918071e0f3858619e664c7d5ebb5324dd7b066f875df313b667f6a40d411a644",
+      "size_bytes": 4512
+    }
+  }
+}

@@ -1,0 +1,178 @@
+{
+  "status": "R2O_stage1_exact_epoch_artifact",
+  "epochs": 80,
+  "zero_based_final_epoch": 79,
+  "training_configurations_per_epoch": 92,
+  "expected_and_observed_optimizer_steps": 7360,
+  "optimizer": "Adam",
+  "CLI_weight_decay": 1e-06,
+  "observed_parameter_group_weight_decay": [
+    0.0,
+    1e-06,
+    0.0,
+    1e-06,
+    0.0
+  ],
+  "observed_parameter_group_amsgrad": [
+    true,
+    true,
+    true,
+    true,
+    true
+  ],
+  "final_checkpoint": {
+    "path": "/home/howardwang/phonon/results/graphene_physics_temperature/post_p4_feasibility/R2O_taylor_null_core/formal_r3p2_h16_l2_n24_seed83_rtx/pretrain/checkpoints/gr_r2o_formal_r3p2_h16_l2_n24_seed83_run-83_epoch-79.pt",
+    "sha256": "534a08e89099d999429889ad8d3c80688e99c092728af5ee94bc6e8dac827e62",
+    "zero_based_epoch": 79
+  },
+  "wall_time_seconds": 605,
+  "per_epoch_optimizer_compute_seconds": {
+    "0": 5.423224449157715,
+    "1": 4.760268688201904,
+    "2": 4.685957670211792,
+    "3": 4.695390701293945,
+    "4": 4.684502124786377,
+    "5": 4.773544073104858,
+    "6": 4.630231618881226,
+    "7": 4.662614583969116,
+    "8": 4.71357798576355,
+    "9": 4.671137094497681,
+    "10": 4.7851808071136475,
+    "11": 4.783993482589722,
+    "12": 4.704649448394775,
+    "13": 4.62876033782959,
+    "14": 4.637218236923218,
+    "15": 4.629507064819336,
+    "16": 4.718274831771851,
+    "17": 4.624029636383057,
+    "18": 4.596135139465332,
+    "19": 4.629823684692383,
+    "20": 4.616270303726196,
+    "21": 4.723219871520996,
+    "22": 4.6298723220825195,
+    "23": 4.670277833938599,
+    "24": 4.67282509803772,
+    "25": 4.672384262084961,
+    "26": 4.704587697982788,
+    "27": 4.694200754165649,
+    "28": 4.691754102706909,
+    "29": 4.612173080444336,
+    "30": 4.655565977096558,
+    "31": 4.661655902862549,
+    "32": 4.842942714691162,
+    "33": 4.732381582260132,
+    "34": 4.796192407608032,
+    "35": 4.802810192108154,
+    "36": 4.8032262325286865,
+    "37": 4.936818361282349,
+    "38": 4.828478097915649,
+    "39": 4.8933422565460205,
+    "40": 4.835453510284424,
+    "41": 4.878183841705322,
+    "42": 4.893065452575684,
+    "43": 4.912127494812012,
+    "44": 4.944342851638794,
+    "45": 4.7478485107421875,
+    "46": 4.733916521072388,
+    "47": 4.731456279754639,
+    "48": 4.811778783798218,
+    "49": 4.697153329849243,
+    "50": 4.718069791793823,
+    "51": 4.723648548126221,
+    "52": 4.70230507850647,
+    "53": 4.877058982849121,
+    "54": 4.646683692932129,
+    "55": 4.707672357559204,
+    "56": 4.655359268188477,
+    "57": 4.676713705062866,
+    "58": 4.692409038543701,
+    "59": 4.729474782943726,
+    "60": 4.674021482467651,
+    "61": 4.61959171295166,
+    "62": 4.65959358215332,
+    "63": 4.634573936462402,
+    "64": 4.755298376083374,
+    "65": 4.624404191970825,
+    "66": 4.743312120437622,
+    "67": 4.703387975692749,
+    "68": 4.709445476531982,
+    "69": 4.779306888580322,
+    "70": 4.748436212539673,
+    "71": 4.751358509063721,
+    "72": 4.689257860183716,
+    "73": 4.920217514038086,
+    "74": 4.924408435821533,
+    "75": 4.959589242935181,
+    "76": 4.866806983947754,
+    "77": 4.850008487701416,
+    "78": 4.901719093322754,
+    "79": 4.852581739425659
+  },
+  "peak_nvidia_smi_memory_used_MiB": 663.0,
+  "gpu_samples": {
+    "path": "/home/howardwang/phonon/results/graphene_physics_temperature/post_p4_feasibility/R2O_taylor_null_core/formal_r3p2_h16_l2_n24_seed83_rtx/pretrain_gpu_samples.csv",
+    "sha256": "930093a6c6f45925b4b40fd71c25d96283a68f941e7559136f2676594bdabb10"
+  },
+  "model": {
+    "path": "/home/howardwang/phonon/results/graphene_physics_temperature/post_p4_feasibility/R2O_taylor_null_core/formal_r3p2_h16_l2_n24_seed83_rtx/pretrain/gr_r2o_formal_r3p2_h16_l2_n24_seed83.model",
+    "sha256": "c5d89857aa0d46ae5af7572eba532ba62b3a2913eb844d3f41d8a932e71cdb6a",
+    "state_sha256": "c80af2842dd58daff2b4a02a41f23ecffbf1c87bb933dcef5920186d3a79f798"
+  },
+  "architecture": {
+    "r_max_A": 3.2,
+    "num_interactions": 2,
+    "cutoff_p": 5,
+    "max_ell": 2,
+    "spherical_harmonics_irreps": "1x0e+1x1o+1x2e",
+    "interaction_classes": [
+      "RealAgnosticInteractionBlock",
+      "RealAgnosticResidualInteractionBlock"
+    ],
+    "product_correlations": [
+      3,
+      3,
+      3,
+      3
+    ],
+    "raw_node_width": 160,
+    "hidden_layout": [
+      [
+        0,
+        16,
+        0,
+        1
+      ],
+      [
+        0,
+        16,
+        1,
+        -1
+      ],
+      [
+        0,
+        16,
+        2,
+        1
+      ],
+      [
+        1,
+        16,
+        0,
+        1
+      ]
+    ],
+    "num_radial_basis": 24,
+    "dtype": "torch.float64",
+    "pair_repulsion": false,
+    "interaction_diameter_bound_A": 12.8
+  },
+  "scale": [
+    0.19869211993334496
+  ],
+  "shift": [
+    0.0
+  ],
+  "seed1_used_for_validation_or_LR": false,
+  "EMA": false,
+  "SWA": false
+}

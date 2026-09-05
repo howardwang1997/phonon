@@ -1,0 +1,13 @@
+--
+&inputepw
+ prefix='1TVSe2', outdir='./tmp'
+ elph=.true., epbwrite=.true., epwwrite=.true.
+ wannierize=.true., nbndsub=11, num_iter=600, proj(1)='V:d', proj(2)='Se:p'
+ dis_win_max=8.0
+ phonselfen=.true., a2f=.true., elecselfen=.false.
+ efermi_read=.true., fermi_energy=-2.4296
+ fsthick=4.0, degaussw=0.1, nsmear=4, delta_smear=0.05
+ dvscf_dir='./save'
+ nk1=12, nk2=12, nk3=1, nq1=3, nq2=3, nq3=1
+ nkf1=24, nkf2=24, nkf3=1, nqf1=24, nqf2=24, nqf3=1
+/

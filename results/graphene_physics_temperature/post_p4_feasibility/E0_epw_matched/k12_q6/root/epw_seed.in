@@ -1,0 +1,13 @@
+--
+&inputepw
+ prefix='graphene', outdir='./tmp',
+ elph=.true., epbwrite=.true., epwwrite=.true.,
+ wannierize=.true., nbndsub=2, num_iter=400, proj(1)='C:pz',
+ dis_win_max=4.0,
+ phonselfen=.true., a2f=.false., elecselfen=.false.,
+ fsthick=6.0, degaussw=0.05, nsmear=1, delta_smear=0.01,
+ efermi_read=.true., fermi_energy=-1.7118,
+ dvscf_dir='./save',
+ nk1=12, nk2=12, nk3=1, nq1=6, nq2=6, nq3=1,
+ nkf1=18, nkf2=18, nkf3=1, nqf1=18, nqf2=18, nqf3=1
+/

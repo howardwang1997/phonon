@@ -1,0 +1,478 @@
+{
+  "status": "failed",
+  "scope": "development-only shared finite-smearing Dirac/Mermin spectral feasibility; 450 K remains an opened failed holdout",
+  "formula": {
+    "kernel": "Phi=2*s*log(2*cosh(hbar*v_F*|Delta q|/(2*s)))",
+    "squared_frequency": "lambda=lambda_bg+B0_r+B2_r*x^2+A_r*(Phi(s)-Phi(s_ref))",
+    "s_ref_Ry": 0.04,
+    "chemical_potential": "mu=0 fixed",
+    "shared_parameters": "one v_F across Gamma/K and all smearings",
+    "region_parameters": "B0, B2, and coupling A shared across smearings"
+  },
+  "acceptance": {
+    "line_MAE_cm-1": 10.0,
+    "high_symmetry_abs_error_cm-1": 15.0,
+    "K_kink_relative_error": 0.2,
+    "v_F_range_eV_A": [
+      4.0,
+      8.0
+    ],
+    "must_improve_no_electronic_kernel_LOSO": true
+  },
+  "full_development_fit": {
+    "train_RMSE_cm-1": 0.6213392357415374,
+    "v_F_eV_A": 4.62,
+    "v_F_at_search_boundary": false,
+    "coefficients": {
+      "G": {
+        "B0_cm-2": 152683.71635971236,
+        "B2_cm-2": -695044.8982956695,
+        "A_cm-2_per_Ry": 1743031.9190109635
+      },
+      "K": {
+        "B0_cm-2": -19057.22202167877,
+        "B2_cm-2": 2167905.53885078,
+        "A_cm-2_per_Ry": 2698034.65867074
+      }
+    },
+    "metrics": {
+      "300": {
+        "G": {
+          "n_points": 8,
+          "line_MAE_cm-1": 0.5087655393901116,
+          "line_max_abs_cm-1": 0.7661624126567403,
+          "high_symmetry_prediction_cm-1": 1573.1295648375512,
+          "high_symmetry_target_cm-1": 1573.582322,
+          "high_symmetry_abs_error_cm-1": 0.45275716244873365,
+          "central_block_max_distance": 0.01,
+          "central_block_n_points": 3,
+          "central_block_MAE_cm-1": 0.5659128046446918,
+          "central_block_max_abs_cm-1": 0.6779804230091031,
+          "central_block_high_symmetry_abs_error_cm-1": 0.45275716244873365
+        },
+        "K": {
+          "n_points": 11,
+          "line_MAE_cm-1": 0.5158196050839995,
+          "line_max_abs_cm-1": 1.4882980456939094,
+          "high_symmetry_prediction_cm-1": 1288.0720353304346,
+          "high_symmetry_target_cm-1": 1288.039763,
+          "high_symmetry_abs_error_cm-1": 0.03227233043458,
+          "central_block_max_distance": 0.008,
+          "central_block_n_points": 3,
+          "central_block_MAE_cm-1": 0.16774975246607937,
+          "central_block_max_abs_cm-1": 0.25931610169664054,
+          "central_block_high_symmetry_abs_error_cm-1": 0.03227233043458,
+          "prediction_kink_cm-1_per_t": 592.861158261826,
+          "target_kink_cm-1_per_t": 542.0571250000137,
+          "kink_relative_error": 0.093724500460742
+        }
+      },
+      "450": {
+        "G": {
+          "n_points": 8,
+          "line_MAE_cm-1": 0.0695921250251672,
+          "line_max_abs_cm-1": 0.21097751860861536,
+          "high_symmetry_prediction_cm-1": 1573.8590376241355,
+          "high_symmetry_target_cm-1": 1573.90788,
+          "high_symmetry_abs_error_cm-1": 0.048842375864524,
+          "central_block_max_distance": 0.01,
+          "central_block_n_points": 3,
+          "central_block_MAE_cm-1": 0.02994064630865978,
+          "central_block_max_abs_cm-1": 0.048842375864524,
+          "central_block_high_symmetry_abs_error_cm-1": 0.048842375864524
+        },
+        "K": {
+          "n_points": 11,
+          "line_MAE_cm-1": 0.5041412260482048,
+          "line_max_abs_cm-1": 1.3923329271221974,
+          "high_symmetry_prediction_cm-1": 1289.450653354668,
+          "high_symmetry_target_cm-1": 1289.791537,
+          "high_symmetry_abs_error_cm-1": 0.34088364533204185,
+          "central_block_max_distance": 0.008,
+          "central_block_n_points": 3,
+          "central_block_MAE_cm-1": 0.12494018359044883,
+          "central_block_max_abs_cm-1": 0.34088364533204185,
+          "central_block_high_symmetry_abs_error_cm-1": 0.34088364533204185,
+          "prediction_kink_cm-1_per_t": 432.9899231530874,
+          "target_kink_cm-1_per_t": 352.01112499999,
+          "kink_relative_error": 0.2300461332098515
+        }
+      },
+      "600": {
+        "G": {
+          "n_points": 8,
+          "line_MAE_cm-1": 0.5557375693851725,
+          "line_max_abs_cm-1": 0.7860194656666408,
+          "high_symmetry_prediction_cm-1": 1574.5881724617254,
+          "high_symmetry_target_cm-1": 1573.924405,
+          "high_symmetry_abs_error_cm-1": 0.6637674617254561,
+          "central_block_max_distance": 0.01,
+          "central_block_n_points": 3,
+          "central_block_MAE_cm-1": 0.7034168876216427,
+          "central_block_max_abs_cm-1": 0.7460509982483927,
+          "central_block_high_symmetry_abs_error_cm-1": 0.6637674617254561
+        },
+        "K": {
+          "n_points": 11,
+          "line_MAE_cm-1": 0.5525680209036843,
+          "line_max_abs_cm-1": 1.5957748760254162,
+          "high_symmetry_prediction_cm-1": 1290.8277990008087,
+          "high_symmetry_target_cm-1": 1291.406318,
+          "high_symmetry_abs_error_cm-1": 0.578518999191374,
+          "central_block_max_distance": 0.008,
+          "central_block_n_points": 3,
+          "central_block_MAE_cm-1": 0.3813732422205855,
+          "central_block_max_abs_cm-1": 0.578518999191374,
+          "central_block_high_symmetry_abs_error_cm-1": 0.578518999191374,
+          "prediction_kink_cm-1_per_t": 335.2971588640514,
+          "target_kink_cm-1_per_t": 261.36750000000575,
+          "kink_relative_error": 0.28285712211366776
+        }
+      }
+    },
+    "passes_numeric_gate": false
+  },
+  "leave_one_smearing_out": {
+    "shared_dirac_RMSE_cm-1": 0.7370719129718634,
+    "no_electronic_kernel_RMSE_cm-1": 2.2061787385014706,
+    "improves_no_electronic_kernel": true,
+    "all_folds_pass": false,
+    "folds": {
+      "300": {
+        "heldout_temperature_K": 300,
+        "heldout_degauss_Ry": 0.0019000869,
+        "training_temperatures_K": [
+          450,
+          600
+        ],
+        "shared_dirac": {
+          "train_RMSE_cm-1": 0.5694756837767078,
+          "v_F_eV_A": 4.36,
+          "coefficients": {
+            "G": {
+              "B0_cm-2": 160305.87818992537,
+              "B2_cm-2": -955691.2620340303,
+              "A_cm-2_per_Ry": 1913183.8589137848
+            },
+            "K": {
+              "B0_cm-2": -13229.7280210057,
+              "B2_cm-2": 2226676.6424199697,
+              "A_cm-2_per_Ry": 2801665.278883872
+            }
+          },
+          "metrics": {
+            "G": {
+              "n_points": 8,
+              "line_MAE_cm-1": 0.8122126155545288,
+              "line_max_abs_cm-1": 1.1304659368793182,
+              "high_symmetry_prediction_cm-1": 1572.6956973246765,
+              "high_symmetry_target_cm-1": 1573.582322,
+              "high_symmetry_abs_error_cm-1": 0.8866246753234464,
+              "central_block_max_distance": 0.01,
+              "central_block_n_points": 3,
+              "central_block_MAE_cm-1": 1.0040035182645777,
+              "central_block_max_abs_cm-1": 1.1155362153281203,
+              "central_block_high_symmetry_abs_error_cm-1": 0.8866246753234464
+            },
+            "K": {
+              "n_points": 11,
+              "line_MAE_cm-1": 0.522121426036909,
+              "line_max_abs_cm-1": 1.549211216774438,
+              "high_symmetry_prediction_cm-1": 1288.2094285255178,
+              "high_symmetry_target_cm-1": 1288.039763,
+              "high_symmetry_abs_error_cm-1": 0.1696655255177575,
+              "central_block_max_distance": 0.008,
+              "central_block_n_points": 3,
+              "central_block_MAE_cm-1": 0.21876771373854353,
+              "central_block_max_abs_cm-1": 0.26714644582625624,
+              "central_block_high_symmetry_abs_error_cm-1": 0.1696655255177575,
+              "prediction_kink_cm-1_per_t": 560.4704455828085,
+              "target_kink_cm-1_per_t": 542.0571250000137,
+              "kink_relative_error": 0.03396933594922178
+            }
+          },
+          "passes_gate": true
+        },
+        "no_electronic_kernel_control": {
+          "train_RMSE_cm-1": 1.9610299018454973,
+          "coefficients": {
+            "G": {
+              "B0_cm-2": 68525.84957386645,
+              "B2_cm-2": 7370637.265273213
+            },
+            "K": {
+              "B0_cm-2": -148524.97960507718,
+              "B2_cm-2": 18192552.111084633
+            }
+          },
+          "metrics": {
+            "G": {
+              "n_points": 8,
+              "line_MAE_cm-1": 1.8132230022454792,
+              "line_max_abs_cm-1": 3.4675372571271055,
+              "high_symmetry_prediction_cm-1": 1575.6400885712571,
+              "high_symmetry_target_cm-1": 1573.582322,
+              "high_symmetry_abs_error_cm-1": 2.0577665712571616,
+              "central_block_max_distance": 0.01,
+              "central_block_n_points": 3,
+              "central_block_MAE_cm-1": 1.2997077195641396,
+              "central_block_max_abs_cm-1": 2.0577665712571616,
+              "central_block_high_symmetry_abs_error_cm-1": 2.0577665712571616
+            },
+            "K": {
+              "n_points": 11,
+              "line_MAE_cm-1": 2.4943540398382993,
+              "line_max_abs_cm-1": 5.08272983691495,
+              "high_symmetry_prediction_cm-1": 1293.122492836915,
+              "high_symmetry_target_cm-1": 1288.039763,
+              "high_symmetry_abs_error_cm-1": 5.08272983691495,
+              "central_block_max_distance": 0.008,
+              "central_block_n_points": 3,
+              "central_block_MAE_cm-1": 3.963633102235235,
+              "central_block_max_abs_cm-1": 5.08272983691495,
+              "central_block_high_symmetry_abs_error_cm-1": 5.08272983691495,
+              "prediction_kink_cm-1_per_t": 122.3958494951205,
+              "target_kink_cm-1_per_t": 542.0571250000137,
+              "kink_relative_error": 0.774201197899359
+            }
+          },
+          "passes_same_numeric_gate": false
+        }
+      },
+      "450": {
+        "heldout_temperature_K": 450,
+        "heldout_degauss_Ry": 0.00285013035,
+        "training_temperatures_K": [
+          300,
+          600
+        ],
+        "shared_dirac": {
+          "train_RMSE_cm-1": 0.6611774461210989,
+          "v_F_eV_A": 4.73,
+          "coefficients": {
+            "G": {
+              "B0_cm-2": 148841.56322364343,
+              "B2_cm-2": -482043.0395477394,
+              "A_cm-2_per_Ry": 1668835.7779893246
+            },
+            "K": {
+              "B0_cm-2": -22332.98271495617,
+              "B2_cm-2": 2216095.8570287176,
+              "A_cm-2_per_Ry": 2636312.2271214444
+            }
+          },
+          "metrics": {
+            "G": {
+              "n_points": 8,
+              "line_MAE_cm-1": 0.08939447293207081,
+              "line_max_abs_cm-1": 0.2745848123468022,
+              "high_symmetry_prediction_cm-1": 1573.852365065494,
+              "high_symmetry_target_cm-1": 1573.90788,
+              "high_symmetry_abs_error_cm-1": 0.05551493450593625,
+              "central_block_max_distance": 0.01,
+              "central_block_n_points": 3,
+              "central_block_MAE_cm-1": 0.032411641320322815,
+              "central_block_max_abs_cm-1": 0.05551493450593625,
+              "central_block_high_symmetry_abs_error_cm-1": 0.05551493450593625
+            },
+            "K": {
+              "n_points": 11,
+              "line_MAE_cm-1": 0.5134231361991872,
+              "line_max_abs_cm-1": 1.4270347007700366,
+              "high_symmetry_prediction_cm-1": 1289.413034052661,
+              "high_symmetry_target_cm-1": 1289.791537,
+              "high_symmetry_abs_error_cm-1": 0.37850294733902956,
+              "central_block_max_distance": 0.008,
+              "central_block_n_points": 3,
+              "central_block_MAE_cm-1": 0.14043888245828384,
+              "central_block_max_abs_cm-1": 0.37850294733902956,
+              "central_block_high_symmetry_abs_error_cm-1": 0.37850294733902956,
+              "prediction_kink_cm-1_per_t": 441.28514933026963,
+              "target_kink_cm-1_per_t": 352.01112499999,
+              "kink_relative_error": 0.2536113718857101
+            }
+          },
+          "passes_gate": false
+        },
+        "no_electronic_kernel_control": {
+          "train_RMSE_cm-1": 2.1973167333432087,
+          "coefficients": {
+            "G": {
+              "B0_cm-2": 68974.17307143763,
+              "B2_cm-2": 7332992.956028121
+            },
+            "K": {
+              "B0_cm-2": -149237.7627831722,
+              "B2_cm-2": 18530569.589462083
+            }
+          },
+          "metrics": {
+            "G": {
+              "n_points": 8,
+              "line_MAE_cm-1": 1.6149801246318134,
+              "line_max_abs_cm-1": 2.985044446023494,
+              "high_symmetry_prediction_cm-1": 1575.7823492508126,
+              "high_symmetry_target_cm-1": 1573.90788,
+              "high_symmetry_abs_error_cm-1": 1.8744692508125809,
+              "central_block_max_distance": 0.01,
+              "central_block_n_points": 3,
+              "central_block_MAE_cm-1": 1.469000202029065,
+              "central_block_max_abs_cm-1": 1.8744692508125809,
+              "central_block_high_symmetry_abs_error_cm-1": 1.8744692508125809
+            },
+            "K": {
+              "n_points": 11,
+              "line_MAE_cm-1": 2.0006455390131452,
+              "line_max_abs_cm-1": 3.87719318052541,
+              "high_symmetry_prediction_cm-1": 1292.8468580240517,
+              "high_symmetry_target_cm-1": 1289.791537,
+              "high_symmetry_abs_error_cm-1": 3.0553210240516364,
+              "central_block_max_distance": 0.008,
+              "central_block_n_points": 3,
+              "central_block_MAE_cm-1": 2.4486586966062682,
+              "central_block_max_abs_cm-1": 3.0553210240516364,
+              "central_block_high_symmetry_abs_error_cm-1": 3.0553210240516364,
+              "prediction_kink_cm-1_per_t": 124.51275220797697,
+              "target_kink_cm-1_per_t": 352.01112499999,
+              "kink_relative_error": 0.6462817696231035
+            }
+          },
+          "passes_same_numeric_gate": false
+        }
+      },
+      "600": {
+        "heldout_temperature_K": 600,
+        "heldout_degauss_Ry": 0.0038001738,
+        "training_temperatures_K": [
+          300,
+          450
+        ],
+        "shared_dirac": {
+          "train_RMSE_cm-1": 0.5557187962505391,
+          "v_F_eV_A": 4.37,
+          "coefficients": {
+            "G": {
+              "B0_cm-2": 162415.16074870498,
+              "B2_cm-2": -1281504.480818708,
+              "A_cm-2_per_Ry": 1909713.7282784309
+            },
+            "K": {
+              "B0_cm-2": -4556.887687019397,
+              "B2_cm-2": 1344977.0719483853,
+              "A_cm-2_per_Ry": 2980347.409837921
+            }
+          },
+          "metrics": {
+            "G": {
+              "n_points": 8,
+              "line_MAE_cm-1": 0.8841185410766172,
+              "line_max_abs_cm-1": 1.173079781729939,
+              "high_symmetry_prediction_cm-1": 1575.022114610608,
+              "high_symmetry_target_cm-1": 1573.924405,
+              "high_symmetry_abs_error_cm-1": 1.0977096106080353,
+              "central_block_max_distance": 0.01,
+              "central_block_n_points": 3,
+              "central_block_MAE_cm-1": 1.1244714099461817,
+              "central_block_max_abs_cm-1": 1.1506520366635868,
+              "central_block_high_symmetry_abs_error_cm-1": 1.0977096106080353
+            },
+            "K": {
+              "n_points": 11,
+              "line_MAE_cm-1": 0.5564538791395948,
+              "line_max_abs_cm-1": 1.6918541486106733,
+              "high_symmetry_prediction_cm-1": 1290.9567253057849,
+              "high_symmetry_target_cm-1": 1291.406318,
+              "high_symmetry_abs_error_cm-1": 0.4495926942151982,
+              "central_block_max_distance": 0.008,
+              "central_block_n_points": 3,
+              "central_block_MAE_cm-1": 0.2705579364157984,
+              "central_block_max_abs_cm-1": 0.4495926942151982,
+              "central_block_high_symmetry_abs_error_cm-1": 0.4495926942151982,
+              "prediction_kink_cm-1_per_t": 328.5055341747807,
+              "target_kink_cm-1_per_t": 261.36750000000575,
+              "kink_relative_error": 0.2568721596019913
+            }
+          },
+          "passes_gate": false
+        },
+        "no_electronic_kernel_control": {
+          "train_RMSE_cm-1": 2.310161790905581,
+          "coefficients": {
+            "G": {
+              "B0_cm-2": 69517.14083047591,
+              "B2_cm-2": 7323299.761760345
+            },
+            "K": {
+              "B0_cm-2": -150278.10568082696,
+              "B2_cm-2": 19020154.95968353
+            }
+          },
+          "metrics": {
+            "G": {
+              "n_points": 8,
+              "line_MAE_cm-1": 1.5750785247979593,
+              "line_max_abs_cm-1": 2.2084236733239777,
+              "high_symmetry_prediction_cm-1": 1575.954624971623,
+              "high_symmetry_target_cm-1": 1573.924405,
+              "high_symmetry_abs_error_cm-1": 2.030219971622955,
+              "central_block_max_distance": 0.01,
+              "central_block_n_points": 3,
+              "central_block_MAE_cm-1": 1.7532570920548853,
+              "central_block_max_abs_cm-1": 2.030219971622955,
+              "central_block_high_symmetry_abs_error_cm-1": 2.030219971622955
+            },
+            "K": {
+              "n_points": 11,
+              "line_MAE_cm-1": 1.6723014949146668,
+              "line_max_abs_cm-1": 3.642210450128914,
+              "high_symmetry_prediction_cm-1": 1292.444449639909,
+              "high_symmetry_target_cm-1": 1291.406318,
+              "high_symmetry_abs_error_cm-1": 1.0381316399088973,
+              "central_block_max_distance": 0.008,
+              "central_block_n_points": 3,
+              "central_block_MAE_cm-1": 0.6813670235143642,
+              "central_block_max_abs_cm-1": 1.0381316399088973,
+              "central_block_high_symmetry_abs_error_cm-1": 1.0381316399088973,
+              "prediction_kink_cm-1_per_t": 127.58076885205583,
+              "target_kink_cm-1_per_t": 261.36750000000575,
+              "kink_relative_error": 0.5118721001958813
+            }
+          },
+          "passes_same_numeric_gate": false
+        }
+      }
+    }
+  },
+  "passes_E0_S_gate": false,
+  "limitations": [
+    "This is a q-space spectral test, not yet a real-space force operator.",
+    "The 450 K data are development data after the failed P4 evaluation."
+  ],
+  "inputs": {
+    "dfpt": {
+      "300": {
+        "path": "results/graphene_physical_fd_dfpt/campaigns/FD300_LINE/graphene_FD300_LINE_dfpt.csv",
+        "sha256": "6cda8e4279a4aea2fec05c8a758b1a642f4b4a1b8af73e04e2113b535c22ab3a"
+      },
+      "450": {
+        "path": "results/graphene_physics_temperature/post_p4_feasibility/source_p4_450/dfpt/FD450_LINE/graphene_FD450_LINE_dfpt.csv",
+        "sha256": "325af549f473b381fbe7b04a3782f189589cbc6ef46436138c70b8029577863d"
+      },
+      "600": {
+        "path": "results/graphene_physical_fd_dfpt/campaigns/FD600_LINE/graphene_FD600_LINE_dfpt.csv",
+        "sha256": "5a84894d742ef454f8eb9e380b55276d2b4fddc3c2d71c5cff15a3b19814c08d"
+      }
+    },
+    "background": {
+      "path": "results/vq_kink6_fd/graphene_sc6_dg0.040_phonopy.yaml",
+      "sha256": "69144a1dd3c66df94c116259067be27d1ede3ca8ab01c66516504c5e1ec90c0a"
+    },
+    "old_p4_qspace": {
+      "path": "results/graphene_physics_temperature/post_p4_feasibility/source_p4_450/on_policy/evaluation/frozen_predictions_vs_targets.csv",
+      "sha256": "0e62c1eefc59b8ac0b89696016849dacaeb7d85a91e6af6fdea6b2ba1fcb9b15"
+    }
+  },
+  "outputs": {
+    "predictions_csv": "results/graphene_physics_temperature/post_p4_feasibility/E0_shared_dirac/shared_dirac_predictions.csv"
+  }
+}

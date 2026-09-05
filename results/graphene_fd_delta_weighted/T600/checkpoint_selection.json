@@ -1,0 +1,97 @@
+{
+  "status": "development_candidate_found",
+  "selection_scope": "model, replay weight, and epoch frozen before reading the new 15-structure 600 K physical-FD force holdout",
+  "fixed_thresholds_unchanged": true,
+  "selected": {
+    "tag": "replayw12",
+    "sweep_path": "/home/howardwang/phonon/results/graphene_fd_delta_weighted/T600/replayw12/checkpoint_sweep.json",
+    "sweep_status": "checkpoint_passed",
+    "passes_fixed_development_gate": true,
+    "selected_model": "/home/howardwang/phonon/results/graphene_fd_delta_weighted/T600/replayw12/gr_fd600_delta32_replayw12_checkpoint_selected.model",
+    "selected_checkpoint": "/home/howardwang/phonon/results/graphene_fd_delta_weighted/T600/replayw12/checkpoints/gr_fd600_delta32_replayw12_run-83_epoch-175.pt",
+    "selected_epoch": 175,
+    "normalized_worst_gate_score": 0.8662786082831018,
+    "thermal_total_force": {
+      "RMSE_meV_A": 43.31393041415509,
+      "max_abs_meV_A": 210.7437834695436
+    },
+    "harmonic_combined_force": {
+      "RMSE_meV_A": 10.286203541972622,
+      "max_abs_meV_A": 100.50428166593584
+    }
+  },
+  "candidates": [
+    {
+      "tag": "replayw12",
+      "sweep_path": "/home/howardwang/phonon/results/graphene_fd_delta_weighted/T600/replayw12/checkpoint_sweep.json",
+      "sweep_status": "checkpoint_passed",
+      "passes_fixed_development_gate": true,
+      "selected_model": "/home/howardwang/phonon/results/graphene_fd_delta_weighted/T600/replayw12/gr_fd600_delta32_replayw12_checkpoint_selected.model",
+      "selected_checkpoint": "/home/howardwang/phonon/results/graphene_fd_delta_weighted/T600/replayw12/checkpoints/gr_fd600_delta32_replayw12_run-83_epoch-175.pt",
+      "selected_epoch": 175,
+      "normalized_worst_gate_score": 0.8662786082831018,
+      "thermal_total_force": {
+        "RMSE_meV_A": 43.31393041415509,
+        "max_abs_meV_A": 210.7437834695436
+      },
+      "harmonic_combined_force": {
+        "RMSE_meV_A": 10.286203541972622,
+        "max_abs_meV_A": 100.50428166593584
+      }
+    },
+    {
+      "tag": "replayw16",
+      "sweep_path": "/home/howardwang/phonon/results/graphene_fd_delta_weighted/T600/replayw16/checkpoint_sweep.json",
+      "sweep_status": "checkpoint_passed",
+      "passes_fixed_development_gate": true,
+      "selected_model": "/home/howardwang/phonon/results/graphene_fd_delta_weighted/T600/replayw16/gr_fd600_delta32_replayw16_checkpoint_selected.model",
+      "selected_checkpoint": "/home/howardwang/phonon/results/graphene_fd_delta_weighted/T600/replayw16/checkpoints/gr_fd600_delta32_replayw16_run-83_epoch-165.pt",
+      "selected_epoch": 165,
+      "normalized_worst_gate_score": 0.8967967694733282,
+      "thermal_total_force": {
+        "RMSE_meV_A": 44.83983847366641,
+        "max_abs_meV_A": 223.21415597297678
+      },
+      "harmonic_combined_force": {
+        "RMSE_meV_A": 10.761517526889913,
+        "max_abs_meV_A": 128.5975127589035
+      }
+    },
+    {
+      "tag": "replayw8",
+      "sweep_path": "/home/howardwang/phonon/results/graphene_fd_delta_weighted/T600/replayw8/checkpoint_sweep.json",
+      "sweep_status": "no_checkpoint_passed",
+      "passes_fixed_development_gate": false,
+      "selected_model": "/home/howardwang/phonon/results/graphene_fd_delta_weighted/T600/replayw8/gr_fd600_delta32_replayw8_checkpoint_selected.model",
+      "selected_checkpoint": "/home/howardwang/phonon/results/graphene_fd_delta_weighted/T600/replayw8/checkpoints/gr_fd600_delta32_replayw8_run-83_epoch-175.pt",
+      "selected_epoch": 175,
+      "normalized_worst_gate_score": 1.2297856759582526,
+      "thermal_total_force": {
+        "RMSE_meV_A": 48.4039475075748,
+        "max_abs_meV_A": 307.44641898956314
+      },
+      "harmonic_combined_force": {
+        "RMSE_meV_A": 15.401289891160381,
+        "max_abs_meV_A": 154.4084544971085
+      }
+    },
+    {
+      "tag": "replayw4",
+      "sweep_path": "/home/howardwang/phonon/results/graphene_fd_delta_weighted/T600/replayw4/checkpoint_sweep.json",
+      "sweep_status": "no_checkpoint_passed",
+      "passes_fixed_development_gate": false,
+      "selected_model": "/home/howardwang/phonon/results/graphene_fd_delta_weighted/T600/replayw4/gr_fd600_delta32_replayw4_checkpoint_selected.model",
+      "selected_checkpoint": "/home/howardwang/phonon/results/graphene_fd_delta_weighted/T600/replayw4/checkpoints/gr_fd600_delta32_replayw4_run-83_epoch-170.pt",
+      "selected_epoch": 170,
+      "normalized_worst_gate_score": 1.2323148804401893,
+      "thermal_total_force": {
+        "RMSE_meV_A": 45.88369192004779,
+        "max_abs_meV_A": 273.9435422309877
+      },
+      "harmonic_combined_force": {
+        "RMSE_meV_A": 17.83340964234276,
+        "max_abs_meV_A": 220.9702446463776
+      }
+    }
+  ]
+}

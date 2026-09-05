@@ -1,0 +1,31 @@
+{
+  "status": "passed",
+  "scope": "exact reconstruction of EPW dynwan2bloch matrices on the q6 grid",
+  "built_at_utc": "2026-08-06T17:24:10.109855+00:00",
+  "coarse_q_mesh": [
+    9,
+    9,
+    1
+  ],
+  "n_qpoints": 36,
+  "n_wigner_vectors": 91,
+  "wigner_weight_sum": 80.99999999999999,
+  "metrics": {
+    "decay_length_max_abs_A": 8.671818818584143e-09,
+    "decay_matrix_max_abs_Ry": 1.0842021724855044e-19,
+    "EPW_bare_frequency_max_abs_cm-1": 0.03988661730500098,
+    "Hermitian_max_abs": 0.0,
+    "q_minus_q_max_abs": 6.272929938848813e-14
+  },
+  "checks": {
+    "decay_length_max_le_1e-7_A": true,
+    "decay_matrix_max_le_1e-12_Ry": true,
+    "EPW_bare_frequency_max_le_0p1_cm-1": true,
+    "Hermitian_max_le_1e-12": true,
+    "q_minus_q_max_le_1e-10": true
+  },
+  "output": {
+    "path": "/data/graphene_e0_epw_matched/k18_q9_ex1_pifroz/operator_q6_450K/matdyn/epw_q6_dynamical_matrices.npz",
+    "sha256": "33738f7a91d8691edb68b57a15d704e3cd42053562b33d4f56b92e75cc1b0f43"
+  }
+}

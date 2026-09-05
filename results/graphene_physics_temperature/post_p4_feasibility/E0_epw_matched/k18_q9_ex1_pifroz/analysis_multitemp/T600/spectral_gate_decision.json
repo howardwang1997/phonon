@@ -1,0 +1,31 @@
+{
+  "status": "passed",
+  "scope": "E0-P2 k18/q9 600 K nine-point static spectral gate",
+  "target_temperature_K": 600.0,
+  "decided_at_utc": "2026-08-06T17:15:57.979421+00:00",
+  "thresholds": {
+    "line_MAE_cm-1": 10.0,
+    "high_symmetry_abs_error_cm-1": 15.0,
+    "K_kink_relative_error": 0.2
+  },
+  "checks": {
+    "gamma_line_MAE_lt_10_cm-1": true,
+    "gamma_point_abs_lt_15_cm-1": true,
+    "K_line_MAE_lt_10_cm-1": true,
+    "K_point_abs_lt_15_cm-1": true,
+    "K_kink_relative_error_lt_0p20": true
+  },
+  "metrics": {
+    "gamma_line_MAE_cm-1": 5.413853205306282,
+    "gamma_point_abs_cm-1": 2.8494116287999987,
+    "K_line_MAE_cm-1": 5.10930549867885,
+    "K_point_abs_cm-1": 5.097248615934859,
+    "K_kink_relative_error": 0.07929807424081645
+  },
+  "summary": {
+    "path": "/data/graphene_e0_epw_matched/k18_q9_ex1_pifroz/analysis_multitemp/T600/static_pilot_summary.json",
+    "sha256": "64623ebc371974c58402c6c02a306f4c6036290e339094303b5f0d85747ed82f"
+  },
+  "next_stage": "release_complete_q6_static_grid_for_6x6_operator",
+  "does_not_release_E1": true
+}

@@ -1,0 +1,32 @@
+{
+  "argv": [
+    "/root/miniconda3/bin/conda",
+    "run",
+    "--no-capture-output",
+    "-n",
+    "phonon-mlip",
+    "python",
+    "-u",
+    "scripts/smearing_kink/run_graphene_r2r0_diagnostic.py",
+    "diagnostic",
+    "--output",
+    "/root/phonon/results/r2r0d_diagnostic_bundle_20260826/2335246e45c5/attempt_0001/results/graphene_physics_temperature/post_p4_feasibility/R2R_multipolar_background/R2R0D_numerical_diagnostic/v100b_2335246e45c5_attempt1",
+    "--device",
+    "cuda:0",
+    "--freeze-manifest",
+    "/root/phonon/results/r2r0d_diagnostic_bundle_20260826/2335246e45c5/attempt_0001/results/graphene_physics_temperature/post_p4_feasibility/R2R0D_numerical_diagnostic_candidate_v2_20260826/freeze_manifest.json",
+    "--authorization-marker",
+    "/root/phonon/results/r2r0d_diagnostic_bundle_20260826/2335246e45c5/attempt_0001/results/graphene_physics_temperature/post_p4_feasibility/R2R0D_numerical_diagnostic_candidate_v2_20260826/R2R0D_DIAGNOSTIC_AUTH"
+  ],
+  "cwd": "/root/phonon/results/r2r0d_diagnostic_bundle_20260826/2335246e45c5/attempt_0001",
+  "env_overrides": {
+    "CUDA_VISIBLE_DEVICES": "0",
+    "PYTHONDONTWRITEBYTECODE": "1",
+    "TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD": "1"
+  },
+  "kill_after_seconds": 2.0,
+  "stderr": "/root/phonon/results/r2r0d_diagnostic_exec_20260826/2335246e45c5_attempt_0001/diagnostic.stderr",
+  "stdin": "/dev/null",
+  "stdout": "/root/phonon/results/r2r0d_diagnostic_exec_20260826/2335246e45c5_attempt_0001/diagnostic.stdout",
+  "term_after_seconds": 115.0
+}

@@ -1,0 +1,66 @@
+{
+  "status": "running",
+  "scope": "graphene no-degauss k288 K and d=0.003 convergence diagnostic",
+  "launched_at_nzst": {
+    "V100-A": "2026-08-16T17:34:28+12:00",
+    "V100-B": "2026-08-16T17:34:15+12:00"
+  },
+  "tailscale_hosts": {
+    "V100-A": "100.80.236.112",
+    "V100-B": "100.123.220.57"
+  },
+  "launcher_pid": {
+    "V100-A": 1424908,
+    "V100-B": 1555398
+  },
+  "points": {
+    "V100-A": ["K", "KG_d003"],
+    "V100-B": ["K", "KM_d003"]
+  },
+  "electronic_integration": "occupations='tetrahedra_opt'",
+  "smearing": null,
+  "degauss_Ry": null,
+  "kgrid": 288,
+  "qe_tag": "qe75_npk120k",
+  "parallel": {
+    "mpi_ranks": 1,
+    "openmp_threads_per_rank": 4
+  },
+  "artifacts": {
+    "config": {
+      "path": "configs/graphene_k_cusp_nosmear/qpoints_d003_k288.tsv",
+      "sha256": "fe1f5eb5d9320d2ecc5b73433e9310501d9a40e19643452d6d0da3f84ffe6c50"
+    },
+    "release": {
+      "path": "results/graphene_k_cusp_nosmear/S4a_d003_kgrid/RELEASE_K288_D003",
+      "sha256": "8eceb91592bc96342a04495488f73960949a60982e5b47758f45fc0d1213e281"
+    },
+    "dedicated_runner": {
+      "local_path": "scripts/v100/run_graphene_k_cusp_nosmear_dfpt.sh",
+      "remote_path": "/data/graphene_k_cusp_nosmear/run_graphene_k_cusp_nosmear_k288.sh",
+      "sha256": "1f53c32abe4c538c3692ced19c5896cabf69855861c0b2a490287fc8f9ffcb30"
+    }
+  },
+  "start_checks": {
+    "V100-A": "pw.x active on k288 SCF at 2026-08-16T17:34:59+12:00",
+    "V100-B": "pw.x active on k288 SCF at 2026-08-16T17:34:48+12:00",
+    "free_data_GiB_before_start": {
+      "V100-A": 72,
+      "V100-B": 92
+    },
+    "minimum_free_start_gate_GiB": 60
+  },
+  "monitor": {
+    "started_at_nzst": "2026-08-16T17:40:04+12:00",
+    "persistent_exec_session_id": 49821,
+    "path": "results/graphene_k_cusp_nosmear/monitor_k288_d003",
+    "poll_seconds": 180,
+    "timeout_seconds": 108000,
+    "on_complete": "sync both bundles, audit matrices, compare k240/k288 and draw diagnostic"
+  },
+  "estimated_completion_nzst": {
+    "central": "2026-08-17T09:00:00+12:00",
+    "conservative_latest_without_retry": "2026-08-17T11:30:00+12:00"
+  },
+  "launch_note": "The first submission attempt was rejected before SCF because the remote generic runner did not support the diagnostic stage. A dedicated hash-verified runner was deployed without overwriting the generic runner; the recorded launch times refer to the successful submission."
+}

@@ -1,0 +1,218 @@
+{
+  "thresholds": {
+    "force_RMSE_meV_A": 50.0,
+    "force_max_abs_meV_A": 250.0,
+    "DFT_wave1_to_wave2_full_band_MAE_cm-1": 5.0,
+    "MLIP_vs_DFT_full_band_MAE_cm-1": 10.0,
+    "Gamma_K_top_abs_error_cm-1": 15.0,
+    "seed_pair_full_band_MAE_cm-1": 5.0,
+    "MD_mean_temperature_relative_error": 0.2
+  },
+  "by_temperature": {
+    "300": {
+      "force_validation": {
+        "n_validation_structures": 6,
+        "RMSE_meV_A": 47.55846661188405,
+        "max_abs_meV_A": 341.5390837005616,
+        "records": [
+          {
+            "snapshot_index": 0,
+            "RMSE_meV_A": 40.78426309220115,
+            "max_abs_meV_A": 132.97456125549311
+          },
+          {
+            "snapshot_index": 29,
+            "RMSE_meV_A": 44.02172410104605,
+            "max_abs_meV_A": 212.11303940795912
+          },
+          {
+            "snapshot_index": 59,
+            "RMSE_meV_A": 34.718121585373375,
+            "max_abs_meV_A": 105.17278830261235
+          },
+          {
+            "snapshot_index": 2,
+            "RMSE_meV_A": 53.07453449537211,
+            "max_abs_meV_A": 325.4031538183595
+          },
+          {
+            "snapshot_index": 31,
+            "RMSE_meV_A": 40.249987727799756,
+            "max_abs_meV_A": 193.14998186035172
+          },
+          {
+            "snapshot_index": 57,
+            "RMSE_meV_A": 65.78193125497607,
+            "max_abs_meV_A": 341.5390837005616
+          }
+        ]
+      },
+      "DFT_wave1_to_wave2": {
+        "full_band_MAE_cm-1": 3.149964612933545,
+        "full_band_max_abs_cm-1": 13.108039158942347,
+        "gamma_top_abs_error_cm-1": 5.5736029570086885,
+        "k_top_abs_error_cm-1": 11.66342713405561
+      },
+      "MLIP_seed_vs_DFT_wave2": [
+        {
+          "full_band_MAE_cm-1": 9.221542609340695,
+          "full_band_max_abs_cm-1": 40.691101008891565,
+          "gamma_top_abs_error_cm-1": 8.343820547417636,
+          "k_top_abs_error_cm-1": 40.691101008891565
+        },
+        {
+          "full_band_MAE_cm-1": 7.609603587233891,
+          "full_band_max_abs_cm-1": 42.37955812574114,
+          "gamma_top_abs_error_cm-1": 17.293509489522194,
+          "k_top_abs_error_cm-1": 42.37955812574114
+        },
+        {
+          "full_band_MAE_cm-1": 7.803500966402071,
+          "full_band_max_abs_cm-1": 33.600138098532625,
+          "gamma_top_abs_error_cm-1": 15.924408729300922,
+          "k_top_abs_error_cm-1": 33.600138098532625
+        }
+      ],
+      "MLIP_seed_pair_spread": [
+        {
+          "full_band_MAE_cm-1": 3.097961190642486,
+          "full_band_max_abs_cm-1": 16.635663774698536,
+          "gamma_top_abs_error_cm-1": 8.949688942104558,
+          "k_top_abs_error_cm-1": 1.6884571168495768
+        },
+        {
+          "full_band_MAE_cm-1": 2.4459265956417546,
+          "full_band_max_abs_cm-1": 14.0301294417742,
+          "gamma_top_abs_error_cm-1": 7.580588181883286,
+          "k_top_abs_error_cm-1": 7.0909629103589396
+        },
+        {
+          "full_band_MAE_cm-1": 2.032055300810891,
+          "full_band_max_abs_cm-1": 8.779420027208516,
+          "gamma_top_abs_error_cm-1": 1.3691007602212721,
+          "k_top_abs_error_cm-1": 8.779420027208516
+        }
+      ],
+      "MLIP_trajectory_temperatures": [
+        {
+          "mean_K": 287.43909872210594,
+          "max_K": 370.97454689479446
+        },
+        {
+          "mean_K": 310.0331228832459,
+          "max_K": 388.04235367773884
+        },
+        {
+          "mean_K": 293.5475221766655,
+          "max_K": 348.7625952719922
+        }
+      ],
+      "MLIP_max_mean_temperature_relative_error": 0.04186967092631354,
+      "passes_short_range_gate": false
+    },
+    "600": {
+      "force_validation": {
+        "n_validation_structures": 6,
+        "RMSE_meV_A": 62.04229581850983,
+        "max_abs_meV_A": 509.3381946020505,
+        "records": [
+          {
+            "snapshot_index": 0,
+            "RMSE_meV_A": 77.26455518919994,
+            "max_abs_meV_A": 272.240782980957
+          },
+          {
+            "snapshot_index": 29,
+            "RMSE_meV_A": 52.15888211415632,
+            "max_abs_meV_A": 226.07334420288083
+          },
+          {
+            "snapshot_index": 59,
+            "RMSE_meV_A": 53.94762791066736,
+            "max_abs_meV_A": 214.0240828784181
+          },
+          {
+            "snapshot_index": 2,
+            "RMSE_meV_A": 72.002445874223,
+            "max_abs_meV_A": 509.3381946020505
+          },
+          {
+            "snapshot_index": 31,
+            "RMSE_meV_A": 51.2767218488819,
+            "max_abs_meV_A": 176.76818907714863
+          },
+          {
+            "snapshot_index": 57,
+            "RMSE_meV_A": 60.672212568684884,
+            "max_abs_meV_A": 204.0253789013673
+          }
+        ]
+      },
+      "DFT_wave1_to_wave2": {
+        "full_band_MAE_cm-1": 3.7639986263615888,
+        "full_band_max_abs_cm-1": 15.762587659520477,
+        "gamma_top_abs_error_cm-1": 15.762587659520477,
+        "k_top_abs_error_cm-1": 6.855141035793395
+      },
+      "MLIP_seed_vs_DFT_wave2": [
+        {
+          "full_band_MAE_cm-1": 7.2815368955894195,
+          "full_band_max_abs_cm-1": 34.56761186124413,
+          "gamma_top_abs_error_cm-1": 34.567611861243904,
+          "k_top_abs_error_cm-1": 8.255349920882281
+        },
+        {
+          "full_band_MAE_cm-1": 5.456227887286669,
+          "full_band_max_abs_cm-1": 24.871740664218578,
+          "gamma_top_abs_error_cm-1": 24.871740664217896,
+          "k_top_abs_error_cm-1": 20.543669617162095
+        },
+        {
+          "full_band_MAE_cm-1": 4.657459919218015,
+          "full_band_max_abs_cm-1": 21.50921063532337,
+          "gamma_top_abs_error_cm-1": 21.509210635322688,
+          "k_top_abs_error_cm-1": 4.396337040539038
+        }
+      ],
+      "MLIP_seed_pair_spread": [
+        {
+          "full_band_MAE_cm-1": 6.01904396281186,
+          "full_band_max_abs_cm-1": 28.799019538044377,
+          "gamma_top_abs_error_cm-1": 9.695871197026008,
+          "k_top_abs_error_cm-1": 28.799019538044377
+        },
+        {
+          "full_band_MAE_cm-1": 4.687708053510976,
+          "full_band_max_abs_cm-1": 17.586281029060046,
+          "gamma_top_abs_error_cm-1": 13.058401225921216,
+          "k_top_abs_error_cm-1": 12.65168696142132
+        },
+        {
+          "full_band_MAE_cm-1": 4.065652447986568,
+          "full_band_max_abs_cm-1": 18.06027260704861,
+          "gamma_top_abs_error_cm-1": 3.3625300288952076,
+          "k_top_abs_error_cm-1": 16.147332576623057
+        }
+      ],
+      "MLIP_trajectory_temperatures": [
+        {
+          "mean_K": 610.3066310663443,
+          "max_K": 715.7896477981403
+        },
+        {
+          "mean_K": 615.9296246338034,
+          "max_K": 780.8084608770047
+        },
+        {
+          "mean_K": 596.0416807096201,
+          "max_K": 716.0442300826936
+        }
+      ],
+      "MLIP_max_mean_temperature_relative_error": 0.02654937438967238,
+      "passes_short_range_gate": false
+    }
+  },
+  "passes_short_range_gate": false,
+  "wave3_required": true,
+  "next_step": "run conditional third physical-FD label wave, then refit"
+}

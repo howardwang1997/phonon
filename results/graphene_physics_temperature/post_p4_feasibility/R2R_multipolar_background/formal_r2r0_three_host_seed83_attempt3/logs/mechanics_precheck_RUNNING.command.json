@@ -1,0 +1,22 @@
+{
+  "argv": [
+    "ssh",
+    "-o",
+    "BatchMode=yes",
+    "-o",
+    "ConnectTimeout=20",
+    "-o",
+    "ControlPath=none",
+    "root@100.123.220.57",
+    "test '!' -e /data/graphene_r2r0/formal_r2r0_three_host_seed83/a9a1732af38c/attempt_0003/mechanics/RUNNING"
+  ],
+  "command_basename": "mechanics_precheck_RUNNING.command.json",
+  "expected_sha256": null,
+  "observed_sha256": null,
+  "returncode": 0,
+  "sha256": "3b9b22ef25d7debe0e7a180edc284ea4799b146e070ede6c8142401a3eee4d01",
+  "stderr_basename": "mechanics_precheck_RUNNING.stderr",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout_basename": "mechanics_precheck_RUNNING.stdout",
+  "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}

@@ -1,0 +1,19 @@
+{
+  "argv": [
+    "ssh",
+    "-o",
+    "BatchMode=yes",
+    "-o",
+    "ConnectTimeout=20",
+    "-o",
+    "ControlPath=none",
+    "howardwang@100.105.21.7",
+    "python3 -c 'import os\nimport pathlib\nimport stat\nimport sys\npath = pathlib.Path(sys.argv[1])\ncurrent = pathlib.Path(path.anchor)\nfor part in path.parts[1:]:\n    current = current / part\n    try:\n        mode = os.lstat(current).st_mode\n    except FileNotFoundError:\n        continue\n    if stat.S_ISLNK(mode):\n        raise SystemExit(2)\n' /home/howardwang/phonon/results/r2r0_formal_bundle_20260825/f2abdb5e997d/results/graphene_physics_temperature/post_p4_feasibility/R2Q_four_step_trust_region/formal_4step_seed83_rtx/endpoint_receipt.json"
+  ],
+  "returncode": 0,
+  "sha256": "560d7e0ee5a3677211883521dae7e359162e7b4d90855518dfe1207e0832fbbb",
+  "stderr_basename": "RTX-2060_prewrite_symlink_guard_14.stderr",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout_basename": "RTX-2060_prewrite_symlink_guard_14.stdout",
+  "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}

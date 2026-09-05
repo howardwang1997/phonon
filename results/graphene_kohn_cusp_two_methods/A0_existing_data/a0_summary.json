@@ -1,0 +1,206 @@
+{
+  "status": "passed_feasibility",
+  "scope": "existing-data five-point mode-projected q-space K-cusp feasibility",
+  "method_formula": "omega_A0_dense^2(q,T) = omega_L0_or_Q0_short^2(q,T) + [omega_EPW_static^2(q,T)-omega_EPW_bare^2(q)]",
+  "electronic_smearing": "reported as smearing/degauss (Ry)",
+  "lattice_temperature": "L0 classical TDEP and Q0 quantum SSCHA, reported in K",
+  "acceptance": {
+    "existing_static_EPW_gate_required": true,
+    "direct_and_dense_cusp_depth_positive": true,
+    "dense_kink_relative_error_max": 0.2,
+    "absolute_finite_lattice_vs_static_DFPT_frequency_is_not_an_A0_gate": true
+  },
+  "metrics": [
+    {
+      "temperature_K": 300,
+      "degauss_Ry": 0.0019000869,
+      "channel": "L0",
+      "direct_cusp_depth_cm-1": 2.344077587143147,
+      "q6_cusp_depth_cm-1": 0.11060169448660417,
+      "dense_cusp_depth_cm-1": 2.0717830919879816,
+      "q6_kink_cm-1_per_t": 27.650423621679465,
+      "dense_kink_cm-1_per_t": 517.945772996967,
+      "direct_kink_cm-1_per_t": 586.0193967857583,
+      "dense_kink_relative_error": 0.11616274847243366,
+      "dense_K_signed_offset_vs_static_DFPT_cm-1": 1.2935063883032853,
+      "dense_line_MAE_vs_static_DFPT_cm-1_not_gated": 0.8725032123641995,
+      "shape_gate_pass": true
+    },
+    {
+      "temperature_K": 300,
+      "degauss_Ry": 0.0019000869,
+      "channel": "Q0",
+      "direct_cusp_depth_cm-1": 2.344077587143147,
+      "q6_cusp_depth_cm-1": 0.11672625581718421,
+      "dense_cusp_depth_cm-1": 2.090383124256732,
+      "q6_kink_cm-1_per_t": 29.181563954296053,
+      "dense_kink_cm-1_per_t": 522.5957810642115,
+      "direct_kink_cm-1_per_t": 586.0193967857583,
+      "dense_kink_relative_error": 0.10822784377004808,
+      "dense_K_signed_offset_vs_static_DFPT_cm-1": -5.941770195206118,
+      "dense_line_MAE_vs_static_DFPT_cm-1_not_gated": 6.3303456430783624,
+      "shape_gate_pass": true
+    },
+    {
+      "temperature_K": 450,
+      "degauss_Ry": 0.00285013035,
+      "channel": "L0",
+      "direct_cusp_depth_cm-1": 1.5484070757142945,
+      "q6_cusp_depth_cm-1": 0.10947091578077561,
+      "dense_cusp_depth_cm-1": 1.5490148430515092,
+      "q6_kink_cm-1_per_t": 27.367728945193903,
+      "dense_kink_cm-1_per_t": 387.2537107628773,
+      "direct_kink_cm-1_per_t": 387.1017689285736,
+      "dense_kink_relative_error": 0.00039251134068495085,
+      "dense_K_signed_offset_vs_static_DFPT_cm-1": -10.538809019952623,
+      "dense_line_MAE_vs_static_DFPT_cm-1_not_gated": 10.70758855081699,
+      "shape_gate_pass": true
+    },
+    {
+      "temperature_K": 450,
+      "degauss_Ry": 0.00285013035,
+      "channel": "Q0",
+      "direct_cusp_depth_cm-1": 1.5484070757142945,
+      "q6_cusp_depth_cm-1": 0.115459209881692,
+      "dense_cusp_depth_cm-1": 1.5716235419340592,
+      "q6_kink_cm-1_per_t": 28.86480247039458,
+      "dense_kink_cm-1_per_t": 392.9058854835148,
+      "direct_kink_cm-1_per_t": 387.1017689285736,
+      "dense_kink_relative_error": 0.014993774301279737,
+      "dense_K_signed_offset_vs_static_DFPT_cm-1": -23.457600456612226,
+      "dense_line_MAE_vs_static_DFPT_cm-1_not_gated": 23.586288140768055,
+      "shape_gate_pass": true
+    },
+    {
+      "temperature_K": 600,
+      "degauss_Ry": 0.0038001738,
+      "channel": "L0",
+      "direct_cusp_depth_cm-1": 1.1575660537498607,
+      "q6_cusp_depth_cm-1": 0.10620026678793693,
+      "dense_cusp_depth_cm-1": 1.2050324411995916,
+      "q6_kink_cm-1_per_t": 26.55006669695581,
+      "dense_kink_cm-1_per_t": 301.2581102998695,
+      "direct_kink_cm-1_per_t": 289.39151343746516,
+      "dense_kink_relative_error": 0.04100533813673352,
+      "dense_K_signed_offset_vs_static_DFPT_cm-1": -19.749961972509254,
+      "dense_line_MAE_vs_static_DFPT_cm-1_not_gated": 19.854211973764677,
+      "shape_gate_pass": true
+    },
+    {
+      "temperature_K": 600,
+      "degauss_Ry": 0.0038001738,
+      "channel": "Q0",
+      "direct_cusp_depth_cm-1": 1.1575660537498607,
+      "q6_cusp_depth_cm-1": 0.22486772382012532,
+      "dense_cusp_depth_cm-1": 1.3365568877018177,
+      "q6_kink_cm-1_per_t": 56.21693095503133,
+      "dense_kink_cm-1_per_t": 334.13922192548284,
+      "direct_kink_cm-1_per_t": 289.39151343746516,
+      "dense_kink_relative_error": 0.15462688575934086,
+      "dense_K_signed_offset_vs_static_DFPT_cm-1": -60.83975925320988,
+      "dense_line_MAE_vs_static_DFPT_cm-1_not_gated": 60.69291974433995,
+      "shape_gate_pass": true
+    }
+  ],
+  "audit": {
+    "status": "passed",
+    "source_hashes": [
+      {
+        "path": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/S0_unified_short/L0_classical_tdep/T300/final_physical_tdep.npz",
+        "sha256": "d352413125053cb736b5de1ba8ef811d2f3e0bfd9b0285ed2286b388dc8905c9"
+      },
+      {
+        "path": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/S0_unified_short/Q0_quantum_sscha/formal_T300/result.npz",
+        "sha256": "1986d71ffd07d9d4b7b85cfc7ccae035d9cf370404d5ea4d706ffb6877cd5964"
+      },
+      {
+        "path": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physical_fd_dfpt/campaigns/FD300_LINE/graphene_FD300_LINE_dfpt.csv",
+        "sha256": "6cda8e4279a4aea2fec05c8a758b1a642f4b4a1b8af73e04e2113b535c22ab3a"
+      },
+      {
+        "path": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/E0_epw_matched/k18_q9_ex1_pifroz/analysis_multitemp/T300/static_top_branch_predictions.csv",
+        "sha256": "eaf29800ea89df209916a5651edbeb87a5c04f21882d4594a21b3c8a5c62db45"
+      },
+      {
+        "path": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/E0_epw_matched/k18_q9_ex1_pifroz/analysis_multitemp/T300/spectral_gate_decision.json",
+        "sha256": "a56745969d7c7799912ad5dab40589c57a0f3bac909b214439eb0bb5907f3c1f"
+      },
+      {
+        "path": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/E0_epw_matched/k18_q9_ex1_pifroz/operator_q6_450K/cartesian/T300_operator.npz",
+        "sha256": "114fb9a369ed106e5a89a9c05223aed7667fd737714f3d42516ebdb8e2e475c3"
+      },
+      {
+        "path": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/S0_unified_short/L0_classical_tdep/T450/final_physical_tdep.npz",
+        "sha256": "22451fc5668adc47dbec76aa2648ba6d50aebc9d0dfacf791ef834a5b3a2d083"
+      },
+      {
+        "path": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/S0_unified_short/Q0_quantum_sscha/formal_T450/result.npz",
+        "sha256": "0133fad7a4453f55a39263b62be808e720d31b6f15e30eec1329aa88f8326852"
+      },
+      {
+        "path": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/source_p4_450/dfpt/FD450_LINE/graphene_FD450_LINE_dfpt.csv",
+        "sha256": "325af549f473b381fbe7b04a3782f189589cbc6ef46436138c70b8029577863d"
+      },
+      {
+        "path": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/E0_epw_matched/k18_q9_ex1_pifroz/analysis/static_top_branch_predictions.csv",
+        "sha256": "64083af34ee695e900c8bda8af42baf241cdff0b4bce2b0da344c55d5bd513cc"
+      },
+      {
+        "path": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/E0_epw_matched/k18_q9_ex1_pifroz/analysis/spectral_gate_decision.json",
+        "sha256": "6756a681cf29d8e9148c71ff922771e5ded78be880ae5bc352cd6523f2253997"
+      },
+      {
+        "path": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/E0_epw_matched/k18_q9_ex1_pifroz/operator_q6_450K/cartesian/T450_operator.npz",
+        "sha256": "77bd333570c97e3134eb41b77d2eef7261cb6a7dfe77df2ce085b112e718d160"
+      },
+      {
+        "path": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/S0_unified_short/L0_classical_tdep/T600/final_physical_tdep.npz",
+        "sha256": "cfe0cb882c6b2fdc469448e4f4917025dd0d52356316e18c7433806413579532"
+      },
+      {
+        "path": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/S0_unified_short/Q0_quantum_sscha/formal_T600/result.npz",
+        "sha256": "6265d0d4c9e039d89f0edf5c78ca8590b071efccca978a095cb4c8dab5cf5445"
+      },
+      {
+        "path": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physical_fd_dfpt/campaigns/FD600_LINE/graphene_FD600_LINE_dfpt.csv",
+        "sha256": "5a84894d742ef454f8eb9e380b55276d2b4fddc3c2d71c5cff15a3b19814c08d"
+      },
+      {
+        "path": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/E0_epw_matched/k18_q9_ex1_pifroz/analysis_multitemp/T600/static_top_branch_predictions.csv",
+        "sha256": "68b03b424dc55fdc8a2d62054409cf5b18d1239aacb9b4df2eb636f7c81f6247"
+      },
+      {
+        "path": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/E0_epw_matched/k18_q9_ex1_pifroz/analysis_multitemp/T600/spectral_gate_decision.json",
+        "sha256": "3337b16a2bce4e98cef1ebfc1c4dbee4bd31409a67769948e20c2a1820c73fd9"
+      },
+      {
+        "path": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/E0_epw_matched/k18_q9_ex1_pifroz/operator_q6_450K/cartesian/T600_operator.npz",
+        "sha256": "5464a8998d7de904ce812edf80240ea53008ab2a66d26d710023cc083b8a5b19"
+      }
+    ],
+    "checks": {
+      "common_EPW_qpoints_across_temperatures": true,
+      "all_three_static_EPW_spectral_gates_passed": true,
+      "max_direct_target_replay_cm-1": 0.0,
+      "max_saved_L0_Q0_K_replay_cm-1": 2.2737367544323206e-13,
+      "max_operator_Hermiticity_residual": 0.0,
+      "max_reconstructed_supercell_position_error_A": 3.7682219008410606e-15,
+      "minimum_adjacent_mode_overlap": 0.998032241496021,
+      "max_tracked_mode_vs_highest_mode_difference_cm-1": 0.0
+    }
+  },
+  "outputs": [
+    "results/graphene_kohn_cusp_two_methods/A0_existing_data/graphene_k_cusp_a0_absolute.png",
+    "results/graphene_kohn_cusp_two_methods/A0_existing_data/graphene_k_cusp_a0_absolute.pdf",
+    "results/graphene_kohn_cusp_two_methods/A0_existing_data/graphene_k_cusp_a0_centered.png",
+    "results/graphene_kohn_cusp_two_methods/A0_existing_data/graphene_k_cusp_a0_centered.pdf",
+    "results/graphene_kohn_cusp_two_methods/A0_existing_data/a0_common_q_predictions.csv",
+    "results/graphene_kohn_cusp_two_methods/A0_existing_data/a0_cusp_metrics.csv"
+  ],
+  "limitations": [
+    "Only five K-neighbourhood q points are available for the dense correction.",
+    "The A0 electronic correction is projected onto the tracked top mode, not supplied as a full 6x6 Hermitian dense-q matrix.",
+    "Absolute finite-lattice frequency shifts cannot be judged against static-lattice DFPT as electronic-model errors."
+  ],
+  "next_stage": "build and run the B0 29-point k720-commensurate Hermitian dense-q EPW correction"
+}

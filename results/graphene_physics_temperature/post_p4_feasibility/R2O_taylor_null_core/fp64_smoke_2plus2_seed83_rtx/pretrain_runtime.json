@@ -1,0 +1,100 @@
+{
+  "status": "R2O_stage1_exact_epoch_artifact",
+  "epochs": 2,
+  "zero_based_final_epoch": 1,
+  "training_configurations_per_epoch": 92,
+  "expected_and_observed_optimizer_steps": 184,
+  "optimizer": "Adam",
+  "CLI_weight_decay": 1e-06,
+  "observed_parameter_group_weight_decay": [
+    0.0,
+    1e-06,
+    0.0,
+    1e-06,
+    0.0
+  ],
+  "observed_parameter_group_amsgrad": [
+    true,
+    true,
+    true,
+    true,
+    true
+  ],
+  "final_checkpoint": {
+    "path": "/home/howardwang/phonon/results/graphene_physics_temperature/post_p4_feasibility/R2O_taylor_null_core/fp64_smoke_2plus2_seed83_rtx/pretrain/checkpoints/gr_r2o_fp64_smoke_seed83_run-83_epoch-1.pt",
+    "sha256": "a5acaf8ac6b49a50aa92b3949193354385b1cdbe0771db2ddc24745a405619f5",
+    "zero_based_epoch": 1
+  },
+  "wall_time_seconds": 35,
+  "per_epoch_optimizer_compute_seconds": {
+    "0": 5.10761833190918,
+    "1": 4.70679497718811
+  },
+  "peak_nvidia_smi_memory_used_MiB": 657.0,
+  "gpu_samples": {
+    "path": "/home/howardwang/phonon/results/graphene_physics_temperature/post_p4_feasibility/R2O_taylor_null_core/fp64_smoke_2plus2_seed83_rtx/pretrain_gpu_samples.csv",
+    "sha256": "133a4394b4f29d4f603a8dfd83f16d29856dc5b195092605d8478a5e7989b6e4"
+  },
+  "model": {
+    "path": "/home/howardwang/phonon/results/graphene_physics_temperature/post_p4_feasibility/R2O_taylor_null_core/fp64_smoke_2plus2_seed83_rtx/pretrain/gr_r2o_fp64_smoke_seed83.model",
+    "sha256": "15dccb12a3151bbdf9629b734a7d7114a91206bc3ae6417a67ae2fd0d1978585",
+    "state_sha256": "be56186aa3f6900896412dad79bafacd95845a979311556ed17df537031e6da6"
+  },
+  "architecture": {
+    "r_max_A": 3.2,
+    "num_interactions": 2,
+    "cutoff_p": 5,
+    "max_ell": 2,
+    "spherical_harmonics_irreps": "1x0e+1x1o+1x2e",
+    "interaction_classes": [
+      "RealAgnosticInteractionBlock",
+      "RealAgnosticResidualInteractionBlock"
+    ],
+    "product_correlations": [
+      3,
+      3,
+      3,
+      3
+    ],
+    "raw_node_width": 160,
+    "hidden_layout": [
+      [
+        0,
+        16,
+        0,
+        1
+      ],
+      [
+        0,
+        16,
+        1,
+        -1
+      ],
+      [
+        0,
+        16,
+        2,
+        1
+      ],
+      [
+        1,
+        16,
+        0,
+        1
+      ]
+    ],
+    "num_radial_basis": 24,
+    "dtype": "torch.float64",
+    "pair_repulsion": false,
+    "interaction_diameter_bound_A": 12.8
+  },
+  "scale": [
+    0.19869211993334496
+  ],
+  "shift": [
+    0.0
+  ],
+  "seed1_used_for_validation_or_LR": false,
+  "EMA": false,
+  "SWA": false
+}

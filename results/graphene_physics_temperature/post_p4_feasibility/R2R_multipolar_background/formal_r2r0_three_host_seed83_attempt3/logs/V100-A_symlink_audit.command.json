@@ -1,0 +1,22 @@
+{
+  "argv": [
+    "ssh",
+    "-o",
+    "BatchMode=yes",
+    "-o",
+    "ConnectTimeout=20",
+    "-o",
+    "ControlPath=none",
+    "root@100.80.236.112",
+    "find /data/graphene_r2r0/formal_bundle/a9a1732af38c -type l -print"
+  ],
+  "command_basename": "V100-A_symlink_audit.command.json",
+  "expected_sha256": null,
+  "observed_sha256": null,
+  "returncode": 0,
+  "sha256": "d5710b33e8c877945d3d95c8eb3308e0aa6ea940e28681bf887f70cbcc44398b",
+  "stderr_basename": "V100-A_symlink_audit.stderr",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout_basename": "V100-A_symlink_audit.stdout",
+  "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}

@@ -1,0 +1,22 @@
+{
+  "argv": [
+    "ssh",
+    "-o",
+    "BatchMode=yes",
+    "-o",
+    "ConnectTimeout=20",
+    "-o",
+    "ControlPath=none",
+    "root@100.80.236.112",
+    "python3 -c 'import os\nimport pathlib\nimport stat\nimport sys\npath = pathlib.Path(sys.argv[1])\ncurrent = pathlib.Path(path.anchor)\nfor part in path.parts[1:]:\n    current = current / part\n    try:\n        mode = os.lstat(current).st_mode\n    except FileNotFoundError:\n        continue\n    if stat.S_ISLNK(mode):\n        raise SystemExit(2)\nif len(sys.argv) == 3 and sys.argv[2] == '\"'\"'require-absent'\"'\"':\n    try:\n        os.lstat(path)\n    except FileNotFoundError:\n        pass\n    else:\n        raise SystemExit(3)\n' /data/graphene_r2r0/formal_r2r0_three_host_seed83/a9a1732af38c/attempt_0003/shard0"
+  ],
+  "command_basename": "V100-A_prewrite_symlink_guard_1.command.json",
+  "expected_sha256": null,
+  "observed_sha256": null,
+  "returncode": 0,
+  "sha256": "fcd8acf6da8631c0bc41409fc6c457c64d893297b7b4564d1e11b0f1c53d0509",
+  "stderr_basename": "V100-A_prewrite_symlink_guard_1.stderr",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout_basename": "V100-A_prewrite_symlink_guard_1.stdout",
+  "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}

@@ -1,0 +1,107 @@
+{
+  "status": "passed_selected_k192",
+  "selected_kgrid": 192,
+  "electronic_integration": "tetrahedra_opt (no degauss)",
+  "QE_cross_version_k192": {
+    "signed_differences_cm-1": {
+      "K": 0.00010850000012396777,
+      "KG_d007": -0.00015099999995982216,
+      "KM_d007": 1.7000000070765964e-05
+    },
+    "MAE_cm-1": 9.21666667181853e-05,
+    "max_abs_cm-1": 0.00015099999995982216,
+    "K_abs_cm-1": 0.00010850000012396777,
+    "cusp_depth_relative_changes": {
+      "KG": 3.210627959036462e-05,
+      "KM": 1.1238640688645108e-05
+    },
+    "pass": true
+  },
+  "k192_to_k240": {
+    "signed_differences_cm-1": {
+      "K": 0.5885829999999714,
+      "KG_d007": 0.04863499999987653,
+      "KM_d007": 0.04914099999996324
+    },
+    "MAE_cm-1": 0.2287863333332704,
+    "max_abs_cm-1": 0.5885829999999714,
+    "K_abs_cm-1": 0.5885829999999714,
+    "cusp_depth_relative_changes": {
+      "KG": 0.07158661694542844,
+      "KM": 0.07095949125716719
+    },
+    "pass": true
+  },
+  "k240_to_k288": null,
+  "datasets": {
+    "192": {
+      "values": {
+        "K": 1281.164692,
+        "KG_d007": 1289.247223,
+        "KM_d007": 1289.306246,
+        "KG_cusp_depth_cm-1": 8.082531000000017,
+        "KM_cusp_depth_cm-1": 8.141554000000042
+      },
+      "minimum_mode_overlap": 0.9998492344625,
+      "provenance": {
+        "kgrid": 192,
+        "qe_tag": "qe75_npk120k",
+        "cross_host_K_all_mode_max_abs_cm-1": 0.0,
+        "source_manifests": [
+          [
+            "results/graphene_k_cusp_nosmear/raw/pilot/k192_qe75_npk120k/pilot_A_k192_qe75_npk120k/manifest.json",
+            "f0633a8228a27a1a6e8df3b7f361337fe908201cd0a04e58554dfca4d730a260"
+          ],
+          [
+            "results/graphene_k_cusp_nosmear/raw/pilot/k192_qe75_npk120k/pilot_B_k192_qe75_npk120k/manifest.json",
+            "7d787d4269ff0f7bcaeb71fcc1dd6f2938927876bec34fa621e20ed1f9309448"
+          ]
+        ],
+        "source_dyn_sha256": {
+          "K@A": "d4706a5362942513b01064debf0b6600e26d474f49f7ddff0e526f3d6c782b3d",
+          "KG_d007@A": "16021f93b0ecb23b2c4faad17803326ac9a7730c1059469c1bc2f2bbbd1b6d20",
+          "K@B": "f0bcec3ec639e32e498293dcbb3ad0d1595704ce31ba98b2f22c0160ecccc26a",
+          "KM_d007@B": "00bfdb292e33db09deb48b7cf422385ca095e9114b9c3241005fba1da53c9377"
+        }
+      }
+    },
+    "240": {
+      "values": {
+        "K": 1281.753275,
+        "KG_d007": 1289.295858,
+        "KM_d007": 1289.355387,
+        "KG_cusp_depth_cm-1": 7.542582999999922,
+        "KM_cusp_depth_cm-1": 7.602112000000034
+      },
+      "minimum_mode_overlap": 0.9998505639785,
+      "provenance": {
+        "kgrid": 240,
+        "qe_tag": "qe75_npk120k",
+        "cross_host_K_all_mode_max_abs_cm-1": 0.0,
+        "source_manifests": [
+          [
+            "results/graphene_k_cusp_nosmear/raw/convergence/k240_qe75_npk120k/convergence_A_k240_qe75_npk120k/manifest.json",
+            "b43bd7795cccca7e304152793f17f02731b045e8e1d4ab94cc2ef07c0615ec88"
+          ],
+          [
+            "results/graphene_k_cusp_nosmear/raw/convergence/k240_qe75_npk120k/convergence_B_k240_qe75_npk120k/manifest.json",
+            "ef5f83bbd1b12a06e307a606f0ac227df475d5d26a1143a7feba404db992c783"
+          ]
+        ],
+        "source_dyn_sha256": {
+          "K@A": "7532d62f708cb2b9d114e29a4ef85f4c3f869aad1b059677c1897e669e0aad80",
+          "KG_d007@A": "606203f39530f23a3ed42c00b8c581ec050b7def7f10d65c4c1ec4390b37c657",
+          "K@B": "a7ec210e377504107e36d8dd3a222a0a7641865e647160fe67f81f947e0a5399",
+          "KM_d007@B": "73a051cbf9ac25a6a4bf75981e4777a1112708ba57f39490584474018ce68adc"
+        }
+      }
+    }
+  },
+  "thresholds": {
+    "QE_cross_version_max_abs_cm-1": 0.2,
+    "grid_MAE_cm-1": 1.0,
+    "grid_K_abs_cm-1": 1.0,
+    "cusp_depth_relative_change": 0.1,
+    "minimum_mode_overlap": 0.95
+  }
+}

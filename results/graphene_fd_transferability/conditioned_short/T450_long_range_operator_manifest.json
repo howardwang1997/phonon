@@ -1,0 +1,31 @@
+{
+  "status": "complete",
+  "role": "provisional 450 K sampling operator; subtracted exactly before short-range TDEP and not used as the final q-space correction",
+  "temperature_K": 450.0,
+  "degauss_Ry": 0.0028501303499999997,
+  "weights": {
+    "operator_300": 0.5,
+    "operator_600": 0.5
+  },
+  "sources": {
+    "300": {
+      "path": "/home/howardwang/phonon/data/graphene_fd_delta_pilot/T300/long_range_operator.npz",
+      "sha256": "bdf82e17547dae0fa80ec3802d5d710db306778e6a4b537705aaba09b50ae660"
+    },
+    "600": {
+      "path": "/home/howardwang/phonon/data/graphene_fd_delta_pilot/T600/long_range_operator.npz",
+      "sha256": "d3a7036fcb668d848808378549b711bc97cba83dcaedd34a7d518a73217a2fb2"
+    }
+  },
+  "force_constants_shape": [
+    72,
+    72,
+    3,
+    3
+  ],
+  "force_constants_pair_symmetry_max_abs_eV_A2": 0.0,
+  "output": {
+    "path": "/home/howardwang/phonon/results/graphene_fd_transferability/conditioned_short/T450_long_range_operator.npz",
+    "sha256": "bbea00f427dd963ee3ec7e9c4cb84f34498ab2835752fd914035b191925b5b4e"
+  }
+}

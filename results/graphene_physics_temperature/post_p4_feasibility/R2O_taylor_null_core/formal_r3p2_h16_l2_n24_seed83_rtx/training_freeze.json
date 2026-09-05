@@ -1,0 +1,89 @@
+{
+  "format": "graphene_r2o_training_freeze_v1",
+  "status": "frozen_before_training",
+  "mode": "formal",
+  "data_manifest_sha256": "4d2b60f39537eccd3389bcc568c95d0bb61b7a1564a1c2f8e45786031eb92a0f",
+  "feasibility": {
+    "json_sha256": "6528eda75fd8efd58134fa1451d14d8fb7959b98834ea3f410d3cc3df2523d07",
+    "marker_sha256": "333ab24198785a219bd31a7fa085a3d85f426f07c00bfc531ea5e370864b89a6"
+  },
+  "source_sha256": {
+    "runner": "7399ba0957bb14184feb755ef15ff498c0c2b5f3fa2f3259c272f60a61da4579",
+    "wrapper": "0eedea5a59b8f717559feda97b2c2956dd6f274fe4963de10c214db53b4610e2",
+    "trainer": "3e486239be2269cc5c558c62f4a7d83092deebc88e507b4deff39fdfaa67ef1a",
+    "evaluator": "14cf2a160a9b0281c0c2149caec6d62f9a31e40a9c7af39ea3ea2e14956c79ce"
+  },
+  "environment": {
+    "conda_environment": "phonon",
+    "MACE": "0.3.16",
+    "torch": "2.6.0+cu124",
+    "CUDA": "12.4",
+    "GPU": "NVIDIA GeForce RTX 2060 SUPER",
+    "initial_gpu_memory_used_MiB": 450,
+    "maximum_allowed_initial_gpu_memory_used_MiB": 1000
+  },
+  "predecessor_R2N_gate_sha256": "b2e00ba1efff0dee62167a76d98dac87798580c7e15c49ec47bf12ffab23487e",
+  "smoke_gate_sha256": "87b8d2ae7452d89f630c2968824b5343edb660858980b5df4b79143b0efbbcb1",
+  "stage1": {
+    "epochs": 80,
+    "force_only": true,
+    "dtype": "float64",
+    "zero_based_epoch_range": [
+      0,
+      79
+    ],
+    "training_configurations_per_epoch": 92,
+    "expected_optimizer_steps": 7360,
+    "seed": 83,
+    "batch_size": 1,
+    "optimizer": "Adam",
+    "amsgrad": true,
+    "gradient_clip": 10.0,
+    "lr": 0.001,
+    "CLI_weight_decay": 1e-06,
+    "MACE_0p3p16_expected_parameter_group_weight_decay": [
+      0.0,
+      1e-06,
+      0.0,
+      1e-06,
+      0.0
+    ],
+    "scheduler": "ExponentialLR",
+    "gamma": 1.0,
+    "EMA": false,
+    "SWA": false,
+    "early_stop_disabled_by_patience": true,
+    "seed1_used_for_validation_or_LR": false,
+    "validation_aliases_thermal_training_file": true,
+    "group_mass": {
+      "E50": 0.5,
+      "T300": 0.25,
+      "T600": 0.25
+    }
+  },
+  "stage2": {
+    "epochs": 240,
+    "checkpoint_epochs": [
+      40,
+      80,
+      120,
+      160,
+      200,
+      235,
+      240
+    ],
+    "all_MACE_parameters_trainable": true,
+    "dtype": "float64",
+    "group_mass": {
+      "E50": 0.5,
+      "T300": 0.2,
+      "T600": 0.2,
+      "harmonic_zero": 0.1
+    }
+  },
+  "forbidden": {
+    "seed1_in_gradients_or_scales": false,
+    "seed2_opened": false,
+    "support_opened": false
+  }
+}

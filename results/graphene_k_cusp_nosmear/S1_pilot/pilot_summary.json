@@ -1,0 +1,38 @@
+{
+  "status": "passed_pilot",
+  "scope": "two-host k192 optimized-tetrahedron direct-DFPT pilot",
+  "kgrid": 192,
+  "qe_tag": "qe75_conda",
+  "electronic_integration": "tetrahedra_opt (no degauss)",
+  "inputs": {
+    "lane_A_manifest": "results/graphene_k_cusp_nosmear/raw/pilot/k192_qe75_conda/pilot_A_k192_qe75_conda/manifest.json",
+    "lane_A_manifest_sha256": "c048641616ce947174c8ce77f8074451ac08bee225a896f15df94911796bccd8",
+    "lane_B_manifest": "results/graphene_k_cusp_nosmear/raw/pilot/k192_qe75_conda/pilot_B_k192_qe75_conda/manifest.json",
+    "lane_B_manifest_sha256": "c4da506b9d4030913af0c743bf88f7816e6bbee8e0be3880306906dec6ea03da"
+  },
+  "metrics": {
+    "K_A_cm-1": 1281.164584,
+    "K_B_cm-1": 1281.164583,
+    "cross_host_K_all_mode_max_abs_cm-1": 5.999999984851456e-06,
+    "KG_d007_cm-1": 1289.247374,
+    "KM_d007_cm-1": 1289.306229,
+    "KG_cusp_depth_cm-1": 8.082790500000101,
+    "KM_cusp_depth_cm-1": 8.141645500000095,
+    "minimum_mode_overlap": 0.9998502379644999,
+    "Hermiticity_max_abs": 0.0,
+    "matrix_frequency_replay_max_abs_cm-1": 4.540772579275654e-06
+  },
+  "checks": {
+    "no_smearing_or_degauss": true,
+    "same_kgrid_and_QE_tag": true,
+    "same_QE_binary_hashes": true,
+    "same_pseudopotential_hash": true,
+    "Hermiticity_le_5e-7": true,
+    "matrix_replay_le_0p1_cm-1": true,
+    "cross_host_K_le_0p2_cm-1": true,
+    "minimum_mode_overlap_ge_0p95": true,
+    "KG_neighbor_above_K": true,
+    "KM_neighbor_above_K": true
+  },
+  "next_stage": "build/replay npk=120000 QE and run k240 convergence"
+}

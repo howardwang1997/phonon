@@ -1,0 +1,22 @@
+{
+  "argv": [
+    "ssh",
+    "-o",
+    "BatchMode=yes",
+    "-o",
+    "ConnectTimeout=20",
+    "-o",
+    "ControlPath=none",
+    "howardwang@100.105.21.7",
+    "find /home/howardwang/phonon/results/r2r0_formal_bundle_20260825/a9a1732af38c -type l -print"
+  ],
+  "command_basename": "RTX-2060_symlink_audit.command.json",
+  "expected_sha256": null,
+  "observed_sha256": null,
+  "returncode": 0,
+  "sha256": "3d6d518cb8304b3c968727775afa7c3c9eae81a59150717738bf426d2f09750f",
+  "stderr_basename": "RTX-2060_symlink_audit.stderr",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout_basename": "RTX-2060_symlink_audit.stdout",
+  "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}

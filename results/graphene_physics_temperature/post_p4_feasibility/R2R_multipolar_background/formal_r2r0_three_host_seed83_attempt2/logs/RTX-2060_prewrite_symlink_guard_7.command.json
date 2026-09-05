@@ -1,0 +1,19 @@
+{
+  "argv": [
+    "ssh",
+    "-o",
+    "BatchMode=yes",
+    "-o",
+    "ConnectTimeout=20",
+    "-o",
+    "ControlPath=none",
+    "howardwang@100.105.21.7",
+    "python3 -c 'import os\nimport pathlib\nimport stat\nimport sys\npath = pathlib.Path(sys.argv[1])\ncurrent = pathlib.Path(path.anchor)\nfor part in path.parts[1:]:\n    current = current / part\n    try:\n        mode = os.lstat(current).st_mode\n    except FileNotFoundError:\n        continue\n    if stat.S_ISLNK(mode):\n        raise SystemExit(2)\n' /home/howardwang/phonon/results/r2r0_formal_bundle_20260825/f2abdb5e997d/docs/GRAPHENE_R2R0_FORMAL_CONTRACT_2026-08-25.md"
+  ],
+  "returncode": 0,
+  "sha256": "d8bd57c7ec56a1e2809805bbc41aa2458dc07ec52c2cde15762b0e1214560b5d",
+  "stderr_basename": "RTX-2060_prewrite_symlink_guard_7.stderr",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout_basename": "RTX-2060_prewrite_symlink_guard_7.stdout",
+  "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}

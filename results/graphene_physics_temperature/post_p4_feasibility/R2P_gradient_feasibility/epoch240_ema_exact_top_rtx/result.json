@@ -1,0 +1,39 @@
+{
+  "format": "graphene_r2p_per_configuration_gradient_feasibility_v1",
+  "status": "R2P_zero_update_gradient_feasibility_complete",
+  "scientific_primary_status": "GO",
+  "primary_common_descent_pass": true,
+  "postcore_or_training_authorized": false,
+  "interpretation": "GO/NO_GO/NUMERICAL_INCONCLUSIVE applies only to local first-order gate-aligned gradient feasibility; it never authorizes training",
+  "protocol_sha256": "be48076c10733de4deb792e073ec2a58ca515f78c1300d5151ce3c8251996293",
+  "contract": {
+    "relative_path": "audit_contract.json",
+    "sha256": "d4a101eb9093c394e8ebce3a53cfb97e55af385924b2bc7132eb03a363d85c00"
+  },
+  "source_snapshot": {
+    "relative_path": "graphene_r2p_gradient_feasibility_snapshot.py",
+    "sha256": "402e44ab26b70cf8f4e265fd729ad6d96b73733b0a7aeb9baf58d7043ef43371"
+  },
+  "primary_certificate": {
+    "relative_path": "primary_certificate.json",
+    "sha256": "54bf9056d8ac90641875f2dbe997336ffe909c3babf9a17440d6c2237791842c"
+  },
+  "report_only_comparisons": {
+    "relative_path": "report_only_comparisons.json",
+    "sha256": "9da429464ce47edc743e17479fd55f5350702eae7d3b1f476cd757603a1d1ed1"
+  },
+  "model_state_sha256_before": "09c29479be6c8f207211614c2b3da20f09aba0702092a2b1bf8edab5a5e6d236",
+  "model_state_sha256_after": "09c29479be6c8f207211614c2b3da20f09aba0702092a2b1bf8edab5a5e6d236",
+  "state_unchanged": true,
+  "optimizer_instantiated": false,
+  "optimizer_step_called": false,
+  "forbidden": {
+    "seed2_opened": false,
+    "support_opened": false,
+    "seed1_used_in_primary_direction_or_selection": false,
+    "actual_small_used_in_primary_direction_or_selection": false,
+    "parameter_update_performed": false
+  },
+  "wall_seconds": 374.4705367255956,
+  "peak_cuda_memory_MiB": 640.61181640625
+}

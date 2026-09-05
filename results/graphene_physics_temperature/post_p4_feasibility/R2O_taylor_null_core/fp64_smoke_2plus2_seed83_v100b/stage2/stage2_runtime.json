@@ -1,0 +1,30 @@
+{
+  "status": "R2O_stage2_training_complete_pending_fixed_gate",
+  "wall_time_seconds": 138.4187748000113,
+  "epochs": 2,
+  "raw_model": {
+    "path": "/data/graphene_r2o_core/fp64_smoke_2plus2_seed83_v100b/stage2/r2o_stage2_raw.model",
+    "sha256": "ef6e15130b409ae50374c28b2765e6144a0b86cd87c32f7c7760d0d6e013ea92"
+  },
+  "ema_model": {
+    "path": "/data/graphene_r2o_core/fp64_smoke_2plus2_seed83_v100b/stage2/r2o_stage2_ema.model",
+    "sha256": "433e528c1c010d5540d8b4e14260bbc7a589a43cb8c3c5da955081ac39b74cd4"
+  },
+  "raw_state_sha256": "a0ea81b09ad0728e1dc5a04eed607d69dd306516909b7ccdc3184d146047b53e",
+  "ema_state_sha256": "4a618a36e1e65aa8e5e0c8005e4944f9c554a362da49408211ba2c7f5ad8cd67",
+  "stage2_contract_sha256": "815c43e822465638dfa748fd8d4070764fd4c7c37fcd30a8c8a852639b42757b",
+  "fixed_checkpoints": {
+    "1": {
+      "path": "/data/graphene_r2o_core/fp64_smoke_2plus2_seed83_v100b/stage2/checkpoints/r2o_epoch-1.pt",
+      "sha256": "90cf94b0efc6973035815294295a6d70cd1743b3fb4e67b91718496886703ca2"
+    },
+    "2": {
+      "path": "/data/graphene_r2o_core/fp64_smoke_2plus2_seed83_v100b/stage2/checkpoints/r2o_epoch-2.pt",
+      "sha256": "29393051178e73bbc674bd0ec6708c64025709d9b023f37d201ead908c679d7f"
+    }
+  },
+  "peak_cuda_memory_MiB": 485.9150390625,
+  "all_parameters_trained": true,
+  "theta_differentiable_reference_gradient_and_HVP": true,
+  "seed1_seed2_support_read": false
+}

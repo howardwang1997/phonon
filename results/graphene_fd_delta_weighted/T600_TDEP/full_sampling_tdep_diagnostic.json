@@ -1,0 +1,110 @@
+{
+  "status": "failed",
+  "temperature_K": 600,
+  "scope": "600 K reconstructed full-force sampling diagnostic before replacing provisional LR in q-space",
+  "force_gate_passed": true,
+  "force_selection": "/root/phonon/results/graphene_fd_delta_weighted/holdout600/gate_selection.json",
+  "force_selection_sha256": "c511a172d93adbbbb8c11864e835766fcb617e74068be3d6e7e79dc68e9cf1e9",
+  "dft_reference": {
+    "path": "/root/phonon/results/td_phonon/graphene_physical_fd_dft_600K_wave3.npz",
+    "sha256": "80acd95591d08e1acc21540a3b44ba7fc64c76d5ce82970040195ffb09a5a8b1"
+  },
+  "thresholds": {
+    "MLIP_vs_DFT_full_band_MAE_cm-1": 10.0,
+    "Gamma_K_top_abs_error_cm-1": 15.0,
+    "seed_pair_full_band_MAE_cm-1": 5.0,
+    "MD_mean_temperature_relative_error": 0.2
+  },
+  "candidate_files": [
+    {
+      "path": "/root/phonon/results/td_phonon/td_graphene_v11_fd600_delta_weighted_full_sampling_seed0.npz",
+      "sha256": "b1116e6a350be77bacd18c4fb86cc642fbf70666d57b2819fcd82de82517f5ed"
+    },
+    {
+      "path": "/root/phonon/results/td_phonon/td_graphene_v11_fd600_delta_weighted_full_sampling_seed1.npz",
+      "sha256": "0d8780e7d54fbaead12c56a87d4e0409e2ae0006443a1b8ee6204908e1536b7a"
+    },
+    {
+      "path": "/root/phonon/results/td_phonon/td_graphene_v11_fd600_delta_weighted_full_sampling_seed2.npz",
+      "sha256": "fcf2fe8b6165def4a0e3383d4f7464212627ae4e81feaa2982d1b67df9543e20"
+    }
+  ],
+  "candidate_vs_DFT": [
+    {
+      "full_band_MAE_cm-1": 5.927359351263077,
+      "full_band_max_abs_cm-1": 23.87665523270084,
+      "Gamma_top_abs_error_cm-1": 13.39428116488375,
+      "K_top_abs_error_cm-1": 21.900035828575255
+    },
+    {
+      "full_band_MAE_cm-1": 4.302292772244765,
+      "full_band_max_abs_cm-1": 25.98744776312492,
+      "Gamma_top_abs_error_cm-1": 2.798660134312968,
+      "K_top_abs_error_cm-1": 25.98744776312492
+    },
+    {
+      "full_band_MAE_cm-1": 5.161493662378031,
+      "full_band_max_abs_cm-1": 28.12113367824054,
+      "Gamma_top_abs_error_cm-1": 11.521787827585968,
+      "K_top_abs_error_cm-1": 28.12113367824054
+    }
+  ],
+  "seed_pair_spread": [
+    {
+      "seeds": [
+        0,
+        1
+      ],
+      "full_band_MAE_cm-1": 3.940651171148426,
+      "full_band_max_abs_cm-1": 16.18163830479625,
+      "Gamma_top_abs_error_cm-1": 10.595621031485734,
+      "K_top_abs_error_cm-1": 4.087411933271596
+    },
+    {
+      "seeds": [
+        0,
+        2
+      ],
+      "full_band_MAE_cm-1": 3.3888229138854107,
+      "full_band_max_abs_cm-1": 22.787348392720332,
+      "Gamma_top_abs_error_cm-1": 1.872493338045615,
+      "K_top_abs_error_cm-1": 6.2210978508599055
+    },
+    {
+      "seeds": [
+        1,
+        2
+      ],
+      "full_band_MAE_cm-1": 3.6923511677091434,
+      "full_band_max_abs_cm-1": 11.970478081446345,
+      "Gamma_top_abs_error_cm-1": 8.72312769344012,
+      "K_top_abs_error_cm-1": 2.133685917588309
+    }
+  ],
+  "trajectory": [
+    {
+      "seed": 0,
+      "mean_temperature_K": 607.8714828463586,
+      "max_temperature_K": 716.7159063767028,
+      "mean_temperature_relative_error": 0.013119138077264362,
+      "minimum_TDEP_frequency_cm-1": -2.9074627531915073e-05
+    },
+    {
+      "seed": 1,
+      "mean_temperature_K": 586.4690490628212,
+      "max_temperature_K": 751.388266550875,
+      "mean_temperature_relative_error": 0.022551584895297953,
+      "minimum_TDEP_frequency_cm-1": -2.19783525460797e-05
+    },
+    {
+      "seed": 2,
+      "mean_temperature_K": 601.7914559782992,
+      "max_temperature_K": 740.3591808677812,
+      "mean_temperature_relative_error": 0.002985759963831924,
+      "minimum_TDEP_frequency_cm-1": -1.554104212464157e-05
+    }
+  ],
+  "finite_trajectory_and_spectrum_diagnostics": true,
+  "passes_TDEP_gate": false,
+  "passes_force_and_TDEP_gate": false
+}

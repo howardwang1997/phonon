@@ -1,0 +1,126 @@
+{
+  "status": "R2F_terminal_block_training_complete",
+  "energy_conservative": true,
+  "initial_model": {
+    "path": "/data/graphene_r2c_short_repair/depth3_forces_only_seed83/gr_r2c_depth3_forces_only_seed83.model",
+    "sha256": "cdab8eae193c27126305fe798c105a9f98cf8b9718805d2de80e9211c1743084"
+  },
+  "datasets": {
+    "train": {
+      "path": "/data/graphene_r2f_joint_support_harmonic/train.xyz",
+      "sha256": "3e3f030477a6d2b2ba8f6cb12fe35dd9999b144dcb5d13925c8d03bac8558637"
+    },
+    "valid": {
+      "path": "/data/graphene_r2f_joint_support_harmonic/val.xyz",
+      "sha256": "634531e708e540dad3c36992c190f1cb5490a5f07c5be0f99f7d14fb53f092ae"
+    },
+    "test": {
+      "path": "/data/graphene_r2f_joint_support_harmonic/test.xyz",
+      "sha256": "bdc259b233c90131e731952c2bb6c933da1f4d3ad0a73354278912a886d057d9"
+    }
+  },
+  "training": {
+    "seed": 83,
+    "max_epochs": 160,
+    "learning_rate": 5e-05,
+    "weight_decay": 1e-08,
+    "ema_decay": 0.99,
+    "trainable_prefixes": [
+      "interactions.2.",
+      "products.2.",
+      "readouts.2."
+    ],
+    "trainable_parameters": 44208,
+    "total_parameters": 118800
+  },
+  "initial_validation": {
+    "all": {
+      "RMSE_meV_A": 22.36293601989746,
+      "MAE_meV_A": 9.246018409729004,
+      "max_abs_meV_A": 859.431640625,
+      "n_force_components": 11544
+    },
+    "by_role": {
+      "fixed_smearing_support_repair": {
+        "RMSE_meV_A": 47.41299819946289,
+        "MAE_meV_A": 25.247514724731445,
+        "max_abs_meV_A": 859.431640625,
+        "n_force_components": 1944
+      },
+      "harmonic_replay": {
+        "RMSE_meV_A": 12.089371681213379,
+        "MAE_meV_A": 6.005715370178223,
+        "max_abs_meV_A": 130.01409912109375,
+        "n_force_components": 9600
+      }
+    }
+  },
+  "initial_test": {
+    "all": {
+      "RMSE_meV_A": 15.53641128540039,
+      "MAE_meV_A": 11.587220191955566,
+      "max_abs_meV_A": 101.315673828125,
+      "n_force_components": 5616
+    },
+    "by_role": {
+      "thermal": {
+        "RMSE_meV_A": 15.53641128540039,
+        "MAE_meV_A": 11.587220191955566,
+        "max_abs_meV_A": 101.315673828125,
+        "n_force_components": 5616
+      }
+    }
+  },
+  "final_validation": {
+    "all": {
+      "RMSE_meV_A": 17.99156951904297,
+      "MAE_meV_A": 8.868983268737793,
+      "max_abs_meV_A": 513.20458984375,
+      "n_force_components": 11544
+    },
+    "by_role": {
+      "fixed_smearing_support_repair": {
+        "RMSE_meV_A": 31.29366111755371,
+        "MAE_meV_A": 19.87993049621582,
+        "max_abs_meV_A": 513.20458984375,
+        "n_force_components": 1944
+      },
+      "harmonic_replay": {
+        "RMSE_meV_A": 13.818037033081055,
+        "MAE_meV_A": 6.639266014099121,
+        "max_abs_meV_A": 151.41567993164062,
+        "n_force_components": 9600
+      }
+    }
+  },
+  "final_test": {
+    "all": {
+      "RMSE_meV_A": 19.92620849609375,
+      "MAE_meV_A": 14.648526191711426,
+      "max_abs_meV_A": 150.79727172851562,
+      "n_force_components": 5616
+    },
+    "by_role": {
+      "thermal": {
+        "RMSE_meV_A": 19.92620849609375,
+        "MAE_meV_A": 14.648526191711426,
+        "max_abs_meV_A": 150.79727172851562,
+        "n_force_components": 5616
+      }
+    }
+  },
+  "checkpoint_models": {
+    "1": "/data/graphene_r2f_last_layer/depth3_lastblock_direct_seed83/checkpoint_models/epoch1.model",
+    "5": "/data/graphene_r2f_last_layer/depth3_lastblock_direct_seed83/checkpoint_models/epoch5.model",
+    "10": "/data/graphene_r2f_last_layer/depth3_lastblock_direct_seed83/checkpoint_models/epoch10.model",
+    "20": "/data/graphene_r2f_last_layer/depth3_lastblock_direct_seed83/checkpoint_models/epoch20.model",
+    "40": "/data/graphene_r2f_last_layer/depth3_lastblock_direct_seed83/checkpoint_models/epoch40.model",
+    "80": "/data/graphene_r2f_last_layer/depth3_lastblock_direct_seed83/checkpoint_models/epoch80.model",
+    "120": "/data/graphene_r2f_last_layer/depth3_lastblock_direct_seed83/checkpoint_models/epoch120.model",
+    "160": "/data/graphene_r2f_last_layer/depth3_lastblock_direct_seed83/checkpoint_models/epoch160.model"
+  },
+  "final_model": {
+    "path": "/data/graphene_r2f_last_layer/depth3_lastblock_direct_seed83/gr_r2f_depth3_lastblock_direct_seed83.model",
+    "sha256": "bc58262936b1bf41db3f17716e5e58b501e1f6ee14fd02f3aaf23e817ad6885f"
+  }
+}

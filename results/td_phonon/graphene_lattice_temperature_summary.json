@@ -1,0 +1,34 @@
+{
+  "harmonic_reference": "results/vq_kink6/graphene_sc6_dg0.005_phonopy.yaml",
+  "electronic_smearing_reference": "cold, degauss=0.005 Ry",
+  "MLIP_plain_model": "results/finetune_mace/ft_phonon.model",
+  "MLIP_long_range_model": "results/gr_backbone_v11/ft_graphene.model",
+  "MLIP_comparison_uses_same_backbone": false,
+  "dft_lattice_temperatures_K": [
+    300,
+    600
+  ],
+  "harmonic_0K_vs_DFTMD_300K_full_band_MAE_cm-1": 15.209742083030397,
+  "MLIP_300K_vs_DFTMD_300K_full_band_MAE_cm-1": 95.8642832097784,
+  "MLIP_long_range_300K_vs_DFTMD_300K_full_band_MAE_cm-1": 18.000878080740005,
+  "DFTMD_300K_Gamma_highest_cm-1": 1535.9002323270688,
+  "DFTMD_300K_K_highest_cm-1": 1251.269429414779,
+  "K_kink_common_grid_unit": "THz per q-path-distance",
+  "DFTMD_300K_K_kink": 37.74780767212915,
+  "MLIP_300K_K_kink": 71.04090730038916,
+  "MLIP_long_range_300K_K_kink": 19.9537541057243,
+  "convergence": {
+    "300": {
+      "prefix_50_to_60_band_MAE_cm-1": 1.3489840209496178,
+      "first_last_30_K_highest_difference_cm-1": 41.68613359955634
+    },
+    "600": {
+      "prefix_50_to_60_band_MAE_cm-1": 1.488927805438699,
+      "first_last_30_K_highest_difference_cm-1": 12.21895208757337
+    }
+  },
+  "DFTMD_300K_vs_600K_full_band_MAE_cm-1": 5.2801914183756,
+  "DFTMD_600K_Gamma_highest_cm-1": 1539.1335339934976,
+  "DFTMD_600K_K_highest_cm-1": 1284.2693765324289,
+  "DFTMD_600K_K_kink": 21.559119151251643
+}

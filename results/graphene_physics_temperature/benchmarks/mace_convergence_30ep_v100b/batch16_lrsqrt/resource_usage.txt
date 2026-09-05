@@ -1,0 +1,23 @@
+	Command being timed: "/root/miniconda3/bin/conda run --no-capture-output -n phonon python -m mace.cli.run_train --name gr_batch16_lrsqrt_30ep_seed83 --model MACE --num_interactions 2 --hidden_irreps 32x0e+32x1o --r_max 5.0 --num_radial_basis 8 --num_cutoff_basis 5 --correlation 2 --train_file /data/graphene_physics_temperature/benchmarks/mace_joint_10epoch_v100b/joint_data/train.xyz --valid_file /data/graphene_physics_temperature/benchmarks/mace_joint_10epoch_v100b/joint_data/val.xyz --test_file /data/graphene_physics_temperature/benchmarks/mace_joint_10epoch_v100b/joint_data/test.xyz --energy_key REF_energy --forces_key REF_forces --E0s {6:0.0} --loss forces_only --energy_weight 0.0 --forces_weight 100.0 --config_type_weights {'physical_fd_thermal_300K':3.8837061597685527,'physical_fd_thermal_600K':1.0,'physical_fd_thermal_300K_validation':3.8837061597685527,'physical_fd_thermal_600K_validation':1.0,'physical_fd_thermal_300K_test':3.8837061597685527,'physical_fd_thermal_600K_test':1.0,'v11_fc_distillation_replay':12.0,'v11_fc_distillation_replay_validation':12.0,'Default':12.0} --batch_size 16 --valid_batch_size 1 --max_num_epochs 30 --patience 40 --eval_interval 5 --lr 0.004 --weight_decay 1.0e-8 --ema --ema_decay 0.99 --default_dtype float32 --device cuda --seed 83 --save_cpu --keep_checkpoints --model_dir /data/graphene_physics_temperature/benchmarks/mace_convergence_30ep_v100b/batch16_lrsqrt --checkpoints_dir /data/graphene_physics_temperature/benchmarks/mace_convergence_30ep_v100b/batch16_lrsqrt/checkpoints --log_dir /data/graphene_physics_temperature/benchmarks/mace_convergence_30ep_v100b/batch16_lrsqrt/logs --results_dir /data/graphene_physics_temperature/benchmarks/mace_convergence_30ep_v100b/batch16_lrsqrt/results"
+	User time (seconds): 95.29
+	System time (seconds): 1.79
+	Percent of CPU this job got: 99%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 1:37.09
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 1686384
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 387602
+	Voluntary context switches: 3978
+	Involuntary context switches: 354
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 19064
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0

@@ -1,0 +1,161 @@
+{
+  "status": "complete",
+  "scope": "epoch learning curve on 300/600 K development data",
+  "scientific_use": "S0 feasibility and walltime sizing only; no P4 or validation claim",
+  "target_leakage": {
+    "p4_450K_inputs_read": false
+  },
+  "fixed_protocol": {
+    "epochs_evaluated": [
+      60,
+      120,
+      240
+    ],
+    "batch_size": 1,
+    "learning_rate": 0.001,
+    "seed": 83,
+    "thermal_force_gate": "each 300/600 K test split RMSE <=50 and max <=250 meV/A",
+    "harmonic_replay_gate": "RMSE <= 38.5086642709 meV/A"
+  },
+  "epoch30_control": {
+    "metrics": {
+      "thermal300_test": {
+        "RMSE_meV_A": 79.70631307416457,
+        "max_abs_meV_A": 593.1897491673469
+      },
+      "thermal600_test": {
+        "RMSE_meV_A": 143.8067936495381,
+        "max_abs_meV_A": 1036.943821255703
+      },
+      "harmonic_replay_val": {
+        "RMSE_meV_A": 36.50866427093464,
+        "max_abs_meV_A": 221.24185514636994
+      }
+    },
+    "artifact": {
+      "path": "/data/graphene_physics_temperature/benchmarks/mace_convergence_30ep_v100b/convergence_summary.json",
+      "sha256": "f719d6613c352452b8509b029f3731dc4ee4f2be601af476782ce55b66c231d7",
+      "size_bytes": 13550
+    }
+  },
+  "learning_curve": [
+    {
+      "epoch": 60,
+      "status": "complete",
+      "metrics": {
+        "thermal300_test": {
+          "RMSE_meV_A": 57.738037095663856,
+          "max_abs_meV_A": 556.7420229772567
+        },
+        "thermal600_test": {
+          "RMSE_meV_A": 95.11498128350527,
+          "max_abs_meV_A": 784.1257741361236
+        },
+        "harmonic_replay_val": {
+          "RMSE_meV_A": 31.44880648468116,
+          "max_abs_meV_A": 291.06907114616394
+        }
+      },
+      "relative_RMSE_change_vs_epoch30": {
+        "thermal300_test": -0.27561525720126867,
+        "thermal600_test": -0.33859187824391923,
+        "harmonic_replay_val": -0.1385933418079539
+      },
+      "passes_proxy_force_gate": false,
+      "artifacts": {
+        "model": {
+          "path": "/data/graphene_physics_temperature/benchmarks/mace_learning_curve_240ep_v100b/models/epoch060.model",
+          "sha256": "a0b7309df83d76d03250a3b1cdc81772b260087f9577c71d50014647dcb8393e",
+          "size_bytes": 590494
+        },
+        "evaluation": {
+          "path": "/data/graphene_physics_temperature/benchmarks/mace_learning_curve_240ep_v100b/evaluations/epoch060.json",
+          "sha256": "57511a0b5bfbff89274c20aa8ca9882c75570fa10bfa1cc4564ddc0dceccb37a",
+          "size_bytes": 2074
+        }
+      }
+    },
+    {
+      "epoch": 120,
+      "status": "complete",
+      "metrics": {
+        "thermal300_test": {
+          "RMSE_meV_A": 32.442203726233686,
+          "max_abs_meV_A": 336.80378948249813
+        },
+        "thermal600_test": {
+          "RMSE_meV_A": 41.65695813144755,
+          "max_abs_meV_A": 232.07521342330926
+        },
+        "harmonic_replay_val": {
+          "RMSE_meV_A": 17.93863228252037,
+          "max_abs_meV_A": 242.8914692502594
+        }
+      },
+      "relative_RMSE_change_vs_epoch30": {
+        "thermal300_test": -0.5929782413088522,
+        "thermal600_test": -0.710326911029204,
+        "harmonic_replay_val": -0.5086472583769186
+      },
+      "passes_proxy_force_gate": false,
+      "artifacts": {
+        "model": {
+          "path": "/data/graphene_physics_temperature/benchmarks/mace_learning_curve_240ep_v100b/models/epoch120.model",
+          "sha256": "fb323f31a6e2cc3614f3de594a59a5b375b7510609ceee08e2c2ec869916ab24",
+          "size_bytes": 590494
+        },
+        "evaluation": {
+          "path": "/data/graphene_physics_temperature/benchmarks/mace_learning_curve_240ep_v100b/evaluations/epoch120.json",
+          "sha256": "4d8ef5186eb00b8f89e987a90bed4194b70c58416a7942ded3a226db9a850530",
+          "size_bytes": 2077
+        }
+      }
+    },
+    {
+      "epoch": 240,
+      "status": "complete",
+      "metrics": {
+        "thermal300_test": {
+          "RMSE_meV_A": 24.160738478015652,
+          "max_abs_meV_A": 244.220520601654
+        },
+        "thermal600_test": {
+          "RMSE_meV_A": 25.729616848070336,
+          "max_abs_meV_A": 115.89832504089354
+        },
+        "harmonic_replay_val": {
+          "RMSE_meV_A": 11.049927194953595,
+          "max_abs_meV_A": 105.26657171524049
+        }
+      },
+      "relative_RMSE_change_vs_epoch30": {
+        "thermal300_test": -0.6968779818540254,
+        "thermal600_test": -0.8210820490805584,
+        "harmonic_replay_val": -0.6973341146378043
+      },
+      "passes_proxy_force_gate": true,
+      "artifacts": {
+        "model": {
+          "path": "/data/graphene_physics_temperature/benchmarks/mace_learning_curve_240ep_v100b/models/epoch240.model",
+          "sha256": "8077dc71869f868b080dda0838b3e55af0181c25a1553025705d02e96de4a6f0",
+          "size_bytes": 590494
+        },
+        "evaluation": {
+          "path": "/data/graphene_physics_temperature/benchmarks/mace_learning_curve_240ep_v100b/evaluations/epoch240.json",
+          "sha256": "96f8cdcb59f4f7bf71d92d90d9fef594e708520de5e16231440178b9e0109a27",
+          "size_bytes": 2080
+        }
+      }
+    }
+  ],
+  "earliest_passing_epoch": 240,
+  "scope_limit": "The 300/600 K test groups contain three structures each. Repeat the gate on the complete physics-subtracted S0 development set before freezing a production model.",
+  "provenance": {
+    "git_head": "8a6d1139269b4c6b44b89a4554697b5a734c0226",
+    "data_manifest": {
+      "path": "/data/graphene_physics_temperature/benchmarks/mace_joint_10epoch_v100b/joint_data/manifest.json",
+      "sha256": "918071e0f3858619e664c7d5ebb5324dd7b066f875df313b667f6a40d411a644",
+      "size_bytes": 4512
+    }
+  }
+}

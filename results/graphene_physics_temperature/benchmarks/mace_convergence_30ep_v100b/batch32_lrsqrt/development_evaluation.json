@@ -1,0 +1,60 @@
+{
+  "status": "complete",
+  "scope": "300/600 K development residual-force proxy evaluation",
+  "scientific_use": "batch/LR convergence sizing only",
+  "target_leakage": {
+    "p4_450K_inputs_read": false,
+    "allowed_input_temperatures_K": [
+      300,
+      600
+    ]
+  },
+  "model": {
+    "path": "/data/graphene_physics_temperature/benchmarks/mace_convergence_30ep_v100b/batch32_lrsqrt/gr_batch32_lrsqrt_30ep_seed83.model",
+    "sha256": "0cef3948e8af8db78d4eecc1b8ad5139cff4645104447b11ce73aa091d81812a"
+  },
+  "datasets": [
+    {
+      "label": "val",
+      "path": "/data/graphene_physics_temperature/benchmarks/mace_joint_10epoch_v100b/joint_data/val.xyz",
+      "sha256": "c5a2af9e0fb75a75557dd0f8dab95d90936675df20e9801a3aa3da7050af782d"
+    },
+    {
+      "label": "test",
+      "path": "/data/graphene_physics_temperature/benchmarks/mace_joint_10epoch_v100b/joint_data/test.xyz",
+      "sha256": "eaacdf67c63be62bb5e076c0a059cc1c016bd45d09c94e31230d3efed02bb725"
+    }
+  ],
+  "grouped_metrics": {
+    "test:physical_fd_thermal_300K_test": {
+      "n_structures": 3,
+      "force_RMSE_meV_A": 116.24724237771728,
+      "force_MAE_meV_A": 83.40757775184234,
+      "force_max_abs_meV_A": 631.310311378026
+    },
+    "test:physical_fd_thermal_600K_test": {
+      "n_structures": 3,
+      "force_RMSE_meV_A": 193.0760264953474,
+      "force_MAE_meV_A": 134.64079874307149,
+      "force_max_abs_meV_A": 1165.1147221832848
+    },
+    "val:physical_fd_thermal_300K_validation": {
+      "n_structures": 24,
+      "force_RMSE_meV_A": 109.51563253029882,
+      "force_MAE_meV_A": 81.10170693312187,
+      "force_max_abs_meV_A": 552.0305346254444
+    },
+    "val:physical_fd_thermal_600K_validation": {
+      "n_structures": 24,
+      "force_RMSE_meV_A": 222.4797971948438,
+      "force_MAE_meV_A": 161.95234121498282,
+      "force_max_abs_meV_A": 1040.9485674078894
+    },
+    "val:v11_fc_distillation_replay_validation": {
+      "n_structures": 25,
+      "force_RMSE_meV_A": 17.22236980372218,
+      "force_MAE_meV_A": 9.712583962177161,
+      "force_max_abs_meV_A": 127.6512102124405
+    }
+  }
+}

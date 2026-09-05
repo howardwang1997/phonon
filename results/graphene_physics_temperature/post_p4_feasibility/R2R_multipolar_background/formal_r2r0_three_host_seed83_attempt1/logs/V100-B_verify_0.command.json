@@ -1,0 +1,17 @@
+{
+  "argv": [
+    "ssh",
+    "-o",
+    "BatchMode=yes",
+    "-o",
+    "ConnectTimeout=20",
+    "-o",
+    "ControlPath=none",
+    "root@100.123.220.57",
+    "sha256sum /data/graphene_r2r0/formal_bundle/bf998936b4b3/data/graphene_r2o_taylor_null_core/reference_6x6.xyz"
+  ],
+  "expected_sha256": "2793b514768c6d875831a1b62fcb2aa5f858830cb2de7b1b2d5492dabeb8da90",
+  "observed_sha256": "2793b514768c6d875831a1b62fcb2aa5f858830cb2de7b1b2d5492dabeb8da90",
+  "returncode": 0,
+  "sha256": "1d4ad12d277ff888c7e174c7b753b59ae0d554393a15c64adc3c09c6dba2cc2c"
+}

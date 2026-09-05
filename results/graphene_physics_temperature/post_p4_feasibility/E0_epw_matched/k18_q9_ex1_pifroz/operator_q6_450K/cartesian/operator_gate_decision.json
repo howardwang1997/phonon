@@ -1,0 +1,54 @@
+{
+  "status": "passed",
+  "scope": "E0 300/450/600 K Cartesian Hermitian q6 operator aggregate gate",
+  "decided_at_utc": "2026-08-06T17:47:58.653517+00:00",
+  "temperature_law": "smearing/degauss (Ry) = k_B*T/Ry",
+  "development_temperatures_K": [
+    300,
+    450,
+    600
+  ],
+  "locked_validation_temperatures_K_not_accessed": [
+    375,
+    525
+  ],
+  "operators": [
+    {
+      "temperature_K": 300,
+      "degauss_Ry": 0.0019000869380739254,
+      "operator": "/data/graphene_e0_epw_matched/k18_q9_ex1_pifroz/operator_q6_450K/cartesian/T300_operator.npz",
+      "operator_sha256": "114fb9a369ed106e5a89a9c05223aed7667fd737714f3d42516ebdb8e2e475c3",
+      "gate": "/data/graphene_e0_epw_matched/k18_q9_ex1_pifroz/operator_q6_450K/cartesian/T300_operator_gate.json",
+      "gate_sha256": "cb9748ce55554413551ae312268f85a624b43ef3c48bc244bd299e395da49391",
+      "force_constant_frobenius_eV_A2": 5.409861452250647,
+      "force_pair_max_abs_eV_A2": 0.0,
+      "force_ASR_max_abs_eV_A2": 1.7694179454963432e-16
+    },
+    {
+      "temperature_K": 450,
+      "degauss_Ry": 0.0028501304071108886,
+      "operator": "/data/graphene_e0_epw_matched/k18_q9_ex1_pifroz/operator_q6_450K/cartesian/T450_operator.npz",
+      "operator_sha256": "77bd333570c97e3134eb41b77d2eef7261cb6a7dfe77df2ce085b112e718d160",
+      "gate": "/data/graphene_e0_epw_matched/k18_q9_ex1_pifroz/operator_q6_450K/cartesian/T450_operator_gate.json",
+      "gate_sha256": "a05d85b2a72de8aa874ee9a746399e72bf4724a9b87b1d7cca497cf9c6abc8ac",
+      "force_constant_frobenius_eV_A2": 5.2001932112242395,
+      "force_pair_max_abs_eV_A2": 0.0,
+      "force_ASR_max_abs_eV_A2": 2.255140518769849e-16
+    },
+    {
+      "temperature_K": 600,
+      "degauss_Ry": 0.003800173876147851,
+      "operator": "/data/graphene_e0_epw_matched/k18_q9_ex1_pifroz/operator_q6_450K/cartesian/T600_operator.npz",
+      "operator_sha256": "5464a8998d7de904ce812edf80240ea53008ab2a66d26d710023cc083b8a5b19",
+      "gate": "/data/graphene_e0_epw_matched/k18_q9_ex1_pifroz/operator_q6_450K/cartesian/T600_operator_gate.json",
+      "gate_sha256": "9dae6a783333c9decdf949acad40a303b74baa5d0ea9fbf6d4cacd10be916350",
+      "force_constant_frobenius_eV_A2": 4.987051561641277,
+      "force_pair_max_abs_eV_A2": 0.0,
+      "force_ASR_max_abs_eV_A2": 3.0184188481996443e-16
+    }
+  ],
+  "reference_geometry_sha256": "3988fc19b80e3ffa551a336980a9ca46cd7640c5020d2b84a60da8b905510809",
+  "cell_sha256": "6873e2fea3884d4c6e5689ff871e1c86cb5f69a876d1d020b0480b54c81a8566",
+  "releases_E1": true,
+  "next_stage": "run_30_off_diagonal_cross_degauss_DFT_labels"
+}

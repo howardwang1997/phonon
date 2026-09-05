@@ -1,0 +1,191 @@
+{
+  "status": "failed",
+  "scope": "EPW zero-frequency static self-energy pilot at 450 K",
+  "formula": "Omega_static^2 = omega_ref^2 + 2*omega_epw*[Pi(q,0,T=450K)-Pi(q,0,T_high=0.020Ry)]",
+  "metadata": {
+    "epw_version": "6.0",
+    "completed": true,
+    "fine_k_mesh": [
+      360,
+      360,
+      1
+    ],
+    "target_temperature_eV": 0.038778,
+    "static_reference_smearing_Ry": 0.02,
+    "gaussian_broadening_eV": 0.01
+  },
+  "mesh": {
+    "fine_k": [
+      360,
+      360,
+      1
+    ],
+    "n_qpoints": 9
+  },
+  "metrics": {
+    "static_reference_top_cm-1": {
+      "G": {
+        "n_points": 4,
+        "line_MAE_cm-1": 11.11722684239544,
+        "line_max_abs_cm-1": 17.99297859533158,
+        "high_symmetry_prediction_cm-1": 1566.9944310705803,
+        "high_symmetry_target_cm-1": 1573.90788,
+        "high_symmetry_abs_error_cm-1": 6.913448929419701,
+        "central_block_max_distance": 0.01,
+        "central_block_n_points": 2,
+        "central_block_MAE_cm-1": 7.3568784095815545,
+        "central_block_max_abs_cm-1": 7.800307889743408,
+        "central_block_high_symmetry_abs_error_cm-1": 6.913448929419701
+      },
+      "K": {
+        "n_points": 5,
+        "line_MAE_cm-1": 21.649846417712844,
+        "line_max_abs_cm-1": 24.22224250740169,
+        "high_symmetry_prediction_cm-1": 1314.0155200924016,
+        "high_symmetry_target_cm-1": 1289.793277585,
+        "high_symmetry_abs_error_cm-1": 24.22224250740169,
+        "central_block_max_distance": 0.008,
+        "central_block_n_points": 1,
+        "central_block_MAE_cm-1": 24.22224250740169,
+        "central_block_max_abs_cm-1": 24.22224250740169,
+        "central_block_high_symmetry_abs_error_cm-1": 24.22224250740169,
+        "prediction_kink_cm-1_per_t": 25.641231570858736,
+        "target_kink_cm-1_per_t": 387.1017689285736,
+        "kink_relative_error": 0.9337610064613526
+      }
+    },
+    "epw_bare_top_cm-1": {
+      "G": {
+        "n_points": 4,
+        "line_MAE_cm-1": 18.428615761804394,
+        "line_max_abs_cm-1": 24.813687902735182,
+        "high_symmetry_prediction_cm-1": 1559.4729202864696,
+        "high_symmetry_target_cm-1": 1573.90788,
+        "high_symmetry_abs_error_cm-1": 14.434959713530361,
+        "central_block_max_distance": 0.01,
+        "central_block_n_points": 2,
+        "central_block_MAE_cm-1": 14.875681523843582,
+        "central_block_max_abs_cm-1": 15.316403334156803,
+        "central_block_high_symmetry_abs_error_cm-1": 14.434959713530361
+      },
+      "K": {
+        "n_points": 5,
+        "line_MAE_cm-1": 18.693055709799456,
+        "line_max_abs_cm-1": 21.260889431114265,
+        "high_symmetry_prediction_cm-1": 1311.0541670161142,
+        "high_symmetry_target_cm-1": 1289.793277585,
+        "high_symmetry_abs_error_cm-1": 21.260889431114265,
+        "central_block_max_distance": 0.008,
+        "central_block_n_points": 1,
+        "central_block_MAE_cm-1": 21.260889431114265,
+        "central_block_max_abs_cm-1": 21.260889431114265,
+        "central_block_high_symmetry_abs_error_cm-1": 21.260889431114265,
+        "prediction_kink_cm-1_per_t": 20.16385984330782,
+        "target_kink_cm-1_per_t": 387.1017689285736,
+        "kink_relative_error": 0.9479107008497593
+      }
+    },
+    "epw_static_top_cm-1": {
+      "G": {
+        "n_points": 4,
+        "line_MAE_cm-1": 12.531649903010134,
+        "line_max_abs_cm-1": 13.791727161561539,
+        "high_symmetry_prediction_cm-1": 1564.3700353912004,
+        "high_symmetry_target_cm-1": 1573.90788,
+        "high_symmetry_abs_error_cm-1": 9.53784460879956,
+        "central_block_max_distance": 0.01,
+        "central_block_n_points": 2,
+        "central_block_MAE_cm-1": 11.423106249861348,
+        "central_block_max_abs_cm-1": 13.308367890923137,
+        "central_block_high_symmetry_abs_error_cm-1": 9.53784460879956
+      },
+      "K": {
+        "n_points": 5,
+        "line_MAE_cm-1": 16.627809117124933,
+        "line_max_abs_cm-1": 16.804887949318754,
+        "high_symmetry_prediction_cm-1": 1272.9883896356812,
+        "high_symmetry_target_cm-1": 1289.793277585,
+        "high_symmetry_abs_error_cm-1": 16.804887949318754,
+        "central_block_max_distance": 0.008,
+        "central_block_n_points": 1,
+        "central_block_MAE_cm-1": 16.804887949318754,
+        "central_block_max_abs_cm-1": 16.804887949318754,
+        "central_block_high_symmetry_abs_error_cm-1": 16.804887949318754,
+        "prediction_kink_cm-1_per_t": 423.7808335921329,
+        "target_kink_cm-1_per_t": 387.1017689285736,
+        "kink_relative_error": 0.09475302777633952
+      }
+    },
+    "transferred_static_top_cm-1": {
+      "G": {
+        "n_points": 4,
+        "line_MAE_cm-1": 5.247021975412679,
+        "line_max_abs_cm-1": 6.716781946404126,
+        "high_symmetry_prediction_cm-1": 1571.8681132745419,
+        "high_symmetry_target_cm-1": 1573.90788,
+        "high_symmetry_abs_error_cm-1": 2.039766725458094,
+        "central_block_max_distance": 0.01,
+        "central_block_n_points": 2,
+        "central_block_MAE_cm-1": 3.920828982052626,
+        "central_block_max_abs_cm-1": 5.801891238647158,
+        "central_block_high_symmetry_abs_error_cm-1": 2.039766725458094
+      },
+      "K": {
+        "n_points": 5,
+        "line_MAE_cm-1": 13.589316576428882,
+        "line_max_abs_cm-1": 13.755191029338903,
+        "high_symmetry_prediction_cm-1": 1276.038086555661,
+        "high_symmetry_target_cm-1": 1289.793277585,
+        "high_symmetry_abs_error_cm-1": 13.755191029338903,
+        "central_block_max_distance": 0.008,
+        "central_block_n_points": 1,
+        "central_block_MAE_cm-1": 13.755191029338903,
+        "central_block_max_abs_cm-1": 13.755191029338903,
+        "central_block_high_symmetry_abs_error_cm-1": 13.755191029338903,
+        "prediction_kink_cm-1_per_t": 428.449351912235,
+        "target_kink_cm-1_per_t": 387.1017689285736,
+        "kink_relative_error": 0.10681321115660065
+      }
+    }
+  },
+  "top_branch_numerical_gates": {
+    "static_reference_top_cm-1": false,
+    "epw_bare_top_cm-1": false,
+    "epw_static_top_cm-1": false,
+    "transferred_static_top_cm-1": false
+  },
+  "correction_metrics": {
+    "G": {
+      "MAE_cm-1": 5.220260983601179,
+      "RMSE_cm-1": 5.54741025066739,
+      "max_abs_cm-1": 6.667950643352697
+    },
+    "K": {
+      "MAE_cm-1": 13.671018409211547,
+      "RMSE_cm-1": 13.671491386098163,
+      "max_abs_cm-1": 13.84353487303133
+    }
+  },
+  "passes_static_spectral_gate": false,
+  "passes_replayable_force_operator_gate": false,
+  "operator_gate_reason": "This pilot exports mode-diagonal Pi on nine q points only; a Hermitian matrix on a complete commensurate q mesh and real-space replay are still required.",
+  "next_stage": "Do not expand to 300/600 K or force labels; first resolve the failed static spectral gate.",
+  "sources": [
+    {
+      "path": "results/graphene_physics_temperature/post_p4_feasibility/E0_epw_pilot/k360_static_T450/epw.out",
+      "sha256": "ba757ea8fbeb7b3ac053d2d3f44782b30342741f155808e002b8c0ea3601f7f1"
+    },
+    {
+      "path": "results/graphene_physics_temperature/post_p4_feasibility/E0_epw_pilot/k360_static_T450/specfun_sup.phon",
+      "sha256": "271f771ca607573c324793cc819887f1e565fe36b4694dcc39753a3bff93f6ec"
+    },
+    {
+      "path": "results/graphene_physics_temperature/post_p4_feasibility/source_p4_450/dfpt/FD450_LINE/graphene_FD450_LINE_dfpt.csv",
+      "sha256": "325af549f473b381fbe7b04a3782f189589cbc6ef46436138c70b8029577863d"
+    },
+    {
+      "path": "results/vq_kink6_fd/graphene_sc6_dg0.020_phonopy.yaml",
+      "sha256": "7d766dc2f4912a5595a14c450e9d1569e1bad7dfe2354a99f8d1c8655ba9b371"
+    }
+  ]
+}

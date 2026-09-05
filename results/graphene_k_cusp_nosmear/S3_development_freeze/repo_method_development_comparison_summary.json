@@ -1,0 +1,36 @@
+{
+  "status": "plotted_development_only",
+  "scope": "local graphene A1prime K window only",
+  "electronic_integration": "tetrahedra_opt (no degauss)",
+  "frozen_model": "linear_directional",
+  "n_development_points": 7,
+  "n_blind_holdout_points": 0,
+  "matrix_checks": {
+    "Hermiticity_max_abs": 0.0,
+    "rank_one_replay_max_abs_cm-1": 9.094947017729282e-13
+  },
+  "sources": {
+    "freeze_manifest": {
+      "path": "results/graphene_k_cusp_nosmear/S3_development_freeze/freeze_manifest.json",
+      "sha256": "ab1e2925e4672d7c31f44d03ce277630541dcb71257c0074c399c722c9636906"
+    },
+    "development_points": {
+      "path": "results/graphene_k_cusp_nosmear/S3_development_freeze/development_points.csv",
+      "sha256": "9006cdd851c0f693575fd9bd2f1e4ca95b6488ccd617d6fee5a265d22cb111a7"
+    },
+    "holdout_predictions": null,
+    "short_range_MLIP": {
+      "path": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/source_p4_450/on_policy/frozen_prediction/frozen_static_fc2.npz",
+      "sha256": "baa9f0d6171b8320d4449c8351b88b9e1a345afbbddcc5f5d6a25c8517715078"
+    },
+    "qspace_operator_geometry": {
+      "path": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/E0_epw_matched/k18_q9_ex1_pifroz/operator_q6_450K/cartesian/T450_operator.npz",
+      "sha256": "77bd333570c97e3134eb41b77d2eef7261cb6a7dfe77df2ce085b112e718d160"
+    }
+  },
+  "outputs": [
+    "results/graphene_k_cusp_nosmear/S3_development_freeze/repo_method_development_comparison.png",
+    "results/graphene_k_cusp_nosmear/S3_development_freeze/repo_method_development_comparison.pdf",
+    "results/graphene_k_cusp_nosmear/S3_development_freeze/repo_method_development_comparison_curve.csv"
+  ]
+}

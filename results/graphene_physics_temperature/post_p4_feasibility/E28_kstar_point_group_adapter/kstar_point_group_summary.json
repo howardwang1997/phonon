@@ -1,0 +1,212 @@
+{
+  "status": "PASS",
+  "scope": "C3/C6 space-group lifting of existing graphene K/K' long-range matrices; three smearings; no new DFT",
+  "number_of_space_group_operations": 24,
+  "K_star_unique_reduced_qpoints": [
+    [
+      0.3333333333,
+      0.3333333333,
+      0.0
+    ],
+    [
+      0.6666666667,
+      0.6666666667,
+      0.0
+    ]
+  ],
+  "generic_offcenter_unique_orbit_size": 12,
+  "generic_offcenter_unique_qpoints": [
+    [
+      0.3263333333,
+      0.3283333333,
+      0.0
+    ],
+    [
+      0.3263333333,
+      0.3453333333,
+      0.0
+    ],
+    [
+      0.3283333333,
+      0.3263333333,
+      0.0
+    ],
+    [
+      0.3283333333,
+      0.3453333333,
+      0.0
+    ],
+    [
+      0.3453333333,
+      0.3263333333,
+      0.0
+    ],
+    [
+      0.3453333333,
+      0.3283333333,
+      0.0
+    ],
+    [
+      0.6546666667,
+      0.6716666667,
+      0.0
+    ],
+    [
+      0.6546666667,
+      0.6736666667,
+      0.0
+    ],
+    [
+      0.6716666667,
+      0.6546666667,
+      0.0
+    ],
+    [
+      0.6716666667,
+      0.6736666667,
+      0.0
+    ],
+    [
+      0.6736666667,
+      0.6546666667,
+      0.0
+    ],
+    [
+      0.6736666667,
+      0.6716666667,
+      0.0
+    ]
+  ],
+  "generic_offcenter_unique_unfolded_qpoints": [
+    [
+      -0.6716666667,
+      0.3263333333,
+      0.0
+    ],
+    [
+      -0.6716666667,
+      0.3453333333,
+      0.0
+    ],
+    [
+      -0.3453333333,
+      -0.3263333333,
+      0.0
+    ],
+    [
+      -0.3453333333,
+      0.6716666667,
+      0.0
+    ],
+    [
+      -0.3263333333,
+      -0.3453333333,
+      0.0
+    ],
+    [
+      -0.3263333333,
+      0.6716666667,
+      0.0
+    ],
+    [
+      0.3263333333,
+      -0.6716666667,
+      0.0
+    ],
+    [
+      0.3263333333,
+      0.3453333333,
+      0.0
+    ],
+    [
+      0.3453333333,
+      -0.6716666667,
+      0.0
+    ],
+    [
+      0.3453333333,
+      0.3263333333,
+      0.0
+    ],
+    [
+      0.6716666667,
+      -0.3453333333,
+      0.0
+    ],
+    [
+      0.6716666667,
+      -0.3263333333,
+      0.0
+    ]
+  ],
+  "gates": {
+    "long_range_point_group_relative_error": {
+      "observed": 5.584795292489373e-16,
+      "threshold": 1e-12,
+      "comparison": "<=",
+      "pass": true
+    },
+    "long_range_point_group_max_abs": {
+      "observed": 1.4451755969301278e-21,
+      "threshold": 1e-18,
+      "comparison": "<=",
+      "pass": true
+    },
+    "shared_projector_duplicate_orbit_max_abs": {
+      "observed": 1.942890293094024e-16,
+      "threshold": 1e-12,
+      "comparison": "<=",
+      "pass": true
+    },
+    "shared_projector_time_reversal_max_abs": {
+      "observed": 2.7766076786915443e-17,
+      "threshold": 1e-12,
+      "comparison": "<=",
+      "pass": true
+    },
+    "generated_hermitian_max_abs": {
+      "observed": 0.0,
+      "threshold": 1e-12,
+      "comparison": "<=",
+      "pass": true
+    }
+  },
+  "records": [
+    {
+      "temperature_K": 300,
+      "smearing_degauss_Ry": 0.0019000869380739254,
+      "maximum_operation_relative_error": 4.99080860213997e-16
+    },
+    {
+      "temperature_K": 450,
+      "smearing_degauss_Ry": 0.0028501304071108886,
+      "maximum_operation_relative_error": 4.794435800186848e-16
+    },
+    {
+      "temperature_K": 600,
+      "smearing_degauss_Ry": 0.003800173876147851,
+      "maximum_operation_relative_error": 5.584795292489373e-16
+    }
+  ],
+  "bare_EPW_K_star_maximum_relative_residual_not_gated": 2.246570260647144e-12,
+  "fourier_gauge": {
+    "positions_fractional": [
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.3333333333333333,
+        0.6666666666666666,
+        0.0
+      ]
+    ],
+    "warning": "the EPW q6 cell-gauge atom convention must be retained when constructing Bloch phases"
+  },
+  "limitations": [
+    "matrix covariance is directly validated at K/K' where archived q6 references exist",
+    "the generic off-centre test validates orbit geometry and representation unitarity; dense two-dimensional EPC references are not available",
+    "a physical off-centre generator must predict the canonical-wedge projector/vertex before this exact symmetry lifting is applied"
+  ]
+}

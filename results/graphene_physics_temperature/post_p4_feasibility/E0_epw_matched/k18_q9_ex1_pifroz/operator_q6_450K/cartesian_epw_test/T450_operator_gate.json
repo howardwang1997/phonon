@@ -1,0 +1,83 @@
+{
+  "status": "passed",
+  "scope": "E0 Cartesian Hermitian q6 electronic operator at 450 K",
+  "built_at_utc": "2026-08-06T17:25:19.556892+00:00",
+  "temperature_K": 450.0,
+  "degauss_Ry_from_kBT": 0.0028501304071108886,
+  "bare_dynamical_matrix_source": "EPW_dynwan2bloch",
+  "matrix_scale_cm-2_per_QE_unit": 12042278452.99655,
+  "n_qpoints": 36,
+  "n_space_group_operations": 24,
+  "metrics": {
+    "q_coordinate_max_abs": 0.0,
+    "matrix_frequency_replay_max_abs_cm-1": 2.2737367544323206e-13,
+    "EPW_bare_matrix_basis_max_abs_cm-1": 0.039886617304546235,
+    "degenerate_shift_averaging_max_abs_cm-2": 13.249677429612348,
+    "pre_symmetry_realspace_imaginary_max_abs": 0.0,
+    "symmetry_projection_frequency_change_max_abs_cm-1": 0.0169998255421433,
+    "time_reversal_max_abs": 0.0,
+    "point_group_max_abs": 1.852884572118782e-22,
+    "hessian_imaginary_max_abs": 0.0,
+    "hessian_pair_max_abs": 0.0,
+    "hessian_ASR_row_sum_max_abs": 2.117582368135751e-22,
+    "q_real_q_matrix_replay_max_abs": 5.06499785470546e-22,
+    "q_real_q_all_mode_frequency_replay_max_abs_cm-1": 9.18469140999554e-07,
+    "q_real_q_nonzero_frequency_replay_max_abs_cm-1": 8.384404281969182e-13,
+    "q_real_q_top_branch_replay_max_abs_cm-1": 4.547473508864641e-13,
+    "force_pair_max_abs_eV_A2": 0.0,
+    "force_ASR_row_sum_max_abs_eV_A2": 2.498001805406602e-16,
+    "analytic_gradient_max_abs_eV_A": 6.554079487583966e-14,
+    "reference_geometry_match_max_abs_A": 5.737330537342158e-15
+  },
+  "checks": {
+    "q_coordinate_max_le_1e-8": true,
+    "matrix_frequency_replay_max_le_0p2_cm-1": true,
+    "EPW_bare_matches_matrix_basis_max_le_0p5_cm-1": true,
+    "pre_symmetry_realspace_imaginary_max_le_1e-8": true,
+    "symmetry_projection_frequency_change_max_le_0p5_cm-1": true,
+    "time_reversal_max_le_1e-10": true,
+    "point_group_max_le_1e-8": true,
+    "hessian_imaginary_max_le_1e-10": true,
+    "hessian_pair_max_le_1e-10": true,
+    "hessian_ASR_max_le_1e-10": true,
+    "q_real_q_matrix_replay_max_le_1e-10": true,
+    "q_real_q_nonzero_frequency_replay_max_lt_1e-5_cm-1": true,
+    "q_real_q_top_branch_replay_max_lt_1e-5_cm-1": true,
+    "force_pair_max_le_1e-8_eV_A2": true,
+    "force_ASR_max_le_1e-8_eV_A2": true,
+    "analytic_gradient_max_le_1e-7_eV_A": true,
+    "reference_geometry_match_max_le_1e-5_A": true
+  },
+  "operator": {
+    "path": "results/graphene_physics_temperature/post_p4_feasibility/E0_epw_matched/k18_q9_ex1_pifroz/operator_q6_450K/cartesian_epw_test/T450_operator.npz",
+    "sha256": "24c3b6c36f6b9746926ca4d1ee3dd31b38f883656d507997accd0f436671344d"
+  },
+  "sources": [
+    {
+      "path": "results/graphene_physics_temperature/post_p4_feasibility/E0_epw_matched/k18_q9_ex1_pifroz/full_q6_450K/qpoints_full.dat",
+      "sha256": "83b4905f3822219b28d2f38f508b75d1feb33cafe88ebef1ea6d7009f330677f"
+    },
+    {
+      "path": "results/graphene_physics_temperature/post_p4_feasibility/E0_epw_matched/k18_q9_ex1_pifroz/full_q6_450K/specfun_sup.phon",
+      "sha256": "19c95567547d1a56455a815770ec2b6c5435e03892d1e6cf76106743549a0f55"
+    },
+    {
+      "path": "results/graphene_physics_temperature/post_p4_feasibility/E0_epw_matched/k18_q9_ex1_pifroz/operator_q6_450K/matdyn/epw_q6_dynamical_matrices.npz",
+      "sha256": "a8e26c6538110c22a779f43d38b8019bc79c9dc3eac83fce5cbf9bc4990b1677"
+    },
+    {
+      "path": "results/graphene_physics_temperature/post_p4_feasibility/E0_epw_matched/k18_q9_ex1_pifroz/operator_q6_450K/matdyn/epw_q6_dynamical_matrix_audit.json",
+      "sha256": "01ff629ace94bd691f1d0190b3a4ede19aee31a7f1b0ed649781376a97c61d67"
+    },
+    {
+      "path": "results/graphene_physics_temperature/post_p4_feasibility/E0_epw_matched/k18_q9_ex1_pifroz/full_q6_450K/audit/full_q_data_audit.json",
+      "sha256": "b1d2d7aaed0dbd49d15f4d5f023670e3fbe7b30ccc76e4b89a70137e605ac839"
+    },
+    {
+      "path": "results/graphene_fd_transferability/conditioned_short/T450_long_range_operator.npz",
+      "sha256": "bbea00f427dd963ee3ec7e9c4cb84f34498ab2835752fd914035b191925b5b4e"
+    }
+  ],
+  "releases_E1": false,
+  "next_stage": "aggregate_300_450_600_operator_gates"
+}

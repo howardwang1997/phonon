@@ -1,0 +1,38 @@
+{
+  "status": "extended_zero_smearing_region_sketch_generated",
+  "extended_model": {
+    "signed_distance_d": [
+      -0.06,
+      0.06
+    ],
+    "signed_q_distance_2pi_over_a": [
+      -0.04,
+      0.04
+    ],
+    "number_of_qpoints": 241,
+    "source": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/E38_epc_zero_extended_curve/zero_dense_curve.csv",
+    "new_DFT_used": false,
+    "monotone_KG": true,
+    "monotone_KM": true
+  },
+  "DFPT_support": {
+    "guide_signed_distance_d": [
+      -0.023,
+      0.023
+    ],
+    "three_grid_region_abs_d_le": 0.003,
+    "two_grid_region_abs_d_le": 0.007,
+    "k192_only_region_abs_d_le": 0.023,
+    "no_DFPT_extrapolation_drawn_beyond_abs_d": 0.023
+  },
+  "interpretation": [
+    "the extended black curve is a model prediction from the stored full-EPC response",
+    "the gray outer regions have no zero-smearing direct DFPT anchors",
+    "the green guide must not be extended into the gray regions without additional reference data"
+  ],
+  "outputs": {
+    "png": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/E39_zero_extended_region_sketch/zero_extended_region_sketch.png",
+    "pdf": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/E39_zero_extended_region_sketch/zero_extended_region_sketch.pdf",
+    "publication_pdf": "/Users/howardwang/Desktop/playground/phonon/output/pdf/graphene_zero_K_extended_region_sketch.pdf"
+  }
+}

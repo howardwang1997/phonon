@@ -1,0 +1,126 @@
+{
+  "status": "extended_fixed_lattice_smearing_overlay_generated",
+  "scope": "graphene K-neighbourhood A1-prime; zero plus three electronic smearings on one common static-lattice MLIP background",
+  "lattice_control": {
+    "condition_id": "fixed_static_lattice_reference",
+    "same_short_range_MLIP_Dq_for_every_smearing": true,
+    "thermal_lattice_or_TDEP_background_used": false,
+    "source_paired_300_450_600_K_backgrounds_used": false,
+    "note": "This isolates electronic smearing on a static lattice reference; it is not a finite-lattice-temperature sweep."
+  },
+  "construction": {
+    "formula": "omega(q,s)^2 = omega_SR_common(q)^2 + C_common + Pi_full_EPC(q,s)",
+    "common_reference_constant_cm-2": -170027.77431425353,
+    "common_constant_spread_cm-2": 5.820766091346741e-11,
+    "per_smearing_K_reanchoring": false,
+    "number_of_qpoints": 241,
+    "signed_distance_d": [
+      -0.06,
+      0.06
+    ],
+    "signed_q_distance_2pi_over_a": [
+      -0.04,
+      0.04
+    ],
+    "new_DFT_used": false,
+    "finite_response_wall_time_seconds": 19.5415689998772
+  },
+  "series_metrics": [
+    {
+      "smearing_degauss_Ry": 0.0,
+      "K_frequency_cm-1": 1282.182972,
+      "KG_d0.003_rise_cm-1": 1.9316360277480271,
+      "KG_d0.023_rise_cm-1": 13.145519372761783,
+      "KG_d0.060_rise_cm-1": 26.688514410084508,
+      "KM_d0.003_rise_cm-1": 1.9403208253311277,
+      "KM_d0.023_rise_cm-1": 13.487800985460808,
+      "KM_d0.060_rise_cm-1": 28.067802222909222
+    },
+    {
+      "smearing_degauss_Ry": 0.0019000869,
+      "K_frequency_cm-1": 1285.738447004553,
+      "KG_d0.003_rise_cm-1": 0.3277179600686395,
+      "KG_d0.023_rise_cm-1": 9.18579944509952,
+      "KG_d0.060_rise_cm-1": 22.979418622295952,
+      "KM_d0.003_rise_cm-1": 0.3299685345268699,
+      "KM_d0.023_rise_cm-1": 9.50090126140185,
+      "KM_d0.060_rise_cm-1": 24.4421395989325
+    },
+    {
+      "smearing_degauss_Ry": 0.00285013035,
+      "K_frequency_cm-1": 1287.2730029682953,
+      "KG_d0.003_rise_cm-1": 0.23445418720484668,
+      "KG_d0.023_rise_cm-1": 7.480622843954279,
+      "KG_d0.060_rise_cm-1": 21.33056831863587,
+      "KM_d0.003_rise_cm-1": 0.23628410866581362,
+      "KM_d0.023_rise_cm-1": 7.76470582091315,
+      "KM_d0.060_rise_cm-1": 22.799287345501853
+    },
+    {
+      "smearing_degauss_Ry": 0.0038001738,
+      "K_frequency_cm-1": 1288.8559705048208,
+      "KG_d0.003_rise_cm-1": 0.1779577330187294,
+      "KG_d0.023_rise_cm-1": 6.044991019310828,
+      "KG_d0.060_rise_cm-1": 19.528580368665416,
+      "KM_d0.003_rise_cm-1": 0.17966521378343714,
+      "KM_d0.023_rise_cm-1": 6.287463727127715,
+      "KM_d0.060_rise_cm-1": 20.99254381196306
+    }
+  ],
+  "finite_static_lattice_DFPT_comparison": {
+    "0.0019000869": {
+      "smearing_degauss_Ry": 0.0019000869,
+      "DFPT_kgrid": "144",
+      "number_of_KG_points": 4,
+      "absolute_RMSE_cm-1": 3.0586172810880385,
+      "maximum_absolute_error_cm-1": 3.942154371345623,
+      "K_error_cm-1": -2.3013159954468847,
+      "K_referenced_shape_RMSE_cm-1": 0.9295790319570204
+    },
+    "0.0028501304": {
+      "smearing_degauss_Ry": 0.00285013035,
+      "DFPT_kgrid": "144",
+      "number_of_KG_points": 4,
+      "absolute_RMSE_cm-1": 3.0602259156871865,
+      "maximum_absolute_error_cm-1": 3.8812174252268505,
+      "K_error_cm-1": -2.518534031704803,
+      "K_referenced_shape_RMSE_cm-1": 0.7312165604510579
+    },
+    "0.0038001738": {
+      "smearing_degauss_Ry": 0.0038001738,
+      "DFPT_kgrid": "120",
+      "number_of_KG_points": 4,
+      "absolute_RMSE_cm-1": 3.0354504867594017,
+      "maximum_absolute_error_cm-1": 3.8263929988886503,
+      "K_error_cm-1": -2.550347495179267,
+      "K_referenced_shape_RMSE_cm-1": 0.6750070171969393
+    }
+  },
+  "checks": {
+    "zero_curve_replay_max_abs_cm-1": 2.2737367544323206e-13,
+    "all_frequencies_finite": true,
+    "K_frequency_increases_monotonically_with_smearing": true,
+    "mean_d003_cusp_depth_decreases_monotonically_with_smearing": true
+  },
+  "DFPT_support": {
+    "zero_smearing_guide_abs_d_le": 0.023,
+    "finite_smearing_direct_DFPT": "K-to-Gamma only at d=0, 0.008, 0.015, 0.025",
+    "finite_smearing_K_to_M_DFPT_available": false
+  },
+  "limitations": [
+    "the gray outer region is a full-EPC model prediction without direct zero-smearing DFPT anchors",
+    "finite-smearing K-to-M curves have no independent direct DFPT validation",
+    "the finite-smearing direct static-lattice DFPT comparison shows remaining absolute and K-referenced model errors"
+  ],
+  "sources": {
+    "extended_full_EPC_response": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/E40_zero_finite_full_kpath_extended/zero_finite_full_kpath_Aprime.csv",
+    "zero_smearing_DFPT_diagnostic": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/E34_zero_raw_DFPT_kgrid_diagnostic/zero_smearing_raw_DFPT_kgrid_diagnostic.csv",
+    "finite_static_lattice_DFPT": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/E32_absolute_and_DFPT_comparison/MLIP_full_EPC_LR_vs_DFPT_points.csv"
+  },
+  "outputs": {
+    "png": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/E41_fixed_lattice_extended_smearing_overlay/fixed_lattice_extended_smearing_overlay.png",
+    "pdf": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/E41_fixed_lattice_extended_smearing_overlay/fixed_lattice_extended_smearing_overlay.pdf",
+    "publication_pdf": "/Users/howardwang/Desktop/playground/phonon/output/pdf/graphene_K_extended_fixed_lattice_smearing_overlay.pdf",
+    "csv": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/E41_fixed_lattice_extended_smearing_overlay/fixed_lattice_extended_smearing_overlay.csv"
+  }
+}

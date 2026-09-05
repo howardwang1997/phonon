@@ -1,0 +1,22 @@
+{
+  "argv": [
+    "ssh",
+    "-o",
+    "BatchMode=yes",
+    "-o",
+    "ConnectTimeout=20",
+    "-o",
+    "ControlPath=none",
+    "howardwang@100.105.21.7",
+    "sha256sum /home/howardwang/phonon/results/r2r0_formal_bundle_20260825/a9a1732af38c/data/graphene_r2o_taylor_null_core/train_thermal.xyz"
+  ],
+  "command_basename": "RTX-2060_verify_3.command.json",
+  "expected_sha256": "cc2e9c68d418fba996e8ac89c8156c8adf00768406f6171aaa57f0a9bd2720c1",
+  "observed_sha256": "cc2e9c68d418fba996e8ac89c8156c8adf00768406f6171aaa57f0a9bd2720c1",
+  "returncode": 0,
+  "sha256": "71421104e97771cad1c934005ab142cefeee661d5757f4d3a0718341d741af35",
+  "stderr_basename": "RTX-2060_verify_3.stderr",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout_basename": "RTX-2060_verify_3.stdout",
+  "stdout_sha256": "d3624cf4121e10032f002a948331caf31bf1194aa9a96571d36ab66f439bf151"
+}

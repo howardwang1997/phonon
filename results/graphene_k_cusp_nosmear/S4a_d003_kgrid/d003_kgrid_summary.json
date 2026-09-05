@@ -1,0 +1,84 @@
+{
+  "status": "requires_k288_d003",
+  "electronic_integration": "tetrahedra_opt (no degauss)",
+  "diagnostic": "k192 versus k240 at the two d=0.003 blind-failure points",
+  "comparisons": {
+    "KG": {
+      "k192_K_frequency_cm-1": 1281.164692,
+      "k240_K_frequency_cm-1": 1281.753275,
+      "k192_frequency_cm-1": 1287.389301,
+      "k240_frequency_cm-1": 1287.159876,
+      "signed_frequency_change_cm-1": -0.229424999999992,
+      "frequency_abs_change_cm-1": 0.229424999999992,
+      "k192_cusp_depth_cm-1": 6.224608999999873,
+      "k240_cusp_depth_cm-1": 5.40660099999991,
+      "cusp_depth_relative_change": 0.15129801514851515
+    },
+    "KM": {
+      "k192_K_frequency_cm-1": 1281.164692,
+      "k240_K_frequency_cm-1": 1281.753275,
+      "k192_frequency_cm-1": 1287.41643,
+      "k240_frequency_cm-1": 1287.190314,
+      "signed_frequency_change_cm-1": -0.22611600000004728,
+      "frequency_abs_change_cm-1": 0.22611600000004728,
+      "k192_cusp_depth_cm-1": 6.251737999999932,
+      "k240_cusp_depth_cm-1": 5.437038999999913,
+      "cusp_depth_relative_change": 0.14984240502965523
+    }
+  },
+  "minimum_mode_overlap": 0.9999356218037951,
+  "checks": {
+    "minimum_mode_overlap_ge_0p95": true,
+    "KG_frequency_change_le_1_cm-1": true,
+    "KG_depth_change_le_10pct": false,
+    "KM_frequency_change_le_1_cm-1": true,
+    "KM_depth_change_le_10pct": false
+  },
+  "thresholds": {
+    "frequency_abs_change_cm-1": 1.0,
+    "cusp_depth_relative_change": 0.1,
+    "minimum_mode_overlap": 0.95
+  },
+  "sources": {
+    "k192_holdout_csv": {
+      "path": "/Users/howardwang/Desktop/playground/phonon/results/graphene_k_cusp_nosmear/S4_holdout/holdout_predictions.csv",
+      "sha256": "9ad05db301e9bc9c5267df61b0233a791ad6d061aeb5cb417a2972918eb6b86a"
+    },
+    "release": {
+      "path": "/Users/howardwang/Desktop/playground/phonon/results/graphene_k_cusp_nosmear/S4_holdout/RELEASE_D003_KGRID",
+      "sha256": "19418e52c98ea52f166e87eb77d8ad16a50224020528c30a3bf4a80df21be12d"
+    },
+    "k240": {
+      "kgrid": 240,
+      "qe_tag": "qe75_npk120k",
+      "cross_host_K_all_mode_max_abs_cm-1": 0.0,
+      "source_manifests": [
+        [
+          "/Users/howardwang/Desktop/playground/phonon/results/graphene_k_cusp_nosmear/raw/convergence/k240_qe75_npk120k/convergence_A_k240_qe75_npk120k/manifest.json",
+          "b43bd7795cccca7e304152793f17f02731b045e8e1d4ab94cc2ef07c0615ec88"
+        ],
+        [
+          "/Users/howardwang/Desktop/playground/phonon/results/graphene_k_cusp_nosmear/raw/convergence/k240_qe75_npk120k/convergence_B_k240_qe75_npk120k/manifest.json",
+          "ef5f83bbd1b12a06e307a606f0ac227df475d5d26a1143a7feba404db992c783"
+        ],
+        [
+          "/Users/howardwang/Desktop/playground/phonon/results/graphene_k_cusp_nosmear/raw/diagnostic_d003/k240_qe75_npk120k/diagnostic_A_k240_qe75_npk120k/manifest.json",
+          "418fb0d81798a58f3d8973326fd6a25751ebc396dc19bff67519cb5f47007258"
+        ],
+        [
+          "/Users/howardwang/Desktop/playground/phonon/results/graphene_k_cusp_nosmear/raw/diagnostic_d003/k240_qe75_npk120k/diagnostic_B_k240_qe75_npk120k/manifest.json",
+          "1b2aa688b61cfad4ba76bd6f4a6f08c276ebbdbc63c890e5265a0a7f8c483800"
+        ]
+      ],
+      "source_dyn_sha256": {
+        "K@A": "7532d62f708cb2b9d114e29a4ef85f4c3f869aad1b059677c1897e669e0aad80",
+        "KG_d007@A": "606203f39530f23a3ed42c00b8c581ec050b7def7f10d65c4c1ec4390b37c657",
+        "K@B": "a7ec210e377504107e36d8dd3a222a0a7641865e647160fe67f81f947e0a5399",
+        "KM_d007@B": "73a051cbf9ac25a6a4bf75981e4777a1112708ba57f39490584474018ce68adc",
+        "KG_d003@A": "baaa2163f80bc92f461e9f7e125370f65f4b110cb4ee80a97855fde17e3b3634",
+        "KM_d003@B": "d9824bdc38de82053ca50930a9c24725b54ddc1a0f50e036ae60dc3a765ea1dc"
+      }
+    }
+  },
+  "next_action": "do not refit; compute the same K and d=0.003 points at k288"
+}

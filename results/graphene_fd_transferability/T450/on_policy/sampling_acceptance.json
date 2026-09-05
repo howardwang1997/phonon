@@ -1,0 +1,171 @@
+{
+  "status": "passed",
+  "scope": "450 K frozen conditioned-model on-policy sampling gate before any 450 K DFT force labels",
+  "temperature_K": 450,
+  "degauss_Ry": 0.0028501303499999997,
+  "thresholds": {
+    "seed_pair_full_band_MAE_cm-1": 5.0,
+    "MD_mean_temperature_relative_error": 0.05
+  },
+  "passes_seed_spread_gate": true,
+  "passes_temperature_gate": true,
+  "passes_sampling_gate": true,
+  "seed_pair_spread": [
+    {
+      "seeds": [
+        0,
+        1
+      ],
+      "full_band_MAE_cm-1": 4.6079648126914465
+    },
+    {
+      "seeds": [
+        0,
+        2
+      ],
+      "full_band_MAE_cm-1": 3.5545288274947873
+    },
+    {
+      "seeds": [
+        1,
+        2
+      ],
+      "full_band_MAE_cm-1": 2.5358866655868963
+    }
+  ],
+  "seed_temperature_diagnostics": [
+    {
+      "seed": 0,
+      "mean_temperature_K": 449.7414621578172,
+      "max_temperature_K": 534.7083346672425,
+      "mean_temperature_relative_error": 0.0005745285381840403
+    },
+    {
+      "seed": 1,
+      "mean_temperature_K": 434.5969860843424,
+      "max_temperature_K": 553.969557546994,
+      "mean_temperature_relative_error": 0.034228919812572436
+    },
+    {
+      "seed": 2,
+      "mean_temperature_K": 441.13762772499894,
+      "max_temperature_K": 548.9513308403205,
+      "mean_temperature_relative_error": 0.019694160611113475
+    }
+  ],
+  "freeze_manifest": {
+    "path": "/home/howardwang/phonon/results/graphene_fd_transferability/freeze_manifest.json",
+    "sha256": "8e48384fc805c15d68b861f2911647ecc13d896d17753eb35dfe243cd318232d"
+  },
+  "sampling_operator": {
+    "path": "/home/howardwang/phonon/results/graphene_fd_transferability/conditioned_short/T450_long_range_operator.npz",
+    "sha256": "bbea00f427dd963ee3ec7e9c4cb84f34498ab2835752fd914035b191925b5b4e"
+  },
+  "checkpoints": [
+    {
+      "seed": 0,
+      "path": "/home/howardwang/phonon/results/graphene_fd_transferability/T450/on_policy/checkpoints/seed0_dt0p5/T450",
+      "snapshots_path": "/home/howardwang/phonon/results/graphene_fd_transferability/T450/on_policy/checkpoints/seed0_dt0p5/T450/snapshots.npz",
+      "snapshots_sha256": "28ddcea3afb70ef4553e36b32b4360f5d05247de5c15b8a42e1c94b8c435e3f6",
+      "n_snapshots": 120
+    },
+    {
+      "seed": 1,
+      "path": "/home/howardwang/phonon/results/graphene_fd_transferability/T450/on_policy/checkpoints/seed1_dt0p25/T450",
+      "snapshots_path": "/home/howardwang/phonon/results/graphene_fd_transferability/T450/on_policy/checkpoints/seed1_dt0p25/T450/snapshots.npz",
+      "snapshots_sha256": "c2493b986ee96c7e8bb44a82aeda8e5323e09e94585843607887dc91eb3ebf43",
+      "n_snapshots": 120
+    },
+    {
+      "seed": 2,
+      "path": "/home/howardwang/phonon/results/graphene_fd_transferability/T450/on_policy/checkpoints/seed2_dt0p5/T450",
+      "snapshots_path": "/home/howardwang/phonon/results/graphene_fd_transferability/T450/on_policy/checkpoints/seed2_dt0p5/T450/snapshots.npz",
+      "snapshots_sha256": "ad219ebced5113b47916fa9a7b62610ef256cf96752bbb76a59598969744820c",
+      "n_snapshots": 120
+    }
+  ],
+  "seed_tdeps": [
+    {
+      "seed": 0,
+      "path": "/home/howardwang/phonon/results/graphene_fd_transferability/T450/on_policy/short_seed0.npz",
+      "sha256": "adbe63864e9ea2b03c7c0c7debf62a93a8a3290bf304d7e2e7b9e87428db7430",
+      "force_constants_shape": [
+        72,
+        72,
+        3,
+        3
+      ],
+      "source_checkpoint_counts": [
+        120
+      ],
+      "mean_temperature_K": 449.7414621578172,
+      "max_temperature_K": 534.7083346672425,
+      "fit_RMSE_meV_A": 162.26201304336678,
+      "subtracted_operator_sha256": "bbea00f427dd963ee3ec7e9c4cb84f34498ab2835752fd914035b191925b5b4e",
+      "subtracted_operator_force_RMSE_meV_A": 32.70595326940962,
+      "subtracted_operator_force_max_abs_meV_A": 145.2009883378599
+    },
+    {
+      "seed": 1,
+      "path": "/home/howardwang/phonon/results/graphene_fd_transferability/T450/on_policy/short_seed1.npz",
+      "sha256": "667c2568462d4abdef9096557f2e7bcdd8c58825c917a0a9abb1fb67200ceb8d",
+      "force_constants_shape": [
+        72,
+        72,
+        3,
+        3
+      ],
+      "source_checkpoint_counts": [
+        120
+      ],
+      "mean_temperature_K": 434.5969860843424,
+      "max_temperature_K": 553.969557546994,
+      "fit_RMSE_meV_A": 161.0907337119258,
+      "subtracted_operator_sha256": "bbea00f427dd963ee3ec7e9c4cb84f34498ab2835752fd914035b191925b5b4e",
+      "subtracted_operator_force_RMSE_meV_A": 35.449730859625085,
+      "subtracted_operator_force_max_abs_meV_A": 142.22786325798148
+    },
+    {
+      "seed": 2,
+      "path": "/home/howardwang/phonon/results/graphene_fd_transferability/T450/on_policy/short_seed2.npz",
+      "sha256": "5a0a6671b9f481495bbfc5d11f747862b7198a26a6770566742bc6f3581dddfe",
+      "force_constants_shape": [
+        72,
+        72,
+        3,
+        3
+      ],
+      "source_checkpoint_counts": [
+        120
+      ],
+      "mean_temperature_K": 441.13762772499894,
+      "max_temperature_K": 548.9513308403205,
+      "fit_RMSE_meV_A": 165.04432000790015,
+      "subtracted_operator_sha256": "bbea00f427dd963ee3ec7e9c4cb84f34498ab2835752fd914035b191925b5b4e",
+      "subtracted_operator_force_RMSE_meV_A": 30.29539278286749,
+      "subtracted_operator_force_max_abs_meV_A": 131.7428455957861
+    }
+  ],
+  "pooled_tdep": {
+    "path": "/home/howardwang/phonon/results/graphene_fd_transferability/T450/on_policy/short_pooled360.npz",
+    "sha256": "39ac2153fff7259d2ca13638283697ed9376880330d4beb691f4f80de4c79a26",
+    "force_constants_shape": [
+      72,
+      72,
+      3,
+      3
+    ],
+    "source_checkpoint_counts": [
+      120,
+      120,
+      120
+    ],
+    "mean_temperature_K": 441.8253586557196,
+    "max_temperature_K": 553.969557546994,
+    "fit_RMSE_meV_A": 162.9504199883065,
+    "subtracted_operator_sha256": "bbea00f427dd963ee3ec7e9c4cb84f34498ab2835752fd914035b191925b5b4e",
+    "subtracted_operator_force_RMSE_meV_A": 32.88451317945313,
+    "subtracted_operator_force_max_abs_meV_A": 145.2009883378599
+  },
+  "next_stage": "release the fixed 60-structure DFT force-label shards"
+}

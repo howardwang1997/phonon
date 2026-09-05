@@ -1,0 +1,104 @@
+{
+  "status": "joint_model_required",
+  "scope": "300/600 K endpoint development cross-evaluation before any 450 K labels; not a lattice-temperature holdout",
+  "thresholds": {
+    "thermal_force_RMSE_meV_A": 50.0,
+    "thermal_force_max_abs_meV_A": 250.0,
+    "harmonic_RMSE_relative_to_frozen_v11": 2.0
+  },
+  "candidates": {
+    "delta300": {
+      "metrics_path": "/home/howardwang/phonon/results/graphene_fd_transferability/P1_cross_temperature/delta300_metrics.json",
+      "metrics_sha256": "284388842a38d62ed22138b7c7480316975dd02017c8ab818f2988dbc6e17fe2",
+      "base_model": "/home/howardwang/phonon/results/gr_backbone_v11/ft_graphene.model",
+      "base_model_sha256": "4d32426672d53e3adc86499d14e4c4164c05e879a56811ff54add03cd1bb6ce7",
+      "delta_model": "/home/howardwang/phonon/results/graphene_fd_delta_pilot/T300/delta32/gr_fd300_delta32.model",
+      "delta_model_sha256": "6560f7bbf1ba8f8605893c2c0a9a7bd60d2ebaf66831e4b2f3b682ad43433766",
+      "by_temperature": {
+        "300": {
+          "dataset_label": "thermal300",
+          "dataset_path": "/home/howardwang/phonon/data/graphene_fd_delta_pilot/T300/test.xyz",
+          "n_structures": 3,
+          "reconstructed_total_force": {
+            "RMSE_meV_A": 21.01169174509131,
+            "max_abs_meV_A": 114.66729906311035
+          },
+          "passes_thermal_force_gate": true
+        },
+        "600": {
+          "dataset_label": "thermal600",
+          "dataset_path": "/home/howardwang/phonon/data/graphene_fd_delta_pilot/T600/test.xyz",
+          "n_structures": 3,
+          "reconstructed_total_force": {
+            "RMSE_meV_A": 129.05354395175223,
+            "max_abs_meV_A": 1135.9290468582155
+          },
+          "passes_thermal_force_gate": false
+        }
+      },
+      "harmonic_replay": {
+        "dataset_path": "/home/howardwang/phonon/data/finetune_graphene8/val.xyz",
+        "n_structures": 25,
+        "combined_force": {
+          "RMSE_meV_A": 12.809646369219193,
+          "max_abs_meV_A": 137.26728200553896
+        },
+        "frozen_v11_force": {
+          "RMSE_meV_A": 7.235733665822591,
+          "max_abs_meV_A": 57.08133504318236
+        },
+        "passes_harmonic_retention_gate": true
+      },
+      "normalized_worst_gate_score": 4.543716187432862,
+      "passes_both_endpoint_development_gates": false
+    },
+    "delta600_weighted": {
+      "metrics_path": "/home/howardwang/phonon/results/graphene_fd_transferability/P1_cross_temperature/delta600_weighted_metrics.json",
+      "metrics_sha256": "79594fd33846e4a36eedfc5fe2c7e54b3bf9bdb7f678300197eebd81b83f6a72",
+      "base_model": "/home/howardwang/phonon/results/gr_backbone_v11/ft_graphene.model",
+      "base_model_sha256": "4d32426672d53e3adc86499d14e4c4164c05e879a56811ff54add03cd1bb6ce7",
+      "delta_model": "/home/howardwang/phonon/results/graphene_fd_delta_weighted/T600/selected_checkpoint.model",
+      "delta_model_sha256": "3cf7f697602fed0b71cece204d797821c1d6faff0e0138892f69b06aafe4ddf3",
+      "by_temperature": {
+        "300": {
+          "dataset_label": "thermal300",
+          "dataset_path": "/home/howardwang/phonon/data/graphene_fd_delta_pilot/T300/test.xyz",
+          "n_structures": 3,
+          "reconstructed_total_force": {
+            "RMSE_meV_A": 44.05245808074164,
+            "max_abs_meV_A": 359.9771488328554
+          },
+          "passes_thermal_force_gate": false
+        },
+        "600": {
+          "dataset_label": "thermal600",
+          "dataset_path": "/home/howardwang/phonon/data/graphene_fd_delta_pilot/T600/test.xyz",
+          "n_structures": 3,
+          "reconstructed_total_force": {
+            "RMSE_meV_A": 43.313918178733175,
+            "max_abs_meV_A": 210.7440218881227
+          },
+          "passes_thermal_force_gate": true
+        }
+      },
+      "harmonic_replay": {
+        "dataset_path": "/home/howardwang/phonon/data/finetune_graphene8/val.xyz",
+        "n_structures": 25,
+        "combined_force": {
+          "RMSE_meV_A": 10.286214742395991,
+          "max_abs_meV_A": 100.50373032297166
+        },
+        "frozen_v11_force": {
+          "RMSE_meV_A": 7.235734900280711,
+          "max_abs_meV_A": 57.08133504318236
+        },
+        "passes_harmonic_retention_gate": true
+      },
+      "normalized_worst_gate_score": 1.4399085953314215,
+      "passes_both_endpoint_development_gates": false
+    }
+  },
+  "eligible_existing_models": [],
+  "selected_existing_model": null,
+  "requires_joint_model": true
+}

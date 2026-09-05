@@ -1,0 +1,37 @@
+{
+  "fixed_before_holdout_asset_inspection": "2026-08-18",
+  "material": "2H-NbS2",
+  "purpose": "third independent cross-material test after freezing the adaptive-rank and analytic-q representation on VSe2 and testing it on TaS2",
+  "data_policy": "use the existing remote EPW/Wannier asset; do not launch new DFT or add q labels after seeing holdout errors",
+  "q_path": {
+    "center_fractional": [0.3333333333333333, 0.3333333333333333, 0.0],
+    "direction_fractional": [1.0, 1.0, 0.0],
+    "halfwidth": 0.05,
+    "number_of_points": 41,
+    "training_indices": [0, 10, 20, 30, 40],
+    "holdout_points": 36
+  },
+  "mode": {
+    "reference_mode_index_at_q_center": 0,
+    "tracking": "maximum eigenvector overlap followed by phase alignment"
+  },
+  "model": {
+    "complex_vertex_rank": 4,
+    "latent_q_representation": "degree-4 Chebyshev polynomial fitted only to the five training q points"
+  },
+  "acceptance": {
+    "minimum_adjacent_mode_overlap": 0.99,
+    "minimum_full_data_rank4_capture": 0.9999,
+    "maximum_heldout_relative_vertex_RMSE": 0.02,
+    "maximum_heldout_relative_vertex_error": 0.05,
+    "maximum_downstream_frequency_RMSE_cm-1": 0.05,
+    "maximum_downstream_frequency_error_cm-1": 0.15,
+    "maximum_downstream_window_depth_relative_error": 0.02
+  },
+  "metadata_policy": "file names, stored Fermi level, and EPW mesh dimensions may be read from the archived calculation because they are input metadata rather than fitted model choices",
+  "not_part_of_this_gate": [
+    "absolute agreement of the stored EPW spectrum with converged DFT",
+    "short-range MLIP accuracy for 2H-NbS2",
+    "post-hoc rank, polynomial degree, or label-count changes"
+  ]
+}
