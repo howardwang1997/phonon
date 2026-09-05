@@ -1,0 +1,22 @@
+# Foundation fine-tune MACE-MP-0 (small) on graphene FC-distillation data.
+# ABLATION: does foundation fine-tune smooth the Kohn anomaly (vs FC-distillation)?
+# Architecture inherited from the foundation (NOT specified here).
+foundation_model: small
+train_file: /home/howardwang/phonon/data/finetune_graphene_fd/train.xyz
+valid_file: /home/howardwang/phonon/data/finetune_graphene_fd/val.xyz
+test_file: /home/howardwang/phonon/data/finetune_graphene_fd/val.xyz
+E0s: foundation
+energy_key: energy
+forces_key: forces
+batch_size: 1
+valid_batch_size: 1
+lr: 0.001
+max_num_epochs: 200
+ema: true
+ema_decay: 0.99
+patience: 30
+weight_decay: 1.0e-8
+energy_weight: 1.0
+forces_weight: 1.0
+default_dtype: float32
+device: cuda
