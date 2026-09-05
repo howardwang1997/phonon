@@ -1,0 +1,25 @@
+[Unit]
+Description=Graphene k18 Wannier pz smoke with only the lowest band excluded
+After=network-online.target
+
+[Service]
+Type=oneshot
+WorkingDirectory=/root/phonon
+Environment=WORK=/data/graphene_e0_epw_matched/wannier_smoke_k18q9_ex1_pifroz
+Environment=SOURCE_OUTDIR=/data/graphene_e0_epw_matched/k18_q9/tmp
+Environment=SOURCE_SCF=/data/graphene_e0_epw_matched/k18_q9/scf.out
+Environment=NK=18
+Environment=NQ=9
+Environment="BANDS_SKIPPED=exclude_bands = 1"
+Environment=DIS_FROZ_MIN=-2.2187
+Environment=DIS_FROZ_MAX=-1.2187
+Environment=HOME=/root
+Environment=USER=root
+Environment=LOGNAME=root
+ExecStart=/usr/bin/bash /root/phonon/scripts/v100/run_graphene_e0_wannier_smoke.sh
+TimeoutStartSec=1h
+KillMode=control-group
+Nice=5
+
+[Install]
+WantedBy=multi-user.target

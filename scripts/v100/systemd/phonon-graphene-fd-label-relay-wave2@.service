@@ -1,0 +1,14 @@
+[Unit]
+Description=Relay graphene physical-FD thermal labels wave 2 lane %i to RTX 2060
+After=network-online.target phonon-graphene-fd-labels-wave2@%i.service
+Wants=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=/root/phonon
+ExecStart=/usr/bin/bash /root/phonon/scripts/v100/run_graphene_fd_label_relay_wave2.sh %i
+Restart=on-failure
+RestartSec=60
+
+[Install]
+WantedBy=multi-user.target

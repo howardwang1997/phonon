@@ -1,0 +1,19 @@
+[Unit]
+Description=Graphene fixed 600 K physical-FD force holdout
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=/root/phonon
+Environment=ROOT=/root/phonon
+Environment=HOME=/root
+Environment=USER=root
+Environment=LOGNAME=root
+ExecStart=/usr/bin/bash /root/phonon/scripts/v100/run_graphene_fd_thermal_holdout600.sh
+Restart=on-failure
+RestartSec=60
+TimeoutStopSec=180
+
+[Install]
+WantedBy=multi-user.target

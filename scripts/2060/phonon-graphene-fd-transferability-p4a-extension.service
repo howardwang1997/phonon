@@ -1,0 +1,19 @@
+[Unit]
+Description=Graphene 450 K conditioned sampling extension and block-bootstrap
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=/home/howardwang/phonon
+Environment=ROOT=/home/howardwang/phonon
+Environment=HOME=/home/howardwang
+Environment=USER=howardwang
+Environment=LOGNAME=howardwang
+ExecStart=/usr/bin/bash /home/howardwang/phonon/scripts/2060/run_graphene_fd_transferability_p4a_extension.sh
+Restart=on-failure
+RestartSec=60
+TimeoutStopSec=180
+
+[Install]
+WantedBy=default.target

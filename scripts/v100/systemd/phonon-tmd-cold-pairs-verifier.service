@@ -1,0 +1,20 @@
+[Unit]
+Description=Verify and recover the exact-setting TMD cold/fd pairs
+Wants=network-online.target
+After=network-online.target
+ConditionPathExists=!/root/phonon/results/tmd_exp_a_recovery/COLD_PAIRS_DONE
+StartLimitIntervalSec=21600
+StartLimitBurst=5
+
+[Service]
+Type=simple
+WorkingDirectory=/root/phonon
+Environment=HOME=/root
+ExecStart=/bin/bash /root/phonon/scripts/v100/run_tmd_cold_pairs_v2.sh
+Restart=on-failure
+RestartSec=60
+TimeoutStopSec=300
+KillMode=control-group
+
+[Install]
+WantedBy=multi-user.target

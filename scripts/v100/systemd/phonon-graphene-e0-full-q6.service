@@ -1,0 +1,16 @@
+[Unit]
+Description=Graphene E0 complete q6 static EPW grid for 6x6 force operator
+After=phonon-graphene-e0-k18q9-postprocess.service
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+WorkingDirectory=/root/phonon
+Environment=ROOT=/root/phonon
+Environment=HOME=/root
+Environment=USER=root
+Environment=LOGNAME=root
+ExecStart=/usr/bin/bash /root/phonon/scripts/v100/run_graphene_e0_full_q_gate.sh
+TimeoutStartSec=12h
+KillMode=control-group
+Nice=5

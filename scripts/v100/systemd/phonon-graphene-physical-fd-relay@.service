@@ -1,0 +1,14 @@
+[Unit]
+Description=Relay graphene physical-FD campaigns from lane %i to RTX 2060
+After=network-online.target phonon-graphene-physical-fd-queue@%i.service
+Wants=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=/root/phonon
+ExecStart=/usr/bin/bash /root/phonon/scripts/v100/run_graphene_physical_fd_relay.sh %i
+Restart=on-failure
+RestartSec=60
+
+[Install]
+WantedBy=multi-user.target

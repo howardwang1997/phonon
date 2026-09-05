@@ -1,0 +1,15 @@
+[Unit]
+Description=Graphene physical S0 automatic L0 classical-TDEP queue
+After=default.target
+StartLimitIntervalSec=1800
+StartLimitBurst=3
+
+[Service]
+Type=simple
+WorkingDirectory=%h/phonon
+ExecStart=/usr/bin/bash %h/phonon/scripts/2060/run_graphene_physical_s0_l0.sh
+Restart=on-failure
+RestartSec=60
+
+[Install]
+WantedBy=default.target

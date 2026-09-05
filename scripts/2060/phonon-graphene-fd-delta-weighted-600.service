@@ -1,0 +1,14 @@
+[Unit]
+Description=Graphene 600 K weighted-replay delta-MACE sweep
+After=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=%h/phonon
+ExecStart=/bin/bash %h/phonon/scripts/2060/run_graphene_fd_delta_weighted_600.sh
+Restart=on-failure
+RestartSec=60
+TimeoutStopSec=180
+
+[Install]
+WantedBy=default.target

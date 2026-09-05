@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>com.openai.phonon.graphene-l0-coordinator</string>
+  <key>ProgramArguments</key>
+  <array>
+    <string>/bin/bash</string>
+    <string>/private/tmp/phonon_l0_coordinator/run_graphene_physical_l0_three_host_coordinator.sh</string>
+  </array>
+  <key>WorkingDirectory</key>
+  <string>/private/tmp/phonon_l0_coordinator</string>
+  <key>EnvironmentVariables</key>
+  <dict>
+    <key>HOME</key>
+    <string>/Users/howardwang</string>
+    <key>LOCAL_ROOT</key>
+    <string>/private/tmp/phonon_l0_coordinator</string>
+    <key>PATH</key>
+    <string>/usr/local/bin:/opt/homebrew/bin:/usr/bin:/bin:/usr/sbin:/sbin</string>
+  </dict>
+  <key>RunAtLoad</key>
+  <true/>
+  <key>KeepAlive</key>
+  <dict>
+    <key>SuccessfulExit</key>
+    <false/>
+  </dict>
+  <key>ThrottleInterval</key>
+  <integer>30</integer>
+  <key>ProcessType</key>
+  <string>Background</string>
+  <key>StandardOutPath</key>
+  <string>/private/tmp/phonon_l0_coordinator/launchd.stdout.log</string>
+  <key>StandardErrorPath</key>
+  <string>/private/tmp/phonon_l0_coordinator/launchd.stderr.log</string>
+</dict>
+</plist>

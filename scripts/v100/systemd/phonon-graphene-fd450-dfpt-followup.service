@@ -1,0 +1,20 @@
+[Unit]
+Description=Gate and continue graphene FD450 static-DFPT campaign
+After=network-online.target phonon-graphene-physical-fd@FD450_CONV.service
+Wants=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=/root/phonon
+Environment=ROOT=/root/phonon
+Environment=WORK_BASE=/data/graphene_physical_fd_dfpt
+Environment=HOME=/root
+Environment=USER=root
+Environment=LOGNAME=root
+ExecStart=/usr/bin/bash /root/phonon/scripts/v100/run_graphene_fd450_dfpt_followup.sh
+Restart=on-failure
+RestartSec=60
+TimeoutStopSec=180
+
+[Install]
+WantedBy=multi-user.target

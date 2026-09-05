@@ -1,0 +1,14 @@
+[Unit]
+Description=Graphene conservative model selection and parallel TDEP aggregate
+After=network-online.target phonon-graphene-fd-model-ablation-v2-300.service
+
+[Service]
+Type=simple
+WorkingDirectory=%h/phonon
+ExecStart=/bin/bash %h/phonon/scripts/2060/run_graphene_fd_model_ablation_v2_aggregate.sh
+Restart=on-failure
+RestartSec=60
+TimeoutStopSec=180
+
+[Install]
+WantedBy=default.target

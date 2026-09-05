@@ -1,0 +1,18 @@
+[Unit]
+Description=Phonon V100 recovery lane %i
+Wants=network-online.target
+After=network-online.target
+StartLimitIntervalSec=3600
+StartLimitBurst=5
+
+[Service]
+Type=simple
+WorkingDirectory=/root/phonon
+ExecStart=/bin/bash /root/phonon/scripts/v100/run_post_tmd_recovery.sh %i
+Restart=on-failure
+RestartSec=180
+TimeoutStopSec=300
+KillMode=control-group
+
+[Install]
+WantedBy=multi-user.target

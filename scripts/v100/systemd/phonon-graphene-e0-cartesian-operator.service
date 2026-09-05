@@ -1,0 +1,18 @@
+[Unit]
+Description=Graphene E0 q6 Cartesian Hermitian operator and replay gates
+After=phonon-graphene-e0-full-q6-multitemp.service
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+WorkingDirectory=/root/phonon
+Environment=ROOT=/root/phonon
+Environment=HOME=/root
+Environment=USER=root
+Environment=LOGNAME=root
+ExecStart=/usr/bin/bash /root/phonon/scripts/v100/run_graphene_e0_cartesian_operator.sh
+TimeoutStartSec=2h
+KillMode=control-group
+Restart=on-failure
+RestartSec=60s
+Nice=5

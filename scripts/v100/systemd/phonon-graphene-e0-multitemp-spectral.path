@@ -1,0 +1,9 @@
+[Unit]
+Description=Watch for the completed 450 K q6 grid before 300/600 K sparse gates
+
+[Path]
+PathExists=/data/graphene_e0_epw_matched/k18_q9_ex1_pifroz/full_q6_450K/DONE
+Unit=phonon-graphene-e0-multitemp-spectral.service
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,15 @@
+[Unit]
+Description=Graphene physical Q0 gated quantum SSCHA queue
+After=default.target
+StartLimitIntervalSec=1800
+StartLimitBurst=3
+
+[Service]
+Type=simple
+WorkingDirectory=%h/phonon
+ExecStart=/usr/bin/bash %h/phonon/scripts/2060/run_graphene_physical_q0.sh
+Restart=on-failure
+RestartSec=60
+
+[Install]
+WantedBy=default.target

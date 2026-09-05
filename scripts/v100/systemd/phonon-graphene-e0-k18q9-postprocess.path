@@ -1,0 +1,9 @@
+[Unit]
+Description=Watch for completed graphene E0 k18/q9 gate
+
+[Path]
+PathExists=/data/graphene_e0_epw_matched/k18_q9_ex1_pifroz/DONE
+Unit=phonon-graphene-e0-k18q9-postprocess.service
+
+[Install]
+WantedBy=multi-user.target

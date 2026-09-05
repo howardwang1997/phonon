@@ -1,0 +1,18 @@
+[Unit]
+Description=Graphene physical S0 controlled replay-weight-16 run
+After=default.target
+StartLimitIntervalSec=1800
+StartLimitBurst=3
+
+[Service]
+Type=simple
+WorkingDirectory=%h/phonon
+Environment=REPLAY_WEIGHT=16
+Environment=OUT=%h/phonon/results/graphene_physics_temperature/post_p4_feasibility/S0_unified_short/formal_240ep_2060_seed83_replayw16
+Environment=NAME=gr_physical_s0_delta32_seed83_replayw16
+ExecStart=/usr/bin/bash %h/phonon/scripts/2060/run_graphene_physical_s0_formal.sh
+Restart=on-failure
+RestartSec=60
+
+[Install]
+WantedBy=default.target

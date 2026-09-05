@@ -1,0 +1,27 @@
+[Unit]
+Description=Graphene E0 matched 15A k18 q9 with explicit pi bands and 450K gate
+After=network-online.target
+
+[Service]
+Type=oneshot
+WorkingDirectory=/root/phonon
+Environment=ROOT=/root/phonon
+Environment=WORK=/data/graphene_e0_epw_matched/k18_q9_pi45
+Environment=SOURCE_PREP=/data/graphene_e0_epw_matched/k18_q9
+Environment=NK=18
+Environment=NQ=9
+Environment=NP=8
+Environment=RUN_STATIC_GATE=1
+Environment="BANDS_SKIPPED=exclude_bands = 1-3, 6-14"
+Environment=HOME=/root
+Environment=USER=root
+Environment=LOGNAME=root
+ExecStart=/usr/bin/bash /root/phonon/scripts/v100/run_graphene_e0_epw_matched_cell.sh full
+TimeoutStartSec=24h
+KillMode=control-group
+Nice=5
+Restart=on-failure
+RestartSec=60s
+
+[Install]
+WantedBy=multi-user.target

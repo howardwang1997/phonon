@@ -1,0 +1,19 @@
+[Unit]
+Description=Graphene weighted-delta 600 K finite-temperature q-space calibration
+After=network-online.target phonon-graphene-fd-delta-weighted-tdep600.service
+Wants=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=/root/phonon
+Environment=ROOT=/root/phonon
+Environment=HOME=/root
+Environment=USER=root
+Environment=LOGNAME=root
+ExecStart=/usr/bin/bash /root/phonon/scripts/v100/run_graphene_fd_delta_weighted_calibrated_qspace600.sh
+Restart=on-failure
+RestartSec=60
+TimeoutStopSec=180
+
+[Install]
+WantedBy=multi-user.target

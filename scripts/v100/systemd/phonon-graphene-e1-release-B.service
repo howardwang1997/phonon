@@ -1,0 +1,14 @@
+[Unit]
+Description=Verify local graphene E0 operator bundle and release E1 lane B
+After=phonon-graphene-e0-cartesian-operator.service
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+WorkingDirectory=/root/phonon
+Environment=ROOT=/root/phonon
+Environment=HOME=/root
+Environment=USER=root
+Environment=LOGNAME=root
+ExecStart=/usr/bin/bash /root/phonon/scripts/v100/run_graphene_e1_release_local.sh
+TimeoutStartSec=10min

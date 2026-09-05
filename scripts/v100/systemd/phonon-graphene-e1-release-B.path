@@ -1,0 +1,9 @@
+[Unit]
+Description=Watch for the aggregate graphene E0 Cartesian operator gate on V100-B
+
+[Path]
+PathExists=/data/graphene_e0_epw_matched/k18_q9_ex1_pifroz/operator_q6_450K/cartesian/OPERATOR_GATE_PASS
+Unit=phonon-graphene-e1-release-B.service
+
+[Install]
+WantedBy=multi-user.target

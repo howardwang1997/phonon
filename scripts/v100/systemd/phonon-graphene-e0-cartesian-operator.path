@@ -1,0 +1,9 @@
+[Unit]
+Description=Watch for all 300/450/600 K q6 grids before Cartesian operator build
+
+[Path]
+PathExists=/data/graphene_e0_epw_matched/k18_q9_ex1_pifroz/full_q6_multitemp/DONE
+Unit=phonon-graphene-e0-cartesian-operator.service
+
+[Install]
+WantedBy=multi-user.target

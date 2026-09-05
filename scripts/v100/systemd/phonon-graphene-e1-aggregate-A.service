@@ -1,0 +1,11 @@
+[Unit]
+Description=Graphene E1 cross-degauss residual aggregate on V100-A
+After=network-online.target phonon-graphene-e1-cross-degauss@A.service
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/bash /root/phonon/scripts/v100/run_graphene_e1_aggregate_pull.sh
+Nice=10
+IOSchedulingClass=best-effort
+IOSchedulingPriority=7

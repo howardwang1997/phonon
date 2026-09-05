@@ -1,0 +1,15 @@
+[Unit]
+Description=Graphene physical X0 gated cross-term development queue
+After=default.target
+StartLimitIntervalSec=1800
+StartLimitBurst=3
+
+[Service]
+Type=simple
+WorkingDirectory=%h/phonon
+ExecStart=/usr/bin/bash %h/phonon/scripts/2060/run_graphene_physical_x0.sh
+Restart=on-failure
+RestartSec=60
+
+[Install]
+WantedBy=default.target

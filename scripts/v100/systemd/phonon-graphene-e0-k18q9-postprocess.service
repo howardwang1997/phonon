@@ -1,0 +1,14 @@
+[Unit]
+Description=Analyze graphene E0 k18/q9 spectral gate
+After=phonon-graphene-e0-matched-k18q9-ex1-pifroz.service
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+WorkingDirectory=/root/phonon
+Environment=ROOT=/root/phonon
+Environment=HOME=/root
+Environment=USER=root
+Environment=LOGNAME=root
+ExecStart=/usr/bin/bash /root/phonon/scripts/v100/run_graphene_e0_postprocess.sh
+TimeoutStartSec=30min

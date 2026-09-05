@@ -1,0 +1,13 @@
+[Unit]
+Description=Graphene physical S0 gate-aware monitor and L0 dispatcher
+After=default.target
+
+[Service]
+Type=simple
+WorkingDirectory=%h/phonon
+ExecStart=%h/miniconda3/bin/conda run --no-capture-output -n phonon python %h/phonon/scripts/smearing_kink/monitor_graphene_physical_s0_autopilot.py
+Restart=always
+RestartSec=60
+
+[Install]
+WantedBy=default.target

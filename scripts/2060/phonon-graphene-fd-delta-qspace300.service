@@ -1,0 +1,14 @@
+[Unit]
+Description=Graphene 300 K delta-TDEP full q-space LR validation
+After=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=%h/phonon
+ExecStart=/bin/bash %h/phonon/scripts/2060/run_graphene_fd_delta_qspace300.sh
+Restart=on-failure
+RestartSec=60
+TimeoutStopSec=180
+
+[Install]
+WantedBy=default.target

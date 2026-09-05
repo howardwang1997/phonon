@@ -1,0 +1,15 @@
+[Unit]
+Description=Pull and verify graphene E0 operator bundle before releasing E1 lane A
+After=network-online.target
+Wants=network-online.target
+ConditionPathExists=!/data/graphene_e1_cross_degauss/input/OPERATOR_GATE_PASS
+
+[Service]
+Type=oneshot
+WorkingDirectory=/root/phonon
+Environment=ROOT=/root/phonon
+Environment=HOME=/root
+Environment=USER=root
+Environment=LOGNAME=root
+ExecStart=/usr/bin/bash /root/phonon/scripts/v100/run_graphene_e1_release_pull.sh
+TimeoutStartSec=10min

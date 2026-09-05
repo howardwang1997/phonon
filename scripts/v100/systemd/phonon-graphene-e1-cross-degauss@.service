@@ -1,0 +1,22 @@
+[Unit]
+Description=Graphene E1 cross-degauss DFT lane %i
+After=network-online.target
+Wants=network-online.target
+StartLimitIntervalSec=1h
+StartLimitBurst=3
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+WorkingDirectory=/root/phonon
+Environment=ROOT=/root/phonon
+Environment=HOME=/root
+Environment=USER=root
+Environment=LOGNAME=root
+ExecStart=/usr/bin/bash /root/phonon/scripts/v100/run_graphene_e1_cross_degauss.sh %i
+# The release-gated runner may wait for an unrelated job to vacate the shared
+# V100 before beginning its 4--5 h DFT lane.
+TimeoutStartSec=infinity
+KillMode=control-group
+Restart=on-failure
+RestartSec=60s

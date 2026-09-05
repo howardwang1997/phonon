@@ -1,0 +1,16 @@
+[Unit]
+Description=Graphene physical-FD P2b conditioned predictor freeze
+After=network-online.target phonon-graphene-fd-transferability-p2.service
+Wants=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=%h/phonon
+Environment=ROOT=%h/phonon
+ExecStart=/bin/bash %h/phonon/scripts/2060/run_graphene_fd_transferability_p2b_conditioned_freeze.sh
+Restart=on-failure
+RestartSec=60
+TimeoutStopSec=180
+
+[Install]
+WantedBy=default.target

@@ -1,0 +1,13 @@
+[Unit]
+Description=Graphene 300 K frozen-v11 delta-force pilot
+After=network-online.target
+
+[Service]
+Type=oneshot
+WorkingDirectory=%h/phonon
+ExecStart=/bin/bash %h/phonon/scripts/2060/run_graphene_fd_delta_model_lane.sh 300
+Restart=on-failure
+RestartSec=60
+
+[Install]
+WantedBy=default.target

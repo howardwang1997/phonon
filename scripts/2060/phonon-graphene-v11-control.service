@@ -1,0 +1,13 @@
+[Unit]
+Description=Graphene v11 finite-temperature no-long-range control
+After=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=%h/phonon
+ExecStart=/bin/bash %h/phonon/scripts/2060/run_graphene_v11_no_long_range_control.sh
+Restart=on-failure
+RestartSec=60
+
+[Install]
+WantedBy=default.target

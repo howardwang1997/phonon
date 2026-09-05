@@ -1,0 +1,20 @@
+[Unit]
+Description=Graphene E0 EPW static k-grid and numerical-broadening convergence
+After=network-online.target
+
+[Service]
+Type=oneshot
+WorkingDirectory=/root/phonon
+Environment=ROOT=/root/phonon
+Environment=HOME=/root
+Environment=USER=root
+Environment=LOGNAME=root
+ExecStart=/usr/bin/bash /root/phonon/scripts/v100/run_graphene_e0_epw_static_convergence.sh
+TimeoutStartSec=24h
+KillMode=control-group
+Nice=5
+Restart=on-failure
+RestartSec=60s
+
+[Install]
+WantedBy=multi-user.target

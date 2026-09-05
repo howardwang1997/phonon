@@ -1,0 +1,9 @@
+[Unit]
+Description=Check phonon V100 recovery lane %i
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=oneshot
+WorkingDirectory=/root/phonon
+ExecStart=/bin/bash /root/phonon/scripts/v100/recovery_watchdog.sh %i

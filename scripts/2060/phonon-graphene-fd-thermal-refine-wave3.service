@@ -1,0 +1,14 @@
+[Unit]
+Description=Conditional graphene physical-FD expanded thermal fine-tune wave 3
+After=network-online.target phonon-graphene-fd-thermal-refine-wave2.service
+
+[Service]
+Type=simple
+WorkingDirectory=%h/phonon
+ExecStart=/bin/bash %h/phonon/scripts/2060/run_graphene_fd_thermal_refine_wave3.sh
+Restart=on-failure
+RestartSec=60
+TimeoutStopSec=180
+
+[Install]
+WantedBy=default.target

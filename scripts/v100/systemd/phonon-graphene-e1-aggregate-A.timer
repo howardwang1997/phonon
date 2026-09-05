@@ -1,0 +1,12 @@
+[Unit]
+Description=Poll for both completed graphene E1 lanes
+
+[Timer]
+OnBootSec=3min
+OnUnitInactiveSec=5min
+AccuracySec=20s
+Persistent=true
+Unit=phonon-graphene-e1-aggregate-A.service
+
+[Install]
+WantedBy=timers.target

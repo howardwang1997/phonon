@@ -1,0 +1,9 @@
+[Unit]
+Description=Watch for passing 300/600 K sparse gates before full q6 exports
+
+[Path]
+PathExists=/data/graphene_e0_epw_matched/k18_q9_ex1_pifroz/analysis_multitemp/MULTITEMP_SPECTRAL_GATE_PASS
+Unit=phonon-graphene-e0-full-q6-multitemp.service
+
+[Install]
+WantedBy=multi-user.target

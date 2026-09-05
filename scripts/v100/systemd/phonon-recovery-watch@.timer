@@ -1,0 +1,12 @@
+[Unit]
+Description=Monitor phonon V100 recovery lane %i every two minutes
+
+[Timer]
+OnBootSec=2min
+OnUnitInactiveSec=2min
+AccuracySec=15s
+RandomizedDelaySec=10s
+Unit=phonon-recovery-watch@%i.service
+
+[Install]
+WantedBy=timers.target

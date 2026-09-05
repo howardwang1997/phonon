@@ -1,0 +1,16 @@
+[Unit]
+Description=Graphene 300 K finite-temperature calibrated q-space validation
+After=network-online.target phonon-graphene-fd-delta-qspace300.service
+Wants=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=%h/phonon
+Environment=ROOT=%h/phonon
+ExecStart=/bin/bash %h/phonon/scripts/2060/run_graphene_fd_delta_calibrated_qspace300.sh
+Restart=on-failure
+RestartSec=60
+TimeoutStopSec=180
+
+[Install]
+WantedBy=default.target

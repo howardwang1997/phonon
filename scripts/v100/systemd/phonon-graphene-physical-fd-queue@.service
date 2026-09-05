@@ -1,0 +1,14 @@
+[Unit]
+Description=Graphene physical-FD remote campaign queue lane %i
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=/root/phonon
+ExecStart=/usr/bin/bash /root/phonon/scripts/v100/run_graphene_physical_fd_queue.sh %i
+Restart=on-failure
+RestartSec=60
+
+[Install]
+WantedBy=multi-user.target

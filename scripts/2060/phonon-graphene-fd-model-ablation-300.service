@@ -1,0 +1,14 @@
+[Unit]
+Description=Graphene physical-FD training ablation lane 300 K
+After=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=%h/phonon
+ExecStart=/bin/bash %h/phonon/scripts/2060/run_graphene_fd_model_ablation_lane.sh 300
+Restart=on-failure
+RestartSec=60
+TimeoutStopSec=180
+
+[Install]
+WantedBy=default.target

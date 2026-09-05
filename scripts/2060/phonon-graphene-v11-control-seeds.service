@@ -1,0 +1,14 @@
+[Unit]
+Description=Graphene v11 no-long-range TDEP independent-seed sweep
+After=network-online.target phonon-graphene-v11-control.service
+
+[Service]
+Type=simple
+WorkingDirectory=%h/phonon
+ExecStart=/bin/bash %h/phonon/scripts/2060/run_graphene_v11_control_seeds.sh
+Restart=on-failure
+RestartSec=60
+TimeoutStopSec=120
+
+[Install]
+WantedBy=default.target

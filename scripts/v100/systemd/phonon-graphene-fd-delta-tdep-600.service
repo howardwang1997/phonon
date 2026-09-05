@@ -1,0 +1,15 @@
+[Unit]
+Description=Graphene 600 K frozen-v11 delta plus LR three-seed TDEP
+After=network-online.target
+
+[Service]
+Type=oneshot
+WorkingDirectory=/root/phonon
+Environment=ROOT=/root/phonon
+Environment=CONDA=/root/miniconda3/bin/conda
+ExecStart=/usr/bin/bash /root/phonon/scripts/2060/run_graphene_fd_delta_tdep_lane.sh 600
+Restart=on-failure
+RestartSec=60
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,9 @@
+[Unit]
+Description=Wait for graphene E1 operator release on V100-B
+
+[Path]
+PathExists=/data/graphene_e1_cross_degauss/input/OPERATOR_GATE_PASS
+Unit=phonon-graphene-e1-cross-degauss@B.service
+
+[Install]
+WantedBy=multi-user.target

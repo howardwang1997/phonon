@@ -1,0 +1,14 @@
+[Unit]
+Description=Relay conditional graphene physical-FD labels wave 3 lane %i
+After=network-online.target phonon-graphene-fd-labels-wave3@%i.service
+Wants=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=/root/phonon
+ExecStart=/usr/bin/bash /root/phonon/scripts/v100/run_graphene_fd_label_relay_wave3.sh %i
+Restart=on-failure
+RestartSec=60
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,19 @@
+[Unit]
+Description=Graphene physical-FD thermal force labels wave 2 lane %i
+After=network-online.target phonon-graphene-fd-labels@%i.service
+Wants=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=/root/phonon
+Environment=ROOT=/root/phonon
+Environment=HOME=/root
+Environment=USER=root
+Environment=LOGNAME=root
+ExecStart=/usr/bin/bash /root/phonon/scripts/v100/run_graphene_fd_thermal_labels_wave2.sh %i
+Restart=on-failure
+RestartSec=60
+TimeoutStopSec=180
+
+[Install]
+WantedBy=multi-user.target

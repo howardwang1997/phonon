@@ -1,0 +1,18 @@
+[Unit]
+Description=Graphene E0 complete q6 static grids at 300 and 600 K
+After=phonon-graphene-e0-multitemp-spectral.service
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+WorkingDirectory=/root/phonon
+Environment=ROOT=/root/phonon
+Environment=HOME=/root
+Environment=USER=root
+Environment=LOGNAME=root
+ExecStart=/usr/bin/bash /root/phonon/scripts/v100/run_graphene_e0_full_q_multitemp.sh
+TimeoutStartSec=12h
+KillMode=control-group
+Restart=on-failure
+RestartSec=60s
+Nice=5

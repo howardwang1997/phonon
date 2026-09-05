@@ -1,0 +1,14 @@
+[Unit]
+Description=Graphene 300 K early model selection and three-seed TDEP
+After=network-online.target phonon-graphene-fd-model-ablation-300.service
+
+[Service]
+Type=simple
+WorkingDirectory=%h/phonon
+ExecStart=/bin/bash %h/phonon/scripts/2060/run_graphene_fd_model_ablation_pre300.sh
+Restart=on-failure
+RestartSec=60
+TimeoutStopSec=180
+
+[Install]
+WantedBy=default.target

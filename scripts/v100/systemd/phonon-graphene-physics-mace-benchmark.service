@@ -1,0 +1,14 @@
+[Unit]
+Description=Graphene 300/600 K development-only MACE 10-epoch GPU benchmark
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+WorkingDirectory=/root/phonon
+ExecStart=/usr/bin/bash /root/phonon/scripts/v100/run_graphene_physics_temperature_mace_benchmark.sh
+TimeoutStartSec=2h15min
+Nice=5
+
+[Install]
+WantedBy=multi-user.target

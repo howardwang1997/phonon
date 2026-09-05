@@ -1,0 +1,13 @@
+[Unit]
+Description=Graphene V100-%i resource monitor and held validation queue
+After=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=/root/phonon
+ExecStart=/usr/bin/python3 /root/phonon/scripts/v100/monitor_graphene_v100_queue.py --lane %i
+Restart=always
+RestartSec=60
+
+[Install]
+WantedBy=multi-user.target

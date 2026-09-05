@@ -1,0 +1,9 @@
+[Unit]
+Description=Watch for a passing graphene E0 k18/q9 spectral gate before q6 export
+
+[Path]
+PathExists=/data/graphene_e0_epw_matched/k18_q9_ex1_pifroz/analysis/SPECTRAL_GATE_PASS
+Unit=phonon-graphene-e0-full-q6.service
+
+[Install]
+WantedBy=multi-user.target

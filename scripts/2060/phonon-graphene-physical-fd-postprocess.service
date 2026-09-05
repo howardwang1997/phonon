@@ -1,0 +1,14 @@
+[Unit]
+Description=Graphene physical-FD long-range and zero-smearing postprocess queue
+After=network-online.target phonon-graphene-fd-thermal-refine-wave2.service
+
+[Service]
+Type=simple
+WorkingDirectory=%h/phonon
+ExecStart=/bin/bash %h/phonon/scripts/2060/run_graphene_physical_fd_postprocess.sh
+Restart=on-failure
+RestartSec=60
+TimeoutStopSec=180
+
+[Install]
+WantedBy=default.target
