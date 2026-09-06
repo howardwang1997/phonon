@@ -180,9 +180,10 @@ def compose_aprime(phonon, short_fc, qpoints, signed_q, response_cm2) -> tuple[n
     return np.asarray(applied.tracked_frequency_cm1, float), diagnostics
 
 
-def curvature_reference(delta_fc, reference, cell, tagged_labels: Path | None = None) -> tuple[dict, np.ndarray]:
+def curvature_reference(delta_fc, reference, cell, tagged_labels: Path | None = None, tagged_npz: Path | None = None) -> tuple[dict, np.ndarray]:
     """Tagged-pair thermal curvature K reference from the R2B labels."""
-    with np.load(TAGGED_NPZ, allow_pickle=False) as data:
+    tagged_npz = tagged_npz or TAGGED_NPZ
+    with np.load(tagged_npz, allow_pickle=False) as data:
         tagged = {key: np.asarray(data[key]) for key in data.files}
     pattern = np.asarray(tagged["k_aprime_pattern"], float)
     pattern_norm = float(tagged["pattern_norm2"].reshape(()))
@@ -196,7 +197,7 @@ def curvature_reference(delta_fc, reference, cell, tagged_labels: Path | None = 
 
     labels = {}
     label_dir = tagged_labels or (
-        TAGGED_NPZ.parent / "labels" / TAGGED_NPZ.name[: -len("_snapshots.npz")]
+        tagged_npz.parent / "labels" / tagged_npz.name[: -len("_snapshots.npz")]
     )
     for local_index, label_id in enumerate(label_ids):
         label_path = label_dir / f"snapshot_{local_index:03d}_k8.npz"
