@@ -35,3 +35,15 @@
 全 M–Γ–K–M 六分支图见 `s0_full_bands_with_dense_K_full_epc.png`；近 K 定量图见 `r2ao_s0_fixed_smearing_full_epc.png`。
 
 详细数值和逐项门槛见 `r2ao_full_epc_acceptance_summary.json`。
+
+## 2026-09-07 绝对频率再标定（450 K 独立闭环之后）
+
+上文"当前没有收敛且独立的 DFT-TDEP 热力学参考"的限定在 450 K 已被最小闭环移除（`docs/GRAPHENE_450K_CLOSURE_RESULT_2026-09-06.md`，48 个独立 DFT 标签）：**形态主张确认**（K 参照 shape RMSE 0.634/max 1.210 cm⁻¹；cusp 深度误差 2.95%/3.75%）；**绝对 K 系统性偏软 +30.4±1.5 cm⁻¹（2.4%）**（12 种子 tagged-pair 热曲率参考 1300.21 vs 本表 S0@450 1269.80）。
+
+因此**自 2026-09-07 起，450 K 的部署曲线携带再标定常数**：
+
+- 修正形式：均匀模式投影响应移位 `Π + ΔΠ_calib`，`ΔΠ_calib = +70261.6 cm⁻²`（= Δ(m·λ)/m·scale，Δ(m·λ) = +3.1033 eV/Å²，标定 6 种子 69/118/126/197/31/92），沿被跟踪的 A′ 分支、限本密集 K 窗口组合；不修改任何实空间 fc 对象，Γ/M 与非 A′ 分支构造上不动。
+- 修正后 K = **1297.168 cm⁻¹**：对 12 种子独立参考残差 **3.04 cm⁻¹**（门限 ≤5）；留出半区残差 6.076 = split-half 噪声底（泛化受参考统计限制，非修正本身）；cusp 深度 2.11%/2.08%；对 DFT 拟合的非 K 参照 RMSE 31.4 → 4.34 cm⁻¹。
+- 修正后 450 K 精度包络：**形态 ~1 cm⁻¹；绝对 K ~3 cm⁻¹（参考 split-half 地板 6.08）**。300/600 K 仍为未再标定的原始值（绝对 K 误差棒 ~30 cm⁻¹ 量级），每温度一次曲率参考的复刻见周报 §6。
+- 修正曲线与全部判据：`post_p4_feasibility/R2A_450k_dft_tdep_reference/k_channel_calibration.{json,npz}`（`corrected_aprime_v2_branch_uniform_cm1`）；机器可读本节：`model_error_calibration.json`。
+- 方法注记：曾冻结 v1 秩一实空间形式（`short_fc + Δ·P⊗P/‖P‖²`）并执行失败（K 差 16.26 cm⁻¹）——commensurate 超胞内超胞本征模式是 Fourier 宽度 ~1/L 的 Bloch 态，做不了 K 局部修正；v1 数字保留在上述 JSON 的 `design_v1_*`。

@@ -1,0 +1,61 @@
+{
+  "status": "in_force",
+  "effective_date": "2026-09-07",
+  "scope": "deployed S0 fixed-smearing full-EPC composition, lattice T=450 K only; dense K-window A-prime branch",
+  "correction": {
+    "form": "branch-uniform mode-projected response shift Pi + dPi_calib (deployed compose path; no real-space fc object modified)",
+    "dpi_calib_cm2": 70261.60368031562,
+    "dml_eV_A2": 3.1033182760236713,
+    "calibration_seeds": [
+      69,
+      118,
+      126,
+      197,
+      31,
+      92
+    ],
+    "heldout_seeds": [
+      14,
+      10,
+      227,
+      120,
+      215,
+      100
+    ]
+  },
+  "corrected_K_cm1": 1297.167864186189,
+  "uncorrected_K_cm1": 1269.7963869050202,
+  "dft_reference_12seed_cm1": 1300.2094949409634,
+  "residuals": {
+    "primary_vs_12seed_cm1": 3.04163075477436,
+    "heldout_vs_split_half_floor_cm1": [
+      6.076162691321997,
+      6.076162691321997
+    ],
+    "cusp_rel_error": {
+      "d0.003": 0.02108994696645368,
+      "d0.025": 0.02082594767814164
+    },
+    "shape_rmse_nonkreferenced_vs_dft_fit_cm1": [
+      4.33840936417251,
+      31.432459926165613
+    ]
+  },
+  "accuracy_envelope_450K": {
+    "morphology_cm1": "~1 (shape RMSE 0.634/max 1.210 vs independent DFT fit)",
+    "absolute_K_cm1": "~3 vs 12-seed reference; reference split-half floor 6.08"
+  },
+  "temperatures_not_yet_recalibrated": [
+    300,
+    600
+  ],
+  "provenance": {
+    "closure_doc": "docs/GRAPHENE_450K_CLOSURE_RESULT_2026-09-06.md (Result 4)",
+    "calibration_json": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/R2A_450k_dft_tdep_reference/k_channel_calibration.json",
+    "calibration_json_sha256": "a8f252781ccc81adfb4404828999e1a0d6dbd475bd68adbc7222cc692402c47a",
+    "calibration_npz": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/R2A_450k_dft_tdep_reference/k_channel_calibration.npz",
+    "calibration_npz_sha256": "8ad1ff3776b8bcebd81e3d6a91773de51b7d887a479243f88da83b853c6a63cb",
+    "design_frozen": "docs/WEEKLY_2026-09-07.md section 4, commit 3cb7675 (before execution)",
+    "v1_failure_record": "design_v1_* fields inside the calibration json (rank-1 real-space form failed primary gate; kept for the record)"
+  }
+}

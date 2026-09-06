@@ -1,0 +1,83 @@
+{
+  "status": "frozen_before_DFT",
+  "purpose": "absolute K A' reference via tagged-pair thermal curvature at T_lat=300 K; second/third temperature point of the dPi_calib(T_lat) replication (weekly 2026-09-07 section 6)",
+  "lattice_temperature_K": 300,
+  "seed_rule": "sort the full 300-config formal_T ensemble by |A' projected amplitude| with the deployed S0@300 short K pattern; take evenly spaced 12",
+  "mirror_exclusion": "none: nearest-match probe 2026-09-07 shows the ensembles contain no exact +- mirror pairs (best-match cost ~6 A, zero < 1e-6); the 450 K i^1 rule was vacuous and is dropped",
+  "seeds": [
+    63,
+    199,
+    157,
+    17,
+    47,
+    60,
+    178,
+    155,
+    39,
+    104,
+    90,
+    119
+  ],
+  "calib_split": {
+    "calib_6": [
+      63,
+      199,
+      157,
+      17,
+      47,
+      60
+    ],
+    "heldout_6": [
+      178,
+      155,
+      39,
+      104,
+      90,
+      119
+    ]
+  },
+  "seed_Aprime_amplitudes_A": {
+    "63": 9.698440663886292e-06,
+    "199": -0.002683079943939427,
+    "157": 0.00669571054015871,
+    "17": 0.008587603749120022,
+    "47": 0.012490530206430156,
+    "60": 0.016835941015417088,
+    "178": -0.022631408995849877,
+    "155": 0.027997900081810464,
+    "39": 0.03177806827511861,
+    "104": 0.03783071769928314,
+    "90": 0.04394970708386786,
+    "119": -0.05228494396378012
+  },
+  "delta_A": 0.04,
+  "label_id_encoding": "1000 + 2*i + (0 for minus, 1 for plus)",
+  "pattern": {
+    "source": "Gamma-eigenspace K cluster of the deployed S0@300 short Hessian",
+    "eigenvalue_cluster_size": 2,
+    "pattern_omega_cm1": 1312.2620360355809,
+    "b0_omega_cm1": 1312.2620360355806,
+    "eigen_residual_RMS": 5.572549221769874e-15
+  },
+  "frozen_gates": {
+    "primary": "|K_corrected - K_ref(12 seeds)| <= 5 cm-1",
+    "heldout": "|K_corrected - K_ref(held-out 6)| vs that temperature's split-half spread (consistency readout, not pass/fail)",
+    "cusp": "corrected cusp depths (d=0.003/0.025) within 15% of deployed S0@T",
+    "shape_vs_dft": "not applicable: no plain TDEP labels at this temperature (scope reduction vs the 450 K closure)"
+  },
+  "transferability_readout": {
+    "dpi_calib_450K_cm2": 70261.60368031562,
+    "question": "does the 450 K calibration constant transfer, or is dPi_calib(T) needed per temperature"
+  },
+  "inputs": {
+    "deployed_matrices": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/R2R_multipolar_background/R2AT_paired_full_epc_acceptance_20260827/r2ao_s0_fixed_smearing_full_epc_matrices.npz",
+    "deployed_matrices_sha256": "e8b77d32b852c74a99dc29f0dd04fd6e24dcd588a3a0cfb9f341e747b9f7f809",
+    "operator": "/Users/howardwang/Desktop/playground/phonon/data/graphene_r2c_eval/operators/T300_operator.npz",
+    "operator_sha256": "114fb9a369ed106e5a89a9c05223aed7667fd737714f3d42516ebdb8e2e475c3",
+    "ensemble": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/R2R_multipolar_background/R2AP_fixed_smearing_SSCHA/formal_T300/ensembles/xats_pop1.npy",
+    "atom_order_interface": "R2AT_s0_shared_initial_sensitivity/formal_T450_Tel300 acceptance (fixed cell property)"
+  },
+  "outputs": {
+    "r2b_tagged_pairs_snapshots_sha256": "c289161a70dfe041105df51215bac89791c881f86d6b2f18c3e86f7d4bbe02bd"
+  }
+}
