@@ -1,0 +1,87 @@
+{
+  "status": "all_gates_passed",
+  "scope": "K-channel recalibration of the deployed S0@450 composition; absolute-frequency closure",
+  "frozen_design": "docs/WEEKLY_2026-09-07.md section 4 (committed 3cb7675 before execution)",
+  "design_revision": "v1 rank-1 real-space form failed (see metrics.design_v1_*); revised to v2 uniform branch-response form after diagnosing the supercell Fourier-width limit and the branch-uniform discrepancy profile; gates unchanged",
+  "condition": {
+    "deployed_matrices": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/R2R_multipolar_background/R2AT_paired_full_epc_acceptance_20260827/r2ao_s0_fixed_smearing_full_epc_matrices.npz",
+    "deployed_matrices_sha256": "e8b77d32b852c74a99dc29f0dd04fd6e24dcd588a3a0cfb9f341e747b9f7f809",
+    "tagged_pairs": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/R1_450k_matched_overlap_screen/r2b_tagged_pairs_snapshots.npz",
+    "tagged_pairs_sha256": "f28402c3981c7d321efff89198811701a1aad0a4113e2174dad7b268c2560975",
+    "labels": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/R1_450k_matched_overlap_screen/labels/r2b_tagged_pairs"
+  },
+  "metrics": {
+    "calibration": {
+      "calib_seeds": [
+        69,
+        118,
+        126,
+        197,
+        31,
+        92
+      ],
+      "heldout_seeds": [
+        14,
+        10,
+        227,
+        120,
+        215,
+        100
+      ],
+      "calib_mean_curvature_eV_A2": -77.91633635229802,
+      "calib_seed_std_eV_A2": 0.49152406979547775,
+      "deployed_projected_m_lambda_eV_A2": 74.81301807627435,
+      "dml_eV_A2": 3.1033182760236713,
+      "dpi_calib_cm2": 70261.60368031562,
+      "corrected_projected_m_lambda_eV_A2": 77.91633635229802
+    },
+    "K_references_cm1": {
+      "uncorrected_deployed": 1269.7963869050202,
+      "reference_12seed": 1300.2094949409634,
+      "reference_calib6": 1297.167864186189,
+      "reference_heldout6": 1303.244026877511
+    },
+    "split_half_noise_floor_cm1": 6.076162691321997,
+    "design_v1_rank1_real_space": {
+      "status": "failed_primary_gate",
+      "diagnosis": "K-star Bloch Fourier width ~1/L (~0.17 in 2pi/a) exceeds the +-0.04 window; both star members absorb ~half the shift and the whole window lifts; corrected K misses by 16.3 cm-1",
+      "K_cm1": 1283.9493813517702,
+      "primary_abs_diff_vs_12seed_cm1": 16.260113589193224,
+      "heldout_abs_diff_cm1": 19.29464552574086,
+      "window_edge_shift_cm1": 13.24763959103916,
+      "cusp_rel_error": {
+        "d0.003": 0.038572122838457124,
+        "d0.025": 0.020716052105650855
+      },
+      "rmse_nonkreferenced_vs_dft_fit": 17.58499758953973
+    },
+    "design_v2_branch_uniform_response": {
+      "status": "final",
+      "note": "uniform mode-projected addition along the tracked A' branch; Gamma/M and non-A' branches untouched by construction (no fc object modified)",
+      "K_cm1": 1297.167864186189,
+      "primary_abs_diff_vs_12seed_cm1": 3.04163075477436,
+      "heldout_abs_diff_cm1": 6.076162691321997,
+      "window_edge_shift_cm1": 26.83370353061764,
+      "cusp_rel_error": {
+        "d0.003": 0.02108994696645368,
+        "d0.025": 0.02082594767814164
+      },
+      "rmse_nonkreferenced_vs_dft_fit": 4.33840936417251
+    },
+    "shape_vs_dft_fit": {
+      "rmse_nonkreferenced_uncorrected": 31.432459926165613
+    },
+    "branch_tracking": {
+      "min_branch_overlap": 0.999999076289226,
+      "max_top_branch_difference_cm1": 0.0,
+      "note": "shared by v1/v2/uncorrected (same short sequence)"
+    },
+    "uncorrected_replay_max_abs_cm1": 0.0
+  },
+  "gates": {
+    "primary_abs_diff_vs_12seed_le_5": true,
+    "heldout_within_split_half_noise": true,
+    "cusp_depth_le_15pct": true,
+    "shape_not_degraded": true
+  }
+}

@@ -128,6 +128,61 @@ structures (q6-subtracted), RMSE 399 meV/Å, branch tracking overlap 0.9999996.
 Accuracy envelope of the deployed composition at 450 K, as measured by this
 closure: **morphology ~1 cm⁻¹; absolute K ~30 cm⁻¹.**
 
+## Result 4 — absolute-frequency recalibration (09-07) ✅ all gates pass
+
+Design frozen pre-execution (WEEKLY_2026-09-07 §4, commit 3cb7675):
+calibration scalar from the first 6 seeds,
+
+```
+Δ(m·λ) = −⟨curvature⟩_(calib 6) − m·λ_short(deployed) = +3.1033 eV/Å²
+```
+
+(seeds 69/118/126/197/31/92 calibrate; 14/10/227/120/215/100 held out),
+i.e. ΔΠ_calib = Δ(m·λ)/m·scale = **+70261.6 cm⁻²**.
+
+**v1 (rank-1 real-space form) executed and failed the primary gate — recorded
+as run.** `short_fc + Δ·P⊗P/‖P‖²` with P the R2B K-A′ eigendisplacement:
+P is a supercell Γ-eigenvector, i.e. a pure K-star Bloch state whose
+real-space Fourier width ~1/L ≈ 0.17 (2π/a, L = 6 cells) exceeds the whole
+±0.04 dense window. Both K-star members absorb ~half the shift, the entire
+window lifts +13.2 cm⁻¹, and the corrected K misses by 16.26 cm⁻¹
+(1283.95 vs reference 1300.21). The failure carries the diagnosis: the
+DFT-fit − deployed discrepancy is **uniform** (+31.9 cm⁻¹ across the window,
+RMS deviation from a constant 0.63 — the same number as the K-referenced
+shape RMSE), so the softness is a **branch-uniform A′ stiffness offset**,
+not a K-local deficit.
+
+**v2 (revision, evidence-driven, gates unchanged): uniform mode-projected
+addition through the response channel.** The deployed composition is
+recomposed through its own code path (`dynamical_sequence → track_branch →
+apply_mode_projected_correction`) with `Π + ΔΠ_calib`. No real-space fc
+object is modified → Γ/M and non-A′ branches untouched by construction;
+the correction is scoped to this K-window A′ composition.
+
+| gate | value | threshold | verdict |
+|---|---|---|---|
+| primary: \|K − K_ref(12 seeds)\| | **3.042 cm⁻¹** | ≤ 5 | **PASS** |
+| held-out consistency: \|K − K_ref(held-out 6)\| | 6.076 cm⁻¹ | = split-half noise floor 6.076 (readout, not pass/fail) | at the statistical floor |
+| cusp depth rel err d=0.003 / 0.025 | **2.11% / 2.08%** | ≤ 15% | **PASS** (better than deployed 2.95%/3.75%) |
+| shape not degraded (non-K-ref RMSE vs DFT fit) | **31.43 → 4.34 cm⁻¹** | not worse | **PASS** |
+
+Corrected K = 1297.168 cm⁻¹ — exactly the calib-half reference (by
+construction of the scalar calibration), so the primary-gate residual 3.04
+is precisely the calib-half vs 12-seed reference fluctuation, and the
+held-out residual 6.076 is precisely the split-half spread: **the
+recalibration's generalization is limited by the reference's own seed
+statistics, not by the correction.** The +30.4 cm⁻¹ absolute error is
+removed to the noise floor; cusp depths and line shapes are preserved
+(morphology envelope unchanged). Uncorrected replay still 0.0 cm⁻¹.
+
+Script `scripts/smearing_kink/calibrate_graphene_450k_k_channel.py`
+(v1 numbers preserved inside its output as `design_v1_*`); outputs
+`R2A_450k_dft_tdep_reference/k_channel_calibration.{json,npz}`.
+
+**Updated 450 K envelope after recalibration: morphology ~1 cm⁻¹; absolute K
+~3 cm⁻¹ vs the 12-seed reference (with the reference's own split-half floor
+6.08), carrying the +70262 cm⁻² branch-uniform ΔΠ_calib.**
+
 ## Incident log (execution honesty)
 
 - v100ts ran shard_A + r2b_half1 concurrently on one V100: CUDA-context
