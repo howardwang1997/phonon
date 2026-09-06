@@ -1,0 +1,193 @@
+{
+  "status": "gate_failure",
+  "scope": "R1' matched overlap screen (R2AO reference; S0 force gates deferred to offline 2060)",
+  "n_labels": 12,
+  "metrics": {
+    "force_RMSE_meV_A": 153.0528976154458,
+    "force_max_abs_meV_A": 3101.0177901988945,
+    "Aprime_diff_RMS_meV_A": 91.54334410575439,
+    "Aprime_slope_DFT_eV_A2": -42.16967603953642,
+    "Aprime_slope_R2AO_eV_A2": -43.525455647380014,
+    "Aprime_slope_PHI_eV_A2": -47.03012947004589,
+    "Aprime_slope_ratio_R2AO_over_DFT": 1.0321505815357102,
+    "Aprime_slope_rel_error_vs_PHI": 0.10334765150083543,
+    "DFT_force_RMS_eV_A": 2.060743270490183,
+    "PHI_vs_DFT_RMSE_meV_A": 396.78710485830726,
+    "R2AO_minus_DFT_centered_energy_RMSE_meV_config": 18.719502512428097,
+    "importance_weight_ESS_fraction_R2AO_vs_DFT": NaN,
+    "Aprime_mode": {
+      "primitive_frequency_cm_1": 1270.379409609818,
+      "primitive_mode_index": 5
+    }
+  },
+  "gates": {
+    "force_RMSE_le_30_meV_A": false,
+    "force_max_le_200_meV_A": false,
+    "Aprime_diff_RMS_le_15_meV_A": false,
+    "Aprime_slope_ratio_in_0.9_1.1": true,
+    "Aprime_slope_rel_error_le_5pct": false
+  },
+  "per_config": [
+    {
+      "sscha_index": 1,
+      "shard": "B",
+      "selection_group": "low_Aprime_amplitude",
+      "Q_Aprime_A": -0.0002696107958206159,
+      "F_Aprime_DFT_eV_A": 0.8809315271107979,
+      "F_Aprime_R2AO_eV_A": 0.9055826887803433,
+      "F_Aprime_PHI_eV_A": 0.2017792053227704,
+      "DFT_force_RMS_eV_A": 2.06377493268042,
+      "PHI_vs_DFT_RMSE_meV_A": 309.3004091431675,
+      "energy_DFT_eV": -11161.445441706634,
+      "energy_R2AO_eV": -85.9844964718088
+    },
+    {
+      "sscha_index": 55,
+      "shard": "B",
+      "selection_group": "high_Aprime_amplitude",
+      "Q_Aprime_A": 0.09386188501325175,
+      "F_Aprime_DFT_eV_A": -4.389818678241409,
+      "F_Aprime_R2AO_eV_A": -4.427701223415532,
+      "F_Aprime_PHI_eV_A": -4.777978345344833,
+      "DFT_force_RMS_eV_A": 1.9539351201956916,
+      "PHI_vs_DFT_RMSE_meV_A": 378.63502739955686,
+      "energy_DFT_eV": -11162.237025217104,
+      "energy_R2AO_eV": -86.76186486418253
+    },
+    {
+      "sscha_index": 72,
+      "shard": "A",
+      "selection_group": "high_R2AO_force_RMS",
+      "Q_Aprime_A": 0.13287009186430826,
+      "F_Aprime_DFT_eV_A": -5.466988668761718,
+      "F_Aprime_R2AO_eV_A": -5.47323524139122,
+      "F_Aprime_PHI_eV_A": -6.09055331410958,
+      "DFT_force_RMS_eV_A": 2.093600023229343,
+      "PHI_vs_DFT_RMSE_meV_A": 323.4660060572373,
+      "energy_DFT_eV": -11161.412075243794,
+      "energy_R2AO_eV": -85.91921463374521
+    },
+    {
+      "sscha_index": 81,
+      "shard": "B",
+      "selection_group": "high_R2AO_force_RMS",
+      "Q_Aprime_A": -0.03576025301476583,
+      "F_Aprime_DFT_eV_A": 0.3751644018986043,
+      "F_Aprime_R2AO_eV_A": 0.66051566158056,
+      "F_Aprime_PHI_eV_A": 0.8272185102808672,
+      "DFT_force_RMS_eV_A": 2.597345805381193,
+      "PHI_vs_DFT_RMSE_meV_A": 727.3206664359379,
+      "energy_DFT_eV": -11159.529775248759,
+      "energy_R2AO_eV": -84.10316900095616
+    },
+    {
+      "sscha_index": 112,
+      "shard": "A",
+      "selection_group": "high_Aprime_amplitude",
+      "Q_Aprime_A": 0.12264628020544288,
+      "F_Aprime_DFT_eV_A": -5.918461173527492,
+      "F_Aprime_R2AO_eV_A": -5.93645477216161,
+      "F_Aprime_PHI_eV_A": -6.4830978457662045,
+      "DFT_force_RMS_eV_A": 2.0151669020192364,
+      "PHI_vs_DFT_RMSE_meV_A": 331.2255679667325,
+      "energy_DFT_eV": -11161.918491342654,
+      "energy_R2AO_eV": -86.44397661867562
+    },
+    {
+      "sscha_index": 114,
+      "shard": "A",
+      "selection_group": "typical",
+      "Q_Aprime_A": 0.08467302303243698,
+      "F_Aprime_DFT_eV_A": -3.5890945113907664,
+      "F_Aprime_R2AO_eV_A": -3.6327259910486065,
+      "F_Aprime_PHI_eV_A": -3.749925322196456,
+      "DFT_force_RMS_eV_A": 1.7208988353324484,
+      "PHI_vs_DFT_RMSE_meV_A": 261.47770828427156,
+      "energy_DFT_eV": -11163.436136616616,
+      "energy_R2AO_eV": -87.94075012588944
+    },
+    {
+      "sscha_index": 138,
+      "shard": "B",
+      "selection_group": "high_R2AO_force_RMS",
+      "Q_Aprime_A": 0.10203034013996477,
+      "F_Aprime_DFT_eV_A": -5.389978732703432,
+      "F_Aprime_R2AO_eV_A": -5.365654670675097,
+      "F_Aprime_PHI_eV_A": -5.500308135677439,
+      "DFT_force_RMS_eV_A": 2.1279100902926977,
+      "PHI_vs_DFT_RMSE_meV_A": 360.54609672719386,
+      "energy_DFT_eV": -11162.105518177215,
+      "energy_R2AO_eV": -86.6239040528899
+    },
+    {
+      "sscha_index": 140,
+      "shard": "A",
+      "selection_group": "high_R2AO_force_RMS",
+      "Q_Aprime_A": -0.034316158941711465,
+      "F_Aprime_DFT_eV_A": 1.295016925733613,
+      "F_Aprime_R2AO_eV_A": 1.3073315557174845,
+      "F_Aprime_PHI_eV_A": 1.6040043760249683,
+      "DFT_force_RMS_eV_A": 2.1601927327029014,
+      "PHI_vs_DFT_RMSE_meV_A": 354.29488518952553,
+      "energy_DFT_eV": -11161.630513403263,
+      "energy_R2AO_eV": -86.15097920536917
+    },
+    {
+      "sscha_index": 144,
+      "shard": "B",
+      "selection_group": "typical",
+      "Q_Aprime_A": -0.005480988931428736,
+      "F_Aprime_DFT_eV_A": 0.5985650161676253,
+      "F_Aprime_R2AO_eV_A": 0.6022672767048174,
+      "F_Aprime_PHI_eV_A": 0.8579847761352819,
+      "DFT_force_RMS_eV_A": 1.8841250264870817,
+      "PHI_vs_DFT_RMSE_meV_A": 330.44956466125547,
+      "energy_DFT_eV": -11162.963483178342,
+      "energy_R2AO_eV": -87.48400642431314
+    },
+    {
+      "sscha_index": 164,
+      "shard": "A",
+      "selection_group": "typical",
+      "Q_Aprime_A": -0.026275509910719943,
+      "F_Aprime_DFT_eV_A": 1.0626867357084557,
+      "F_Aprime_R2AO_eV_A": 1.0788082675163349,
+      "F_Aprime_PHI_eV_A": 1.257777356533696,
+      "DFT_force_RMS_eV_A": 1.8376380803380343,
+      "PHI_vs_DFT_RMSE_meV_A": 299.1273208632596,
+      "energy_DFT_eV": -11163.369046541522,
+      "energy_R2AO_eV": -87.89352849395411
+    },
+    {
+      "sscha_index": 274,
+      "shard": "B",
+      "selection_group": "typical",
+      "Q_Aprime_A": -0.11721633237042646,
+      "F_Aprime_DFT_eV_A": 4.188473307157291,
+      "F_Aprime_R2AO_eV_A": 4.643665391166481,
+      "F_Aprime_PHI_eV_A": 4.952153052197391,
+      "DFT_force_RMS_eV_A": 2.246811520834166,
+      "PHI_vs_DFT_RMSE_meV_A": 512.2498163824065,
+      "energy_DFT_eV": -11161.01584837853,
+      "energy_R2AO_eV": -85.57211841755064
+    },
+    {
+      "sscha_index": 295,
+      "shard": "A",
+      "selection_group": "low_Aprime_amplitude",
+      "Q_Aprime_A": 5.044542507600181e-05,
+      "F_Aprime_DFT_eV_A": -0.5447979376699492,
+      "F_Aprime_R2AO_eV_A": -0.5233918840707326,
+      "F_Aprime_PHI_eV_A": -0.2735971253262724,
+      "DFT_force_RMS_eV_A": 1.8872548653069285,
+      "PHI_vs_DFT_RMSE_meV_A": 349.21336946916813,
+      "energy_DFT_eV": -11163.002171371523,
+      "energy_R2AO_eV": -87.53426964717404
+    }
+  ],
+  "inputs": {
+    "shard_a_labels_dir": "results/graphene_physics_temperature/post_p4_feasibility/R1_450k_matched_overlap_screen/labels/shard_A",
+    "shard_b_labels_dir": "results/graphene_physics_temperature/post_p4_feasibility/R1_450k_matched_overlap_screen/labels/shard_B",
+    "manifest": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/R1_450k_matched_overlap_screen/freeze_manifest.json"
+  }
+}

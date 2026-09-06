@@ -1,0 +1,21 @@
+{
+  "mode": "validate",
+  "note": "corrected-X0 development run; replica must reproduce its stored xats",
+  "random_seed": 453005,
+  "lattice_temperature_K": 450,
+  "operator_temperature_K": 300,
+  "n_configs": 300,
+  "runner_script_sha256": "d4a8091602f2b7f5d03b849909b3db827280e131612ef8f260684fec37a73b79",
+  "replica_script_sha256": "91558c07309ba5735938bd22b6c5237d5e754f61cff2832a73890927dc630904",
+  "initial_hessian": {
+    "kind": "Q0_formula_reconstructed_trial_hessian",
+    "diagonal_Q0_result": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/R1_order_safe_sscha/Q0_quantum_sscha/formal_T450/result.npz",
+    "diagonal_Q0_result_sha256": "a0177e55b498f6d24f910677404d2219a47e0db21b8336f785cda2307c41cf23",
+    "formula": "Phi_Q0(Tlat,Tlat) - Phi_operator(Tlat) + Phi_operator(Tel)"
+  },
+  "cellconstructor": "1.6.2",
+  "python-sscha": "1.6.1",
+  "stored_xats": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/R1_order_safe_sscha/X0_cross_development/sscha_Tlat450_Tel300/ensembles/xats_pop1.npy",
+  "max_abs_deviation_A": 0.739769592322963,
+  "bit_exact": false
+}

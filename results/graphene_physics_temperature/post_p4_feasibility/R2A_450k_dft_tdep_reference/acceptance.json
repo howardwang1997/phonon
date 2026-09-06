@@ -1,0 +1,115 @@
+{
+  "status": "gate_failure",
+  "scope": "independent 450 K fixed-smearing DFT reference vs deployed S0 full-EPC curve",
+  "reference_construction": {
+    "absolute_K": "tagged-pair thermal curvature (SSCHA stationarity object <d2V/da2>_T), q6 operator force subtracted, shared Pi_full-EPC(K) added",
+    "shape_cusp": "hiPhive effective harmonic fit (cutoff2=6.0 A) on all labels after force-level q6 subtraction, composed exactly like the deployed builder",
+    "estimator_rationale": "synthetic study on stored R2AO forces: global-fit K eigenvalue scatters ~60 cm-1 across 12-config subsets; A' force regression is biased ~+30 cm-1 above the SSCHA eigenvalue; tagged-pair curvature is exact on linear forces (1e-14)"
+  },
+  "condition": {
+    "lattice_temperature_K": 450.0,
+    "degauss_Ry": 0.0019000869380739254,
+    "operator": "/Users/howardwang/Desktop/playground/phonon/data/graphene_r2c_eval/operators/T300_operator.npz",
+    "operator_sha256": "114fb9a369ed106e5a89a9c05223aed7667fd737714f3d42516ebdb8e2e475c3",
+    "background": "/Users/howardwang/Desktop/playground/phonon/results/vq_kink6_fd/graphene_sc6_dg0.040_phonopy.yaml",
+    "background_sha256": "69144a1dd3c66df94c116259067be27d1ede3ca8ab01c66516504c5e1ec90c0a",
+    "background_operator_supercell_max_gap_A": 2.6645352591003757e-15,
+    "operator_geometry_error_A": 3.7682219008410606e-15,
+    "deployed_matrices": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/R2R_multipolar_background/R2AT_paired_full_epc_acceptance_20260827/r2ao_s0_fixed_smearing_full_epc_matrices.npz",
+    "deployed_matrices_sha256": "e8b77d32b852c74a99dc29f0dd04fd6e24dcd588a3a0cfb9f341e747b9f7f809",
+    "tagged_pairs": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/R1_450k_matched_overlap_screen/r2b_tagged_pairs_snapshots.npz",
+    "tagged_pairs_sha256": "f28402c3981c7d321efff89198811701a1aad0a4113e2174dad7b268c2560975",
+    "cutoff2_A": 6.0
+  },
+  "replay_validation_max_abs_cm1": {
+    "R2AO_T300": 0.0,
+    "R2AO_T450": 0.0,
+    "R2AO_T600": 0.0,
+    "S0_T300": 0.0,
+    "S0_T450": 0.0,
+    "S0_T600": 0.0
+  },
+  "replay_tolerance_cm1": 1e-06,
+  "curvature_reference": {
+    "n_seeds": 12,
+    "delta_A": 0.04,
+    "lambda_short_eV_A2_amu": 6.516295934914735,
+    "omega_short_cm1": 1331.1605206907918,
+    "omega_full_cm1": 1300.2094949409634,
+    "per_seed_curvature_eV_A2": {
+      "69": -78.65046455861975,
+      "118": -77.05106899494895,
+      "126": -77.61209587286069,
+      "197": -77.99809754103633,
+      "31": -78.08383209791772,
+      "92": -78.10245904840465,
+      "14": -79.04213952626233,
+      "10": -78.00787122984023,
+      "227": -79.8009739940766,
+      "120": -78.72589420956298,
+      "215": -80.11588967264555,
+      "100": -75.99252027958916
+    },
+    "curvature_seed_std_eV_A2": 1.080533428517701,
+    "split_half_omega_full_cm1": [
+      1297.167864186189,
+      1303.244026877511
+    ],
+    "split_half_spread_cm1": 6.076162691321997,
+    "pi_K_cm2": -81443.60111114472,
+    "scale_cm2": 271931.8382014162
+  },
+  "gates_frozen": {
+    "K_Aprime_abs_diff_cm1": 5.0,
+    "split_half_K_Aprime_spread_cm1": 5.0,
+    "K_referenced_shape_RMSE_cm1": 1.0,
+    "K_referenced_shape_max_cm1": 2.0,
+    "cusp_depth_rel_error": 0.15
+  },
+  "metrics": {
+    "n_labels": 36,
+    "fit_rmse_eV_A": 0.3990144351970041,
+    "n_dof": 28,
+    "n_structures": 36,
+    "K_Aprime_curvature_DFT_cm1": 1300.2094949409634,
+    "K_Aprime_deployed_S0_cm1": 1269.7963869050202,
+    "K_Aprime_deployed_R2AO_cm1": 1266.2848661262078,
+    "K_Aprime_abs_diff_cm1": 30.413108035943196,
+    "curvature_split_half_spread_cm1": 6.076162691321997,
+    "curvature_lambda_short_eV_A2_amu": 6.516295934914735,
+    "curvature_omega_short_cm1": 1331.1605206907918,
+    "curvature_seed_std_eV_A2": 1.080533428517701,
+    "fit_curve_K_cm1": 1301.741152724344,
+    "K_referenced_shape_RMSE_cm1": 0.6340200076365501,
+    "K_referenced_shape_max_cm1": 1.2098363939662704,
+    "cusp_depth_fit_cm1": {
+      "d0.003": 0.663882705876631,
+      "d0.025": 16.653113530303017
+    },
+    "cusp_depth_deployed_cm1": {
+      "d0.003": 0.6840686826033107,
+      "d0.025": 17.30132725824592
+    },
+    "cusp_depth_rel_error": {
+      "d0.003": 0.029508698819333965,
+      "d0.025": 0.03746612720905328
+    },
+    "fit_min_branch_overlap": 0.9999996445441629,
+    "fit_max_top_branch_difference_cm1": 0.0
+  },
+  "gates": {
+    "K_Aprime_curvature_abs_diff_le_5": false,
+    "curvature_split_half_spread_le_5": false,
+    "shape_RMSE_le_1": true,
+    "shape_max_le_2": true,
+    "cusp_depth_le_15pct": true
+  },
+  "batches": [
+    "results/graphene_physics_temperature/post_p4_feasibility/R1_450k_matched_overlap_screen"
+  ],
+  "stems_included": [
+    "r2b_tagged_pairs",
+    "shard_A",
+    "shard_B"
+  ]
+}

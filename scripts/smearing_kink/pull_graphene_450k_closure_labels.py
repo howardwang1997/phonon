@@ -44,7 +44,9 @@ def rsync(host: str, stem: str, destination: Path, dry_run: bool) -> list[Path]:
                "--exclude=*", remote, str(destination) + "/"]
     if dry_run:
         command.insert(1, "--dry-run")
-    subprocess.run(command, check=True)
+    result = subprocess.run(command, check=False)
+    if result.returncode not in (0, 23):  # 23 = remote dir not created yet
+        raise RuntimeError(f"rsync {remote} failed with {result.returncode}")
     return sorted(destination.glob("snapshot_*_k8.npz"))
 
 
