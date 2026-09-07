@@ -91,6 +91,9 @@ def run(old_labels: Path, new_labels: Path, smoke: bool = False) -> int:
     response = np.asarray(deployed["full_EPC_response_cm2"], float)
     deployed_s0 = np.asarray(deployed["full_EPC_frequency_cm1"], float)[mi, ti]
 
+    old_labels = old_labels or (old_dir / "labels")
+    new_labels = new_labels or (ext_dir / "labels")
+
     old_curvature, _ = fitter.curvature_reference(
         delta_fc, reference, cell, old_labels, tagged_npz=old_npz
     )

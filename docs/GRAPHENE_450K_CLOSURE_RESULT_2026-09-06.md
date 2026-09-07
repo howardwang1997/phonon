@@ -242,6 +242,52 @@ K within ≤2.1 cm⁻¹ but overshoots at 300 K (12.4 cm⁻¹ vs its noisier
 reference) — per-temperature calibration remains the safe operating mode at
 the edges of the range.
 
+## Result 6 — 300 K reference enlargement ext24 (09-08) ✅ all gates pass, IN FORCE
+
+User-approved extension (weekly §6 item 3), design frozen BEFORE any new DFT
+label (`R2B_300k_tagged_pairs_ext24/r2b_pair_ext24_manifest.json`, commit
+8c3d79b): 24 evenly spaced seeds over the same amplitude-sorted T300 ensemble
+— the frozen 12-seed picks are exactly every other pick (asserted), so all 24
+existing labels are reused and only 12 new pairs were run (24 configs, one
+v100bts overnight). Split redesigned to amplitude-block interleaved
+(rank r%4∈{0,1} calibrates; 6 reused + 6 new per half, both spanning the full
+amplitude range) to remove the contiguous-half amplitude imbalance that
+produced the 15.77 cm⁻¹ split-half floor. P asserted bit-identical to the
+frozen 12-seed design. Synthetic end-to-end smoke exact (dml ~1e-13).
+
+| gate | value | threshold | verdict |
+|---|---|---|---|
+| primary: \|K − K_ref(24 seeds)\| | **3.172 cm⁻¹** | ≤ 5 | **PASS** (pre-registered ~2.8) |
+| held-out consistency | 6.352 cm⁻¹ | = interleaved split-half floor 6.352 | at the statistical floor |
+| cusp depth rel err d=0.003/0.025 | 1.36%/1.35% | ≤ 15% | **PASS** |
+
+Key readouts:
+
+- **K_ref(24 seeds) = 1295.392 cm⁻¹ — shifted only −0.23 cm⁻¹ from the
+  12-seed reference** (1295.622): the old primary-gate failure was entirely
+  the split's amplitude imbalance, not a wrong reference mean, exactly as
+  diagnosed.
+- Corrected K = 1298.564; discrepancy before calibration +14.54 cm⁻¹
+  (consistent with the 12-seed +14.77 ± 3.9); per-seed std 1.567 eV/Å²
+  (unchanged — that is the intrinsic 300 K scatter).
+- Interleaved split-half 6.35 cm⁻¹ (was 15.77 contiguous) — removing the
+  amplitude imbalance cuts the floor by 60%; the residual is the reference's
+  own seed noise.
+- **ΔΠ_calib(300 K, ext24) = +45680.2 cm⁻²** (ratio to 450 K constant
+  0.650). Note the 12-seed contiguous calib-6 gave 58485 — a half-luck draw;
+  the interleaved calib-12 value is the one in force.
+- Transfer readouts vs the 24-seed reference: 450 K constant → 12.60 cm⁻¹
+  (still does not transfer); old 12-seed ΔΠ → 8.09 (would now fail ≤5 too).
+
+Per the frozen in-force rule (primary AND cusp pass), the ext24 ΔΠ is **IN
+FORCE at 300 K**: corrected K = 1298.564, envelope **morphology ~1 cm⁻¹,
+absolute K ~3 cm⁻¹** (reference split-half floor 6.35) — matching 450/600 K.
+All three temperatures are now recalibrated and closed; the 300 K
+measured-not-in-force status of Result 5 is superseded by this result.
+Scripts `build_graphene_closure_300k_ext24.py` /
+`calibrate_graphene_300k_ext24.py`; outputs
+`R2B_300k_tagged_pairs_ext24/k_channel_calibration.{json,npz}`.
+
 ## Incident log (execution honesty)
 
 - v100ts ran shard_A + r2b_half1 concurrently on one V100: CUDA-context

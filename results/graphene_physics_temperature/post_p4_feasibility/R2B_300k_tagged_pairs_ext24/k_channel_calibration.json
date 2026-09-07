@@ -1,0 +1,99 @@
+{
+  "status": "in_force_300K_ext24",
+  "scope": "K-channel recalibration of the deployed S0@300 composition against the extended 24-seed curvature reference (12 reused + 12 new labels, amplitude-block interleaved halves)",
+  "frozen_design": "R2B_300k_tagged_pairs_ext24/r2b_pair_ext24_manifest.json (committed 8c3d79b before any new DFT label was read)",
+  "in_force_rule": "primary AND cusp pass -> ext24 dPi_calib IN FORCE at 300 K; on failure the deployment stays un-recalibrated and the 12-seed measurement stands",
+  "condition": {
+    "deployed_matrices": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/R2R_multipolar_background/R2AT_paired_full_epc_acceptance_20260827/r2ao_s0_fixed_smearing_full_epc_matrices.npz",
+    "deployed_matrices_sha256": "e8b77d32b852c74a99dc29f0dd04fd6e24dcd588a3a0cfb9f341e747b9f7f809",
+    "ext24_tagged_pairs": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/R2B_300k_tagged_pairs_ext24/r2b_tagged_pairs_snapshots.npz",
+    "ext24_tagged_pairs_sha256": "2e4776593e6c20fbfd7ede379b6c3379e90032bdd38f3313a05a6fe27eddb863",
+    "reused_labels": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/R2B_300k_tagged_pairs/labels",
+    "new_labels": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/R2B_300k_tagged_pairs_ext24/labels"
+  },
+  "metrics": {
+    "lattice_temperature_K": 300,
+    "calibration": {
+      "calib_seeds": [
+        63,
+        237,
+        157,
+        6,
+        47,
+        149,
+        178,
+        131,
+        39,
+        66,
+        90,
+        204
+      ],
+      "heldout_seeds": [
+        199,
+        271,
+        17,
+        170,
+        60,
+        202,
+        155,
+        54,
+        104,
+        136,
+        119,
+        201
+      ],
+      "calib_mean_curvature_eV_A2": -78.07639120459045,
+      "calib_seed_std_eV_A2": 1.5274167955531388,
+      "deployed_projected_m_lambda_eV_A2": 76.05878623889402,
+      "dml_eV_A2": 2.017604965696435,
+      "dpi_calib_cm2": 45680.187423392206
+    },
+    "K_cm1": {
+      "uncorrected_deployed": 1280.854421903248,
+      "reference_24seed": 1295.39155942384,
+      "reference_calib12": 1298.5639135339063,
+      "reference_heldout12": 1292.2114172690785,
+      "corrected": 1298.5639135339068,
+      "discrepancy_before_calibration_cm1": 14.537137520591841
+    },
+    "gates_raw": {
+      "primary_abs_diff_vs_24seed_cm1": 3.1723541100668626,
+      "heldout_abs_diff_cm1": 6.352496264828233,
+      "interleaved_split_half_spread_cm1": 6.352496264827778,
+      "cusp_rel_error": {
+        "d0.003": 0.013630686603310162,
+        "d0.025": 0.013461434500833327
+      }
+    },
+    "reference_continuity": {
+      "reference_12seed_old": 1295.6218894477274,
+      "reference_24seed_ext": 1295.39155942384,
+      "shift_cm1": -0.2303300238875181,
+      "per_seed_std_eV_A2": 1.5671089099966815
+    },
+    "transferability_readout": {
+      "dpi_calib_450K_cm2": 70261.60368031562,
+      "dpi_calib_old12_cm2": 58484.810570769696,
+      "ratio_ext24_over_450K": 0.650144389405531,
+      "would_450K_constant_give_K_cm1": 1307.9945159630522,
+      "450K_constant_abs_diff_vs_24seed_cm1": 12.6029565392123,
+      "would_old12_dPi_give_K_cm1": 1303.4848908521622,
+      "old12_dPi_abs_diff_vs_24seed_cm1": 8.093331428322244
+    },
+    "branch_tracking": {
+      "min_branch_overlap": 0.9999990764887687,
+      "max_top_branch_difference_cm1": 0.0
+    },
+    "uncorrected_replay_max_abs_cm1": 0.0,
+    "synthetic_smoke": false,
+    "heldout_consistency_readout": {
+      "heldout_abs_diff_cm1": 6.352496264828233,
+      "interleaved_split_half_floor_cm1": 6.352496264827778,
+      "within_floor": false
+    }
+  },
+  "gates": {
+    "primary_abs_diff_vs_24seed_le_5": true,
+    "cusp_depth_le_15pct": true
+  }
+}

@@ -1,5 +1,5 @@
 {
-  "status": "in_force_450K_600K",
+  "status": "in_force_300K_450K_600K",
   "effective_date": "2026-09-07",
   "scope": "deployed S0 fixed-smearing full-EPC composition, lattice T=450 K only; dense K-window A-prime branch",
   "correction": {
@@ -77,22 +77,40 @@
       "provenance": "R2B_600k_tagged_pairs/k_channel_calibration.json (sha256 cf1522f54c110f3b588319569bff0213ed401dddc0532fabec883eeadecf4ca4)"
     },
     "300": {
-      "status": "measured_gate_failure_not_in_force",
-      "measured_bias_cm1": 14.76746754447936,
-      "reference_sem_cm1": 3.9,
-      "primary_residual_cm1": 7.863001404434726,
-      "split_half_floor_cm1": 15.774014858514875,
-      "diagnosis": "reference-statistics limited: per-seed curvature std 1.57 eV/A^2, amplitude-ordered halves disagree by 15.77 cm-1; calib-6 half landed 7.86 above the 12-seed mean (~1.4 sigma draw for a 6-seed half). Deployment keeps the un-recalibrated curve with the measured bias; closing at <=5 needs a larger reference (24-36 seeds).",
-      "provenance": "R2B_300k_tagged_pairs/k_channel_calibration.json (sha256 31c399c122ca46f416923492f96f699db5b967cf3c1dbb607d3b434e6ef4e972)"
+      "status": "in_force",
+      "dpi_calib_cm2": 45680.187423392206,
+      "corrected_K_cm1": 1298.5639135339068,
+      "reference_24seed_cm1": 1295.39155942384,
+      "primary_residual_vs_24seed_cm1": 3.1723541100668626,
+      "interleaved_split_half_floor_cm1": 6.352496264827778,
+      "cusp_rel_error": {
+        "d0.003": 0.013630686603310162,
+        "d0.025": 0.013461434500833327
+      },
+      "supersedes": {
+        "prior_status": "measured_gate_failure_not_in_force",
+        "prior_12seed_measurement": {
+          "measured_bias_cm1": 14.76746754447936,
+          "primary_residual_cm1": 7.863001404434726,
+          "diagnosis": "reference-statistics limited: per-seed curvature std 1.57 eV/A^2, amplitude-ordered halves disagree by 15.77 cm-1; calib-6 half landed 7.86 above the 12-seed mean (~1.4 sigma draw for a 6-seed half). Deployment keeps the un-recalibrated curve with the measured bias; closing at <=5 needs a larger reference (24-36 seeds)."
+        },
+        "reference_continuity_shift_cm1": -0.2303300238875181
+      },
+      "transfer_of_450K_constant": {
+        "K_cm1": 1307.9945159630522,
+        "abs_diff_vs_24seed_cm1": 12.6029565392123,
+        "verdict": "does not transfer (12.60 > 5); per-temperature calibration at 300 K is in force"
+      },
+      "provenance": "R2B_300k_tagged_pairs_ext24/k_channel_calibration.json (sha256 aa067cc738a406c43ba11758d94c49bbcb16b5aa9e2472353d22ce7259bca7d3)"
     }
   },
   "transferability_summary": {
     "dpi_calib_cm2_by_T": {
-      "300": 58484.810570769696,
+      "300": 45680.187423392206,
       "450": 70261.60368031562,
       "600": 65963.25413632394
     },
-    "verdict": "single 450 K constant covers 450-600 K within 2.1 cm-1 but overshoots at 300 K (12.4 cm-1 vs its noisier reference); per-temperature calibration remains the safe mode at range edges",
-    "record": "docs/GRAPHENE_450K_CLOSURE_RESULT_2026-09-06.md Result 5"
+    "verdict": "all three temperatures recalibrated and in force (300 K via the ext24 24-seed reference, 2026-09-08). The single 450 K constant covers 450-600 K within 2.1 cm-1 but overshoots at 300 K (12.6 cm-1): the soft bias is genuinely non-monotonic in T_lat (+1.7/+3.5/+2.9 eV/A^2 at 300/450/600), so per-temperature constants remain the operating mode at range edges",
+    "record": "docs/GRAPHENE_450K_CLOSURE_RESULT_2026-09-06.md Results 4-6"
   }
 }
