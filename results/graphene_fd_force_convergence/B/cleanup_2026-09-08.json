@@ -1,0 +1,52 @@
+{
+  "timestamp_remote": "2026-09-08T00:05:00+08:00",
+  "remote_host": "v100bts",
+  "filesystem": "/dev/vdb mounted at /data",
+  "reason": "Release space on the 96%-full /data following the recorded A-side procedure (cleanup_2026-08-03.json), without deleting scientific results.",
+  "precedent": "results/graphene_fd_force_convergence/A/cleanup_2026-08-03.json",
+  "preconditions": {
+    "done_marker": "/data/graphene_fd_force_convergence/B/DONE present",
+    "open_handles_on_removed_files": 0,
+    "local_remote_summary_json_sha256": "0644a6b9abef70c9ab7d87b1051671e6c1582731a9560c2d7052dce7bf3f2b61",
+    "local_remote_summary_xyz_sha256": "0e8c897611ec9b3556df1e1d26cdfefdf6a3fcf7eb09bab762892a7365702fd1",
+    "labels_pulled_before_cleanup": "12 label npz (snapshot_{000,029,059}_k{4,6,8,12}) pulled to results/graphene_fd_force_convergence/B/labels/ and committed before any deletion"
+  },
+  "local_summary_replacement": {
+    "reason": "the previously committed local summary.json/summary.xyz were an older stripped copy missing trajectory_seed, training_indices, disk_io and per-record split fields; replaced with the canonical remote superset so the sha256 preconditions could be verified",
+    "old_local_summary_json_sha256": "75a1d0a7fe2d95804dacc0bbfeb90ec5f177c782c63b69d913259bdceb9180b8",
+    "new_local_summary_json_sha256": "0644a6b9abef70c9ab7d87b1051671e6c1582731a9560c2d7052dce7bf3f2b61"
+  },
+  "removed": [
+    {
+      "kind": "monolithic QE wavefunction scratch",
+      "count": 3,
+      "bytes_each": 30705955456,
+      "paths": [
+        "/data/graphene_fd_force_convergence/B/qe/snapshot_000_k12/pwscf.wfc1",
+        "/data/graphene_fd_force_convergence/B/qe/snapshot_029_k12/pwscf.wfc1",
+        "/data/graphene_fd_force_convergence/B/qe/snapshot_059_k12/pwscf.wfc1"
+      ]
+    },
+    {
+      "kind": "distributed QE wavefunction scratch wfc*.dat",
+      "count": 222,
+      "approx_total_bytes": 92491800000,
+      "directories": [
+        "/data/graphene_fd_force_convergence/B/qe/snapshot_000_k12/pwscf.save",
+        "/data/graphene_fd_force_convergence/B/qe/snapshot_029_k12/pwscf.save",
+        "/data/graphene_fd_force_convergence/B/qe/snapshot_059_k12/pwscf.save"
+      ]
+    }
+  ],
+  "preserved": [
+    "DFT inputs and outputs (espresso.pwi/.pwo variants)",
+    "QE XML metadata and charge-density files (pwscf.save, pwscf.xml)",
+    "labels/*.npz (also pulled to the repo)",
+    "summary.json, summary.xyz (canonical remote versions)",
+    "run.log, DONE"
+  ],
+  "result": {
+    "tree_size_after": "102M (was 173G)",
+    "data_filesystem_after": "272G used / 195G avail / 59% (was 444G / 23G / 96%)"
+  }
+}

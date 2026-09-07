@@ -1,16 +1,24 @@
 {
   "snapshots": "/data/gr_dftmd_recovery/B/T600/md_checkpoint/snapshots.npz",
+  "trajectory_seed": null,
   "indices": [
     0,
     29,
     59
   ],
+  "training_indices": [
+    0,
+    29,
+    59
+  ],
+  "validation_indices": [],
   "n_atoms": 72,
   "lattice_temperature_K": 600.0,
   "smearing": "fermi-dirac",
   "degauss_Ry": 0.0038001738,
   "ecutwfc_Ry": 60.0,
   "ecutrho_Ry": 240.0,
+  "disk_io": "medium",
   "kgrids": [
     4,
     6,
@@ -21,6 +29,7 @@
   "records": [
     {
       "snapshot_index": 0,
+      "split": "train",
       "kgrid": 4,
       "reference_kgrid": 12,
       "force_RMSE_meV_A": 6.932019425268796,
@@ -29,6 +38,7 @@
     },
     {
       "snapshot_index": 0,
+      "split": "train",
       "kgrid": 6,
       "reference_kgrid": 12,
       "force_RMSE_meV_A": 1.650967470219012,
@@ -37,6 +47,7 @@
     },
     {
       "snapshot_index": 0,
+      "split": "train",
       "kgrid": 8,
       "reference_kgrid": 12,
       "force_RMSE_meV_A": 0.43720340410328984,
@@ -45,6 +56,7 @@
     },
     {
       "snapshot_index": 0,
+      "split": "train",
       "kgrid": 12,
       "reference_kgrid": 12,
       "force_RMSE_meV_A": 0.0,
@@ -53,6 +65,7 @@
     },
     {
       "snapshot_index": 29,
+      "split": "train",
       "kgrid": 4,
       "reference_kgrid": 12,
       "force_RMSE_meV_A": 6.500916572984735,
@@ -61,6 +74,7 @@
     },
     {
       "snapshot_index": 29,
+      "split": "train",
       "kgrid": 6,
       "reference_kgrid": 12,
       "force_RMSE_meV_A": 1.545227812699306,
@@ -69,6 +83,7 @@
     },
     {
       "snapshot_index": 29,
+      "split": "train",
       "kgrid": 8,
       "reference_kgrid": 12,
       "force_RMSE_meV_A": 0.41622820040802266,
@@ -77,6 +92,7 @@
     },
     {
       "snapshot_index": 29,
+      "split": "train",
       "kgrid": 12,
       "reference_kgrid": 12,
       "force_RMSE_meV_A": 0.0,
@@ -85,6 +101,7 @@
     },
     {
       "snapshot_index": 59,
+      "split": "train",
       "kgrid": 4,
       "reference_kgrid": 12,
       "force_RMSE_meV_A": 5.5885454080087325,
@@ -93,6 +110,7 @@
     },
     {
       "snapshot_index": 59,
+      "split": "train",
       "kgrid": 6,
       "reference_kgrid": 12,
       "force_RMSE_meV_A": 1.6900461156981972,
@@ -101,6 +119,7 @@
     },
     {
       "snapshot_index": 59,
+      "split": "train",
       "kgrid": 8,
       "reference_kgrid": 12,
       "force_RMSE_meV_A": 0.5626091639707917,
@@ -109,6 +128,7 @@
     },
     {
       "snapshot_index": 59,
+      "split": "train",
       "kgrid": 12,
       "reference_kgrid": 12,
       "force_RMSE_meV_A": 0.0,
@@ -116,5 +136,5 @@
       "energy_difference_meV_atom": 0.0
     }
   ],
-  "total_wall_seconds": 10426.736048929
+  "total_wall_seconds": 0.14272728199999918
 }
