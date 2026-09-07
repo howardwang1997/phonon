@@ -183,6 +183,65 @@ Script `scripts/smearing_kink/calibrate_graphene_450k_k_channel.py`
 ~3 cm⁻¹ vs the 12-seed reference (with the reference's own split-half floor
 6.08), carrying the +70262 cm⁻² branch-uniform ΔΠ_calib.**
 
+## Result 5 — ΔΠ_calib(T_lat) replication at 300/600 K (09-07/08) ✅ measured
+
+Frozen pre-DFT (`R2B_{300,600}k_tagged_pairs/r2b_pair_manifest.json`,
+commit 0034239): same estimator and verification chain as Result 4; P = K-A′
+eigendisplacement of the deployed S0@T short Hessian (cluster 2, residual
+~1e-14 both temperatures); 12 seeds stratified over the full formal_T
+ensembles by |A′| amplitude; calib/held-out 6/6; gates frozen (primary ≤5,
+cusp 15%, held-out as consistency readout). Synthetic end-to-end exact to
+~1e-12 at both temperatures; on linear labels the calibration is a no-op.
+24+24 labels executed (one temperature per V100, serialized solo); both
+batches exit 0, replay bit-exact (0.0 cm⁻¹) at both temperatures.
+
+Design-note (recorded pre-DFT): a nearest-match probe showed these
+ensembles contain **no exact ± mirror pairs** — the 450 K `i^1` exclusion
+rule was vacuous and was dropped.
+
+| quantity | 300 K | 450 K (Result 4) | 600 K |
+|---|---:|---:|---:|
+| deployed S0 K (cm⁻¹) | 1280.854 | 1269.796 | 1262.252 |
+| DFT reference, 12 seeds (cm⁻¹) | 1295.622 | 1300.209 | 1287.645 |
+| **discrepancy before calibration** | **+14.77 ± 3.9** | +30.41 ± 2.7 | **+25.39 ± 3.6** |
+| Δ(m·λ) bias (eV/Å²) | +1.68 ± 0.45 | +3.46 ± 0.31 | +2.88 ± 0.41 |
+| ΔΠ_calib (cm⁻²) | +58478 | +70262 | +65957 |
+| corrected K (cm⁻¹) | 1303.485 | 1297.168 | 1288.117 |
+| primary \|K−K_ref(12)\| (gate ≤5) | **7.86 FAIL** | 3.04 pass | **0.47 pass** |
+| split-half floor / held-out residual | 15.77 / 15.77 | 6.08 / 6.08 | 0.94 / 0.94 |
+| cusp depth error (d=0.003/0.025) | 1.74%/1.71% ✓ | 2.11%/2.08% ✓ | 2.01%/1.98% ✓ |
+| 450 K constant counterfactual vs ref | **12.37 FAIL** | — | **2.14 pass** |
+
+(SEM conversion: σ_seed/√12 through the composed branch, consistent across
+the row; the Result-1 record's ±1.5 cm⁻¹ at 450 K recomputes to ±2.7 under
+this convention — no conclusion there changes.)
+
+**600 K: closed.** All gates pass with room to spare. The 450 K calibration
+constant applied verbatim at 600 K lands 2.14 cm⁻¹ from the reference —
+**the single 450 K constant transfers to 600 K**. The soft bias shrinks
+mildly with T (+3.46 → +2.88 eV/Å², ~1σ of the difference).
+
+**300 K: measured, primary gate FAIL (7.86 > 5) — reference-statistics
+limited, not a calibration-form failure.** The 300 K per-seed curvature
+scatter is the largest of the three temperatures (std 1.57 eV/Å²; the
+high-|A′| half alone scatters 1.60 with its mean 1.81 eV/Å² softer than the
+low-|A′| half), so the two amplitude-ordered halves disagree by 15.77 cm⁻¹ —
+the calib-6 half landed 7.86 above the 12-seed mean (a ~1.4σ draw for a
+6-seed half, SEM ≈ 5.6 cm⁻¹). The held-out residual again equals the
+split-half floor identically. Cusp gates pass (1.7%). Per the frozen
+protocol the 300 K calibration is **not put in force**; the deployment
+carries the measured bias +14.8 ± 3.9 cm⁻¹. Closing 300 K at the ≤5 gate
+would need a larger reference (24–36 seeds, ~10–20 h V100), budget to be
+decided separately.
+
+**Cross-temperature readout.** ΔΠ_calib(T_lat) = +58478 / +70262 / +65957
+cm⁻² (300/450/600 K): smooth, weakly T-dependent, non-monotonic — the
+300 K soft bias is genuinely smaller than 450/600 K (1.68 ± 0.45 vs
+3.46 ± 0.31 eV/Å², ~3σ). A single constant measured at 450 K covers 450–600
+K within ≤2.1 cm⁻¹ but overshoots at 300 K (12.4 cm⁻¹ vs its noisier
+reference) — per-temperature calibration remains the safe operating mode at
+the edges of the range.
+
 ## Incident log (execution honesty)
 
 - v100ts ran shard_A + r2b_half1 concurrently on one V100: CUDA-context

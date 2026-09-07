@@ -1,5 +1,5 @@
 {
-  "status": "in_force",
+  "status": "in_force_450K_600K",
   "effective_date": "2026-09-07",
   "scope": "deployed S0 fixed-smearing full-EPC composition, lattice T=450 K only; dense K-window A-prime branch",
   "correction": {
@@ -45,10 +45,6 @@
     "morphology_cm1": "~1 (shape RMSE 0.634/max 1.210 vs independent DFT fit)",
     "absolute_K_cm1": "~3 vs 12-seed reference; reference split-half floor 6.08"
   },
-  "temperatures_not_yet_recalibrated": [
-    300,
-    600
-  ],
   "provenance": {
     "closure_doc": "docs/GRAPHENE_450K_CLOSURE_RESULT_2026-09-06.md (Result 4)",
     "calibration_json": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/R2A_450k_dft_tdep_reference/k_channel_calibration.json",
@@ -57,5 +53,46 @@
     "calibration_npz_sha256": "8ad1ff3776b8bcebd81e3d6a91773de51b7d887a479243f88da83b853c6a63cb",
     "design_frozen": "docs/WEEKLY_2026-09-07.md section 4, commit 3cb7675 (before execution)",
     "v1_failure_record": "design_v1_* fields inside the calibration json (rank-1 real-space form failed primary gate; kept for the record)"
+  },
+  "temperatures": {
+    "450": {
+      "status": "in_force",
+      "dpi_calib_cm2": 70261.60368031562,
+      "corrected_K_cm1": 1297.167864186189,
+      "primary_residual_vs_12seed_cm1": 3.04163075477436,
+      "split_half_floor_cm1": 6.076162691321997,
+      "provenance": "R2A_450k_dft_tdep_reference/k_channel_calibration.json"
+    },
+    "600": {
+      "status": "in_force",
+      "dpi_calib_cm2": 65963.25413632394,
+      "corrected_K_cm1": 1288.1165861467498,
+      "primary_residual_vs_12seed_cm1": 0.47207712116278344,
+      "split_half_floor_cm1": 0.9443273790539024,
+      "transfer_of_450K_constant": {
+        "K_cm1": 1289.7839699152523,
+        "abs_diff_vs_12seed_cm1": 2.1394608896653153,
+        "verdict": "transfers (2.14 <= 5)"
+      },
+      "provenance": "R2B_600k_tagged_pairs/k_channel_calibration.json (sha256 cf1522f54c110f3b588319569bff0213ed401dddc0532fabec883eeadecf4ca4)"
+    },
+    "300": {
+      "status": "measured_gate_failure_not_in_force",
+      "measured_bias_cm1": 14.76746754447936,
+      "reference_sem_cm1": 3.9,
+      "primary_residual_cm1": 7.863001404434726,
+      "split_half_floor_cm1": 15.774014858514875,
+      "diagnosis": "reference-statistics limited: per-seed curvature std 1.57 eV/A^2, amplitude-ordered halves disagree by 15.77 cm-1; calib-6 half landed 7.86 above the 12-seed mean (~1.4 sigma draw for a 6-seed half). Deployment keeps the un-recalibrated curve with the measured bias; closing at <=5 needs a larger reference (24-36 seeds).",
+      "provenance": "R2B_300k_tagged_pairs/k_channel_calibration.json (sha256 31c399c122ca46f416923492f96f699db5b967cf3c1dbb607d3b434e6ef4e972)"
+    }
+  },
+  "transferability_summary": {
+    "dpi_calib_cm2_by_T": {
+      "300": 58484.810570769696,
+      "450": 70261.60368031562,
+      "600": 65963.25413632394
+    },
+    "verdict": "single 450 K constant covers 450-600 K within 2.1 cm-1 but overshoots at 300 K (12.4 cm-1 vs its noisier reference); per-temperature calibration remains the safe mode at range edges",
+    "record": "docs/GRAPHENE_450K_CLOSURE_RESULT_2026-09-06.md Result 5"
   }
 }

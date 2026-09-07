@@ -1,0 +1,76 @@
+{
+  "status": "all_gates_passed",
+  "scope": "K-channel recalibration of the deployed S0@600 composition; absolute-frequency closure, second/third temperature point",
+  "frozen_design": "R2B_600k_tagged_pairs/r2b_pair_manifest.json (committed 0034239 before any DFT label was read)",
+  "condition": {
+    "deployed_matrices": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/R2R_multipolar_background/R2AT_paired_full_epc_acceptance_20260827/r2ao_s0_fixed_smearing_full_epc_matrices.npz",
+    "deployed_matrices_sha256": "e8b77d32b852c74a99dc29f0dd04fd6e24dcd588a3a0cfb9f341e747b9f7f809",
+    "tagged_pairs": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/R2B_600k_tagged_pairs/r2b_tagged_pairs_snapshots.npz",
+    "tagged_pairs_sha256": "01ff612ff11a1d8fd868d096f2a6a2234acf939906bab4874243b5f9d6d42654",
+    "labels": "/Users/howardwang/Desktop/playground/phonon/results/graphene_physics_temperature/post_p4_feasibility/R2B_600k_tagged_pairs/labels"
+  },
+  "metrics": {
+    "lattice_temperature_K": 600,
+    "calibration": {
+      "calib_seeds": [
+        15,
+        186,
+        57,
+        50,
+        285,
+        73
+      ],
+      "heldout_seeds": [
+        295,
+        116,
+        251,
+        111,
+        18,
+        26
+      ],
+      "calib_mean_curvature_eV_A2": -76.88279822861048,
+      "calib_seed_std_eV_A2": 0.6025318577526575,
+      "deployed_projected_m_lambda_eV_A2": 73.96932968555475,
+      "dml_eV_A2": 2.9134685430557283,
+      "dpi_calib_cm2": 65963.25413632394
+    },
+    "K_cm1": {
+      "uncorrected_deployed": 1262.2523857652372,
+      "reference_12seed": 1287.644509025587,
+      "reference_calib6": 1288.11658614675,
+      "reference_heldout6": 1287.1722587676961,
+      "corrected": 1288.1165861467498,
+      "discrepancy_before_calibration_cm1": 25.392123260349763
+    },
+    "gates_raw": {
+      "primary_abs_diff_vs_12seed_cm1": 0.47207712116278344,
+      "heldout_abs_diff_cm1": 0.944327379053675,
+      "split_half_spread_cm1": 0.9443273790539024,
+      "cusp_rel_error": {
+        "d0.003": 0.02006845578132431,
+        "d0.025": 0.019813048727866746
+      }
+    },
+    "transferability_readout": {
+      "dpi_calib_450K_cm2": 70261.60368031562,
+      "ratio_T_over_450K": 0.9388236345479843,
+      "would_450K_constant_give_K_cm1": 1289.7839699152523,
+      "question": "does the 450 K calibration constant transfer, or is dPi_calib(T) needed per temperature",
+      "450K_constant_abs_diff_vs_12seed_cm1": 2.1394608896653153
+    },
+    "branch_tracking": {
+      "min_branch_overlap": 0.9999992111991717,
+      "max_top_branch_difference_cm1": 0.0
+    },
+    "uncorrected_replay_max_abs_cm1": 0.0,
+    "heldout_consistency_readout": {
+      "heldout_abs_diff_cm1": 0.944327379053675,
+      "split_half_floor_cm1": 0.9443273790539024,
+      "within_floor": true
+    }
+  },
+  "gates": {
+    "primary_abs_diff_vs_12seed_le_5": true,
+    "cusp_depth_le_15pct": true
+  }
+}
